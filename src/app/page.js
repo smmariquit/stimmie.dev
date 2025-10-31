@@ -175,7 +175,7 @@ export default function Home() {
                       <Image src="/logos/github.png" alt="GitHub Logo" width="24" height="24" className="rounded-1xl" />
                     </Link>
                     <Link href="https://medium.com/@semariquit">
-                      <Image src="/logos/Medium.png" alt="Medium Logo" width="24" height="24" className="rounded-1xl" />
+                      <Image src="/logos/medium.png" alt="Medium Logo" width="24" height="24" className="rounded-1xl" />
                     </Link>
                     {/* Additional logos */}
                     <Link href="https://myanimelist.net/" title="MyAnimeList">
