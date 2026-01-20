@@ -4,18 +4,21 @@ export const metadata = {
   // Assumes deployment at https://stimmie.dev — update if different
   metadataBase: new URL("https://stimmie.dev"),
   title: {
-    default: "Stimmie",
+    default: "Stimmie - Software Engineer",
     template: "%s | Stimmie",
   },
-  description: "A portfolio showcasing my projects and experiences.",
+  description: "Hi! I'm Stimmie, a software engineer with a lifelong passion for technology. Portfolio showcasing projects, talks, and experiences.",
+  keywords: ["software engineer", "web developer", "data science", "portfolio", "Stimmie", "Philippines"],
+  authors: [{ name: "Stimmie", url: "https://stimmie.dev" }],
+  creator: "Stimmie",
   icons: {
     icon: "/icon.png",
     shortcut: "/icon.png",
     apple: "/icon.png",
   },
   openGraph: {
-    title: "Stimmie",
-    description: "A portfolio showcasing my projects and experiences.",
+    title: "Stimmie - Software Engineer",
+    description: "Hi! I'm Stimmie, a software engineer with a lifelong passion for technology. Portfolio showcasing projects, talks, and experiences.",
     url: "https://stimmie.dev",
     siteName: "Stimmie",
     images: [
@@ -23,7 +26,7 @@ export const metadata = {
         url: "/og-image.png",
         width: 1200,
         height: 630,
-        alt: "Stimmie",
+        alt: "Stimmie - Software Engineer Portfolio",
       },
     ],
     locale: "en_US",
@@ -31,15 +34,27 @@ export const metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Stimmie",
-    description: "A portfolio showcasing my projects and experiences.",
+    title: "Stimmie - Software Engineer",
+    description: "Hi! I'm Stimmie, a software engineer with a lifelong passion for technology.",
     images: ["/og-image.png"],
   },
   robots: {
     index: true,
     follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      'max-video-preview': -1,
+      'max-image-preview': 'large',
+      'max-snippet': -1,
+    },
   },
   themeColor: "#000000",
+  viewport: {
+    width: 'device-width',
+    initialScale: 1,
+    maximumScale: 5,
+  },
 };
 
 export default function RootLayout({ children }) {
