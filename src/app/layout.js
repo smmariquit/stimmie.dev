@@ -1,4 +1,5 @@
 import "./globals.css";
+import { Analytics } from "@vercel/analytics/next";
 
 export const metadata = {
   // Assumes deployment at https://stimmie.dev — update if different
@@ -64,6 +65,7 @@ export default function RootLayout({ children }) {
         className={`antialiased`}
       >
         {children}
+        <Analytics />
       </body>
     </html>
   );
