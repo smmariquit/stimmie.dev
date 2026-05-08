@@ -2,73 +2,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { motion } from "framer-motion";
-
-const talks = [
-  {
-    title: 'UPLB DSG x UPRHS CodeIT Workshop Day 1 - What is Data Science?',
-    src: '/talks/talk1.jpg',
-    date: '2024',
-    event: 'UPLB Data Science Guild x UPRHS CodeIT',
-    type: 'Workshop',
-    description: 'An introductory workshop on data science fundamentals for high school students.',
-    slidesLink: null,
-  },
-  {
-    title: 'UPLB DSG x UPRHS CodeIT Workshop Day 2 - Storytelling with Data',
-    src: '/talks/talk2.jpg',
-    date: '2024',
-    event: 'UPLB Data Science Guild x UPRHS CodeIT',
-    type: 'Workshop',
-    description: 'Teaching students how to communicate insights effectively through data visualization and narrative.',
-    slidesLink: null,
-  },
-  {
-    title: 'NextStep Hacks 2025 - Winning by Talking',
-    src: '/talks/talk3.jpg',
-    date: '2025',
-    event: 'NextStep Hacks 2025',
-    type: 'Talk',
-    description: 'A talk on presentation skills and how to pitch your hackathon projects effectively.',
-    slidesLink: null,
-  },
-  {
-    title: 'JPCS - QCU Logic Unlocked Day 1 - Machine Learning with Python',
-    src: '/talks/talk4.jpg',
-    date: '2025',
-    event: 'JPCS QCU Logic Unlocked',
-    type: 'Workshop',
-    description: 'Hands-on workshop introducing machine learning concepts using Python and popular ML libraries.',
-    slidesLink: null,
-  },
-  {
-    title: "UPLB DSG Applicants' Workshop - Data Storytelling with Canva",
-    src: '/talks/talk5.jpg',
-    date: '2024',
-    event: 'UPLB Data Science Guild',
-    type: 'Workshop',
-    description: 'Teaching applicants how to create compelling data visualizations using Canva.',
-    slidesLink: null,
-  },
-  {
-    title: 'Data Engineering Pilipinas AI Study Group - AI Use Cases That Actually Matter',
-    src: '/talks/talk6.jpg',
-    date: '2025',
-    event: 'Data Engineering Pilipinas',
-    type: 'Talk',
-    description: 'Discussing practical AI applications that create real-world impact.',
-    slidesLink: null,
-  },
-  {
-    title: 'DLSU ECES - Agile Edge: Swift Project Workflows',
-    src: '/talks/talk7.gif',
-    date: '2025',
-    event: 'DLSU ECES',
-    type: 'Talk',
-    description: 'Upcoming talk on agile methodologies and efficient project management.',
-    slidesLink: null,
-    upcoming: true,
-  },
-];
+import { talks } from "@/data/talks";
 
 export default function TalksPage() {
   return (
@@ -113,55 +47,67 @@ export default function TalksPage() {
         </div>
 
         {/* Talks Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6" role="list" aria-label="List of talks and workshops">
+        <ul
+          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 list-none p-0"
+          aria-label="List of talks and workshops"
+        >
           {talks.map((talk, idx) => (
-            <motion.article
-              key={idx}
-              className={`bg-gray-900 rounded-2xl overflow-hidden border border-gray-800 hover:border-gray-700 transition-colors ${talk.upcoming ? 'ring-2 ring-yellow-500/50' : ''}`}
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: idx * 0.1 }}
-              role="listitem"
-            >
-              <div className="aspect-video relative overflow-hidden">
-                {talk.upcoming && (
-                  <div className="absolute top-2 right-2 z-10 bg-yellow-500 text-black px-2 py-1 rounded-full text-xs font-bold">
-                    Upcoming
-                  </div>
-                )}
-                <Image
-                  src={talk.src}
-                  alt={`Slide from ${talk.title}`}
-                  fill
-                  className="object-cover hover:scale-105 transition-transform duration-300"
-                />
-              </div>
-              <div className="p-5">
-                <div className="flex items-center gap-2 mb-2">
-                  <span className={`px-2 py-0.5 text-xs rounded-full ${talk.type === 'Workshop' ? 'bg-green-900 text-green-300' : 'bg-purple-900 text-purple-300'}`}>
-                    {talk.type}
-                  </span>
-                  <span className="text-gray-500 text-xs">{talk.date}</span>
-                </div>
-                <h2 className="text-lg font-bold mb-2 leading-tight">{talk.title}</h2>
-                <p className="text-gray-500 text-xs mb-2">{talk.event}</p>
-                <p className="text-gray-400 text-sm mb-4 line-clamp-2">
-                  {talk.description}
-                </p>
-                {talk.slidesLink && (
-                  <Link
-                    href={talk.slidesLink}
-                    className="inline-flex items-center gap-2 text-blue-400 hover:text-blue-300 text-sm"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    View Slides →
-                  </Link>
-                )}
-              </div>
-            </motion.article>
+            <li key={talk.slug}>
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: idx * 0.1 }}
+                className="h-full"
+              >
+                <Link
+                  href={`/talks/${talk.slug}`}
+                  className={`group block h-full bg-gray-900 rounded-2xl overflow-hidden border border-gray-800 hover:border-gray-700 transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 ${
+                    talk.upcoming ? "ring-2 ring-yellow-500/50" : ""
+                  }`}
+                  aria-label={`Read more about ${talk.title}`}
+                >
+                  <article>
+                    <div className="aspect-video relative overflow-hidden">
+                      {talk.upcoming && (
+                        <div className="absolute top-2 right-2 z-10 bg-yellow-500 text-black px-2 py-1 rounded-full text-xs font-bold">
+                          Upcoming
+                        </div>
+                      )}
+                      <Image
+                        src={talk.src}
+                        alt={`Slide from ${talk.title}`}
+                        fill
+                        sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                        className="object-cover group-hover:scale-105 transition-transform duration-300"
+                      />
+                    </div>
+                    <div className="p-5">
+                      <div className="flex items-center gap-2 mb-2">
+                        <span
+                          className={`px-2 py-0.5 text-xs rounded-full ${
+                            talk.type === "Workshop"
+                              ? "bg-green-900 text-green-300"
+                              : "bg-purple-900 text-purple-300"
+                          }`}
+                        >
+                          {talk.type}
+                        </span>
+                        <span className="text-gray-500 text-xs">{talk.date}</span>
+                      </div>
+                      <h2 className="text-lg font-bold mb-2 leading-tight group-hover:text-blue-300 transition-colors">
+                        {talk.title}
+                      </h2>
+                      <p className="text-gray-500 text-xs mb-2">{talk.event}</p>
+                      <p className="text-gray-400 text-sm line-clamp-2">
+                        {talk.description}
+                      </p>
+                    </div>
+                  </article>
+                </Link>
+              </motion.div>
+            </li>
           ))}
-        </div>
+        </ul>
 
         {/* CTA Section */}
         <div className="mt-16 bg-gray-900 rounded-2xl p-8 text-center border border-gray-800">
