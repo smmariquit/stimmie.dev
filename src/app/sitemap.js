@@ -1,5 +1,6 @@
 import { talks } from "@/data/talks";
 import { projects } from "@/data/projects";
+import { fetchCloudflareRedirectEntries } from "@/lib/cloudflare";
 
 const SITE_URL = "https://stimmie.dev";
 
@@ -15,7 +16,12 @@ const staticRoutes = [
   { path: "/archive/v1", changeFrequency: "yearly", priority: 0.2 },
 ];
 
-export default function sitemap() {
+// Regenerate the sitemap once an hour. Combined with the fetch-level
+// revalidate inside the Cloudflare helper, this means a Bulk Redirect added
+// in the CF dashboard appears in /sitemap.xml within ~1h with no redeploy.
+export const revalidate = 3600;
+
+export default async function sitemap() {
   const now = new Date();
 
   const staticEntries = staticRoutes.map((r) => ({
@@ -39,5 +45,24 @@ export default function sitemap() {
     priority: 0.6,
   }));
 
-  return [...staticEntries, ...talkEntries, ...projectEntries];
+  // Pull anything we've configured as a Cloudflare Bulk Redirect (e.g. short
+  // links like /r/old-talk). Fails safely to [] when env vars are missing or
+  // the API is unreachable.
+  const cfEntries = await fetchCloudflareRedirectEntries();
+
+  // Dedupe by URL. Hand-curated entries win over CF-derived ones if the same
+  // path appears in both — this preserves the priority/changeFrequency we
+  // actually want for first-class routes.
+  const merged = [
+    ...staticEntries,
+    ...talkEntries,
+    ...projectEntries,
+    ...cfEntries,
+  ];
+  const seen = new Set();
+  return merged.filter((e) => {
+    if (seen.has(e.url)) return false;
+    seen.add(e.url);
+    return true;
+  });
 }
