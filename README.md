@@ -34,3 +34,42 @@ You can check out [the Next.js GitHub repository](https://github.com/vercel/next
 The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
 
 Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+
+## Releases
+
+This repo uses [semantic-release](https://github.com/semantic-release/semantic-release)
+to automate versioning, `CHANGELOG.md`, and GitHub Releases from
+[Conventional Commits](https://www.conventionalcommits.org/).
+
+### Writing commits
+
+The commit type controls what kind of release (if any) is produced:
+
+| Type                | Bump  | Appears in changelog |
+| ------------------- | ----- | -------------------- |
+| `feat:`             | minor | yes (Features)       |
+| `fix:`              | patch | yes (Bug Fixes)      |
+| `perf:`             | patch | yes (Performance)    |
+| `refactor:`         | patch | yes (Refactors)      |
+| `docs:`             | patch | yes (Documentation)  |
+| `BREAKING CHANGE:`* | major | yes                  |
+| `chore:` `ci:` `style:` `test:` `build:` | none  | no                   |
+
+\*Either include `BREAKING CHANGE:` in the commit body, or use `feat!:` / `fix!:` etc.
+
+### How releases happen
+
+1. A commit lands on `main`.
+2. `.github/workflows/release.yml` runs `npx semantic-release`.
+3. semantic-release inspects all commits since the last tag, decides the next
+   version, updates `package.json` + `CHANGELOG.md`, tags the commit, and
+   creates a [GitHub Release](https://github.com/smmariquit/stimmie.dev/releases).
+4. The bot's release commit is marked `[skip ci]` so it does not retrigger.
+
+### Dry-run locally
+
+```bash
+npx semantic-release --dry-run --no-ci
+```
+
+This prints what *would* be released without actually creating tags or pushes.
