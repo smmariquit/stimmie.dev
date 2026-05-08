@@ -2,6 +2,14 @@
 const nextConfig = {
   /* config options here */
   reactCompiler: true,
+
+  images: {
+    // Allow Next/Image to serve our local brand-icon SVGs (e.g. /logos/discord.svg).
+    // The CSP keeps SVGs sandboxed and blocks any inline script execution, so
+    // this is safe for the trusted assets we ship from /public/logos.
+    dangerouslyAllowSVG: true,
+    contentSecurityPolicy: "default-src 'self'; script-src 'none'; sandbox;",
+  },
 };
 
 export default nextConfig;

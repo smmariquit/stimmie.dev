@@ -7,6 +7,7 @@ import Link from "next/link";
 import { GitHubCalendar } from 'react-github-calendar';
 import { talks } from "@/data/talks";
 import { projects } from "@/data/projects";
+import { socialCategories } from "@/data/socials";
 
 // imageData is an object keyed by filename-stem; convert to an array and attach a public src.
 const images = Object.values(imageData).map((it) => ({
@@ -69,6 +70,45 @@ function Thumb({ image }) {
         loading="lazy"
       />
     </div>
+  );
+}
+
+// Renders a single social-link entry from the socialCategories data.
+// Wraps the icon in a Link when there is an `href`, and falls back to a
+// non-clickable badge for display-only entries (e.g. Discord usernames).
+function SocialIcon({ link }) {
+  const altText = link.alt || link.name;
+  const img = (
+    <Image
+      src={link.icon}
+      alt={altText}
+      width={24}
+      height={24}
+      className="rounded hover:scale-110 transition-transform w-5 h-5 md:w-6 md:h-6"
+    />
+  );
+
+  if (!link.href) {
+    return (
+      <span
+        title={link.name}
+        aria-label={altText}
+        className="cursor-default flex items-center"
+      >
+        {img}
+      </span>
+    );
+  }
+
+  return (
+    <Link
+      href={link.href}
+      title={link.name}
+      aria-label={altText}
+      className="flex items-center focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 rounded"
+    >
+      {img}
+    </Link>
   );
 }
 
@@ -156,70 +196,24 @@ export default function HomeClient({ mediaData }) {
                     </Link>
                   </div>
                 </header>
-                <nav className="flex flex-row flex-wrap gap-2 md:gap-3 mt-3" aria-label="Social media links">
-                  <Link href="https://www.linkedin.com/in/stimmie" title="LinkedIn" aria-label="LinkedIn profile">
-                    <Image src="/logos/linkedin.png" alt="LinkedIn - Professional networking profile" width={24} height={24} className="rounded hover:scale-110 transition-transform w-5 h-5 md:w-6 md:h-6" />
-                  </Link>
-                  <Link href="https://www.instagram.com/friedicecrm" title="Instagram">
-                    <Image src="/logos/instagram.png" alt="Instagram" width={24} height={24} className="rounded hover:scale-110 transition-transform w-5 h-5 md:w-6 md:h-6" />
-                  </Link>
-                  <Link href="https://www.github.com/smmariquit" title="GitHub">
-                    <Image src="/logos/github.png" alt="GitHub" width={24} height={24} className="rounded hover:scale-110 transition-transform w-5 h-5 md:w-6 md:h-6" />
-                  </Link>
-                  <Link href="https://medium.com/@semariquit" title="Medium">
-                    <Image src="/logos/medium.png" alt="Medium" width={24} height={24} className="rounded hover:scale-110 transition-transform w-5 h-5 md:w-6 md:h-6" />
-                  </Link>
-                  <Link href="mailto:semariquit@gmail.com" title="Email">
-                    <Image src="/logos/email.png" alt="Email" width={24} height={24} className="rounded hover:scale-110 transition-transform w-5 h-5 md:w-6 md:h-6" />
-                  </Link>
-                  <Link href="https://myanimelist.net/" title="MyAnimeList">
-                    <Image src="/logos/myanimelist.png" alt="MyAnimeList" width={24} height={24} className="rounded hover:scale-110 transition-transform w-5 h-5 md:w-6 md:h-6" />
-                  </Link>
-                  <Link href="https://pizza-and-friends.webflow.io" title="Pizza and Friends">
-                    <Image src="/logos/pizza.png" alt="Pizza and Friends" width={24} height={24} className="rounded hover:scale-110 transition-transform w-5 h-5 md:w-6 md:h-6" />
-                  </Link>
-                  <Link href="http://letterboxd.com/stimmieuwu" title="Letterboxd">
-                    <Image src="/logos/letterboxd.png" alt="Letterboxd" width={24} height={24} className="rounded hover:scale-110 transition-transform w-5 h-5 md:w-6 md:h-6" />
-                  </Link>
-                  <Link href="https://www.imdb.com/name/nm12149035/" title="IMDB" aria-label="IMDB profile">
-                    <Image src="/logos/imdb.png" alt="IMDB" width={24} height={24} className="rounded hover:scale-110 transition-transform w-5 h-5 md:w-6 md:h-6" />
-                  </Link>
-                  <Link href="https://goodreads.com/stimmie" title="Goodreads">
-                    <Image src="/logos/goodreads.png" alt="Goodreads" width={24} height={24} className="rounded hover:scale-110 transition-transform w-5 h-5 md:w-6 md:h-6" />
-                  </Link>
-                  <Link href="https://docs.google.com/document/d/1cJya3Zb2ck9vkxIKc1LQjJomQS_LFtBOABlzHrb7Z5s/edit?usp=sharing" title="Hackathon Guide">
-                    <Image src="/logos/hackathon.png" alt="Hackathon Guide" width={24} height={24} className="rounded hover:scale-110 transition-transform w-5 h-5 md:w-6 md:h-6" />
-                  </Link>
-                  <Link href="https://docs.google.com/document/d/1cJya3Zb2ck9vkxIKc1LQjJomQS_LFtBOABlzHrb7Z5s/" title="Freshie Resources" aria-label="Freshie Resources Document">
-                    <Image src="/logos/freshie.png" alt="Freshie Resources - A guide for incoming students" width={24} height={24} className="rounded hover:scale-110 transition-transform w-5 h-5 md:w-6 md:h-6" />
-                  </Link>
-                  <Link href="https://osu.ppy.sh/users/14900686" title="osu! Profile" aria-label="osu! rhythm game profile">
-                    <Image src="/logos/osu.png" alt="osu! - Rhythm game profile" width={24} height={24} className="rounded hover:scale-110 transition-transform w-5 h-5 md:w-6 md:h-6" />
-                  </Link>
-                  <Link href="https://open.kattis.com/users/simonee" title="Kattis" aria-label="Kattis competitive programming profile">
-                    <Image src="/logos/kattis.png" alt="Kattis" width={24} height={24} className="rounded hover:scale-110 transition-transform w-5 h-5 md:w-6 md:h-6" />
-                  </Link>
-                  <Link href="https://open.spotify.com/user/opzo90f4votlfqmg9rl94qrra?si=538e1f5748424274" title="Spotify">
-                    <Image src="/logos/spotify.png" alt="Spotify" width={24} height={24} className="rounded hover:scale-110 transition-transform w-5 h-5 md:w-6 md:h-6" />
-                  </Link>
-                  <Link href="https://www.last.fm/user/mistakenpog" title="Last.fm">
-                    <Image src="/logos/lastfm.png" alt="Last.fm" width={24} height={24} className="rounded hover:scale-110 transition-transform w-5 h-5 md:w-6 md:h-6" />
-                  </Link>
-                  <Link href="https://leetcode.com/u/stimmers/" title="LeetCode">
-                    <Image src="/logos/leetcode.png" alt="LeetCode" width={24} height={24} className="rounded hover:scale-110 transition-transform w-5 h-5 md:w-6 md:h-6" />
-                  </Link>
-                  <Link href="https://www.strava.com/athletes/129023200" title="Strava" aria-label="Strava fitness tracking profile">
-                    <Image src="/logos/strava.png" alt="Strava - Fitness and running activities" width={24} height={24} className="rounded hover:scale-110 transition-transform w-5 h-5 md:w-6 md:h-6" />
-                  </Link>
-                  <Link href="https://www.kaggle.com/stimmie" title="Kaggle" aria-label="Kaggle data science profile">
-                    <Image src="/logos/kaggle.png" alt="Kaggle - Data science competitions and notebooks" width={24} height={24} className="rounded hover:scale-110 transition-transform w-5 h-5 md:w-6 md:h-6" />
-                  </Link>
-                  <Link href="https://www.facebook.com/stimmieuwu/" title="Facebook" aria-label="Facebook profile">
-                    <Image src="/logos/facebook.png" alt="Facebook" width={24} height={24} className="rounded hover:scale-110 transition-transform w-5 h-5 md:w-6 md:h-6" />
-                  </Link>
-                  <span title="Discord: @pataponz" aria-label="Discord username: @pataponz" className="cursor-default flex items-center">
-                    <Image src="/logos/discord.png" alt="Discord - @pataponz" width={24} height={24} className="rounded hover:scale-110 transition-transform w-5 h-5 md:w-6 md:h-6" />
-                  </span>
+                <nav
+                  className="flex flex-col gap-2 mt-3"
+                  aria-label="Profiles and social links"
+                >
+                  {socialCategories.map((cat) => (
+                    <div key={cat.label}>
+                      <h3 className="text-[8px] uppercase tracking-[0.18em] text-white/35 mb-1 font-medium">
+                        {cat.label}
+                      </h3>
+                      <ul className="flex flex-row flex-wrap gap-1.5 md:gap-2 list-none p-0 m-0">
+                        {cat.links.map((link) => (
+                          <li key={link.name}>
+                            <SocialIcon link={link} />
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                  ))}
                 </nav>
               </motion.div>
 
