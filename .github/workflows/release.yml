@@ -1,0 +1,59 @@
+name: Release
+
+# Runs semantic-release on every push to `main`. The release commit is marked
+# with `[skip ci]` so the resulting push back from semantic-release itself
+# does not retrigger this workflow.
+on:
+  push:
+    branches:
+      - main
+
+# Required so semantic-release can push tags, commit CHANGELOG.md, and create
+# GitHub Releases. We do NOT need `id-token: write` because we're not
+# publishing to npm.
+permissions:
+  contents: write
+  issues: write
+  pull-requests: write
+
+# Avoid concurrent release runs racing on the same branch (which would corrupt
+# the tag/version sequence). Don't cancel in-progress runs - let them finish.
+concurrency:
+  group: release-${{ github.ref }}
+  cancel-in-progress: false
+
+jobs:
+  release:
+    name: Release
+    runs-on: ubuntu-latest
+    if: "!contains(github.event.head_commit.message, '[skip ci]')"
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v5
+        with:
+          # semantic-release needs full git history + tags to determine the
+          # next version. `fetch-depth: 0` pulls everything; `persist-credentials`
+          # keeps the GITHUB_TOKEN available for git pushes.
+          fetch-depth: 0
+          persist-credentials: true
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v5
+        with:
+          node-version: 20
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Build
+        run: npm run build
+
+      - name: Release
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GIT_AUTHOR_NAME: github-actions[bot]
+          GIT_AUTHOR_EMAIL: 41898282+github-actions[bot]@users.noreply.github.com
+          GIT_COMMITTER_NAME: github-actions[bot]
+          GIT_COMMITTER_EMAIL: 41898282+github-actions[bot]@users.noreply.github.com
+        run: npx semantic-release
