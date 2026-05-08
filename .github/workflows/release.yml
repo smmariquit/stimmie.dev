@@ -40,7 +40,10 @@ jobs:
       - name: Setup Node.js
         uses: actions/setup-node@v5
         with:
-          node-version: 20
+          # semantic-release v25 requires Node ^22.14.0 || >=24.10.0.
+          # Pinned to 22 (current LTS) for stability; bump to 24 when it
+          # reaches LTS in late 2026.
+          node-version: 22
           cache: npm
 
       - name: Install dependencies
