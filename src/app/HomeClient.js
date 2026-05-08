@@ -5,6 +5,8 @@ import { useState, useEffect } from 'react';
 import imageData from "../../public/image_data_summary.json";
 import Link from "next/link";
 import { GitHubCalendar } from 'react-github-calendar';
+import { talks } from "@/data/talks";
+import { projects } from "@/data/projects";
 
 // imageData is an object keyed by filename-stem; convert to an array and attach a public src.
 const images = Object.values(imageData).map((it) => ({
@@ -15,44 +17,6 @@ const images = Object.values(imageData).map((it) => ({
 
 // sort images by mean_hue (ascending)
 const imagesSortedByMeanRGB = [...images].sort((a, b) => a.mean_hue - b.mean_hue);
-
-const talks = [
-  { title: 'UPLB DSG x UPRHS CodeIT Workshop Day 1 - What is Data Science?', src: '/talks/talk1.jpg' },
-  { title: 'UPLB DSG x UPRHS CodeIT Workshop Day 2 - Storytelling with Data', src: '/talks/talk2.jpg' },
-  { title: 'NextStep Hacks 2025 - Winning by Talking', src: '/talks/talk3.jpg' },
-  { title: 'JPCS - QCU Logic Unlocked Day 1 - Machine Learning with Python', src: '/talks/talk4.jpg' },
-  { title: "UPLB DSG Applicants' Workshop - Data Storytelling with Canva", src: '/talks/talk5.jpg' },
-  { title: 'Data Engineering Pilipinas AI Study Group - AI Use Cases That Actually Matter', src: '/talks/talk6.jpg' },
-  { title: '(upcoming) DLSU ECES - Agile Edge: Swift Project Workflows', src: '/talks/talk7.gif' },
-];
-
-const projects = [
-  {
-    title: 'HearthCraft',
-    src: '/projects/project1.jpg',
-    description: 'At 13 years old, I decided to take my deep enjoyment of Minecraft, learn to set up a Minecraft server, worked with both managed and bare-metal servers, set up Java plugins and Docker instances, and created a multiplayer experience that served as a safe space for 10,000+ over the span of 6+ years.',
-  },
-  {
-    title: 'Atlas Of My Skies',
-    src: '/projects/project2.jpg',
-    description: 'Telling the story of the skies.',
-  },
-  {
-    title: 'BARLO: Bayani Alert and Response for Local Operations',
-    src: '/projects/project3.jpg',
-    description: "Predict a storms economic impact from typhoon forecast data. Get insights on how to pre-emptively place logistics.",
-  },
-  {
-    title: 'Pharmadash',
-    src: '/projects/project4.jpg',
-    description: 'A hackathon project for efficient pharmaceutical inventory management and distribution.',
-  },
-  {
-    title: 'Punnett Square Visualizer',
-    src: '/projects/project5.jpg',
-    description: 'An interactive tool to visualize genetic crosses. Used in tutorials for science high school students',
-  }
-];
 
 const blogPosts = [
   {
@@ -161,10 +125,19 @@ export default function HomeClient({ mediaData }) {
         </button>
 
         {!overlayMinimized && (
-          <div id="main-content" className="pointer-events-auto h-[95vh] w-[95vw] overflow-y-auto custom-scrollbar p-4 md:p-6 lg:p-8" tabIndex={-1}>
-            
-            {/* Bento Grid - Square-friendly, full-screen layout */}
-            <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3 md:gap-4 lg:gap-5 h-full auto-rows-fr">
+          <div
+            id="main-content"
+            // On mobile: fill the screen but allow content to grow and scroll naturally.
+            // On md+: switch back to a fixed bento "card" with its own scroll container.
+            className="pointer-events-auto w-full h-[100dvh] overflow-y-auto custom-scrollbar p-3 md:h-[95vh] md:w-[95vw] md:p-6 lg:p-8"
+            tabIndex={-1}
+          >
+
+            {/* Bento Grid:
+                - mobile: single column, content sized to its own height (no auto-rows-fr stretch)
+                - md+:    multi-column bento, each row stretched to fill viewport
+            */}
+            <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-3 md:gap-4 lg:gap-5 md:h-full md:auto-rows-fr">
               
               {/* Section 1: Hero - Stimmie, Software Engineer */}
               <motion.div 
@@ -251,27 +224,52 @@ export default function HomeClient({ mediaData }) {
               </motion.div>
 
               {/* Section 2: Talks & Workshops */}
-              <Link href="/talks" className="col-span-1 md:col-span-2 lg:col-span-2 row-span-1">
-                <motion.div 
-                  className="h-full bg-gray-900/90 backdrop-blur-sm rounded-2xl p-4 overflow-hidden border border-gray-800 cursor-pointer"
-                  whileHover={{ scale: 1.01 }}
-                  transition={{ type: "spring", stiffness: 300, damping: 20 }}
-                  role="region"
-                  aria-label="Talks and Workshops - Click to view all"
+              <motion.section
+                className="col-span-1 md:col-span-2 lg:col-span-2 row-span-1 bg-gray-900/90 backdrop-blur-sm rounded-2xl p-4 border border-gray-800 flex flex-col"
+                whileHover={{ scale: 1.01 }}
+                transition={{ type: "spring", stiffness: 300, damping: 20 }}
+                aria-labelledby="talks-heading"
+              >
+                <div className="flex items-center justify-between mb-2">
+                  <h2 id="talks-heading" className="font-bold text-base md:text-lg text-white">
+                    🎤 Talks & Workshops
+                  </h2>
+                  <Link
+                    href="/talks"
+                    className="text-[11px] md:text-xs text-blue-400 hover:text-blue-300 whitespace-nowrap"
+                    aria-label="View all talks"
+                  >
+                    View all →
+                  </Link>
+                </div>
+                <ul
+                  className="grid grid-cols-2 md:grid-cols-4 gap-2 list-none p-0 md:flex-1 md:overflow-hidden md:h-[calc(100%-2.5rem)]"
+                  aria-label="List of talks and workshops"
                 >
-                  <h2 className="font-bold text-base md:text-lg mb-2 text-white">🎤 Talks & Workshops</h2>
-                  <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-4 gap-2 h-[calc(100%-2.5rem)] overflow-hidden" role="list" aria-label="List of talks and workshops">
-                    {talks.map((t, idx) => (
-                      <article key={idx} className="relative rounded-lg overflow-hidden group aspect-video" role="listitem">
-                        <Image src={t.src} alt={`Talk: ${t.title}`} width={320} height={180} className="object-cover w-full h-full group-hover:scale-105 transition-transform" />
+                  {talks.map((t) => (
+                    <li key={t.slug}>
+                      <Link
+                        href={`/talks/${t.slug}`}
+                        className="group relative rounded-lg overflow-hidden block aspect-video focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500"
+                        aria-label={t.title}
+                      >
+                        <Image
+                          src={t.src}
+                          alt={`Talk: ${t.title}`}
+                          width={320}
+                          height={180}
+                          className="object-cover w-full h-full group-hover:scale-105 transition-transform"
+                        />
                         <div className="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-1">
-                          <p className="text-[9px] md:text-[10px] text-white leading-tight line-clamp-2">{t.title}</p>
+                          <p className="text-[9px] md:text-[10px] text-white leading-tight line-clamp-2">
+                            {t.title}
+                          </p>
                         </div>
-                      </article>
-                    ))}
-                  </div>
-                </motion.div>
-              </Link>
+                      </Link>
+                    </li>
+                  ))}
+                </ul>
+              </motion.section>
 
               {/* Section 4: Blogs */}
               <motion.div 
@@ -295,27 +293,52 @@ export default function HomeClient({ mediaData }) {
               </motion.div>
 
               {/* Section 3: Projects */}
-              <Link href="/projects" className="col-span-1 md:col-span-2 lg:col-span-2 row-span-1">
-                <motion.div 
-                  className="h-full bg-gray-900/90 backdrop-blur-sm rounded-2xl p-4 overflow-hidden border border-gray-800 cursor-pointer"
-                  whileHover={{ scale: 1.01 }}
-                  transition={{ type: "spring", stiffness: 300, damping: 20 }}
-                  role="region"
-                  aria-label="Projects - Click to view all"
+              <motion.section
+                className="col-span-1 md:col-span-2 lg:col-span-2 row-span-1 bg-gray-900/90 backdrop-blur-sm rounded-2xl p-4 border border-gray-800 flex flex-col"
+                whileHover={{ scale: 1.01 }}
+                transition={{ type: "spring", stiffness: 300, damping: 20 }}
+                aria-labelledby="projects-heading"
+              >
+                <div className="flex items-center justify-between mb-2">
+                  <h2 id="projects-heading" className="font-bold text-base md:text-lg text-white">
+                    🚀 Projects
+                  </h2>
+                  <Link
+                    href="/projects"
+                    className="text-[11px] md:text-xs text-blue-400 hover:text-blue-300 whitespace-nowrap"
+                    aria-label="View all projects"
+                  >
+                    View all →
+                  </Link>
+                </div>
+                <ul
+                  className="grid grid-cols-2 md:grid-cols-5 gap-2 list-none p-0 md:flex-1 md:overflow-hidden md:h-[calc(100%-2.5rem)]"
+                  aria-label="List of projects"
                 >
-                  <h2 className="font-bold text-base md:text-lg mb-2 text-white">🚀 Projects</h2>
-                  <div className="grid grid-cols-2 md:grid-cols-5 gap-2 h-[calc(100%-2.5rem)] overflow-hidden">
-                    {projects.map((p, idx) => (
-                      <article key={idx} className="relative rounded-lg overflow-hidden group aspect-video" role="listitem">
-                        <Image src={p.src} alt={`Project: ${p.title}`} width={320} height={180} className="object-cover w-full h-full group-hover:scale-105 transition-transform" />
+                  {projects.map((p) => (
+                    <li key={p.slug}>
+                      <Link
+                        href={`/projects/${p.slug}`}
+                        className="group relative rounded-lg overflow-hidden block aspect-video focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500"
+                        aria-label={p.title}
+                      >
+                        <Image
+                          src={p.src}
+                          alt={`Project: ${p.title}`}
+                          width={320}
+                          height={180}
+                          className="object-cover w-full h-full group-hover:scale-105 transition-transform"
+                        />
                         <div className="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity flex flex-col justify-end p-2">
-                          <p className="text-[9px] md:text-xs text-white font-semibold line-clamp-2">{p.title}</p>
+                          <p className="text-[9px] md:text-xs text-white font-semibold line-clamp-2">
+                            {p.title}
+                          </p>
                         </div>
-                      </article>
-                    ))}
-                  </div>
-                </motion.div>
-              </Link>
+                      </Link>
+                    </li>
+                  ))}
+                </ul>
+              </motion.section>
 
               {/* Section 5: Services */}
               <motion.div 
@@ -324,7 +347,7 @@ export default function HomeClient({ mediaData }) {
                 transition={{ type: "spring", stiffness: 300, damping: 20 }}
               >
                 <h2 className="font-bold text-base md:text-lg mb-2 text-white">💼 Services</h2>
-                <div className="grid grid-cols-1 gap-2 overflow-y-auto custom-scrollbar h-[calc(100%-2.5rem)]">
+                <div className="grid grid-cols-1 gap-2 md:overflow-y-auto custom-scrollbar md:h-[calc(100%-2.5rem)]">
                   {services.map((s, idx) => (
                     <div key={idx} className="bg-gray-800/60 rounded-lg p-2 md:p-3">
                       <h3 className="text-xs md:text-sm font-semibold text-white">{s.title}</h3>
@@ -343,7 +366,7 @@ export default function HomeClient({ mediaData }) {
                 aria-label="GitHub Activity"
               >
                 <h2 className="font-bold text-base md:text-lg mb-2 text-white">🐙 GitHub</h2>
-                <div className="overflow-hidden h-[calc(100%-2.5rem)] flex flex-col justify-between">
+                <div className="md:overflow-hidden md:h-[calc(100%-2.5rem)] flex flex-col justify-between gap-2">
                   <div className="overflow-x-auto" aria-label="GitHub contribution calendar">
                     <GitHubCalendar 
                       username="smmariquit" 
@@ -372,7 +395,7 @@ export default function HomeClient({ mediaData }) {
                 aria-label="Currently watching and reading"
               >
                 <h2 className="font-bold text-base md:text-lg mb-2 text-white">🎬📚 Now</h2>
-                <div className="flex flex-col gap-3 h-[calc(100%-2.5rem)] overflow-y-auto custom-scrollbar">
+                <div className="flex flex-col gap-3 md:h-[calc(100%-2.5rem)] md:overflow-y-auto custom-scrollbar">
                   {/* Latest Film from Letterboxd */}
                   {film && (
                     <Link href={film.link || 'https://letterboxd.com/stimmieuwu'} target="_blank" rel="noopener noreferrer" className="group">
