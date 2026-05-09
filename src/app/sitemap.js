@@ -1,11 +1,13 @@
-import { talks } from "@/data/talks";
 import { projects } from "@/data/projects";
+import { getSitemapHosts } from "@/data/redirects";
+import { talks } from "@/data/talks";
 import { fetchCloudflareRedirectEntries } from "@/lib/cloudflare";
 
 const SITE_URL = "https://stimmie.dev";
 
 // Static (non-dynamic) routes the site exposes. Keep this list in sync with the
-// app router; routes under /r/* are redirect handlers and intentionally excluded.
+// app router; routes under /r/* are redirect handlers and intentionally excluded
+// — the redirect targets surface via the Cloudflare Bulk Redirect sync below.
 const staticRoutes = [
   { path: "/", changeFrequency: "weekly", priority: 1.0 },
   { path: "/talks", changeFrequency: "monthly", priority: 0.8 },
@@ -45,10 +47,16 @@ export default async function sitemap() {
     priority: 0.6,
   }));
 
-  // Pull anything we've configured as a Cloudflare Bulk Redirect (e.g. short
-  // links like /r/old-talk). Fails safely to [] when env vars are missing or
-  // the API is unreachable.
-  const cfEntries = await fetchCloudflareRedirectEntries();
+  // Pull every concrete URL configured as a Cloudflare Bulk Redirect
+  // (apex /r/<slug> + each <category>.stimmie.dev/<slug> the migration
+  // script provisioned). The host whitelist is derived from the same
+  // source of truth that drives the migration, so the sitemap and the
+  // CF state agree by construction.
+  //
+  // Fails safely to [] when env vars are missing or the API is unreachable.
+  const cfEntries = await fetchCloudflareRedirectEntries({
+    hosts: getSitemapHosts(),
+  });
 
   // Dedupe by URL. Hand-curated entries win over CF-derived ones if the same
   // path appears in both — this preserves the priority/changeFrequency we

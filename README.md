@@ -54,9 +54,10 @@ Cloudflare doesn't push events when you add a Bulk Redirect, so the sitemap
 
 | Var | Required | Notes |
 | --- | --- | --- |
-| `CLOUDFLARE_API_TOKEN` | yes | Scoped token with `Account → Account Filter Lists: Read` |
+| `CLOUDFLARE_API_TOKEN` | yes | Scoped token with `Account → Account Filter Lists: Read` (read-only is enough at runtime) |
 | `CLOUDFLARE_ACCOUNT_ID` | yes | Found in Cloudflare dashboard, right sidebar |
-| `CLOUDFLARE_SITEMAP_HOST` | no | Defaults to `stimmie.dev`. Only redirects whose source matches this host are included |
+| `CLOUDFLARE_SITEMAP_HOSTS` | no | Comma-separated host whitelist (e.g. `stimmie.dev,workshops.stimmie.dev,talks.stimmie.dev,links.stimmie.dev`). Defaults to the value of `CLOUDFLARE_SITEMAP_HOST` or `stimmie.dev` |
+| `CLOUDFLARE_SITEMAP_HOST` | no | Legacy single-host fallback (still honoured) |
 | `CLOUDFLARE_REVALIDATE` | no | TTL in seconds for CF API fetch cache. Defaults to 3600 |
 
 Without these vars the integration is a no-op — the sitemap still builds
@@ -67,11 +68,51 @@ Wildcard sources (`*` in the redirect source URL) and asset paths
 (`.png`, `.css`, etc.) are filtered out so the sitemap only contains
 crawlable HTML pages.
 
-DNS A/CNAME records are intentionally **not** synced into this sitemap:
-per the [Sitemaps protocol](https://www.sitemaps.org/protocol.html#location)
-each sitemap should contain URLs for a single host. If you stand up a
-subdomain (e.g. `blog.stimmie.dev`) it should ship its own sitemap and
-be linked via a `sitemap_index.xml`.
+The default behaviour is to consult `getSitemapHosts()` from
+`src/data/redirects.js` so apex + every category subdomain (workshops,
+talks, links) are covered without extra config.
+
+### Migrating in-code redirects to Cloudflare Bulk Redirects
+
+The single source of truth for short-link redirects lives in
+[`src/data/redirects.js`](./src/data/redirects.js) and is consumed by:
+
+- `middleware.js` — handles `<category>.stimmie.dev/<slug>` at the edge runtime
+- `src/app/r/[...slug]/page.js` — handles `stimmie.dev/r/<slug>` on apex
+- `scripts/cf-migrate-redirects.mjs` — syncs the map into a Cloudflare
+  Bulk Redirect List so the redirect happens at Cloudflare's edge,
+  before the request ever reaches Next.js.
+
+To run the migration (idempotent, safe to re-run):
+
+```bash
+# Token needs:
+#   Account → Account Filter Lists: Edit
+#   Account → Account Rulesets: Edit
+export CLOUDFLARE_API_TOKEN=...
+export CLOUDFLARE_ACCOUNT_ID=...
+
+# Plan only — no mutations:
+npm run cf:migrate-redirects -- --dry-run
+
+# Apply changes:
+npm run cf:migrate-redirects
+
+# Apply + delete CF items missing from the local map:
+npm run cf:migrate-redirects -- --prune
+```
+
+The script:
+
+1. Creates (or finds) a Bulk Redirect List named `stimmie_redirects`.
+2. Computes a diff between local + CF state, then adds/deletes items.
+3. Ensures the account-level `http_request_redirect` ruleset has a rule
+   that consults the list (`http.request.full_uri in $stimmie_redirects`).
+
+After the migration runs, both the apex `/r/<slug>` and the
+`<category>.stimmie.dev/<slug>` URLs redirect at the CF edge. The
+in-app middleware + `/r/` page remain as graceful fallbacks for local
+dev and preview deployments.
 
 ## Releases
 
