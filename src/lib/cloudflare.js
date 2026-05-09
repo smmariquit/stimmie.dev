@@ -16,8 +16,13 @@
  *   CLOUDFLARE_ACCOUNT_ID      - the account that owns the Bulk Redirect lists
  *
  * Optional env vars:
- *   CLOUDFLARE_SITEMAP_HOST    - host to filter against (default: "stimmie.dev")
- *   CLOUDFLARE_REVALIDATE      - cache TTL in seconds for CF API calls (default: 3600)
+ *   CLOUDFLARE_SITEMAP_HOSTS   - comma-separated host whitelist; sources whose
+ *                                host matches any entry are kept. Defaults to
+ *                                the value of CLOUDFLARE_SITEMAP_HOST or
+ *                                "stimmie.dev" if neither is set.
+ *   CLOUDFLARE_SITEMAP_HOST    - legacy single-host fallback (still honoured).
+ *   CLOUDFLARE_REVALIDATE      - cache TTL in seconds for CF API calls
+ *                                (default: 3600).
  */
 
 const CF_API_BASE = "https://api.cloudflare.com/client/v4";
@@ -26,20 +31,30 @@ const DEFAULT_REVALIDATE = 3600;
 
 /**
  * Fetch every Bulk Redirect rule across all redirect-kind Lists in the
- * configured account, then return only the ones whose source host matches
- * the configured site host. Wildcard sources (`*` in the source URL) are
+ * configured account, then return the ones whose source host matches any
+ * configured site host. Wildcard sources (`*` in the source URL) are
  * skipped — sitemaps should only contain concrete, crawlable URLs.
  *
+ * @param {object} [opts]
+ * @param {string[]} [opts.hosts] - optional override for the host whitelist.
+ *   When provided, env vars are ignored. Useful for tests.
  * @returns {Promise<Array<{url: string, lastModified: Date, changeFrequency: string, priority: number}>>}
  */
-export async function fetchCloudflareRedirectEntries() {
+export async function fetchCloudflareRedirectEntries(opts = {}) {
   const token = process.env.CLOUDFLARE_API_TOKEN;
   const accountId = process.env.CLOUDFLARE_ACCOUNT_ID;
-  const host = process.env.CLOUDFLARE_SITEMAP_HOST || DEFAULT_HOST;
+  const hosts = opts.hosts || resolveHosts();
 
   if (!token || !accountId) {
     // Don't warn here — this is the expected path during local dev where
     // contributors won't have CF credentials. Warning only on actual errors.
+    return [];
+  }
+
+  if (hosts.length === 0) {
+    console.warn(
+      "[sitemap] No CLOUDFLARE_SITEMAP_HOST(S) configured; CF redirects skipped."
+    );
     return [];
   }
 
@@ -60,7 +75,7 @@ export async function fetchCloudflareRedirectEntries() {
       items.push(...listItems);
     }
 
-    return items.map((it) => toSitemapEntry(it, host)).filter(Boolean);
+    return items.map((it) => toSitemapEntry(it, hosts)).filter(Boolean);
   } catch (err) {
     console.warn(
       "[sitemap] Cloudflare redirect sync failed; sitemap will exclude " +
@@ -72,12 +87,30 @@ export async function fetchCloudflareRedirectEntries() {
 }
 
 /**
+ * Resolve the host whitelist from env vars. Order of precedence:
+ *   1. CLOUDFLARE_SITEMAP_HOSTS (comma-separated)
+ *   2. CLOUDFLARE_SITEMAP_HOST  (single host, legacy)
+ *   3. DEFAULT_HOST
+ */
+function resolveHosts() {
+  const multi = process.env.CLOUDFLARE_SITEMAP_HOSTS;
+  if (multi) {
+    return multi
+      .split(",")
+      .map((h) => h.trim().toLowerCase())
+      .filter(Boolean);
+  }
+  const single = process.env.CLOUDFLARE_SITEMAP_HOST || DEFAULT_HOST;
+  return [single.trim().toLowerCase()];
+}
+
+/**
  * Walk every page of a redirect list. CF caps `per_page` at 100; lists with
  * more than that paginate via `cursor` in `result_info`.
  */
 async function fetchAllListItems(accountId, listId, token) {
   const out = [];
-  let cursor = undefined;
+  let cursor;
 
   // Bounded loop; protects against an unexpected paging bug returning the
   // same cursor forever.
@@ -142,8 +175,8 @@ async function cfFetchRaw(url, token, attempt = 0) {
 
 /**
  * Convert a single Bulk Redirect rule into a sitemap entry. Returns null
- * for rules that are wildcards, point at a different host, or look like
- * non-page resources.
+ * for rules that are wildcards, point at a host outside the whitelist,
+ * or look like non-page resources.
  *
  * CF Bulk Redirect rules look like:
  *   {
@@ -155,26 +188,38 @@ async function cfFetchRaw(url, token, attempt = 0) {
  *     }
  *   }
  */
-function toSitemapEntry(item, host) {
+function toSitemapEntry(item, hosts) {
   const r = item?.redirect;
   if (!r || typeof r.source_url !== "string") return null;
 
   let src = r.source_url.trim();
-  // Normalise: strip protocol, trailing slash off host portion only.
+  // Normalise: strip protocol; we'll match host-then-path.
   src = src.replace(/^https?:\/\//i, "");
 
   // Sitemaps should only list concrete URLs. Wildcards / subpath patterns
   // can't be enumerated meaningfully.
   if (src.includes("*")) return null;
 
-  // Strict host match. We deliberately don't follow include_subdomains
-  // here — the main sitemap is for the apex host only.
-  if (!src.toLowerCase().startsWith(host.toLowerCase())) return null;
+  const lower = src.toLowerCase();
 
-  const path = src.slice(host.length) || "/";
+  // Find the longest matching host so e.g. "links.stimmie.dev" wins over
+  // "stimmie.dev" when both are in the whitelist.
+  const matchedHost = hosts
+    .slice()
+    .sort((a, b) => b.length - a.length)
+    .find(
+      (h) =>
+        lower === h ||
+        lower.startsWith(`${h}/`) ||
+        lower.startsWith(`${h}?`) ||
+        lower.startsWith(`${h}#`)
+    );
+  if (!matchedHost) return null;
+
+  const path = src.slice(matchedHost.length) || "/";
 
   // Filter out URLs that obviously aren't HTML pages.
-  if (/\.(xml|json|txt|ico|png|jpe?g|gif|webp|svg|css|js)$/i.test(path)) {
+  if (/\.(xml|json|txt|ico|png|jpe?g|gif|webp|svg|css|js)(\?|#|$)/i.test(path)) {
     return null;
   }
 
@@ -183,7 +228,7 @@ function toSitemapEntry(item, host) {
     : new Date();
 
   return {
-    url: `https://${host}${path}`,
+    url: `https://${matchedHost}${path}`,
     lastModified,
     changeFrequency: "monthly",
     priority: 0.5,
