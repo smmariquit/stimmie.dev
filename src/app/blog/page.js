@@ -1,18 +1,6 @@
 "use client";
-import Image from "next/image";
 import Link from "next/link";
-import { motion } from "framer-motion";
-import { useState } from "react";
-import imageData from "../../../public/image_data_summary.json";
-
-// Reuse the same image background from the home page
-const images = Object.values(imageData).map((it) => ({
-  ...it,
-  src: `/images/${it.file}`,
-  thumbSrc: `/images_small/${it.file.replace(/\.[^.]+$/, ".webp")}`,
-}));
-
-const imagesSortedByMeanRGB = [...images].sort((a, b) => a.mean_hue - b.mean_hue);
+import MosaicBackground from "@/components/MosaicBackground";
 
 // Blog posts data
 const blogPosts = [
@@ -25,63 +13,10 @@ const blogPosts = [
   },
 ];
 
-function Thumb({ image }) {
-  const [src, setSrc] = useState(image.thumbSrc);
-  const [triedFallback, setTriedFallback] = useState(false);
-
-  const handleError = () => {
-    if (!triedFallback && image.src) {
-      setTriedFallback(true);
-      setSrc(image.src);
-    }
-  };
-
-  const bg = image.mean_rgb
-    ? `rgb(${Math.round(image.mean_rgb[0])}, ${Math.round(image.mean_rgb[1])}, ${Math.round(image.mean_rgb[2])})`
-    : "#111";
-
-  return (
-    <div style={{ position: "relative", width: "100%", paddingTop: "100%", background: bg, overflow: "hidden" }}>
-      <Image
-        src={src}
-        alt={image.file || "image"}
-        onError={handleError}
-        width={320}
-        height={320}
-        style={{
-          position: "absolute",
-          top: 0,
-          left: 0,
-          width: "100%",
-          height: "100%",
-          objectFit: "cover",
-          filter: "sepia(0.5) blur(1px)",
-        }}
-        loading="lazy"
-      />
-    </div>
-  );
-}
-
 export default function BlogPage() {
   return (
-    <div className="absolute inset-0 min-h-screen bg-black w-full overflow-hidden">
-      {/* Background image grid */}
-      <motion.div
-        className="fixed inset-0 grid w-full mx-auto"
-        style={{ zIndex: 0, gridTemplateColumns: "repeat(auto-fit, minmax(64px, 1fr))", gap: "0.5rem" }}
-      >
-        {imagesSortedByMeanRGB.map((image, idx) => (
-          <motion.div key={`${image.src}-${idx}`}>
-            <Thumb image={image} />
-          </motion.div>
-        ))}
-        {imagesSortedByMeanRGB.map((image, idx) => (
-          <motion.div key={`${image.src}-dup-${idx}`}>
-            <Thumb image={image} />
-          </motion.div>
-        ))}
-      </motion.div>
+    <div className="min-h-screen bg-black w-full overflow-hidden">
+      <MosaicBackground />
 
       {/* Blog content overlay */}
       <div className="fixed inset-0 flex items-center justify-center pointer-events-none" style={{ zIndex: 50 }}>

@@ -2,6 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { projects, getProjectBySlug } from "@/data/projects";
+import MosaicBackground from "@/components/MosaicBackground";
 
 export function generateStaticParams() {
   return projects.map((p) => ({ slug: p.slug }));
@@ -41,7 +42,10 @@ export default async function ProjectPage({ params }) {
   const next = idx < projects.length - 1 ? projects[idx + 1] : null;
 
   return (
-    <div className="min-h-screen bg-gray-950 text-white">
+    <div className="min-h-screen bg-black text-white">
+      <MosaicBackground />
+
+      <div className="relative" style={{ zIndex: 10 }}>
       <header className="sticky top-0 z-50 bg-gray-950/80 backdrop-blur-md border-b border-gray-800">
         <div className="max-w-4xl mx-auto px-4 py-4 flex items-center justify-between">
           <Link
@@ -148,6 +152,7 @@ export default async function ProjectPage({ params }) {
           <p>© {new Date().getFullYear()} Stimmie. All rights reserved.</p>
         </div>
       </footer>
+      </div>
     </div>
   );
 }
