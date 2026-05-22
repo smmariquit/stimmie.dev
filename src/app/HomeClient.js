@@ -15,6 +15,12 @@ const blogPosts = [
     date: "December 31, 2025",
     excerpt: "A reflection on all the books I devoured this year.",
   },
+  {
+    slug: "casa",
+    title: "11 things I learned from my software engineering class",
+    date: "May 22, 2026",
+    excerpt: "Technical and non-technical takeaways on building an app in 4 months with 20 people surviving one hell of a semester.",
+  },
 ];
 
 const services = [
@@ -32,13 +38,13 @@ export default function HomeClient({ mediaData }) {
   return (
     <div className="absolute inset-0 h-screen bg-black w-full overflow-hidden" lang="en">
       {/* Skip to main content - Accessibility */}
-      <a 
-        href="#main-content" 
+      <a
+        href="#main-content"
         className="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-[100] focus:bg-white focus:text-black focus:px-4 focus:py-2 focus:rounded"
       >
         Skip to main content
       </a>
-      
+
       <MosaicBackground />
 
       {/* Bento Box Overlay */}
@@ -67,9 +73,9 @@ export default function HomeClient({ mediaData }) {
                 - md+:    multi-column bento, each row stretched to fill viewport
             */}
             <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-3 md:gap-4 lg:gap-5 md:h-full md:auto-rows-fr">
-              
+
               {/* Section 1: Hero - Stimmie, Software Engineer */}
-              <motion.div 
+              <motion.div
                 className="col-span-1 row-span-1 bg-gray-900/90 backdrop-blur-sm rounded-2xl p-4 md:p-5 lg:p-6 flex flex-col justify-between border border-gray-800"
                 whileHover={{ scale: 1.02 }}
                 transition={{ type: "spring", stiffness: 300, damping: 20 }}
@@ -201,7 +207,7 @@ export default function HomeClient({ mediaData }) {
               </motion.section>
 
               {/* Section 4: Blogs */}
-              <motion.div 
+              <motion.div
                 className="col-span-1 row-span-1 bg-gray-900/90 backdrop-blur-sm rounded-2xl p-4 border border-gray-800"
                 whileHover={{ scale: 1.02 }}
                 transition={{ type: "spring", stiffness: 300, damping: 20 }}
@@ -270,7 +276,7 @@ export default function HomeClient({ mediaData }) {
               </motion.section>
 
               {/* Section 5: Services */}
-              <motion.div 
+              <motion.div
                 className="col-span-1 row-span-1 bg-gray-900/90 backdrop-blur-sm rounded-2xl p-4 overflow-hidden border border-gray-800"
                 whileHover={{ scale: 1.01 }}
                 transition={{ type: "spring", stiffness: 300, damping: 20 }}
@@ -287,7 +293,7 @@ export default function HomeClient({ mediaData }) {
               </motion.div>
 
               {/* Section 6: GitHub Activity */}
-              <motion.div 
+              <motion.div
                 className="col-span-1 row-span-1 bg-gray-900/90 backdrop-blur-sm rounded-2xl p-4 overflow-hidden border border-gray-800"
                 whileHover={{ scale: 1.02 }}
                 transition={{ type: "spring", stiffness: 300, damping: 20 }}
@@ -297,16 +303,16 @@ export default function HomeClient({ mediaData }) {
                 <h2 className="font-bold text-base md:text-lg mb-2 text-white">🐙 GitHub</h2>
                 <div className="md:overflow-hidden md:h-[calc(100%-2.5rem)] flex flex-col justify-between gap-2">
                   <div className="overflow-x-auto" aria-label="GitHub contribution calendar">
-                    <GitHubCalendar 
-                      username="smmariquit" 
+                    <GitHubCalendar
+                      username="smmariquit"
                       colorScheme="dark"
                       blockSize={12}
                       blockMargin={4}
                       fontSize={14}
                     />
                   </div>
-                  <Link 
-                    href="https://github.com/smmariquit" 
+                  <Link
+                    href="https://github.com/smmariquit"
                     className="text-[10px] text-blue-400 hover:text-blue-300 mt-auto"
                     aria-label="View full GitHub profile"
                   >
@@ -316,7 +322,7 @@ export default function HomeClient({ mediaData }) {
               </motion.div>
 
               {/* Section 7: Now Watching / Reading */}
-              <motion.div 
+              <motion.div
                 className="col-span-1 row-span-1 bg-gray-900/90 backdrop-blur-sm rounded-2xl p-4 overflow-hidden border border-gray-800"
                 whileHover={{ scale: 1.02 }}
                 transition={{ type: "spring", stiffness: 300, damping: 20 }}
@@ -330,9 +336,9 @@ export default function HomeClient({ mediaData }) {
                     <Link href={film.link || 'https://letterboxd.com/stimmieuwu'} target="_blank" rel="noopener noreferrer" className="group">
                       <div className="flex gap-2 bg-gray-800/60 rounded-lg p-2 hover:bg-gray-800/80 transition-colors">
                         {film.posterUrl && (
-                          <img 
-                            src={film.posterUrl} 
-                            alt={film.title} 
+                          <img
+                            src={film.posterUrl}
+                            alt={film.title}
                             className="w-10 h-14 object-cover rounded flex-shrink-0"
                           />
                         )}
@@ -347,15 +353,15 @@ export default function HomeClient({ mediaData }) {
                       </div>
                     </Link>
                   )}
-                  
+
                   {/* Latest Anime from MyAnimeList */}
                   {anime && (
                     <Link href={anime.link || 'https://myanimelist.net/profile/amorgosposter'} target="_blank" rel="noopener noreferrer" className="group">
                       <div className="flex gap-2 bg-gray-800/60 rounded-lg p-2 hover:bg-gray-800/80 transition-colors">
                         {anime.coverUrl && (
-                          <img 
-                            src={anime.coverUrl} 
-                            alt={anime.title} 
+                          <img
+                            src={anime.coverUrl}
+                            alt={anime.title}
                             className="w-10 h-14 object-cover rounded flex-shrink-0"
                             onError={(e) => { e.target.style.display = 'none'; }}
                           />
@@ -371,15 +377,15 @@ export default function HomeClient({ mediaData }) {
                       </div>
                     </Link>
                   )}
-                  
+
                   {/* Latest Book from Goodreads */}
                   {book && (
                     <Link href={book.link || 'https://goodreads.com/stimmie'} target="_blank" rel="noopener noreferrer" className="group">
                       <div className="flex gap-2 bg-gray-800/60 rounded-lg p-2 hover:bg-gray-800/80 transition-colors">
                         {book.coverUrl && (
-                          <img 
-                            src={book.coverUrl} 
-                            alt={book.title} 
+                          <img
+                            src={book.coverUrl}
+                            alt={book.title}
                             className="w-10 h-14 object-cover rounded flex-shrink-0"
                           />
                         )}
