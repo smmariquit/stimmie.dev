@@ -11,6 +11,13 @@ const blogPosts = [
     excerpt: "A reflection on all the books I devoured this year—fiction, non-fiction, and everything in between.",
     coverImage: "/images/1.jpg",
   },
+  {
+    slug: "casa",
+    title: "11 things I learned from my software engineering class",
+    date: "May 22, 2026",
+    excerpt: "Technical and non-technical takeaways on building an app in 4 months with 20 people surviving one hell of a semester.",
+    coverImage: "/images/1.jpg",
+  },
 ];
 
 export default function BlogPage() {

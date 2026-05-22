@@ -49,12 +49,13 @@ export const metadata = {
       'max-snippet': -1,
     },
   },
+};
+
+export const viewport = {
   themeColor: "#000000",
-  viewport: {
-    width: 'device-width',
-    initialScale: 1,
-    maximumScale: 5,
-  },
+  width: "device-width",
+  initialScale: 1,
+  maximumScale: 5,
 };
 
 export default function RootLayout({ children }) {
