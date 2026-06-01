@@ -5,6 +5,13 @@ import MosaicBackground from "@/components/MosaicBackground";
 // Blog posts data
 const blogPosts = [
   {
+    slug: "juneyour",
+    title: "Parkour 🤸‍♂️",
+    date: "June 1, 2026",
+    excerpt: "will not bother your feed with a long list of achievements... massive parkour from my previous grades to getting stellar grades.",
+    coverImage: "/images/1.jpg",
+  },
+  {
     slug: "books",
     title: "Books I Read in 2025",
     date: "December 31, 2025",
