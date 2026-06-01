@@ -7,6 +7,7 @@ import { GitHubCalendar } from 'react-github-calendar';
 import { talks } from "@/data/talks";
 import { projects } from "@/data/projects";
 import MosaicBackground from "@/components/MosaicBackground";
+import { socialCategories } from "@/data/socials";
 
 const blogPosts = [
   {
@@ -21,6 +22,12 @@ const blogPosts = [
     date: "Jun 1, 2026",
     excerpt: "what happens when you do computer sciencemaxxing?",
   },
+  {
+    slug: "casa",
+    title: "11 things I learned from my software engineering class",
+    date: "May 22, 2026",
+    excerpt: "Technical and non-technical takeaways on building an app in 4 months with 20 people surviving one hell of a semester.",
+  },
 ];
 
 const services = [
@@ -31,6 +38,45 @@ const services = [
 ];
 
 
+// Renders a single social-link entry from the socialCategories data.
+// Wraps the icon in a Link when there is an `href`, and falls back to a
+// non-clickable badge for display-only entries (e.g. Discord usernames).
+function SocialIcon({ link }) {
+  const altText = link.alt || link.name;
+  const img = (
+    <Image
+      src={link.icon}
+      alt={altText}
+      width={24}
+      height={24}
+      className="rounded hover:scale-110 transition-transform w-5 h-5 md:w-6 md:h-6"
+    />
+  );
+
+  if (!link.href) {
+    return (
+      <span
+        title={link.name}
+        aria-label={altText}
+        className="cursor-default flex items-center"
+      >
+        {img}
+      </span>
+    );
+  }
+
+  return (
+    <Link
+      href={link.href}
+      title={link.name}
+      aria-label={altText}
+      className="flex items-center focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 rounded"
+    >
+      {img}
+    </Link>
+  );
+}
+
 export default function HomeClient({ mediaData }) {
   const [overlayMinimized, setOverlayMinimized] = useState(false);
   const { film, book, anime } = mediaData || {};
@@ -38,13 +84,13 @@ export default function HomeClient({ mediaData }) {
   return (
     <div className="absolute inset-0 h-screen bg-black w-full overflow-hidden" lang="en">
       {/* Skip to main content - Accessibility */}
-      <a 
-        href="#main-content" 
+      <a
+        href="#main-content"
         className="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-[100] focus:bg-white focus:text-black focus:px-4 focus:py-2 focus:rounded"
       >
         Skip to main content
       </a>
-      
+
       <MosaicBackground />
 
       {/* Bento Box Overlay */}
@@ -73,9 +119,9 @@ export default function HomeClient({ mediaData }) {
                 - md+:    multi-column bento, each row stretched to fill viewport
             */}
             <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-3 md:gap-4 lg:gap-5 md:h-full md:auto-rows-fr">
-              
+
               {/* Section 1: Hero - Stimmie, Software Engineer */}
-              <motion.div 
+              <motion.div
                 className="col-span-1 row-span-1 bg-gray-900/90 backdrop-blur-sm rounded-2xl p-4 md:p-5 lg:p-6 flex flex-col justify-between border border-gray-800"
                 whileHover={{ scale: 1.02 }}
                 transition={{ type: "spring", stiffness: 300, damping: 20 }}
@@ -91,70 +137,26 @@ export default function HomeClient({ mediaData }) {
                     </Link>
                   </div>
                 </header>
-                <nav className="flex flex-row flex-wrap gap-2 md:gap-3 mt-3" aria-label="Social media links">
-                  <Link href="https://www.linkedin.com/in/stimmie" title="LinkedIn" aria-label="LinkedIn profile">
-                    <Image src="/logos/linkedin.png" alt="LinkedIn - Professional networking profile" width={24} height={24} className="rounded hover:scale-110 transition-transform w-5 h-5 md:w-6 md:h-6" />
-                  </Link>
-                  <Link href="https://www.instagram.com/friedicecrm" title="Instagram">
-                    <Image src="/logos/instagram.png" alt="Instagram" width={24} height={24} className="rounded hover:scale-110 transition-transform w-5 h-5 md:w-6 md:h-6" />
-                  </Link>
-                  <Link href="https://www.github.com/smmariquit" title="GitHub">
-                    <Image src="/logos/github.png" alt="GitHub" width={24} height={24} className="rounded hover:scale-110 transition-transform w-5 h-5 md:w-6 md:h-6" />
-                  </Link>
-                  <Link href="https://medium.com/@semariquit" title="Medium">
-                    <Image src="/logos/medium.png" alt="Medium" width={24} height={24} className="rounded hover:scale-110 transition-transform w-5 h-5 md:w-6 md:h-6" />
-                  </Link>
-                  <Link href="mailto:semariquit@gmail.com" title="Email">
-                    <Image src="/logos/email.png" alt="Email" width={24} height={24} className="rounded hover:scale-110 transition-transform w-5 h-5 md:w-6 md:h-6" />
-                  </Link>
-                  <Link href="https://myanimelist.net/" title="MyAnimeList">
-                    <Image src="/logos/myanimelist.png" alt="MyAnimeList" width={24} height={24} className="rounded hover:scale-110 transition-transform w-5 h-5 md:w-6 md:h-6" />
-                  </Link>
-                  <Link href="https://pizza-and-friends.webflow.io" title="Pizza and Friends">
-                    <Image src="/logos/pizza.png" alt="Pizza and Friends" width={24} height={24} className="rounded hover:scale-110 transition-transform w-5 h-5 md:w-6 md:h-6" />
-                  </Link>
-                  <Link href="http://letterboxd.com/stimmieuwu" title="Letterboxd">
-                    <Image src="/logos/letterboxd.png" alt="Letterboxd" width={24} height={24} className="rounded hover:scale-110 transition-transform w-5 h-5 md:w-6 md:h-6" />
-                  </Link>
-                  <Link href="https://www.imdb.com/name/nm12149035/" title="IMDB" aria-label="IMDB profile">
-                    <Image src="/logos/imdb.png" alt="IMDB" width={24} height={24} className="rounded hover:scale-110 transition-transform w-5 h-5 md:w-6 md:h-6" />
-                  </Link>
-                  <Link href="https://goodreads.com/stimmie" title="Goodreads">
-                    <Image src="/logos/goodreads.png" alt="Goodreads" width={24} height={24} className="rounded hover:scale-110 transition-transform w-5 h-5 md:w-6 md:h-6" />
-                  </Link>
-                  <Link href="https://docs.google.com/document/d/1cJya3Zb2ck9vkxIKc1LQjJomQS_LFtBOABlzHrb7Z5s/edit?usp=sharing" title="Hackathon Guide">
-                    <Image src="/logos/hackathon.png" alt="Hackathon Guide" width={24} height={24} className="rounded hover:scale-110 transition-transform w-5 h-5 md:w-6 md:h-6" />
-                  </Link>
-                  <Link href="https://docs.google.com/document/d/1cJya3Zb2ck9vkxIKc1LQjJomQS_LFtBOABlzHrb7Z5s/" title="Freshie Resources" aria-label="Freshie Resources Document">
-                    <Image src="/logos/freshie.png" alt="Freshie Resources - A guide for incoming students" width={24} height={24} className="rounded hover:scale-110 transition-transform w-5 h-5 md:w-6 md:h-6" />
-                  </Link>
-                  <Link href="https://osu.ppy.sh/users/14900686" title="osu! Profile" aria-label="osu! rhythm game profile">
-                    <Image src="/logos/osu.png" alt="osu! - Rhythm game profile" width={24} height={24} className="rounded hover:scale-110 transition-transform w-5 h-5 md:w-6 md:h-6" />
-                  </Link>
-                  <Link href="https://open.kattis.com/users/simonee" title="Kattis" aria-label="Kattis competitive programming profile">
-                    <Image src="/logos/kattis.png" alt="Kattis" width={24} height={24} className="rounded hover:scale-110 transition-transform w-5 h-5 md:w-6 md:h-6" />
-                  </Link>
-                  <Link href="https://open.spotify.com/user/opzo90f4votlfqmg9rl94qrra?si=538e1f5748424274" title="Spotify">
-                    <Image src="/logos/spotify.png" alt="Spotify" width={24} height={24} className="rounded hover:scale-110 transition-transform w-5 h-5 md:w-6 md:h-6" />
-                  </Link>
-                  <Link href="https://www.last.fm/user/mistakenpog" title="Last.fm">
-                    <Image src="/logos/lastfm.png" alt="Last.fm" width={24} height={24} className="rounded hover:scale-110 transition-transform w-5 h-5 md:w-6 md:h-6" />
-                  </Link>
-                  <Link href="https://leetcode.com/u/stimmers/" title="LeetCode">
-                    <Image src="/logos/leetcode.png" alt="LeetCode" width={24} height={24} className="rounded hover:scale-110 transition-transform w-5 h-5 md:w-6 md:h-6" />
-                  </Link>
-                  <Link href="https://www.strava.com/athletes/129023200" title="Strava" aria-label="Strava fitness tracking profile">
-                    <Image src="/logos/strava.png" alt="Strava - Fitness and running activities" width={24} height={24} className="rounded hover:scale-110 transition-transform w-5 h-5 md:w-6 md:h-6" />
-                  </Link>
-                  <Link href="https://www.kaggle.com/stimmie" title="Kaggle" aria-label="Kaggle data science profile">
-                    <Image src="/logos/kaggle.png" alt="Kaggle - Data science competitions and notebooks" width={24} height={24} className="rounded hover:scale-110 transition-transform w-5 h-5 md:w-6 md:h-6" />
-                  </Link>
-                  <Link href="https://www.facebook.com/stimmieuwu/" title="Facebook" aria-label="Facebook profile">
-                    <Image src="/logos/facebook.png" alt="Facebook" width={24} height={24} className="rounded hover:scale-110 transition-transform w-5 h-5 md:w-6 md:h-6" />
-                  </Link>
-                  <span title="Discord: @pataponz" aria-label="Discord username: @pataponz" className="cursor-default flex items-center">
-                    <Image src="/logos/discord.png" alt="Discord - @pataponz" width={24} height={24} className="rounded hover:scale-110 transition-transform w-5 h-5 md:w-6 md:h-6" />
-                  </span>
+                <nav
+                  className="flex-1 min-h-0 overflow-y-auto custom-scrollbar pr-2 mt-3"
+                  aria-label="Profiles and social links"
+                >
+                  <div className="flex flex-col gap-4">
+                    {socialCategories.map((cat) => (
+                      <div key={cat.label} className="shrink-0">
+                        <h3 className="text-[8px] uppercase tracking-[0.18em] text-white/35 mb-1.5 font-medium">
+                          {cat.label}
+                        </h3>
+                        <ul className="flex flex-row flex-wrap gap-2 list-none p-0 m-0">
+                          {cat.links.map((link) => (
+                            <li key={link.name}>
+                              <SocialIcon link={link} />
+                            </li>
+                          ))}
+                        </ul>
+                      </div>
+                    ))}
+                  </div>
                 </nav>
               </motion.div>
 
@@ -207,7 +209,7 @@ export default function HomeClient({ mediaData }) {
               </motion.section>
 
               {/* Section 4: Blogs */}
-              <motion.div 
+              <motion.div
                 className="col-span-1 row-span-1 bg-gray-900/90 backdrop-blur-sm rounded-2xl p-4 border border-gray-800"
                 whileHover={{ scale: 1.02 }}
                 transition={{ type: "spring", stiffness: 300, damping: 20 }}
@@ -276,7 +278,7 @@ export default function HomeClient({ mediaData }) {
               </motion.section>
 
               {/* Section 5: Services */}
-              <motion.div 
+              <motion.div
                 className="col-span-1 row-span-1 bg-gray-900/90 backdrop-blur-sm rounded-2xl p-4 overflow-hidden border border-gray-800"
                 whileHover={{ scale: 1.01 }}
                 transition={{ type: "spring", stiffness: 300, damping: 20 }}
@@ -293,7 +295,7 @@ export default function HomeClient({ mediaData }) {
               </motion.div>
 
               {/* Section 6: GitHub Activity */}
-              <motion.div 
+              <motion.div
                 className="col-span-1 row-span-1 bg-gray-900/90 backdrop-blur-sm rounded-2xl p-4 overflow-hidden border border-gray-800"
                 whileHover={{ scale: 1.02 }}
                 transition={{ type: "spring", stiffness: 300, damping: 20 }}
@@ -303,16 +305,16 @@ export default function HomeClient({ mediaData }) {
                 <h2 className="font-bold text-base md:text-lg mb-2 text-white">🐙 GitHub</h2>
                 <div className="md:overflow-hidden md:h-[calc(100%-2.5rem)] flex flex-col justify-between gap-2">
                   <div className="overflow-x-auto" aria-label="GitHub contribution calendar">
-                    <GitHubCalendar 
-                      username="smmariquit" 
+                    <GitHubCalendar
+                      username="smmariquit"
                       colorScheme="dark"
                       blockSize={12}
                       blockMargin={4}
                       fontSize={14}
                     />
                   </div>
-                  <Link 
-                    href="https://github.com/smmariquit" 
+                  <Link
+                    href="https://github.com/smmariquit"
                     className="text-[10px] text-blue-400 hover:text-blue-300 mt-auto"
                     aria-label="View full GitHub profile"
                   >
@@ -322,7 +324,7 @@ export default function HomeClient({ mediaData }) {
               </motion.div>
 
               {/* Section 7: Now Watching / Reading */}
-              <motion.div 
+              <motion.div
                 className="col-span-1 row-span-1 bg-gray-900/90 backdrop-blur-sm rounded-2xl p-4 overflow-hidden border border-gray-800"
                 whileHover={{ scale: 1.02 }}
                 transition={{ type: "spring", stiffness: 300, damping: 20 }}
@@ -336,9 +338,9 @@ export default function HomeClient({ mediaData }) {
                     <Link href={film.link || 'https://letterboxd.com/stimmieuwu'} target="_blank" rel="noopener noreferrer" className="group">
                       <div className="flex gap-2 bg-gray-800/60 rounded-lg p-2 hover:bg-gray-800/80 transition-colors">
                         {film.posterUrl && (
-                          <img 
-                            src={film.posterUrl} 
-                            alt={film.title} 
+                          <img
+                            src={film.posterUrl}
+                            alt={film.title}
                             className="w-10 h-14 object-cover rounded flex-shrink-0"
                           />
                         )}
@@ -353,15 +355,15 @@ export default function HomeClient({ mediaData }) {
                       </div>
                     </Link>
                   )}
-                  
+
                   {/* Latest Anime from MyAnimeList */}
                   {anime && (
                     <Link href={anime.link || 'https://myanimelist.net/profile/amorgosposter'} target="_blank" rel="noopener noreferrer" className="group">
                       <div className="flex gap-2 bg-gray-800/60 rounded-lg p-2 hover:bg-gray-800/80 transition-colors">
                         {anime.coverUrl && (
-                          <img 
-                            src={anime.coverUrl} 
-                            alt={anime.title} 
+                          <img
+                            src={anime.coverUrl}
+                            alt={anime.title}
                             className="w-10 h-14 object-cover rounded flex-shrink-0"
                             onError={(e) => { e.target.style.display = 'none'; }}
                           />
@@ -377,15 +379,15 @@ export default function HomeClient({ mediaData }) {
                       </div>
                     </Link>
                   )}
-                  
+
                   {/* Latest Book from Goodreads */}
                   {book && (
                     <Link href={book.link || 'https://goodreads.com/stimmie'} target="_blank" rel="noopener noreferrer" className="group">
                       <div className="flex gap-2 bg-gray-800/60 rounded-lg p-2 hover:bg-gray-800/80 transition-colors">
                         {book.coverUrl && (
-                          <img 
-                            src={book.coverUrl} 
-                            alt={book.title} 
+                          <img
+                            src={book.coverUrl}
+                            alt={book.title}
                             className="w-10 h-14 object-cover rounded flex-shrink-0"
                           />
                         )}

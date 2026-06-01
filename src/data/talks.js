@@ -12,7 +12,7 @@ export const talks = [
     type: "Workshop",
     description:
       "An introductory workshop on data science fundamentals for high school students.",
-    slidesLink: null,
+    slidesLink: "/r/workshops/dsg-codeit-day1",
   },
   {
     slug: "dsg-codeit-day2-storytelling-with-data",
@@ -23,7 +23,7 @@ export const talks = [
     type: "Workshop",
     description:
       "Teaching students how to communicate insights effectively through data visualization and narrative.",
-    slidesLink: null,
+    slidesLink: "/r/workshops/dsg-codeit-day2",
   },
   {
     slug: "nextstep-hacks-2025-winning-by-talking",
@@ -34,7 +34,7 @@ export const talks = [
     type: "Talk",
     description:
       "A talk on presentation skills and how to pitch your hackathon projects effectively.",
-    slidesLink: null,
+    slidesLink: "/r/workshops/nextstep-hacks",
   },
   {
     slug: "jpcs-qcu-logic-unlocked-ml-with-python",
@@ -46,7 +46,7 @@ export const talks = [
     type: "Workshop",
     description:
       "Hands-on workshop introducing machine learning concepts using Python and popular ML libraries.",
-    slidesLink: null,
+    slidesLink: "/r/talks/qcu-ml-python",
   },
   {
     slug: "dsg-applicants-data-storytelling-canva",
@@ -68,7 +68,7 @@ export const talks = [
     event: "Data Engineering Pilipinas",
     type: "Talk",
     description: "Discussing practical AI applications that create real-world impact.",
-    slidesLink: null,
+    slidesLink: "/r/talks/dep-ai-study",
   },
   {
     slug: "dlsu-eces-agile-edge-swift-project-workflows",
