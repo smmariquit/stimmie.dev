@@ -120,6 +120,6 @@ const achievements = [
   <>Partnered Pizza & Friends <a href="https://joinpizza.fun" target="_blank" rel="noopener noreferrer" className="text-blue-400 hover:underline">https://joinpizza.fun</a> with GitHub to host a very goofy, non-serious hackathon and slides party, a break from all the sigma vibes of tech</>,
   <>Successfully replaced the LED screen of my friend's phone... guess this can be my backup job!</>,
   <>Spent more than 40 hours studying, preparing for, and facilitating UPLB Data Science Guild's Python and R workshop for professionals - <a href="https://www.facebook.com/share/p/1EBviYF4vK/" target="_blank" rel="noopener noreferrer" className="text-blue-400 hover:underline">https://www.facebook.com/share/p/1EBviYF4vK/</a></>,
-  <>Completed the DOST Scholars' Leadership Camp, a 5-day intensive bootcamp on ______</>,
+  <>Completed the DOST Scholars' Leadership Camp, a 5-day intensive bootcamp on nation-building, civic duty, and leadership</>,
   <>Volunteered some for Pahinungod</>
 ];
