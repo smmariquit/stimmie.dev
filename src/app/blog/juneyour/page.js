@@ -314,6 +314,14 @@ function AchievementItem({ item }) {
 }
 
 export default function JuneYourPage() {
+  const grouped = Object.entries(CATEGORIES)
+    .map(([key, config]) => ({
+      key,
+      ...config,
+      items: achievements.filter((achievement) => achievement.cat === key),
+    }))
+    .filter((group) => group.items.length > 0);
+
   return (
     <div className="min-h-screen bg-black w-full overflow-hidden">
       <MosaicBackground />
@@ -324,7 +332,7 @@ export default function JuneYourPage() {
         style={{ zIndex: 50 }}
       >
       <div className="fixed inset-0 flex items-center justify-center pointer-events-none" style={{ zIndex: 50 }}>
-        <div className="pointer-events-auto bg-gray-800/70 text-white p-6 rounded backdrop-blur-sm max-h-10/12 max-w-3xl w-full mx-4 overflow-y-auto no-scrollbar">
+        <div className="pointer-events-auto bg-gray-800/70 text-white p-6 rounded backdrop-blur-sm max-h-[83vh] max-w-3xl w-full mx-4 overflow-y-auto no-scrollbar">
           <div className="flex flex-col">
             {/* Navigation */}
               <Link href="/blog" className="text-white/70 hover:text-white transition-colors flex items-center gap-2">
@@ -372,8 +380,8 @@ export default function JuneYourPage() {
                         </span>
                       </div>
                       <ul className="list-disc list-inside space-y-2 pl-1">
-                        {group.items.map((item, idx) => (
-                          <AchievementItem key={idx} item={item} />
+                        {group.items.map((item) => (
+                          <AchievementItem key={`${item.cat}-${item.text}`} item={item} />
                         ))}
                       </ul>
                     </div>
@@ -429,10 +437,11 @@ export default function JuneYourPage() {
                 </p>
                 
                 <ul className="space-y-4">
-                  {achievements.map((item, idx) => (
-                    <li key={idx} className="bg-white/5 p-4 rounded text-white/80 leading-relaxed">
-                      {item}
-                    </li>
+                  {achievements.map((item) => (
+                    <AchievementItem
+                      key={`${item.cat}-${item.text}`}
+                      item={item}
+                    />
                   ))}
                 </ul>
               </section>
