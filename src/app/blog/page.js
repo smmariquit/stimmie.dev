@@ -8,7 +8,7 @@ const blogPosts = [
     slug: "juneyour",
     title: "Parkour 🤸‍♂️",
     date: "June 1, 2026",
-    excerpt: "this semester was for computer science maxxing!",
+    excerpt: "what happens when you do computer science maxxing?",
     coverImage: "/images/1.jpg",
   },
   {

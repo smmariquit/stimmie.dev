@@ -4,6 +4,13 @@ import MosaicBackground from "@/components/MosaicBackground";
 
 // ── Category config ──────────────────────────────────────────────
 const CATEGORIES = {
+  life: {
+    label: "Life & Side Quests",
+    emoji: "✨",
+    color: "from-rose-500/20 to-pink-600/10",
+    border: "border-rose-500/30",
+    badge: "bg-rose-500/20 text-rose-300",
+  },
   speaking: {
     label: "Speaking & Workshops",
     emoji: "🎤",
@@ -32,13 +39,6 @@ const CATEGORIES = {
     border: "border-emerald-500/30",
     badge: "bg-emerald-500/20 text-emerald-300",
   },
-  life: {
-    label: "Life & Side Quests",
-    emoji: "✨",
-    color: "from-rose-500/20 to-pink-600/10",
-    border: "border-rose-500/30",
-    badge: "bg-rose-500/20 text-rose-300",
-  },
 };
 
 // ── Achievements data ────────────────────────────────────────────
@@ -57,12 +57,12 @@ const achievements = [
   {
     cat: "speaking",
     text: "Gave a talk on Python in research at UST",
-    link: "https://workshops.stimmie.dev/",
-    linkLabel: "Workshops hub →",
+    link: "https://workshops.stimmie.dev/python",
+    linkLabel: "View slides →",
   },
   {
     cat: "speaking",
-    text: "Got invited as a guest speaker TWICE to talk about Minecraft and engineering lessons!",
+    text: "Got invited as a guest speaker twice to talk about Minecraft and engineering lessons",
     link: "https://workshops.stimmie.dev/minecraft",
     linkLabel: "Workshop slides →",
     link2: "https://www.youtube.com/watch?v=Ko2HDZOv5PY&t=182s",
@@ -70,7 +70,7 @@ const achievements = [
   },
   {
     cat: "speaking",
-    text: "Guest speaker at Batangas Eastern College — crash course on presenting insights better",
+    text: "Guest speaker at Batangas Eastern College, crash course on presenting insights better",
     link: "https://workshops.stimmie.dev/present-insights-better",
     linkLabel: "View slides →",
   },
@@ -94,39 +94,53 @@ const achievements = [
   // Building & Shipping
   {
     cat: "building",
-    text: "Built Room TBA — a search engine for rooms, dorms, buildings, colleges, and divisions at UPLB",
+    text: "Built Room TBA, a search engine for rooms, dorms, buildings, colleges, and divisions at UPLB",
     link: "https://room-tba.stimmie.dev",
     linkLabel: "Try Room TBA →",
   },
   {
     cat: "building",
-    text: "Created Elbi GradeSim — a GWA calculator and Latin honor simulator for UPLB students",
+    text: "Created Elbi GradeSim, a GWA calculator and Latin honor simulator for UPLB students",
     link: "https://gradesim.stimmie.dev",
     linkLabel: "Try GradeSim →",
   },
   {
     cat: "building",
-    text: "Launched my Minecraft server portfolio — 10+ years of server admin, plugin dev, and community building",
+    text: "Launched my Minecraft server portfolio, 10+ years of server admin, plugin dev, and community building",
     link: "https://minecraft.stimmie.dev",
     linkLabel: "Explore the portfolio →",
   },
   {
     cat: "building",
-    text: "Experimented with Three.js to tell the story of my Minecraft journey — kinda revived the writer in me",
+    text: "Experimented with Three.js to tell the story of my Minecraft journey, kinda revived the writer in me",
     link: "https://scaffolding.stimmie.dev",
     linkLabel: "Read Scaffolding →",
   },
   {
     cat: "building",
-    text: "Contributed a Maple program to OEIS sequence A322054 — math itself!",
+    text: "Contributed to OEIS sequence A322054",
     link: "https://oeis.org/A322054",
     linkLabel: "View sequence →",
+  },
+  {
+    cat: "building",
+    text: "Collaborated to make upsked.com/uplb, a class schedule tool for UPLB students",
+    link: "https://upsked.com/uplb",
+    linkLabel: "Try it →",
+  },
+  {
+    cat: "building",
+    text: "Did freelance software engineering work",
+  },
+  {
+    cat: "building",
+    text: "Hit 10,000 contributions on GitHub (turns out private repos count, they're just anonymized)",
   },
 
   // Leadership & Community
   {
     cat: "leadership",
-    text: "Led one of the biggest projects in an Elbi CS degree — a section of 20, skilling the team on advanced Git, JS/React, CI/CD, and Agile",
+    text: "Led one of the biggest projects in an Elbi CS degree, a section of 20, teaching the team advanced Git, JS/React, CI/CD, and Agile",
   },
   {
     cat: "leadership",
@@ -142,7 +156,7 @@ const achievements = [
   },
   {
     cat: "leadership",
-    text: "Partnered Pizza & Friends with GitHub to host a non-serious hackathon and slides party — a break from all the sigma vibes of tech",
+    text: "Partnered Pizza & Friends with GitHub to host a non-serious hackathon and slides party, a break from all the sigma vibes of tech",
     link: "https://joinpizza.fun",
     linkLabel: "Join Pizza & Friends →",
   },
@@ -152,7 +166,7 @@ const achievements = [
   },
   {
     cat: "leadership",
-    text: "Somehow hosted a Cubao karaoke session with people in tech... and it worked",
+    text: "Hosted a Cubao karaoke session with people in tech",
     link: "https://www.facebook.com/share/p/1EFyPpVhpb/",
     linkLabel: "See the chaos →",
   },
@@ -174,7 +188,13 @@ const achievements = [
   },
   {
     cat: "academics",
-    text: "Placed 11th out of ~50+ teams nationwide in Algolympics 2026 — actually learned C++ and competitive programming",
+    text: "Placed 11th out of ~50+ teams nationwide in Algolympics 2026, actually learned C++ and competitive programming",
+  },
+  {
+    cat: "academics",
+    text: "Got a proper Codeforces rating",
+    link: "https://codeforces.com/profile/manilaboi?graphType=all",
+    linkLabel: "See profile →",
   },
   {
     cat: "academics",
@@ -192,73 +212,104 @@ const achievements = [
   },
   {
     cat: "academics",
-    text: "Started tutoring more — math, programming, CS, and more",
+    text: "Tutored via TutorHub and personal tutoring in math, programming, and CS",
   },
   {
     cat: "academics",
-    text: "Completed the DOST Scholars' Leadership Camp, a 5-day intensive bootcamp on nation-building, civic duty, and leadership",
+    text: "Completed the DOST Scholars' Leadership Camp, a 5-day bootcamp on nation-building, civic duty, and leadership",
+  },
+  {
+    cat: "academics",
+    text: "Somehow attended research group sessions of a physics professor, listening to and presenting technical papers on physics-adjacent data analytics",
   },
 
   // Life & Side Quests
   {
     cat: "life",
-    text: "Colored my hair brown 💇",
+    text: "Colored my hair brown",
   },
   {
     cat: "life",
-    text: "Got my 5K run time down to 28m 16s 🏃",
+    text: "Got my 5K run time down to 28m 16s",
   },
   {
     cat: "life",
-    text: "Officially visited all 16 cities in Metro Manila + Pateros 🗺️",
+    text: "Officially visited all 16 cities in Metro Manila + Pateros",
   },
   {
     cat: "life",
-    text: "Got the largest library fine in UPLB history 📖 (sorry!!!)",
+    text: "Got the largest library fine in UPLB history (sorry!!!)",
   },
   {
     cat: "life",
-    text: "Successfully replaced the LED screen of my friend's phone... guess this can be my backup job! 🔧",
+    text: "Replaced the LED screen of my friend's phone, guess this can be my backup job",
   },
   {
     cat: "life",
-    text: "Volunteered for Pahinungod 🫶",
+    text: "Volunteered for Pahinungod",
+  },
+  {
+    cat: "life",
+    text: "Sat in on random classes out of curiosity, COST 10, ABME 10, CMSC 173, CMSC 191, and more",
+  },
+  {
+    cat: "life",
+    text: "Did my first half-marathon",
+  },
+  {
+    cat: "life",
+    text: "Somehow hit 5,000 LinkedIn followers despite hating LinkedIn lmao",
+  },
+  {
+    cat: "life",
+    text: "Laid down drunk in the middle of Lopez Ave",
+  },
+  {
+    cat: "life",
+    text: "Demonstrated to my CS professor how to use Claude Code",
+  },
+  {
+    cat: "life",
+    text: "Ran Doom on an OrangePi",
+  },
+  {
+    cat: "life",
+    text: "Presented my final project on Computer Networking with a monumental hangover and got a perfect score",
   },
 ];
 
 // ── Component ────────────────────────────────────────────────────
-function AchievementCard({ item }) {
-  const cat = CATEGORIES[item.cat];
+function AchievementItem({ item }) {
   return (
-    <div
-      className={`relative bg-gradient-to-br ${cat.color} border ${cat.border} rounded-lg p-4 transition-all duration-200 hover:scale-[1.01] hover:shadow-lg hover:shadow-white/5`}
-    >
-      <p className="text-white/90 leading-relaxed">{item.text}</p>
-      {(item.link || item.link2) && (
-        <div className="flex flex-wrap gap-3 mt-3">
-          {item.link && (
-            <a
-              href={item.link}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-1 text-sm font-medium text-blue-400 hover:text-blue-300 transition-colors"
-            >
-              {item.linkLabel}
-            </a>
-          )}
-          {item.link2 && (
-            <a
-              href={item.link2}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-1 text-sm font-medium text-blue-400 hover:text-blue-300 transition-colors"
-            >
-              {item.linkLabel2}
-            </a>
-          )}
-        </div>
+    <li className="text-white/95 leading-relaxed">
+      {item.text}
+      {item.link && (
+        <>
+          {" "}
+          <a
+            href={item.link}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-blue-400 hover:text-blue-300 transition-colors"
+          >
+            {item.linkLabel}
+          </a>
+        </>
       )}
-    </div>
+      {item.link2 && (
+        <>
+          {" "}
+          <a
+            href={item.link2}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-blue-400 hover:text-blue-300 transition-colors"
+          >
+            {item.linkLabel2}
+          </a>
+        </>
+      )}
+    </li>
   );
 }
 
@@ -284,7 +335,7 @@ export default function JuneYourPage() {
             <div className="flex items-center gap-4 mb-6">
               <Link
                 href="/blog"
-                className="text-white/70 hover:text-white transition-colors flex items-center gap-2"
+                className="text-white/80 hover:text-white transition-colors flex items-center gap-2"
               >
                 <span>←</span>
                 <span>Blog</span>
@@ -292,7 +343,7 @@ export default function JuneYourPage() {
               <span className="text-white/30">|</span>
               <Link
                 href="/"
-                className="text-white/70 hover:text-white transition-colors"
+                className="text-white/80 hover:text-white transition-colors"
               >
                 Home
               </Link>
@@ -304,124 +355,15 @@ export default function JuneYourPage() {
                 <h1 className="font-sans text-4xl sm:text-5xl font-black text-white mb-2">
                   Parkour 🤸‍♂️
                 </h1>
-                <p className="text-white/50">June 1, 2026</p>
+                <p className="text-white/60">June 1, 2026</p>
               </header>
-
-              {/* Introduction */}
-              <section className="mb-8 space-y-4">
-                <p className="text-white/90 leading-relaxed">
-                  will not bother your feed with a long list of achievements,
-                  you can read that here: blog.stimmie.dev/juneyour. #1 on that
-                  list is, of course, dyeing my hair brown.
-                </p>
-                <p className="text-white/90 leading-relaxed">
-                  but yes, massive parkour from my previous grades to getting
-                  stellar grades in one of the hardest semesters in an Elbi CS
-                  degree. i think the shift happened because I finally stopped
-                  just mindlessly consuming opportunities and started learning,
-                  leading, and building with actual intention.
-                </p>
-              </section>
-
-              {/* A few things */}
-              <section className="mb-8 space-y-4">
-                <p className="text-white/90 leading-relaxed">
-                  a few things that actually made this possible:
-                </p>
-                <ul className="list-disc list-inside text-white/90 leading-relaxed space-y-2 ml-4">
-                  <li>
-                    <span className="font-bold">focus!</span> realizing you can
-                    either be really good at a few things or really meh at a lot
-                    of things.
-                  </li>
-                  <li>
-                    <span className="font-bold">sleep:</span> prioritizing rest,
-                    despite what your local hustle-bro/sigma male might tell you.
-                  </li>
-                  <li>
-                    <span className="font-bold">resources:</span> honestly,
-                    having access to better internet, compute, and physical
-                    spaces. sorry not sorry, but I performed my worst when I was
-                    staying in a UP dorm. environment matters.
-                  </li>
-                  <li>
-                    <span className="font-bold">people:</span> finally felt that
-                    im not alone and that my presence is appreciated. i never
-                    passed on the opportunity to bond with the people dear to me
-                    because im &quot;too busy achieving&quot;. you know who you are :))
-                  </li>
-                </ul>
-              </section>
-
-              {/* Thoughts */}
-              <section className="mb-8 space-y-4">
-                <p className="text-white/90 leading-relaxed">
-                  beyond the logistics, there&apos;s this weird notion in tech where
-                  you have to pick a side: either you build &quot;real-world&quot; software
-                  or you get good grades. manosphere college is a scam type sh.
-                  but as someone who cares about being an excellent engineer,
-                  this sem was about proving that the theory and the execution
-                  belong together.
-                </p>
-                <p className="text-white/90 leading-relaxed">
-                  I actually care about Computer Science! not just as a career
-                  path, a stack of technologies, or because I&apos;m just after any
-                  degree to increase my chances of getting hired, but as a
-                  discipline that demands rigor.
-                </p>
-                <p className="text-white/90 leading-relaxed">
-                  I guess I just disagree with the hyper-individualistic idea
-                  that we should drop our acads, vibe code, and chase a ton of
-                  money with zero regard for morality or civic duty. Digital
-                  infrastructure will be core to public service moving forward,
-                  and looking at all the contractor and corruption shite we deal
-                  with, I don&apos;t think we have room left for mediocrity.
-                </p>
-                <p className="text-white/90 leading-relaxed">
-                  so yes i am SO ready for senior year! my passion is at an all
-                  time high :))
-                </p>
-                <p className="text-white/90 leading-relaxed font-semibold">
-                  live a balanced life and do what you REALLY want.
-                </p>
-              </section>
-
-              {/* Stats banner */}
-              <section className="my-10 bg-white/5 border border-white/10 rounded-lg p-5">
-                <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 text-center">
-                  <div>
-                    <p className="text-3xl font-black text-white">
-                      {achievements.length}
-                    </p>
-                    <p className="text-white/50 text-sm">Things done</p>
-                  </div>
-                  <div>
-                    <p className="text-3xl font-black text-white">
-                      {achievements.filter((a) => a.cat === "speaking").length}
-                    </p>
-                    <p className="text-white/50 text-sm">Talks & workshops</p>
-                  </div>
-                  <div>
-                    <p className="text-3xl font-black text-white">
-                      {achievements.filter((a) => a.cat === "building").length}
-                    </p>
-                    <p className="text-white/50 text-sm">Projects shipped</p>
-                  </div>
-                  <div>
-                    <p className="text-3xl font-black text-white">
-                      {achievements.filter((a) => a.link).length}
-                    </p>
-                    <p className="text-white/50 text-sm">With links</p>
-                  </div>
-                </div>
-              </section>
 
               {/* Achievements by category */}
               <section className="mt-12 pt-8 border-t border-white/10">
                 <h2 className="text-2xl font-bold text-white mb-2">
                   The Breakdown
                 </h2>
-                <p className="text-white/70 mb-8 leading-relaxed">
+                <p className="text-white/85 mb-8 leading-relaxed">
                   If you&apos;re curious about what I achieved this semester (roughly
                   from January until now), here&apos;s the full breakdown. Included
                   are all the slides, links, and resources so you can hopefully
@@ -442,11 +384,11 @@ export default function JuneYourPage() {
                           {group.items.length}
                         </span>
                       </div>
-                      <div className="grid gap-3">
+                      <ul className="list-disc list-inside space-y-2 pl-1">
                         {group.items.map((item, idx) => (
-                          <AchievementCard key={idx} item={item} />
+                          <AchievementItem key={idx} item={item} />
                         ))}
-                      </div>
+                      </ul>
                     </div>
                   ))}
                 </div>
