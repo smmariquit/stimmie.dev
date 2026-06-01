@@ -17,6 +17,12 @@ const blogPosts = [
     excerpt: "A reflection on all the books I devoured this year.",
   },
   {
+    slug: "juneyour",
+    title: "Parkour 🤸‍♂️",
+    date: "Jun 1, 2026",
+    excerpt: "what happens when you do computer sciencemaxxing?",
+  },
+  {
     slug: "casa",
     title: "11 things I learned from my software engineering class",
     date: "May 22, 2026",
