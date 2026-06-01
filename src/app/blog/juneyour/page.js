@@ -387,64 +387,6 @@ export default function JuneYourPage() {
                     </div>
                   ))}
                 </div>
-                <p className="text-white/50">June 1, 2026</p>
-
-              {/* Introduction */}
-              <section className="mb-8 space-y-4">
-                <p className="text-white/90 leading-relaxed">
-                  will not bother your feed with a long list of achievements, you can read that here: blog.stimmie.dev/juneyour. #1 on that list is, of course, dyeing my hair brown.
-                </p>
-                <p className="text-white/90 leading-relaxed">
-                  but yes, massive parkour from my previous grades to getting stellar grades in one of the hardest semesters in an Elbi CS degree. i think the shift happened because I finally stopped just mindlessly consuming opportunities and started learning, leading, and building with actual intention.
-                </p>
-              </section>
-
-              {/* A few things */}
-              <section className="mb-8 space-y-4">
-                <p className="text-white/90 leading-relaxed">a few things that actually made this possible:</p>
-                <ul className="list-disc list-inside text-white/90 leading-relaxed space-y-2 ml-4">
-                  <li><span className="font-bold">focus!</span> realizing you can either be really good at a few things or really meh at a lot of things.</li>
-                  <li><span className="font-bold">sleep:</span> prioritizing rest, despite what your local hustle-bro/sigma male might tell you.</li>
-                  <li><span className="font-bold">resources:</span> honestly, having access to better internet, compute, and physical spaces. sorry not sorry, but I performed my worst when I was staying in a UP dorm. environment matters.</li>
-                  <li><span className="font-bold">people:</span> finally felt that im not alone and that my presence is appreciated. i never passed on the opportunity to bond with the people dear to me because im "too busy achieving". you know who you are :))</li>
-                </ul>
-              </section>
-
-              {/* Thoughts */}
-              <section className="mb-8 space-y-4">
-                <p className="text-white/90 leading-relaxed">
-                  beyond the logistics, there's this weird notion in tech where you have to pick a side: either you build "real-world" software or you get good grades. manosphere college is a scam type sh. but as someone who cares about being an excellent engineer, this sem was about proving that the theory and the execution belong together.
-                </p>
-                <p className="text-white/90 leading-relaxed">
-                  I actually care about Computer Science! not just as a career path, a stack of technologies, or because I'm just after any degree to increase my chances of getting hired, but as a discipline that demands rigor.
-                </p>
-                <p className="text-white/90 leading-relaxed">
-                  I guess I just disagree with the hyper-individualistic idea that we should drop our acads, vibe code, and chase a ton of money with zero regard for morality or civic duty. Digital infrastructure will be core to public service moving forward, and looking at all the contractor and corruption shite we deal with, I don't think we have room left for mediocrity.
-                </p>
-                <p className="text-white/90 leading-relaxed">
-                  so yes i am SO ready for senior year! my passion is at an all time high :DD
-                </p>
-                <p className="text-white/90 leading-relaxed font-semibold">
-                  live a balanced life and do what you REALLY want.
-                </p>
-              </section>
-
-              {/* Achievements list */}
-              <section className="mt-12 pt-8 border-t border-white/10">
-                <h2 className="text-2xl font-bold text-white mb-6">The Breakdown</h2>
-                <p className="text-white/90 leading-relaxed mb-6">
-                  If you're curious about what I achieved this semester (roughly from January until now), here is the breakdown! Included are all the slides, links, and resources included so you can hopefully grab the same opportunities for yourself:
-                </p>
-                
-                <ul className="space-y-4">
-                  {achievements.map((item) => (
-                    <AchievementItem
-                      key={`${item.cat}-${item.text}`}
-                      item={item}
-                    />
-                  ))}
-                </ul>
-              </section>
             </article>
           </div>
         </div>
