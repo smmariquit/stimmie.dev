@@ -15,6 +15,12 @@ const blogPosts = [
     date: "December 31, 2025",
     excerpt: "A reflection on all the books I devoured this year.",
   },
+  {
+    slug: "juneyour",
+    title: "Parkour 🤸‍♂️",
+    date: "Jun 1, 2026",
+    excerpt: "what happens when you do computer sciencemaxxing?",
+  },
 ];
 
 const services = [
