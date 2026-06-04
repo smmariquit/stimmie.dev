@@ -152,3 +152,7 @@ npx semantic-release --dry-run --no-ci
 ```
 
 This prints what *would* be released without actually creating tags or pushes.
+
+
+---
+*If this project helped you out, consider [treating me to a coffee](https://kape.stimmie.dev) ☕*
