@@ -416,13 +416,13 @@ export default function HomeClient({ mediaData }) {
                 role="region"
                 aria-label="Stimmieverse Subdomains"
               >
-                <div className="flex items-center justify-between mb-2">
-                  <h2 className="font-bold text-base md:text-lg text-white">
+                <div className="flex items-center justify-between mb-3">
+                  <h2 className="font-bold text-lg md:text-xl text-white">
                     🌐 The Stimmieverse
                   </h2>
-                  <span className="text-[10px] text-white/50">My other deployments</span>
+                  <span className="text-xs text-gray-400">My other deployments</span>
                 </div>
-                <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-2 md:overflow-y-auto custom-scrollbar md:h-[calc(100%-2.5rem)]">
+                <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3 md:overflow-y-auto custom-scrollbar md:h-[calc(100%-3rem)]">
                   {[
                     { name: 'Kape', url: 'https://kape.stimmie.dev', desc: 'Support me / Buy me a coffee', icon: '☕' },
                     { name: 'Room TBA', url: 'https://room-tba.stimmie.dev', desc: 'UPLB 3D Campus Viewer', icon: '🗺️' },
@@ -431,16 +431,22 @@ export default function HomeClient({ mediaData }) {
                     { name: 'Atlas', url: 'https://atlas-of-my-skies.stimmie.dev', desc: 'Photography Portfolio', icon: '🌌' },
                     { name: 'Data', url: 'https://data.stimmie.dev', desc: 'Data Science & ML', icon: '📊' },
                     { name: 'The Crib', url: 'https://crib.stimmie.dev', desc: 'Personal Sandbox', icon: '🏠' },
-                    { name: 'Workshops', url: 'https://workshops.stimmie.dev', desc: 'Slide Decks & Materials', icon: '🎤' }
+                    { name: 'Workshops', url: 'https://workshops.stimmie.dev', desc: 'Slide Decks & Materials', icon: '🎤' },
+                    { name: 'Minecraft', url: 'mc.stimmie.dev', href: 'https://crib.stimmie.dev', desc: 'Java/Bedrock Server', icon: '🎮' },
+                    { name: 'Server Map', url: 'https://map.stimmie.dev', desc: 'The Crib Live Map', icon: '📍' },
+                    { name: 'Web Dev', url: 'https://web.stimmie.dev', desc: 'Web Development Services', icon: '💻' },
+                    { name: 'Tutoring', url: 'https://tutor.stimmie.dev', desc: 'Academic Tutoring', icon: '📚' },
+                    { name: 'Repairs', url: 'https://repairs.stimmie.dev', desc: 'Tech Repair Services', icon: '🔧' },
+                    { name: 'Links', url: 'https://links.stimmie.dev', desc: 'Quick Redirects', icon: '🔗' },
                   ].map((site) => (
-                    <Link key={site.url} href={site.url} target="_blank" rel="noopener noreferrer" className="group block">
-                      <div className="bg-gray-800/60 rounded-lg p-2 md:p-3 h-full hover:bg-gray-800/80 transition-colors border border-transparent hover:border-gray-700">
-                        <div className="flex items-center gap-2 mb-1">
-                          <span className="text-sm">{site.icon}</span>
-                          <h3 className="text-xs md:text-sm font-semibold text-white group-hover:text-blue-400 transition-colors truncate">{site.name}</h3>
+                    <Link key={site.name} href={site.href || site.url} target="_blank" rel="noopener noreferrer" className="group block">
+                      <div className="bg-gray-800/80 rounded-xl p-3 h-full hover:bg-gray-700 transition-colors border border-transparent hover:border-gray-500 shadow-sm">
+                        <div className="flex items-center gap-2 mb-2">
+                          <span className="text-base md:text-lg">{site.icon}</span>
+                          <h3 className="text-sm md:text-base font-bold text-white group-hover:text-blue-300 transition-colors truncate">{site.name}</h3>
                         </div>
-                        <p className="text-[9px] md:text-[10px] text-white/60 line-clamp-2">{site.desc}</p>
-                        <p className="text-[8px] text-blue-400/50 mt-1 truncate">{site.url.replace('https://', '')}</p>
+                        <p className="text-xs text-gray-300 line-clamp-2 leading-relaxed">{site.desc}</p>
+                        <p className="text-xs font-medium text-blue-300 mt-2 truncate">{site.url.replace('https://', '')}</p>
                       </div>
                     </Link>
                   ))}
