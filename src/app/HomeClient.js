@@ -9,26 +9,7 @@ import { projects } from "@/data/projects";
 import MosaicBackground from "@/components/MosaicBackground";
 import { socialCategories } from "@/data/socials";
 
-const blogPosts = [
-  {
-    slug: "books",
-    title: "Books I Read in 2025",
-    date: "December 31, 2025",
-    excerpt: "A reflection on all the books I devoured this year.",
-  },
-  {
-    slug: "juneyour",
-    title: "Parkour 🤸‍♂️",
-    date: "Jun 1, 2026",
-    excerpt: "what happens when you do computer sciencemaxxing?",
-  },
-  {
-    slug: "casa",
-    title: "11 things I learned from my software engineering class",
-    date: "May 22, 2026",
-    excerpt: "Technical and non-technical takeaways on building an app in 4 months with 20 people surviving one hell of a semester.",
-  },
-];
+import { blogPosts } from "@/data/blogs";
 
 const services = [
   { title: 'Software Development', description: 'Custom web apps, APIs, and automation solutions for your business.' },
@@ -49,7 +30,7 @@ function SocialIcon({ link }) {
       alt={altText}
       width={24}
       height={24}
-      className="rounded hover:scale-110 transition-transform w-5 h-5 md:w-6 md:h-6"
+      className={`rounded hover:scale-110 transition-transform w-5 h-5 md:w-6 md:h-6 ${link.name === 'GitHub' || link.name === 'Kattis' ? 'invert' : ''}`}
     />
   );
 
@@ -216,13 +197,18 @@ export default function HomeClient({ mediaData }) {
                 role="region"
                 aria-label="Blog posts"
               >
-                <Link href="/blog" className="block h-full flex flex-col" aria-label="View all blog posts">
-                  <h2 className="font-bold text-base md:text-lg mb-2 text-white">📝 Blog</h2>
+                <Link href="/blog" className="group block h-full flex flex-col" aria-label="View all blog posts">
+                  <div className="flex items-center justify-between mb-2">
+                    <h2 className="font-bold text-base md:text-lg text-white group-hover:text-blue-400 transition-colors">📝 Blog</h2>
+                    <span className="text-[11px] md:text-xs text-blue-400 opacity-0 group-hover:opacity-100 transition-opacity" aria-hidden="true">
+                      Read more →
+                    </span>
+                  </div>
                   <div className="flex flex-col gap-2 flex-1 overflow-hidden" role="list">
                     {blogPosts.slice(0, 3).map((post, idx) => (
-                      <article key={idx} className="bg-gray-800/60 rounded-lg p-2 md:p-3" role="listitem">
+                      <article key={idx} className="bg-gray-800/60 rounded-lg p-2 md:p-3 group-hover:bg-gray-800/80 transition-colors" role="listitem">
                         <p className="text-xs md:text-sm font-semibold text-white line-clamp-2">{post.title}</p>
-                        <time className="text-[10px] text-white/50" dateTime={post.date}>{post.date}</time>
+                        <time className="text-[10px] text-gray-400" dateTime={post.date}>{post.date}</time>
                       </article>
                     ))}
                   </div>

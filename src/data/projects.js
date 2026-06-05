@@ -47,6 +47,38 @@ export const projects = [
     tags: ["Education", "Biology", "Visualization"],
     link: null,
   },
+  {
+    slug: "room-tba",
+    title: "Room TBA",
+    src: "/projects/project1.jpg",
+    description: "A fully immersive 3D campus viewer for UPLB. Navigate through academic buildings and find your classes easily.",
+    tags: ["3D", "Astro", "Campus"],
+    link: "https://room-tba.stimmie.dev",
+  },
+  {
+    slug: "elbi-gradesim",
+    title: "Elbi GradeSim",
+    src: "/projects/project2.jpg",
+    description: "An advanced grade simulation and course planning tool tailored for UPLB students.",
+    tags: ["Tooling", "Education", "Next.js"],
+    link: "https://gradesim.stimmie.dev",
+  },
+  {
+    slug: "typhoonomics",
+    title: "Typhoonomics",
+    src: "/projects/project3.jpg",
+    description: "Data-driven insights predicting the economic impact of typhoons in the Philippines.",
+    tags: ["Data Science", "Python", "Analytics"],
+    link: "https://github.com/smmariquit/typhoonomics",
+  },
+  {
+    slug: "kape",
+    title: "Kape",
+    src: "/projects/project4.jpg",
+    description: "A free, open-source 'Buy Me A Coffee' alternative tailored for local creators.",
+    tags: ["Monetization", "Creator Economy"],
+    link: "https://kape.stimmie.dev",
+  },
 ];
 
 export function getProjectBySlug(slug) {

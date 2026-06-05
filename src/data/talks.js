@@ -81,6 +81,36 @@ export const talks = [
     slidesLink: null,
     upcoming: true,
   },
+  {
+    slug: "ml-iris-classification-org-applicants",
+    title: "ML Workshop: Iris Classification",
+    src: "/talks/talk1.jpg",
+    date: "2024",
+    event: "Org Applicants",
+    type: "Workshop",
+    description: "Introductory ML workshop focusing on the classic Iris dataset classification.",
+    slidesLink: "https://workshops.stimmie.dev/ml-iris-slides",
+  },
+  {
+    slug: "python-in-research-ust",
+    title: "Python in Research",
+    src: "/talks/talk2.jpg",
+    date: "2024",
+    event: "UST",
+    type: "Workshop",
+    description: "Applying Python for data analysis and automation in academic research.",
+    slidesLink: "https://workshops.stimmie.dev/python",
+  },
+  {
+    slug: "ml-workshop-smcl",
+    title: "Machine Learning Workshop",
+    src: "/talks/talk3.jpg",
+    date: "2024",
+    event: "Saint Michael's College of Laguna",
+    type: "Workshop",
+    description: "A comprehensive machine learning workshop for students at SMCL.",
+    slidesLink: null,
+  },
 ];
 
 export function getTalkBySlug(slug) {
