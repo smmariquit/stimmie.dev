@@ -408,6 +408,45 @@ export default function HomeClient({ mediaData }) {
                 </div>
               </motion.div>
 
+              {/* Section 8: The Stimmieverse */}
+              <motion.div
+                className="col-span-1 md:col-span-2 lg:col-span-3 row-span-1 bg-gray-900/90 backdrop-blur-sm rounded-2xl p-4 overflow-hidden border border-gray-800"
+                whileHover={{ scale: 1.01 }}
+                transition={{ type: "spring", stiffness: 300, damping: 20 }}
+                role="region"
+                aria-label="Stimmieverse Subdomains"
+              >
+                <div className="flex items-center justify-between mb-2">
+                  <h2 className="font-bold text-base md:text-lg text-white">
+                    🌐 The Stimmieverse
+                  </h2>
+                  <span className="text-[10px] text-white/50">My other deployments</span>
+                </div>
+                <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-2 md:overflow-y-auto custom-scrollbar md:h-[calc(100%-2.5rem)]">
+                  {[
+                    { name: 'Kape', url: 'https://kape.stimmie.dev', desc: 'Support me / Buy me a coffee', icon: '☕' },
+                    { name: 'Room TBA', url: 'https://room-tba.stimmie.dev', desc: 'UPLB 3D Campus Viewer', icon: '🗺️' },
+                    { name: 'GradeSim', url: 'https://gradesim.stimmie.dev', desc: 'Course Planner & Simulator', icon: '🎓' },
+                    { name: 'HearthCraft', url: 'https://hearthcraft.stimmie.dev', desc: 'Minecraft Server Museum', icon: '⛏️' },
+                    { name: 'Atlas', url: 'https://atlas-of-my-skies.stimmie.dev', desc: 'Photography Portfolio', icon: '🌌' },
+                    { name: 'Data', url: 'https://data.stimmie.dev', desc: 'Data Science & ML', icon: '📊' },
+                    { name: 'The Crib', url: 'https://crib.stimmie.dev', desc: 'Personal Sandbox', icon: '🏠' },
+                    { name: 'Workshops', url: 'https://workshops.stimmie.dev', desc: 'Slide Decks & Materials', icon: '🎤' }
+                  ].map((site) => (
+                    <Link key={site.url} href={site.url} target="_blank" rel="noopener noreferrer" className="group block">
+                      <div className="bg-gray-800/60 rounded-lg p-2 md:p-3 h-full hover:bg-gray-800/80 transition-colors border border-transparent hover:border-gray-700">
+                        <div className="flex items-center gap-2 mb-1">
+                          <span className="text-sm">{site.icon}</span>
+                          <h3 className="text-xs md:text-sm font-semibold text-white group-hover:text-blue-400 transition-colors truncate">{site.name}</h3>
+                        </div>
+                        <p className="text-[9px] md:text-[10px] text-white/60 line-clamp-2">{site.desc}</p>
+                        <p className="text-[8px] text-blue-400/50 mt-1 truncate">{site.url.replace('https://', '')}</p>
+                      </div>
+                    </Link>
+                  ))}
+                </div>
+              </motion.div>
+
             </div>
           </div>
         )}
