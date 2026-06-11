@@ -1,4 +1,6 @@
 #!/usr/bin/env node
+// scripts/cf-migrate-redirects.mjs
+
 /**
  * Sync src/data/redirects.js into a Cloudflare Bulk Redirect List, then
  * ensure the account-level Redirects ruleset has a rule that consults that

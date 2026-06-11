@@ -1,3 +1,5 @@
+// src/app/archive/v1/page.js
+
 "use client";
 import Image from "next/image";
 import { motion } from "framer-motion";

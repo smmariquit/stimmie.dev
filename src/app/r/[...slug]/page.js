@@ -1,3 +1,5 @@
+// src/app/r/[...slug]/page.js
+
 "use client";
 
 import { notFound, useParams } from "next/navigation";

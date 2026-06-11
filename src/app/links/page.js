@@ -1,3 +1,5 @@
+// src/app/links/page.js
+
 import Link from "next/link";
 import { projects } from "@/data/projects";
 import { talks } from "@/data/talks";

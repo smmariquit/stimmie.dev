@@ -1,3 +1,5 @@
+// src/data/projects.js
+
 // Shared projects data used by the home bento, the /projects listing, and per-project pages.
 // Slugs are intentionally explicit (not derived from title) so URLs remain stable
 // even if a title is edited. Add new projects at the bottom; never reuse a slug.

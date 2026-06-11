@@ -1,3 +1,5 @@
+// src/app/sitemap.js
+
 import { projects } from "@/data/projects";
 import { getSitemapHosts } from "@/data/redirects";
 import { talks } from "@/data/talks";

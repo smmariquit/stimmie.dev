@@ -1,3 +1,5 @@
+// src/app/r/workshops/[[...slug]]/page.js
+
 "use client";
 
 import { useEffect } from 'react';

@@ -1,3 +1,5 @@
+// src/data/redirects.js
+
 // Single source of truth for short-link / subdomain redirects.
 //
 // Two surfaces consume this map:

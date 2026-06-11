@@ -1,3 +1,5 @@
+// src/app/page.js
+
 import { getAllMediaData } from '@/lib/media';
 import HomeClient from './HomeClient';
 

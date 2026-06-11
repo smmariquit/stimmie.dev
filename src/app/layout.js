@@ -1,3 +1,5 @@
+// src/app/layout.js
+
 import { Analytics } from "@vercel/analytics/react";
 import "./globals.css";
 

@@ -1,3 +1,5 @@
+// src/data/socials.js
+
 // Categorised social / profile links rendered in the Hero section of the
 // home bento. Keeping this data here (rather than inline in HomeClient.js)
 // matches the pattern used by talks.js / projects.js, and makes it trivial

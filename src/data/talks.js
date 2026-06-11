@@ -1,3 +1,5 @@
+// src/data/talks.js
+
 // Shared talks data used by the home bento, the /talks listing, and per-talk pages.
 // Slugs are intentionally explicit (not derived from title) so URLs remain stable
 // even if a title is edited. Add new talks at the bottom; never reuse a slug.

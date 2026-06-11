@@ -1,3 +1,5 @@
+// src/app/robots.js
+
 const SITE_URL = "https://stimmie.dev";
 
 export default function robots() {

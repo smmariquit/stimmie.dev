@@ -1,3 +1,5 @@
+// src/data/blogs.js
+
 export const blogPosts = [
   {
     slug: "juneyour",

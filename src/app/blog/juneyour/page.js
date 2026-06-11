@@ -1,3 +1,5 @@
+// src/app/blog/juneyour/page.js
+
 "use client";
 import Link from "next/link";
 import MosaicBackground from "@/components/MosaicBackground";

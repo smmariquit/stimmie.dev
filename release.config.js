@@ -1,3 +1,5 @@
+// release.config.js
+
 /**
  * semantic-release configuration.
  *
