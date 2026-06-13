@@ -22,14 +22,14 @@ export async function generateMetadata({ params }) {
     openGraph: {
       title: talk.title,
       description: talk.description,
-      images: [{ url: talk.src }],
+      images: [{ url: talk.actionPhoto || talk.slidesThumbnail }],
       type: "article",
     },
     twitter: {
       card: "summary_large_image",
       title: talk.title,
       description: talk.description,
-      images: [talk.src],
+      images: [talk.actionPhoto || talk.slidesThumbnail],
     },
   };
 }
@@ -42,6 +42,14 @@ export default async function TalkPage({ params }) {
   const idx = talks.findIndex((t) => t.slug === slug);
   const prev = idx > 0 ? talks[idx - 1] : null;
   const next = idx < talks.length - 1 ? talks[idx + 1] : null;
+
+  const talkDate = new Date(talk.date);
+  const isUpcoming = talkDate > new Date();
+  const formattedDate = talkDate.toLocaleDateString("en-US", {
+    month: "short",
+    day: "numeric",
+    year: "numeric",
+  });
 
   return (
     <div className="min-h-screen bg-black text-white">
@@ -86,9 +94,9 @@ export default async function TalkPage({ params }) {
               {talk.type}
             </span>
             <time className="text-gray-500 text-xs" dateTime={talk.date}>
-              {talk.date}
+              {formattedDate}
             </time>
-            {talk.upcoming && (
+            {isUpcoming && (
               <span className="px-2 py-0.5 text-xs rounded-full bg-yellow-500/20 text-yellow-300 border border-yellow-500/40">
                 Upcoming
               </span>
@@ -101,30 +109,58 @@ export default async function TalkPage({ params }) {
           <p className="text-gray-400 text-sm mb-6">{talk.event}</p>
 
           <div className="relative aspect-video w-full overflow-hidden rounded-2xl border border-gray-800 bg-gray-900 mb-6">
-            <Image
-              src={talk.src}
-              alt={`Slide from ${talk.title}`}
-              fill
-              sizes="(max-width: 896px) 100vw, 896px"
-              className="object-cover"
-              priority
-            />
+            {(talk.actionPhoto || talk.slidesThumbnail) && (
+              <Image
+                src={talk.actionPhoto || talk.slidesThumbnail}
+                alt={`Photo from ${talk.title}`}
+                fill
+                sizes="(max-width: 896px) 100vw, 896px"
+                className="object-cover"
+                priority
+              />
+            )}
           </div>
 
-          <p className="text-gray-300 text-base md:text-lg leading-relaxed mb-8">
+          <p className={`text-gray-300 text-base md:text-lg leading-relaxed ${talk.moderator ? 'mb-4' : 'mb-8'}`}>
             {talk.description}
           </p>
 
-          {talk.slidesLink && (
-            <Link
-              href={talk.slidesLink}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 bg-blue-600 hover:bg-blue-500 text-white px-5 py-2.5 rounded-lg font-medium transition-colors"
-            >
-              View Slides →
-            </Link>
+          {talk.moderator && (
+            <p className="text-gray-400 text-sm mb-8">
+              Moderated by{" "}
+              <Link
+                href={talk.moderator.link}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-blue-400 hover:text-blue-300 transition-colors underline underline-offset-2 font-medium"
+              >
+                {talk.moderator.name}
+              </Link>
+            </p>
           )}
+
+          <div className="flex flex-wrap gap-4">
+            {talk.slidesLink && (
+              <Link
+                href={talk.slidesLink}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 bg-blue-600 hover:bg-blue-500 text-white px-5 py-2.5 rounded-lg font-medium transition-colors"
+              >
+                View Slides →
+              </Link>
+            )}
+            {talk.replayLink && (
+              <Link
+                href={talk.replayLink}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 bg-red-600 hover:bg-red-500 text-white px-5 py-2.5 rounded-lg font-medium transition-colors"
+              >
+                Watch Replay 📺
+              </Link>
+            )}
+          </div>
         </article>
 
         <nav

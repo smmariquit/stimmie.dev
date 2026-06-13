@@ -58,7 +58,16 @@ export default function TalksPage() {
             className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 list-none p-0"
             aria-label="List of talks and workshops"
           >
-            {talks.map((talk, idx) => (
+            {talks.map((talk, idx) => {
+              const talkDate = new Date(talk.date);
+              const isUpcoming = talkDate > new Date();
+              const formattedDate = talkDate.toLocaleDateString("en-US", {
+                month: "short",
+                day: "numeric",
+                year: "numeric",
+              });
+
+              return (
               <li key={talk.slug}>
                 <motion.div
                   initial={{ opacity: 0, y: 20 }}
@@ -69,24 +78,26 @@ export default function TalksPage() {
                   <Link
                     href={`/talks/${talk.slug}`}
                     className={`group block h-full bg-gray-900/90 backdrop-blur-sm rounded-2xl overflow-hidden border border-gray-800 hover:border-gray-700 transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 ${
-                      talk.upcoming ? "ring-2 ring-yellow-500/50" : ""
+                      isUpcoming ? "ring-2 ring-yellow-500/50" : ""
                     }`}
                     aria-label={`Read more about ${talk.title}`}
                   >
                     <article>
                       <div className="aspect-video relative overflow-hidden">
-                        {talk.upcoming && (
+                        {isUpcoming && (
                           <div className="absolute top-2 right-2 z-10 bg-yellow-500 text-black px-2 py-1 rounded-full text-xs font-bold">
                             Upcoming
                           </div>
                         )}
-                        <Image
-                          src={talk.src}
-                          alt={`Slide from ${talk.title}`}
-                          fill
-                          sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
-                          className="object-cover group-hover:scale-105 transition-transform duration-300"
-                        />
+                        {(talk.actionPhoto || talk.slidesThumbnail) && (
+                          <Image
+                            src={talk.actionPhoto || talk.slidesThumbnail}
+                            alt={`Photo from ${talk.title}`}
+                            fill
+                            sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                            className="object-cover group-hover:scale-105 transition-transform duration-300"
+                          />
+                        )}
                       </div>
                       <div className="p-5">
                         <div className="flex items-center gap-2 mb-2">
@@ -99,7 +110,7 @@ export default function TalksPage() {
                           >
                             {talk.type}
                           </span>
-                          <span className="text-gray-500 text-xs">{talk.date}</span>
+                          <span className="text-gray-500 text-xs">{formattedDate}</span>
                         </div>
                         <h2 className="text-lg font-bold mb-2 leading-tight group-hover:text-blue-300 transition-colors">
                           {talk.title}
@@ -113,7 +124,8 @@ export default function TalksPage() {
                   </Link>
                 </motion.div>
               </li>
-            ))}
+              );
+            })}
           </ul>
 
           {/* CTA Section */}

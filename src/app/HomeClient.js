@@ -2,449 +2,267 @@
 
 "use client";
 import Image from "next/image";
-import { motion } from "framer-motion";
-import { useState } from 'react';
 import Link from "next/link";
 import { GitHubCalendar } from 'react-github-calendar';
 import { talks } from "@/data/talks";
 import { projects } from "@/data/projects";
-import MosaicBackground from "@/components/MosaicBackground";
 import { socialCategories } from "@/data/socials";
-
 import { blogPosts } from "@/data/blogs";
 
-const services = [
-  { title: 'Software Development', description: 'Custom web apps, APIs, and automation solutions for your business.' },
-  { title: 'Data Science & Analytics', description: 'Turn your data into actionable insights with modern ML/AI tools.' },
-  { title: 'Workshops & Training', description: 'Hands-on sessions on data science, Python, and tech fundamentals.' },
-  { title: 'Consulting', description: 'Technical guidance for startups and organizations.' },
-];
-
-
-// Renders a single social-link entry from the socialCategories data.
-// Wraps the icon in a Link when there is an `href`, and falls back to a
-// non-clickable badge for display-only entries (e.g. Discord usernames).
-function SocialIcon({ link }) {
-  const altText = link.alt || link.name;
-  const img = (
-    <Image
-      src={link.icon}
-      alt={altText}
-      width={24}
-      height={24}
-      className={`rounded hover:scale-110 transition-transform w-5 h-5 md:w-6 md:h-6 ${link.name === 'GitHub' || link.name === 'Kattis' ? 'invert' : ''}`}
-    />
-  );
-
-  if (!link.href) {
-    return (
-      <span
-        title={link.name}
-        aria-label={altText}
-        className="cursor-default flex items-center"
-      >
-        {img}
-      </span>
-    );
-  }
-
-  return (
-    <Link
-      href={link.href}
-      title={link.name}
-      aria-label={altText}
-      className="flex items-center focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 rounded"
-    >
-      {img}
-    </Link>
-  );
-}
-
 export default function HomeClient({ mediaData }) {
-  const [overlayMinimized, setOverlayMinimized] = useState(false);
   const { film, book, anime } = mediaData || {};
 
   return (
-    <div className="absolute inset-0 h-screen bg-black w-full overflow-hidden" lang="en">
-      {/* Skip to main content - Accessibility */}
-      <a
-        href="#main-content"
-        className="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-[100] focus:bg-white focus:text-black focus:px-4 focus:py-2 focus:rounded"
-      >
-        Skip to main content
-      </a>
+    <div className="min-h-screen bg-[#050014] text-gray-200 font-sans selection:bg-pink-500 selection:text-white relative" lang="en">
+      
+      {/* Background Glows */}
+      <div className="absolute top-0 left-0 w-full h-[500px] bg-purple-900/20 blur-[120px] pointer-events-none rounded-full" />
+      <div className="absolute top-[20%] right-0 w-[600px] h-[600px] bg-pink-900/10 blur-[150px] pointer-events-none rounded-full" />
+      <div className="absolute bottom-0 left-1/4 w-[800px] h-[400px] bg-indigo-900/20 blur-[150px] pointer-events-none rounded-full" />
 
-      <MosaicBackground />
-
-      {/* Bento Box Overlay */}
-      <div className="fixed inset-0 flex items-center justify-center pointer-events-none" style={{ zIndex: 50 }} role="main" aria-label="Main content">
-        {/* Minimize/Expand Button */}
-        <button
-          onClick={() => setOverlayMinimized((v) => !v)}
-          className="pointer-events-auto absolute top-4 right-4 bg-gray-700/80 text-white p-2 rounded-md hover:bg-gray-600 focus:outline-none focus:ring-2 focus:ring-blue-500"
-          aria-label={overlayMinimized ? 'Expand portfolio overlay' : 'Minimize portfolio overlay'}
-          aria-expanded={!overlayMinimized}
-        >
-          {overlayMinimized ? '+' : '-'}
-        </button>
-
-        {!overlayMinimized && (
-          <div
-            id="main-content"
-            // On mobile: fill the screen but allow content to grow and scroll naturally.
-            // On md+: switch back to a fixed bento "card" with its own scroll container.
-            className="pointer-events-auto w-full h-[100dvh] overflow-y-auto custom-scrollbar p-3 md:h-[95vh] md:w-[95vw] md:p-6 lg:p-8"
-            tabIndex={-1}
-          >
-
-            {/* Bento Grid:
-                - mobile: single column, content sized to its own height (no auto-rows-fr stretch)
-                - md+:    multi-column bento, each row stretched to fill viewport
-            */}
-            <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-3 md:gap-4 lg:gap-5 md:h-full md:auto-rows-fr">
-
-              {/* Section 1: Hero - Stimmie, Software Engineer */}
-              <motion.div
-                className="col-span-1 row-span-1 bg-gray-900/90 backdrop-blur-sm rounded-2xl p-4 md:p-5 lg:p-6 flex flex-col justify-between border border-gray-800"
-                whileHover={{ scale: 1.02 }}
-                transition={{ type: "spring", stiffness: 300, damping: 20 }}
-                role="region"
-                aria-label="About Stimmie"
-              >
-                <header>
-                  <h1 className="font-sans text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-black text-white">Stimmie</h1>
-                  <div className="flex items-center gap-2 mt-1">
-                    <p className="text-white/60 text-xs md:text-sm">Software Engineer</p>
-                    <Link href="/archive" className="text-[10px] text-blue-400 hover:text-blue-300" title="View past iterations">
-                      v2.0
-                    </Link>
-                  </div>
-                </header>
-                <nav
-                  className="flex-1 min-h-0 overflow-y-auto custom-scrollbar pr-2 mt-3"
-                  aria-label="Profiles and social links"
+      {/* The Stimmieverse Main Navigation */}
+      <nav className="fixed top-0 w-full px-6 py-4 md:px-8 md:py-6 flex flex-col md:flex-row md:justify-between md:items-center bg-[#050014]/80 backdrop-blur-lg z-50 border-b border-purple-900/30 gap-4">
+        <div className="font-bold tracking-widest text-sm uppercase flex-shrink-0 text-transparent bg-gradient-to-r from-pink-500 to-indigo-400 bg-clip-text drop-shadow-[0_0_8px_rgba(236,72,153,0.3)]">
+          STIMMIE // CREATOR
+        </div>
+        <div className="flex gap-6 font-medium text-xs tracking-widest uppercase overflow-x-auto whitespace-nowrap scrollbar-hide w-full md:w-auto pb-2 md:pb-0">
+           <span className="text-purple-500/50 hidden lg:inline">THE STIMMIEVERSE //</span>
+           {[
+                { name: 'Kape', url: 'https://kape.stimmie.dev' },
+                { name: 'Room TBA', url: 'https://room-tba.stimmie.dev' },
+                { name: 'GradeSim', url: 'https://gradesim.stimmie.dev' },
+                { name: 'The Crib', url: 'https://crib.stimmie.dev' },
+                { name: 'Atlas', url: 'https://atlas-of-my-skies.stimmie.dev' },
+                { name: 'Work', url: '/projects', local: true },
+                { name: 'Writing', url: '/blog', local: true },
+                { name: 'Archive', url: '/v2', local: true },
+              ].map((site) => (
+                <Link 
+                  key={site.name} 
+                  href={site.url} 
+                  target={site.local ? "_self" : "_blank"}
+                  rel={site.local ? "" : "noopener noreferrer"}
+                  className="hover:text-cyan-400 text-gray-400 transition-colors flex-shrink-0"
                 >
-                  <div className="flex flex-col gap-4">
-                    {socialCategories.map((cat) => (
-                      <div key={cat.label} className="shrink-0">
-                        <h3 className="text-[8px] uppercase tracking-[0.18em] text-white/35 mb-1.5 font-medium">
-                          {cat.label}
-                        </h3>
-                        <ul className="flex flex-row flex-wrap gap-2 list-none p-0 m-0">
-                          {cat.links.map((link) => (
-                            <li key={link.name}>
-                              <SocialIcon link={link} />
-                            </li>
-                          ))}
-                        </ul>
-                      </div>
-                    ))}
-                  </div>
-                </nav>
-              </motion.div>
-
-              {/* Section 2: Talks & Workshops */}
-              <motion.section
-                className="col-span-1 md:col-span-2 lg:col-span-2 row-span-1 bg-gray-900/90 backdrop-blur-sm rounded-2xl p-4 border border-gray-800 flex flex-col"
-                whileHover={{ scale: 1.01 }}
-                transition={{ type: "spring", stiffness: 300, damping: 20 }}
-                aria-labelledby="talks-heading"
-              >
-                <div className="flex items-center justify-between mb-2">
-                  <h2 id="talks-heading" className="font-bold text-base md:text-lg text-white">
-                    🎤 Talks & Workshops
-                  </h2>
-                  <Link
-                    href="/talks"
-                    className="text-[11px] md:text-xs text-blue-400 hover:text-blue-300 whitespace-nowrap"
-                    aria-label="View all talks"
-                  >
-                    View all →
-                  </Link>
-                </div>
-                <ul
-                  className="grid grid-cols-2 md:grid-cols-4 gap-2 list-none p-0 md:flex-1 md:overflow-hidden md:h-[calc(100%-2.5rem)]"
-                  aria-label="List of talks and workshops"
-                >
-                  {talks.map((t) => (
-                    <li key={t.slug}>
-                      <Link
-                        href={`/talks/${t.slug}`}
-                        className="group relative rounded-lg overflow-hidden block aspect-video focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500"
-                        aria-label={t.title}
-                      >
-                        <Image
-                          src={t.src}
-                          alt={`Talk: ${t.title}`}
-                          width={320}
-                          height={180}
-                          className="object-cover w-full h-full group-hover:scale-105 transition-transform"
-                        />
-                        <div className="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-1">
-                          <p className="text-[9px] md:text-[10px] text-white leading-tight line-clamp-2">
-                            {t.title}
-                          </p>
-                        </div>
-                      </Link>
-                    </li>
-                  ))}
-                </ul>
-              </motion.section>
-
-              {/* Section 4: Blogs */}
-              <motion.div
-                className="col-span-1 row-span-1 bg-gray-900/90 backdrop-blur-sm rounded-2xl p-4 border border-gray-800"
-                whileHover={{ scale: 1.02 }}
-                transition={{ type: "spring", stiffness: 300, damping: 20 }}
-                role="region"
-                aria-label="Blog posts"
-              >
-                <Link href="/blog" className="group block h-full flex flex-col" aria-label="View all blog posts">
-                  <div className="flex items-center justify-between mb-2">
-                    <h2 className="font-bold text-base md:text-lg text-white group-hover:text-blue-400 transition-colors">📝 Blog</h2>
-                    <span className="text-[11px] md:text-xs text-blue-400 opacity-0 group-hover:opacity-100 transition-opacity" aria-hidden="true">
-                      Read more →
-                    </span>
-                  </div>
-                  <div className="flex flex-col gap-2 flex-1 overflow-hidden" role="list">
-                    {blogPosts.slice(0, 3).map((post, idx) => (
-                      <article key={idx} className="bg-gray-800/60 rounded-lg p-2 md:p-3 group-hover:bg-gray-800/80 transition-colors" role="listitem">
-                        <p className="text-xs md:text-sm font-semibold text-white line-clamp-2">{post.title}</p>
-                        <time className="text-[10px] text-gray-400" dateTime={post.date}>{post.date}</time>
-                      </article>
-                    ))}
-                  </div>
+                  {site.name} {!site.local && '↗'}
                 </Link>
-              </motion.div>
+           ))}
+        </div>
+      </nav>
 
-              {/* Section 3: Projects */}
-              <motion.section
-                className="col-span-1 md:col-span-2 lg:col-span-2 row-span-1 bg-gray-900/90 backdrop-blur-sm rounded-2xl p-4 border border-gray-800 flex flex-col"
-                whileHover={{ scale: 1.01 }}
-                transition={{ type: "spring", stiffness: 300, damping: 20 }}
-                aria-labelledby="projects-heading"
-              >
-                <div className="flex items-center justify-between mb-2">
-                  <h2 id="projects-heading" className="font-bold text-base md:text-lg text-white">
-                    🚀 Projects
-                  </h2>
-                  <Link
-                    href="/projects"
-                    className="text-[11px] md:text-xs text-blue-400 hover:text-blue-300 whitespace-nowrap"
-                    aria-label="View all projects"
-                  >
-                    View all →
-                  </Link>
-                </div>
-                <ul
-                  className="grid grid-cols-2 md:grid-cols-5 gap-2 list-none p-0 md:flex-1 md:overflow-hidden md:h-[calc(100%-2.5rem)]"
-                  aria-label="List of projects"
-                >
-                  {projects.map((p) => (
-                    <li key={p.slug}>
-                      <Link
-                        href={`/projects/${p.slug}`}
-                        className="group relative rounded-lg overflow-hidden block aspect-video focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500"
-                        aria-label={p.title}
-                      >
-                        <Image
-                          src={p.src}
-                          alt={`Project: ${p.title}`}
-                          width={320}
-                          height={180}
-                          className="object-cover w-full h-full group-hover:scale-105 transition-transform"
-                        />
-                        <div className="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity flex flex-col justify-end p-2">
-                          <p className="text-[9px] md:text-xs text-white font-semibold line-clamp-2">
-                            {p.title}
-                          </p>
-                        </div>
-                      </Link>
-                    </li>
-                  ))}
-                </ul>
-              </motion.section>
-
-              {/* Section 5: Services */}
-              <motion.div
-                className="col-span-1 row-span-1 bg-gray-900/90 backdrop-blur-sm rounded-2xl p-4 overflow-hidden border border-gray-800"
-                whileHover={{ scale: 1.01 }}
-                transition={{ type: "spring", stiffness: 300, damping: 20 }}
-              >
-                <h2 className="font-bold text-base md:text-lg mb-2 text-white">💼 Services</h2>
-                <div className="grid grid-cols-1 gap-2 md:overflow-y-auto custom-scrollbar md:h-[calc(100%-2.5rem)]">
-                  {services.map((s, idx) => (
-                    <div key={idx} className="bg-gray-800/60 rounded-lg p-2 md:p-3">
-                      <h3 className="text-xs md:text-sm font-semibold text-white">{s.title}</h3>
-                      <p className="text-[9px] md:text-[10px] text-white/60 line-clamp-2">{s.description}</p>
-                    </div>
-                  ))}
-                </div>
-              </motion.div>
-
-              {/* Section 6: GitHub Activity */}
-              <motion.div
-                className="col-span-1 row-span-1 bg-gray-900/90 backdrop-blur-sm rounded-2xl p-4 overflow-hidden border border-gray-800"
-                whileHover={{ scale: 1.02 }}
-                transition={{ type: "spring", stiffness: 300, damping: 20 }}
-                role="region"
-                aria-label="GitHub Activity"
-              >
-                <h2 className="font-bold text-base md:text-lg mb-2 text-white">🐙 GitHub</h2>
-                <div className="md:overflow-hidden md:h-[calc(100%-2.5rem)] flex flex-col justify-between gap-2">
-                  <div className="overflow-x-auto" aria-label="GitHub contribution calendar">
-                    <GitHubCalendar
-                      username="smmariquit"
-                      colorScheme="dark"
-                      blockSize={12}
-                      blockMargin={4}
-                      fontSize={14}
-                    />
-                  </div>
-                  <Link
-                    href="https://github.com/smmariquit"
-                    className="text-[10px] text-blue-400 hover:text-blue-300 mt-auto"
-                    aria-label="View full GitHub profile"
-                  >
-                    View full profile →
-                  </Link>
-                </div>
-              </motion.div>
-
-              {/* Section 7: Now Watching / Reading */}
-              <motion.div
-                className="col-span-1 row-span-1 bg-gray-900/90 backdrop-blur-sm rounded-2xl p-4 overflow-hidden border border-gray-800"
-                whileHover={{ scale: 1.02 }}
-                transition={{ type: "spring", stiffness: 300, damping: 20 }}
-                role="region"
-                aria-label="Currently watching and reading"
-              >
-                <h2 className="font-bold text-base md:text-lg mb-2 text-white">🎬📚 Now</h2>
-                <div className="flex flex-col gap-3 md:h-[calc(100%-2.5rem)] md:overflow-y-auto custom-scrollbar">
-                  {/* Latest Film from Letterboxd */}
-                  {film && (
-                    <Link href={film.link || 'https://letterboxd.com/stimmieuwu'} target="_blank" rel="noopener noreferrer" className="group">
-                      <div className="flex gap-2 bg-gray-800/60 rounded-lg p-2 hover:bg-gray-800/80 transition-colors">
-                        {film.posterUrl && (
-                          <img
-                            src={film.posterUrl}
-                            alt={film.title}
-                            className="w-10 h-14 object-cover rounded flex-shrink-0"
-                          />
-                        )}
-                        <div className="flex flex-col justify-center min-w-0">
-                          <p className="text-[10px] text-green-400 uppercase tracking-wide">Watched</p>
-                          <p className="text-xs font-semibold text-white truncate group-hover:text-white/90">{film.title}</p>
-                          {film.year && <p className="text-[10px] text-white/50">{film.year}</p>}
-                          {film.rating && (
-                            <p className="text-[10px] text-yellow-400">{'★'.repeat(Math.round(film.rating))}{'☆'.repeat(5 - Math.round(film.rating))}</p>
-                          )}
-                        </div>
-                      </div>
-                    </Link>
-                  )}
-
-                  {/* Latest Anime from MyAnimeList */}
-                  {anime && (
-                    <Link href={anime.link || 'https://myanimelist.net/profile/amorgosposter'} target="_blank" rel="noopener noreferrer" className="group">
-                      <div className="flex gap-2 bg-gray-800/60 rounded-lg p-2 hover:bg-gray-800/80 transition-colors">
-                        {anime.coverUrl && (
-                          <img
-                            src={anime.coverUrl}
-                            alt={anime.title}
-                            className="w-10 h-14 object-cover rounded flex-shrink-0"
-                            onError={(e) => { e.target.style.display = 'none'; }}
-                          />
-                        )}
-                        <div className="flex flex-col justify-center min-w-0">
-                          <p className="text-[10px] text-purple-400 uppercase tracking-wide">{anime.status || 'Watching'}</p>
-                          <p className="text-xs font-semibold text-white truncate group-hover:text-white/90">{anime.title}</p>
-                          {anime.progress !== null && anime.total !== null && (
-                            <p className="text-[10px] text-white/50">{anime.progress}/{anime.total} episodes</p>
-                          )}
-                          {anime.type && <p className="text-[10px] text-white/40">{anime.type}</p>}
-                        </div>
-                      </div>
-                    </Link>
-                  )}
-
-                  {/* Latest Book from Goodreads */}
-                  {book && (
-                    <Link href={book.link || 'https://goodreads.com/stimmie'} target="_blank" rel="noopener noreferrer" className="group">
-                      <div className="flex gap-2 bg-gray-800/60 rounded-lg p-2 hover:bg-gray-800/80 transition-colors">
-                        {book.coverUrl && (
-                          <img
-                            src={book.coverUrl}
-                            alt={book.title}
-                            className="w-10 h-14 object-cover rounded flex-shrink-0"
-                          />
-                        )}
-                        <div className="flex flex-col justify-center min-w-0">
-                          <p className="text-[10px] text-blue-400 uppercase tracking-wide">
-                            {book.shelf === 'currently-reading' ? 'Reading' : 'Read'}
-                          </p>
-                          <p className="text-xs font-semibold text-white truncate group-hover:text-white/90">{book.title}</p>
-                          {book.author && <p className="text-[10px] text-white/50 truncate">{book.author}</p>}
-                        </div>
-                      </div>
-                    </Link>
-                  )}
-
-                  {!film && !book && !anime && (
-                    <p className="text-xs text-white/50">Loading media...</p>
-                  )}
-                </div>
-              </motion.div>
-
-              {/* Section 8: The Stimmieverse */}
-              <motion.div
-                className="col-span-1 md:col-span-2 lg:col-span-3 row-span-1 bg-gray-900/90 backdrop-blur-sm rounded-2xl p-4 overflow-hidden border border-gray-800"
-                whileHover={{ scale: 1.01 }}
-                transition={{ type: "spring", stiffness: 300, damping: 20 }}
-                role="region"
-                aria-label="Stimmieverse Subdomains"
-              >
-                <div className="flex items-center justify-between mb-3">
-                  <h2 className="font-bold text-lg md:text-xl text-white">
-                    🌐 The Stimmieverse
-                  </h2>
-                  <span className="text-xs text-gray-400">My other deployments</span>
-                </div>
-                <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3 md:overflow-y-auto custom-scrollbar md:h-[calc(100%-3rem)]">
-                  {[
-                    { name: 'Kape', url: 'https://kape.stimmie.dev', desc: 'Support me / Buy me a coffee', icon: '☕' },
-                    { name: 'Room TBA', url: 'https://room-tba.stimmie.dev', desc: 'UPLB 3D Campus Viewer', icon: '🗺️' },
-                    { name: 'GradeSim', url: 'https://gradesim.stimmie.dev', desc: 'Course Planner & Simulator', icon: '🎓' },
-                    { name: 'HearthCraft', url: 'https://hearthcraft.stimmie.dev', desc: 'Minecraft Server Museum', icon: '⛏️' },
-                    { name: 'Atlas', url: 'https://atlas-of-my-skies.stimmie.dev', desc: 'Photography Portfolio', icon: '🌌' },
-                    { name: 'Data', url: 'https://data.stimmie.dev', desc: 'Data Science & ML', icon: '📊' },
-                    { name: 'The Crib', url: 'https://crib.stimmie.dev', desc: 'Personal Sandbox', icon: '🏠' },
-                    { name: 'Workshops', url: 'https://workshops.stimmie.dev', desc: 'Slide Decks & Materials', icon: '🎤' },
-                    { name: 'Minecraft', url: 'mc.stimmie.dev', href: 'https://crib.stimmie.dev', desc: 'Java/Bedrock Server', icon: '🎮' },
-                    { name: 'Server Map', url: 'https://map.stimmie.dev', desc: 'The Crib Live Map', icon: '📍' },
-                    { name: 'Web Dev', url: 'https://web.stimmie.dev', desc: 'Web Development Services', icon: '💻' },
-                    { name: 'Tutoring', url: 'https://tutor.stimmie.dev', desc: 'Academic Tutoring', icon: '📚' },
-                    { name: 'Repairs', url: 'https://repairs.stimmie.dev', desc: 'Tech Repair Services', icon: '🔧' },
-                    { name: 'Links', url: 'https://links.stimmie.dev', desc: 'Quick Redirects', icon: '🔗' },
-                  ].map((site) => (
-                    <Link key={site.name} href={site.href || site.url} target="_blank" rel="noopener noreferrer" className="group block">
-                      <div className="bg-gray-800/80 rounded-xl p-3 h-full hover:bg-gray-700 transition-colors border border-transparent hover:border-gray-500 shadow-sm">
-                        <div className="flex items-center gap-2 mb-2">
-                          <span className="text-base md:text-lg">{site.icon}</span>
-                          <h3 className="text-sm md:text-base font-bold text-white group-hover:text-blue-300 transition-colors truncate">{site.name}</h3>
-                        </div>
-                        <p className="text-xs text-gray-300 line-clamp-2 leading-relaxed">{site.desc}</p>
-                        <p className="text-xs font-medium text-blue-300 mt-2 truncate">{site.url.replace('https://', '')}</p>
-                      </div>
-                    </Link>
-                  ))}
-                </div>
-              </motion.div>
-
+      {/* Hero Section */}
+      <header className="pt-40 pb-16 px-6 md:px-12 max-w-7xl mx-auto relative z-10">
+        <h1 className="text-5xl md:text-8xl lg:text-9xl font-black uppercase leading-[0.85] tracking-tighter bg-gradient-to-r from-indigo-400 via-purple-400 to-pink-400 text-transparent bg-clip-text mb-8 drop-shadow-lg">
+          CRAFTING<br/>
+          DIGITAL<br/>
+          WORLDS.
+        </h1>
+        <div className="grid grid-cols-1 md:grid-cols-4 gap-8 border-t border-purple-900/30 pt-8 mt-16">
+          <div className="md:col-span-1">
+            <h2 className="text-xs font-bold uppercase tracking-widest text-indigo-400 mb-4">[ ABOUT ]</h2>
+            <p className="text-sm md:text-base leading-relaxed text-indigo-100/70">
+              Creator, tinkerer, and builder of digital experiences. 
+              Whether it's writing code, designing interfaces, or crafting data stories, I love bringing wild ideas to life on the internet.
+            </p>
+          </div>
+          <div className="md:col-span-2">
+            <h2 className="text-xs font-bold uppercase tracking-widest text-pink-400 mb-4">[ SOCIALS ]</h2>
+            <div className="flex flex-wrap gap-x-6 gap-y-4">
+              {socialCategories.flatMap(cat => cat.links)
+                .filter(link => !['Hackathon Guide', 'Freshie Resources'].includes(link.name))
+                .map((link) => {
+                  const Wrapper = link.href ? Link : 'div';
+                  return (
+                    <Wrapper 
+                      key={link.name} 
+                      href={link.href || undefined} 
+                      className={`flex items-center gap-2 text-sm md:text-base font-medium transition-colors ${link.href ? 'hover:text-pink-400' : 'text-gray-400'}`}
+                      title={link.alt || link.name}
+                    >
+                      {link.icon && <img src={link.icon} alt="" className="w-4 h-4 object-contain hover:scale-110 transition-transform" />}
+                      {link.name}
+                    </Wrapper>
+                  );
+                })}
             </div>
           </div>
-        )}
-      </div>
+          <div className="md:col-span-1 border-t md:border-t-0 md:border-l border-purple-900/30 pt-8 md:pt-0 md:pl-8">
+            <h2 className="text-xs font-bold uppercase tracking-widest text-cyan-400 mb-4">[ RESOURCES ]</h2>
+            <div className="flex flex-col gap-5">
+              {socialCategories.flatMap(cat => cat.links)
+                .filter(link => ['Hackathon Guide', 'Freshie Resources'].includes(link.name))
+                .map((link) => (
+                <Link 
+                  key={link.name} 
+                  href={link.href || '#'} 
+                  className="group flex items-start gap-3"
+                  title={link.alt || link.name}
+                >
+                  {link.icon && <img src={link.icon} alt="" className="w-5 h-5 object-contain mt-0.5 group-hover:scale-110 transition-transform" />}
+                  <div>
+                    <span className="text-sm md:text-base font-bold text-gray-200 group-hover:text-cyan-400 transition-colors block leading-tight">{link.name}</span>
+                    <span className="text-xs text-cyan-600/70 group-hover:text-cyan-400 font-mono mt-1 block">↗ Read</span>
+                  </div>
+                </Link>
+              ))}
+            </div>
+          </div>
+        </div>
+      </header>
+
+      <main className="max-w-7xl mx-auto px-6 md:px-12 pb-32 space-y-32 relative z-10">
+        
+        {/* Selected Works - Editorial Grid */}
+        <section>
+          <div className="flex justify-between items-end mb-12">
+            <h2 className="text-3xl md:text-5xl font-black uppercase tracking-tighter text-white">Selected Works</h2>
+            <Link href="/projects" className="text-sm uppercase tracking-widest font-bold text-pink-500 hover:text-pink-400">View All →</Link>
+          </div>
+          
+          <div className="grid grid-cols-1 md:grid-cols-12 gap-6 md:gap-8">
+            {projects.map((p, idx) => (
+              <Link 
+                key={p.slug} 
+                href={`/projects/${p.slug}`} 
+                className={`group block overflow-hidden ${
+                  idx % 3 === 0 ? 'md:col-span-12' : 'md:col-span-6'
+                }`}
+              >
+                <div className="relative aspect-[16/9] md:aspect-[3/2] bg-indigo-950/30 overflow-hidden rounded-lg border border-indigo-500/10 group-hover:border-pink-500/50 transition-colors duration-500">
+                  <Image 
+                    src={p.src} 
+                    alt={p.title} 
+                    width={1200} 
+                    height={800} 
+                    className="object-cover w-full h-full group-hover:scale-105 transition-transform duration-700 ease-out" 
+                  />
+                  <div className="absolute inset-0 bg-indigo-900/10 group-hover:bg-transparent transition-colors duration-500 mix-blend-overlay" />
+                </div>
+                <div className="mt-4 flex justify-between items-start">
+                  <h3 className="text-xl md:text-2xl font-bold uppercase tracking-tight group-hover:text-cyan-400 transition-colors">{p.title}</h3>
+                  <span className="text-xs font-bold text-pink-500">0{idx + 1}</span>
+                </div>
+              </Link>
+            ))}
+          </div>
+        </section>
+
+        {/* Talks & Workshops - Horizontal Scroll/List */}
+        <section>
+          <div className="flex justify-between items-end mb-12">
+            <h2 className="text-3xl md:text-5xl font-black uppercase tracking-tighter text-white">Talks</h2>
+            <Link href="/talks" className="text-sm uppercase tracking-widest font-bold text-pink-500 hover:text-pink-400">View All →</Link>
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            {talks.map((t, idx) => {
+              const displayImage = t.actionPhoto || t.slidesThumbnail;
+              return (
+                <Link key={t.slug} href={`/talks/${t.slug}`} className="group block">
+                  <div className="relative aspect-square overflow-hidden bg-indigo-950/30 rounded-lg border border-indigo-500/10 group-hover:border-cyan-500/50 transition-colors duration-500 mb-4">
+                    {displayImage && (
+                      <Image 
+                        src={displayImage} 
+                        alt={t.title} 
+                        width={600} 
+                        height={600} 
+                        className="object-cover w-full h-full group-hover:scale-105 transition-transform duration-700 ease-out" 
+                      />
+                    )}
+                  </div>
+                  <h3 className="text-base font-bold uppercase tracking-tight leading-tight group-hover:text-pink-400 transition-colors">{t.title}</h3>
+                </Link>
+              );
+            })}
+          </div>
+        </section>
+
+        {/* Writing & GitHub */}
+        <section className="grid grid-cols-1 md:grid-cols-2 gap-16 border-t border-purple-900/30 pt-16">
+          <div>
+            <h2 className="text-sm font-bold uppercase tracking-widest text-indigo-400 mb-8">[ WRITING ]</h2>
+            <div className="space-y-8">
+              {blogPosts.slice(0, 4).map((post, idx) => (
+                <Link key={idx} href={`/blog/${post.slug || 'slug'}`} className="group block">
+                  <span className="text-xs text-pink-500/70 font-mono mb-2 block">{post.date}</span>
+                  <h3 className="text-2xl font-bold tracking-tight group-hover:text-cyan-400 transition-colors">{post.title}</h3>
+                </Link>
+              ))}
+            </div>
+          </div>
+          <div>
+            <h2 className="text-sm font-bold uppercase tracking-widest text-pink-400 mb-8">[ ACTIVITY ]</h2>
+            <div className="bg-indigo-950/20 p-8 rounded-xl border border-indigo-500/10 overflow-x-auto hover:border-pink-500/30 transition-colors">
+              {/* GitHubCalendar natively supports a theme prop to colorize blocks, but we'll let it use dark mode for now */}
+              <GitHubCalendar username="smmariquit" colorScheme="dark" blockSize={12} blockMargin={4} fontSize={14} />
+            </div>
+          </div>
+        </section>
+
+        {/* Media & Button */}
+        <section className="border-t border-purple-900/30 pt-16">
+          <div className="max-w-4xl">
+            <h2 className="text-sm font-bold uppercase tracking-widest text-cyan-400 mb-8">[ RECENTLY CONSUMED ]</h2>
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-8">
+              {/* Film */}
+              {film && (
+                <div className="space-y-4">
+                  <h3 className="text-xs uppercase tracking-widest text-indigo-400/80 border-b border-purple-900/30 pb-2">Film</h3>
+                  <div className="aspect-[2/3] relative overflow-hidden bg-indigo-950/30 rounded-lg border border-indigo-500/10">
+                    {film.posterUrl && <img src={film.posterUrl} alt={film.title} className="object-cover w-full h-full" />}
+                  </div>
+                  <div>
+                    <h4 className="font-bold text-sm uppercase text-pink-100">{film.title}</h4>
+                    {film.rating && <p className="text-xs text-pink-400 mt-1">{'★'.repeat(Math.round(film.rating))}</p>}
+                  </div>
+                </div>
+              )}
+              {/* Book */}
+              {book && (
+                <div className="space-y-4">
+                  <h3 className="text-xs uppercase tracking-widest text-indigo-400/80 border-b border-purple-900/30 pb-2">Book</h3>
+                  <div className="aspect-[2/3] relative overflow-hidden bg-indigo-950/30 rounded-lg border border-indigo-500/10">
+                    {book.coverUrl && <img src={book.coverUrl} alt={book.title} className="object-cover w-full h-full" />}
+                  </div>
+                  <div>
+                    <h4 className="font-bold text-sm uppercase text-pink-100">{book.title}</h4>
+                    <p className="text-xs text-cyan-400/70 mt-1">{book.author}</p>
+                  </div>
+                </div>
+              )}
+              {/* Anime */}
+              {anime && (
+                <div className="space-y-4">
+                  <h3 className="text-xs uppercase tracking-widest text-indigo-400/80 border-b border-purple-900/30 pb-2">Anime</h3>
+                  <div className="aspect-[2/3] relative overflow-hidden bg-indigo-950/30 rounded-lg border border-indigo-500/10">
+                    {anime.coverUrl && <img src={anime.coverUrl} alt={anime.title} className="object-cover w-full h-full" />}
+                  </div>
+                  <div>
+                    <h4 className="font-bold text-sm uppercase text-pink-100">{anime.title}</h4>
+                    <p className="text-xs text-cyan-400/70 mt-1 uppercase">{anime.status}</p>
+                  </div>
+                </div>
+              )}
+            </div>
+          </div>
+          
+          <div className="mt-24 text-center">
+             <p className="text-xs text-indigo-400/80 mb-4 uppercase tracking-widest">Grab my button</p>
+             <img src="/stimmie_88x31.gif" alt="Stimmie 88x31 Button" className="inline-block rounded shadow-[0_0_15px_rgba(236,72,153,0.3)] hover:scale-110 transition-transform" style={{ imageRendering: 'pixelated' }} />
+          </div>
+        </section>
+
+      </main>
+      
+      {/* Global CSS injections for scrollbar hiding */}
+      <style dangerouslySetInnerHTML={{__html: `
+        .scrollbar-hide::-webkit-scrollbar {
+            display: none;
+        }
+        .scrollbar-hide {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+      `}} />
     </div>
   );
 }

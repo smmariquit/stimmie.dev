@@ -8,8 +8,9 @@ export const talks = [
   {
     slug: "dsg-codeit-day1-what-is-data-science",
     title: "UPLB DSG x UPRHS CodeIT Workshop Day 1 - What is Data Science?",
-    src: "/talks/talk1.jpg",
-    date: "2024",
+    actionPhoto: null,
+    slidesThumbnail: "/talks/uprhs-day1-thumbnail.png",
+    date: "2025-04-04T10:00:00+08:00",
     event: "UPLB Data Science Guild x UPRHS CodeIT",
     type: "Workshop",
     description:
@@ -19,8 +20,9 @@ export const talks = [
   {
     slug: "dsg-codeit-day2-storytelling-with-data",
     title: "UPLB DSG x UPRHS CodeIT Workshop Day 2 - Storytelling with Data",
-    src: "/talks/talk2.jpg",
-    date: "2024",
+    actionPhoto: "/talks/uprhs-day2.jpg",
+    slidesThumbnail: null,
+    date: "2025-04-11T10:00:00+08:00",
     event: "UPLB Data Science Guild x UPRHS CodeIT",
     type: "Workshop",
     description:
@@ -30,8 +32,9 @@ export const talks = [
   {
     slug: "nextstep-hacks-2025-winning-by-talking",
     title: "NextStep Hacks 2025 - Winning by Talking",
-    src: "/talks/talk3.jpg",
-    date: "2025",
+    actionPhoto: "/talks/talk3.jpg",
+    slidesThumbnail: null,
+    date: "2025-01-20T14:00:00+08:00",
     event: "NextStep Hacks 2025",
     type: "Talk",
     description:
@@ -42,8 +45,9 @@ export const talks = [
     slug: "jpcs-qcu-logic-unlocked-ml-with-python",
     title:
       "JPCS - QCU Logic Unlocked Day 1 - Machine Learning with Python",
-    src: "/talks/talk4.jpg",
-    date: "2025",
+    actionPhoto: null,
+    slidesThumbnail: "/talks/jpcs-qcu-thumbnail.jpg",
+    date: "2025-09-25T09:00:00+08:00",
     event: "JPCS QCU Logic Unlocked",
     type: "Workshop",
     description:
@@ -53,8 +57,9 @@ export const talks = [
   {
     slug: "dsg-applicants-data-storytelling-canva",
     title: "UPLB DSG Applicants' Workshop - Data Storytelling with Canva",
-    src: "/talks/talk5.jpg",
-    date: "2024",
+    actionPhoto: "/talks/talk5.jpg",
+    slidesThumbnail: null,
+    date: "2025-10-05T13:00:00+08:00",
     event: "UPLB Data Science Guild",
     type: "Workshop",
     description:
@@ -65,30 +70,37 @@ export const talks = [
     slug: "dep-ai-use-cases-that-actually-matter",
     title:
       "Data Engineering Pilipinas AI Study Group - AI Use Cases That Actually Matter",
-    src: "/talks/talk6.jpg",
-    date: "2025",
+    actionPhoto: "/talks/talk6.jpg",
+    slidesThumbnail: null,
+    date: "2025-10-12T10:00:00+08:00",
     event: "Data Engineering Pilipinas",
     type: "Talk",
     description: "Discussing practical AI applications that create real-world impact.",
-    slidesLink: "/r/talks/dep-ai-study",
+    slidesLink: "https://canva.link/xn1ghgvhtk628aw",
+    replayLink: "https://youtu.be/fL23CKJDGN8?si=tDRsPeaSlTmVUG0f",
+    moderator: {
+      name: "Allan Tan",
+      link: "https://www.linkedin.com/in/allanctan/"
+    }
   },
   {
     slug: "dlsu-eces-agile-edge-swift-project-workflows",
     title: "DLSU ECES - Agile Edge: Swift Project Workflows",
-    src: "/talks/talk7.gif",
-    date: "2025",
+    actionPhoto: "/talks/dlsu-eces-agile-edge.jpg",
+    slidesThumbnail: null,
+    date: "2025-11-05T14:00:00+08:00",
     event: "DLSU ECES",
     type: "Talk",
-    description: "Upcoming talk on agile methodologies and efficient project management.",
+    description: "Talk on agile methodologies and efficient project management for the DLSU ECES.",
     slidesLink: null,
-    upcoming: true,
   },
   {
     slug: "ml-iris-classification-org-applicants",
     title: "ML Workshop: Iris Classification",
-    src: "/talks/talk1.jpg",
-    date: "2024",
-    event: "Org Applicants",
+    actionPhoto: "/talks/dsg-apps-workshop.jpeg",
+    slidesThumbnail: null,
+    date: "2026-03-02T10:00:00+08:00",
+    event: "UPLB Data Science Guild Apps' Workshop",
     type: "Workshop",
     description: "Introductory ML workshop focusing on the classic Iris dataset classification.",
     slidesLink: "https://workshops.stimmie.dev/ml-iris-slides",
@@ -96,9 +108,10 @@ export const talks = [
   {
     slug: "python-in-research-ust",
     title: "Python in Research",
-    src: "/talks/talk2.jpg",
-    date: "2024",
-    event: "UST",
+    actionPhoto: null,
+    slidesThumbnail: "/talks/python-in-research-thumbnail.png",
+    date: "2026-04-24T13:30:00+08:00",
+    event: "Decode to Defend: A Research Refresher by UST Computer Science Society",
     type: "Workshop",
     description: "Applying Python for data analysis and automation in academic research.",
     slidesLink: "https://workshops.stimmie.dev/python",
@@ -106,11 +119,39 @@ export const talks = [
   {
     slug: "ml-workshop-smcl",
     title: "Machine Learning Workshop",
-    src: "/talks/talk3.jpg",
-    date: "2024",
+    actionPhoto: "/talks/ml-workshop-smcl.jpg",
+    slidesThumbnail: null,
+    date: "2024-12-05T09:00:00+08:00",
     event: "Saint Michael's College of Laguna",
     type: "Workshop",
     description: "A comprehensive machine learning workshop for students at SMCL.",
+    slidesLink: null,
+  },
+  {
+    slug: "hearthcraft-40000-player-minecraft-server",
+    title: "HearthCraft: A 40,000-Player Minecraft Server",
+    actionPhoto: null,
+    slidesThumbnail: "/talks/hearthcraft-thumbnail.png",
+    date: "2026-02-02T10:00:00+08:00",
+    event: "HearthCraft",
+    type: "Talk",
+    description: "Deep dive into managing and scaling a 40,000-player Minecraft server community.",
+    slidesLink: null,
+    replayLink: "#",
+    moderator: {
+      name: "Renzi Vidal",
+      link: "https://www.linkedin.com/in/ultrenz-vidal/"
+    }
+  },
+  {
+    slug: "present-insights-better-batangas-eastern-colleges",
+    title: "Present Insights Better",
+    actionPhoto: null,
+    slidesThumbnail: "/talks/present-insights-better-thumbnail.png",
+    date: "2026-02-12T10:00:00+08:00",
+    event: "Batangas Eastern Colleges",
+    type: "Talk",
+    description: "A talk on the intersection of data science and data analytics to better present insights.",
     slidesLink: null,
   },
 ];
