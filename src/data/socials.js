@@ -130,15 +130,12 @@ export const socialCategories = [
       },
       {
         name: "Hackathon Guide",
-        href: "https://docs.google.com/document/d/1cJya3Zb2ck9vkxIKc1LQjJomQS_LFtBOABlzHrb7Z5s/edit?usp=sharing",
+        href: "https://guide.stimmie.dev/hackathons",
         icon: "/logos/hackathon.png",
       },
       {
         name: "Freshie Resources",
-        // NOTE: this URL is currently identical to the Hackathon Guide
-        // (same Google Doc ID). Likely a copy-paste mistake — keeping
-        // the existing behaviour but flagging for follow-up.
-        href: "https://docs.google.com/document/d/1cJya3Zb2ck9vkxIKc1LQjJomQS_LFtBOABlzHrb7Z5s/",
+        href: "https://guide.stimmie.dev/freshie",
         icon: "/logos/freshie.png",
         alt: "Freshie Resources - A guide for incoming students",
       },
