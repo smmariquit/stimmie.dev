@@ -37,10 +37,9 @@ export const redirectMap = {
     "dep-ai-study": TODO_TARGET,
   },
   links: {
-    freshie:
-      "https://docs.google.com/document/d/1cJya3Zb2ck9vkxIKc1LQjJomQS_LFtBOABlzHrb7Z5s/",
-    hackathons:
-      "https://docs.google.com/document/d/1nO2-vsOKjl4C_AngSSqc-knkUZvjJhe700unYZzcYsg/edit?usp=sharing",
+    freshie: "https://guide.stimmie.dev/freshie",
+    hackathons: "https://guide.stimmie.dev/hackathons",
+    tech: "https://guide.stimmie.dev/tech",
     linkedin: "https://www.linkedin.com/in/stimmie",
     github: "https://www.github.com/smmariquit",
     instagram: "https://www.instagram.com/friedicecrm",
@@ -120,7 +119,9 @@ export function flattenRedirects() {
       const subdomainHost = subdomainHostFor(category);
 
       const apexPath =
-        category === CATCH_ALL_CATEGORY ? `/r/${slug}` : `/r/${category}/${slug}`;
+        category === CATCH_ALL_CATEGORY
+          ? `/r/${slug}`
+          : `/r/${category}/${slug}`;
 
       out.push({
         category,
