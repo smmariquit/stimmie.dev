@@ -28,6 +28,7 @@ export const STIMMIEVERSE_CATEGORIES = [
       { name: "All Guides", url: "https://guide.stimmie.dev" },
       { name: "Freshie Guide", url: "https://guide.stimmie.dev/freshie" },
       { name: "Hackathon Guide", url: "https://guide.stimmie.dev/hackathons" },
+      { name: "Resume Guide", url: "https://guide.stimmie.dev/resume" },
     ],
   },
 ];
