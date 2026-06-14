@@ -3,7 +3,6 @@ export const STIMMIEVERSE_CATEGORIES = [
     label: "Services",
     blurb: "Live apps and tools you can use right now",
     links: [
-      { name: "Book a Call", url: "https://cal.stimmie.dev" },
       { name: "Kape", url: "https://kape.stimmie.dev" },
       { name: "Room TBA", url: "https://room-tba.stimmie.dev" },
       { name: "GradeSim", url: "https://gradesim.stimmie.dev" },
