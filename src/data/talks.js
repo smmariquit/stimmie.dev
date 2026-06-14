@@ -190,6 +190,19 @@ export const talks = [
       "A talk on running your own Minecraft server, from setup and hosting to growing and managing a community.",
     slidesLink: null,
   },
+  {
+    slug: "minecraft-moments-milestones-eheads-21",
+    title: "Minecraft, Moments, Milestones",
+    actionPhoto: null,
+    slidesThumbnail: null,
+    date: "2026-12-12T10:00:00+08:00",
+    event: "eHeads 21 @ Arthaland Century Pacific Tower",
+    type: "Talk",
+    audienceSize: 80,
+    description:
+      "A 5-minute show-and-tell and an early take on my HearthCraft talk, on the moments and milestones of building a Minecraft community.",
+    slidesLink: "https://canva.link/mcvy2k0zc0oot4z",
+  },
 ];
 
 export function getTalkBySlug(slug) {
