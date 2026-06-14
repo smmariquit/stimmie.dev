@@ -130,6 +130,14 @@ export default function HomeClient({ mediaData, version }) {
             Hi! You found my website on the{" "}
             <strong className="text-[#cc0000]">internet</strong>.
           </p>
+          <p
+            className="mt-2 text-base neo-muted"
+            style={{ fontFamily: "var(--neo-ui)" }}
+          >
+            This is my personal corner of the web, all about Stimmie the
+            person. If you came to learn more about my career, head over to{" "}
+            <Link href="/career">stimmie.dev/career</Link>.
+          </p>
           <nav
             className="neo-topnav mt-3"
             style={{ justifyContent: "center" }}
