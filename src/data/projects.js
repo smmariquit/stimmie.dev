@@ -9,6 +9,7 @@ export const projects = [
     slug: "hearthcraft",
     title: "HearthCraft",
     src: "/projects/project1.jpg",
+    date: "2016 – 2022",
     description:
       "At 13 years old, I decided to take my deep enjoyment of Minecraft, learn to set up a Minecraft server, worked with both managed and bare-metal servers, set up Java plugins and Docker instances, and created a multiplayer experience that served as a safe space for 10,000+ over the span of 6+ years.",
     tags: ["Minecraft", "Docker", "Java", "Community"],
@@ -18,6 +19,7 @@ export const projects = [
     slug: "atlas-of-my-skies",
     title: "Atlas Of My Skies",
     src: "/projects/project2.jpg",
+    date: "2023",
     description: "Telling the story of the skies.",
     tags: ["Photography", "Storytelling"],
     link: null,
@@ -26,6 +28,7 @@ export const projects = [
     slug: "barlo-bayani-alert-and-response",
     title: "BARLO: Bayani Alert and Response for Local Operations",
     src: "/projects/project3.jpg",
+    date: "2024",
     description:
       "Predict a storm's economic impact from typhoon forecast data. Get insights on how to pre-emptively place logistics.",
     tags: ["Data Science", "ML", "Disaster Response"],
@@ -35,6 +38,7 @@ export const projects = [
     slug: "pharmadash",
     title: "Pharmadash",
     src: "/projects/project4.jpg",
+    date: "2024",
     description:
       "A hackathon project for efficient pharmaceutical inventory management and distribution.",
     tags: ["Hackathon", "Healthcare", "Inventory"],
@@ -44,6 +48,7 @@ export const projects = [
     slug: "punnett-square-visualizer",
     title: "Punnett Square Visualizer",
     src: "/projects/project5.jpg",
+    date: "2022",
     description:
       "An interactive tool to visualize genetic crosses. Used in tutorials for science high school students.",
     tags: ["Education", "Biology", "Visualization"],
@@ -53,7 +58,9 @@ export const projects = [
     slug: "room-tba",
     title: "Room TBA",
     src: "/projects/project1.jpg",
-    description: "A fully immersive 3D campus viewer for UPLB. Navigate through academic buildings and find your classes easily.",
+    date: "2025",
+    description:
+      "A fully immersive 3D campus viewer for UPLB. Navigate through academic buildings and find your classes easily.",
     tags: ["3D", "Astro", "Campus"],
     link: "https://room-tba.stimmie.dev",
   },
@@ -61,7 +68,9 @@ export const projects = [
     slug: "elbi-gradesim",
     title: "Elbi GradeSim",
     src: "/projects/project2.jpg",
-    description: "An advanced grade simulation and course planning tool tailored for UPLB students.",
+    date: "2025",
+    description:
+      "An advanced grade simulation and course planning tool tailored for UPLB students.",
     tags: ["Tooling", "Education", "Next.js"],
     link: "https://gradesim.stimmie.dev",
   },
@@ -69,7 +78,9 @@ export const projects = [
     slug: "typhoonomics",
     title: "Typhoonomics",
     src: "/projects/project3.jpg",
-    description: "Data-driven insights predicting the economic impact of typhoons in the Philippines.",
+    date: "2024",
+    description:
+      "Data-driven insights predicting the economic impact of typhoons in the Philippines.",
     tags: ["Data Science", "Python", "Analytics"],
     link: "https://github.com/smmariquit/typhoonomics",
   },
@@ -77,7 +88,9 @@ export const projects = [
     slug: "kape",
     title: "Kape",
     src: "/projects/project4.jpg",
-    description: "A free, open-source 'Buy Me A Coffee' alternative tailored for local creators.",
+    date: "2025",
+    description:
+      "A free, open-source 'Buy Me A Coffee' alternative tailored for local creators.",
     tags: ["Monetization", "Creator Economy"],
     link: "https://kape.stimmie.dev",
   },

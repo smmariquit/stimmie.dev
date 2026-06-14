@@ -117,5 +117,5 @@ def process_images(images_dir: Path, out_json: Path, sample_limit: int = 200000)
 if __name__ == '__main__':
     base = Path(__file__).parent
     images_dir = base / 'images'
-    out_json = base / 'image_data_summary.json'
+    out_json = base / 'archive' / 'mosaic' / 'image_data_summary.json'
     process_images(images_dir, out_json)

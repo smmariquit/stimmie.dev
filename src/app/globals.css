@@ -1,76 +1,74 @@
 /* src/app/globals.css */
 
-
-
 @import "tailwindcss";
 
 /* Local Satoshi font files placed in public/fonts/ */
 @font-face {
-  font-family: 'Satoshi';
-  src: url('/fonts/Satoshi-Regular.otf') format('opentype');
+  font-family: "Satoshi";
+  src: url("/fonts/Satoshi-Regular.otf") format("opentype");
   font-weight: 400;
   font-style: normal;
   font-display: swap;
 }
 @font-face {
-  font-family: 'Satoshi';
-  src: url('/fonts/Satoshi-Italic.otf') format('opentype');
+  font-family: "Satoshi";
+  src: url("/fonts/Satoshi-Italic.otf") format("opentype");
   font-weight: 400;
   font-style: italic;
   font-display: swap;
 }
 @font-face {
-  font-family: 'Satoshi';
-  src: url('/fonts/Satoshi-Light.otf') format('opentype');
+  font-family: "Satoshi";
+  src: url("/fonts/Satoshi-Light.otf") format("opentype");
   font-weight: 300;
   font-style: normal;
   font-display: swap;
 }
 @font-face {
-  font-family: 'Satoshi';
-  src: url('/fonts/Satoshi-LightItalic.otf') format('opentype');
+  font-family: "Satoshi";
+  src: url("/fonts/Satoshi-LightItalic.otf") format("opentype");
   font-weight: 300;
   font-style: italic;
   font-display: swap;
 }
 @font-face {
-  font-family: 'Satoshi';
-  src: url('/fonts/Satoshi-Medium.otf') format('opentype');
+  font-family: "Satoshi";
+  src: url("/fonts/Satoshi-Medium.otf") format("opentype");
   font-weight: 500;
   font-style: normal;
   font-display: swap;
 }
 @font-face {
-  font-family: 'Satoshi';
-  src: url('/fonts/Satoshi-MediumItalic.otf') format('opentype');
+  font-family: "Satoshi";
+  src: url("/fonts/Satoshi-MediumItalic.otf") format("opentype");
   font-weight: 500;
   font-style: italic;
   font-display: swap;
 }
 @font-face {
-  font-family: 'Satoshi';
-  src: url('/fonts/Satoshi-Bold.otf') format('opentype');
+  font-family: "Satoshi";
+  src: url("/fonts/Satoshi-Bold.otf") format("opentype");
   font-weight: 700;
   font-style: normal;
   font-display: swap;
 }
 @font-face {
-  font-family: 'Satoshi';
-  src: url('/fonts/Satoshi-BoldItalic.otf') format('opentype');
+  font-family: "Satoshi";
+  src: url("/fonts/Satoshi-BoldItalic.otf") format("opentype");
   font-weight: 700;
   font-style: italic;
   font-display: swap;
 }
 @font-face {
-  font-family: 'Satoshi';
-  src: url('/fonts/Satoshi-Black.otf') format('opentype');
+  font-family: "Satoshi";
+  src: url("/fonts/Satoshi-Black.otf") format("opentype");
   font-weight: 900;
   font-style: normal;
   font-display: swap;
 }
 @font-face {
-  font-family: 'Satoshi';
-  src: url('/fonts/Satoshi-BlackItalic.otf') format('opentype');
+  font-family: "Satoshi";
+  src: url("/fonts/Satoshi-BlackItalic.otf") format("opentype");
   font-weight: 900;
   font-style: italic;
   font-display: swap;
@@ -79,16 +77,38 @@
 /* add this to globals.css */
 .no-scrollbar {
   -ms-overflow-style: none; /* IE and Edge */
-  scrollbar-width: none;    /* Firefox */
+  scrollbar-width: none; /* Firefox */
 }
 .no-scrollbar::-webkit-scrollbar {
-  display: none;            /* Chrome, Safari, Opera */
+  display: none; /* Chrome, Safari, Opera */
 }
 
 :root {
   --background: #ffffff;
   --foreground: #171717;
-  --font-sans: 'Satoshi', system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  --font-sans:
+    "Satoshi", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue",
+    Arial, sans-serif;
+  --neo-bg: #0a0a1a;
+  --neo-box: #fffef5;
+  --neo-sidebar: #e8f0ff;
+  --neo-border: #ff00aa;
+  --neo-border-alt: #00ccff;
+  --neo-link: #0000cc;
+  --neo-link-visited: #7a007a;
+  --neo-heading: #c00000;
+  /* AA-safe accents (>= 4.5:1 on cream / >= 3:1 on light-blue sidebar) */
+  --neo-accent-red: #c00000;
+  --neo-accent-blue: #0a6699;
+  --neo-accent-purple: #7a00b8;
+  /* Display + body fonts come from next/font (see src/app/fonts.js).
+     --neo-pixel kept as the variable name for back-compat, but it now maps to
+     a readable rounded display font instead of the old pixel font. */
+  --neo-pixel: var(--font-display), "Trebuchet MS", system-ui, sans-serif;
+  --neo-body: var(--font-body), system-ui, -apple-system, "Segoe UI", Helvetica,
+    Arial, sans-serif;
+  --neo-ui: var(--font-body), system-ui, -apple-system, "Segoe UI", Helvetica,
+    Arial, sans-serif;
 }
 
 h1 {
@@ -147,10 +167,6 @@ body {
 
 /*
  * Whimsical "scrapbook" background grid.
- *
- * Each tile gets a per-instance rotation via the inline `--rot` custom
- * property; uniform CSS-only hover then unrotates and scales it. We avoid
- * per-tile JS animation/handlers because there are 400+ tiles in the grid.
  */
 .bg-tile {
   --rot: 0deg;
@@ -166,11 +182,6 @@ body {
   filter: brightness(1.18) saturate(1.15);
 }
 
-/*
- * Variable spans for organic mosaic rhythm. Coprime moduli (7/11/13/19)
- * minimise visible repetition across the doubled image list. `grid-auto-flow:
- * dense` on the parent fills the gaps that mixed spans inevitably create.
- */
 .bg-tile-grid > .bg-tile:nth-child(7n + 3) {
   grid-column: span 2;
   grid-row: span 2;
@@ -186,7 +197,6 @@ body {
   grid-row: span 2;
 }
 
-/* Respect reduced-motion: kill the rotation + hover lift entirely. */
 @media (prefers-reduced-motion: reduce) {
   .bg-tile {
     transform: none;
@@ -195,4 +205,582 @@ body {
   .bg-tile:hover {
     transform: none;
   }
+}
+
+/* ── Neocities homepage ───────────────────────────────────────────── */
+
+.neo-page {
+  min-height: 100vh;
+  background-color: var(--neo-bg);
+  background-image:
+    radial-gradient(1px 1px at 20px 30px, #fff, transparent),
+    radial-gradient(1px 1px at 80px 120px, #fff8, transparent),
+    radial-gradient(1px 1px at 160px 60px, #fff6, transparent),
+    radial-gradient(1.5px 1.5px at 240px 180px, #fff, transparent),
+    radial-gradient(1px 1px at 320px 40px, #fff8, transparent),
+    radial-gradient(1px 1px at 400px 200px, #fff6, transparent),
+    radial-gradient(1px 1px at 50px 250px, #fff, transparent),
+    radial-gradient(1px 1px at 300px 300px, #fff8, transparent);
+  background-size: 420px 320px;
+  color: #1a1a1a;
+  font-family: var(--neo-body);
+  font-size: 18px;
+  line-height: 1.7;
+}
+
+.neo-page a {
+  color: var(--neo-link);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+.neo-page a:visited {
+  color: var(--neo-link-visited);
+}
+.neo-page a:hover {
+  color: #cc0066;
+  background: #fffacd;
+}
+
+.neo-shell {
+  max-width: 56rem;
+  margin: 0 auto;
+  padding: 1.25rem 1rem;
+}
+
+.neo-box {
+  background: var(--neo-box);
+  border: 3px ridge var(--neo-border);
+  box-shadow: 4px 4px 0 #000;
+  padding: 1rem 1.25rem;
+}
+
+.neo-sidebar-box {
+  background: var(--neo-sidebar);
+  border: 3px groove var(--neo-border-alt);
+  box-shadow: 3px 3px 0 #000;
+  padding: 0.875rem 1rem;
+}
+
+.neo-title {
+  font-family: var(--neo-pixel);
+  font-size: clamp(2rem, 7vw, 3.25rem);
+  line-height: 1.15;
+  text-align: center;
+  letter-spacing: 0.05em;
+  color: var(--neo-heading);
+}
+
+.neo-blink {
+  animation: neo-blink 1.2s step-end infinite;
+}
+
+@keyframes neo-blink {
+  50% {
+    opacity: 0;
+  }
+}
+
+.neo-marquee-wrap {
+  overflow: hidden;
+  background: #000;
+  color: #0f0;
+  font-family: var(--neo-pixel);
+  font-size: 1.125rem;
+  border: 2px inset #333;
+  padding: 0.25rem 0;
+}
+
+.neo-marquee-track {
+  display: inline-block;
+  white-space: nowrap;
+  animation: neo-marquee 22s linear infinite;
+}
+
+@keyframes neo-marquee {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+.neo-divider {
+  text-align: center;
+  color: var(--neo-border);
+  font-size: 0.85rem;
+  margin: 0.75rem 0;
+  letter-spacing: 0.1em;
+}
+
+.neo-section-title {
+  font-family: var(--neo-pixel);
+  font-size: 1.75rem;
+  color: var(--neo-heading);
+  margin: 0 0 0.75rem;
+  text-transform: lowercase;
+  line-height: 1.25;
+}
+
+.neo-section-title::before {
+  content: "★ ";
+}
+
+.neo-nav-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.neo-nav-list li {
+  margin: 0.35rem 0;
+  font-family: var(--neo-ui);
+  font-size: 1rem;
+}
+
+.neo-nav-list li::before {
+  content: "► ";
+  color: #ff00aa;
+}
+
+.neo-social-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.neo-social-list li {
+  margin: 0.35rem 0;
+}
+
+.neo-social-link {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-family: var(--neo-ui);
+  font-size: 1rem;
+  line-height: 1.4;
+  text-decoration: none;
+}
+
+.neo-page a.neo-social-link {
+  text-decoration: none;
+}
+
+.neo-page a.neo-social-link:hover {
+  text-decoration: underline;
+}
+
+.neo-social-link:hover {
+  text-decoration: underline;
+}
+
+.neo-social-icon {
+  width: 20px;
+  height: 20px;
+  flex-shrink: 0;
+  object-fit: contain;
+}
+
+.neo-social-category {
+  font-family: var(--neo-pixel);
+  font-size: 1rem;
+  line-height: 1.2;
+  color: #333;
+  margin: 0.75rem 0 0.35rem;
+  text-wrap: balance;
+}
+
+.neo-social-category:first-child {
+  margin-top: 0;
+}
+
+.neo-social-desc {
+  font-family: var(--neo-body);
+  font-size: 0.85rem;
+  line-height: 1.3;
+  color: #555;
+  margin: -0.2rem 0 0.4rem;
+  text-wrap: balance;
+}
+
+.neo-muted {
+  color: #444;
+}
+
+.neo-sidebar-heading {
+  font-family: var(--neo-pixel);
+  font-size: 1.35rem;
+  margin-bottom: 0.5rem;
+  line-height: 1.2;
+}
+
+.neo-counter {
+  font-family: var(--neo-pixel);
+  font-size: 1.1rem;
+  background: #000;
+  color: #0f0;
+  padding: 0.35rem 0.5rem;
+  border: 2px inset #555;
+  text-align: center;
+  letter-spacing: 0.15em;
+}
+
+.neo-thumb {
+  border: 2px solid #000;
+  image-rendering: auto;
+}
+
+/* ── The Crib live server status ──────────────────────────────────── */
+
+.neo-crib-status {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: #1a1a1a;
+  margin: 0 0 0.4rem;
+}
+
+.neo-crib-count {
+  font-size: 1.3rem;
+  color: var(--neo-accent-blue);
+}
+
+.neo-crib-max {
+  font-weight: 400;
+  color: #555;
+}
+
+.neo-crib-blurb {
+  font-family: var(--neo-body);
+  font-size: 0.9rem;
+  line-height: 1.35;
+  color: #555;
+  margin: 0 0 0.5rem;
+}
+
+.neo-status-dot {
+  display: inline-block;
+  width: 0.7rem;
+  height: 0.7rem;
+  border-radius: 50%;
+  border: 1px solid rgba(0, 0, 0, 0.35);
+  flex-shrink: 0;
+}
+
+.neo-status-dot-online {
+  background: #14b814;
+  box-shadow: 0 0 0 0 rgba(20, 184, 20, 0.6);
+  animation: neo-pulse 1.8s ease-out infinite;
+}
+
+.neo-status-dot-offline {
+  background: #b80000;
+}
+
+@keyframes neo-pulse {
+  0% {
+    box-shadow: 0 0 0 0 rgba(20, 184, 20, 0.55);
+  }
+  70% {
+    box-shadow: 0 0 0 0.45rem rgba(20, 184, 20, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(20, 184, 20, 0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .neo-status-dot-online {
+    animation: none;
+  }
+}
+
+.neo-thumb-lg {
+  border: 3px solid #000;
+  box-shadow: 3px 3px 0 #666;
+  image-rendering: auto;
+}
+
+/* Card links wrap their whole body, so don't paint every line of text like a
+   link — keep normal body color and no underline (titles still recolor on
+   hover via their own utility classes). */
+.neo-page a.neo-media-card,
+.neo-page a.neo-media-card:visited {
+  color: inherit;
+  text-decoration: none;
+}
+.neo-page a.neo-media-card:hover {
+  background: transparent;
+}
+
+.neo-media-card:hover .neo-thumb-lg {
+  box-shadow: 4px 4px 0 #cc0066;
+}
+
+.neo-pixel-btn {
+  image-rendering: pixelated;
+  border: 2px outset #ccc;
+}
+
+.neo-footer {
+  font-family: var(--neo-pixel);
+  font-size: 1.05rem;
+  text-align: center;
+  color: #e4e4f0;
+  margin-top: 1rem;
+}
+
+/* The footer sits on the dark starfield background, so it needs bright link
+   colors — the default dark-blue/dark-purple link palette is unreadable here. */
+.neo-page .neo-footer a,
+.neo-page .neo-footer a:visited {
+  color: #8fd6ff;
+}
+.neo-page .neo-footer a:hover {
+  color: #ffe000;
+  background: transparent;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .neo-blink,
+  .neo-marquee-track {
+    animation: none;
+  }
+  .neo-blink {
+    opacity: 1;
+  }
+}
+
+/* ── Accessibility ─────────────────────────────────────────────────── */
+
+/* Skip-to-main link: visually hidden until focused. */
+.neo-skip-link {
+  position: absolute;
+  left: 0.5rem;
+  top: -3rem;
+  z-index: 200;
+  background: #ffff00;
+  color: #000;
+  font-family: var(--neo-ui);
+  font-weight: 700;
+  padding: 0.5rem 0.85rem;
+  border: 2px solid #000;
+  text-decoration: none;
+  transition: top 120ms ease-in;
+}
+.neo-skip-link:focus {
+  top: 0.5rem;
+}
+
+/* Strong, theme-consistent focus ring for keyboard users everywhere. */
+.neo-page a:focus-visible,
+.neo-page button:focus-visible,
+.neo-page [tabindex]:focus-visible,
+.neo-page summary:focus-visible {
+  outline: 3px solid #d6008f;
+  outline-offset: 2px;
+  border-radius: 2px;
+}
+
+.neo-accent-red {
+  color: var(--neo-accent-red);
+}
+.neo-accent-blue {
+  color: var(--neo-accent-blue);
+}
+.neo-accent-purple {
+  color: var(--neo-accent-purple);
+}
+
+/* ── Shared top navigation (inner tabs) ───────────────────────────── */
+
+.neo-topnav {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.4rem 0.6rem;
+  font-family: var(--neo-ui);
+  font-size: 0.95rem;
+}
+
+.neo-topnav a {
+  display: inline-block;
+  padding: 0.15rem 0.5rem;
+  border: 2px solid transparent;
+}
+
+.neo-topnav a[aria-current="page"] {
+  border: 2px solid var(--neo-border);
+  background: #fff0f8;
+  font-weight: 700;
+}
+
+/* ── Content building blocks ──────────────────────────────────────── */
+
+/* ── Friends / neighbors ───────────────────────────────────────────── */
+.neo-friends-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 0.5rem;
+}
+.neo-friends-list li {
+  display: flex;
+  align-items: baseline;
+  gap: 0.4rem;
+  flex-wrap: wrap;
+}
+.neo-friends-list .neo-friend-blurb {
+  color: #444;
+  font-family: var(--neo-ui);
+  font-size: 0.95rem;
+}
+
+/* ── 88x31 button wall ─────────────────────────────────────────────── */
+.neo-btn-wall {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  justify-content: center;
+}
+.neo-88x31 {
+  box-sizing: border-box;
+  width: 88px;
+  height: 31px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  font-family: var(--neo-ui);
+  font-size: 9px;
+  line-height: 1.1;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  padding: 0 2px;
+  border: 2px outset #d0d0d0;
+  box-shadow: 1px 1px 0 #000;
+  overflow: hidden;
+}
+.neo-page a.neo-88x31,
+.neo-page a.neo-88x31:visited {
+  text-decoration: none;
+  color: inherit;
+}
+.neo-page a.neo-88x31:hover {
+  background-image: none;
+  filter: brightness(1.12);
+}
+.neo-page a.neo-88x31:active {
+  border-style: inset;
+  transform: translate(1px, 1px);
+  box-shadow: 0 0 0 #000;
+}
+.neo-88x31 span {
+  display: block;
+}
+
+.neo-link-card {
+  display: block;
+  background: #fffef5;
+  border: 2px solid #1a1a1a;
+  box-shadow: 3px 3px 0 #9a9a9a;
+  padding: 0.85rem 1rem;
+  text-decoration: none;
+  transition:
+    box-shadow 120ms ease,
+    transform 120ms ease;
+}
+.neo-link-card:hover {
+  box-shadow: 4px 4px 0 #d6008f;
+  background: #fff7fb;
+}
+
+.neo-tag {
+  display: inline-block;
+  font-family: var(--neo-ui);
+  font-size: 0.8rem;
+  background: #ffe9f6;
+  border: 1px solid #d6008f;
+  color: #8a005c;
+  padding: 0.05rem 0.45rem;
+  margin: 0 0.25rem 0.25rem 0;
+}
+
+.neo-badge {
+  display: inline-block;
+  font-family: var(--neo-ui);
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+  padding: 0.1rem 0.5rem;
+  border: 2px solid #000;
+}
+.neo-badge-workshop {
+  background: #d8ffe0;
+  color: #075c1f;
+}
+.neo-badge-talk {
+  background: #efe0ff;
+  color: #5a0a8a;
+}
+.neo-badge-upcoming {
+  background: #fff200;
+  color: #000;
+}
+
+/* ── Visitor counter digits ───────────────────────────────────────── */
+
+.neo-counter-digit {
+  display: inline-block;
+  padding: 0 0.12em;
+}
+
+/* ── Long-form article prose ──────────────────────────────────────── */
+
+.neo-prose p {
+  margin: 0 0 1rem;
+  line-height: 1.75;
+}
+.neo-prose h2 {
+  font-family: var(--neo-pixel);
+  font-size: 1.6rem;
+  color: var(--neo-accent-red);
+  margin: 2rem 0 0.5rem;
+  padding-top: 1rem;
+  border-top: 2px dashed #d6008f;
+}
+.neo-prose h3 {
+  font-family: var(--neo-ui);
+  font-weight: 700;
+  font-size: 1.15rem;
+  margin: 1.25rem 0 0.5rem;
+}
+.neo-prose ul {
+  margin: 0 0 1rem;
+  padding-left: 1.5rem;
+  list-style: square;
+}
+.neo-prose li {
+  margin-bottom: 0.5rem;
+  line-height: 1.7;
+}
+.neo-prose .neo-stat {
+  background: #fff7fb;
+  border: 2px solid #1a1a1a;
+  box-shadow: 3px 3px 0 #9a9a9a;
+  padding: 1rem;
+  text-align: center;
+}
+.neo-prose .neo-stat-num {
+  font-family: var(--neo-pixel);
+  font-size: 2.2rem;
+  line-height: 1;
+  color: var(--neo-accent-red);
 }

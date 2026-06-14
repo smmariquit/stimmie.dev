@@ -3,8 +3,8 @@
 import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { talks, getTalkBySlug } from "@/data/talks";
-import MosaicBackground from "@/components/MosaicBackground";
+import PageShell from "@/components/neo/PageShell";
+import { getTalkBySlug, talks } from "@/data/talks";
 
 export function generateStaticParams() {
   return talks.map((t) => ({ slug: t.slug }));
@@ -50,152 +50,104 @@ export default async function TalkPage({ params }) {
     day: "numeric",
     year: "numeric",
   });
+  const displayImage = talk.actionPhoto || talk.slidesThumbnail;
+  const badgeClass =
+    talk.type === "Workshop" ? "neo-badge-workshop" : "neo-badge-talk";
 
   return (
-    <div className="min-h-screen bg-black text-white">
-      <MosaicBackground />
+    <PageShell title={talk.title} current="/talks" maxWidth="52rem">
+      <p className="mb-3 text-base">
+        <Link href="/talks">◄ back to all talks</Link>
+      </p>
 
-      <div className="relative" style={{ zIndex: 10 }}>
-      <header className="sticky top-0 z-50 bg-gray-950/80 backdrop-blur-md border-b border-gray-800">
-        <div className="max-w-4xl mx-auto px-4 py-4 flex items-center justify-between">
-          <Link
-            href="/talks"
-            className="text-sm text-gray-400 hover:text-white transition-colors"
+      <article>
+        <p className="m-0 mb-3 flex flex-wrap items-center gap-2">
+          <span className={`neo-badge ${badgeClass}`}>{talk.type}</span>
+          {isUpcoming && (
+            <span className="neo-badge neo-badge-upcoming">Upcoming</span>
+          )}
+          <time
+            className="text-base neo-muted"
+            dateTime={talk.date}
+            style={{ fontFamily: "var(--neo-ui)" }}
           >
-            ← All talks
-          </Link>
-          <nav className="flex gap-4 text-sm" aria-label="Main navigation">
+            {formattedDate}
+          </time>
+        </p>
+
+        <p className="text-base neo-muted mb-4">{talk.event}</p>
+
+        {displayImage && (
+          <Image
+            src={displayImage}
+            alt={`Photo from ${talk.title}`}
+            width={1000}
+            height={563}
+            quality={90}
+            sizes="(max-width: 832px) 100vw, 832px"
+            className="neo-thumb-lg w-full aspect-video object-cover mb-4"
+            priority
+          />
+        )}
+
+        <p className="text-lg leading-relaxed mb-4">{talk.description}</p>
+
+        {talk.moderator && (
+          <p className="text-base neo-muted mb-6">
+            Moderated by{" "}
             <Link
-              href="/projects"
-              className="text-gray-400 hover:text-white transition-colors"
+              href={talk.moderator.link}
+              target="_blank"
+              rel="noopener noreferrer"
             >
-              Projects
+              {talk.moderator.name}
             </Link>
-            <Link
-              href="/blog"
-              className="text-gray-400 hover:text-white transition-colors"
-            >
-              Blog
-            </Link>
-          </nav>
-        </div>
-      </header>
-
-      <main className="max-w-4xl mx-auto px-4 py-8 md:py-12" id="main-content">
-        <article>
-          <div className="flex flex-wrap items-center gap-2 mb-3">
-            <span
-              className={`px-2 py-0.5 text-xs rounded-full ${
-                talk.type === "Workshop"
-                  ? "bg-green-900 text-green-300"
-                  : "bg-purple-900 text-purple-300"
-              }`}
-            >
-              {talk.type}
-            </span>
-            <time className="text-gray-500 text-xs" dateTime={talk.date}>
-              {formattedDate}
-            </time>
-            {isUpcoming && (
-              <span className="px-2 py-0.5 text-xs rounded-full bg-yellow-500/20 text-yellow-300 border border-yellow-500/40">
-                Upcoming
-              </span>
-            )}
-          </div>
-
-          <h1 className="text-3xl md:text-4xl font-black leading-tight mb-2">
-            {talk.title}
-          </h1>
-          <p className="text-gray-400 text-sm mb-6">{talk.event}</p>
-
-          <div className="relative aspect-video w-full overflow-hidden rounded-2xl border border-gray-800 bg-gray-900 mb-6">
-            {(talk.actionPhoto || talk.slidesThumbnail) && (
-              <Image
-                src={talk.actionPhoto || talk.slidesThumbnail}
-                alt={`Photo from ${talk.title}`}
-                fill
-                sizes="(max-width: 896px) 100vw, 896px"
-                className="object-cover"
-                priority
-              />
-            )}
-          </div>
-
-          <p className={`text-gray-300 text-base md:text-lg leading-relaxed ${talk.moderator ? 'mb-4' : 'mb-8'}`}>
-            {talk.description}
           </p>
+        )}
 
-          {talk.moderator && (
-            <p className="text-gray-400 text-sm mb-8">
-              Moderated by{" "}
-              <Link
-                href={talk.moderator.link}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-blue-400 hover:text-blue-300 transition-colors underline underline-offset-2 font-medium"
-              >
-                {talk.moderator.name}
-              </Link>
-            </p>
-          )}
-
-          <div className="flex flex-wrap gap-4">
-            {talk.slidesLink && (
-              <Link
-                href={talk.slidesLink}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 bg-blue-600 hover:bg-blue-500 text-white px-5 py-2.5 rounded-lg font-medium transition-colors"
-              >
-                View Slides →
-              </Link>
-            )}
-            {talk.replayLink && (
-              <Link
-                href={talk.replayLink}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 bg-red-600 hover:bg-red-500 text-white px-5 py-2.5 rounded-lg font-medium transition-colors"
-              >
-                Watch Replay 📺
-              </Link>
-            )}
-          </div>
-        </article>
-
-        <nav
-          className="mt-12 pt-6 border-t border-gray-800 flex justify-between gap-4 text-sm"
-          aria-label="Pagination between talks"
-        >
-          {prev ? (
+        <p className="flex flex-wrap gap-3 m-0">
+          {talk.slidesLink && (
             <Link
-              href={`/talks/${prev.slug}`}
-              className="text-gray-400 hover:text-white transition-colors max-w-[45%] truncate"
+              href={talk.slidesLink}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="neo-link-card inline-block font-bold"
             >
-              ← {prev.title}
+              View Slides ↗
             </Link>
-          ) : (
-            <span />
           )}
-          {next ? (
+          {talk.replayLink && (
             <Link
+              href={talk.replayLink}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="neo-link-card inline-block font-bold"
+            >
+              Watch Replay 📺
+            </Link>
+          )}
+        </p>
+      </article>
+
+      <nav
+        className="mt-8 pt-4 flex justify-between gap-4 text-base"
+        style={{ borderTop: "2px dashed #d6008f" }}
+        aria-label="Between talks"
+      >
+        {prev
+          ? <Link href={`/talks/${prev.slug}`} className="max-w-[45%]">
+              ◄ {prev.title}
+            </Link>
+          : <span />}
+        {next
+          ? <Link
               href={`/talks/${next.slug}`}
-              className="text-gray-400 hover:text-white transition-colors max-w-[45%] truncate text-right ml-auto"
+              className="max-w-[45%] text-right ml-auto"
             >
-              {next.title} →
+              {next.title} ►
             </Link>
-          ) : (
-            <span />
-          )}
-        </nav>
-      </main>
-
-      <footer className="border-t border-gray-800 mt-12">
-        <div className="max-w-4xl mx-auto px-4 py-8 text-center text-gray-500 text-sm">
-          <p>© {new Date().getFullYear()} Stimmie. All rights reserved.</p>
-        </div>
-      </footer>
-      </div>
-    </div>
+          : <span />}
+      </nav>
+    </PageShell>
   );
 }

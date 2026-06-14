@@ -1,51 +1,23 @@
 // src/app/blog/juneyour/page.js
 
-"use client";
 import Link from "next/link";
-import MosaicBackground from "@/components/MosaicBackground";
+import PageShell from "@/components/neo/PageShell";
 
-// ── Category config ──────────────────────────────────────────────
-const CATEGORIES = {
-  life: {
-    label: "Life & Side Quests",
-    emoji: "✨",
-    color: "from-rose-500/20 to-pink-600/10",
-    border: "border-rose-500/30",
-    badge: "bg-rose-500/20 text-rose-300",
-  },
-  speaking: {
-    label: "Speaking & Workshops",
-    emoji: "🎤",
-    color: "from-violet-500/20 to-purple-600/10",
-    border: "border-violet-500/30",
-    badge: "bg-violet-500/20 text-violet-300",
-  },
-  building: {
-    label: "Building & Shipping",
-    emoji: "🛠️",
-    color: "from-sky-500/20 to-cyan-600/10",
-    border: "border-sky-500/30",
-    badge: "bg-sky-500/20 text-sky-300",
-  },
-  leadership: {
-    label: "Leadership & Community",
-    emoji: "🤝",
-    color: "from-amber-500/20 to-orange-600/10",
-    border: "border-amber-500/30",
-    badge: "bg-amber-500/20 text-amber-300",
-  },
-  academics: {
-    label: "Academics & Research",
-    emoji: "📚",
-    color: "from-emerald-500/20 to-green-600/10",
-    border: "border-emerald-500/30",
-    badge: "bg-emerald-500/20 text-emerald-300",
-  },
+export const metadata = {
+  title: "Parkour",
+  description:
+    "A full breakdown of what Stimmie achieved this semester: speaking, building, leadership, academics, and life.",
 };
 
-// ── Achievements data ────────────────────────────────────────────
+const CATEGORIES = {
+  life: { label: "Life & Side Quests", emoji: "✨" },
+  speaking: { label: "Speaking & Workshops", emoji: "🎤" },
+  building: { label: "Building & Shipping", emoji: "🛠️" },
+  leadership: { label: "Leadership & Community", emoji: "🤝" },
+  academics: { label: "Academics & Research", emoji: "📚" },
+};
+
 const achievements = [
-  // Speaking & Workshops
   {
     cat: "speaking",
     text: "Hosted Google Developer Groups: Build with AI Manila, in collaboration with Data Engineering Pilipinas",
@@ -92,8 +64,6 @@ const achievements = [
     cat: "speaking",
     text: "Went back to my alma mater SMCL to give a workshop on Machine Learning :)",
   },
-
-  // Building & Shipping
   {
     cat: "building",
     text: "Built Room TBA, a search engine for rooms, dorms, buildings, colleges, and divisions at UPLB",
@@ -130,24 +100,16 @@ const achievements = [
     link: "https://upsked.com/uplb",
     linkLabel: "Try it →",
   },
-  {
-    cat: "building",
-    text: "Did freelance software engineering work",
-  },
+  { cat: "building", text: "Did freelance software engineering work" },
   {
     cat: "building",
     text: "Hit 10,000 contributions on GitHub (turns out private repos count, they're just anonymized)",
   },
-
-  // Leadership & Community
   {
     cat: "leadership",
     text: "Led one of the biggest projects in an Elbi CS degree, a section of 20, teaching the team advanced Git, JS/React, CI/CD, and Agile",
   },
-  {
-    cat: "leadership",
-    text: "Led two meetups for Sip & Scale in UPLB!",
-  },
+  { cat: "leadership", text: "Led two meetups for Sip & Scale in UPLB!" },
   {
     cat: "leadership",
     text: "Organized and mentored The Innovation Lab 2026, the inaugural hackathon of my CS org",
@@ -176,12 +138,7 @@ const achievements = [
     cat: "leadership",
     text: "Served as photographer and mentor in Devcon Laguna's code camp",
   },
-  {
-    cat: "leadership",
-    text: "Started a Minecraft server for UPLB Batch 2026",
-  },
-
-  // Academics & Research
+  { cat: "leadership", text: "Started a Minecraft server for UPLB Batch 2026" },
   {
     cat: "academics",
     text: "Nominated for one of the best CMSC 173 projects this sem!",
@@ -224,16 +181,8 @@ const achievements = [
     cat: "academics",
     text: "Somehow attended research group sessions of a physics professor, listening to and presenting technical papers on physics-adjacent data analytics",
   },
-
-  // Life & Side Quests
-  {
-    cat: "life",
-    text: "Colored my hair brown",
-  },
-  {
-    cat: "life",
-    text: "Got my 5K run time down to 28m 16s",
-  },
+  { cat: "life", text: "Colored my hair brown" },
+  { cat: "life", text: "Got my 5K run time down to 28m 16s" },
   {
     cat: "life",
     text: "Officially visited all 16 cities in Metro Manila + Pateros",
@@ -246,69 +195,46 @@ const achievements = [
     cat: "life",
     text: "Replaced the LED screen of my friend's phone, guess this can be my backup job",
   },
-  {
-    cat: "life",
-    text: "Volunteered for Pahinungod",
-  },
+  { cat: "life", text: "Volunteered for Pahinungod" },
   {
     cat: "life",
     text: "Sat in on random classes out of curiosity, COST 10, ABME 10, CMSC 173, CMSC 191, and more",
   },
-  {
-    cat: "life",
-    text: "Did my first half-marathon",
-  },
+  { cat: "life", text: "Did my first half-marathon" },
   {
     cat: "life",
     text: "Somehow hit 5,000 LinkedIn followers despite hating LinkedIn lmao",
   },
-  {
-    cat: "life",
-    text: "Laid down drunk in the middle of Lopez Ave",
-  },
+  { cat: "life", text: "Laid down drunk in the middle of Lopez Ave" },
   {
     cat: "life",
     text: "Demonstrated to my CS professor how to use Claude Code",
   },
-  {
-    cat: "life",
-    text: "Ran Doom on an OrangePi",
-  },
+  { cat: "life", text: "Ran Doom on an OrangePi" },
   {
     cat: "life",
     text: "Presented my final project on Computer Networking with a monumental hangover and got a perfect score",
   },
 ];
 
-// ── Component ────────────────────────────────────────────────────
 function AchievementItem({ item }) {
   return (
-    <li className="text-white/95 leading-relaxed">
+    <li>
       {item.text}
       {item.link && (
         <>
           {" "}
-          <a
-            href={item.link}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="text-blue-400 hover:text-blue-300 transition-colors"
-          >
+          <Link href={item.link} target="_blank" rel="noopener noreferrer">
             {item.linkLabel}
-          </a>
+          </Link>
         </>
       )}
       {item.link2 && (
         <>
-          {" "}
-          <a
-            href={item.link2}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="text-blue-400 hover:text-blue-300 transition-colors"
-          >
+          {" · "}
+          <Link href={item.link2} target="_blank" rel="noopener noreferrer">
             {item.linkLabel2}
-          </a>
+          </Link>
         </>
       )}
     </li>
@@ -320,79 +246,39 @@ export default function JuneYourPage() {
     .map(([key, config]) => ({
       key,
       ...config,
-      items: achievements.filter((achievement) => achievement.cat === key),
+      items: achievements.filter((a) => a.cat === key),
     }))
     .filter((group) => group.items.length > 0);
 
   return (
-    <div className="min-h-screen bg-black w-full overflow-hidden">
-      <MosaicBackground />
+    <PageShell title="Parkour 🤸" current="/blog" maxWidth="52rem">
+      <p className="mb-4 text-base">
+        <Link href="/blog">◄ back to blog</Link>
+      </p>
 
-      {/* Blog post content overlay */}
-      <div
-        className="fixed inset-0 flex items-center justify-center pointer-events-none"
-        style={{ zIndex: 50 }}
-      >
-      <div className="fixed inset-0 flex items-center justify-center pointer-events-none" style={{ zIndex: 50 }}>
-        <div className="pointer-events-auto bg-gray-800/70 text-white p-6 rounded backdrop-blur-sm max-h-[83vh] max-w-3xl w-full mx-4 overflow-y-auto no-scrollbar">
-          <div className="flex flex-col">
-            {/* Navigation */}
-              <Link href="/blog" className="text-white/70 hover:text-white transition-colors flex items-center gap-2">
-                <span>←</span>
-                <span>Blog</span>
-              </Link>
-              <span className="text-white/30">|</span>
-              <Link href="/" className="text-white/70 hover:text-white transition-colors">
-                Home
-              </Link>
-            </div>
+      <article className="neo-prose">
+        <p className="text-base neo-muted font-mono">June 1, 2026</p>
+        <p>
+          If you&apos;re curious about what I achieved this semester (roughly
+          from January until now), here&apos;s the full breakdown. Included are
+          all the slides, links, and resources so you can hopefully grab the
+          same opportunities for yourself.
+        </p>
 
-            {/* Article header */}
-            <article>
-              <header className="mb-8">
-                <h1 className="font-sans text-4xl sm:text-5xl font-black text-white mb-2">
-                  Parkour 🤸‍♂️
-                </h1>
-                <p className="text-white/60">June 1, 2026</p>
-              </header>
-
-              {/* Achievements by category */}
-                <h2 className="text-2xl font-bold text-white mb-2">
-                  The Breakdown
-                </h2>
-                <p className="text-white/85 mb-8 leading-relaxed">
-                  If you&apos;re curious about what I achieved this semester (roughly
-                  from January until now), here&apos;s the full breakdown. Included
-                  are all the slides, links, and resources so you can hopefully
-                  grab the same opportunities for yourself.
-                </p>
-
-                <div className="space-y-10">
-                  {grouped.map((group) => (
-                    <div key={group.key}>
-                      <div className="flex items-center gap-2 mb-4">
-                        <span className="text-xl">{group.emoji}</span>
-                        <h3 className="text-lg font-bold text-white">
-                          {group.label}
-                        </h3>
-                        <span
-                          className={`text-xs px-2 py-0.5 rounded-full ${group.badge}`}
-                        >
-                          {group.items.length}
-                        </span>
-                      </div>
-                      <ul className="list-disc list-inside space-y-2 pl-1">
-                        {group.items.map((item) => (
-                          <AchievementItem key={`${item.cat}-${item.text}`} item={item} />
-                        ))}
-                      </ul>
-                    </div>
-                  ))}
-                </div>
-            </article>
-          </div>
-        </div>
-      </div>
-    </div>
+        {grouped.map((group) => (
+          <section key={group.key}>
+            <h2>
+              <span aria-hidden="true">{group.emoji}</span> {group.label}{" "}
+              <span className="neo-tag align-middle">{group.items.length}</span>
+            </h2>
+            <ul>
+              {group.items.map((item) => (
+                <AchievementItem key={`${item.cat}-${item.text}`} item={item} />
+              ))}
+            </ul>
+          </section>
+        ))}
+      </article>
+    </PageShell>
   );
 }

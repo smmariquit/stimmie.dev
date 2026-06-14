@@ -1,11 +1,10 @@
 #!/usr/bin/env python3
 """generate_thumbs.py
 
-Create small, square, compressed thumbnails from images in the public/images
-folder and write them to public/images_small (or a folder you pass).
+Create small, square, compressed thumbnails from archive mosaic images.
 
 Usage:
-  python generate_thumbs.py --in public/images --out public/images_small --size 320 --format webp
+  python generate_thumbs.py --in public/archive/mosaic/images --out public/archive/mosaic/images_small --size 320 --format webp
 
 Requires: Pillow (pip install pillow)
 """
