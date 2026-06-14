@@ -246,9 +246,7 @@ export const talks = [
     slug: "cmsc-21-mock-review-uplb-ics-discord",
     title: "CMSC 21 Mock Review",
     actionPhoto: null,
-    slidesThumbnail: null,
-    date: "2026-02-17T19:00:00+08:00",
-    event: "UPLB ICS Students' Discord",
+    slidesThumbnail: "/talks/cmsc-21-mock-review-thumbnail.png",
     type: "Workshop",
     audienceSize: 50,
     description:
