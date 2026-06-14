@@ -359,6 +359,11 @@ export default function HomeClient({ mediaData, version }) {
                       <p className="text-base neo-muted mt-0.5">
                         {t.type} · {t.event}
                       </p>
+                      {t.audienceSize ? (
+                        <p className="text-base neo-muted mt-0.5 font-mono">
+                          👥 ~{t.audienceSize.toLocaleString()} in the audience
+                        </p>
+                      ) : null}
                     </Link>
                   );
                 })}

@@ -127,7 +127,7 @@ export const talks = [
     date: "2026-04-24T13:30:00+08:00",
     event:
       "Decode to Defend: A Research Refresher by UST Computer Science Society",
-    type: "Workshop",
+    type: "Talk",
     audienceSize: 70,
     description:
       "Applying Python for data analysis and automation in academic research.",
@@ -219,9 +219,9 @@ export const talks = [
   {
     slug: "minecraft-moments-milestones-eheads-21",
     title: "Minecraft, Moments, Milestones",
-    actionPhoto: null,
+    actionPhoto: "/talks/minecraft-moments-milestones.png",
     slidesThumbnail: null,
-    date: "2026-12-12T10:00:00+08:00",
+    date: "2025-12-12T10:00:00+08:00",
     event: "eHeads 21 @ Arthaland Century Pacific Tower",
     type: "Talk",
     audienceSize: 80,
