@@ -15,6 +15,11 @@ const nextConfig = {
     dangerouslyAllowSVG: true,
     contentSecurityPolicy: "default-src 'self'; script-src 'none'; sandbox;",
   },
+
+  env: {
+    NEXT_PUBLIC_BUILD_DATE:
+      process.env.NEXT_PUBLIC_BUILD_DATE ?? new Date().toISOString(),
+  },
 };
 
 export default nextConfig;

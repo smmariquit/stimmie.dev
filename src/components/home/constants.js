@@ -55,8 +55,22 @@ export const FRIENDS = [
   { name: "John Yumul", url: "https://johnyumul.com", blurb: "fellow web tinkerer" },
 ];
 
-export const MARQUEE_TEXT =
-  "★ welcome to my corner of the web ★ software engineer ★ tinkerer ★ builder of weird things ★ linkedin shitposter ★ last updated june 2026 ★ ";
+function formatLastUpdated(iso) {
+  return new Date(iso)
+    .toLocaleDateString("en-US", {
+      month: "long",
+      day: "numeric",
+      year: "numeric",
+    })
+    .toLowerCase();
+}
+
+export function getMarqueeText() {
+  const buildDate =
+    process.env.NEXT_PUBLIC_BUILD_DATE ?? new Date().toISOString();
+  const updated = formatLastUpdated(buildDate);
+  return `★ welcome to my corner of the web ★ software engineer ★ tinkerer ★ builder of weird things ★ linkedin shitposter ★ last updated ${updated} ★ `;
+}
 
 export const ABOUT_TEXT =
   "Creator, tinkerer, and builder of digital experiences. Whether it's writing code, designing interfaces, or crafting data stories, I love bringing wild ideas to life on the internet.";
