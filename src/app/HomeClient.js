@@ -1,268 +1,488 @@
 // src/app/HomeClient.js
 
 "use client";
+
 import Image from "next/image";
 import Link from "next/link";
-import { GitHubCalendar } from 'react-github-calendar';
-import { talks } from "@/data/talks";
+import { GitHubCalendar } from "react-github-calendar";
+import {
+  FRIENDS,
+  MARQUEE_TEXT,
+  NAV_LINKS,
+  STIMMIEVERSE_CATEGORIES,
+} from "@/components/home/constants";
+import CribStatus from "@/components/neo/CribStatus";
+import SkipLink from "@/components/neo/SkipLink";
+import VisitorCounter from "@/components/neo/VisitorCounter";
+import { blogPosts } from "@/data/blogs";
 import { projects } from "@/data/projects";
 import { socialCategories } from "@/data/socials";
-import { blogPosts } from "@/data/blogs";
+import { talks } from "@/data/talks";
+import { body, display } from "./fonts";
 
-export default function HomeClient({ mediaData }) {
-  const { film, book, anime } = mediaData || {};
+function StarDivider() {
+  return <p className="neo-divider">✧･ﾟ: *✧･ﾟ:* ✧･ﾟ: *✧･ﾟ:* ✧･ﾟ: *✧･ﾟ:*</p>;
+}
+
+function NeoSection({ title, children, id }) {
+  return (
+    <section id={id} className="mb-4">
+      <h2 className="neo-section-title">{title}</h2>
+      {children}
+    </section>
+  );
+}
+
+// In-page section anchors for the sidebar "on this page" menu.
+const SECTION_LINKS = [
+  { label: "about me", href: "#about" },
+  { label: "projects", href: "#projects" },
+  { label: "talks", href: "#talks" },
+  { label: "writing", href: "#writing" },
+  { label: "currently into", href: "#currently" },
+  { label: "friends", href: "#friends" },
+];
+
+function getSortedTalks() {
+  return [...talks].sort(
+    (a, b) => new Date(b.date).getTime() - new Date(a.date).getTime(),
+  );
+}
+
+// Fixed time zone keeps the rendered date identical on server and client
+// (the talk dates are authored in +08:00), avoiding hydration mismatches.
+function formatTalkDate(date) {
+  return new Date(date).toLocaleDateString("en-US", {
+    month: "short",
+    day: "numeric",
+    year: "numeric",
+    timeZone: "Asia/Manila",
+  });
+}
+
+function SocialLink({ link }) {
+  const needsInvert = link.name === "GitHub" || link.name === "Kattis";
+
+  if (!link.href) {
+    return (
+      <li>
+        <span
+          className="neo-social-link neo-muted cursor-default"
+          title={link.alt || link.name}
+        >
+          {link.icon && (
+            <img
+              src={link.icon}
+              alt=""
+              className={`neo-social-icon ${needsInvert ? "brightness-0" : ""}`}
+            />
+          )}
+          <span>{link.name}</span>
+        </span>
+      </li>
+    );
+  }
 
   return (
-    <div className="min-h-screen bg-[#050014] text-gray-200 font-sans selection:bg-pink-500 selection:text-white relative" lang="en">
-      
-      {/* Background Glows */}
-      <div className="absolute top-0 left-0 w-full h-[500px] bg-purple-900/20 blur-[120px] pointer-events-none rounded-full" />
-      <div className="absolute top-[20%] right-0 w-[600px] h-[600px] bg-pink-900/10 blur-[150px] pointer-events-none rounded-full" />
-      <div className="absolute bottom-0 left-1/4 w-[800px] h-[400px] bg-indigo-900/20 blur-[150px] pointer-events-none rounded-full" />
+    <li>
+      <Link
+        href={link.href}
+        target="_blank"
+        rel="noopener noreferrer"
+        className="neo-social-link"
+        title={link.alt || link.name}
+      >
+        {link.icon && (
+          <img
+            src={link.icon}
+            alt=""
+            className={`neo-social-icon ${needsInvert ? "brightness-0" : ""}`}
+          />
+        )}
+        <span>{link.name}</span>
+      </Link>
+    </li>
+  );
+}
 
-      {/* The Stimmieverse Main Navigation */}
-      <nav className="fixed top-0 w-full px-6 py-4 md:px-8 md:py-6 flex flex-col md:flex-row md:justify-between md:items-center bg-[#050014]/80 backdrop-blur-lg z-50 border-b border-purple-900/30 gap-4">
-        <div className="font-bold tracking-widest text-sm uppercase flex-shrink-0 text-transparent bg-gradient-to-r from-pink-500 to-indigo-400 bg-clip-text drop-shadow-[0_0_8px_rgba(236,72,153,0.3)]">
-          STIMMIE // CREATOR
-        </div>
-        <div className="flex gap-6 font-medium text-xs tracking-widest uppercase overflow-x-auto whitespace-nowrap scrollbar-hide w-full md:w-auto pb-2 md:pb-0">
-           <span className="text-purple-500/50 hidden lg:inline">THE STIMMIEVERSE //</span>
-           {[
-                { name: 'Kape', url: 'https://kape.stimmie.dev' },
-                { name: 'Room TBA', url: 'https://room-tba.stimmie.dev' },
-                { name: 'GradeSim', url: 'https://gradesim.stimmie.dev' },
-                { name: 'The Crib', url: 'https://crib.stimmie.dev' },
-                { name: 'Atlas', url: 'https://atlas-of-my-skies.stimmie.dev' },
-                { name: 'Work', url: '/projects', local: true },
-                { name: 'Writing', url: '/blog', local: true },
-                { name: 'Archive', url: '/v2', local: true },
-              ].map((site) => (
-                <Link 
-                  key={site.name} 
-                  href={site.url} 
-                  target={site.local ? "_self" : "_blank"}
-                  rel={site.local ? "" : "noopener noreferrer"}
-                  className="hover:text-cyan-400 text-gray-400 transition-colors flex-shrink-0"
-                >
-                  {site.name} {!site.local && '↗'}
-                </Link>
-           ))}
-        </div>
-      </nav>
+export default function HomeClient({ mediaData, version }) {
+  const { film, book, music } = mediaData || {};
+  const sortedTalks = getSortedTalks();
+  const HOME_PROJECT_LIMIT = 4;
+  const featuredProjects = projects.slice(0, HOME_PROJECT_LIMIT);
+  const remainingProjects = Math.max(0, projects.length - HOME_PROJECT_LIMIT);
 
-      {/* Hero Section */}
-      <header className="pt-40 pb-16 px-6 md:px-12 max-w-7xl mx-auto relative z-10">
-        <h1 className="text-5xl md:text-8xl lg:text-9xl font-black uppercase leading-[0.85] tracking-tighter bg-gradient-to-r from-indigo-400 via-purple-400 to-pink-400 text-transparent bg-clip-text mb-8 drop-shadow-lg">
-          CRAFTING<br/>
-          DIGITAL<br/>
-          WORLDS.
-        </h1>
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-8 border-t border-purple-900/30 pt-8 mt-16">
-          <div className="md:col-span-1">
-            <h2 className="text-xs font-bold uppercase tracking-widest text-indigo-400 mb-4">[ ABOUT ]</h2>
-            <p className="text-sm md:text-base leading-relaxed text-indigo-100/70">
-              Creator, tinkerer, and builder of digital experiences. 
-              Whether it's writing code, designing interfaces, or crafting data stories, I love bringing wild ideas to life on the internet.
-            </p>
-          </div>
-          <div className="md:col-span-2">
-            <h2 className="text-xs font-bold uppercase tracking-widest text-pink-400 mb-4">[ SOCIALS ]</h2>
-            <div className="flex flex-wrap gap-x-6 gap-y-4">
-              {socialCategories.flatMap(cat => cat.links)
-                .filter(link => !['Hackathon Guide', 'Freshie Resources'].includes(link.name))
-                .map((link) => {
-                  const Wrapper = link.href ? Link : 'div';
-                  return (
-                    <Wrapper 
-                      key={link.name} 
-                      href={link.href || undefined} 
-                      className={`flex items-center gap-2 text-sm md:text-base font-medium transition-colors ${link.href ? 'hover:text-pink-400' : 'text-gray-400'}`}
-                      title={link.alt || link.name}
-                    >
-                      {link.icon && <img src={link.icon} alt="" className="w-4 h-4 object-contain hover:scale-110 transition-transform" />}
-                      {link.name}
-                    </Wrapper>
-                  );
-                })}
-            </div>
-          </div>
-          <div className="md:col-span-1 border-t md:border-t-0 md:border-l border-purple-900/30 pt-8 md:pt-0 md:pl-8">
-            <h2 className="text-xs font-bold uppercase tracking-widest text-cyan-400 mb-4">[ RESOURCES ]</h2>
-            <div className="flex flex-col gap-5">
-              {socialCategories.flatMap(cat => cat.links)
-                .filter(link => ['Hackathon Guide', 'Freshie Resources'].includes(link.name))
-                .map((link) => (
-                <Link 
-                  key={link.name} 
-                  href={link.href || '#'} 
-                  className="group flex items-start gap-3"
-                  title={link.alt || link.name}
-                >
-                  {link.icon && <img src={link.icon} alt="" className="w-5 h-5 object-contain mt-0.5 group-hover:scale-110 transition-transform" />}
-                  <div>
-                    <span className="text-sm md:text-base font-bold text-gray-200 group-hover:text-cyan-400 transition-colors block leading-tight">{link.name}</span>
-                    <span className="text-xs text-cyan-600/70 group-hover:text-cyan-400 font-mono mt-1 block">↗ Read</span>
-                  </div>
-                </Link>
-              ))}
-            </div>
-          </div>
-        </div>
-      </header>
-
-      <main className="max-w-7xl mx-auto px-6 md:px-12 pb-32 space-y-32 relative z-10">
-        
-        {/* Selected Works - Editorial Grid */}
-        <section>
-          <div className="flex justify-between items-end mb-12">
-            <h2 className="text-3xl md:text-5xl font-black uppercase tracking-tighter text-white">Selected Works</h2>
-            <Link href="/projects" className="text-sm uppercase tracking-widest font-bold text-pink-500 hover:text-pink-400">View All →</Link>
-          </div>
-          
-          <div className="grid grid-cols-1 md:grid-cols-12 gap-6 md:gap-8">
-            {projects.map((p, idx) => (
-              <Link 
-                key={p.slug} 
-                href={`/projects/${p.slug}`} 
-                className={`group block overflow-hidden ${
-                  idx % 3 === 0 ? 'md:col-span-12' : 'md:col-span-6'
-                }`}
+  return (
+    <div className={`neo-page ${display.variable} ${body.variable}`} lang="en">
+      <SkipLink />
+      <div className="neo-shell">
+        {/* Header */}
+        <header className="neo-box mb-3 text-center">
+          <h1 className="neo-title">~* stimmie&apos;s homepage *~</h1>
+          <p
+            className="mt-2 text-lg neo-muted"
+            style={{ fontFamily: "var(--neo-ui)" }}
+          >
+            Hi! You found my website on the{" "}
+            <strong className="text-[#cc0000]">internet</strong>.
+          </p>
+          <nav
+            className="neo-topnav mt-3"
+            style={{ justifyContent: "center" }}
+            aria-label="Primary"
+          >
+            {NAV_LINKS.map((item) => (
+              <Link
+                key={item.href}
+                href={item.href}
+                aria-current={item.href === "/" ? "page" : undefined}
               >
-                <div className="relative aspect-[16/9] md:aspect-[3/2] bg-indigo-950/30 overflow-hidden rounded-lg border border-indigo-500/10 group-hover:border-pink-500/50 transition-colors duration-500">
-                  <Image 
-                    src={p.src} 
-                    alt={p.title} 
-                    width={1200} 
-                    height={800} 
-                    className="object-cover w-full h-full group-hover:scale-105 transition-transform duration-700 ease-out" 
-                  />
-                  <div className="absolute inset-0 bg-indigo-900/10 group-hover:bg-transparent transition-colors duration-500 mix-blend-overlay" />
-                </div>
-                <div className="mt-4 flex justify-between items-start">
-                  <h3 className="text-xl md:text-2xl font-bold uppercase tracking-tight group-hover:text-cyan-400 transition-colors">{p.title}</h3>
-                  <span className="text-xs font-bold text-pink-500">0{idx + 1}</span>
-                </div>
+                {item.label}
               </Link>
             ))}
-          </div>
-        </section>
+          </nav>
+        </header>
 
-        {/* Talks & Workshops - Horizontal Scroll/List */}
-        <section>
-          <div className="flex justify-between items-end mb-12">
-            <h2 className="text-3xl md:text-5xl font-black uppercase tracking-tighter text-white">Talks</h2>
-            <Link href="/talks" className="text-sm uppercase tracking-widest font-bold text-pink-500 hover:text-pink-400">View All →</Link>
+        {/* Marquee */}
+        <div className="neo-marquee-wrap mb-3" aria-hidden="true">
+          <div className="neo-marquee-track">
+            {MARQUEE_TEXT}
+            {MARQUEE_TEXT}
           </div>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            {talks.map((t, idx) => {
-              const displayImage = t.actionPhoto || t.slidesThumbnail;
-              return (
-                <Link key={t.slug} href={`/talks/${t.slug}`} className="group block">
-                  <div className="relative aspect-square overflow-hidden bg-indigo-950/30 rounded-lg border border-indigo-500/10 group-hover:border-cyan-500/50 transition-colors duration-500 mb-4">
-                    {displayImage && (
-                      <Image 
-                        src={displayImage} 
-                        alt={t.title} 
-                        width={600} 
-                        height={600} 
-                        className="object-cover w-full h-full group-hover:scale-105 transition-transform duration-700 ease-out" 
-                      />
-                    )}
-                  </div>
-                  <h3 className="text-base font-bold uppercase tracking-tight leading-tight group-hover:text-pink-400 transition-colors">{t.title}</h3>
-                </Link>
-              );
-            })}
-          </div>
-        </section>
+        </div>
 
-        {/* Writing & GitHub */}
-        <section className="grid grid-cols-1 md:grid-cols-2 gap-16 border-t border-purple-900/30 pt-16">
-          <div>
-            <h2 className="text-sm font-bold uppercase tracking-widest text-indigo-400 mb-8">[ WRITING ]</h2>
-            <div className="space-y-8">
-              {blogPosts.slice(0, 4).map((post, idx) => (
-                <Link key={idx} href={`/blog/${post.slug || 'slug'}`} className="group block">
-                  <span className="text-xs text-pink-500/70 font-mono mb-2 block">{post.date}</span>
-                  <h3 className="text-2xl font-bold tracking-tight group-hover:text-cyan-400 transition-colors">{post.title}</h3>
-                </Link>
+        <div className="grid grid-cols-1 md:grid-cols-[14rem_1fr] gap-3">
+          {/* Sidebar */}
+          <aside className="space-y-3">
+            <nav className="neo-sidebar-box" aria-label="On this page">
+              <h2 className="neo-sidebar-heading neo-accent-red">
+                ~ on this page ~
+              </h2>
+              <ul className="neo-nav-list">
+                {SECTION_LINKS.map((item) => (
+                  <li key={item.href}>
+                    <a href={item.href}>{item.label}</a>
+                  </li>
+                ))}
+              </ul>
+            </nav>
+
+            <div className="neo-sidebar-box">
+              <h2 className="neo-sidebar-heading neo-accent-blue">
+                ~ find me ~
+              </h2>
+              {socialCategories.map((category) => (
+                <div key={category.label}>
+                  <p className="neo-social-category">{category.label}</p>
+                  <ul className="neo-social-list">
+                    {category.links.map((link) => (
+                      <SocialLink key={link.name} link={link} />
+                    ))}
+                  </ul>
+                </div>
               ))}
             </div>
-          </div>
-          <div>
-            <h2 className="text-sm font-bold uppercase tracking-widest text-pink-400 mb-8">[ ACTIVITY ]</h2>
-            <div className="bg-indigo-950/20 p-8 rounded-xl border border-indigo-500/10 overflow-x-auto hover:border-pink-500/30 transition-colors">
-              {/* GitHubCalendar natively supports a theme prop to colorize blocks, but we'll let it use dark mode for now */}
-              <GitHubCalendar username="smmariquit" colorScheme="dark" blockSize={12} blockMargin={4} fontSize={14} />
-            </div>
-          </div>
-        </section>
 
-        {/* Media & Button */}
-        <section className="border-t border-purple-900/30 pt-16">
-          <div className="max-w-4xl">
-            <h2 className="text-sm font-bold uppercase tracking-widest text-cyan-400 mb-8">[ RECENTLY CONSUMED ]</h2>
-            <div className="grid grid-cols-1 sm:grid-cols-3 gap-8">
-              {/* Film */}
-              {film && (
-                <div className="space-y-4">
-                  <h3 className="text-xs uppercase tracking-widest text-indigo-400/80 border-b border-purple-900/30 pb-2">Film</h3>
-                  <div className="aspect-[2/3] relative overflow-hidden bg-indigo-950/30 rounded-lg border border-indigo-500/10">
-                    {film.posterUrl && <img src={film.posterUrl} alt={film.title} className="object-cover w-full h-full" />}
-                  </div>
-                  <div>
-                    <h4 className="font-bold text-sm uppercase text-pink-100">{film.title}</h4>
-                    {film.rating && <p className="text-xs text-pink-400 mt-1">{'★'.repeat(Math.round(film.rating))}</p>}
-                  </div>
+            <div className="neo-sidebar-box">
+              <h2 className="neo-sidebar-heading neo-accent-purple">
+                ~ stimmieverse ~
+              </h2>
+              {STIMMIEVERSE_CATEGORIES.map((category) => (
+                <div key={category.label}>
+                  <p className="neo-social-category">{category.label}</p>
+                  {category.blurb && (
+                    <p className="neo-social-desc">{category.blurb}</p>
+                  )}
+                  <ul className="neo-nav-list">
+                    {category.links.map((site) => (
+                      <li key={site.name}>
+                        <Link
+                          href={site.url}
+                          target={site.local ? "_self" : "_blank"}
+                          rel={site.local ? "" : "noopener noreferrer"}
+                        >
+                          {site.name}
+                          {!site.local && " ↗"}
+                        </Link>
+                      </li>
+                    ))}
+                  </ul>
                 </div>
-              )}
-              {/* Book */}
-              {book && (
-                <div className="space-y-4">
-                  <h3 className="text-xs uppercase tracking-widest text-indigo-400/80 border-b border-purple-900/30 pb-2">Book</h3>
-                  <div className="aspect-[2/3] relative overflow-hidden bg-indigo-950/30 rounded-lg border border-indigo-500/10">
-                    {book.coverUrl && <img src={book.coverUrl} alt={book.title} className="object-cover w-full h-full" />}
-                  </div>
-                  <div>
-                    <h4 className="font-bold text-sm uppercase text-pink-100">{book.title}</h4>
-                    <p className="text-xs text-cyan-400/70 mt-1">{book.author}</p>
-                  </div>
-                </div>
-              )}
-              {/* Anime */}
-              {anime && (
-                <div className="space-y-4">
-                  <h3 className="text-xs uppercase tracking-widest text-indigo-400/80 border-b border-purple-900/30 pb-2">Anime</h3>
-                  <div className="aspect-[2/3] relative overflow-hidden bg-indigo-950/30 rounded-lg border border-indigo-500/10">
-                    {anime.coverUrl && <img src={anime.coverUrl} alt={anime.title} className="object-cover w-full h-full" />}
-                  </div>
-                  <div>
-                    <h4 className="font-bold text-sm uppercase text-pink-100">{anime.title}</h4>
-                    <p className="text-xs text-cyan-400/70 mt-1 uppercase">{anime.status}</p>
-                  </div>
-                </div>
-              )}
+              ))}
             </div>
-          </div>
-          
-          <div className="mt-24 text-center">
-             <p className="text-xs text-indigo-400/80 mb-4 uppercase tracking-widest">Grab my button</p>
-             <img src="/stimmie_88x31.gif" alt="Stimmie 88x31 Button" className="inline-block rounded shadow-[0_0_15px_rgba(236,72,153,0.3)] hover:scale-110 transition-transform" style={{ imageRendering: 'pixelated' }} />
-          </div>
-        </section>
 
-      </main>
-      
-      {/* Global CSS injections for scrollbar hiding */}
-      <style dangerouslySetInnerHTML={{__html: `
-        .scrollbar-hide::-webkit-scrollbar {
-            display: none;
-        }
-        .scrollbar-hide {
-            -ms-overflow-style: none;
-            scrollbar-width: none;
-        }
-      `}} />
+            <div className="neo-sidebar-box">
+              <CribStatus />
+            </div>
+
+            <div className="neo-sidebar-box">
+              <VisitorCounter />
+            </div>
+
+            <div className="neo-sidebar-box">
+              <p
+                className="text-xl mb-2 text-center"
+                style={{ fontFamily: "var(--neo-pixel)", color: "#1a1a1a" }}
+              >
+                site version
+              </p>
+              <p className="text-center text-lg font-bold neo-accent-red">
+                <Link href="/changelog">v{version}</Link>
+              </p>
+            </div>
+          </aside>
+
+          {/* Main content */}
+          <main id="main-content" tabIndex={-1} className="neo-box min-w-0">
+            <NeoSection title="about me" id="about">
+              <p>
+                I&apos;m <strong>Stimmie</strong>, a creator, tinkerer, and
+                builder of digital experiences. Whether it&apos;s writing code,
+                designing interfaces, or crafting data stories, I love bringing
+                wild ideas to life on the internet.
+              </p>
+            </NeoSection>
+
+            <StarDivider />
+
+            <NeoSection title="my projects" id="projects">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                {featuredProjects.map((p) => (
+                  <Link
+                    key={p.slug}
+                    href={`/projects/${p.slug}`}
+                    className="neo-media-card group block"
+                  >
+                    <Image
+                      src={p.src}
+                      alt={p.title}
+                      width={800}
+                      height={450}
+                      quality={90}
+                      sizes="(max-width: 640px) 100vw, 360px"
+                      className="neo-thumb-lg w-full aspect-video object-cover"
+                    />
+                    <h3 className="font-bold mt-2 group-hover:text-[#cc0066]">
+                      {p.title}
+                    </h3>
+                    {p.date && (
+                      <p className="text-base neo-muted mt-0.5 font-mono">
+                        {p.date}
+                      </p>
+                    )}
+                    {p.tags && (
+                      <p className="text-base neo-muted mt-0.5">
+                        [{p.tags.join(" · ")}]
+                      </p>
+                    )}
+                  </Link>
+                ))}
+              </div>
+              <p className="mt-2 text-base">
+                <Link href="/projects">
+                  ►{" "}
+                  {remainingProjects > 0
+                    ? `see ${remainingProjects} more project${remainingProjects === 1 ? "" : "s"}`
+                    : "see all projects"}
+                </Link>
+              </p>
+            </NeoSection>
+
+            <StarDivider />
+
+            <NeoSection title="talks & workshops" id="talks">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                {sortedTalks.slice(0, 4).map((t) => {
+                  const displayImage = t.actionPhoto || t.slidesThumbnail;
+                  return (
+                    <Link
+                      key={t.slug}
+                      href={`/talks/${t.slug}`}
+                      className="neo-media-card group block"
+                    >
+                      {displayImage && (
+                        <Image
+                          src={displayImage}
+                          alt={`Photo from ${t.title}`}
+                          width={800}
+                          height={450}
+                          quality={90}
+                          sizes="(max-width: 640px) 100vw, 360px"
+                          className="neo-thumb-lg w-full aspect-video object-cover"
+                        />
+                      )}
+                      <h3 className="font-bold mt-2 group-hover:text-[#cc0066]">
+                        {t.title}
+                      </h3>
+                      <p className="text-base neo-muted mt-0.5 font-mono">
+                        {formatTalkDate(t.date)}
+                      </p>
+                      <p className="text-base neo-muted mt-0.5">
+                        {t.type} · {t.event}
+                      </p>
+                    </Link>
+                  );
+                })}
+              </div>
+              <p className="mt-2 text-base">
+                <Link href="/talks">► see all talks</Link>
+              </p>
+            </NeoSection>
+
+            <StarDivider />
+
+            <NeoSection title="writing" id="writing">
+              <ul className="space-y-3 list-none p-0 m-0">
+                {blogPosts.map((post) => (
+                  <li key={post.slug}>
+                    <span className="text-base neo-muted font-mono">
+                      {post.date}
+                    </span>
+                    {" · "}
+                    <Link href={`/blog/${post.slug}`}>{post.title}</Link>
+                  </li>
+                ))}
+              </ul>
+            </NeoSection>
+
+            <StarDivider />
+
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              <NeoSection title="github activity">
+                <div className="overflow-x-auto border-2 inset border-gray-400 bg-white p-2">
+                  <GitHubCalendar
+                    username="smmariquit"
+                    colorScheme="light"
+                    blockSize={11}
+                    blockMargin={3}
+                    fontSize={13}
+                  />
+                </div>
+              </NeoSection>
+
+              <NeoSection title="currently into..." id="currently">
+                <ul className="space-y-4 list-none p-0 m-0">
+                  {film && (
+                    <li className="flex gap-4 items-start">
+                      {film.posterUrl && (
+                        <img
+                          src={film.posterUrl}
+                          alt={film.title}
+                          className="neo-thumb-lg w-28 h-40 object-cover flex-shrink-0"
+                        />
+                      )}
+                      <div className="pt-1">
+                        <strong>film:</strong> {film.title}
+                        {film.rating && (
+                          <p className="neo-muted mt-1">
+                            {"★".repeat(Math.round(film.rating))}
+                          </p>
+                        )}
+                      </div>
+                    </li>
+                  )}
+                  {book && (
+                    <li className="flex gap-4 items-start">
+                      {book.coverUrl && (
+                        <img
+                          src={book.coverUrl}
+                          alt={book.title}
+                          className="neo-thumb-lg w-28 h-40 object-cover flex-shrink-0"
+                        />
+                      )}
+                      <div className="pt-1">
+                        <strong>book:</strong> {book.title}
+                        <p className="neo-muted mt-1">{book.author}</p>
+                      </div>
+                    </li>
+                  )}
+                  {music && (
+                    <li>
+                      <div className="pt-1">
+                        <strong>music:</strong> top albums ·{" "}
+                        <Link
+                          href={music.profileUrl}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                        >
+                          last.fm
+                        </Link>
+                        <p className="neo-muted mt-1 mb-2">{music.period}</p>
+                      </div>
+                      <Link
+                        href={music.profileUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="block"
+                      >
+                        <img
+                          src={music.collageUrl}
+                          alt={`${music.username}'s top albums on Last.fm over the ${music.period.toLowerCase()}`}
+                          width={260}
+                          height={260}
+                          loading="lazy"
+                          className="neo-thumb-lg w-full max-w-[260px] aspect-square object-cover"
+                        />
+                      </Link>
+                    </li>
+                  )}
+                </ul>
+              </NeoSection>
+            </div>
+
+            <StarDivider />
+
+            <NeoSection title="friends" id="friends">
+              <p className="mb-2 text-base neo-muted">
+                cool people &amp; neighbors from around the web:
+              </p>
+              <ul className="neo-friends-list">
+                {FRIENDS.map((friend) => (
+                  <li key={friend.url}>
+                    <Link
+                      href={friend.url}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      {friend.name} ↗
+                    </Link>
+                    {friend.blurb && (
+                      <span className="neo-friend-blurb">· {friend.blurb}</span>
+                    )}
+                  </li>
+                ))}
+              </ul>
+            </NeoSection>
+
+            <StarDivider />
+
+            <div className="text-center py-2">
+              <p
+                className="text-base mb-3"
+                style={{ fontFamily: "var(--neo-pixel)" }}
+              >
+                ~ link to me ~
+              </p>
+              <img
+                src="/stimmie_88x31_67.png"
+                srcSet="/stimmie_88x31_67.png 1x, /stimmie_88x31_67@2x.png 2x"
+                alt="stimmie.dev 88x31 button with a goofy meme face"
+                width={88}
+                height={31}
+                className="neo-pixel-btn inline-block"
+              />
+            </div>
+          </main>
+        </div>
+
+        <footer className="neo-footer mt-3">
+          <p>
+            made with ♥ · <Link href="/changelog">v{version}</Link> ·{" "}
+            <Link href="/archive">site history</Link>
+          </p>
+          <p className="text-[#ff00aa]">thanks 4 visiting!!!</p>
+        </footer>
+      </div>
     </div>
   );
 }

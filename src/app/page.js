@@ -1,14 +1,15 @@
 // src/app/page.js
 
-import { getAllMediaData } from '@/lib/media';
-import HomeClient from './HomeClient';
+import { getSiteVersion } from "@/lib/changelog";
+import { getAllMediaData } from "@/lib/media";
+import HomeClient from "./HomeClient";
 
 // Revalidate every 1 hour (3600 seconds)
 export const revalidate = 3600;
 
 export default async function Home() {
-  // Fetch media data at build time (and revalidate hourly)
   const mediaData = await getAllMediaData();
+  const version = getSiteVersion();
 
-  return <HomeClient mediaData={mediaData} />;
+  return <HomeClient mediaData={mediaData} version={version} />;
 }
