@@ -39,6 +39,13 @@ const SOFTWARE_ENGINEERING = [
 
 const TEACHING = [
   {
+    role: "Private Tutor",
+    org: "tutor.stimmie.dev",
+    url: "https://tutor.stimmie.dev",
+    period: "present",
+    note: "Math, computer science, and programming through my own tutoring practice.",
+  },
+  {
     role: "Tutor",
     org: "Tutor Hub PH",
     period: "present",
@@ -116,7 +123,7 @@ const SCHOOL_ORGS = [
     note: "A competitive programming group under UPLB.",
   },
   {
-    role: "Member",
+    role: "Officer",
     org: "START - DOST",
     url: "https://sei.dost.gov.ph/",
     note: "For DOST-SEI scholars in the field of tech.",
