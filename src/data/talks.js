@@ -242,6 +242,19 @@ export const talks = [
       "A 5-minute show-and-tell and an early take on my HearthCraft talk, on the moments and milestones of building a Minecraft community.",
     slidesLink: "https://canva.link/mcvy2k0zc0oot4z",
   },
+  {
+    slug: "cmsc-21-mock-review-uplb-ics-discord",
+    title: "CMSC 21 Mock Review",
+    actionPhoto: null,
+    slidesThumbnail: null,
+    date: "2026-02-17T19:00:00+08:00",
+    event: "UPLB ICS Students' Discord",
+    type: "Workshop",
+    audienceSize: 50,
+    description:
+      "Mock review session for CMSC 21 (programming fundamentals) ahead of exams.",
+    slidesLink: "https://workshops.stimmie.dev/cmsc21",
+  },
 ];
 
 export function getTalkBySlug(slug) {
