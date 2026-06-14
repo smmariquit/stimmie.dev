@@ -40,7 +40,7 @@ export const talks = [
     title: "NextStep Hacks 2025 - Winning by Talking",
     actionPhoto: "/talks/talk3.jpg",
     slidesThumbnail: null,
-    date: "2025-01-20T14:00:00+08:00",
+    date: "2025-07-12T14:00:00+08:00",
     event: "NextStep Hacks 2025",
     type: "Talk",
     audienceSize: 100,
@@ -138,7 +138,7 @@ export const talks = [
     title: "Machine Learning Workshop",
     actionPhoto: "/talks/ml-workshop-smcl.jpg",
     slidesThumbnail: null,
-    date: "2024-12-05T09:00:00+08:00",
+    date: "2026-02-19T09:00:00+08:00",
     event: "Saint Michael's College of Laguna",
     type: "Workshop",
     audienceSize: 40,
@@ -175,6 +175,19 @@ export const talks = [
     audienceSize: 60,
     description:
       "A talk on the intersection of data science and data analytics to better present insights.",
+    slidesLink: null,
+  },
+  {
+    slug: "hosting-a-minecraft-server-cdm",
+    title: "Hosting a Minecraft Server",
+    actionPhoto: "/talks/hosting-minecraft-server-cdm.png",
+    slidesThumbnail: null,
+    date: "2026-03-03T10:00:00+08:00",
+    event: "Colegio de Muntinlupa",
+    type: "Talk",
+    audienceSize: 40,
+    description:
+      "A talk on running your own Minecraft server, from setup and hosting to growing and managing a community.",
     slidesLink: null,
   },
 ];

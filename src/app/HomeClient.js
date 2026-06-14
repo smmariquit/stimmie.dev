@@ -41,6 +41,7 @@ const SECTION_LINKS = [
   { label: "writing", href: "#writing" },
   { label: "currently into", href: "#currently" },
   { label: "friends", href: "#friends" },
+  { label: "book a call", href: "#book" },
 ];
 
 function getSortedTalks() {
@@ -452,6 +453,28 @@ export default function HomeClient({ mediaData, version }) {
                   </li>
                 ))}
               </ul>
+            </NeoSection>
+
+            <StarDivider />
+
+            <NeoSection title="let's chat!" id="book">
+              <div
+                className="text-center p-5"
+                style={{ border: "3px double #d6008f", background: "#fff7fb" }}
+              >
+                <p className="mx-auto mb-3">
+                  Got an idea, a question, or just want to say hi? Grab a slot
+                  and let&apos;s hop on a quick call or chat.
+                </p>
+                <Link
+                  href="https://cal.stimmie.dev"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="neo-link-card inline-block font-bold"
+                >
+                  ☎ book a call or quick chat ↗
+                </Link>
+              </div>
             </NeoSection>
 
             <StarDivider />
