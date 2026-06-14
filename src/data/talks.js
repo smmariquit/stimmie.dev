@@ -3,6 +3,10 @@
 // Shared talks data used by the home bento, the /talks listing, and per-talk pages.
 // Slugs are intentionally explicit (not derived from title) so URLs remain stable
 // even if a title is edited. Add new talks at the bottom; never reuse a slug.
+//
+// `audienceSize` is a rough estimate of how many people attended each talk/
+// workshop. It's summed on the /talks page to show a running total reach.
+// These are estimates — adjust them to match your real numbers.
 
 export const talks = [
   {
@@ -13,6 +17,7 @@ export const talks = [
     date: "2025-04-04T10:00:00+08:00",
     event: "UPLB Data Science Guild x UPRHS CodeIT",
     type: "Workshop",
+    audienceSize: 40,
     description:
       "An introductory workshop on data science fundamentals for high school students.",
     slidesLink: "/r/workshops/dsg-codeit-day1",
@@ -25,6 +30,7 @@ export const talks = [
     date: "2025-04-11T10:00:00+08:00",
     event: "UPLB Data Science Guild x UPRHS CodeIT",
     type: "Workshop",
+    audienceSize: 40,
     description:
       "Teaching students how to communicate insights effectively through data visualization and narrative.",
     slidesLink: "/r/workshops/dsg-codeit-day2",
@@ -37,19 +43,20 @@ export const talks = [
     date: "2025-01-20T14:00:00+08:00",
     event: "NextStep Hacks 2025",
     type: "Talk",
+    audienceSize: 100,
     description:
       "A talk on presentation skills and how to pitch your hackathon projects effectively.",
     slidesLink: "/r/workshops/nextstep-hacks",
   },
   {
     slug: "jpcs-qcu-logic-unlocked-ml-with-python",
-    title:
-      "JPCS - QCU Logic Unlocked Day 1 - Machine Learning with Python",
+    title: "JPCS - QCU Logic Unlocked Day 1 - Machine Learning with Python",
     actionPhoto: null,
     slidesThumbnail: "/talks/jpcs-qcu-thumbnail.jpg",
     date: "2025-09-25T09:00:00+08:00",
     event: "JPCS QCU Logic Unlocked",
     type: "Workshop",
+    audienceSize: 60,
     description:
       "Hands-on workshop introducing machine learning concepts using Python and popular ML libraries.",
     slidesLink: "/r/talks/qcu-ml-python",
@@ -62,6 +69,7 @@ export const talks = [
     date: "2025-10-05T13:00:00+08:00",
     event: "UPLB Data Science Guild",
     type: "Workshop",
+    audienceSize: 60,
     description:
       "Teaching applicants how to create compelling data visualizations using Canva.",
     slidesLink: null,
@@ -75,13 +83,15 @@ export const talks = [
     date: "2025-10-12T10:00:00+08:00",
     event: "Data Engineering Pilipinas",
     type: "Talk",
-    description: "Discussing practical AI applications that create real-world impact.",
+    audienceSize: 150,
+    description:
+      "Discussing practical AI applications that create real-world impact.",
     slidesLink: "https://canva.link/xn1ghgvhtk628aw",
     replayLink: "https://youtu.be/fL23CKJDGN8?si=tDRsPeaSlTmVUG0f",
     moderator: {
       name: "Allan Tan",
-      link: "https://www.linkedin.com/in/allanctan/"
-    }
+      link: "https://www.linkedin.com/in/allanctan/",
+    },
   },
   {
     slug: "dlsu-eces-agile-edge-swift-project-workflows",
@@ -91,7 +101,9 @@ export const talks = [
     date: "2025-11-05T14:00:00+08:00",
     event: "DLSU ECES",
     type: "Talk",
-    description: "Talk on agile methodologies and efficient project management for the DLSU ECES.",
+    audienceSize: 80,
+    description:
+      "Talk on agile methodologies and efficient project management for the DLSU ECES.",
     slidesLink: null,
   },
   {
@@ -102,7 +114,9 @@ export const talks = [
     date: "2026-03-02T10:00:00+08:00",
     event: "UPLB Data Science Guild Apps' Workshop",
     type: "Workshop",
-    description: "Introductory ML workshop focusing on the classic Iris dataset classification.",
+    audienceSize: 50,
+    description:
+      "Introductory ML workshop focusing on the classic Iris dataset classification.",
     slidesLink: "https://workshops.stimmie.dev/ml-iris-slides",
   },
   {
@@ -111,9 +125,12 @@ export const talks = [
     actionPhoto: null,
     slidesThumbnail: "/talks/python-in-research-thumbnail.png",
     date: "2026-04-24T13:30:00+08:00",
-    event: "Decode to Defend: A Research Refresher by UST Computer Science Society",
+    event:
+      "Decode to Defend: A Research Refresher by UST Computer Science Society",
     type: "Workshop",
-    description: "Applying Python for data analysis and automation in academic research.",
+    audienceSize: 70,
+    description:
+      "Applying Python for data analysis and automation in academic research.",
     slidesLink: "https://workshops.stimmie.dev/python",
   },
   {
@@ -124,7 +141,9 @@ export const talks = [
     date: "2024-12-05T09:00:00+08:00",
     event: "Saint Michael's College of Laguna",
     type: "Workshop",
-    description: "A comprehensive machine learning workshop for students at SMCL.",
+    audienceSize: 40,
+    description:
+      "A comprehensive machine learning workshop for students at SMCL.",
     slidesLink: null,
   },
   {
@@ -135,13 +154,15 @@ export const talks = [
     date: "2026-02-02T10:00:00+08:00",
     event: "HearthCraft",
     type: "Talk",
-    description: "Deep dive into managing and scaling a 40,000-player Minecraft server community.",
+    audienceSize: 100,
+    description:
+      "Deep dive into managing and scaling a 40,000-player Minecraft server community.",
     slidesLink: null,
     replayLink: "#",
     moderator: {
       name: "Renzi Vidal",
-      link: "https://www.linkedin.com/in/ultrenz-vidal/"
-    }
+      link: "https://www.linkedin.com/in/ultrenz-vidal/",
+    },
   },
   {
     slug: "present-insights-better-batangas-eastern-colleges",
@@ -151,11 +172,18 @@ export const talks = [
     date: "2026-02-12T10:00:00+08:00",
     event: "Batangas Eastern Colleges",
     type: "Talk",
-    description: "A talk on the intersection of data science and data analytics to better present insights.",
+    audienceSize: 60,
+    description:
+      "A talk on the intersection of data science and data analytics to better present insights.",
     slidesLink: null,
   },
 ];
 
 export function getTalkBySlug(slug) {
   return talks.find((t) => t.slug === slug);
+}
+
+/** Estimated total number of people reached across all talks and workshops. */
+export function getTotalAudience() {
+  return talks.reduce((sum, talk) => sum + (talk.audienceSize || 0), 0);
 }
