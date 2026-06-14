@@ -204,6 +204,19 @@ export const talks = [
     slidesLink: null,
   },
   {
+    slug: "i-love-and-hate-the-tech-industry-uplb-2025",
+    title: "I Love and Hate the Tech Industry",
+    actionPhoto: null,
+    slidesThumbnail: "/talks/i-love-and-hate-the-tech-industry.png",
+    date: "2025-07-07T21:00:00+08:00",
+    event: "UPLB Batch 2025 Discord Server",
+    type: "Talk",
+    audienceSize: 50,
+    description:
+      "A primer on the tech industry: the good, the bad, and what it actually looks like from the inside.",
+    slidesLink: null,
+  },
+  {
     slug: "navigating-hackathons-bulsu-css",
     title: "Navigating Hackathons",
     actionPhoto: null,
