@@ -42,6 +42,7 @@ const SECTION_LINKS = [
   { label: "currently into", href: "#currently" },
   { label: "friends", href: "#friends" },
   { label: "book a call", href: "#book" },
+  { label: "support me", href: "#support" },
 ];
 
 function getSortedTalks() {
@@ -473,6 +474,30 @@ export default function HomeClient({ mediaData, version }) {
                   className="neo-link-card inline-block font-bold"
                 >
                   ☎ book a call or quick chat ↗
+                </Link>
+              </div>
+            </NeoSection>
+
+            <StarDivider />
+
+            <NeoSection title="buy me a kape" id="support">
+              <div
+                className="text-center p-5"
+                style={{ border: "3px double #d6008f", background: "#fff7fb" }}
+              >
+                <p className="mx-auto mb-3">
+                  Found something here useful? Kape is my little
+                  &ldquo;buy me a coffee&rdquo; corner. No pressure at all, but
+                  if you&apos;d like to support my work, it genuinely means a
+                  lot.
+                </p>
+                <Link
+                  href="https://kape.stimmie.dev"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="neo-link-card inline-block font-bold"
+                >
+                  ☕ buy me a kape ↗
                 </Link>
               </div>
             </NeoSection>
