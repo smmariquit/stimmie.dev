@@ -18,7 +18,7 @@ const workshops = {
   },
   "nextstep-hacks": {
     title: "NextStep Hacks 2025 - Winning by Talking",
-    url: "https://docs.google.com/presentation/d/YOUR_PRESENTATION_ID_3",
+    url: "https://canva.link/x6tdjld7r16dmca",
   },
   "qcu-ml-python": {
     title: "JPCS - QCU Logic Unlocked Day 1 - Machine Learning with Python",
