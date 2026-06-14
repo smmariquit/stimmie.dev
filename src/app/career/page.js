@@ -138,7 +138,7 @@ const SCHOOL_ORGS = [
 function RoleList({ items, label }) {
   return (
     <ul
-      className="neo-facts list-none p-0 m-0 mt-2 space-y-2"
+      className="neo-facts neo-role-list list-none p-0 m-0 mt-2 space-y-2"
       aria-label={label}
     >
       {items.map((item) => (
@@ -279,7 +279,7 @@ export default function CareerPage() {
       >
         <h2 className="neo-section-title">let&apos;s work together</h2>
         <p className="mt-1">I&apos;m currently open to:</p>
-        <ul className="neo-facts list-none p-0 m-0 mt-2 space-y-1">
+        <ul className="neo-facts neo-role-list list-none p-0 m-0 mt-2 space-y-1">
           <li>💻 Part-time, remote, and paid dev work</li>
           <li>🛠 One-time software consultancy</li>
         </ul>

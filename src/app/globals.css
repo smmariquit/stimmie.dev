@@ -328,6 +328,10 @@ body {
   content: var(--neo-section-star);
 }
 
+.neo-role-list {
+  padding-left: 1.5rem;
+}
+
 .neo-nav-list {
   list-style: none;
   padding: 0;
