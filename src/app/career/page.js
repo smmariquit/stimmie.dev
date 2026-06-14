@@ -6,7 +6,7 @@ import PageShell from "@/components/neo/PageShell";
 export const metadata = {
   title: "Career",
   description:
-    "Simonee Ezekiel Mariquit (Stimmie): software engineer, community builder, teacher, and lifelong tinkerer. Currently open to part-time remote dev work and one-time software consultancy.",
+    "Simonee Ezekiel Mariquit (Stimmie): Minecraft dev turned software engineer, community builder, teacher, and certified LinkedIn shitposter. Currently open to part-time remote dev work and one-time software consultancy.",
 };
 
 const SOFTWARE_ENGINEERING = [
@@ -15,25 +15,60 @@ const SOFTWARE_ENGINEERING = [
     org: "Navegante",
     url: "https://navegante.app",
     period: "Jun 2026 – present",
+    note: "Remote from Metro Manila.",
   },
   {
     role: "Software Engineer",
     org: "E-Konsulta Medical Clinic",
     url: "https://ekonsultaclinic.ph",
-    period: "Apr 2025 – Jun 2026",
-    note: "Built tooling and shipped fixes for a TypeScript clinic portal used by real medical staff and patients.",
+    period: "Apr 2025 – Jan 2026",
+    note: "Shipped tooling and web work for a clinic startup. Asked questions, took feedback, and failed fast. Also explored Agile workflows and value-adding initiatives beyond the codebase.",
+  },
+  {
+    role: "Fundraising Lead",
+    org: "E-Konsulta Medical Clinic",
+    url: "https://ekonsultaclinic.ph",
+    period: "Aug 2025 – Sep 2025",
+    note: "Short stint securing funding opportunities with government agencies, VCs, and angel investors.",
+  },
+  {
+    role: "Project Lead",
+    org: "HearthCraft",
+    url: "https://hearthcraft.stimmie.dev",
+    period: "Apr 2018 – Apr 2025",
+    note: "A non-pay-to-win survival Minecraft server that grew into a safe space for 50,000+ players, with around $5k annual recurring revenue that helped fund college and charitable givebacks.",
   },
   {
     role: "Freelance Software & Minecraft Developer",
     org: "Self-employed",
     period: "Nov 2022 – present",
-    note: "A bit of everything: POS systems running on Sunmi hardware, educational tools, websites, and full-stack apps, plus Minecraft server setup and plugin work.",
+    note: "Minecraft server setup and plugin work via BuiltByBit, HelpChat, and forums. Lately also MERN, Flutter, Firebase, POS systems on Sunmi hardware, educational tools, and full-stack apps.",
+  },
+  {
+    role: "Minecraft Developer",
+    org: "Spark Services",
+    period: "Jan 2022 – May 2022",
   },
   {
     role: "Technical Support Specialist",
     org: "OrbitNode",
-    period: "Oct 2021 – Jan 2022",
-    note: "Support for a Minecraft server hosting company.",
+    period: "Oct 2021 – Dec 2021",
+    note: "Remote support for a Minecraft server hosting company.",
+  },
+];
+
+const UNIVERSITY_WORK = [
+  {
+    role: "Office Assistant",
+    org: "UPLB Institute of Physics",
+    period: "Feb 2025 – Apr 2025",
+    note: "Officework for a newly formed institute. Learned a bit about the academic side of physics along the way.",
+  },
+  {
+    role: "Office Assistant",
+    org: "UPLB Office of Alumni Relations",
+    period: "Sep 2024 – Jan 2025",
+    note: "Administrative work, data entry, and computer maintenance. Got a closer look at alumni initiatives and how a Philippine government office runs.",
   },
 ];
 
@@ -46,24 +81,45 @@ const TEACHING = [
     note: "Math, computer science, and programming through my own tutoring practice.",
   },
   {
-    role: "Tutor",
+    role: "Freelance Tutor",
     org: "Tutor Hub PH",
-    period: "present",
+    period: "Nov 2025 – present",
     note: "Math, computer science, and programming.",
   },
   {
     role: "Teaching Partner",
     org: "Aralin",
-    period: "Nov 2024 – Jun 2025",
+    period: "Nov 2024 – Jul 2025",
+    note: "Created educational materials and test questions for college entrance test (CET) review on an edtech platform connecting mentors with students.",
   },
 ];
 
 const COMMUNITY = [
   {
+    role: "City Lead",
+    org: "Sip & Scale",
+    period: "Mar 2026 – present",
+    note: "Curated monthly dinners in Los Baños for people in startups and tech to unwind, connect, and talk shop.",
+  },
+  {
+    role: "Founder",
+    org: "UX Elbi",
+    period: "Dec 2025 – present",
+    note: "A community of UX enthusiasts in Los Baños who believe design is a form of public service. Built from scratch.",
+  },
+  {
     role: "Co-founder",
     org: "Pizza & Friends",
     url: "https://joinpizza.fun",
-    note: "A not-so-serious tech community.",
+    period: "Jul 2025 – present",
+    note: "A not-so-serious tech community co-founded with John Yumul. Slides parties, hackathons, dinners, Discord calls, and a server home to 300+ members.",
+  },
+  {
+    role: "Volunteer",
+    org: "Data Engineering Pilipinas",
+    url: "https://dataengineering.ph/",
+    period: "Aug 2025 – present",
+    note: "Speaking engagements on data science, plus community initiatives in their Discord server.",
   },
   {
     role: "Founder",
@@ -77,11 +133,6 @@ const COMMUNITY = [
   {
     role: "Founder",
     org: "UPLB DX Student Volunteer Group",
-  },
-  {
-    role: "Volunteer",
-    org: "Data Engineering Pilipinas",
-    url: "https://dataengineering.ph/",
   },
   {
     role: "Volunteer",
@@ -99,18 +150,27 @@ const SCHOOL_ORGS = [
     role: "Academic Affairs",
     org: "Alliance of Computer Science Students, UPLB",
     url: "https://v2.acssuplb.org/",
+    period: "May 2025 – present",
+    note: "Develop member and public capacity in tech. Keep a steady flow of hackathon and project opportunities for orgmates.",
   },
   {
-    role: "Education & Research",
+    role: "Fellow",
     org: "UP Data Science Society",
     url: "https://www.facebook.com/updatasciencesociety/",
+    period: "Sep 2025 – present",
   },
-  { role: "Internals", org: "UPLB Data Science Guild" },
   {
-    role: "Finance",
+    role: "Internal Affairs",
+    org: "UPLB Data Science Guild",
+    period: "Dec 2024 – present",
+    note: "Member records, team building, workshops, and training sessions for members and partner orgs.",
+  },
+  {
+    role: "Executive Officer",
     org: "UPLB Gavel Club",
     url: "https://www.toastmasters.org/",
-    note: "An affiliate of Toastmasters International.",
+    period: "Feb 2025 – present",
+    note: "An affiliate of Toastmasters International. Accessible public speaking training in UPLB.",
   },
   {
     role: "Comp Prog",
@@ -133,6 +193,28 @@ const SCHOOL_ORGS = [
     org: "ASES Manila",
     url: "https://www.facebook.com/asesmnl/",
   },
+];
+
+const EDUCATION = [
+  {
+    degree: "Bachelor of Science, Computer Science",
+    org: "University of the Philippines Los Baños",
+    url: "https://up.edu.ph/",
+    period: "Aug 2023 – Aug 2027",
+    note: "DOST-SEI undergraduate scholar.",
+  },
+];
+
+const CERTIFICATIONS = [
+  "Google AI Essentials (DTI x Google Career Certificates)",
+  "DataCamp x DEP Scholarship (50+ courses completed)",
+  "Six Sigma: Green Belt",
+];
+
+const HONORS = [
+  "DOST-SEI Undergraduate Scholar",
+  "Champion, Meralco IDOL Hackathon (2025)",
+  "Champion, UPLB CPAf Data 2 Decisions (2025)",
 ];
 
 function RoleList({ items, label }) {
@@ -163,11 +245,52 @@ function RoleList({ items, label }) {
   );
 }
 
+function EducationList({ items }) {
+  return (
+    <ul
+      className="neo-facts neo-role-list list-none p-0 m-0 mt-2 space-y-2"
+      aria-label="Education"
+    >
+      {items.map((item) => (
+        <li key={`${item.org}-${item.degree}`}>
+          <strong>{item.degree}</strong> @{" "}
+          {item.url ? (
+            <Link href={item.url} target="_blank" rel="noopener noreferrer">
+              {item.org}
+            </Link>
+          ) : (
+            item.org
+          )}
+          {item.period ? (
+            <span className="neo-muted"> ({item.period})</span>
+          ) : null}
+          {item.note ? (
+            <span className="block text-base neo-muted mt-0.5">{item.note}</span>
+          ) : null}
+        </li>
+      ))}
+    </ul>
+  );
+}
+
+function SimpleList({ items, label }) {
+  return (
+    <ul
+      className="neo-facts neo-role-list list-none p-0 m-0 mt-2 space-y-1"
+      aria-label={label}
+    >
+      {items.map((item) => (
+        <li key={item}>{item}</li>
+      ))}
+    </ul>
+  );
+}
+
 export default function CareerPage() {
   return (
     <PageShell
       title="~ my career ~"
-      intro="Never lose your child-like sense of wonder! A website version of my resume: who I am, what I've built, and what I'm up to."
+      intro="Never lose your child-like sense of wonder! A website version of my resume and LinkedIn: who I am, what I've built, and what I'm up to."
       current="/career"
       maxWidth="56rem"
     >
@@ -193,18 +316,11 @@ export default function CareerPage() {
       <p>
         Hi! My name is <strong>Simonee Ezekiel Mariquit</strong>, though if you
         come from UP, you might know me better as <strong>Stimmie</strong>.
+        Minecraft dev turned software engineer. Certified LinkedIn shitposter.
       </p>
 
       <p className="mt-3">
-        Right now, I own and run a Minecraft server called{" "}
-        <Link
-          href="https://crib.stimmie.dev"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          The Crib
-        </Link>
-        . Before that, I was the lead at{" "}
+        In 2018 I turned my love for Minecraft into{" "}
         <Link
           href="https://hearthcraft.stimmie.dev"
           target="_blank"
@@ -212,12 +328,23 @@ export default function CareerPage() {
         >
           HearthCraft
         </Link>
-        , a survival Minecraft server that ran for six years (including straight
-        through the pandemic) and grew into a safe space for over 10,000
-        players. I&apos;ve also joined and organized 30+ hackathons, game jams,
-        and design challenges, where I met tons of people, heard brilliant (and
-        not-so-brilliant) ideas, and explored new tech. I write down what I
-        learn in{" "}
+        , a popular non-pay-to-win survival server that became a safe space for
+        50,000+ players. At around $5,000 in annual recurring revenue, it helped
+        fund much of my college life, gave back to charity, and gradually pushed
+        me toward a career in software engineering. These days I run{" "}
+        <Link
+          href="https://crib.stimmie.dev"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          The Crib
+        </Link>
+        .
+      </p>
+
+      <p className="mt-3">
+        I&apos;ve joined and organized 30+ hackathons, game jams, and design
+        challenges. I write down what I learn in{" "}
         <Link
           href="https://workshops.stimmie.dev/hackathon-guide"
           target="_blank"
@@ -225,17 +352,18 @@ export default function CareerPage() {
         >
           my hackathon guide
         </Link>
-        .
+        . I like hearing ideas. If you want to collab on something, send me a
+        message.
       </p>
 
       <p className="mt-3">
-        I spend some of my time finishing my Bachelor of Science degree at the{" "}
+        I spend some of my time finishing my BS in Computer Science at{" "}
         <Link
           href="https://up.edu.ph/"
           target="_blank"
           rel="noopener noreferrer"
         >
-          University of the Philippines
+          UP Los Baños
         </Link>
         . The rest goes to building things, my organizations, volunteering,
         meeting new people, running, watching films, and generally living life.
@@ -244,14 +372,26 @@ export default function CareerPage() {
       <h2 className="neo-section-title mt-8">💻 software engineering</h2>
       <RoleList items={SOFTWARE_ENGINEERING} label="Software engineering roles" />
 
+      <h2 className="neo-section-title mt-8">🏛 university work</h2>
+      <RoleList items={UNIVERSITY_WORK} label="University work" />
+
       <h2 className="neo-section-title mt-8">📚 teaching</h2>
       <RoleList items={TEACHING} label="Teaching roles" />
 
       <h2 className="neo-section-title mt-8">🤝 community &amp; volunteering</h2>
       <RoleList items={COMMUNITY} label="Community and volunteering" />
 
-      <h2 className="neo-section-title mt-8">🎓 school organizations</h2>
+      <h2 className="neo-section-title mt-8">🏫 school organizations</h2>
       <RoleList items={SCHOOL_ORGS} label="School organizations" />
+
+      <h2 className="neo-section-title mt-8">🎓 education</h2>
+      <EducationList items={EDUCATION} />
+
+      <h2 className="neo-section-title mt-8">📜 certifications</h2>
+      <SimpleList items={CERTIFICATIONS} label="Certifications" />
+
+      <h2 className="neo-section-title mt-8">🏅 honors &amp; awards</h2>
+      <SimpleList items={HONORS} label="Honors and awards" />
 
       <p className="mt-8">
         I also get invited to give{" "}
@@ -264,6 +404,9 @@ export default function CareerPage() {
       <p className="mt-3">
         <strong>Languages I work with:</strong> HTML &amp; CSS, JavaScript &amp;
         TypeScript, C, C++, SQL, and Python.
+      </p>
+      <p className="mt-2">
+        <strong>Languages I speak:</strong> Filipino and English.
       </p>
 
       <p className="mt-3">
