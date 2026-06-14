@@ -56,7 +56,7 @@ export const FRIENDS = [
 ];
 
 export const MARQUEE_TEXT =
-  "★ welcome to my corner of the web ★ software engineer ★ tinkerer ★ builder of weird things ★ last updated june 2026 ★ ";
+  "★ welcome to my corner of the web ★ software engineer ★ tinkerer ★ builder of weird things ★ linkedin shitposter ★ last updated june 2026 ★ ";
 
 export const ABOUT_TEXT =
   "Creator, tinkerer, and builder of digital experiences. Whether it's writing code, designing interfaces, or crafting data stories, I love bringing wild ideas to life on the internet.";

@@ -85,6 +85,14 @@ export default function TalksPage() {
                   <p className="text-base neo-muted mt-0.5 mb-1">
                     {talk.event}
                   </p>
+                  {talk.audienceSize ? (
+                    <p
+                      className="text-base neo-muted mt-0.5 mb-1"
+                      style={{ fontFamily: "var(--neo-ui)" }}
+                    >
+                      👥 ~{talk.audienceSize.toLocaleString()} in the audience
+                    </p>
+                  ) : null}
                   <p className="m-0">{talk.description}</p>
                 </article>
               </Link>
@@ -102,12 +110,22 @@ export default function TalksPage() {
           I&apos;m always excited to share knowledge about data science,
           software engineering, and tech careers.
         </p>
-        <Link
-          href="mailto:semariquit@gmail.com?subject=Speaking Invitation"
-          className="neo-link-card inline-block font-bold"
-        >
-          ✉ get in touch
-        </Link>
+        <div className="flex flex-wrap justify-center gap-3">
+          <Link
+            href="mailto:semariquit@gmail.com?subject=Speaking Invitation"
+            className="neo-link-card inline-block font-bold"
+          >
+            ✉ get in touch
+          </Link>
+          <Link
+            href="https://cal.stimmie.dev"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="neo-link-card inline-block font-bold"
+          >
+            ☎ book a call
+          </Link>
+        </div>
       </div>
     </PageShell>
   );
