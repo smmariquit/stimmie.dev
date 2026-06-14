@@ -191,6 +191,19 @@ export const talks = [
     slidesLink: null,
   },
   {
+    slug: "networking-resume-personal-branding-uplb-2025",
+    title: "Networking, Resume, & Personal Branding 101",
+    actionPhoto: null,
+    slidesThumbnail: "/talks/networking-resume-branding-thumbnail.png",
+    date: "2025-07-13T10:00:00+08:00",
+    event: "UPLB Batch 2025 Discord Server",
+    type: "Talk",
+    audienceSize: 50,
+    description:
+      "A 101 session on networking, building a strong resume, and shaping your personal brand as a student heading into tech.",
+    slidesLink: null,
+  },
+  {
     slug: "navigating-hackathons-bulsu-css",
     title: "Navigating Hackathons",
     actionPhoto: null,
