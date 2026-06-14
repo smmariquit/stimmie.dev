@@ -3,9 +3,8 @@
 import Link from "next/link";
 import PageShell from "@/components/neo/PageShell";
 import { projects } from "@/data/projects";
-import { flattenRedirects, getSitemapHosts } from "@/data/redirects";
 import { talks } from "@/data/talks";
-import { fetchCloudflareRedirectEntries } from "@/lib/cloudflare";
+import { fetchCloudflareRedirects } from "@/lib/cloudflare";
 
 export const metadata = {
   title: "Links Directory",
@@ -22,6 +21,19 @@ const staticRoutes = [
   { title: "Archive", path: "/archive" },
 ];
 
+function stripProtocol(url) {
+  return url.replace(/^https?:\/\//i, "");
+}
+
+// Targets are often long Canva/Drive URLs with tracking params. Drop the
+// protocol and query/hash so the directory stays readable; the row still
+// links to the source, which performs the real redirect.
+function prettyTarget(url) {
+  return stripProtocol(url).split("?")[0].split("#")[0].replace(/\/$/, "");
+}
+
+// A single directory row. `sub` is optional — internal pages omit it (the
+// title already says where it goes); redirects use it to show the target.
 function LinkRow({ href, label, sub, external }) {
   return (
     <li>
@@ -29,27 +41,23 @@ function LinkRow({ href, label, sub, external }) {
         href={href}
         target={external ? "_blank" : undefined}
         rel={external ? "noopener noreferrer" : undefined}
-        className="neo-link-card group flex items-center justify-between gap-3"
+        className="neo-link-card group block"
       >
-        <span className="font-bold truncate">{label}</span>
-        <span className="text-base neo-muted shrink-0 font-mono">{sub}</span>
+        <span className="font-bold block break-words group-hover:text-[#cc0066]">
+          {label}
+        </span>
+        {sub && (
+          <span className="block text-base neo-muted font-mono mt-0.5 break-all">
+            {sub}
+          </span>
+        )}
       </Link>
     </li>
   );
 }
 
 export default async function LinksDirectoryPage() {
-  const localRedirects = flattenRedirects();
-  const cfEntries = await fetchCloudflareRedirectEntries({
-    hosts: getSitemapHosts(),
-  });
-
-  const pendingLocal = localRedirects.filter(
-    (l) =>
-      !cfEntries.some((e) =>
-        l.sources.some((s) => `https://${s.host}${s.path}` === e.url),
-      ),
-  );
+  const redirects = await fetchCloudflareRedirects();
 
   return (
     <PageShell
@@ -60,7 +68,7 @@ export default async function LinksDirectoryPage() {
     >
       <p className="m-0 mb-6">
         <span className="neo-badge neo-badge-workshop">
-          ● Live from Cloudflare
+          ● Redirects live from Cloudflare
         </span>
       </p>
 
@@ -71,12 +79,7 @@ export default async function LinksDirectoryPage() {
           </h2>
           <ul className="flex flex-col gap-2 list-none p-0 m-0">
             {staticRoutes.map((route) => (
-              <LinkRow
-                key={route.path}
-                href={route.path}
-                label={route.title}
-                sub={route.path}
-              />
+              <LinkRow key={route.path} href={route.path} label={route.title} />
             ))}
           </ul>
         </section>
@@ -91,7 +94,6 @@ export default async function LinksDirectoryPage() {
                 key={project.slug}
                 href={`/projects/${project.slug}`}
                 label={project.title}
-                sub={`/projects/${project.slug}`}
               />
             ))}
           </ul>
@@ -107,7 +109,6 @@ export default async function LinksDirectoryPage() {
                 key={talk.slug}
                 href={`/talks/${talk.slug}`}
                 label={talk.title}
-                sub={`/talks/${talk.slug}`}
               />
             ))}
           </ul>
@@ -115,61 +116,38 @@ export default async function LinksDirectoryPage() {
 
         <section aria-labelledby="edge-h">
           <h2 id="edge-h" className="neo-section-title">
-            live edge redirects
+            edge redirects
           </h2>
-          {cfEntries.length === 0
-            ? <div
-                className="p-5 text-center"
-                style={{ border: "2px dashed #999" }}
-              >
-                <p className="m-0">
-                  No live Cloudflare redirects found or API unreachable.
-                </p>
-                <p className="text-base neo-muted m-0 mt-1">
-                  Check your CLOUDFLARE_API_TOKEN in Vercel/local env.
-                </p>
-              </div>
-            : <ul className="flex flex-col gap-2 list-none p-0 m-0">
-                {cfEntries.map((entry, idx) => {
-                  const localMatch = localRedirects.find((l) =>
-                    l.sources.some(
-                      (s) => `https://${s.host}${s.path}` === entry.url,
-                    ),
-                  );
-                  return (
-                    <LinkRow
-                      key={idx}
-                      href={entry.url}
-                      external
-                      label={entry.url.replace("https://", "")}
-                      sub={localMatch?.category || "ACTIVE @ EDGE"}
-                    />
-                  );
-                })}
-              </ul>}
-
-          {pendingLocal.length > 0 && (
-            <div className="mt-6">
-              <h3
-                className="font-bold mb-2"
-                style={{ fontFamily: "var(--neo-ui)" }}
-              >
-                Locally configured (pending sync)
-              </h3>
-              <ul className="flex flex-col gap-2 list-none p-0 m-0">
-                {pendingLocal.map((item, idx) => (
-                  <li
-                    key={idx}
-                    className="neo-link-card flex items-center justify-between gap-3"
-                  >
-                    <span className="font-bold">{item.slug}</span>
-                    <span className="neo-tag shrink-0">
-                      {item.placeholder ? "Draft" : "Pending Sync"}
-                    </span>
-                  </li>
-                ))}
-              </ul>
+          {redirects.length === 0 ? (
+            <div
+              className="p-5 text-center"
+              style={{ border: "2px dashed #999" }}
+            >
+              <p className="m-0">
+                No live Cloudflare redirects found or the API was unreachable.
+              </p>
+              <p className="text-base neo-muted m-0 mt-1">
+                These load from your Bulk Redirect lists at build time.
+              </p>
             </div>
+          ) : (
+            <ul className="flex flex-col gap-2 list-none p-0 m-0">
+              {redirects.map((r, idx) => {
+                const source = stripProtocol(r.source);
+                const href = r.source.match(/^https?:\/\//i)
+                  ? r.source
+                  : `https://${r.source}`;
+                return (
+                  <LinkRow
+                    key={`${r.source}-${idx}`}
+                    href={href}
+                    external
+                    label={source}
+                    sub={`→ ${prettyTarget(r.target)}`}
+                  />
+                );
+              })}
+            </ul>
           )}
         </section>
       </div>

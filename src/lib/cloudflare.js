@@ -89,6 +89,82 @@ export async function fetchCloudflareRedirectEntries(opts = {}) {
 }
 
 /**
+ * Fetch every Bulk Redirect (source -> target) across all redirect-kind Lists
+ * in the account. Unlike `fetchCloudflareRedirectEntries` (which is shaped for
+ * the sitemap and only keeps crawlable apex/subdomain page URLs), this returns
+ * the full redirect pair so the /links directory can show where each short
+ * link actually points.
+ *
+ * Sources are limited to *.stimmie.dev so the directory only lists redirects
+ * owned by this site. Wildcard sources are skipped because they can't be
+ * linked to a concrete destination.
+ *
+ * @returns {Promise<Array<{source: string, target: string, statusCode: number, modifiedOn: Date|null}>>}
+ */
+export async function fetchCloudflareRedirects() {
+  const token = process.env.CLOUDFLARE_API_TOKEN;
+  const accountId = process.env.CLOUDFLARE_ACCOUNT_ID;
+
+  if (!token || !accountId) return [];
+
+  try {
+    const lists = await cfFetch(
+      `${CF_API_BASE}/accounts/${accountId}/rules/lists`,
+      token,
+    );
+    const redirectLists = (lists || []).filter((l) => l.kind === "redirect");
+
+    const items = [];
+    for (const list of redirectLists) {
+      const listItems = await fetchAllListItems(accountId, list.id, token);
+      items.push(...listItems);
+    }
+
+    const seen = new Set();
+    const out = [];
+    for (const it of items) {
+      const r = it?.redirect;
+      if (
+        !r ||
+        typeof r.source_url !== "string" ||
+        typeof r.target_url !== "string"
+      ) {
+        continue;
+      }
+
+      const source = r.source_url.trim();
+      const target = r.target_url.trim();
+      if (!source || !target) continue;
+      if (source.includes("*")) continue; // wildcards aren't linkable
+
+      const srcHost = source.replace(/^https?:\/\//i, "").toLowerCase();
+      if (!srcHost.includes("stimmie.dev")) continue;
+
+      const key = `${source}\u0000${target}`;
+      if (seen.has(key)) continue;
+      seen.add(key);
+
+      out.push({
+        source,
+        target,
+        statusCode: r.status_code || 301,
+        modifiedOn: it.modified_on ? new Date(it.modified_on) : null,
+      });
+    }
+
+    out.sort((a, b) => a.source.localeCompare(b.source));
+    return out;
+  } catch (err) {
+    console.warn(
+      "[links] Cloudflare redirect fetch failed; directory will omit " +
+        "edge redirects this regeneration:",
+      err.message,
+    );
+    return [];
+  }
+}
+
+/**
  * Resolve the host whitelist from env vars. Order of precedence:
  *   1. CLOUDFLARE_SITEMAP_HOSTS (comma-separated)
  *   2. CLOUDFLARE_SITEMAP_HOST  (single host, legacy)
