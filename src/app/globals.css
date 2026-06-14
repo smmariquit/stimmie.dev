@@ -697,8 +697,16 @@ body {
     box-shadow 120ms ease,
     transform 120ms ease;
 }
+.neo-page a.neo-link-card,
+.neo-page a.neo-link-card:visited {
+  text-decoration: none;
+  color: inherit;
+}
 .neo-link-card:hover {
   box-shadow: 4px 4px 0 #d6008f;
+  background: #fff7fb;
+}
+.neo-page a.neo-link-card:hover {
   background: #fff7fb;
 }
 
