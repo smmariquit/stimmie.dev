@@ -40,6 +40,7 @@ export const STIMMIEVERSE_LINKS = STIMMIEVERSE_CATEGORIES.flatMap(
 // Top-of-page navigation shared by every tab.
 export const NAV_LINKS = [
   { label: "home", href: "/" },
+  { label: "career", href: "/career" },
   { label: "projects", href: "/projects" },
   { label: "talks", href: "/talks" },
   { label: "blog", href: "/blog" },
