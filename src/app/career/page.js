@@ -164,6 +164,25 @@ export default function CareerPage() {
       current="/career"
       maxWidth="56rem"
     >
+      <div className="flex flex-wrap gap-3 mb-5">
+        <Link
+          href="https://www.linkedin.com/in/stimmie/"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="neo-link-card inline-block font-bold"
+        >
+          in/stimmie on LinkedIn ↗
+        </Link>
+        <Link
+          href="https://github.com/smmariquit"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="neo-link-card inline-block font-bold"
+        >
+          smmariquit on GitHub ↗
+        </Link>
+      </div>
+
       <p>
         Hi! My name is <strong>Simonee Ezekiel Mariquit</strong>, though if you
         come from UP, you might know me better as <strong>Stimmie</strong>.
