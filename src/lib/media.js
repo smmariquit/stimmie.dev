@@ -10,6 +10,9 @@ const parser = new Parser({
       ["letterboxd:memberRating", "rating"],
       ["letterboxd:watchedDate", "watchedDate"],
       ["description", "description"],
+      ["book_large_image_url", "book_large_image_url"],
+      ["book_medium_image_url", "book_medium_image_url"],
+      ["book_image_url", "book_image_url"],
     ],
   },
 });
@@ -99,9 +102,14 @@ export async function getLatestBook() {
 
     const latestEntry = feed.items[0];
 
-    // Extract book cover from description HTML
-    let coverUrl = null;
-    if (latestEntry.description) {
+    // Prefer the large cover from RSS fields; the description HTML only embeds
+    // a tiny _SY75_ thumbnail that looks blurry when scaled up on the site.
+    let coverUrl =
+      latestEntry.book_large_image_url ||
+      latestEntry.book_medium_image_url ||
+      latestEntry.book_image_url ||
+      null;
+    if (!coverUrl && latestEntry.description) {
       const imgMatch = latestEntry.description.match(/<img[^>]+src="([^"]+)"/);
       if (imgMatch) {
         coverUrl = imgMatch[1];
