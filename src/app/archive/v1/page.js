@@ -1,69 +1,30 @@
 // src/app/archive/v1/page.js
 
 "use client";
-import Image from "next/image";
 import { motion } from "framer-motion";
-import { useState } from 'react';
-import imageData from "../../../../public/image_data_summary.json";
+import Image from "next/image";
 import Link from "next/link";
+import { useState } from "react";
+import { archiveMosaicImagesByHue } from "@/archive/mosaic";
+import { v1Projects, v1SocialLinks, v1Talks } from "@/archive/v1/content";
 
 // Banner to show this is archived
 function ArchiveBanner() {
   return (
     <div className="fixed top-0 left-0 right-0 bg-yellow-600 text-black text-center py-2 z-[100] text-sm font-medium">
-      📜 You&apos;re viewing an archived version (v1.0) of this portfolio. 
-      <Link href="/" className="underline ml-2 font-bold">View current version →</Link>
+      📜 You&apos;re viewing an archived version (v1.0) of this portfolio.
+      <Link href="/" className="underline ml-2 font-bold">
+        View current version →
+      </Link>
     </div>
   );
 }
 
-// imageData is an object keyed by filename-stem; convert to an array and attach a public src.
-const images = Object.values(imageData).map((it) => ({
-  ...it,
-  src: `/images/${it.file}`,
-  thumbSrc: `/images_small/${it.file.replace(/\.[^.]+$/, ".webp")}`,
-}));
+// Mosaic tiles from frozen archive bundle (public/archive/mosaic/).
+const imagesSortedByMeanRGB = archiveMosaicImagesByHue;
 
-// sort images by mean_hue (ascending)
-const imagesSortedByMeanRGB = [...images].sort((a, b) => a.mean_hue - b.mean_hue);
-
-const talks = [
-  { title: 'UPLB DSG x UPRHS CodeIT Workshop Day 1 - What is Data Science?', src: '/talks/talk1.jpg' },
-  { title: 'UPLB DSG x UPRHS CodeIT Workshop Day 2 - Storytelling with Data', src: '/talks/talk2.jpg' },
-  { title: 'NextStep Hacks 2025 - Winning by Talking', src: '/talks/talk3.jpg' },
-  { title: 'JPCS - QCU Logic Unlocked Day 1 - Machine Learning with Python', src: '/talks/talk4.jpg' },
-  { title: "UPLB DSG Applicants' Workshop - Data Storytelling with Canva", src: '/talks/talk5.jpg' },
-  { title: 'Data Engineering Pilipinas AI Study Group - AI Use Cases That Actually Matter', src: '/talks/talk6.jpg' },
-  { title: '(upcoming) DLSU ECES - Agile Edge: Swift Project Workflows', src: '/talks/talk7.gif' },
-];
-
-const projects = [
-  {
-    title: 'HearthCraft',
-    src: '/projects/project1.jpg',
-    description: 'At 13 years old, I decided to take my deep enjoyment of Minecraft, learn to set up a Minecraft server, worked with both managed and bare-metal servers, set up Java plugins and Docker instances, and created a multiplayer experience that served as a safe space for 10,000+ over the span of 6+ years.',
-  },
-  {
-    title: 'Atlas Of My Skies',
-    src: '/projects/project2.jpg',
-    description: 'Telling the story of the skies.',
-  },
-  {
-    title: 'BARLO: Bayani Alert and Response for Local Operations',
-    src: '/projects/project3.jpg',
-    description: "Predict a storms economic impact from typhoon forecast data. Get insights on how to pre-emptively place logistics.",
-  },
-  {
-    title: 'Pharmadash',
-    src: '/projects/project4.jpg',
-    description: 'A hackathon project for efficient pharmaceutical inventory management and distribution.',
-  },
-  {
-    title: 'Punnett Square Visualizer',
-    src: '/projects/project5.jpg',
-    description: 'An interactive tool to visualize genetic crosses. Used in tutorials for science high school students',
-  }
-];
+const talks = v1Talks;
+const projects = v1Projects;
 
 function Thumb({ image }) {
   const [src, setSrc] = useState(image.thumbSrc);
@@ -77,11 +38,19 @@ function Thumb({ image }) {
   };
 
   const bg = image.mean_rgb
-    ? `rgb(${Math.round(image.mean_rgb[0])}, ${Math.round(image.mean_rgb[1])}, ${Math.round(image.mean_rgb[2])})`
+    ? `rgb(${Math.round(image.mean_rgb[0] * 255)}, ${Math.round(image.mean_rgb[1] * 255)}, ${Math.round(image.mean_rgb[2] * 255)})`
     : "#111";
 
   return (
-    <div style={{ position: "relative", width: "100%", paddingTop: "100%", background: bg, overflow: 'hidden' }}>
+    <div
+      style={{
+        position: "relative",
+        width: "100%",
+        paddingTop: "100%",
+        background: bg,
+        overflow: "hidden",
+      }}
+    >
       <Image
         src={src}
         alt={image.file || "image"}
@@ -109,16 +78,25 @@ export default function ArchivedV1() {
   return (
     <div className="absolute inset-0 h-screen bg-black w-full overflow-hidden">
       <ArchiveBanner />
-      
+
       {/* Background Image Grid */}
       <motion.div
         className="relative grid w-full mx-auto mt-10"
-        style={{ zIndex: 0, gridTemplateColumns: "repeat(auto-fit, minmax(64px, 1fr))", gap: '0.5rem' }}
+        style={{
+          zIndex: 0,
+          gridTemplateColumns: "repeat(auto-fit, minmax(64px, 1fr))",
+          gap: "0.5rem",
+        }}
       >
         {imagesSortedByMeanRGB.map((image) => (
           <motion.div
             key={image.src}
-            whileHover={{ scale: 1.05, zIndex: 10, filter: "brightness(1.08)", boxShadow: "0 20px 30px rgba(0,0,0,0.35)" }}
+            whileHover={{
+              scale: 1.05,
+              zIndex: 10,
+              filter: "brightness(1.08)",
+              boxShadow: "0 20px 30px rgba(0,0,0,0.35)",
+            }}
             transition={{ type: "spring", stiffness: 300, damping: 20 }}
           >
             <Thumb key={image.src} image={image} />
@@ -127,7 +105,13 @@ export default function ArchivedV1() {
         {imagesSortedByMeanRGB.map((image) => (
           <motion.div
             key={`dup-${image.src}`}
-            whileHover={{ filter: "sepia(0) blur(0)", scale: 1.05, zIndex: 10, filter: "brightness(1.08)", boxShadow: "0 20px 30px rgba(0,0,0,0.35)" }}
+            whileHover={{
+              filter: "sepia(0) blur(0)",
+              scale: 1.05,
+              zIndex: 10,
+              filter: "brightness(1.08)",
+              boxShadow: "0 20px 30px rgba(0,0,0,0.35)",
+            }}
             transition={{ type: "spring", stiffness: 300, damping: 20 }}
           >
             <Thumb image={image} />
@@ -136,14 +120,17 @@ export default function ArchivedV1() {
       </motion.div>
 
       {/* Centered overlay */}
-      <div className="fixed inset-0 flex items-center justify-center pointer-events-none" style={{ zIndex: 50 }}>
+      <div
+        className="fixed inset-0 flex items-center justify-center pointer-events-none"
+        style={{ zIndex: 50 }}
+      >
         {/* minimize / expand button */}
         <button
           onClick={() => setOverlayMinimized((v) => !v)}
           className="pointer-events-auto absolute top-14 right-4 bg-gray-700/80 text-white p-2 rounded-md hover:bg-gray-600"
-          aria-label={overlayMinimized ? 'Expand overlay' : 'Minimize overlay'}
+          aria-label={overlayMinimized ? "Expand overlay" : "Minimize overlay"}
         >
-          {overlayMinimized ? '+' : '-'}
+          {overlayMinimized ? "+" : "-"}
         </button>
 
         {!overlayMinimized && (
@@ -151,62 +138,63 @@ export default function ArchivedV1() {
             <div className="flex flex-col items-center">
               <div className="flex flex-row gap-5 items-center">
                 <div className="flex flex-col gap-2 items-center">
-                  <h1 className="font-sans text-7xl font-black text-white text-center">Stimmie</h1>
+                  <h1 className="font-sans text-7xl font-black text-white text-center">
+                    Stimmie
+                  </h1>
                   <div className="flex flex-row gap-2 justify-center flex-wrap">
-                    <Link href="https://www.linkedin.com/in/stimmie">
-                      <Image src="/logos/linkedin.png" alt="LinkedIn Logo" width={24} height={24} className="rounded" />
-                    </Link>
-                    <Link href="https://www.instagram.com/friedicecrm">
-                      <Image src="/logos/instagram.png" alt="Instagram Logo" width={24} height={24} className="rounded" />
-                    </Link>
-                    <Link href="https://www.github.com/smmariquit">
-                      <Image src="/logos/github.png" alt="GitHub Logo" width={24} height={24} className="rounded" />
-                    </Link>
-                    <Link href="https://medium.com/@semariquit">
-                      <Image src="/logos/medium.png" alt="Medium Logo" width={24} height={24} className="rounded" />
-                    </Link>
-                    <Link href="https://myanimelist.net/" title="MyAnimeList">
-                      <Image src="/logos/myanimelist.png" alt="MyAnimeList Logo" width={24} height={24} className="rounded" />
-                    </Link>
-                    <Link href="https://pizza-and-friends.webflow.io" title="Pizza and Friends">
-                      <Image src="/logos/pizza.png" alt="Pizza Icon" width={24} height={24} className="rounded" />
-                    </Link>
-                    <Link href="http://letterboxd.com/stimmieuwu" title="Letterboxd">
-                      <Image src="/logos/letterboxd.png" alt="Letterboxd Logo" width={24} height={24} className="rounded" />
-                    </Link>
-                    <Link href="https://goodreads.com/stimmie" title="Goodreads">
-                      <Image src="/logos/goodreads.png" alt="Goodreads Logo" width={24} height={24} className="rounded" />
-                    </Link>
-                    <Link href="https://open.spotify.com/user/opzo90f4votlfqmg9rl94qrra?si=538e1f5748424274" title="Spotify">
-                      <Image src="/logos/spotify.png" alt="Spotify Logo" width={24} height={24} className="rounded" />
-                    </Link>
-                    <Link href="https://www.last.fm/user/mistakenpog" title="Last.fm">
-                      <Image src="/logos/lastfm.png" alt="Last.fm Logo" width={24} height={24} className="rounded" />
-                    </Link>
-                    <Link href="https://www.strava.com/athletes/129023200" title="Strava">
-                      <Image src="/logos/strava.png" alt="Strava Logo" width={24} height={24} className="rounded" />
-                    </Link>
-                    <Link href="mailto:semariquit@gmail.com">
-                      <Image src="/logos/email.png" alt="Email Logo" width={24} height={24} className="rounded" />
-                    </Link>
+                    {v1SocialLinks.map((link) => (
+                      <Link key={link.name} href={link.href} title={link.name}>
+                        <Image
+                          src={link.icon}
+                          alt={`${link.name} Logo`}
+                          width={24}
+                          height={24}
+                          className="rounded"
+                        />
+                      </Link>
+                    ))}
                   </div>
                 </div>
               </div>
               <div>
                 <div className="flex-1 min-w-0 max-w-4xl mt-5">
                   <h2 className="font-bold text-2xl">Hi!</h2>
-                  <p className="text-white">I&apos;m a software engineer with a lifelong passion for technology. What began with hosting Minecraft servers and experimenting with cloud computers has evolved into building modern tech solutions for startups, organizations, and businesses.</p>
+                  <p className="text-white">
+                    I&apos;m a software engineer with a lifelong passion for
+                    technology. What began with hosting Minecraft servers and
+                    experimenting with cloud computers has evolved into building
+                    modern tech solutions for startups, organizations, and
+                    businesses.
+                  </p>
                   <br />
-                  <p className="text-white">Outside of my career, I&apos;m also an avid book reader, sometimes writer, volunteer, resource speaker, mentor, runner, gym-goer, and someone who cares deeply about public service :)</p>
+                  <p className="text-white">
+                    Outside of my career, I&apos;m also an avid book reader,
+                    sometimes writer, volunteer, resource speaker, mentor,
+                    runner, gym-goer, and someone who cares deeply about public
+                    service :)
+                  </p>
                 </div>
                 <div className="flex-1 min-w-0 max-w-4xl mt-5">
                   <h2 className="font-bold text-2xl">Talks</h2>
-                  <p className="text-white">Sometimes, I get invited to talks!</p>
+                  <p className="text-white">
+                    Sometimes, I get invited to talks!
+                  </p>
                   <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 mt-3">
                     {talks.slice(0, 9).map((t, idx) => (
-                      <div key={idx} className="flex flex-col items-center bg-white/5 p-2 rounded">
-                        <Image src={t.src} alt={t.title} width={320} height={180} className="object-cover rounded" />
-                        <p className="text-sm text-white mt-2 text-center">{t.title}</p>
+                      <div
+                        key={idx}
+                        className="flex flex-col items-center bg-white/5 p-2 rounded"
+                      >
+                        <Image
+                          src={t.src}
+                          alt={t.title}
+                          width={320}
+                          height={180}
+                          className="object-cover rounded"
+                        />
+                        <p className="text-sm text-white mt-2 text-center">
+                          {t.title}
+                        </p>
                       </div>
                     ))}
                   </div>
@@ -216,10 +204,23 @@ export default function ArchivedV1() {
                   <h2 className="font-bold text-2xl">Projects</h2>
                   <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 mt-3">
                     {projects.map((p, idx) => (
-                      <div key={idx} className="flex flex-col bg-white/5 p-3 rounded">
-                        <Image src={p.src} alt={p.title} width={320} height={180} className="object-cover rounded" />
-                        <h3 className="text-white font-semibold mt-2">{p.title}</h3>
-                        <p className="text-sm text-white/80 mt-1">{p.description}</p>
+                      <div
+                        key={idx}
+                        className="flex flex-col bg-white/5 p-3 rounded"
+                      >
+                        <Image
+                          src={p.src}
+                          alt={p.title}
+                          width={320}
+                          height={180}
+                          className="object-cover rounded"
+                        />
+                        <h3 className="text-white font-semibold mt-2">
+                          {p.title}
+                        </h3>
+                        <p className="text-sm text-white/80 mt-1">
+                          {p.description}
+                        </p>
                       </div>
                     ))}
                   </div>

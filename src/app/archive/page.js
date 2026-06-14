@@ -1,19 +1,42 @@
 // src/app/archive/page.js
 
-"use client";
 import Image from "next/image";
 import Link from "next/link";
-import { motion } from "framer-motion";
-import MosaicBackground from "@/components/MosaicBackground";
+import PageShell from "@/components/neo/PageShell";
+
+export const metadata = {
+  title: "Past Iterations",
+  description:
+    "A timeline of how stimmie.dev has evolved over the years, from Linktree to the Neocities revival.",
+};
 
 // Version history - add new versions at the top!
 const versions = [
   {
+    version: "3.0",
+    name: "Neocities Revival",
+    date: "June 2026",
+    current: true,
+    description:
+      "A full pivot to intentional retro web aesthetics, rebuilt for accessibility: a starfield background, sidebar navigation, marquee, a working visitor counter, and an 88×31 button. Every tab now shares one consistent Neocities look with WCAG-minded contrast, focus rings, and skip-to-content.",
+    features: [
+      "Classic personal homepage layout with sidebar + main column",
+      "Neocities styling applied across every tab",
+      "Readable rounded sans-serif body text, friendly display headings, ridge-bordered boxes",
+      "Accessibility pass: skip link, focus states, landmarks, AA contrast",
+      "Working hosted visitor counter and SemVer changelog",
+    ],
+    screenshot: "/archive/v3-screenshot.png",
+    liveUrl: null,
+    techStack: ["Next.js 16", "Tailwind CSS", "Fredoka"],
+  },
+  {
     version: "2.0",
     name: "Bento Box Era",
-    date: "January 2026",
-    current: true,
-    description: "A complete redesign featuring a modern bento box grid layout with dark theme. Added GitHub contribution calendar, improved accessibility, subdomain redirects, and dedicated pages for projects and talks.",
+    date: "January 2026 - June 2026",
+    current: false,
+    description:
+      "A complete redesign featuring a modern bento box grid layout with dark theme. Added GitHub contribution calendar, improved accessibility, subdomain redirects, and dedicated pages for projects and talks.",
     features: [
       "Bento box grid layout",
       "GitHub contribution calendar integration",
@@ -24,7 +47,7 @@ const versions = [
       "Responsive full-screen design",
     ],
     screenshot: "/archive/v2-screenshot.png",
-    liveUrl: null, // Current version, no archive needed
+    liveUrl: "/v2",
     techStack: ["Next.js 14", "Tailwind CSS", "Framer Motion", "Vercel"],
   },
   {
@@ -32,7 +55,8 @@ const versions = [
     name: "Original Portfolio",
     date: "2024 - January 2026",
     current: false,
-    description: "The original portfolio design featuring an image grid background with a centered overlay containing all content in a single scrollable card. Simple but functional.",
+    description:
+      "The original portfolio design featuring an image grid background with a centered overlay containing all content in a single scrollable card. Simple but functional.",
     features: [
       "Image grid background sorted by hue",
       "Centered scrollable content overlay",
@@ -41,7 +65,7 @@ const versions = [
       "Minimizable overlay",
     ],
     screenshot: "/archive/v1-screenshot.png",
-    liveUrl: "/archive/v1", // Link to archived version if available
+    liveUrl: "/archive/v1",
     techStack: ["Next.js", "Tailwind CSS", "Framer Motion"],
   },
   {
@@ -49,13 +73,14 @@ const versions = [
     name: "Carrd",
     date: "~2023",
     current: false,
-    description: "A simple one-page site built using Carrd's drag-and-drop builder. Quick to set up and served as a simple landing page.",
+    description:
+      "A simple one-page site built using Carrd's drag-and-drop builder. Quick to set up and served as a simple landing page.",
     features: [
       "Single-page layout",
       "Quick setup with Carrd builder",
       "Social links",
     ],
-    screenshot: null,
+    screenshot: "/archive/carrd-screenshot.png",
     liveUrl: "https://stimmie.carrd.co/",
     techStack: ["Carrd"],
   },
@@ -64,217 +89,117 @@ const versions = [
     name: "Linktree",
     date: "~2022",
     current: false,
-    description: "Before building custom portfolios, I used Linktree as a simple link-in-bio solution to aggregate all my social profiles.",
-    features: [
-      "Link-in-bio aggregator",
-      "All social profiles in one place",
-    ],
+    description:
+      "Before building custom portfolios, I used Linktree as a simple link-in-bio solution to aggregate all my social profiles.",
+    features: ["Link-in-bio aggregator", "All social profiles in one place"],
     screenshot: null,
     liveUrl: "https://linktr.ee/stimmeh",
     techStack: ["Linktree"],
-  },
-  {
-    version: "HS",
-    name: "High School Publications",
-    date: "2022-2023",
-    current: false,
-    description: "Before web development, I contributed to my high school's student publications at San Miguel Corporation - Lucena. These were my earliest forays into content creation and design.",
-    features: [
-      "Pahayagang Miguel 2023 - Student newspaper",
-      "TMH HS Newspaper 2022-2023",
-      "Early experience in content creation",
-    ],
-    screenshot: null,
-    liveUrl: "https://www.smcl.edu.ph/student_life/publications/Pahayagang%20Miguel%202023.php",
-    techStack: ["Print & Digital Publications"],
-    extraLinks: [
-      { label: "TMH HS Newspaper", url: "https://www.smcl.edu.ph/student_life/publications/TMH%20HS%20News%20paper%202022-2023.php" },
-    ],
   },
 ];
 
 export default function ArchivePage() {
   return (
-    <div className="min-h-screen bg-black text-white">
-      <MosaicBackground />
+    <PageShell
+      title="~ past iterations ~"
+      intro="A timeline of how this portfolio has evolved over time. Each version represents a milestone in my journey as a developer."
+      current="/archive"
+      maxWidth="56rem"
+    >
+      <ol className="flex flex-col gap-6 list-none p-0 m-0">
+        {versions.map((v) => (
+          <li key={v.version}>
+            <article
+              className="neo-link-card"
+              style={
+                v.current
+                  ? { borderColor: "#d6008f", boxShadow: "4px 4px 0 #d6008f" }
+                  : undefined
+              }
+            >
+              {v.screenshot && (
+                <Image
+                  src={v.screenshot}
+                  alt={`Screenshot of version ${v.version}`}
+                  width={900}
+                  height={506}
+                  className="neo-thumb-lg w-full aspect-video object-cover mb-3"
+                />
+              )}
 
-      {/* All content above the fixed mosaic */}
-      <div className="relative" style={{ zIndex: 10 }}>
-        {/* Header */}
-        <header className="sticky top-0 z-50 bg-gray-950/80 backdrop-blur-md border-b border-gray-800">
-          <div className="max-w-4xl mx-auto px-4 py-4 flex items-center justify-between">
-            <Link href="/" className="text-xl font-bold hover:text-blue-400 transition-colors">
-              ← Stimmie
-            </Link>
-            <nav className="flex gap-4" aria-label="Main navigation">
-              <Link href="/projects" className="text-gray-400 hover:text-white transition-colors">
-                Projects
-              </Link>
-              <Link href="/talks" className="text-gray-400 hover:text-white transition-colors">
-                Talks
-              </Link>
-            </nav>
-          </div>
-        </header>
-
-        {/* Main Content */}
-        <main className="max-w-4xl mx-auto px-4 py-12" id="main-content">
-          <div className="mb-12">
-            <h1 className="text-4xl md:text-5xl font-black mb-4">📜 Past Iterations</h1>
-            <p className="text-gray-400 text-lg max-w-2xl">
-              A timeline of how this portfolio has evolved over time. Each version represents a milestone in my journey as a developer.
-            </p>
-          </div>
-
-          {/* Timeline */}
-          <div className="relative">
-            {/* Timeline line */}
-            <div className="absolute left-4 md:left-8 top-0 bottom-0 w-0.5 bg-gray-800" aria-hidden="true" />
-
-            {/* Version Cards */}
-            <div className="space-y-12">
-              {versions.map((v, idx) => (
-                <motion.article
-                  key={v.version}
-                  className="relative pl-12 md:pl-20"
-                  initial={{ opacity: 0, x: -20 }}
-                  animate={{ opacity: 1, x: 0 }}
-                  transition={{ delay: idx * 0.15 }}
+              <p className="m-0 mb-2 flex flex-wrap items-center gap-2">
+                <span className="neo-badge neo-badge-talk">v{v.version}</span>
+                {v.current && (
+                  <span className="neo-badge neo-badge-workshop">Current</span>
+                )}
+                <span
+                  className="text-base neo-muted"
+                  style={{ fontFamily: "var(--neo-ui)" }}
                 >
-                  {/* Timeline dot */}
-                  <div 
-                    className={`absolute left-2 md:left-6 w-4 h-4 rounded-full border-4 ${
-                      v.current 
-                        ? 'bg-blue-500 border-blue-500 ring-4 ring-blue-500/30' 
-                        : 'bg-gray-800 border-gray-600'
-                    }`}
-                    aria-hidden="true"
-                  />
-
-                  {/* Version Card */}
-                  <div className={`bg-gray-900/90 backdrop-blur-sm rounded-2xl overflow-hidden border ${v.current ? 'border-blue-500/50' : 'border-gray-800'}`}>
-                    {/* Screenshot */}
-                    {v.screenshot && (
-                      <div className="aspect-video relative bg-gray-800 overflow-hidden">
-                        <div className="absolute inset-0 flex items-center justify-center text-gray-600">
-                          <span className="text-sm">Screenshot: {v.screenshot}</span>
-                        </div>
-                        {/* Uncomment when you have screenshots */}
-                        {/* <Image
-                          src={v.screenshot}
-                          alt={`Screenshot of version ${v.version}`}
-                          fill
-                          className="object-cover"
-                        /> */}
-                      </div>
-                    )}
-
-                    <div className="p-6">
-                      {/* Header */}
-                      <div className="flex flex-wrap items-center gap-3 mb-4">
-                        <span className={`px-3 py-1 rounded-full text-sm font-bold ${
-                          v.current 
-                            ? 'bg-blue-600 text-white' 
-                            : 'bg-gray-800 text-gray-300'
-                        }`}>
-                          v{v.version}
-                        </span>
-                        <h2 className="text-xl font-bold">{v.name}</h2>
-                        {v.current && (
-                          <span className="px-2 py-0.5 bg-green-900 text-green-300 text-xs rounded-full">
-                            Current
-                          </span>
-                        )}
-                      </div>
-
-                      <p className="text-gray-500 text-sm mb-4">{v.date}</p>
-                      <p className="text-gray-300 mb-6">{v.description}</p>
-
-                      {/* Features */}
-                      <div className="mb-6">
-                        <h3 className="text-sm font-semibold text-gray-400 uppercase tracking-wide mb-3">
-                          Key Features
-                        </h3>
-                        <ul className="grid grid-cols-1 md:grid-cols-2 gap-2">
-                          {v.features.map((feature, fIdx) => (
-                            <li key={fIdx} className="flex items-center gap-2 text-sm text-gray-300">
-                              <span className="text-green-500">✓</span>
-                              {feature}
-                            </li>
-                          ))}
-                        </ul>
-                      </div>
-
-                      {/* Tech Stack */}
-                      <div className="mb-6">
-                        <h3 className="text-sm font-semibold text-gray-400 uppercase tracking-wide mb-3">
-                          Tech Stack
-                        </h3>
-                        <div className="flex flex-wrap gap-2">
-                          {v.techStack.map((tech, tIdx) => (
-                            <span
-                              key={tIdx}
-                              className="px-2 py-1 bg-gray-800 text-gray-300 text-xs rounded-md"
-                            >
-                              {tech}
-                            </span>
-                          ))}
-                        </div>
-                      </div>
-
-                      {/* Actions */}
-                      <div className="flex flex-wrap gap-4">
-                        {v.liveUrl && !v.current && (
-                          <Link
-                            href={v.liveUrl}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="inline-flex items-center gap-2 text-blue-400 hover:text-blue-300 text-sm"
-                          >
-                            View Archived Version →
-                          </Link>
-                        )}
-                        {v.extraLinks && v.extraLinks.map((link, lIdx) => (
-                          <Link
-                            key={lIdx}
-                            href={link.url}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="inline-flex items-center gap-2 text-blue-400 hover:text-blue-300 text-sm"
-                          >
-                            {link.label} →
-                          </Link>
-                        ))}
-                      </div>
-                    </div>
-                  </div>
-                </motion.article>
-              ))}
-            </div>
-          </div>
-
-          {/* Future Section */}
-          <div className="mt-16 relative pl-12 md:pl-20">
-            <div 
-              className="absolute left-2 md:left-6 w-4 h-4 rounded-full border-4 border-dashed border-gray-600 bg-gray-950"
-              aria-hidden="true"
-            />
-            <div className="bg-gray-900/50 backdrop-blur-sm border border-dashed border-gray-700 rounded-2xl p-6 text-center">
-              <h2 className="text-xl font-bold text-gray-400 mb-2">What&apos;s Next?</h2>
-              <p className="text-gray-500">
-                Stay tuned for future iterations. This portfolio is always evolving!
+                  {v.date}
+                </span>
               </p>
-            </div>
-          </div>
-        </main>
 
-        {/* Footer */}
-        <footer className="border-t border-gray-800 mt-12">
-          <div className="max-w-4xl mx-auto px-4 py-8 text-center text-gray-500 text-sm">
-            <p>© {new Date().getFullYear()} Stimmie. All rights reserved.</p>
-          </div>
-        </footer>
+              <h2 className="font-bold text-xl m-0">{v.name}</h2>
+              <p className="mt-1 mb-3">{v.description}</p>
+
+              <h3 className="font-bold text-base m-0 mb-1">Key Features</h3>
+              <ul
+                className="list-square pl-5 m-0 mb-3"
+                style={{ listStyle: "square" }}
+              >
+                {v.features.map((feature, fIdx) => (
+                  <li key={fIdx}>{feature}</li>
+                ))}
+              </ul>
+
+              <p className="m-0 mb-3">
+                {v.techStack.map((tech) => (
+                  <span key={tech} className="neo-tag">
+                    {tech}
+                  </span>
+                ))}
+              </p>
+
+              <p className="m-0 flex flex-wrap gap-4">
+                {v.liveUrl && !v.current && (
+                  <Link
+                    href={v.liveUrl}
+                    target={v.liveUrl.startsWith("http") ? "_blank" : undefined}
+                    rel={
+                      v.liveUrl.startsWith("http")
+                        ? "noopener noreferrer"
+                        : undefined
+                    }
+                  >
+                    View archived version →
+                  </Link>
+                )}
+                {v.extraLinks?.map((link, lIdx) => (
+                  <Link
+                    key={lIdx}
+                    href={link.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    {link.label} →
+                  </Link>
+                ))}
+              </p>
+            </article>
+          </li>
+        ))}
+      </ol>
+
+      <div
+        className="mt-8 p-5 text-center"
+        style={{ border: "2px dashed #999", background: "#fafafa" }}
+      >
+        <h2 className="neo-section-title">what&apos;s next?</h2>
+        <p className="m-0">
+          Stay tuned for future iterations. This portfolio is always evolving!
+        </p>
       </div>
-    </div>
+    </PageShell>
   );
 }
