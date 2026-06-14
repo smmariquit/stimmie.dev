@@ -191,6 +191,19 @@ export const talks = [
     slidesLink: null,
   },
   {
+    slug: "navigating-hackathons-bulsu-css",
+    title: "Navigating Hackathons",
+    actionPhoto: null,
+    slidesThumbnail: "/talks/navigating-hackathons-thumbnail.png",
+    date: "2025-12-12T10:00:00+08:00",
+    event: "Bulacan State University Computer Science Society",
+    type: "Talk",
+    audienceSize: 60,
+    description:
+      "A talk on navigating hackathons, from forming a team to building and pitching, with one goal: create something and have fun.",
+    slidesLink: "https://canva.link/frhwqeiei4ilnxw",
+  },
+  {
     slug: "minecraft-moments-milestones-eheads-21",
     title: "Minecraft, Moments, Milestones",
     actionPhoto: null,
