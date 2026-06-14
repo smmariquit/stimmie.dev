@@ -63,6 +63,33 @@ export default function ProjectsPage() {
           </li>
         ))}
       </ul>
+
+      <div
+        className="mt-8 p-5 text-center"
+        style={{ border: "3px double #d6008f", background: "#fff7fb" }}
+      >
+        <h2 className="neo-section-title">got an idea to build?</h2>
+        <p className="mx-auto mb-3">
+          I&apos;m always open to collaborating on fun, useful, or just plain
+          weird projects. Let&apos;s make something together!
+        </p>
+        <div className="flex flex-wrap justify-center gap-3">
+          <Link
+            href="mailto:semariquit@gmail.com?subject=Project Collaboration"
+            className="neo-link-card inline-block font-bold"
+          >
+            ✉ get in touch
+          </Link>
+          <Link
+            href="https://cal.stimmie.dev"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="neo-link-card inline-block font-bold"
+          >
+            ☎ book a call
+          </Link>
+        </div>
+      </div>
     </PageShell>
   );
 }
