@@ -215,6 +215,10 @@ const HONORS = [
   "DOST-SEI Undergraduate Scholar",
   "Champion, Meralco IDOL Hackathon (2025)",
   "Champion, UPLB CPAf Data 2 Decisions (2025)",
+  {
+    text: "OEIS contributor: credited correction on sequence A322054",
+    url: "https://oeis.org/A322054",
+  },
 ];
 
 function RoleList({ items, label }) {
@@ -279,9 +283,20 @@ function SimpleList({ items, label }) {
       className="neo-facts neo-role-list list-none p-0 m-0 mt-2 space-y-1"
       aria-label={label}
     >
-      {items.map((item) => (
-        <li key={item}>{item}</li>
-      ))}
+      {items.map((item) => {
+        const key = typeof item === "string" ? item : item.text;
+        return (
+          <li key={key}>
+            {typeof item === "string" ? (
+              item
+            ) : (
+              <Link href={item.url} target="_blank" rel="noopener noreferrer">
+                {item.text}
+              </Link>
+            )}
+          </li>
+        );
+      })}
     </ul>
   );
 }
@@ -353,7 +368,15 @@ export default function CareerPage() {
           my hackathon guide
         </Link>
         . I like hearing ideas. If you want to collab on something, send me a
-        message.
+        message. One nerdy highlight: I have a credited correction on{" "}
+        <Link
+          href="https://oeis.org/A322054"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          OEIS sequence A322054
+        </Link>
+        .
       </p>
 
       <p className="mt-3">
