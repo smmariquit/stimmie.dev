@@ -55,7 +55,7 @@ export async function fetchCloudflareRedirectEntries(opts = {}) {
 
   if (hosts.length === 0) {
     console.warn(
-      "[sitemap] No CLOUDFLARE_SITEMAP_HOST(S) configured; CF redirects skipped."
+      "[sitemap] No CLOUDFLARE_SITEMAP_HOST(S) configured; CF redirects skipped.",
     );
     return [];
   }
@@ -63,7 +63,7 @@ export async function fetchCloudflareRedirectEntries(opts = {}) {
   try {
     const lists = await cfFetch(
       `${CF_API_BASE}/accounts/${accountId}/rules/lists`,
-      token
+      token,
     );
 
     const redirectLists = (lists || []).filter((l) => l.kind === "redirect");
@@ -82,7 +82,7 @@ export async function fetchCloudflareRedirectEntries(opts = {}) {
     console.warn(
       "[sitemap] Cloudflare redirect sync failed; sitemap will exclude " +
         "CF-managed redirects this regeneration:",
-      err.message
+      err.message,
     );
     return [];
   }
@@ -118,7 +118,7 @@ async function fetchAllListItems(accountId, listId, token) {
   // same cursor forever.
   for (let page = 0; page < 50; page++) {
     const url = new URL(
-      `${CF_API_BASE}/accounts/${accountId}/rules/lists/${listId}/items`
+      `${CF_API_BASE}/accounts/${accountId}/rules/lists/${listId}/items`,
     );
     url.searchParams.set("per_page", "100");
     if (cursor) url.searchParams.set("cursor", cursor);
@@ -144,7 +144,7 @@ async function cfFetch(url, token, attempt = 0) {
 
 async function cfFetchRaw(url, token, attempt = 0) {
   const revalidate = Number(
-    process.env.CLOUDFLARE_REVALIDATE || DEFAULT_REVALIDATE
+    process.env.CLOUDFLARE_REVALIDATE || DEFAULT_REVALIDATE,
   );
 
   const res = await fetch(url, {
@@ -162,7 +162,9 @@ async function cfFetchRaw(url, token, attempt = 0) {
     if (attempt < 1 && res.status >= 500) {
       return cfFetchRaw(url, token, attempt + 1);
     }
-    throw new Error(`Cloudflare API ${res.status} ${res.statusText} for ${url}`);
+    throw new Error(
+      `Cloudflare API ${res.status} ${res.statusText} for ${url}`,
+    );
   }
 
   const json = await res.json();
@@ -214,14 +216,16 @@ function toSitemapEntry(item, hosts) {
         lower === h ||
         lower.startsWith(`${h}/`) ||
         lower.startsWith(`${h}?`) ||
-        lower.startsWith(`${h}#`)
+        lower.startsWith(`${h}#`),
     );
   if (!matchedHost) return null;
 
   const path = src.slice(matchedHost.length) || "/";
 
   // Filter out URLs that obviously aren't HTML pages.
-  if (/\.(xml|json|txt|ico|png|jpe?g|gif|webp|svg|css|js)(\?|#|$)/i.test(path)) {
+  if (
+    /\.(xml|json|txt|ico|png|jpe?g|gif|webp|svg|css|js)(\?|#|$)/i.test(path)
+  ) {
     return null;
   }
 

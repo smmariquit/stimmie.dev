@@ -60,7 +60,7 @@ try {
       "\nHint: this script needs an account-scoped token with:\n" +
         "  - Account → Account Filter Lists: Edit\n" +
         "  - Account → Account Rulesets: Edit\n\n" +
-        "Mint one at https://dash.cloudflare.com/profile/api-tokens.\n"
+        "Mint one at https://dash.cloudflare.com/profile/api-tokens.\n",
     );
   }
   process.exit(1);
@@ -133,7 +133,7 @@ function printHelp() {
       `  --dry-run   plan only, no mutations\n` +
       `  --prune     delete CF items missing from the local map\n` +
       `  --list-name override list name (default: ${DEFAULT_LIST_NAME})\n` +
-      `  -h, --help  this message\n\n`
+      `  -h, --help  this message\n\n`,
   );
 }
 
@@ -168,7 +168,7 @@ function buildDesiredItems(flat, todoTarget) {
         if (existing.target !== entry.target) {
           throw new Error(
             `Duplicate source URL "${sourceUrl}" with conflicting targets: ` +
-              `"${existing.target}" vs "${entry.target}"`
+              `"${existing.target}" vs "${entry.target}"`,
           );
         }
         continue;
@@ -212,7 +212,7 @@ async function loadCurrentItems(listId) {
     if (cursor) qs.set("cursor", cursor);
     const { result, result_info } = await cfRaw(
       "GET",
-      `/accounts/${accountId}/rules/lists/${listId}/items?${qs}`
+      `/accounts/${accountId}/rules/lists/${listId}/items?${qs}`,
     );
     for (const item of result || []) {
       const r = item?.redirect;
@@ -280,7 +280,7 @@ async function addItems(listId, items) {
     const op = await cf(
       "POST",
       `/accounts/${accountId}/rules/lists/${listId}/items`,
-      body
+      body,
     );
     await waitForOperation(op);
   }
@@ -294,7 +294,7 @@ async function deleteItems(listId, items) {
     const op = await cf(
       "DELETE",
       `/accounts/${accountId}/rules/lists/${listId}/items`,
-      body
+      body,
     );
     await waitForOperation(op);
   }
@@ -309,11 +309,13 @@ async function waitForOperation(opResult) {
   for (let i = 0; i < 60; i++) {
     const op = await cf(
       "GET",
-      `/accounts/${accountId}/rules/lists/bulk_operations/${id}`
+      `/accounts/${accountId}/rules/lists/bulk_operations/${id}`,
     );
     if (op.status === "completed") return;
     if (op.status === "failed") {
-      throw new Error(`CF list operation ${id} failed: ${op.error || "unknown"}`);
+      throw new Error(
+        `CF list operation ${id} failed: ${op.error || "unknown"}`,
+      );
     }
     await sleep(1000);
   }
@@ -328,7 +330,7 @@ async function ensureRuleAttached(list) {
   const phase = "http_request_redirect";
   const entrypoint = await cf(
     "GET",
-    `/accounts/${accountId}/rulesets/phases/${phase}/entrypoint`
+    `/accounts/${accountId}/rulesets/phases/${phase}/entrypoint`,
   ).catch((err) => {
     // The entrypoint ruleset is auto-created on first use; if it doesn't
     // exist yet, fall back to creating a fresh ruleset and walking the
@@ -360,7 +362,7 @@ async function ensureRuleAttached(list) {
   }
 
   const existing = (entrypoint.rules || []).find(
-    (r) => r.description === RULE_DESCRIPTION
+    (r) => r.description === RULE_DESCRIPTION,
   );
 
   if (existing) {
@@ -377,7 +379,7 @@ async function ensureRuleAttached(list) {
     await cf(
       "PATCH",
       `/accounts/${accountId}/rulesets/${entrypoint.id}/rules/${existing.id}`,
-      ruleBody
+      ruleBody,
     );
     return;
   }
@@ -386,7 +388,7 @@ async function ensureRuleAttached(list) {
   await cf(
     "POST",
     `/accounts/${accountId}/rulesets/${entrypoint.id}/rules`,
-    ruleBody
+    ruleBody,
   );
 }
 
@@ -429,7 +431,7 @@ async function cfRaw(method, path, body) {
       .map((e) => `${e.code}: ${e.message}`)
       .join("; ");
     throw new Error(
-      `CF ${method} ${path} -> ${res.status} ${res.statusText}: ${msg || text}`
+      `CF ${method} ${path} -> ${res.status} ${res.statusText}: ${msg || text}`,
     );
   }
   return json;
