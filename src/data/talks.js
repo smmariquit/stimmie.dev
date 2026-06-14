@@ -114,7 +114,7 @@ export const talks = [
     date: "2026-03-02T10:00:00+08:00",
     event: "UPLB Data Science Guild Apps' Workshop",
     type: "Workshop",
-    audienceSize: 50,
+    audienceSize: 12,
     description:
       "Introductory ML workshop focusing on the classic Iris dataset classification.",
     slidesLink: "https://workshops.stimmie.dev/ml-iris-slides",

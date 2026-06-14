@@ -225,6 +225,7 @@ body {
   color: #1a1a1a;
   font-family: var(--neo-body);
   font-size: 18px;
+  font-weight: 500;
   line-height: 1.7;
 }
 
