@@ -1,92 +1,43 @@
 // src/lib/media.js
 
-import Parser from 'rss-parser';
+import Parser from "rss-parser";
 
 const parser = new Parser({
   customFields: {
     item: [
-      ['letterboxd:filmTitle', 'filmTitle'],
-      ['letterboxd:filmYear', 'filmYear'],
-      ['letterboxd:memberRating', 'rating'],
-      ['letterboxd:watchedDate', 'watchedDate'],
-      ['description', 'description'],
+      ["letterboxd:filmTitle", "filmTitle"],
+      ["letterboxd:filmYear", "filmYear"],
+      ["letterboxd:memberRating", "rating"],
+      ["letterboxd:watchedDate", "watchedDate"],
+      ["description", "description"],
     ],
   },
 });
 
 // Letterboxd username
-const LETTERBOXD_USERNAME = 'stimmieuwu';
+const LETTERBOXD_USERNAME = "stimmieuwu";
 
-// Goodreads user ID - you'll need to update this with your actual numeric ID
-// Find it in your Goodreads profile URL: goodreads.com/user/show/YOUR_ID
-const GOODREADS_USER_ID = '181836728'; // Update this!
+// Goodreads numeric user ID (Simonee Ezekiel Mariquit / goodreads.com/stimmie).
+const GOODREADS_USER_ID = "186878528";
 
-// MyAnimeList username
-const MAL_USERNAME = 'amorgosposter';
+// Last.fm username
+const LASTFM_USERNAME = "mistakenpog";
 
 /**
- * Fetch currently watching anime from MyAnimeList RSS
+ * Build the Last.fm "currently listening" payload.
+ *
+ * Last.fm itself has no native collage image and the top-artists API needs a
+ * key, so we use tapmusic.net's collage generator: a dynamic 3x3 grid of the
+ * user's top albums over the last 30 days. It's just an <img> src, so it stays
+ * fresh on every load with no API key.
  */
-export async function getLatestAnime() {
-  try {
-    const feed = await parser.parseURL(`https://myanimelist.net/rss.php?type=rw&u=${MAL_USERNAME}`);
-    
-    if (!feed.items || feed.items.length === 0) {
-      return null;
-    }
-
-    // Find the most recently updated "Watching" anime
-    const watchingAnime = feed.items.find(item => 
-      item.description && item.description.includes('Watching')
-    );
-    
-    const latestEntry = watchingAnime || feed.items[0];
-    
-    // Parse title and type (e.g., "Anime Title - TV")
-    let title = latestEntry.title || 'Unknown';
-    let type = null;
-    const titleMatch = title.match(/^(.+?)\s*-\s*(TV|Movie|OVA|ONA|Special|Music)$/i);
-    if (titleMatch) {
-      title = titleMatch[1].trim();
-      type = titleMatch[2];
-    }
-
-    // Parse progress from description (e.g., "Watching - 5 of 12 episodes")
-    let progress = null;
-    let total = null;
-    let status = 'Watching';
-    if (latestEntry.description) {
-      const progressMatch = latestEntry.description.match(/(\w+(?:\s+\w+)?)\s*-\s*(\d+)\s+of\s+(\d+)/i);
-      if (progressMatch) {
-        status = progressMatch[1];
-        progress = parseInt(progressMatch[2], 10);
-        total = parseInt(progressMatch[3], 10);
-      }
-    }
-
-    // Extract anime ID from link to construct cover URL
-    let coverUrl = null;
-    if (latestEntry.link) {
-      const idMatch = latestEntry.link.match(/\/anime\/(\d+)/);
-      if (idMatch) {
-        // MAL CDN image URL pattern
-        coverUrl = `https://cdn.myanimelist.net/images/anime/${Math.floor(parseInt(idMatch[1], 10) / 10000)}/${idMatch[1]}.jpg`;
-      }
-    }
-
-    return {
-      title,
-      type,
-      status,
-      progress,
-      total,
-      link: latestEntry.link,
-      coverUrl,
-    };
-  } catch (error) {
-    console.error('Error fetching MyAnimeList RSS:', error);
-    return null;
-  }
+export function getLastfmMusic() {
+  return {
+    username: LASTFM_USERNAME,
+    period: "Past 30 days",
+    profileUrl: `https://www.last.fm/user/${LASTFM_USERNAME}`,
+    collageUrl: `https://www.tapmusic.net/collage.php?user=${LASTFM_USERNAME}&type=1month&size=3x3&caption=true`,
+  };
 }
 
 /**
@@ -94,14 +45,16 @@ export async function getLatestAnime() {
  */
 export async function getLatestFilm() {
   try {
-    const feed = await parser.parseURL(`https://letterboxd.com/${LETTERBOXD_USERNAME}/rss/`);
-    
+    const feed = await parser.parseURL(
+      `https://letterboxd.com/${LETTERBOXD_USERNAME}/rss/`,
+    );
+
     if (!feed.items || feed.items.length === 0) {
       return null;
     }
 
     const latestEntry = feed.items[0];
-    
+
     // Extract poster image from description HTML
     let posterUrl = null;
     if (latestEntry.description) {
@@ -112,7 +65,10 @@ export async function getLatestFilm() {
     }
 
     return {
-      title: latestEntry.filmTitle || latestEntry.title?.replace(/^.+?- /, '') || 'Unknown',
+      title:
+        latestEntry.filmTitle ||
+        latestEntry.title?.replace(/^.+?- /, "") ||
+        "Unknown",
       year: latestEntry.filmYear || null,
       rating: latestEntry.rating ? parseFloat(latestEntry.rating) : null,
       watchedDate: latestEntry.watchedDate || latestEntry.pubDate,
@@ -120,37 +76,29 @@ export async function getLatestFilm() {
       posterUrl,
     };
   } catch (error) {
-    console.error('Error fetching Letterboxd RSS:', error);
+    console.error("Error fetching Letterboxd RSS:", error);
     return null;
   }
 }
 
 /**
- * Fetch currently reading / latest read from Goodreads RSS
+ * Fetch the most recently READ book from Goodreads RSS.
+ * Sorted by `date_read` descending so the top entry is the latest finish.
  */
 export async function getLatestBook() {
   try {
-    // Try currently-reading shelf first
-    let feed = await parser.parseURL(
-      `https://www.goodreads.com/review/list_rss/${GOODREADS_USER_ID}?shelf=currently-reading`
+    const feed = await parser.parseURL(
+      `https://www.goodreads.com/review/list_rss/${GOODREADS_USER_ID}?shelf=read&sort=date_read&order=d`,
     );
 
-    let shelf = 'currently-reading';
-    
-    // If no books in currently-reading, try the read shelf
-    if (!feed.items || feed.items.length === 0) {
-      feed = await parser.parseURL(
-        `https://www.goodreads.com/review/list_rss/${GOODREADS_USER_ID}?shelf=read`
-      );
-      shelf = 'read';
-    }
+    const shelf = "read";
 
     if (!feed.items || feed.items.length === 0) {
       return null;
     }
 
     const latestEntry = feed.items[0];
-    
+
     // Extract book cover from description HTML
     let coverUrl = null;
     if (latestEntry.description) {
@@ -170,14 +118,14 @@ export async function getLatestBook() {
     }
 
     return {
-      title: latestEntry.title || 'Unknown',
+      title: latestEntry.title || "Unknown",
       author,
       link: latestEntry.link,
       coverUrl,
       shelf, // 'currently-reading' or 'read'
     };
   } catch (error) {
-    console.error('Error fetching Goodreads RSS:', error);
+    console.error("Error fetching Goodreads RSS:", error);
     return null;
   }
 }
@@ -186,11 +134,9 @@ export async function getLatestBook() {
  * Fetch all media data (for build-time fetching)
  */
 export async function getAllMediaData() {
-  const [film, book, anime] = await Promise.all([
-    getLatestFilm(),
-    getLatestBook(),
-    getLatestAnime(),
-  ]);
+  const [film, book] = await Promise.all([getLatestFilm(), getLatestBook()]);
 
-  return { film, book, anime };
+  const music = getLastfmMusic();
+
+  return { film, book, music };
 }
