@@ -25,36 +25,6 @@ export const projects = [
     link: null,
   },
   {
-    slug: "barlo-bayani-alert-and-response",
-    title: "BARLO: Bayani Alert and Response for Local Operations",
-    src: "/projects/project3.jpg",
-    date: "2024",
-    description:
-      "Predict a storm's economic impact from typhoon forecast data. Get insights on how to pre-emptively place logistics.",
-    tags: ["Data Science", "ML", "Disaster Response"],
-    link: null,
-  },
-  {
-    slug: "pharmadash",
-    title: "Pharmadash",
-    src: "/projects/project4.jpg",
-    date: "2024",
-    description:
-      "A hackathon project for efficient pharmaceutical inventory management and distribution.",
-    tags: ["Hackathon", "Healthcare", "Inventory"],
-    link: null,
-  },
-  {
-    slug: "punnett-square-visualizer",
-    title: "Punnett Square Visualizer",
-    src: "/projects/project5.jpg",
-    date: "2022",
-    description:
-      "An interactive tool to visualize genetic crosses. Used in tutorials for science high school students.",
-    tags: ["Education", "Biology", "Visualization"],
-    link: null,
-  },
-  {
     slug: "room-tba",
     title: "Room TBA",
     src: "/projects/project1.jpg",
@@ -73,26 +43,6 @@ export const projects = [
       "An advanced grade simulation and course planning tool tailored for UPLB students.",
     tags: ["Tooling", "Education", "Next.js"],
     link: "https://gradesim.stimmie.dev",
-  },
-  {
-    slug: "typhoonomics",
-    title: "Typhoonomics",
-    src: "/projects/project3.jpg",
-    date: "2024",
-    description:
-      "Data-driven insights predicting the economic impact of typhoons in the Philippines.",
-    tags: ["Data Science", "Python", "Analytics"],
-    link: "https://github.com/smmariquit/typhoonomics",
-  },
-  {
-    slug: "kape",
-    title: "Kape",
-    src: "/projects/project4.jpg",
-    date: "2025",
-    description:
-      "A free, open-source 'Buy Me A Coffee' alternative tailored for local creators.",
-    tags: ["Monetization", "Creator Economy"],
-    link: "https://kape.stimmie.dev",
   },
 ];
 
