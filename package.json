@@ -1,13 +1,15 @@
 {
   "name": "stimmie.dev",
-  "version": "1.3.2",
+  "version": "2.0.0",
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "build": "next build",
+    "build": "npm run archive:verify && next build",
     "start": "next start",
     "lint": "biome check",
     "format": "biome format --write",
+    "archive:snapshot": "node --experimental-detect-module scripts/snapshot-archive-assets.mjs",
+    "archive:verify": "node --experimental-detect-module scripts/verify-archive-assets.mjs",
     "cf:migrate-redirects": "node --experimental-detect-module scripts/cf-migrate-redirects.mjs"
   },
   "dependencies": {
