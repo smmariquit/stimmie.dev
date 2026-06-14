@@ -44,6 +44,16 @@ export const projects = [
     tags: ["Tooling", "Education", "Next.js"],
     link: "https://gradesim.stimmie.dev",
   },
+  {
+    slug: "uplb-dsg-website",
+    title: "UPLB Data Science Guild Website",
+    src: "/projects/uplb-dsg-website.png",
+    date: "2025",
+    description:
+      "Led the design and development of the official website of the UPLB Data Science Guild.",
+    tags: ["Web", "Leadership", "Design"],
+    link: null,
+  },
 ];
 
 export function getProjectBySlug(slug) {
