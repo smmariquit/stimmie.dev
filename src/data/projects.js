@@ -27,7 +27,7 @@ export const projects = [
   {
     slug: "room-tba",
     title: "Room TBA",
-    src: "/projects/project1.jpg",
+    src: "/projects/room-tba.png",
     date: "2025",
     description:
       "A fully immersive 3D campus viewer for UPLB. Navigate through academic buildings and find your classes easily.",
