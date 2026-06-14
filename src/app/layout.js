@@ -1,6 +1,7 @@
 // src/app/layout.js
 
 import { Analytics } from "@vercel/analytics/react";
+import { body, display } from "./fonts";
 import "./globals.css";
 
 export const metadata = {
@@ -10,8 +11,16 @@ export const metadata = {
     default: "Stimmie - Software Engineer",
     template: "%s | Stimmie",
   },
-  description: "Hi! I'm Stimmie, a software engineer with a lifelong passion for technology. Portfolio showcasing projects, talks, and experiences.",
-  keywords: ["software engineer", "web developer", "data science", "portfolio", "Stimmie", "Philippines"],
+  description:
+    "Hi! I'm Stimmie, a software engineer with a lifelong passion for technology. Portfolio showcasing projects, talks, and experiences.",
+  keywords: [
+    "software engineer",
+    "web developer",
+    "data science",
+    "portfolio",
+    "Stimmie",
+    "Philippines",
+  ],
   authors: [{ name: "Stimmie", url: "https://stimmie.dev" }],
   creator: "Stimmie",
   icons: {
@@ -21,7 +30,8 @@ export const metadata = {
   },
   openGraph: {
     title: "Stimmie - Software Engineer",
-    description: "Hi! I'm Stimmie, a software engineer with a lifelong passion for technology. Portfolio showcasing projects, talks, and experiences.",
+    description:
+      "Hi! I'm Stimmie, a software engineer with a lifelong passion for technology. Portfolio showcasing projects, talks, and experiences.",
     url: "https://stimmie.dev",
     siteName: "Stimmie",
     images: [
@@ -38,7 +48,8 @@ export const metadata = {
   twitter: {
     card: "summary_large_image",
     title: "Stimmie - Software Engineer",
-    description: "Hi! I'm Stimmie, a software engineer with a lifelong passion for technology.",
+    description:
+      "Hi! I'm Stimmie, a software engineer with a lifelong passion for technology.",
     images: ["/og-image.png"],
   },
   robots: {
@@ -47,15 +58,15 @@ export const metadata = {
     googleBot: {
       index: true,
       follow: true,
-      'max-video-preview': -1,
-      'max-image-preview': 'large',
-      'max-snippet': -1,
+      "max-video-preview": -1,
+      "max-image-preview": "large",
+      "max-snippet": -1,
     },
   },
 };
 
 export const viewport = {
-  themeColor: "#000000",
+  themeColor: "#0a0a1a",
   width: "device-width",
   initialScale: 1,
   maximumScale: 5,
@@ -64,9 +75,7 @@ export const viewport = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body
-        className={`antialiased`}
-      >
+      <body className={`antialiased ${display.variable} ${body.variable}`}>
         {children}
         <Analytics />
       </body>
