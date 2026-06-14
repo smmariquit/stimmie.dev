@@ -1,9 +1,8 @@
 export const STIMMIEVERSE_CATEGORIES = [
   {
     label: "Services",
-    blurb: "Live apps and tools you can use right now",
+    blurb: "Apps, tools, and services I make and offer",
     links: [
-      { name: "Kape", url: "https://kape.stimmie.dev" },
       { name: "Room TBA", url: "https://room-tba.stimmie.dev" },
       { name: "GradeSim", url: "https://gradesim.stimmie.dev" },
       { name: "The Crib", url: "https://crib.stimmie.dev" },
