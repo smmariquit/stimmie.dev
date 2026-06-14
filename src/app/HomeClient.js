@@ -113,6 +113,8 @@ export default function HomeClient({ mediaData, version }) {
   const HOME_PROJECT_LIMIT = 4;
   const featuredProjects = projects.slice(0, HOME_PROJECT_LIMIT);
   const remainingProjects = Math.max(0, projects.length - HOME_PROJECT_LIMIT);
+  const HOME_TALK_LIMIT = 4;
+  const remainingTalks = Math.max(0, sortedTalks.length - HOME_TALK_LIMIT);
 
   return (
     <div className={`neo-page ${display.variable} ${body.variable}`} lang="en">
@@ -243,6 +245,41 @@ export default function HomeClient({ mediaData, version }) {
                 designing interfaces, or crafting data stories, I love bringing
                 wild ideas to life on the internet.
               </p>
+              <p className="mt-3">
+                Away from the keyboard I&apos;m usually out exploring Metro
+                Manila, lifting at the gym, taking photowalks, or watching and
+                over-analyzing films. I&apos;m always happy to meet new people,
+                so don&apos;t be a stranger!
+              </p>
+              <p className="mt-3 font-bold">~ fun facts ~</p>
+              <ul className="neo-facts list-none p-0 m-0 mt-1 space-y-1">
+                <li>
+                  💻 I built the PC I still use today, by myself, when I was 16.
+                </li>
+                <li>👒 Fedora Linux is my daily driver.</li>
+                <li>
+                  🚌 I&apos;ve alighted at and explored all 51 LRT and MRT
+                  stations in Metro Manila.
+                </li>
+                <li>🏋️ Gym regular (SBD: 100 / 60 / 150).</li>
+                <li>📃 Big on photowalks and writing.</li>
+                <li>
+                  🐛 My first ever technical failure: I left a VM on its default
+                  password and it got drafted into a botnet attacking a Russian
+                  IP.
+                </li>
+                <li>
+                  🎬 I watch and analyze films, and yes, I have an{" "}
+                  <Link
+                    href="https://www.imdb.com/name/nm12149035/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    IMDb page
+                  </Link>
+                  .
+                </li>
+              </ul>
             </NeoSection>
 
             <StarDivider />
@@ -294,7 +331,7 @@ export default function HomeClient({ mediaData, version }) {
 
             <NeoSection title="talks & workshops" id="talks">
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                {sortedTalks.slice(0, 4).map((t) => {
+                {sortedTalks.slice(0, HOME_TALK_LIMIT).map((t) => {
                   const displayImage = t.actionPhoto || t.slidesThumbnail;
                   return (
                     <Link
@@ -327,7 +364,12 @@ export default function HomeClient({ mediaData, version }) {
                 })}
               </div>
               <p className="mt-2 text-base">
-                <Link href="/talks">► see all talks</Link>
+                <Link href="/talks">
+                  ►{" "}
+                  {remainingTalks > 0
+                    ? `see ${remainingTalks} more talk${remainingTalks === 1 ? "" : "s"}`
+                    : "see all talks"}
+                </Link>
               </p>
             </NeoSection>
 

@@ -37,7 +37,7 @@ export const projects = [
   {
     slug: "elbi-gradesim",
     title: "Elbi GradeSim",
-    src: "/projects/project2.jpg",
+    src: "/projects/elbi-gradesim.png",
     date: "2025",
     description:
       "An advanced grade simulation and course planning tool tailored for UPLB students.",
