@@ -55,6 +55,8 @@ export const FRIENDS = [
   { name: "John Yumul", url: "https://johnyumul.com", blurb: "fellow web tinkerer" },
 ];
 
+export const SECTION_STAR = "✹";
+
 function formatLastUpdated(iso) {
   return new Date(iso)
     .toLocaleDateString("en-US", {
@@ -69,7 +71,7 @@ export function getMarqueeText() {
   const buildDate =
     process.env.NEXT_PUBLIC_BUILD_DATE ?? new Date().toISOString();
   const updated = formatLastUpdated(buildDate);
-  return `★ welcome to my corner of the web ★ software engineer ★ tinkerer ★ builder of weird things ★ linkedin shitposter ★ last updated ${updated} ★ `;
+  return `${SECTION_STAR} welcome to my corner of the web ${SECTION_STAR} software engineer ${SECTION_STAR} tinkerer ${SECTION_STAR} builder of weird things ${SECTION_STAR} linkedin shitposter ${SECTION_STAR} last updated ${updated} ${SECTION_STAR} `;
 }
 
 export const ABOUT_TEXT =

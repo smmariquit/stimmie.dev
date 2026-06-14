@@ -101,6 +101,7 @@
   --neo-accent-red: #c00000;
   --neo-accent-blue: #0a6699;
   --neo-accent-purple: #7a00b8;
+  --neo-section-star: "✹ ";
   /* Display + body fonts come from next/font (see src/app/fonts.js).
      --neo-pixel kept as the variable name for back-compat, but it now maps to
      a readable rounded display font instead of the old pixel font. */
@@ -324,7 +325,7 @@ body {
 }
 
 .neo-section-title::before {
-  content: "★ ";
+  content: var(--neo-section-star);
 }
 
 .neo-nav-list {
