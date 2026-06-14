@@ -166,7 +166,7 @@ const SCHOOL_ORGS = [
     note: "Member records, team building, workshops, and training sessions for members and partner orgs.",
   },
   {
-    role: "Executive Officer",
+    role: "Executive",
     org: "UPLB Gavel Club",
     url: "https://www.toastmasters.org/",
     period: "Feb 2025 – present",
