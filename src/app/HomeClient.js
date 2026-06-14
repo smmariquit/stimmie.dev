@@ -7,7 +7,7 @@ import Link from "next/link";
 import { GitHubCalendar } from "react-github-calendar";
 import {
   FRIENDS,
-  MARQUEE_TEXT,
+  getMarqueeText,
   NAV_LINKS,
   STIMMIEVERSE_CATEGORIES,
 } from "@/components/home/constants";
@@ -110,6 +110,7 @@ function SocialLink({ link }) {
 export default function HomeClient({ mediaData, version }) {
   const { film, book, music } = mediaData || {};
   const sortedTalks = getSortedTalks();
+  const marqueeText = getMarqueeText();
   const HOME_PROJECT_LIMIT = 4;
   const featuredProjects = projects.slice(0, HOME_PROJECT_LIMIT);
   const remainingProjects = Math.max(0, projects.length - HOME_PROJECT_LIMIT);
@@ -158,8 +159,8 @@ export default function HomeClient({ mediaData, version }) {
         {/* Marquee */}
         <div className="neo-marquee-wrap mb-3" aria-hidden="true">
           <div className="neo-marquee-track">
-            {MARQUEE_TEXT}
-            {MARQUEE_TEXT}
+            {marqueeText}
+            {marqueeText}
           </div>
         </div>
 
