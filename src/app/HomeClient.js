@@ -263,6 +263,10 @@ export default function HomeClient({ mediaData, version }) {
               <p className="mt-3 font-bold">~ fun facts ~</p>
               <ul className="neo-facts list-none p-0 m-0 mt-1 space-y-1">
                 <li>
+                  🎮 I started coding in Batch when I was 10 — simple text-based
+                  RPG games.
+                </li>
+                <li>
                   💻 I built the PC I still use today, by myself, when I was 16.
                 </li>
                 <li>👒 Fedora Linux is my daily driver.</li>

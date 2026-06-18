@@ -7,7 +7,7 @@ import PageShell from "@/components/neo/PageShell";
 export const metadata = {
   title: "Past Iterations",
   description:
-    "A timeline of how stimmie.dev has evolved over the years, from Linktree to the Neocities revival.",
+    "A timeline of how stimmie.dev has evolved over the years, from the Himitsu Adobe Portfolio era to the Neocities revival.",
 };
 
 // Version history - add new versions at the top!
@@ -92,9 +92,25 @@ const versions = [
     description:
       "Before building custom portfolios, I used Linktree as a simple link-in-bio solution to aggregate all my social profiles.",
     features: ["Link-in-bio aggregator", "All social profiles in one place"],
-    screenshot: null,
-    liveUrl: "https://linktr.ee/stimmeh",
+    screenshot: "/archive/linktree-screenshot.png",
     techStack: ["Linktree"],
+  },
+  {
+    version: "0.0",
+    name: "Himitsu (Adobe Portfolio)",
+    date: "~2021",
+    current: false,
+    description:
+      "My first proper portfolio, built on Adobe Portfolio while freelancing in the Minecraft community as Himitsu. Split-screen landing page, Behance-linked work samples, and a yellow-header portfolio for server configuration gigs.",
+    features: [
+      "Split layout with in-game community photo",
+      "Minecraft plugin configuration portfolio",
+      "Discord and MC-Market contact links",
+      "Behance, Instagram, GitHub, and email links",
+    ],
+    screenshot: "/archive/himitsu-screenshot.png",
+    liveUrl: "/archive/himitsu",
+    techStack: ["Adobe Portfolio"],
   },
 ];
 

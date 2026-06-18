@@ -8,6 +8,9 @@ Frozen files for historical site versions. **Do not delete** paths listed in `MA
 | `v1/` | `/archive/v1` talks, projects, logos |
 | `v2/` | `/v2` bento thumbnails and icons |
 | `v2-screenshot.png` | `/archive` timeline |
+| `v1-screenshot.png` | `/archive` timeline (v1.0) |
+| `himitsu-screenshot.png`, `himitsu/` | `/archive/himitsu`, `/archive` timeline (v0.0) |
+| `linktree-screenshot.png` | `/archive` timeline (v0.1) |
 
 ## Maintenance
 
