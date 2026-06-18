@@ -71,7 +71,22 @@ export default async function ProjectPage({ params }) {
           </p>
         )}
 
-        <p className="text-lg leading-relaxed mb-6">{project.description}</p>
+        {project.date && (
+          <p
+            className="text-base neo-muted m-0 mb-3 font-mono"
+            style={{ fontFamily: "var(--neo-ui)" }}
+          >
+            {project.date}
+          </p>
+        )}
+
+        <div className="text-lg leading-relaxed mb-6 space-y-4">
+          {(project.body ?? [project.description]).map((paragraph, index) => (
+            <p key={`${project.slug}-${index}`} className="m-0">
+              {paragraph}
+            </p>
+          ))}
+        </div>
 
         {project.link && (
           <p>

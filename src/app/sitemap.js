@@ -18,6 +18,7 @@ const staticRoutes = [
   { path: "/blog/books", changeFrequency: "yearly", priority: 0.5 },
   { path: "/archive", changeFrequency: "yearly", priority: 0.3 },
   { path: "/archive/v1", changeFrequency: "yearly", priority: 0.2 },
+  { path: "/archive/himitsu", changeFrequency: "yearly", priority: 0.2 },
   { path: "/v2", changeFrequency: "yearly", priority: 0.2 },
   { path: "/changelog", changeFrequency: "monthly", priority: 0.4 },
 ];
