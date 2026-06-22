@@ -164,11 +164,7 @@ export default function HomeClient({ mediaData, version }) {
             tabIndex={-1}
             className="neo-box min-w-0 md:col-start-2"
           >
-            <NeoSection
-              title="about me"
-              id="about"
-              lead="the human behind the keyboard — not my résumé (that's on /career)."
-            >
+            <NeoSection title="about me" id="about">
               <div className="neo-about-intro">
                 <ScrapbookPhoto
                   src="/stimmie.jpg"
