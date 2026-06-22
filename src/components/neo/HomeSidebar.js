@@ -10,6 +10,7 @@ import { socialCategories } from "@/data/socials";
 
 function SocialLink({ link }) {
   const needsInvert = link.name === "GitHub" || link.name === "Kattis";
+  const isExternal = link.href?.startsWith("http");
 
   if (!link.href) {
     return (
@@ -35,8 +36,8 @@ function SocialLink({ link }) {
     <li>
       <Link
         href={link.href}
-        target="_blank"
-        rel="noopener noreferrer"
+        target={isExternal ? "_blank" : undefined}
+        rel={isExternal ? "noopener noreferrer" : undefined}
         className="neo-social-link"
         title={link.alt || link.name}
       >

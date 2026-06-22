@@ -58,6 +58,12 @@ export const socialCategories = [
         icon: "/logos/github.png",
       },
       {
+        name: "PGP & SSH keys",
+        href: "/keys",
+        icon: "/logos/email.png",
+        alt: "PGP and SSH public keys",
+      },
+      {
         name: "LeetCode",
         href: "https://leetcode.com/u/stimmers/",
         icon: "/logos/leetcode.png",

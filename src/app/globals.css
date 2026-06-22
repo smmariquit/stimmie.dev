@@ -401,6 +401,92 @@ body {
   color: var(--neo-accent-green, #2a7a2a);
 }
 
+.neo-key-wrap {
+  margin-top: 0.75rem;
+}
+
+.neo-key-toolbar {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 0.65rem;
+  margin-bottom: 0.35rem;
+}
+
+.neo-key-copy {
+  opacity: 0.55;
+}
+
+.neo-key-copy:hover,
+.neo-key-copy:focus-visible {
+  opacity: 0.9;
+}
+
+.neo-key-download {
+  font-family: var(--neo-ui);
+  font-size: 0.75rem;
+  color: #666;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+.neo-page a.neo-key-download:hover {
+  color: var(--neo-accent-red);
+  background: transparent;
+}
+
+.neo-key-meta {
+  display: grid;
+  gap: 0.35rem 1rem;
+  margin: 0 0 0.25rem;
+  font-family: var(--neo-ui);
+  font-size: 0.9rem;
+}
+
+@media (min-width: 480px) {
+  .neo-key-meta {
+    grid-template-columns: auto 1fr;
+  }
+}
+
+.neo-key-meta-row {
+  display: contents;
+}
+
+.neo-key-meta dt {
+  color: #666;
+  margin: 0;
+}
+
+.neo-key-meta dd {
+  margin: 0;
+  font-family: ui-monospace, "Cascadia Code", monospace;
+  font-size: 0.82rem;
+  word-break: break-word;
+}
+
+.neo-key-block {
+  margin: 0;
+  padding: 0.75rem 0.85rem;
+  max-height: 14rem;
+  overflow: auto;
+  background: #f8f8f8;
+  border: 2px solid #1a1a1a;
+  box-shadow: 2px 2px 0 #000;
+  font-family: ui-monospace, "Cascadia Code", monospace;
+  font-size: 0.72rem;
+  line-height: 1.45;
+  white-space: pre-wrap;
+  word-break: break-all;
+}
+
+.neo-key-hint {
+  margin: 0.65rem 0 0;
+  font-family: var(--neo-ui);
+  font-size: 0.85rem;
+  color: #555;
+}
+
 .neo-section-lead {
   font-family: var(--neo-ui);
   font-size: 0.95rem;
