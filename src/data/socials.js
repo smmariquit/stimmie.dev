@@ -149,7 +149,7 @@ export const socialCategories = [
       },
       {
         name: "Pizza and Friends",
-        href: "https://pizza-and-friends.webflow.io",
+        href: "https://joinpizza.fun",
         icon: "/logos/pizza.png",
       },
     ],

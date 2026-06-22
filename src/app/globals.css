@@ -421,6 +421,111 @@ body {
   line-height: 1.2;
 }
 
+/* ── Mobile homepage: sticky section nav + collapsible hub ─────────── */
+
+.neo-mobile-section-nav {
+  position: sticky;
+  top: 0.5rem;
+  z-index: 20;
+}
+
+.neo-mobile-section-nav-label {
+  font-family: var(--neo-pixel);
+  font-size: 1rem;
+  color: var(--neo-accent-red);
+  margin: 0 0 0.35rem 0.25rem;
+}
+
+.neo-mobile-section-nav-list {
+  display: flex;
+  gap: 0.5rem;
+  overflow-x: auto;
+  overscroll-behavior-x: contain;
+  scroll-snap-type: x proximity;
+  -webkit-overflow-scrolling: touch;
+  list-style: none;
+  margin: 0;
+  padding: 0.5rem;
+  background: var(--neo-sidebar);
+  border: 3px groove var(--neo-border-alt);
+  box-shadow: 3px 3px 0 #000;
+}
+
+.neo-mobile-section-nav-list li {
+  flex: 0 0 auto;
+  scroll-snap-align: start;
+}
+
+.neo-mobile-section-pill {
+  display: inline-block;
+  padding: 0.35rem 0.75rem;
+  font-family: var(--neo-ui);
+  font-size: 0.9rem;
+  font-weight: 700;
+  line-height: 1.2;
+  background: var(--neo-box);
+  border: 2px solid #000;
+  border-radius: 999px;
+  white-space: nowrap;
+  color: #1a1a1a;
+  text-decoration: none;
+}
+
+.neo-mobile-section-pill:hover {
+  background: #fff7fb;
+  color: var(--neo-accent-red);
+}
+
+.neo-site-hub summary {
+  list-style: none;
+  cursor: pointer;
+}
+
+.neo-site-hub summary::-webkit-details-marker {
+  display: none;
+}
+
+.neo-site-hub-summary {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.neo-site-hub-summary .neo-sidebar-heading::before {
+  content: "▸ ";
+  color: var(--neo-accent-purple);
+}
+
+.neo-site-hub[open] .neo-site-hub-summary .neo-sidebar-heading::before {
+  content: "▾ ";
+}
+
+.neo-site-hub-summary::before {
+  content: none;
+}
+
+.neo-site-hub[open] .neo-site-hub-summary::before {
+  content: none;
+}
+
+.neo-site-hub-hint {
+  font-family: var(--neo-body);
+  font-size: 0.85rem;
+  line-height: 1.3;
+  color: #555;
+  padding-left: 1.1rem;
+}
+
+#main-content section[id] {
+  scroll-margin-top: 5.5rem;
+}
+
+@media (min-width: 768px) {
+  #main-content section[id] {
+    scroll-margin-top: 1rem;
+  }
+}
+
 .neo-counter {
   font-family: var(--neo-pixel);
   font-size: 1.1rem;

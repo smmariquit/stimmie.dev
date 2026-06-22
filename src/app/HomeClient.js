@@ -9,14 +9,15 @@ import {
   FRIENDS,
   getMarqueeText,
   NAV_LINKS,
-  STIMMIEVERSE_CATEGORIES,
 } from "@/components/home/constants";
-import CribStatus from "@/components/neo/CribStatus";
+import {
+  DesktopHomeSidebar,
+  MobileHomeSidebar,
+} from "@/components/neo/HomeSidebar";
+import MobileSectionNav from "@/components/neo/MobileSectionNav";
 import SkipLink from "@/components/neo/SkipLink";
-import VisitorCounter from "@/components/neo/VisitorCounter";
 import { blogPosts } from "@/data/blogs";
 import { projects } from "@/data/projects";
-import { socialCategories } from "@/data/socials";
 import { talks } from "@/data/talks";
 import { body, display } from "./fonts";
 
@@ -33,26 +34,14 @@ function NeoSection({ title, children, id }) {
   );
 }
 
-// In-page section anchors for the sidebar "on this page" menu.
-const SECTION_LINKS = [
-  { label: "about me", href: "#about" },
-  { label: "projects", href: "#projects" },
-  { label: "talks", href: "#talks" },
-  { label: "writing", href: "#writing" },
-  { label: "currently into", href: "#currently" },
-  { label: "friends", href: "#friends" },
-  { label: "book a call", href: "#book" },
-  { label: "support me", href: "#support" },
-];
-
+// Fixed time zone keeps the rendered date identical on server and client
+// (the talk dates are authored in +08:00), avoiding hydration mismatches.
 function getSortedTalks() {
   return [...talks].sort(
     (a, b) => new Date(b.date).getTime() - new Date(a.date).getTime(),
   );
 }
 
-// Fixed time zone keeps the rendered date identical on server and client
-// (the talk dates are authored in +08:00), avoiding hydration mismatches.
 function formatTalkDate(date) {
   return new Date(date).toLocaleDateString("en-US", {
     month: "short",
@@ -60,51 +49,6 @@ function formatTalkDate(date) {
     year: "numeric",
     timeZone: "Asia/Manila",
   });
-}
-
-function SocialLink({ link }) {
-  const needsInvert = link.name === "GitHub" || link.name === "Kattis";
-
-  if (!link.href) {
-    return (
-      <li>
-        <span
-          className="neo-social-link neo-muted cursor-default"
-          title={link.alt || link.name}
-        >
-          {link.icon && (
-            <img
-              src={link.icon}
-              alt=""
-              className={`neo-social-icon ${needsInvert ? "brightness-0" : ""}`}
-            />
-          )}
-          <span>{link.name}</span>
-        </span>
-      </li>
-    );
-  }
-
-  return (
-    <li>
-      <Link
-        href={link.href}
-        target="_blank"
-        rel="noopener noreferrer"
-        className="neo-social-link"
-        title={link.alt || link.name}
-      >
-        {link.icon && (
-          <img
-            src={link.icon}
-            alt=""
-            className={`neo-social-icon ${needsInvert ? "brightness-0" : ""}`}
-          />
-        )}
-        <span>{link.name}</span>
-      </Link>
-    </li>
-  );
 }
 
 export default function HomeClient({ mediaData, version }) {
@@ -164,89 +108,17 @@ export default function HomeClient({ mediaData, version }) {
           </div>
         </div>
 
+        <MobileSectionNav />
+
         <div className="grid grid-cols-1 md:grid-cols-[14rem_1fr] gap-3">
-          {/* Sidebar */}
-          <aside className="space-y-3">
-            <nav className="neo-sidebar-box" aria-label="On this page">
-              <h2 className="neo-sidebar-heading neo-accent-red">
-                ~ on this page ~
-              </h2>
-              <ul className="neo-nav-list">
-                {SECTION_LINKS.map((item) => (
-                  <li key={item.href}>
-                    <a href={item.href}>{item.label}</a>
-                  </li>
-                ))}
-              </ul>
-            </nav>
+          <DesktopHomeSidebar version={version} />
 
-            <div className="neo-sidebar-box">
-              <h2 className="neo-sidebar-heading neo-accent-blue">
-                ~ find me ~
-              </h2>
-              {socialCategories.map((category) => (
-                <div key={category.label}>
-                  <p className="neo-social-category">{category.label}</p>
-                  <ul className="neo-social-list">
-                    {category.links.map((link) => (
-                      <SocialLink key={link.name} link={link} />
-                    ))}
-                  </ul>
-                </div>
-              ))}
-            </div>
-
-            <div className="neo-sidebar-box">
-              <h2 className="neo-sidebar-heading neo-accent-purple">
-                ~ stimmieverse ~
-              </h2>
-              {STIMMIEVERSE_CATEGORIES.map((category) => (
-                <div key={category.label}>
-                  <p className="neo-social-category">{category.label}</p>
-                  {category.blurb && (
-                    <p className="neo-social-desc">{category.blurb}</p>
-                  )}
-                  <ul className="neo-nav-list">
-                    {category.links.map((site) => (
-                      <li key={site.name}>
-                        <Link
-                          href={site.url}
-                          target={site.local ? "_self" : "_blank"}
-                          rel={site.local ? "" : "noopener noreferrer"}
-                        >
-                          {site.name}
-                          {!site.local && " ↗"}
-                        </Link>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-              ))}
-            </div>
-
-            <div className="neo-sidebar-box">
-              <CribStatus />
-            </div>
-
-            <div className="neo-sidebar-box">
-              <VisitorCounter />
-            </div>
-
-            <div className="neo-sidebar-box">
-              <p
-                className="text-xl mb-2 text-center"
-                style={{ fontFamily: "var(--neo-pixel)", color: "#1a1a1a" }}
-              >
-                site version
-              </p>
-              <p className="text-center text-lg font-bold neo-accent-red">
-                <Link href="/changelog">v{version}</Link>
-              </p>
-            </div>
-          </aside>
-
-          {/* Main content */}
-          <main id="main-content" tabIndex={-1} className="neo-box min-w-0">
+          {/* Main content — first in the mobile scroll order */}
+          <main
+            id="main-content"
+            tabIndex={-1}
+            className="neo-box min-w-0 md:col-start-2"
+          >
             <NeoSection title="about me" id="about">
               <p>
                 I&apos;m <strong>Stimmie</strong>, a creator, tinkerer, and
@@ -581,6 +453,8 @@ export default function HomeClient({ mediaData, version }) {
               />
             </div>
           </main>
+
+          <MobileHomeSidebar version={version} />
         </div>
 
         <footer className="neo-footer mt-3">
