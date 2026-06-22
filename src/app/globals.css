@@ -328,6 +328,205 @@ body {
   content: var(--neo-section-star);
 }
 
+.neo-section-lead {
+  font-family: var(--neo-ui);
+  font-size: 0.95rem;
+  line-height: 1.4;
+  color: #555;
+  margin: -0.35rem 0 1rem;
+  padding: 0.5rem 0.75rem;
+  background: #e8f0ff;
+  border-left: 4px solid #00ccff;
+}
+
+.neo-subheading {
+  font-family: var(--neo-pixel);
+  font-size: 1.2rem;
+  color: var(--neo-heading);
+  margin: 1.25rem 0 0.65rem;
+}
+
+.neo-lede {
+  font-size: 1.05rem;
+  line-height: 1.65;
+  padding: 0.75rem 1rem;
+  background: #fff;
+  border: 2px dashed #d6008f;
+}
+
+/* ── About: scrapbook photo + intro ───────────────────────────────── */
+
+.neo-about-intro {
+  display: grid;
+  gap: 1.25rem;
+  align-items: start;
+  margin-bottom: 0.5rem;
+}
+
+@media (min-width: 640px) {
+  .neo-about-intro {
+    grid-template-columns: auto 1fr;
+    gap: 1.5rem;
+  }
+}
+
+.neo-scrapbook-photo {
+  position: relative;
+  width: fit-content;
+  max-width: min(220px, 42vw);
+  margin: 0.25rem auto 0;
+  transform: rotate(-2.5deg);
+  transition: transform 200ms ease;
+}
+
+.neo-scrapbook-photo:hover {
+  transform: rotate(0deg) scale(1.02);
+}
+
+@media (min-width: 640px) {
+  .neo-scrapbook-photo {
+    margin: 0.5rem 0 0;
+  }
+}
+
+.neo-scrapbook-frame {
+  background: #fff;
+  padding: 0.55rem 0.55rem 2.75rem;
+  border: 1px solid #ccc;
+  box-shadow:
+    3px 4px 0 #000,
+    0 10px 24px rgba(0, 0, 0, 0.12);
+}
+
+.neo-scrapbook-img {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 1;
+  object-fit: cover;
+  filter: sepia(0.12) contrast(1.03) saturate(0.95);
+}
+
+.neo-scrapbook-caption {
+  font-family: var(--neo-ui);
+  font-size: 0.95rem;
+  font-style: italic;
+  text-align: center;
+  color: #444;
+  margin: -2.35rem 0 0;
+  padding: 0 0.25rem 0.35rem;
+}
+
+.neo-scrapbook-tape {
+  position: absolute;
+  width: 3.25rem;
+  height: 1.1rem;
+  background: rgba(255, 218, 140, 0.82);
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.08);
+  z-index: 2;
+  pointer-events: none;
+}
+
+.neo-scrapbook-tape-left {
+  top: -0.35rem;
+  left: 0.85rem;
+  transform: rotate(-32deg);
+}
+
+.neo-scrapbook-tape-right {
+  top: -0.25rem;
+  right: 0.65rem;
+  transform: rotate(22deg);
+}
+
+/* ── Fun fact stamp cards ─────────────────────────────────────────── */
+
+.neo-fact-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 0.55rem;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+@media (min-width: 520px) {
+  .neo-fact-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+.neo-fact-card {
+  display: flex;
+  gap: 0.55rem;
+  align-items: flex-start;
+  padding: 0.55rem 0.65rem;
+  background: #fafafa;
+  border: 2px solid #1a1a1a;
+  box-shadow: 2px 2px 0 #d6008f;
+  font-size: 0.95rem;
+  line-height: 1.4;
+}
+
+.neo-fact-emoji {
+  flex-shrink: 0;
+  font-size: 1.35rem;
+  line-height: 1.2;
+}
+
+/* ── Writing list cards ───────────────────────────────────────────── */
+
+.neo-writing-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.neo-writing-item {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 0.35rem 0.75rem;
+  padding: 0.55rem 0.75rem;
+  background: #fafafa;
+  border: 2px solid #1a1a1a;
+  border-left: 5px solid #ff00aa;
+  box-shadow: 2px 2px 0 #000;
+}
+
+.neo-writing-date {
+  font-family: ui-monospace, "Cascadia Code", monospace;
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: #555;
+  background: #e8f0ff;
+  padding: 0.1rem 0.45rem;
+  border: 1px solid #00ccff;
+}
+
+.neo-writing-title {
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.neo-page a.neo-writing-title:hover {
+  background: #fffacd;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .neo-scrapbook-photo {
+    transition: none;
+  }
+
+  .neo-scrapbook-photo:hover {
+    transform: rotate(-2.5deg);
+  }
+}
+
 .neo-role-list {
   padding-left: 1.5rem;
 }

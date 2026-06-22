@@ -15,6 +15,7 @@ import {
   MobileHomeSidebar,
 } from "@/components/neo/HomeSidebar";
 import MobileSectionNav from "@/components/neo/MobileSectionNav";
+import ScrapbookPhoto from "@/components/neo/ScrapbookPhoto";
 import SkipLink from "@/components/neo/SkipLink";
 import { blogPosts } from "@/data/blogs";
 import { projects } from "@/data/projects";
@@ -25,14 +26,58 @@ function StarDivider() {
   return <p className="neo-divider">✧･ﾟ: *✧･ﾟ:* ✧･ﾟ: *✧･ﾟ:* ✧･ﾟ: *✧･ﾟ:*</p>;
 }
 
-function NeoSection({ title, children, id }) {
+function NeoSection({ title, children, id, lead }) {
   return (
-    <section id={id} className="mb-4">
+    <section id={id} className="neo-section mb-4">
       <h2 className="neo-section-title">{title}</h2>
+      {lead ? <p className="neo-section-lead">{lead}</p> : null}
       {children}
     </section>
   );
 }
+
+const FUN_FACTS = [
+  {
+    id: "batch",
+    emoji: "🎮",
+    text: "I started coding in Batch when I was 10 — simple text-based RPG games.",
+  },
+  {
+    id: "pc",
+    emoji: "💻",
+    text: "I built the PC I still use today, by myself, when I was 16.",
+  },
+  { id: "fedora", emoji: "👒", text: "Fedora Linux is my daily driver." },
+  {
+    id: "mrt",
+    emoji: "🚌",
+    text: "I've alighted at and explored all 51 LRT and MRT stations in Metro Manila.",
+  },
+  { id: "gym", emoji: "🏋️", text: "Gym regular (SBD: 100 / 60 / 150)." },
+  { id: "photos", emoji: "📃", text: "Big on photowalks and writing." },
+  {
+    id: "vm",
+    emoji: "🐛",
+    text: "My first ever technical failure: I left a VM on its default password and it got drafted into a botnet attacking a Russian IP.",
+  },
+  {
+    id: "imdb",
+    emoji: "🎬",
+    text: (
+      <>
+        I watch and analyze films, and yes, I have an{" "}
+        <Link
+          href="https://www.imdb.com/name/nm12149035/"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          IMDb page
+        </Link>
+        .
+      </>
+    ),
+  },
+];
 
 // Fixed time zone keeps the rendered date identical on server and client
 // (the talk dates are authored in +08:00), avoiding hydration mismatches.
@@ -119,57 +164,53 @@ export default function HomeClient({ mediaData, version }) {
             tabIndex={-1}
             className="neo-box min-w-0 md:col-start-2"
           >
-            <NeoSection title="about me" id="about">
-              <p>
-                I&apos;m <strong>Stimmie</strong>, a creator, tinkerer, and
-                builder of digital experiences. Whether it&apos;s writing code,
-                designing interfaces, or crafting data stories, I love bringing
-                wild ideas to life on the internet.
-              </p>
-              <p className="mt-3">
-                Away from the keyboard I&apos;m usually out exploring Metro
-                Manila, lifting at the gym, taking photowalks, or watching and
-                over-analyzing films. I&apos;m always happy to meet new people,
-                so don&apos;t be a stranger!
-              </p>
-              <p className="mt-3 font-bold">~ fun facts ~</p>
-              <ul className="neo-facts list-none p-0 m-0 mt-1 space-y-1">
-                <li>
-                  🎮 I started coding in Batch when I was 10 — simple text-based
-                  RPG games.
-                </li>
-                <li>
-                  💻 I built the PC I still use today, by myself, when I was 16.
-                </li>
-                <li>👒 Fedora Linux is my daily driver.</li>
-                <li>
-                  🚌 I&apos;ve alighted at and explored all 51 LRT and MRT
-                  stations in Metro Manila.
-                </li>
-                <li>🏋️ Gym regular (SBD: 100 / 60 / 150).</li>
-                <li>📃 Big on photowalks and writing.</li>
-                <li>
-                  🐛 My first ever technical failure: I left a VM on its default
-                  password and it got drafted into a botnet attacking a Russian
-                  IP.
-                </li>
-                <li>
-                  🎬 I watch and analyze films, and yes, I have an{" "}
-                  <Link
-                    href="https://www.imdb.com/name/nm12149035/"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    IMDb page
-                  </Link>
-                  .
-                </li>
+            <NeoSection
+              title="about me"
+              id="about"
+              lead="the human behind the keyboard — not my résumé (that's on /career)."
+            >
+              <div className="neo-about-intro">
+                <ScrapbookPhoto
+                  src="/stimmie.jpg"
+                  alt="Stimmie taking a mirror selfie"
+                  caption="that's me! hi 👋"
+                />
+                <div className="neo-about-copy">
+                  <p className="neo-lede">
+                    I&apos;m <strong>Stimmie</strong>, a creator, tinkerer, and
+                    builder of digital experiences. Whether it&apos;s writing
+                    code, designing interfaces, or crafting data stories, I love
+                    bringing wild ideas to life on the internet.
+                  </p>
+                  <p className="mt-3">
+                    Away from the keyboard I&apos;m usually out exploring Metro
+                    Manila, lifting at the gym, taking photowalks, or watching
+                    and over-analyzing films. I&apos;m always happy to meet new
+                    people, so don&apos;t be a stranger!
+                  </p>
+                </div>
+              </div>
+
+              <p className="neo-subheading">~ fun facts ~</p>
+              <ul className="neo-fact-grid">
+                {FUN_FACTS.map((fact) => (
+                  <li key={fact.id} className="neo-fact-card">
+                    <span className="neo-fact-emoji" aria-hidden="true">
+                      {fact.emoji}
+                    </span>
+                    <span>{fact.text}</span>
+                  </li>
+                ))}
               </ul>
             </NeoSection>
 
             <StarDivider />
 
-            <NeoSection title="my projects" id="projects">
+            <NeoSection
+              title="my projects"
+              id="projects"
+              lead="things I've built — click a card for the full writeup."
+            >
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 {featuredProjects.map((p) => (
                   <Link
@@ -214,7 +255,11 @@ export default function HomeClient({ mediaData, version }) {
 
             <StarDivider />
 
-            <NeoSection title="talks & workshops" id="talks">
+            <NeoSection
+              title="talks & workshops"
+              id="talks"
+              lead="sometimes I get invited to yap in public."
+            >
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 {sortedTalks.slice(0, HOME_TALK_LIMIT).map((t) => {
                   const displayImage = t.actionPhoto || t.slidesThumbnail;
@@ -265,15 +310,18 @@ export default function HomeClient({ mediaData, version }) {
 
             <StarDivider />
 
-            <NeoSection title="writing" id="writing">
-              <ul className="space-y-3 list-none p-0 m-0">
+            <NeoSection
+              title="writing"
+              id="writing"
+              lead="longer thoughts when a tweet won't cut it."
+            >
+              <ul className="neo-writing-list">
                 {blogPosts.map((post) => (
-                  <li key={post.slug}>
-                    <span className="text-base neo-muted font-mono">
-                      {post.date}
-                    </span>
-                    {" · "}
-                    <Link href={`/blog/${post.slug}`}>{post.title}</Link>
+                  <li key={post.slug} className="neo-writing-item">
+                    <span className="neo-writing-date">{post.date}</span>
+                    <Link href={`/blog/${post.slug}`} className="neo-writing-title">
+                      {post.title}
+                    </Link>
                   </li>
                 ))}
               </ul>
