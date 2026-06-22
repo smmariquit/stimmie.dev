@@ -369,20 +369,36 @@ body {
 }
 
 .neo-section-copy {
-  font-family: var(--neo-ui);
-  font-size: 0.75rem;
-  font-weight: 700;
-  line-height: 1.2;
-  padding: 0.2rem 0.55rem;
-  background: #e8f0ff;
-  border: 2px solid #1a1a1a;
-  box-shadow: 2px 2px 0 #000;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.1rem;
+  margin: 0;
+  background: none;
+  border: none;
+  box-shadow: none;
   cursor: pointer;
-  color: #1a1a1a;
+  color: #888;
+  opacity: 0.35;
+  line-height: 0;
+  transition: opacity 0.15s ease, color 0.15s ease;
 }
 
-.neo-section-copy:hover {
-  background: #fffacd;
+.neo-section-copy svg {
+  width: 0.8rem;
+  height: 0.8rem;
+}
+
+.neo-section-header:hover .neo-section-copy,
+.neo-section-copy:hover,
+.neo-section-copy:focus-visible {
+  opacity: 0.75;
+  color: #555;
+}
+
+.neo-section-copy--copied {
+  opacity: 0.9;
+  color: var(--neo-accent-green, #2a7a2a);
 }
 
 .neo-section-lead {
