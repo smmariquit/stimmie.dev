@@ -8,7 +8,7 @@ export const metadata = {
   // Assumes deployment at https://stimmie.dev — update if different
   metadataBase: new URL("https://stimmie.dev"),
   title: {
-    default: "Stimmie - Software Engineer",
+    default: "Stimmie",
     template: "%s | Stimmie",
   },
   description:
@@ -29,7 +29,7 @@ export const metadata = {
     apple: "/icon.png",
   },
   openGraph: {
-    title: "Stimmie - Software Engineer",
+    title: "Stimmie",
     description:
       "Hi! I'm Stimmie, a software engineer with a lifelong passion for technology. Portfolio showcasing projects, talks, and experiences.",
     url: "https://stimmie.dev",
@@ -39,7 +39,7 @@ export const metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Stimmie - Software Engineer",
+    title: "Stimmie",
     description:
       "Hi! I'm Stimmie, a software engineer with a lifelong passion for technology.",
   },

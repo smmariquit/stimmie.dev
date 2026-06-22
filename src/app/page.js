@@ -4,6 +4,10 @@ import { getSiteVersion } from "@/lib/changelog";
 import { getAllMediaData } from "@/lib/media";
 import HomeClient from "./HomeClient";
 
+export const metadata = {
+  title: "Home",
+};
+
 // Revalidate every 1 hour (3600 seconds)
 export const revalidate = 3600;
 
