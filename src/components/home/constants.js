@@ -53,7 +53,7 @@ export const NAV_LINKS = [
 
 // Friends & neighbors on the web. Newest friends go at the top.
 export const FRIENDS = [
-  { name: "John Yumul", url: "https://johnyumul.com", blurb: "fellow web tinkerer" },
+  { name: "John Yumul", url: "https://johnyumul.com", blurb: "product designer" },
 ];
 
 export const SECTION_STAR = "✹";

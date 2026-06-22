@@ -40,7 +40,7 @@ const FUN_FACTS = [
   {
     id: "batch",
     emoji: "🎮",
-    text: "I started coding in Batch when I was 10 — simple text-based RPG games.",
+    text: "I started coding in Batch when I was 10. Simple text-based RPG games.",
   },
   {
     id: "pc",
@@ -117,8 +117,8 @@ export default function HomeClient({ mediaData, version }) {
             className="mt-2 text-lg neo-muted"
             style={{ fontFamily: "var(--neo-ui)" }}
           >
-            Hi! You found my website on the{" "}
-            <strong className="text-[#cc0000]">internet</strong>.
+            Hi! You found my website on{" "}
+            <strong className="text-[#cc0000]">THE INTERNET!!</strong>
           </p>
           <p
             className="mt-2 text-base neo-muted"
@@ -205,7 +205,7 @@ export default function HomeClient({ mediaData, version }) {
             <NeoSection
               title="my projects"
               id="projects"
-              lead="things I've built — click a card for the full writeup."
+              lead="things I've built. Click a card for the full writeup."
             >
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 {featuredProjects.map((p) => (

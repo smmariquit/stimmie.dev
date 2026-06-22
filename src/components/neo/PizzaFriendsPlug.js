@@ -6,7 +6,7 @@ export default function PizzaFriendsPlug() {
       <h2 className="neo-sidebar-heading neo-accent-red">~ pizza &amp; friends ~</h2>
       <p className="neo-crib-blurb">
         Unexpectedly a tech community! Dinner meetups, Discord calls, hackathons,
-        and slides parties — we make cool stuff and try not to take it too
+        and slides parties. We make cool stuff and try not to take it too
         seriously.
       </p>
       <Link
