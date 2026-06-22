@@ -328,6 +328,63 @@ body {
   content: var(--neo-section-star);
 }
 
+.neo-section-header {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem 1rem;
+  margin-bottom: 0.75rem;
+}
+
+.neo-section-header .neo-section-title {
+  margin-bottom: 0;
+}
+
+.neo-page a.neo-section-title-link,
+.neo-page a.neo-section-title-link:visited {
+  color: inherit;
+  text-decoration: none;
+}
+
+.neo-page a.neo-section-title-link:hover {
+  color: var(--neo-accent-red);
+  background: transparent;
+  text-decoration: underline;
+}
+
+.neo-section-link-tools {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.neo-section-slug {
+  font-family: ui-monospace, "Cascadia Code", monospace;
+  font-size: 0.75rem;
+  padding: 0.15rem 0.45rem;
+  background: #f3f3f3;
+  border: 1px solid #666;
+  color: #333;
+}
+
+.neo-section-copy {
+  font-family: var(--neo-ui);
+  font-size: 0.75rem;
+  font-weight: 700;
+  line-height: 1.2;
+  padding: 0.2rem 0.55rem;
+  background: #e8f0ff;
+  border: 2px solid #1a1a1a;
+  box-shadow: 2px 2px 0 #000;
+  cursor: pointer;
+  color: #1a1a1a;
+}
+
+.neo-section-copy:hover {
+  background: #fffacd;
+}
+
 .neo-section-lead {
   font-family: var(--neo-ui);
   font-size: 0.95rem;

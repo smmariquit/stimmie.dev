@@ -16,6 +16,7 @@ import {
 } from "@/components/neo/HomeSidebar";
 import MobileSectionNav from "@/components/neo/MobileSectionNav";
 import ScrapbookPhoto from "@/components/neo/ScrapbookPhoto";
+import SectionHeading from "@/components/neo/SectionHeading";
 import SkipLink from "@/components/neo/SkipLink";
 import { blogPosts } from "@/data/blogs";
 import { projects } from "@/data/projects";
@@ -29,7 +30,11 @@ function StarDivider() {
 function NeoSection({ title, children, id, lead }) {
   return (
     <section id={id} className="neo-section mb-4">
-      <h2 className="neo-section-title">{title}</h2>
+      {id ? (
+        <SectionHeading id={id} title={title} />
+      ) : (
+        <h2 className="neo-section-title">{title}</h2>
+      )}
       {lead ? <p className="neo-section-lead">{lead}</p> : null}
       {children}
     </section>
@@ -326,7 +331,7 @@ export default function HomeClient({ mediaData, version }) {
             <StarDivider />
 
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-              <NeoSection title="github activity">
+              <NeoSection title="github activity" id="github">
                 <div className="overflow-x-auto border-2 inset border-gray-400 bg-white p-2">
                   <GitHubCalendar
                     username="smmariquit"
