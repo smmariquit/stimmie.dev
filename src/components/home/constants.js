@@ -54,11 +54,20 @@ export const NAV_LINKS = [
 // Friends & neighbors on the web. Newest friends go at the top.
 export const FRIENDS = [
   {
+    name: "Rovic",
+    url: "https://rovicdesign.framer.website/",
+    blurb: "GOATed UX guy, first hackathon teammate",
+  },
+  {
     name: "Bernard Jezua",
     url: "https://bernardjezua.is-a.dev",
     blurb: "cool UX designer and senior in UP",
   },
-  { name: "John Yumul", url: "https://johnyumul.com", blurb: "product designer" },
+  {
+    name: "John Yumul",
+    url: "https://johnyumul.com",
+    blurb: "does product, Pizza & Friends cofounder",
+  },
 ];
 
 export const SECTION_STAR = "✹";
