@@ -272,11 +272,12 @@
     "public/archive/v2/logos/pizza.png",
     "public/archive/v2/logos/spotify.png",
     "public/archive/v2/logos/strava.png",
-    "public/archive/v2-screenshot.png",
-    "public/archive/v1-screenshot.png",
-    "public/archive/himitsu-screenshot.png",
+    "public/archive/v2/screenshot.png",
+    "public/archive/v1/screenshot.png",
+    "public/archive/v3/screenshot.png",
+    "public/archive/carrd/screenshot.png",
     "public/archive/himitsu/landing.png",
     "public/archive/himitsu/portfolio.png",
-    "public/archive/linktree-screenshot.png"
+    "public/archive/linktree/screenshot.png"
   ]
 }

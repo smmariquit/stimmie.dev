@@ -194,8 +194,9 @@ function snapshotV2(manifest) {
       }
     }
   }
-  if (fs.existsSync(path.join(publicDir, "archive", "v2-screenshot.png"))) {
-    manifest.push(path.join(publicDir, "archive", "v2-screenshot.png"));
+  const screenshot = path.join(publicDir, "archive", "v2", "screenshot.png");
+  if (fs.existsSync(screenshot)) {
+    manifest.push(screenshot);
   }
   console.log("v2 assets snapshotted");
 }
