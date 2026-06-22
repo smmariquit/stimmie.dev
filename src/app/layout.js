@@ -34,14 +34,6 @@ export const metadata = {
       "Hi! I'm Stimmie, a software engineer with a lifelong passion for technology. Portfolio showcasing projects, talks, and experiences.",
     url: "https://stimmie.dev",
     siteName: "Stimmie",
-    images: [
-      {
-        url: "/og-image.png",
-        width: 1200,
-        height: 630,
-        alt: "Stimmie - Software Engineer Portfolio",
-      },
-    ],
     locale: "en_US",
     type: "website",
   },
@@ -50,7 +42,6 @@ export const metadata = {
     title: "Stimmie - Software Engineer",
     description:
       "Hi! I'm Stimmie, a software engineer with a lifelong passion for technology.",
-    images: ["/og-image.png"],
   },
   robots: {
     index: true,
