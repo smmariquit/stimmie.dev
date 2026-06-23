@@ -388,44 +388,6 @@
       "screenshotProvider": "microlink",
       "screenshotUrl": "https://iad.microlink.io/TdvsowU0EUF_7mBTKDJF8MhYWgzaSDv10hTm6erP2DxdhEcTVZvjS_qF3wqwGEu6mwakd2g8EFiHGhNfznqzMw.png",
       "source": "screenshot"
-    },
-    "june-2026-nextstep-hacks-2026": {
-      "status": "override",
-      "path": "/opportunities/hackathon.png",
-      "pageUrl": "https://joinpizza.fun",
-      "issueSlug": "june-2026",
-      "title": "NextStep Hacks 2026"
-    },
-    "june-2026-google-summer-of-code": {
-      "status": "screenshot",
-      "path": "/opportunities/june-2026-google-summer-of-code.png",
-      "pageUrl": "https://summerofcode.withgoogle.com",
-      "issueSlug": "june-2026",
-      "title": "Google Summer of Code",
-      "contentType": "image/png",
-      "bytes": 421303,
-      "screenshotProvider": "microlink",
-      "screenshotUrl": "https://iad.microlink.io/dK7QJ3keGUNEVhxfk5y11OVTE109U38z6kjxxnULa1KcTu5U4qAgM-XTHeMYcJso0eiPZjpe3PME7vPxfdEiFA.png",
-      "source": "screenshot"
-    },
-    "june-2026-google-career-certificates": {
-      "status": "screenshot",
-      "path": "/opportunities/june-2026-google-career-certificates.png",
-      "pageUrl": "https://grow.google/certificates",
-      "issueSlug": "june-2026",
-      "title": "Google Career Certificates",
-      "contentType": "image/png",
-      "bytes": 661180,
-      "screenshotProvider": "microlink",
-      "screenshotUrl": "https://iad.microlink.io/OujibNmLIFtdkI_646_0x3QWS6rPXDt_If7S8sWl5Of6LqXLPnEEUsz41wIe1QW_OLur2IrL7IBv4GL9gBEwjA.png",
-      "source": "screenshot"
-    },
-    "june-2026-uplb-data-science-guild-apps-workshop": {
-      "status": "override",
-      "path": "/opportunities/program.jpg",
-      "pageUrl": "https://stimmie.dev/talks/ml-workshop-iris-classification",
-      "issueSlug": "june-2026",
-      "title": "UPLB Data Science Guild Apps' Workshop"
     }
   }
 }
