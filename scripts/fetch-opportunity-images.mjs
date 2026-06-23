@@ -3,11 +3,13 @@
  * Fetch cover images for /opportunities:
  *   1. og:image / twitter:image from the page
  *   2. Screenshot API fallback (ScreenshotOne or Microlink)
- *   3. Type default placeholder
+ *   3. Favicon on landscape canvas when screenshot is blocked / error-like
+ *   4. Type default placeholder
  *
  *   npm run opportunities:images
  *   npm run opportunities:images -- --force
  *   npm run opportunities:images -- --retry-fallbacks
+ *   npm run opportunities:images -- --retry-blocked-screenshots
  *   npm run opportunities:images -- --screenshot-only --retry-fallbacks
  *
  * Env: see .env.example (loads .env.local and .env from repo root)
@@ -19,17 +21,27 @@ import { fileURLToPath } from "node:url";
 import {
   OPPORTUNITY_TYPE_DEFAULT_IMAGES,
   getOpportunityId,
-  opportunityIssues,
+  getOpportunities,
 } from "../src/data/opportunities.js";
 import {
   getScreenshotProvider,
   takePageScreenshot,
 } from "./lib/opportunity-screenshot.mjs";
+import {
+  composeFaviconLandscape,
+  fetchFaviconBuffer,
+} from "./lib/opportunity-favicon.mjs";
+import { looksLikeBlockedScreenshot } from "./lib/opportunity-image-check.mjs";
+import {
+  extractOgImageFromHtml,
+  isBlockedPageHtml,
+} from "./lib/opportunity-page-fetch.mjs";
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 const outDir = path.join(root, "public", "opportunities");
 const manifestPath = path.join(root, "src", "data", "opportunity-images.json");
 
+const BOARD_SLUG = "q3-2026";
 const USER_AGENT =
   "stimmie.dev-opportunity-fetcher/1.0 (+https://stimmie.dev/opportunities)";
 const FETCH_TIMEOUT_MS = 20_000;
@@ -40,6 +52,7 @@ const args = process.argv.slice(2);
 const force = args.includes("--force");
 const screenshotOnly = args.includes("--screenshot-only");
 const retryFallbacks = args.includes("--retry-fallbacks");
+const retryBlockedScreenshots = args.includes("--retry-blocked-screenshots");
 const onlyId = args.find((a) => a.startsWith("--id="))?.split("=")[1];
 
 loadLocalEnv();
@@ -145,37 +158,30 @@ async function fetchWithTimeout(url, options = {}) {
 }
 
 function extractOgImage(html, pageUrl) {
-  const patterns = [
-    /<meta[^>]+property=["']og:image(?::url)?["'][^>]+content=["']([^"']+)["']/gi,
-    /<meta[^>]+content=["']([^"']+)["'][^>]+property=["']og:image(?::url)?["']/gi,
-    /<meta[^>]+name=["']twitter:image(?::src)?["'][^>]+content=["']([^"']+)["']/gi,
-    /<meta[^>]+content=["']([^"']+)["'][^>]+name=["']twitter:image(?::src)?["']/gi,
-  ];
+  return extractOgImageFromHtml(html, pageUrl);
+}
 
-  for (const pattern of patterns) {
-    pattern.lastIndex = 0;
-    const match = pattern.exec(html);
-    if (match?.[1]) {
-      try {
-        return new URL(match[1].trim(), pageUrl).href;
-      } catch {
-        // try next pattern
-      }
-    }
-  }
+async function fetchPageContext(pageUrl) {
+  const response = await fetchWithTimeout(pageUrl, {
+    headers: { Accept: "text/html,application/xhtml+xml" },
+  });
 
-  return null;
+  const html = await response.text();
+  const finalUrl = response.url || pageUrl;
+
+  return {
+    html,
+    finalUrl,
+    status: response.status,
+    blocked: isBlockedPageHtml(html, response.status),
+  };
 }
 
 function listOpportunities() {
-  const rows = [];
-  for (const issue of opportunityIssues) {
-    for (const item of issue.items) {
-      const id = getOpportunityId(issue.slug, item);
-      rows.push({ issue, item, id });
-    }
-  }
-  return rows;
+  return getOpportunities().map((item) => ({
+    item,
+    id: getOpportunityId(item),
+  }));
 }
 
 function localPathForId(id, ext) {
@@ -195,9 +201,21 @@ function findExistingImageFile(id) {
   return null;
 }
 
-function shouldProcessRow(id, manifest) {
+async function shouldProcessRow(id, manifest) {
   if (onlyId && id !== onlyId) {
     return false;
+  }
+  if (retryBlockedScreenshots) {
+    const prior = manifest.images[id];
+    if (prior?.status !== "screenshot") {
+      return false;
+    }
+    const existing = findExistingImageFile(id);
+    if (!existing) {
+      return true;
+    }
+    const buffer = fs.readFileSync(existing.destPath);
+    return looksLikeBlockedScreenshot(buffer);
   }
   if (retryFallbacks) {
     const status = manifest.images[id]?.status;
@@ -206,7 +224,7 @@ function shouldProcessRow(id, manifest) {
   return true;
 }
 
-function writeImageFile({ id, issue, item, buffer, contentType, status, extra }) {
+function writeImageFile({ id, item, buffer, contentType, status, extra }) {
   const ext = extensionFromContentType(contentType);
   const { destPath, publicPath } = localPathForId(id, ext);
 
@@ -226,7 +244,7 @@ function writeImageFile({ id, issue, item, buffer, contentType, status, extra })
     status,
     path: publicPath,
     pageUrl: item.url,
-    issueSlug: issue.slug,
+    issueSlug: BOARD_SLUG,
     title: item.title,
     contentType,
     bytes: buffer.byteLength,
@@ -234,26 +252,19 @@ function writeImageFile({ id, issue, item, buffer, contentType, status, extra })
   };
 }
 
-async function fetchOgImageForPage(pageUrl) {
-  const response = await fetchWithTimeout(pageUrl, {
-    headers: { Accept: "text/html,application/xhtml+xml" },
-  });
-  if (!response.ok) {
-    throw new Error(`page HTTP ${response.status}`);
+async function saveFromOg({ item, id, pageContext }) {
+  const pageUrl = item.imageUrl || item.url;
+  const context =
+    pageContext ?? (await fetchPageContext(pageUrl));
+  if (context.blocked) {
+    throw new Error("page HTML looks blocked");
   }
 
-  const html = await response.text();
-  const imageUrl = extractOgImage(html, response.url || pageUrl);
+  const imageUrl = extractOgImage(context.html, context.finalUrl);
   if (!imageUrl) {
     throw new Error("no og:image or twitter:image found");
   }
 
-  return imageUrl;
-}
-
-async function saveFromOg({ issue, item, id }) {
-  const pageUrl = item.imageUrl || item.url;
-  const imageUrl = await fetchOgImageForPage(pageUrl);
   const probe = await fetchWithTimeout(imageUrl);
 
   if (!probe.ok) {
@@ -268,7 +279,6 @@ async function saveFromOg({ issue, item, id }) {
   const buffer = Buffer.from(await probe.arrayBuffer());
   const manifestEntry = writeImageFile({
     id,
-    issue,
     item,
     buffer,
     contentType,
@@ -279,13 +289,23 @@ async function saveFromOg({ issue, item, id }) {
   return { id, status: "fetched", detail: imageUrl, manifestEntry };
 }
 
-async function saveFromScreenshot({ issue, item, id }) {
-  await sleep(SCREENSHOT_DELAY_MS);
+async function saveFromScreenshot({ item, id, pageContext }) {
   const pageUrl = item.imageUrl || item.url;
+  const context =
+    pageContext ?? (await fetchPageContext(pageUrl));
+  if (context.blocked) {
+    throw new Error("page HTML looks blocked");
+  }
+
+  await sleep(SCREENSHOT_DELAY_MS);
   const shot = await takePageScreenshot(pageUrl);
+
+  if (await looksLikeBlockedScreenshot(shot.buffer)) {
+    throw new Error("screenshot looks like Cloudflare / error page");
+  }
+
   const manifestEntry = writeImageFile({
     id,
-    issue,
     item,
     buffer: shot.buffer,
     contentType: shot.contentType,
@@ -305,7 +325,45 @@ async function saveFromScreenshot({ issue, item, id }) {
   };
 }
 
-function saveTypeFallback({ issue, item, id, errors }) {
+async function saveFromFavicon({ item, id, pageContext }) {
+  const pageUrl = item.imageUrl || item.url;
+  let context = pageContext;
+
+  if (!context) {
+    try {
+      context = await fetchPageContext(pageUrl);
+    } catch {
+      context = { html: "", finalUrl: pageUrl, status: 0, blocked: true };
+    }
+  }
+
+  const favicon = await fetchFaviconBuffer({
+    pageUrl: context.finalUrl || pageUrl,
+    html: context.html ?? "",
+    fetchWithTimeout,
+  });
+  const buffer = await composeFaviconLandscape(favicon.buffer);
+  const manifestEntry = writeImageFile({
+    id,
+    item,
+    buffer,
+    contentType: "image/jpeg",
+    status: "favicon",
+    extra: {
+      faviconUrl: favicon.url,
+      source: "favicon",
+    },
+  });
+
+  return {
+    id,
+    status: "favicon",
+    detail: `${favicon.url} → ${manifestEntry.path}`,
+    manifestEntry,
+  };
+}
+
+function saveTypeFallback({ item, id, errors }) {
   const fallback =
     OPPORTUNITY_TYPE_DEFAULT_IMAGES[item.type] ??
     OPPORTUNITY_TYPE_DEFAULT_IMAGES.program;
@@ -314,16 +372,16 @@ function saveTypeFallback({ issue, item, id, errors }) {
     status: "fallback",
     path: fallback,
     pageUrl: item.url,
-    issueSlug: issue.slug,
+    issueSlug: BOARD_SLUG,
     title: item.title,
     error: errors.join(" | "),
   };
 }
 
 async function processOpportunity(row, manifest) {
-  const { issue, item, id } = row;
+  const { item, id } = row;
 
-  if (!shouldProcessRow(id, manifest)) {
+  if (!(await shouldProcessRow(id, manifest))) {
     return null;
   }
 
@@ -332,19 +390,23 @@ async function processOpportunity(row, manifest) {
       status: "override",
       path: item.image,
       pageUrl: item.url,
-      issueSlug: issue.slug,
+      issueSlug: BOARD_SLUG,
       title: item.title,
     };
     return { id, status: "override", detail: "manual image field" };
   }
 
-  if (!force) {
+  const skipCache = force || retryBlockedScreenshots;
+
+  if (!skipCache) {
     const existing = findExistingImageFile(id);
     const prior = manifest.images[id];
     if (
       existing &&
       prior &&
-      (prior.status === "fetched" || prior.status === "screenshot")
+      (prior.status === "fetched" ||
+        prior.status === "screenshot" ||
+        prior.status === "favicon")
     ) {
       manifest.images[id] = {
         ...prior,
@@ -356,10 +418,23 @@ async function processOpportunity(row, manifest) {
   }
 
   const errors = [];
+  const pageUrl = item.imageUrl || item.url;
+  let pageContext = null;
 
-  if (!screenshotOnly) {
+  try {
+    pageContext = await fetchPageContext(pageUrl);
+    if (pageContext.blocked) {
+      errors.push("page: HTML looks blocked");
+    }
+  } catch (error) {
+    errors.push(
+      `page: ${error instanceof Error ? error.message : String(error)}`,
+    );
+  }
+
+  if (!screenshotOnly && pageContext && !pageContext.blocked) {
     try {
-      const result = await saveFromOg({ issue, item, id });
+      const result = await saveFromOg({ item, id, pageContext });
       manifest.images[id] = result.manifestEntry;
       return result;
     } catch (error) {
@@ -369,17 +444,29 @@ async function processOpportunity(row, manifest) {
     }
   }
 
+  if (!pageContext?.blocked) {
+    try {
+      const result = await saveFromScreenshot({ item, id, pageContext });
+      manifest.images[id] = result.manifestEntry;
+      return result;
+    } catch (error) {
+      errors.push(
+        `screenshot: ${error instanceof Error ? error.message : String(error)}`,
+      );
+    }
+  }
+
   try {
-    const result = await saveFromScreenshot({ issue, item, id });
+    const result = await saveFromFavicon({ item, id, pageContext });
     manifest.images[id] = result.manifestEntry;
     return result;
   } catch (error) {
     errors.push(
-      `screenshot: ${error instanceof Error ? error.message : String(error)}`,
+      `favicon: ${error instanceof Error ? error.message : String(error)}`,
     );
   }
 
-  manifest.images[id] = saveTypeFallback({ issue, item, id, errors });
+  manifest.images[id] = saveTypeFallback({ item, id, errors });
   return { id, status: "fallback", detail: manifest.images[id].error };
 }
 
@@ -391,17 +478,21 @@ async function main() {
 
   console.log(`Processing ${rows.length} opportunities…`);
   console.log(
-    `  mode: ${screenshotOnly ? "screenshot-only" : "og → screenshot → default"}`,
+    `  mode: ${screenshotOnly ? "screenshot-only" : "og → screenshot → favicon → default"}`,
   );
   console.log(`  screenshot provider: ${provider}`);
   if (retryFallbacks) {
     console.log("  retrying prior fallbacks only");
+  }
+  if (retryBlockedScreenshots) {
+    console.log("  retrying blocked-looking screenshots only");
   }
   console.log();
 
   const summary = {
     fetched: 0,
     screenshot: 0,
+    favicon: 0,
     cached: 0,
     fallback: 0,
     override: 0,
@@ -424,7 +515,7 @@ async function main() {
 
   console.log("\nDone.");
   console.log(
-    `  og: ${summary.fetched ?? 0}  screenshot: ${summary.screenshot ?? 0}  cached: ${summary.cached ?? 0}  fallback: ${summary.fallback ?? 0}  override: ${summary.override ?? 0}`,
+    `  og: ${summary.fetched ?? 0}  screenshot: ${summary.screenshot ?? 0}  favicon: ${summary.favicon ?? 0}  cached: ${summary.cached ?? 0}  fallback: ${summary.fallback ?? 0}  override: ${summary.override ?? 0}`,
   );
   console.log(`  manifest: ${path.relative(root, manifestPath)}`);
 }

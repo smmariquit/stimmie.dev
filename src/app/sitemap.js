@@ -1,6 +1,5 @@
 // src/app/sitemap.js
 
-import { opportunityIssues } from "@/data/opportunities";
 import { projects } from "@/data/projects";
 import { getSitemapHosts } from "@/data/redirects";
 import { talks } from "@/data/talks";
@@ -55,13 +54,6 @@ export default async function sitemap() {
     priority: 0.6,
   }));
 
-  const opportunityEntries = opportunityIssues.map((issue) => ({
-    url: `${SITE_URL}/opportunities/${issue.slug}`,
-    lastModified: now,
-    changeFrequency: "monthly",
-    priority: 0.55,
-  }));
-
   // Pull every concrete URL configured as a Cloudflare Bulk Redirect
   // (apex /r/<slug> + each <category>.stimmie.dev/<slug> the migration
   // script provisioned). The host whitelist is derived from the same
@@ -80,7 +72,6 @@ export default async function sitemap() {
     ...staticEntries,
     ...talkEntries,
     ...projectEntries,
-    ...opportunityEntries,
     ...cfEntries,
   ];
   const seen = new Set();

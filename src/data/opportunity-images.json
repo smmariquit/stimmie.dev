@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-06-23T18:16:16.910Z",
+  "generatedAt": "2026-06-23T18:50:58.061Z",
   "images": {
     "q3-2026-aws-ai-ml-scholars-program": {
       "status": "screenshot",
@@ -11,7 +11,8 @@
       "bytes": 585118,
       "screenshotProvider": "microlink",
       "screenshotUrl": "https://iad.microlink.io/zWAz6T8OXYPUYPfYJR1lDcIN61e7T1ThG6cLuxiKIixJC5IwBk6LiAp_LJaEyJe7rjnRo87ue_t3M31HqzJ2Hg.png",
-      "source": "screenshot"
+      "source": "screenshot",
+      "cached": true
     },
     "q3-2026-thefirst-spark-2026-youth-symposium-build-sprint": {
       "status": "fetched",
@@ -21,7 +22,8 @@
       "contentType": "image/png",
       "bytes": 36011,
       "issueSlug": "q3-2026",
-      "title": "TheFirst Spark 2026: Youth Symposium & Build Sprint"
+      "title": "TheFirst Spark 2026: Youth Symposium & Build Sprint",
+      "cached": true
     },
     "q3-2026-girlathon-4-0": {
       "status": "fetched",
@@ -31,7 +33,8 @@
       "contentType": "image/png",
       "bytes": 2234279,
       "issueSlug": "q3-2026",
-      "title": "Girlathon 4.0"
+      "title": "Girlathon 4.0",
+      "cached": true
     },
     "q3-2026-friends-of-figma-config-watch-party-2026": {
       "status": "fetched",
@@ -41,7 +44,8 @@
       "contentType": "image/png",
       "bytes": 1583043,
       "issueSlug": "q3-2026",
-      "title": "Friends of Figma Config Watch Party 2026"
+      "title": "Friends of Figma Config Watch Party 2026",
+      "cached": true
     },
     "q3-2026-ddb-saliksik-2026-national-research-conference-p": {
       "status": "fetched",
@@ -51,7 +55,8 @@
       "contentType": "image/png",
       "bytes": 753997,
       "issueSlug": "q3-2026",
-      "title": "DDB Saliksik 2026: National Research Conference Plenary"
+      "title": "DDB Saliksik 2026: National Research Conference Plenary",
+      "cached": true
     },
     "q3-2026-aun-internship-programme-2026-batch-3": {
       "status": "fetched",
@@ -61,31 +66,30 @@
       "contentType": "image/png",
       "bytes": 44946,
       "issueSlug": "q3-2026",
-      "title": "AUN Internship Programme 2026 (Batch 3)"
+      "title": "AUN Internship Programme 2026 (Batch 3)",
+      "cached": true
     },
     "q3-2026-bagong-pilipinas-merit-scholarship-program-2026": {
-      "status": "screenshot",
+      "status": "favicon",
       "path": "/opportunities/q3-2026-bagong-pilipinas-merit-scholarship-program-2026.jpg",
       "pageUrl": "https://bpms.ched.gov.ph/",
       "issueSlug": "q3-2026",
       "title": "Bagong Pilipinas Merit Scholarship Program 2026",
       "contentType": "image/jpeg",
-      "bytes": 29527,
-      "screenshotProvider": "screenshotone",
-      "screenshotUrl": "https://api.screenshotone.com/take?access_key=%5Bredacted%5D&url=https%3A%2F%2Fwww.ched.gov.ph%2F&format=jpg&viewport_width=1200&viewport_height=630&block_ads=true&block_cookie_banners=true&block_banners_by_heuristics=false&block_trackers=true&delay=0&timeout=60&response_type=by_format&image_quality=80",
-      "source": "screenshot"
+      "bytes": 9520,
+      "faviconUrl": "https://t1.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&url=https://www.ched.gov.ph&size=128",
+      "source": "favicon"
     },
     "q3-2026-adb-japan-scholarship-program": {
-      "status": "screenshot",
-      "path": "/opportunities/q3-2026-adb-japan-scholarship-program.png",
+      "status": "favicon",
+      "path": "/opportunities/q3-2026-adb-japan-scholarship-program.jpg",
       "pageUrl": "https://www.sih.m.u-tokyo.ac.jp/admission-en/",
       "issueSlug": "q3-2026",
       "title": "ADB-Japan Scholarship Program",
-      "contentType": "image/png",
-      "bytes": 275516,
-      "screenshotProvider": "microlink",
-      "screenshotUrl": "https://iad.microlink.io/wnCKPh01Z-spDvoe5qBusnkVqmhsdf3-Aqec9YQUY6EJtNcPeXojCz7aDs18EvRK7dOUkPhShFAdFbXpdaU4LA.png",
-      "source": "screenshot"
+      "contentType": "image/jpeg",
+      "bytes": 10563,
+      "faviconUrl": "https://www.sih.m.u-tokyo.ac.jp/wp-content/uploads/2022/03/cropped-logo1-32x32.png",
+      "source": "favicon"
     },
     "q3-2026-wireless-engineering-foundations-lte-networks": {
       "status": "fetched",
@@ -95,7 +99,8 @@
       "contentType": "image/png",
       "bytes": 2435272,
       "issueSlug": "q3-2026",
-      "title": "Wireless Engineering Foundations & LTE Networks"
+      "title": "Wireless Engineering Foundations & LTE Networks",
+      "cached": true
     },
     "q3-2026-flutterflow-champions-league-hackathon-2026": {
       "status": "fetched",
@@ -105,7 +110,8 @@
       "contentType": "image/jpeg",
       "bytes": 99846,
       "issueSlug": "q3-2026",
-      "title": "FlutterFlow Champions League Hackathon 2026"
+      "title": "FlutterFlow Champions League Hackathon 2026",
+      "cached": true
     },
     "q3-2026-yseali-summit-2026": {
       "status": "fallback",
@@ -123,7 +129,8 @@
       "contentType": "image/png",
       "bytes": 260649,
       "issueSlug": "q3-2026",
-      "title": "UP Diliman Graduate Programs Admission (1st Sem)"
+      "title": "UP Diliman Graduate Programs Admission (1st Sem)",
+      "cached": true
     },
     "q3-2026-agentic-ai-build-week": {
       "status": "fetched",
@@ -133,19 +140,19 @@
       "contentType": "image/png",
       "bytes": 677479,
       "issueSlug": "q3-2026",
-      "title": "Agentic AI Build Week"
+      "title": "Agentic AI Build Week",
+      "cached": true
     },
     "q3-2026-reddit-s-games-with-a-hook-hackathon": {
-      "status": "screenshot",
+      "status": "favicon",
       "path": "/opportunities/q3-2026-reddit-s-games-with-a-hook-hackathon.jpg",
       "pageUrl": "https://www.reddit.com/r/Devvit/comments/1u8f6r4/announcing_our_reddits_games_with_a_hook_virtual/",
       "issueSlug": "q3-2026",
       "title": "Reddit's Games with a Hook Hackathon",
       "contentType": "image/jpeg",
-      "bytes": 88159,
-      "screenshotProvider": "screenshotone",
-      "screenshotUrl": "https://api.screenshotone.com/take?access_key=%5Bredacted%5D&url=https%3A%2F%2Fdevelopers.reddit.com%2Fdocs%2F&format=jpg&viewport_width=1200&viewport_height=630&block_ads=true&block_cookie_banners=true&block_banners_by_heuristics=false&block_trackers=true&delay=0&timeout=60&response_type=by_format&image_quality=80",
-      "source": "screenshot"
+      "bytes": 13542,
+      "faviconUrl": "https://t1.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&url=https://reddit.com&size=128",
+      "source": "favicon"
     },
     "q3-2026-github-readme-generation-hackathon": {
       "status": "fetched",
@@ -155,7 +162,8 @@
       "contentType": "image/png",
       "bytes": 42338,
       "issueSlug": "q3-2026",
-      "title": "Github Readme Generation Hackathon"
+      "title": "Github Readme Generation Hackathon",
+      "cached": true
     },
     "q3-2026-futureforge-hackathon-2026": {
       "status": "fetched",
@@ -165,7 +173,8 @@
       "contentType": "image/png",
       "bytes": 35274,
       "issueSlug": "q3-2026",
-      "title": "FutureForge Hackathon 2026"
+      "title": "FutureForge Hackathon 2026",
+      "cached": true
     },
     "q3-2026-grab-scholarship-2026": {
       "status": "fetched",
@@ -175,7 +184,8 @@
       "contentType": "image/webp",
       "bytes": 70854,
       "issueSlug": "q3-2026",
-      "title": "Grab Scholarship 2026"
+      "title": "Grab Scholarship 2026",
+      "cached": true
     },
     "q3-2026-low-earth-orbit-communication-satellites": {
       "status": "fetched",
@@ -185,31 +195,30 @@
       "contentType": "image/png",
       "bytes": 35828,
       "issueSlug": "q3-2026",
-      "title": "Low Earth Orbit Communication Satellites"
+      "title": "Low Earth Orbit Communication Satellites",
+      "cached": true
     },
     "q3-2026-ched-merit-scholarship-program-cmsp": {
-      "status": "screenshot",
+      "status": "favicon",
       "path": "/opportunities/q3-2026-ched-merit-scholarship-program-cmsp.jpg",
       "pageUrl": "https://caraga.ched.gov.ph/ched-scholarship-program-csp/",
       "issueSlug": "q3-2026",
       "title": "CHED Merit Scholarship Program (CMSP)",
       "contentType": "image/jpeg",
-      "bytes": 29534,
-      "screenshotProvider": "screenshotone",
-      "screenshotUrl": "https://api.screenshotone.com/take?access_key=%5Bredacted%5D&url=https%3A%2F%2Fwww.ched.gov.ph%2F&format=jpg&viewport_width=1200&viewport_height=630&block_ads=true&block_cookie_banners=true&block_banners_by_heuristics=false&block_trackers=true&delay=0&timeout=60&response_type=by_format&image_quality=80",
-      "source": "screenshot"
+      "bytes": 9520,
+      "faviconUrl": "https://t1.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&url=https://www.ched.gov.ph&size=128",
+      "source": "favicon"
     },
     "q3-2026-aurecon-student-engineer-programme": {
-      "status": "screenshot",
-      "path": "/opportunities/q3-2026-aurecon-student-engineer-programme.png",
+      "status": "favicon",
+      "path": "/opportunities/q3-2026-aurecon-student-engineer-programme.jpg",
       "pageUrl": "https://ph.prosple.com/graduate-employers/aurecon-ph/jobs-internships/student-engineer",
       "issueSlug": "q3-2026",
       "title": "Aurecon Student Engineer Programme",
-      "contentType": "image/png",
-      "bytes": 20495,
-      "screenshotProvider": "microlink",
-      "screenshotUrl": "https://iad.microlink.io/uWz4LNfAJ23qcUGNYygRK6eNySz1o5o2GDV3fticR4-mW4ssLyyp-M1geHCAB8mHd8CAgLWKf9srUTw0tbWy7w.png",
-      "source": "screenshot"
+      "contentType": "image/jpeg",
+      "bytes": 9064,
+      "faviconUrl": "https://t1.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&url=http://ph.prosple.com&size=128",
+      "source": "favicon"
     },
     "q3-2026-dti-hackathon-2026": {
       "status": "fetched",
@@ -220,7 +229,8 @@
       "contentType": "image/png",
       "bytes": 58784,
       "imageUrl": "https://www.dti.gov.ph/wp-content/uploads/2025/10/site-image.png",
-      "source": "og"
+      "source": "og",
+      "cached": true
     },
     "q3-2026-asean-ai-hackathon-2026-awarding-closing-ceremon": {
       "status": "screenshot",
@@ -232,7 +242,8 @@
       "bytes": 1757545,
       "screenshotProvider": "microlink",
       "screenshotUrl": "https://iad.microlink.io/AhXNezMxaIS6WjGPkrnTDx30ddJlrMnsEXXmH5i5sq00pjrHXz5QbUooLj7eeRi71mQmbVSpUKYaDLQBtx16Pg.png",
-      "source": "screenshot"
+      "source": "screenshot",
+      "cached": true
     },
     "q3-2026-unilever-hr-internship-26": {
       "status": "fallback",
@@ -258,7 +269,8 @@
       "contentType": "image/png",
       "bytes": 35828,
       "issueSlug": "q3-2026",
-      "title": "5G-Advanced Mobile Broadband"
+      "title": "5G-Advanced Mobile Broadband",
+      "cached": true
     },
     "q3-2026-level-up-your-prototypes-in-figma": {
       "status": "fetched",
@@ -268,7 +280,8 @@
       "contentType": "image/png",
       "bytes": 96885,
       "issueSlug": "q3-2026",
-      "title": "Level Up Your Prototypes in Figma"
+      "title": "Level Up Your Prototypes in Figma",
+      "cached": true
     },
     "q3-2026-mars-internship-program-september-2026-intake": {
       "status": "fetched",
@@ -278,7 +291,8 @@
       "contentType": "image/png",
       "bytes": 12226,
       "issueSlug": "q3-2026",
-      "title": "MARS Internship Program (September 2026 Intake)"
+      "title": "MARS Internship Program (September 2026 Intake)",
+      "cached": true
     },
     "q3-2026-l-oreal-ph-management-trainee-september-intake": {
       "status": "fetched",
@@ -289,7 +303,8 @@
       "contentType": "image/jpeg",
       "bytes": 101934,
       "imageUrl": "https://www.loreal.com/-/media/project/loreal/brand-sites/corp/master/lcorp/2-group/about-loreal/our-purpose/landing-page/hero.jpg?rev=b4d2f5da1a19480cab68ce83a7c368ed",
-      "source": "og"
+      "source": "og",
+      "cached": true
     },
     "q3-2026-dsu-devhack-3-0": {
       "status": "fetched",
@@ -299,7 +314,8 @@
       "contentType": "image/png",
       "bytes": 27247,
       "issueSlug": "q3-2026",
-      "title": "DSU DevHack 3.0"
+      "title": "DSU DevHack 3.0",
+      "cached": true
     },
     "q3-2026-munichtech-expo-ai-innovation-hackathon-2026": {
       "status": "fallback",
@@ -319,7 +335,8 @@
       "bytes": 1459017,
       "screenshotProvider": "microlink",
       "screenshotUrl": "https://iad.microlink.io/TS_IQw9UZzkHHWHlXLVF5RDW6ItO7aEaMDfoiJK-gZqxKtSk_VlltvmsR9pfVy5A5zWTOtMPm_nUxhW0WcGl4Q.png",
-      "source": "screenshot"
+      "source": "screenshot",
+      "cached": true
     },
     "q3-2026-luxasia-2026-internships": {
       "status": "fetched",
@@ -330,7 +347,8 @@
       "contentType": "image/jpeg",
       "bytes": 25588,
       "imageUrl": "https://www.luxasia.com/wp-content/uploads/2022/11/og-img.jpg",
-      "source": "og"
+      "source": "og",
+      "cached": true
     },
     "q3-2026-phoenix-petroleum-operational-excellence-intern": {
       "status": "fetched",
@@ -341,7 +359,8 @@
       "contentType": "image/jpeg",
       "bytes": 207732,
       "imageUrl": "https://www.phoenixfuels.ph/wp-content/uploads/2020/04/MG_3088-1.jpg",
-      "source": "og"
+      "source": "og",
+      "cached": true
     },
     "q3-2026-monde-nissin-mondexplore-internship-program": {
       "status": "fetched",
@@ -352,7 +371,8 @@
       "contentType": "image/png",
       "bytes": 39706,
       "imageUrl": "https://mondenissin.com/wp-content/uploads/2021/01/cropped-MNC-Logo-3.png",
-      "source": "og"
+      "source": "og",
+      "cached": true
     },
     "q3-2026-globe-telecom-technology-innovation-internship": {
       "status": "screenshot",
@@ -364,7 +384,8 @@
       "bytes": 89166,
       "screenshotProvider": "screenshotone",
       "screenshotUrl": "https://api.screenshotone.com/take?access_key=%5Bredacted%5D&url=https%3A%2F%2Fwww.globe.com.ph%2Fstudent-program&format=jpg&viewport_width=1200&viewport_height=630&block_ads=true&block_cookie_banners=true&block_banners_by_heuristics=false&block_trackers=true&delay=0&timeout=60&response_type=by_format&image_quality=80",
-      "source": "screenshot"
+      "source": "screenshot",
+      "cached": true
     },
     "q3-2026-google-career-certificates-via-dict": {
       "status": "fetched",
@@ -375,7 +396,8 @@
       "contentType": "image/webp",
       "bytes": 19540,
       "imageUrl": "https://www.gstatic.com/marketing-cms/assets/images/54/85/645a5a504d6e8308e6f481d34cf5/hero-lottie-desktop-v2.webp=n-w1440-h810-fcrop64=1,0000116dffffeeb2-rw",
-      "source": "og"
+      "source": "og",
+      "cached": true
     },
     "q3-2026-up-open-university-free-moocs-model": {
       "status": "screenshot",
@@ -387,6 +409,514 @@
       "bytes": 2378109,
       "screenshotProvider": "microlink",
       "screenshotUrl": "https://iad.microlink.io/TdvsowU0EUF_7mBTKDJF8MhYWgzaSDv10hTm6erP2DxdhEcTVZvjS_qF3wqwGEu6mwakd2g8EFiHGhNfznqzMw.png",
+      "source": "screenshot",
+      "cached": true
+    },
+    "q3-2026-introduction-to-open-distance-elearning-odel": {
+      "status": "screenshot",
+      "path": "/opportunities/q3-2026-introduction-to-open-distance-elearning-odel.jpg",
+      "pageUrl": "https://model.upou.edu.ph/course/view.php?id=967",
+      "issueSlug": "q3-2026",
+      "title": "Introduction to Open Distance eLearning (ODeL)",
+      "contentType": "image/jpeg",
+      "bytes": 33655,
+      "screenshotProvider": "screenshotone",
+      "screenshotUrl": "https://api.screenshotone.com/take?access_key=%5Bredacted%5D&url=https%3A%2F%2Fmodel.upou.edu.ph%2Fcourse%2Fview.php%3Fid%3D967&format=jpg&viewport_width=1200&viewport_height=630&block_ads=true&block_cookie_banners=true&block_banners_by_heuristics=false&block_trackers=true&delay=0&timeout=60&response_type=by_format&image_quality=80",
+      "source": "screenshot"
+    },
+    "q3-2026-learner-support-in-open-distance-elearning": {
+      "status": "screenshot",
+      "path": "/opportunities/q3-2026-learner-support-in-open-distance-elearning.jpg",
+      "pageUrl": "https://model.upou.edu.ph/course/view.php?id=949",
+      "issueSlug": "q3-2026",
+      "title": "Learner Support in Open Distance eLearning",
+      "contentType": "image/jpeg",
+      "bytes": 33655,
+      "screenshotProvider": "screenshotone",
+      "screenshotUrl": "https://api.screenshotone.com/take?access_key=%5Bredacted%5D&url=https%3A%2F%2Fmodel.upou.edu.ph%2Fcourse%2Fview.php%3Fid%3D949&format=jpg&viewport_width=1200&viewport_height=630&block_ads=true&block_cookie_banners=true&block_banners_by_heuristics=false&block_trackers=true&delay=0&timeout=60&response_type=by_format&image_quality=80",
+      "source": "screenshot"
+    },
+    "q3-2026-institutional-mechanism-towards-child-rights-pro": {
+      "status": "screenshot",
+      "path": "/opportunities/q3-2026-institutional-mechanism-towards-child-rights-pro.jpg",
+      "pageUrl": "https://model.upou.edu.ph/course/view.php?id=982",
+      "issueSlug": "q3-2026",
+      "title": "Institutional Mechanism Towards Child Rights Protection and Promotion",
+      "contentType": "image/jpeg",
+      "bytes": 33655,
+      "screenshotProvider": "screenshotone",
+      "screenshotUrl": "https://api.screenshotone.com/take?access_key=%5Bredacted%5D&url=https%3A%2F%2Fmodel.upou.edu.ph%2Fcourse%2Fview.php%3Fid%3D982&format=jpg&viewport_width=1200&viewport_height=630&block_ads=true&block_cookie_banners=true&block_banners_by_heuristics=false&block_trackers=true&delay=0&timeout=60&response_type=by_format&image_quality=80",
+      "source": "screenshot"
+    },
+    "q3-2026-understanding-school-related-gender-based-violen": {
+      "status": "screenshot",
+      "path": "/opportunities/q3-2026-understanding-school-related-gender-based-violen.jpg",
+      "pageUrl": "https://model.upou.edu.ph/course/view.php?id=1014",
+      "issueSlug": "q3-2026",
+      "title": "Understanding School-related Gender-based Violence",
+      "contentType": "image/jpeg",
+      "bytes": 33655,
+      "screenshotProvider": "screenshotone",
+      "screenshotUrl": "https://api.screenshotone.com/take?access_key=%5Bredacted%5D&url=https%3A%2F%2Fmodel.upou.edu.ph%2Fcourse%2Fview.php%3Fid%3D1014&format=jpg&viewport_width=1200&viewport_height=630&block_ads=true&block_cookie_banners=true&block_banners_by_heuristics=false&block_trackers=true&delay=0&timeout=60&response_type=by_format&image_quality=80",
+      "source": "screenshot"
+    },
+    "q3-2026-programme-or-project-intern": {
+      "status": "fetched",
+      "path": "/opportunities/q3-2026-programme-or-project-intern.jpg",
+      "pageUrl": "https://estm.fa.em2.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1/job/33344",
+      "issueSlug": "q3-2026",
+      "title": "Programme or Project Intern",
+      "contentType": "image/jpeg",
+      "bytes": 700682,
+      "imageUrl": "https://www.undp.org/sites/g/files/zskgke326/files/2022-07/undp_careers_undpVA.jpg",
+      "source": "og"
+    },
+    "q3-2026-amd-developer-hackathon-act-ii": {
+      "status": "screenshot",
+      "path": "/opportunities/q3-2026-amd-developer-hackathon-act-ii.jpg",
+      "pageUrl": "https://lablab.ai/ai-hackathons/amd-developer-hackathon-act-ii",
+      "issueSlug": "q3-2026",
+      "title": "AMD Developer Hackathon: ACT II",
+      "contentType": "image/jpeg",
+      "bytes": 94382,
+      "screenshotProvider": "screenshotone",
+      "screenshotUrl": "https://api.screenshotone.com/take?access_key=%5Bredacted%5D&url=https%3A%2F%2Flablab.ai%2Fai-hackathons%2Famd-developer-hackathon-act-ii&format=jpg&viewport_width=1200&viewport_height=630&block_ads=true&block_cookie_banners=true&block_banners_by_heuristics=false&block_trackers=true&delay=0&timeout=60&response_type=by_format&image_quality=80",
+      "source": "screenshot"
+    },
+    "q3-2026-basics-of-resilience": {
+      "status": "screenshot",
+      "path": "/opportunities/q3-2026-basics-of-resilience.jpg",
+      "pageUrl": "https://model.upou.edu.ph/course/view.php?id=991",
+      "issueSlug": "q3-2026",
+      "title": "Basics of Resilience",
+      "contentType": "image/jpeg",
+      "bytes": 33655,
+      "screenshotProvider": "screenshotone",
+      "screenshotUrl": "https://api.screenshotone.com/take?access_key=%5Bredacted%5D&url=https%3A%2F%2Fmodel.upou.edu.ph%2Fcourse%2Fview.php%3Fid%3D991&format=jpg&viewport_width=1200&viewport_height=630&block_ads=true&block_cookie_banners=true&block_banners_by_heuristics=false&block_trackers=true&delay=0&timeout=60&response_type=by_format&image_quality=80",
+      "source": "screenshot"
+    },
+    "q3-2026-hazard-and-risk-assessment-fundamentals": {
+      "status": "screenshot",
+      "path": "/opportunities/q3-2026-hazard-and-risk-assessment-fundamentals.jpg",
+      "pageUrl": "https://model.upou.edu.ph/course/view.php?id=992",
+      "issueSlug": "q3-2026",
+      "title": "Hazard and Risk Assessment Fundamentals",
+      "contentType": "image/jpeg",
+      "bytes": 33566,
+      "screenshotProvider": "screenshotone",
+      "screenshotUrl": "https://api.screenshotone.com/take?access_key=%5Bredacted%5D&url=https%3A%2F%2Fmodel.upou.edu.ph%2Fcourse%2Fview.php%3Fid%3D992&format=jpg&viewport_width=1200&viewport_height=630&block_ads=true&block_cookie_banners=true&block_banners_by_heuristics=false&block_trackers=true&delay=0&timeout=60&response_type=by_format&image_quality=80",
+      "source": "screenshot"
+    },
+    "q3-2026-global-hack-week-season-launch": {
+      "status": "fetched",
+      "path": "/opportunities/q3-2026-global-hack-week-season-launch.jpg",
+      "pageUrl": "https://ghw.mlh.com/events/season-launch",
+      "issueSlug": "q3-2026",
+      "title": "Global Hack Week Season Launch",
+      "contentType": "image/jpeg",
+      "bytes": 117260,
+      "imageUrl": "https://framerusercontent.com/images/IozWJPAHEVfK29yuPhYojswr5KE.jpg",
+      "source": "og"
+    },
+    "q3-2026-business-concepts-ideation-and-the-business-plan": {
+      "status": "screenshot",
+      "path": "/opportunities/q3-2026-business-concepts-ideation-and-the-business-plan.jpg",
+      "pageUrl": "https://model.upou.edu.ph/course/view.php?id=983",
+      "issueSlug": "q3-2026",
+      "title": "Business Concepts, Ideation and the Business Plan",
+      "contentType": "image/jpeg",
+      "bytes": 33655,
+      "screenshotProvider": "screenshotone",
+      "screenshotUrl": "https://api.screenshotone.com/take?access_key=%5Bredacted%5D&url=https%3A%2F%2Fmodel.upou.edu.ph%2Fcourse%2Fview.php%3Fid%3D983&format=jpg&viewport_width=1200&viewport_height=630&block_ads=true&block_cookie_banners=true&block_banners_by_heuristics=false&block_trackers=true&delay=0&timeout=60&response_type=by_format&image_quality=80",
+      "source": "screenshot"
+    },
+    "q3-2026-global-hack-week-data-week": {
+      "status": "fetched",
+      "path": "/opportunities/q3-2026-global-hack-week-data-week.jpg",
+      "pageUrl": "https://ghw.mlh.com/events/data-week",
+      "issueSlug": "q3-2026",
+      "title": "Global Hack Week Data Week",
+      "contentType": "image/jpeg",
+      "bytes": 117260,
+      "imageUrl": "https://framerusercontent.com/images/IozWJPAHEVfK29yuPhYojswr5KE.jpg",
+      "source": "og"
+    },
+    "q3-2026-outreachy-december-2026-cohort-watchlist": {
+      "status": "fetched",
+      "path": "/opportunities/q3-2026-outreachy-december-2026-cohort-watchlist.png",
+      "pageUrl": "https://www.outreachy.org/apply/",
+      "issueSlug": "q3-2026",
+      "title": "Outreachy December 2026 Cohort Watchlist",
+      "contentType": "image/png",
+      "bytes": 89722,
+      "imageUrl": "https://www.outreachy.org/static/outreachy-logo-open-graph-1200x1200.bda3dc7997df.png",
+      "source": "og"
+    },
+    "q3-2026-global-hack-week-agents": {
+      "status": "fetched",
+      "path": "/opportunities/q3-2026-global-hack-week-agents.jpg",
+      "pageUrl": "https://ghw.mlh.com/events/agents",
+      "issueSlug": "q3-2026",
+      "title": "Global Hack Week Agents",
+      "contentType": "image/jpeg",
+      "bytes": 117260,
+      "imageUrl": "https://framerusercontent.com/images/IozWJPAHEVfK29yuPhYojswr5KE.jpg",
+      "source": "og"
+    },
+    "q3-2026-5g-building-craft-mural-design-contest": {
+      "status": "screenshot",
+      "path": "/opportunities/q3-2026-5g-building-craft-mural-design-contest.jpg",
+      "pageUrl": "https://www.globe.com.ph/community-builder/events-and-experiences-form",
+      "issueSlug": "q3-2026",
+      "title": "5G Building Craft Mural Design Contest",
+      "contentType": "image/jpeg",
+      "bytes": 89166,
+      "screenshotProvider": "screenshotone",
+      "screenshotUrl": "https://api.screenshotone.com/take?access_key=%5Bredacted%5D&url=https%3A%2F%2Fwww.globe.com.ph%2Fstudent-program&format=jpg&viewport_width=1200&viewport_height=630&block_ads=true&block_cookie_banners=true&block_banners_by_heuristics=false&block_trackers=true&delay=0&timeout=60&response_type=by_format&image_quality=80",
+      "source": "screenshot"
+    },
+    "q3-2026-ai-genesis": {
+      "status": "screenshot",
+      "path": "/opportunities/q3-2026-ai-genesis.jpg",
+      "pageUrl": "https://lablab.ai/ai-hackathons/ai-genesis-2026",
+      "issueSlug": "q3-2026",
+      "title": "AI GENESIS",
+      "contentType": "image/jpeg",
+      "bytes": 76366,
+      "screenshotProvider": "screenshotone",
+      "screenshotUrl": "https://api.screenshotone.com/take?access_key=%5Bredacted%5D&url=https%3A%2F%2Flablab.ai%2Fai-hackathons%2Fai-genesis-2026&format=jpg&viewport_width=1200&viewport_height=630&block_ads=true&block_cookie_banners=true&block_banners_by_heuristics=false&block_trackers=true&delay=0&timeout=60&response_type=by_format&image_quality=80",
+      "source": "screenshot"
+    },
+    "q3-2026-the-rise-of-ai-agents-hackathon": {
+      "status": "screenshot",
+      "path": "/opportunities/q3-2026-the-rise-of-ai-agents-hackathon.jpg",
+      "pageUrl": "https://lablab.ai/ai-hackathons/ai-agents-ai-week-hackathon",
+      "issueSlug": "q3-2026",
+      "title": "The Rise of AI Agents Hackathon",
+      "contentType": "image/jpeg",
+      "bytes": 66073,
+      "screenshotProvider": "screenshotone",
+      "screenshotUrl": "https://api.screenshotone.com/take?access_key=%5Bredacted%5D&url=https%3A%2F%2Flablab.ai%2Fai-hackathons%2Fai-agents-ai-week-hackathon&format=jpg&viewport_width=1200&viewport_height=630&block_ads=true&block_cookie_banners=true&block_banners_by_heuristics=false&block_trackers=true&delay=0&timeout=60&response_type=by_format&image_quality=80",
+      "source": "screenshot"
+    },
+    "q3-2026-mlh-fellowship": {
+      "status": "fetched",
+      "path": "/opportunities/q3-2026-mlh-fellowship.jpg",
+      "pageUrl": "https://fellowship.mlh.com/apply",
+      "issueSlug": "q3-2026",
+      "title": "MLH Fellowship",
+      "contentType": "image/jpeg",
+      "bytes": 397558,
+      "imageUrl": "https://www.datocms-assets.com/59307/1638554210-general.jpg",
+      "source": "og"
+    },
+    "q3-2026-globe-student-internships": {
+      "status": "screenshot",
+      "path": "/opportunities/q3-2026-globe-student-internships.jpg",
+      "pageUrl": "https://globe.wd3.myworkdayjobs.com/GLB_Careers?q=internship",
+      "issueSlug": "q3-2026",
+      "title": "Globe Student Internships",
+      "contentType": "image/jpeg",
+      "bytes": 89166,
+      "screenshotProvider": "screenshotone",
+      "screenshotUrl": "https://api.screenshotone.com/take?access_key=%5Bredacted%5D&url=https%3A%2F%2Fwww.globe.com.ph%2Fstudent-program&format=jpg&viewport_width=1200&viewport_height=630&block_ads=true&block_cookie_banners=true&block_banners_by_heuristics=false&block_trackers=true&delay=0&timeout=60&response_type=by_format&image_quality=80",
+      "source": "screenshot"
+    },
+    "q3-2026-globe-student-volunteer-program": {
+      "status": "screenshot",
+      "path": "/opportunities/q3-2026-globe-student-volunteer-program.jpg",
+      "pageUrl": "https://www.globe.com.ph/community-builder/student-volunteer-program-form",
+      "issueSlug": "q3-2026",
+      "title": "Globe Student Volunteer Program",
+      "contentType": "image/jpeg",
+      "bytes": 95962,
+      "screenshotProvider": "screenshotone",
+      "screenshotUrl": "https://api.screenshotone.com/take?access_key=%5Bredacted%5D&url=https%3A%2F%2Fwww.globe.com.ph%2Fcommunity-builder%2Fstudent-volunteer-program-form&format=jpg&viewport_width=1200&viewport_height=630&block_ads=true&block_cookie_banners=true&block_banners_by_heuristics=false&block_trackers=true&delay=0&timeout=60&response_type=by_format&image_quality=80",
+      "source": "screenshot"
+    },
+    "q3-2026-globe-student-grants": {
+      "status": "screenshot",
+      "path": "/opportunities/q3-2026-globe-student-grants.jpg",
+      "pageUrl": "https://www.globe.com.ph/community-builder/grants-form",
+      "issueSlug": "q3-2026",
+      "title": "Globe Student Grants",
+      "contentType": "image/jpeg",
+      "bytes": 100803,
+      "screenshotProvider": "screenshotone",
+      "screenshotUrl": "https://api.screenshotone.com/take?access_key=%5Bredacted%5D&url=https%3A%2F%2Fwww.globe.com.ph%2Fcommunity-builder%2Fgrants-form&format=jpg&viewport_width=1200&viewport_height=630&block_ads=true&block_cookie_banners=true&block_banners_by_heuristics=false&block_trackers=true&delay=0&timeout=60&response_type=by_format&image_quality=80",
+      "source": "screenshot"
+    },
+    "q3-2026-devcon-volunteer-program": {
+      "status": "fetched",
+      "path": "/opportunities/q3-2026-devcon-volunteer-program.png",
+      "pageUrl": "https://docs.google.com/forms/d/e/1FAIpQLSczVxZPmHIRPphNJNgbuRVzEC5QTponVzjDPPMmkSxP0cIdrg/viewform",
+      "issueSlug": "q3-2026",
+      "title": "DEVCON Volunteer Program",
+      "contentType": "image/png",
+      "bytes": 1287874,
+      "imageUrl": "https://devcon.ph/wp-content/uploads/2025/08/DEVCON_Philippines_16years.png",
+      "source": "og"
+    },
+    "q3-2026-devcon-build-beyond-code-camps": {
+      "status": "fetched",
+      "path": "/opportunities/q3-2026-devcon-build-beyond-code-camps.jpg",
+      "pageUrl": "https://devcon.ph/chapters",
+      "issueSlug": "q3-2026",
+      "title": "DEVCON Build Beyond Code Camps",
+      "contentType": "image/jpeg",
+      "bytes": 526261,
+      "imageUrl": "https://devcon.ph/wp-content/uploads/2026/03/Dom-De-Leon-DEVCON-Michael-Lance-Domagas-DEVCON-Nicole-Gomez-Mysten-Labs-Harrison-Kim-Mysten-Labs.jpg",
+      "source": "og"
+    },
+    "q3-2026-campus-devcon-programs": {
+      "status": "fetched",
+      "path": "/opportunities/q3-2026-campus-devcon-programs.png",
+      "pageUrl": "https://devcon.ph/campus/",
+      "issueSlug": "q3-2026",
+      "title": "Campus DEVCON Programs",
+      "contentType": "image/png",
+      "bytes": 136823,
+      "imageUrl": "https://devcon.ph/wp-content/uploads/2024/09/16.png",
+      "source": "og"
+    },
+    "q3-2026-ai-academy-ph-next-cohort-updates": {
+      "status": "fetched",
+      "path": "/opportunities/q3-2026-ai-academy-ph-next-cohort-updates.png",
+      "pageUrl": "https://www.aiacademyph.xyz/",
+      "issueSlug": "q3-2026",
+      "title": "AI Academy PH Next Cohort Updates",
+      "contentType": "image/png",
+      "bytes": 1323187,
+      "imageUrl": "https://devcon.ph/wp-content/uploads/2025/04/AI-Academy.png",
+      "source": "og"
+    },
+    "q3-2026-google-ai-professional-certificate": {
+      "status": "fetched",
+      "path": "/opportunities/q3-2026-google-ai-professional-certificate.webp",
+      "pageUrl": "https://grow.google/intl/en_ph/ai-professional/",
+      "issueSlug": "q3-2026",
+      "title": "Google AI Professional Certificate",
+      "contentType": "image/webp",
+      "bytes": 19540,
+      "imageUrl": "https://www.gstatic.com/marketing-cms/assets/images/54/85/645a5a504d6e8308e6f481d34cf5/hero-lottie-desktop-v2.webp=n-w1440-h810-fcrop64=1,0000116dffffeeb2-rw",
+      "source": "og"
+    },
+    "q3-2026-google-ai-essentials": {
+      "status": "fetched",
+      "path": "/opportunities/q3-2026-google-ai-essentials.webp",
+      "pageUrl": "https://grow.google/intl/en_ph/ai-essentials/",
+      "issueSlug": "q3-2026",
+      "title": "Google AI Essentials",
+      "contentType": "image/webp",
+      "bytes": 19540,
+      "imageUrl": "https://www.gstatic.com/marketing-cms/assets/images/54/85/645a5a504d6e8308e6f481d34cf5/hero-lottie-desktop-v2.webp=n-w1440-h810-fcrop64=1,0000116dffffeeb2-rw",
+      "source": "og"
+    },
+    "q3-2026-google-cybersecurity-professional-certificate": {
+      "status": "fetched",
+      "path": "/opportunities/q3-2026-google-cybersecurity-professional-certificate.jpg",
+      "pageUrl": "https://www.coursera.org/google-certificates/cybersecurity-certificate",
+      "issueSlug": "q3-2026",
+      "title": "Google Cybersecurity Professional Certificate",
+      "contentType": "image/jpeg",
+      "bytes": 103670,
+      "imageUrl": "https://s3.amazonaws.com/coursera_assets/meta_images/generated/XDP/XDP~SPECIALIZATION!~google-cybersecurity/XDP~SPECIALIZATION!~google-cybersecurity.jpeg",
+      "source": "og"
+    },
+    "q3-2026-google-data-analytics-professional-certificate": {
+      "status": "fetched",
+      "path": "/opportunities/q3-2026-google-data-analytics-professional-certificate.jpg",
+      "pageUrl": "https://www.coursera.org/google-certificates/data-analytics-certificate",
+      "issueSlug": "q3-2026",
+      "title": "Google Data Analytics Professional Certificate",
+      "contentType": "image/jpeg",
+      "bytes": 104486,
+      "imageUrl": "https://s3.amazonaws.com/coursera_assets/meta_images/generated/XDP/XDP~SPECIALIZATION!~google-data-analytics/XDP~SPECIALIZATION!~google-data-analytics.jpeg",
+      "source": "og"
+    },
+    "q3-2026-google-it-support-professional-certificate": {
+      "status": "fetched",
+      "path": "/opportunities/q3-2026-google-it-support-professional-certificate.jpg",
+      "pageUrl": "https://www.coursera.org/google-certificates/it-support-certificate",
+      "issueSlug": "q3-2026",
+      "title": "Google IT Support Professional Certificate",
+      "contentType": "image/jpeg",
+      "bytes": 94799,
+      "imageUrl": "https://s3.amazonaws.com/coursera_assets/meta_images/generated/XDP/XDP~SPECIALIZATION!~google-it-support/XDP~SPECIALIZATION!~google-it-support.jpeg",
+      "source": "og"
+    },
+    "q3-2026-google-ux-design-professional-certificate": {
+      "status": "fetched",
+      "path": "/opportunities/q3-2026-google-ux-design-professional-certificate.jpg",
+      "pageUrl": "https://www.coursera.org/google-certificates/ux-design-certificate",
+      "issueSlug": "q3-2026",
+      "title": "Google UX Design Professional Certificate",
+      "contentType": "image/jpeg",
+      "bytes": 97308,
+      "imageUrl": "https://s3.amazonaws.com/coursera_assets/meta_images/generated/XDP/XDP~SPECIALIZATION!~google-ux-design/XDP~SPECIALIZATION!~google-ux-design.jpeg",
+      "source": "og"
+    },
+    "q3-2026-google-project-management-professional-certifica": {
+      "status": "fetched",
+      "path": "/opportunities/q3-2026-google-project-management-professional-certifica.jpg",
+      "pageUrl": "https://www.coursera.org/google-certificates/project-management-certificate",
+      "issueSlug": "q3-2026",
+      "title": "Google Project Management Professional Certificate",
+      "contentType": "image/jpeg",
+      "bytes": 115373,
+      "imageUrl": "https://s3.amazonaws.com/coursera_assets/meta_images/generated/XDP/XDP~SPECIALIZATION!~google-project-management/XDP~SPECIALIZATION!~google-project-management.jpeg",
+      "source": "og"
+    },
+    "q3-2026-google-digital-marketing-and-e-commerce-professi": {
+      "status": "fetched",
+      "path": "/opportunities/q3-2026-google-digital-marketing-and-e-commerce-professi.jpg",
+      "pageUrl": "https://www.coursera.org/google-certificates/digital-marketing-certificate",
+      "issueSlug": "q3-2026",
+      "title": "Google Digital Marketing and E-commerce Professional Certificate",
+      "contentType": "image/jpeg",
+      "bytes": 129053,
+      "imageUrl": "https://s3.amazonaws.com/coursera_assets/meta_images/generated/XDP/XDP~SPECIALIZATION!~google-digital-marketing-ecommerce/XDP~SPECIALIZATION!~google-digital-marketing-ecommerce.jpeg",
+      "source": "og"
+    },
+    "q3-2026-google-it-automation-with-python-professional-ce": {
+      "status": "fetched",
+      "path": "/opportunities/q3-2026-google-it-automation-with-python-professional-ce.jpg",
+      "pageUrl": "https://www.coursera.org/professional-certificates/google-it-automation",
+      "issueSlug": "q3-2026",
+      "title": "Google IT Automation with Python Professional Certificate",
+      "contentType": "image/jpeg",
+      "bytes": 116161,
+      "imageUrl": "https://s3.amazonaws.com/coursera_assets/meta_images/generated/XDP/XDP~SPECIALIZATION!~google-it-automation/XDP~SPECIALIZATION!~google-it-automation.jpeg",
+      "source": "og"
+    },
+    "q3-2026-google-business-intelligence-professional-certif": {
+      "status": "fetched",
+      "path": "/opportunities/q3-2026-google-business-intelligence-professional-certif.jpg",
+      "pageUrl": "https://www.coursera.org/google-certificates/business-intelligence-certificate",
+      "issueSlug": "q3-2026",
+      "title": "Google Business Intelligence Professional Certificate",
+      "contentType": "image/jpeg",
+      "bytes": 114818,
+      "imageUrl": "https://s3.amazonaws.com/coursera_assets/meta_images/generated/XDP/XDP~SPECIALIZATION!~google-business-intelligence/XDP~SPECIALIZATION!~google-business-intelligence.jpeg",
+      "source": "og"
+    },
+    "q3-2026-google-advanced-data-analytics-professional-cert": {
+      "status": "fetched",
+      "path": "/opportunities/q3-2026-google-advanced-data-analytics-professional-cert.jpg",
+      "pageUrl": "https://www.coursera.org/google-certificates/advanced-data-analytics-certificate",
+      "issueSlug": "q3-2026",
+      "title": "Google Advanced Data Analytics Professional Certificate",
+      "contentType": "image/jpeg",
+      "bytes": 120792,
+      "imageUrl": "https://s3.amazonaws.com/coursera_assets/meta_images/generated/XDP/XDP~SPECIALIZATION!~google-advanced-data-analytics/XDP~SPECIALIZATION!~google-advanced-data-analytics.jpeg",
+      "source": "og"
+    },
+    "q3-2026-visual-graphic-design-nc-iii": {
+      "status": "screenshot",
+      "path": "/opportunities/q3-2026-visual-graphic-design-nc-iii.jpg",
+      "pageUrl": "https://e-tesda.gov.ph/course/index.php?categoryid=1524",
+      "issueSlug": "q3-2026",
+      "title": "Visual Graphic Design NC III",
+      "contentType": "image/jpeg",
+      "bytes": 55513,
+      "screenshotProvider": "screenshotone",
+      "screenshotUrl": "https://api.screenshotone.com/take?access_key=%5Bredacted%5D&url=https%3A%2F%2Fe-tesda.gov.ph%2Fcourse%2Findex.php%3Fcategoryid%3D1524&format=jpg&viewport_width=1200&viewport_height=630&block_ads=true&block_cookie_banners=true&block_banners_by_heuristics=false&block_trackers=true&delay=0&timeout=60&response_type=by_format&image_quality=80",
+      "source": "screenshot"
+    },
+    "q3-2026-content-creation-social-media-level-iii": {
+      "status": "screenshot",
+      "path": "/opportunities/q3-2026-content-creation-social-media-level-iii.jpg",
+      "pageUrl": "https://e-tesda.gov.ph/course/index.php?categoryid=1789",
+      "issueSlug": "q3-2026",
+      "title": "Content Creation Social Media Level III",
+      "contentType": "image/jpeg",
+      "bytes": 97328,
+      "screenshotProvider": "screenshotone",
+      "screenshotUrl": "https://api.screenshotone.com/take?access_key=%5Bredacted%5D&url=https%3A%2F%2Fe-tesda.gov.ph%2Fcourse%2Findex.php%3Fcategoryid%3D1789&format=jpg&viewport_width=1200&viewport_height=630&block_ads=true&block_cookie_banners=true&block_banners_by_heuristics=false&block_trackers=true&delay=0&timeout=60&response_type=by_format&image_quality=80",
+      "source": "screenshot"
+    },
+    "q3-2026-digital-marketing-level-iii": {
+      "status": "screenshot",
+      "path": "/opportunities/q3-2026-digital-marketing-level-iii.jpg",
+      "pageUrl": "https://e-tesda.gov.ph/course/index.php?categoryid=2004",
+      "issueSlug": "q3-2026",
+      "title": "Digital Marketing Level III",
+      "contentType": "image/jpeg",
+      "bytes": 51790,
+      "screenshotProvider": "screenshotone",
+      "screenshotUrl": "https://api.screenshotone.com/take?access_key=%5Bredacted%5D&url=https%3A%2F%2Fe-tesda.gov.ph%2Fcourse%2Findex.php%3Fcategoryid%3D2004&format=jpg&viewport_width=1200&viewport_height=630&block_ads=true&block_cookie_banners=true&block_banners_by_heuristics=false&block_trackers=true&delay=0&timeout=60&response_type=by_format&image_quality=80",
+      "source": "screenshot"
+    },
+    "q3-2026-start-and-improve-your-business": {
+      "status": "screenshot",
+      "path": "/opportunities/q3-2026-start-and-improve-your-business.jpg",
+      "pageUrl": "https://e-tesda.gov.ph/course/index.php?categoryid=1321",
+      "issueSlug": "q3-2026",
+      "title": "Start and Improve Your Business",
+      "contentType": "image/jpeg",
+      "bytes": 57223,
+      "screenshotProvider": "screenshotone",
+      "screenshotUrl": "https://api.screenshotone.com/take?access_key=%5Bredacted%5D&url=https%3A%2F%2Fe-tesda.gov.ph%2Fcourse%2Findex.php%3Fcategoryid%3D1321&format=jpg&viewport_width=1200&viewport_height=630&block_ads=true&block_cookie_banners=true&block_banners_by_heuristics=false&block_trackers=true&delay=0&timeout=60&response_type=by_format&image_quality=80",
+      "source": "screenshot"
+    },
+    "q3-2026-establishing-and-operating-micro-small-medium-en": {
+      "status": "screenshot",
+      "path": "/opportunities/q3-2026-establishing-and-operating-micro-small-medium-en.jpg",
+      "pageUrl": "https://e-tesda.gov.ph/course/view.php?id=2985",
+      "issueSlug": "q3-2026",
+      "title": "Establishing and Operating Micro-Small Medium Enterprises",
+      "contentType": "image/jpeg",
+      "bytes": 47468,
+      "screenshotProvider": "screenshotone",
+      "screenshotUrl": "https://api.screenshotone.com/take?access_key=%5Bredacted%5D&url=https%3A%2F%2Fe-tesda.gov.ph%2Fcourse%2Findex.php%3Fcategoryid%3D17&format=jpg&viewport_width=1200&viewport_height=630&block_ads=true&block_cookie_banners=true&block_banners_by_heuristics=false&block_trackers=true&delay=0&timeout=60&response_type=by_format&image_quality=80",
+      "source": "screenshot"
+    },
+    "q3-2026-istar-program": {
+      "status": "screenshot",
+      "path": "/opportunities/q3-2026-istar-program.jpg",
+      "pageUrl": "https://e-tesda.gov.ph/course/index.php?categoryid=2026",
+      "issueSlug": "q3-2026",
+      "title": "iSTAR Program",
+      "contentType": "image/jpeg",
+      "bytes": 74873,
+      "screenshotProvider": "screenshotone",
+      "screenshotUrl": "https://api.screenshotone.com/take?access_key=%5Bredacted%5D&url=https%3A%2F%2Fe-tesda.gov.ph%2Fcourse%2Findex.php%3Fcategoryid%3D2026&format=jpg&viewport_width=1200&viewport_height=630&block_ads=true&block_cookie_banners=true&block_banners_by_heuristics=false&block_trackers=true&delay=0&timeout=60&response_type=by_format&image_quality=80",
+      "source": "screenshot"
+    },
+    "q3-2026-microsoft-cybersecurity-course-security-complian": {
+      "status": "screenshot",
+      "path": "/opportunities/q3-2026-microsoft-cybersecurity-course-security-complian.jpg",
+      "pageUrl": "https://e-tesda.gov.ph/course/view.php?id=4459",
+      "issueSlug": "q3-2026",
+      "title": "Microsoft Cybersecurity Course: Security, Compliance, and Identity Fundamentals",
+      "contentType": "image/jpeg",
+      "bytes": 86967,
+      "screenshotProvider": "screenshotone",
+      "screenshotUrl": "https://api.screenshotone.com/take?access_key=%5Bredacted%5D&url=https%3A%2F%2Fe-tesda.gov.ph%2Fcourse%2Findex.php%3Fcategoryid%3D21&format=jpg&viewport_width=1200&viewport_height=630&block_ads=true&block_cookie_banners=true&block_banners_by_heuristics=false&block_trackers=true&delay=0&timeout=60&response_type=by_format&image_quality=80",
+      "source": "screenshot"
+    },
+    "q3-2026-microsoft-artificial-intelligence-course-azure-a": {
+      "status": "screenshot",
+      "path": "/opportunities/q3-2026-microsoft-artificial-intelligence-course-azure-a.jpg",
+      "pageUrl": "https://e-tesda.gov.ph/course/view.php?id=4297",
+      "issueSlug": "q3-2026",
+      "title": "Microsoft Artificial Intelligence Course: Azure AI Fundamentals",
+      "contentType": "image/jpeg",
+      "bytes": 86975,
+      "screenshotProvider": "screenshotone",
+      "screenshotUrl": "https://api.screenshotone.com/take?access_key=%5Bredacted%5D&url=https%3A%2F%2Fe-tesda.gov.ph%2Fcourse%2Findex.php%3Fcategoryid%3D21&format=jpg&viewport_width=1200&viewport_height=630&block_ads=true&block_cookie_banners=true&block_banners_by_heuristics=false&block_trackers=true&delay=0&timeout=60&response_type=by_format&image_quality=80",
+      "source": "screenshot"
+    },
+    "q3-2026-ibm-skillsbuild-via-tesda": {
+      "status": "screenshot",
+      "path": "/opportunities/q3-2026-ibm-skillsbuild-via-tesda.jpg",
+      "pageUrl": "https://e-tesda.gov.ph/course/view.php?id=3331",
+      "issueSlug": "q3-2026",
+      "title": "IBM SkillsBuild via TESDA",
+      "contentType": "image/jpeg",
+      "bytes": 86975,
+      "screenshotProvider": "screenshotone",
+      "screenshotUrl": "https://api.screenshotone.com/take?access_key=%5Bredacted%5D&url=https%3A%2F%2Fe-tesda.gov.ph%2Fcourse%2Findex.php%3Fcategoryid%3D21&format=jpg&viewport_width=1200&viewport_height=630&block_ads=true&block_cookie_banners=true&block_banners_by_heuristics=false&block_trackers=true&delay=0&timeout=60&response_type=by_format&image_quality=80",
       "source": "screenshot"
     }
   }

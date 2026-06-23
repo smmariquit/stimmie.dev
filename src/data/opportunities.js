@@ -1,17 +1,20 @@
 // src/data/opportunities.js
 //
-// Curated newsletter issues for /opportunities. Add a new issue object when
-// publishing an edition; bump issueNumber; never reuse slugs.
+// Curated board for /opportunities — one living page, not issues.
+// Bump `lastUpdated` when you add, remove, or materially edit entries.
 //
-// Research pipeline: research/opportunities/ (prompts → responses → here).
-// Optional `image` overrides everything. Optional `imageUrl` is used only by
-// `npm run opportunities:images` when the apply page blocks bots/screenshots.
+// Research pipeline: research/opportunities/
+// Optional `image` overrides everything. Optional `imageUrl` for image fetch only.
 
 import { existsSync, readFileSync } from "node:fs";
 import { dirname, join } from "node:path";
 import { fileURLToPath } from "node:url";
 
+import { opportunityBoardItems } from "./opportunity-board-items.js";
+
 const MANILA_TZ = "Asia/Manila";
+/** Matches existing cover-image filenames and manifest keys. */
+const OPPORTUNITY_IMAGE_PREFIX = "q3-2026";
 const manifestPath = join(
   dirname(fileURLToPath(import.meta.url)),
   "opportunity-images.json",
@@ -49,475 +52,35 @@ export const OPPORTUNITY_TYPE_ORDER = [
   "certificate",
 ];
 
+export const opportunitiesBoard = {
+  lastUpdated: "2026-06-24",
+  intro:
+    "A living roundup of hackathons, internships, scholarships, events, and programs worth a look if you're in the Philippines (or online). Deadlines are Manila time unless noted.",
+  items: opportunityBoardItems,
+};
+
+
+export function getOpportunitiesBoard() {
+  return opportunitiesBoard;
+}
+
+export function getOpportunities() {
+  return opportunitiesBoard.items;
+}
+
+/** @deprecated Use getOpportunities — kept for scripts during transition. */
 export const opportunityIssues = [
   {
-    slug: "q3-2026",
-    issueNumber: 2,
-    title: "Q3 2026 Ecosystem Report",
-    published: "2026-06-24",
-    intro:
-      "The Philippine opportunity matrix for Q3 2026: scholarships, agentic-AI hackathons, hybrid FMCG internships, ASEAN civic programs, and certs. Deadlines are Manila time unless noted. Verify on the official site before you apply.",
-    items: [
-      {
-        title: "AWS AI & ML Scholars Program",
-        type: "certificate",
-        url: "https://aws.amazon.com/about-aws/our-impact/scholars/",
-        org: "Amazon Web Services / Udacity",
-        location: "Online",
-        dates: [
-          { label: "Application deadline", date: "2026-06-24" },
-          {
-            label: "Program period",
-            date: "2026-08-04",
-            endDate: "2026-11-04",
-          },
-        ],
-        blurb:
-          "Fully funded generative AI scholarship via Udacity. Amazon Bedrock, Amazon Q — no prior ML experience required.",
-      },
-      {
-        title: "TheFirst Spark 2026: Youth Symposium & Build Sprint",
-        type: "hackathon",
-        url: "https://www.startupnetworks.co.uk/links/category/26-tenders/",
-        org: "Startup Networks / TheFirst Spark",
-        location: "Online / Singapore",
-        dates: [
-          { label: "Submission deadline", date: "2026-06-25" },
-          { label: "Symposium day", date: "2026-06-27" },
-        ],
-        blurb:
-          "7-day remote AI build sprint. Top projects pitch live to founders and investors.",
-      },
-      {
-        title: "Girlathon 4.0",
-        type: "hackathon",
-        url: "https://girlathon26.devfolio.co/",
-        org: "GDG on Campus MACE",
-        location: "Online",
-        dates: [
-          { label: "Registration closes", date: "2026-06-25" },
-          {
-            label: "Development phase",
-            date: "2026-07-12",
-            endDate: "2026-09-12",
-          },
-        ],
-        blurb:
-          "Women-centric hybrid hackathon on AI, IoT, and future mobility. Teams of 2–4, beginner-friendly.",
-      },
-      {
-        title: "Friends of Figma Config Watch Party 2026",
-        type: "event",
-        url: "https://friends.figma.com/events/details/figma-philippines-presents-figma-slides-party-2026/",
-        org: "Friends of Figma PH / UXPH / PWDO",
-        location: "Makati / Metro Manila",
-        dates: [{ label: "Event", date: "2026-06-26" }],
-        blurb:
-          "Watch the Figma Config keynote with the local design community. Walk-ins subject to capacity.",
-      },
-      {
-        title: "DDB Saliksik 2026: National Research Conference Plenary",
-        type: "event",
-        url: "https://ddb.gov.ph/announcement-join-us-live-for-ddb-saliksik-2026/",
-        org: "Dangerous Drugs Board",
-        location: "Online livestream",
-        dates: [{ label: "Event", date: "2026-06-26" }],
-        blurb:
-          "National plenary on policy, public health, and drug abuse prevention research. Livestream open.",
-      },
-      {
-        title: "AUN Internship Programme 2026 (Batch 3)",
-        type: "internship",
-        url: "https://www.aunsec.org/",
-        org: "ASEAN University Network Secretariat",
-        location: "Remote / ASEAN",
-        dates: [
-          { label: "Application deadline", date: "2026-06-29" },
-          {
-            label: "Program period",
-            date: "2026-09-01",
-            endDate: "2026-12-31",
-          },
-        ],
-        blurb:
-          "Project management, research, and media production across ASEAN higher education cooperation.",
-      },
-      {
-        title: "Bagong Pilipinas Merit Scholarship Program 2026",
-        type: "program",
-        url: "https://bpms.ched.gov.ph/",
-        imageUrl: "https://www.ched.gov.ph/",
-        org: "Commission on Higher Education (CHED)",
-        location: "Philippines",
-        dates: [{ label: "Application deadline", date: "2026-06-30" }],
-        blurb:
-          "Up to ₱104,000/semester for high-achieving freshmen in priority courses. GWA 95%+ required.",
-      },
-      {
-        title: "ADB-Japan Scholarship Program",
-        type: "program",
-        url: "https://www.sih.m.u-tokyo.ac.jp/admission-en/",
-        org: "Asian Development Bank / University of Tokyo",
-        location: "Japan",
-        dates: [{ label: "Application deadline", date: "2026-06-30" }],
-        blurb:
-          "Fully funded two-year Master's in health, economics, engineering, or public policy.",
-      },
-      {
-        title: "Wireless Engineering Foundations & LTE Networks",
-        type: "event",
-        url: "https://www.terrahertz.net/",
-        org: "Terrahertz",
-        location: "Online",
-        dates: [{ label: "Event", date: "2026-07-04" }],
-        blurb:
-          "CPD program on RF fundamentals, LTE drive testing, and GIS mapping for telco pros.",
-      },
-      {
-        title: "FlutterFlow Champions League Hackathon 2026",
-        type: "hackathon",
-        url: "https://flutterflow-champions-league-hackathon.devfolio.co/",
-        org: "The Innovation League / Devfolio",
-        location: "Online / Mumbai, India",
-        dates: [
-          { label: "Registration closes", date: "2026-07-06" },
-          { label: "Pitch & event", date: "2026-07-18" },
-        ],
-        blurb:
-          "Low-code hackathon for EdTech, FinTech, or open innovation. Teams of 2–3.",
-      },
-      {
-        title: "YSEALI Summit 2026",
-        type: "program",
-        url: "https://ph.usembassy.gov/notice-of-funding-opportunity-nofo-young-southeast-asian-leaders-initiative-yseali-summit-2026/",
-        imageUrl: "https://www.yseali.state.gov/",
-        org: "U.S. Embassy in the Philippines",
-        location: "Philippines",
-        dates: [
-          { label: "Application deadline", date: "2026-07-06" },
-          { label: "Program start", date: "2026-09-01" },
-        ],
-        blurb:
-          "Regional youth leadership summit with micro-grants for community action plans.",
-      },
-      {
-        title: "UP Diliman Graduate Programs Admission (1st Sem)",
-        type: "program",
-        url: "https://science.upd.edu.ph/application-to-graduate-programs-for-2nd-semester-ay-2025-2026/",
-        org: "UP Diliman — College of Science",
-        location: "Quezon City",
-        dates: [{ label: "Application deadline", date: "2026-07-08" }],
-        blurb:
-          "Graduate programs from data science and math to environmental meteorology.",
-      },
-      {
-        title: "Agentic AI Build Week",
-        type: "hackathon",
-        url: "https://aabw.genaifund.ai/",
-        org: "GenAI Fund",
-        location: "Online / Ho Chi Minh City, Vietnam",
-        dates: [
-          { label: "Event", date: "2026-07-08", endDate: "2026-07-12" },
-        ],
-        blurb:
-          "5-day agentic AI build sprint and workshop series with enterprise partners.",
-      },
-      {
-        title: "Reddit's Games with a Hook Hackathon",
-        type: "hackathon",
-        url: "https://www.reddit.com/r/Devvit/comments/1u8f6r4/announcing_our_reddits_games_with_a_hook_virtual/",
-        imageUrl: "https://developers.reddit.com/docs/",
-        org: "Reddit / Phaser",
-        location: "Online",
-        dates: [
-          {
-            label: "Event period",
-            date: "2026-06-17",
-            endDate: "2026-07-15",
-          },
-          { label: "Submission deadline", date: "2026-07-15" },
-        ],
-        blurb:
-          "Build daily games for Reddit communities with Devvit, React, and Phaser. $40k prize pool.",
-      },
-      {
-        title: "Github Readme Generation Hackathon",
-        type: "hackathon",
-        url: "https://digitomize.com/hackathons",
-        org: "Digitomize",
-        location: "Online",
-        dates: [{ label: "Application deadline", date: "2026-07-16" }],
-        blurb:
-          "Virtual sprint on automating and improving open-source repo documentation.",
-      },
-      {
-        title: "FutureForge Hackathon 2026",
-        type: "hackathon",
-        url: "https://srm-builds4.devfolio.co/hackathons/open",
-        org: "Devfolio",
-        location: "Online",
-        dates: [
-          { label: "Application deadline", date: "2026-07-17" },
-          { label: "Event start", date: "2026-07-20" },
-        ],
-        blurb:
-          "Buildathon across blockchain, FinTech, and HealthTech infrastructure.",
-      },
-      {
-        title: "Grab Scholarship 2026",
-        type: "program",
-        url: "https://governmentph.com/grab-scholarship/",
-        org: "Grab Philippines",
-        location: "Philippines",
-        dates: [{ label: "Registration closes", date: "2026-07-17" }],
-        blurb:
-          "Full tuition, ₱8,000/month allowance, and internship pathways for STEM and business freshmen.",
-      },
-      {
-        title: "Low Earth Orbit Communication Satellites",
-        type: "certificate",
-        url: "https://academy.itu.int/",
-        org: "ITU Academy",
-        location: "Online",
-        dates: [
-          {
-            label: "Program period",
-            date: "2026-07-20",
-            endDate: "2026-07-31",
-          },
-        ],
-        blurb:
-          "Instructor-led credential on LEO satellite infrastructure and policy. ~$150.",
-      },
-      {
-        title: "CHED Merit Scholarship Program (CMSP)",
-        type: "program",
-        url: "https://caraga.ched.gov.ph/ched-scholarship-program-csp/",
-        imageUrl: "https://www.ched.gov.ph/",
-        org: "Commission on Higher Education (CHED)",
-        location: "Philippines",
-        dates: [{ label: "Application deadline", date: "2026-07-31" }],
-        blurb:
-          "State aid for psychology, PT, OT, and social sciences. GWA 93%+, income cap applies.",
-      },
-      {
-        title: "Aurecon Student Engineer Programme",
-        type: "internship",
-        url: "https://ph.prosple.com/graduate-employers/aurecon-ph/jobs-internships/student-engineer",
-        org: "Aurecon Philippines",
-        location: "Pasig City",
-        dates: [{ label: "Application deadline", date: "2026-07-31" }],
-        blurb:
-          "12-week paid civil engineering internship in transport, water, and land infrastructure.",
-      },
-      {
-        title: "DTI Hackathon 2026",
-        type: "hackathon",
-        url: "https://www.startupnetworks.co.uk/links/link/30310-dti-hackathon-2026/",
-        imageUrl: "https://www.dti.gov.ph/",
-        org: "Department of Trade and Industry",
-        location: "Online / Philippines",
-        dates: [{ label: "Registration closes", date: "2026-07-31" }],
-        blurb:
-          "National hackathon for product development tackling Philippine ecosystem needs.",
-      },
-      {
-        title: "ASEAN AI Hackathon 2026 Awarding & Closing Ceremony",
-        type: "event",
-        url: "https://aifest.ph/ai-hackathon-2026/",
-        org: "AI Fest PH",
-        location: "Iloilo City",
-        dates: [{ label: "Event", date: "2026-08-05" }],
-        blurb:
-          "Final pitches for top teams building AI for blue economy, tourism, and renewable energy.",
-      },
-      {
-        title: "Unilever HR Internship '26",
-        type: "internship",
-        url: "https://careers.unilever.com/en/job/rotterdam/hr-internship-26-generalist-and-business-partnering/34155/95252046048",
-        imageUrl: "https://www.unilever.com/careers/",
-        org: "Unilever Philippines",
-        location: "Hybrid",
-        dates: [
-          {
-            label: "Program period",
-            date: "2026-08-01",
-            endDate: "2026-09-30",
-          },
-        ],
-        blurb:
-          "Recruitment, onboarding, employee relations, and HR analytics at a top FMCG.",
-      },
-      {
-        title: "Unilever Customer Strategy & Planning Internship 2026",
-        type: "internship",
-        url: "https://careers.unilever.com/en/job/cidde/customer-strategy-and-planning-internship-2026/34155/96153764192",
-        imageUrl: "https://www.unilever.com/careers/",
-        org: "Unilever Philippines",
-        location: "Hybrid",
-        dates: [
-          {
-            label: "Program period",
-            date: "2026-08-01",
-            endDate: "2026-09-30",
-          },
-        ],
-        blurb:
-          "Category, channel, and shopper planning with analytics and commercial skills.",
-      },
-      {
-        title: "5G-Advanced Mobile Broadband",
-        type: "certificate",
-        url: "https://academy.itu.int/",
-        org: "ITU Academy",
-        location: "Online",
-        dates: [
-          {
-            label: "Program period",
-            date: "2026-08-17",
-            endDate: "2026-08-24",
-          },
-        ],
-        blurb:
-          "Professional course on 5G-Advanced services, tech foundations, and regulation. ~$150.",
-      },
-      {
-        title: "Level Up Your Prototypes in Figma",
-        type: "event",
-        url: "https://friends.figma.com/events/details/figma-philippines-presents-level-up-your-prototypes-in-figma/",
-        org: "Friends of Figma / UX Davao",
-        location: "Davao City",
-        dates: [{ label: "Event", date: "2026-08-24" }],
-        blurb:
-          "Advanced Figma prototyping for digital and physical interfaces. Mindanao UX community.",
-      },
-      {
-        title: "MARS Internship Program (September 2026 Intake)",
-        type: "internship",
-        url: "https://ph.talent.com/view?id=619434479436246943",
-        org: "Mars Philippines",
-        location: "Taguig City / Hybrid",
-        dates: [{ label: "Program start", date: "2026-09-01" }],
-        blurb:
-          "4-month roles in sales, marketing, supply chain, design, or finance. Rolling intake.",
-      },
-      {
-        title: "L'Oréal PH Management Trainee (September Intake)",
-        type: "internship",
-        url: "https://careers.loreal.com/",
-        imageUrl: "https://www.loreal.com/en/philippines/",
-        org: "L'Oréal Philippines",
-        location: "Pasig",
-        dates: [{ label: "Program start", date: "2026-09-01" }],
-        blurb:
-          "Leadership pipeline in data, marketing, and commercial strategy. Fresh grads welcome.",
-      },
-      {
-        title: "DSU DevHack 3.0",
-        type: "hackathon",
-        url: "https://www.startupgrantsindia.com/competitions/dsu-devhack-30",
-        org: "Dayananda Sagar University / Devfolio",
-        location: "Online / India",
-        dates: [
-          { label: "Event", date: "2026-09-18", endDate: "2026-09-19" },
-        ],
-        blurb:
-          "36-hour arena for production-ready AI apps and hardware-software integrations.",
-      },
-      {
-        title: "MunichTech EXPO AI Innovation Hackathon 2026",
-        type: "hackathon",
-        url: "https://dorahacks.io/hackathon/2019",
-        imageUrl: "https://dorahacks.io/hackathon/2019",
-        org: "MunichTech EXPO",
-        location: "Hybrid / Online",
-        dates: [{ label: "Submission deadline", date: "2026-09-20" }],
-        blurb:
-          "Applied AI for industrial automation, mobility, and enterprise — corporate pilot tracks.",
-      },
-      {
-        title: "IATSS Forum Leadership Development Program 2027",
-        type: "program",
-        url: "https://www.iatssforum.jp/en/applications/",
-        org: "International Association of Traffic and Safety Sciences",
-        location: "Japan",
-        dates: [{ label: "Application deadline", date: "2026-09-30" }],
-        blurb:
-          "8-week fully funded leadership training in Japan on urban design and disaster resilience.",
-      },
-      {
-        title: "LUXASIA 2026 Internships",
-        type: "internship",
-        url: "https://www.luxasia.com/",
-        imageUrl: "https://www.luxasia.com/",
-        org: "LUXASIA Philippines",
-        location: "Taguig / Alabang",
-        dates: [
-          {
-            label: "Program period",
-            date: "2026-07-01",
-            endDate: "2026-12-31",
-          },
-        ],
-        blurb:
-          "E-commerce, data analytics, digital graphics, and sales roles for luxury brands. Rolling applications.",
-      },
-      {
-        title: "Phoenix Petroleum Operational Excellence Intern",
-        type: "internship",
-        url: "https://www.phoenixfuels.ph/careers",
-        imageUrl: "https://www.phoenixfuels.ph/",
-        org: "Phoenix Petroleum Philippines",
-        location: "Taguig",
-        dates: [{ label: "Program start", date: "2026-07-01" }],
-        blurb:
-          "Supply chain and commercial process improvement. Rolling applications.",
-      },
-      {
-        title: "Monde Nissin MondeXplore Internship Program",
-        type: "internship",
-        url: "https://www.mondenissin.com/careers/",
-        imageUrl: "https://www.mondenissin.com/",
-        org: "Monde Nissin Corporation",
-        location: "Nationwide",
-        blurb:
-          "FMCG exposure in business, engineering, and product dev. Paid (~₱400–450/day). Rolling applications.",
-      },
-      {
-        title: "Globe Telecom Technology & Innovation Internship",
-        type: "internship",
-        url: "https://www.globe.com.ph/about-us/careers.html",
-        imageUrl: "https://www.globe.com.ph/student-program",
-        org: "Globe Telecom",
-        location: "Hybrid / Taguig / Mandaluyong",
-        blurb:
-          "Digital solutions across Globe's tech ecosystem. IT, CS, or business undergrads. Rolling applications.",
-      },
-      {
-        title: "Google Career Certificates via DICT",
-        type: "certificate",
-        url: "https://dict.gov.ph/dict-opens-access-to-free-google-career-certificates",
-        imageUrl: "https://grow.google/intl/en_ph/certificates/",
-        org: "Google / DICT / Globe",
-        location: "Online",
-        blurb:
-          "Free scholarships for data analytics, UX design, project management, and IT support certs.",
-      },
-      {
-        title: "UP Open University Free MOOCs (MODeL)",
-        type: "certificate",
-        url: "https://model.upou.edu.ph/",
-        org: "University of the Philippines Open University",
-        location: "Online",
-        blurb:
-          "Self-paced free courses with e-certificates — disaster resilience, data annotation, entrepreneurship, and more.",
-      },
-    ],
+    slug: OPPORTUNITY_IMAGE_PREFIX,
+    items: opportunitiesBoard.items,
   },
 ];
 
 export function getIssueBySlug(slug) {
-  return opportunityIssues.find((issue) => issue.slug === slug);
+  if (slug === OPPORTUNITY_IMAGE_PREFIX) {
+    return opportunityIssues[0];
+  }
+  return undefined;
 }
 
 export function slugifyOpportunityTitle(title) {
@@ -531,23 +94,25 @@ export function slugifyOpportunityTitle(title) {
 }
 
 /** Stable id for image filenames and manifest keys. */
-export function getOpportunityId(issueSlug, item) {
+export function getOpportunityId(item) {
   if (item.id) {
     return item.id;
   }
-  return `${issueSlug}-${slugifyOpportunityTitle(item.title)}`;
+  return `${OPPORTUNITY_IMAGE_PREFIX}-${slugifyOpportunityTitle(item.title)}`;
 }
 
 /** Manual `image` wins, then fetched og:image, then type default. */
-export function resolveOpportunityImage(issueSlug, item) {
+export function resolveOpportunityImage(item) {
   if (item.image) {
     return item.image;
   }
 
-  const id = getOpportunityId(issueSlug, item);
+  const id = getOpportunityId(item);
   const entry = loadOpportunityImages().images[id];
   if (
-    (entry?.status === "fetched" || entry?.status === "screenshot") &&
+    (entry?.status === "fetched" ||
+      entry?.status === "screenshot" ||
+      entry?.status === "favicon") &&
     entry.path
   ) {
     return entry.path;
@@ -559,10 +124,48 @@ export function resolveOpportunityImage(issueSlug, item) {
   );
 }
 
-export function getSortedIssues() {
-  return [...opportunityIssues].sort(
-    (a, b) => new Date(b.published).getTime() - new Date(a.published).getTime(),
-  );
+export function getOpportunityImagePresentation(item) {
+  if (item.image) {
+    return { className: "" };
+  }
+
+  const id = getOpportunityId(item);
+  const entry = loadOpportunityImages().images[id];
+
+  if (entry?.status === "favicon") {
+    return { className: "neo-opportunity-favicon-image" };
+  }
+
+  const src = entry?.path ?? "";
+  if (src.includes("/opportunities/defaults/")) {
+    return { className: "neo-opportunity-default-image" };
+  }
+
+  return { className: "" };
+}
+
+export function formatBoardUpdated(date) {
+  return new Date(date).toLocaleDateString("en-US", {
+    month: "long",
+    day: "numeric",
+    year: "numeric",
+    timeZone: MANILA_TZ,
+  });
+}
+
+export function groupIssueItemsByType(items) {
+  const groups = new Map();
+  for (const item of items) {
+    if (!groups.has(item.type)) {
+      groups.set(item.type, []);
+    }
+    groups.get(item.type).push(item);
+  }
+
+  return OPPORTUNITY_TYPE_ORDER.filter((type) => groups.has(type)).map((type) => ({
+    type,
+    items: groups.get(type),
+  }));
 }
 
 export function getOpportunityType(type) {
@@ -634,21 +237,6 @@ export function getOpportunityPlaceLabel(location) {
   return stripped;
 }
 
-export function groupIssueItemsByType(items) {
-  const groups = new Map();
-  for (const item of items) {
-    if (!groups.has(item.type)) {
-      groups.set(item.type, []);
-    }
-    groups.get(item.type).push(item);
-  }
-
-  return OPPORTUNITY_TYPE_ORDER.filter((type) => groups.has(type)).map((type) => ({
-    type,
-    items: groups.get(type),
-  }));
-}
-
 /** Nearest upcoming date, or first listed if all are past. */
 export function getPrimaryOpportunityDate(dates) {
   if (!dates?.length) {
@@ -710,8 +298,8 @@ function formatCalendarMonthLabel(monthKey) {
   });
 }
 
-/** Flatten item dates into calendar events, grouped by month (Manila time). */
-export function buildIssueCalendarMonths(items, issueSlug) {
+/** Flatten item dates into sorted calendar events (Manila time). */
+export function buildOpportunityCalendarEvents(items) {
   const events = [];
 
   for (const item of items) {
@@ -726,7 +314,7 @@ export function buildIssueCalendarMonths(items, issueSlug) {
 
       const dateKey = toManilaDateKey(entry.date);
       events.push({
-        id: `${getOpportunityId(issueSlug, item)}-${entry.label}-${dateKey}`,
+        id: `${getOpportunityId(item)}-${entry.label}-${dateKey}`,
         dateKey,
         endDateKey: entry.endDate ? toManilaDateKey(entry.endDate) : null,
         isoDate: entry.date,
@@ -739,11 +327,13 @@ export function buildIssueCalendarMonths(items, issueSlug) {
     }
   }
 
-  events.sort(
+  return events.sort(
     (a, b) =>
       a.dateKey.localeCompare(b.dateKey) || a.title.localeCompare(b.title),
   );
+}
 
+export function groupCalendarEventsByMonth(events) {
   const monthMap = new Map();
   for (const event of events) {
     const monthKey = event.dateKey.slice(0, 7);
@@ -755,17 +345,27 @@ export function buildIssueCalendarMonths(items, issueSlug) {
 
   return [...monthMap.entries()]
     .sort(([a], [b]) => a.localeCompare(b))
-    .map(([monthKey, monthEvents]) => {
-      const [year, month] = monthKey.split("-").map(Number);
-      return {
-        monthKey,
-        label: formatCalendarMonthLabel(monthKey),
-        year,
-        monthIndex: month - 1,
-        events: monthEvents,
-        eventsByDay: groupEventsByDay(monthEvents),
-      };
-    });
+    .map(([monthKey, monthEvents]) => ({
+      monthKey,
+      label: formatCalendarMonthLabel(monthKey),
+      events: monthEvents,
+    }));
+}
+
+/** @deprecated Use buildOpportunityCalendarEvents */
+export function buildIssueCalendarMonths(items) {
+  const events = buildOpportunityCalendarEvents(items);
+  return groupCalendarEventsByMonth(events).map(({ monthKey, label, events: monthEvents }) => {
+    const [year, month] = monthKey.split("-").map(Number);
+    return {
+      monthKey,
+      label,
+      year,
+      monthIndex: month - 1,
+      events: monthEvents,
+      eventsByDay: groupEventsByDay(monthEvents),
+    };
+  });
 }
 
 function groupEventsByDay(events) {

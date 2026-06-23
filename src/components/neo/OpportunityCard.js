@@ -2,6 +2,7 @@ import Image from "next/image";
 import {
   formatOpportunityDate,
   getOpportunityFormat,
+  getOpportunityImagePresentation,
   getOpportunityPlaceLabel,
   getOpportunityType,
   getPrimaryOpportunityDate,
@@ -44,12 +45,12 @@ function OpportunityPrimaryDate({ dates }) {
   );
 }
 
-export default function OpportunityCard({ item, issueSlug }) {
+export default function OpportunityCard({ item }) {
   const type = getOpportunityType(item.type);
   const format = getOpportunityFormat(item.location);
   const place = getOpportunityPlaceLabel(item.location);
-  const imageSrc = resolveOpportunityImage(issueSlug, item);
-  const isDefaultImage = imageSrc.includes("/opportunities/defaults/");
+  const imageSrc = resolveOpportunityImage(item);
+  const imagePresentation = getOpportunityImagePresentation(item);
 
   return (
     <a
@@ -68,7 +69,7 @@ export default function OpportunityCard({ item, issueSlug }) {
             height={450}
             quality={90}
             sizes="(max-width: 640px) 100vw, 360px"
-            className={`neo-thumb-lg w-full aspect-video object-cover${isDefaultImage ? " neo-opportunity-default-image" : ""}`}
+            className={`neo-thumb-lg w-full aspect-video object-cover${imagePresentation.className ? ` ${imagePresentation.className}` : ""}`}
           />
           <span
             className={`neo-badge neo-opportunity-badge ${type.badge}`}
