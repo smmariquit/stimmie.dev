@@ -8,7 +8,8 @@
     "start": "next start",
     "lint": "biome check",
     "format": "biome format --write",
-    "cf:migrate-redirects": "node --experimental-detect-module scripts/cf-migrate-redirects.mjs"
+    "cf:migrate-redirects": "node --experimental-detect-module scripts/cf-migrate-redirects.mjs",
+    "opportunities:images": "node scripts/fetch-opportunity-images.mjs"
   },
   "dependencies": {
     "@vercel/analytics": "^2.0.1",

@@ -60,7 +60,7 @@ export default async function OpportunityIssuePage({ params }) {
       >
         {issue.items.map((item) => (
           <li key={`${issue.slug}-${item.title}`}>
-            <OpportunityCard item={item} />
+            <OpportunityCard item={item} issueSlug={issue.slug} />
           </li>
         ))}
       </ul>

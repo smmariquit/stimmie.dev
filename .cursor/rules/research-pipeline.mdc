@@ -1,0 +1,31 @@
+---
+description: Research markdown lives in /research — prompts, responses, and pipeline docs
+alwaysApply: true
+---
+
+# Research pipeline
+
+All research markdown for this repo belongs under **`research/`**. Do not create research `.md` files in the repo root, `src/`, or other ad-hoc locations.
+
+## Where things go
+
+| Kind | Path | Who writes it |
+|------|------|---------------|
+| Pipeline docs & prompts | `research/<topic>/prompts/` | Agents |
+| Deep Research / tool outputs | `research/<topic>/responses/` | User (paste) or agent (if running research) |
+| Published-issue research archive | `research/<topic>/archive/` | After an issue ships |
+
+Topics today: **`opportunities`** (newsletter curation). Add new topic folders as needed (`research/<topic>/`).
+
+## Agent duties
+
+1. Read `research/README.md` before starting research work.
+2. Save new prompts and methodology updates under `research/<topic>/prompts/`.
+3. When the user pastes or attaches research output, save it to `research/<topic>/responses/` using the naming convention in `research/README.md`.
+4. Turning research into site content (e.g. `src/data/opportunities.js`) is a **separate step** — cite the source response file in the commit or issue intro when possible.
+
+## Response file naming
+
+`YYYY-MM-DD-<slug>.md` — e.g. `2026-06-24-q3-ecosystem-report.md`, `2026-07-01-source-map.md`
+
+Use `archive/` for responses already converted into a published issue.

@@ -3,6 +3,7 @@ import {
   formatOpportunityDate,
   getOpportunityType,
   isDatePast,
+  resolveOpportunityImage,
 } from "@/data/opportunities";
 
 function OpportunityDates({ dates }) {
@@ -30,32 +31,31 @@ function OpportunityDates({ dates }) {
   );
 }
 
-export default function OpportunityCard({ item }) {
+export default function OpportunityCard({ item, issueSlug }) {
   const type = getOpportunityType(item.type);
-  const cardClass = item.image ? "neo-media-card group block h-full" : "neo-link-card group block";
+  const imageSrc = resolveOpportunityImage(issueSlug, item);
+  const isDefaultImage = imageSrc.includes("/opportunities/defaults/");
 
   return (
     <a
       href={item.url}
       target="_blank"
       rel="noopener noreferrer"
-      className={cardClass}
+      className="neo-media-card group block h-full"
       aria-label={`Open opportunity: ${item.title}`}
     >
       <article>
-        {item.image ? (
-          <Image
-            src={item.image}
-            alt={item.imageAlt || item.title}
-            width={800}
-            height={450}
-            quality={90}
-            sizes="(max-width: 640px) 100vw, 360px"
-            className="neo-thumb-lg w-full aspect-video object-cover"
-          />
-        ) : null}
+        <Image
+          src={imageSrc}
+          alt={item.imageAlt || item.title}
+          width={800}
+          height={450}
+          quality={90}
+          sizes="(max-width: 640px) 100vw, 360px"
+          className={`neo-thumb-lg w-full aspect-video object-cover${isDefaultImage ? " neo-opportunity-default-image" : ""}`}
+        />
 
-        <div className={item.image ? "mt-2" : undefined}>
+        <div className="mt-2">
           <p className="m-0 flex flex-wrap items-center gap-2">
             <span className={`neo-badge ${type.badge}`}>{type.label}</span>
           </p>

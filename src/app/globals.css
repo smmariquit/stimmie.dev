@@ -1293,6 +1293,11 @@ body {
   color: #999;
 }
 
+.neo-opportunity-default-image {
+  object-position: center;
+  filter: saturate(0.85);
+}
+
 /* ── Visitor counter digits ───────────────────────────────────────── */
 
 .neo-counter-digit {
