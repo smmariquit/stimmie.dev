@@ -45,6 +45,7 @@ export const redirectMap = {
     instagram: "https://www.instagram.com/friedicecrm",
     osu: "https://osu.ppy.sh/users/14900686",
     spotify: "https://open.spotify.com/user/opzo90f4votlfqmg9rl94qrra",
+    kape: "https://kape.stimmie.dev",
   },
 };
 

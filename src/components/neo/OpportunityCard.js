@@ -7,6 +7,7 @@ import {
   getOpportunityType,
   getPrimaryOpportunityDate,
   isDatePast,
+  isOpportunityBeginnerFriendly,
   resolveOpportunityImage,
 } from "@/data/opportunities";
 
@@ -51,6 +52,7 @@ export default function OpportunityCard({ item }) {
   const place = getOpportunityPlaceLabel(item.location);
   const imageSrc = resolveOpportunityImage(item);
   const imagePresentation = getOpportunityImagePresentation(item);
+  const beginnerFriendly = isOpportunityBeginnerFriendly(item);
 
   return (
     <a
@@ -58,7 +60,7 @@ export default function OpportunityCard({ item }) {
       target="_blank"
       rel="noopener noreferrer"
       className={`neo-media-card neo-opportunity-card neo-opportunity-card--${item.type} group block h-full`}
-      aria-label={`Open opportunity: ${item.title}${format ? ` (${format.label})` : ""}`}
+      aria-label={`Open opportunity: ${item.title}${format ? ` (${format.label})` : ""}${beginnerFriendly ? ", beginner-friendly" : ""}`}
     >
       <article>
         <div className="neo-opportunity-thumb relative">
@@ -99,7 +101,7 @@ export default function OpportunityCard({ item }) {
             </p>
           ) : null}
 
-          {(format || place) && (
+          {(format || place || beginnerFriendly) && (
             <div className="neo-opportunity-location-row m-0 mt-1.5">
               {place ? (
                 <span className="neo-location-pill" title={place}>
@@ -114,6 +116,11 @@ export default function OpportunityCard({ item }) {
                     ⊕
                   </span>
                   <span className="neo-location-text">Worldwide</span>
+                </span>
+              ) : null}
+              {beginnerFriendly ? (
+                <span className="neo-beginner-pill" title="Beginner-friendly">
+                  Beginner-friendly
                 </span>
               ) : null}
             </div>

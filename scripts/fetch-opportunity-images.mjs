@@ -36,6 +36,7 @@ import {
   extractOgImageFromHtml,
   isBlockedPageHtml,
 } from "./lib/opportunity-page-fetch.mjs";
+import { assertAllowedImageUrl } from "./lib/opportunity-image-policy.mjs";
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 const outDir = path.join(root, "public", "opportunities");
@@ -264,6 +265,8 @@ async function saveFromOg({ item, id, pageContext }) {
   if (!imageUrl) {
     throw new Error("no og:image or twitter:image found");
   }
+
+  assertAllowedImageUrl(imageUrl, context.finalUrl);
 
   const probe = await fetchWithTimeout(imageUrl);
 

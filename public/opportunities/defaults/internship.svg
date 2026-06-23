@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 450" role="img" aria-label="Internship">
+  <rect width="800" height="450" fill="#f5f5f0"/>
+  <rect x="32" y="32" width="736" height="386" fill="#e8f0fa" stroke="#0a3d7a" stroke-width="8"/>
+  <rect x="280" y="150" width="240" height="170" fill="none" stroke="#0a3d7a" stroke-width="16"/>
+  <path d="M320 150v-36h160v36" fill="none" stroke="#0a3d7a" stroke-width="16"/>
+  <text x="560" y="250" font-family="ui-sans-serif, system-ui, sans-serif" font-size="38" font-weight="700" fill="#0a3d7a">Internship</text>
+</svg>

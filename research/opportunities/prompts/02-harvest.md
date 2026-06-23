@@ -90,6 +90,7 @@ If no clean `image_url` exists, omit it — the site falls back to a **type plac
     { "label": "Event", "date": "YYYY-MM-DD", "endDate": "YYYY-MM-DD" }
   ],
   "blurb": "1 sentence max — who it's for + why apply",
+  "beginner_friendly": true,
   "source_platform": "e.g. Devpost",
   "source_url": "where you found it",
   "confidence": "High|Medium|Low"
@@ -98,10 +99,12 @@ If no clean `image_url` exists, omit it — the site falls back to a **type plac
 
 ### Rules
 
-- **Blurbs:** one sentence. Dates carry the detail.
+- **Blurbs:** one sentence. Dates carry the detail. Use commas, colons, or periods; no em dashes.
 - **No single deadline** — labeled `dates` array (registration vs event vs program period).
 - **Rolling** → omit deadline dates; say "rolling" in blurb.
+- **`beginner_friendly`:** `true` if no prior domain experience is expected (intro courses, first hackathons, open certs); `false` if advanced/CPD/pro-only; omit if unclear.
 - **Dedupe** across platforms (Devpost + Devfolio = one entry).
+- **Devpost online hackathons:** after harvest, run `npm run opportunities:devpost` to pull open global online listings from the Devpost API (skips invite-only and region-locked titles).
 - **Reject** anti-patterns from source map: Indeed/LinkedIn search URLs, Scribd PDFs, aggregator blogs as canonical `url`.
 - **Internships from Prosple/JobStreet/Kalibrr:** Prosple finds the employer; `url` must be the employer ATS or careers site.
 - **Government:** canonical domains only — `ched.gov.ph`, `bpms.ched.gov.ph`, `sei.dost.gov.ph`, `dict.gov.ph`, `e-tesda.gov.ph`, `gsis.gov.ph`.

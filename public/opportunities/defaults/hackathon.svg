@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 450" role="img" aria-label="Hackathon">
+  <rect width="800" height="450" fill="#f5f5f0"/>
+  <rect x="32" y="32" width="736" height="386" fill="#e8f5e9" stroke="#075c1f" stroke-width="8"/>
+  <path d="M280 300h240M340 220h120M400 140v160" stroke="#075c1f" stroke-width="18" stroke-linecap="square"/>
+  <text x="560" y="250" font-family="ui-sans-serif, system-ui, sans-serif" font-size="42" font-weight="700" fill="#075c1f">Hackathon</text>
+</svg>

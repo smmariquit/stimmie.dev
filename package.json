@@ -10,7 +10,8 @@
     "format": "biome format --write",
     "cf:migrate-redirects": "node --experimental-detect-module scripts/cf-migrate-redirects.mjs",
     "opportunities:images": "node scripts/fetch-opportunity-images.mjs",
-    "opportunities:merge": "node scripts/merge-harvest.mjs"
+    "opportunities:merge": "node scripts/merge-harvest.mjs",
+    "opportunities:devpost": "node scripts/merge-devpost.mjs --harvest"
   },
   "dependencies": {
     "@vercel/analytics": "^2.0.1",

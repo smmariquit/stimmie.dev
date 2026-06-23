@@ -31,6 +31,11 @@ export const STIMMIEVERSE_CATEGORIES = [
       { name: "Resume Guide", url: "https://guide.stimmie.dev/resume" },
     ],
   },
+  {
+    label: "Support",
+    blurb: "Ways to support my work",
+    links: [{ name: "Kape", url: "https://kape.stimmie.dev" }],
+  },
 ];
 
 // Flattened list kept for legacy consumers (SiteNav, MobileHub).

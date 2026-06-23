@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-06-23T18:50:58.061Z",
+  "generatedAt": "2026-06-23T19:21:59.754Z",
   "images": {
     "q3-2026-aws-ai-ml-scholars-program": {
       "status": "screenshot",
@@ -78,7 +78,8 @@
       "contentType": "image/jpeg",
       "bytes": 9520,
       "faviconUrl": "https://t1.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&url=https://www.ched.gov.ph&size=128",
-      "source": "favicon"
+      "source": "favicon",
+      "cached": true
     },
     "q3-2026-adb-japan-scholarship-program": {
       "status": "favicon",
@@ -89,7 +90,8 @@
       "contentType": "image/jpeg",
       "bytes": 10563,
       "faviconUrl": "https://www.sih.m.u-tokyo.ac.jp/wp-content/uploads/2022/03/cropped-logo1-32x32.png",
-      "source": "favicon"
+      "source": "favicon",
+      "cached": true
     },
     "q3-2026-wireless-engineering-foundations-lte-networks": {
       "status": "fetched",
@@ -114,12 +116,16 @@
       "cached": true
     },
     "q3-2026-yseali-summit-2026": {
-      "status": "fallback",
-      "path": "/opportunities/defaults/program.jpg",
+      "status": "favicon",
+      "path": "/opportunities/q3-2026-yseali-summit-2026.jpg",
       "pageUrl": "https://ph.usembassy.gov/notice-of-funding-opportunity-nofo-young-southeast-asian-leaders-initiative-yseali-summit-2026/",
       "issueSlug": "q3-2026",
       "title": "YSEALI Summit 2026",
-      "error": "og: fetch failed | screenshot: ScreenshotOne HTTP 400: {\"is_successful\":false,\"error_message\":\"Usually, the error happens when the domain name of the requested URL is not reso"
+      "contentType": "image/jpeg",
+      "bytes": 21487,
+      "faviconUrl": "https://t1.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&url=https://state.gov&size=128",
+      "source": "favicon",
+      "cached": true
     },
     "q3-2026-up-diliman-graduate-programs-admission-1st-sem": {
       "status": "fetched",
@@ -152,7 +158,8 @@
       "contentType": "image/jpeg",
       "bytes": 13542,
       "faviconUrl": "https://t1.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&url=https://reddit.com&size=128",
-      "source": "favicon"
+      "source": "favicon",
+      "cached": true
     },
     "q3-2026-github-readme-generation-hackathon": {
       "status": "fetched",
@@ -207,7 +214,8 @@
       "contentType": "image/jpeg",
       "bytes": 9520,
       "faviconUrl": "https://t1.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&url=https://www.ched.gov.ph&size=128",
-      "source": "favicon"
+      "source": "favicon",
+      "cached": true
     },
     "q3-2026-aurecon-student-engineer-programme": {
       "status": "favicon",
@@ -218,7 +226,8 @@
       "contentType": "image/jpeg",
       "bytes": 9064,
       "faviconUrl": "https://t1.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&url=http://ph.prosple.com&size=128",
-      "source": "favicon"
+      "source": "favicon",
+      "cached": true
     },
     "q3-2026-dti-hackathon-2026": {
       "status": "fetched",
@@ -246,20 +255,28 @@
       "cached": true
     },
     "q3-2026-unilever-hr-internship-26": {
-      "status": "fallback",
-      "path": "/opportunities/defaults/internship.png",
+      "status": "favicon",
+      "path": "/opportunities/q3-2026-unilever-hr-internship-26.jpg",
       "pageUrl": "https://careers.unilever.com/en/job/rotterdam/hr-internship-26-generalist-and-business-partnering/34155/95252046048",
       "issueSlug": "q3-2026",
       "title": "Unilever HR Internship '26",
-      "error": "og: page HTTP 403 | screenshot: ScreenshotOne HTTP 500: {\"is_successful\":false,\"error_message\":\"If the host doesn't respond successfully within the range of 200-299 status code"
+      "contentType": "image/jpeg",
+      "bytes": 12901,
+      "faviconUrl": "https://t1.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&url=https://www.unilever.com&size=128",
+      "source": "favicon",
+      "cached": true
     },
     "q3-2026-unilever-customer-strategy-planning-internship-2": {
-      "status": "fallback",
-      "path": "/opportunities/defaults/internship.png",
+      "status": "favicon",
+      "path": "/opportunities/q3-2026-unilever-customer-strategy-planning-internship-2.jpg",
       "pageUrl": "https://careers.unilever.com/en/job/cidde/customer-strategy-and-planning-internship-2026/34155/96153764192",
       "issueSlug": "q3-2026",
       "title": "Unilever Customer Strategy & Planning Internship 2026",
-      "error": "og: page HTTP 403 | screenshot: ScreenshotOne HTTP 500: {\"is_successful\":false,\"error_message\":\"If the host doesn't respond successfully within the range of 200-299 status code"
+      "contentType": "image/jpeg",
+      "bytes": 12901,
+      "faviconUrl": "https://t1.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&url=https://www.unilever.com&size=128",
+      "source": "favicon",
+      "cached": true
     },
     "q3-2026-5g-advanced-mobile-broadband": {
       "status": "fetched",
@@ -318,12 +335,16 @@
       "cached": true
     },
     "q3-2026-munichtech-expo-ai-innovation-hackathon-2026": {
-      "status": "fallback",
-      "path": "/opportunities/defaults/hackathon.png",
+      "status": "favicon",
+      "path": "/opportunities/q3-2026-munichtech-expo-ai-innovation-hackathon-2026.jpg",
       "pageUrl": "https://dorahacks.io/hackathon/2019",
       "issueSlug": "q3-2026",
       "title": "MunichTech EXPO AI Innovation Hackathon 2026",
-      "error": "og: page HTTP 405 | screenshot: ScreenshotOne HTTP 500: {\"is_successful\":false,\"error_message\":\"If the host doesn't respond successfully within the range of 200-299 status code"
+      "contentType": "image/jpeg",
+      "bytes": 10517,
+      "faviconUrl": "https://t1.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&url=https://dorahacks.io&size=128",
+      "source": "favicon",
+      "cached": true
     },
     "q3-2026-iatss-forum-leadership-development-program-2027": {
       "status": "screenshot",
@@ -422,7 +443,8 @@
       "bytes": 33655,
       "screenshotProvider": "screenshotone",
       "screenshotUrl": "https://api.screenshotone.com/take?access_key=%5Bredacted%5D&url=https%3A%2F%2Fmodel.upou.edu.ph%2Fcourse%2Fview.php%3Fid%3D967&format=jpg&viewport_width=1200&viewport_height=630&block_ads=true&block_cookie_banners=true&block_banners_by_heuristics=false&block_trackers=true&delay=0&timeout=60&response_type=by_format&image_quality=80",
-      "source": "screenshot"
+      "source": "screenshot",
+      "cached": true
     },
     "q3-2026-learner-support-in-open-distance-elearning": {
       "status": "screenshot",
@@ -434,7 +456,8 @@
       "bytes": 33655,
       "screenshotProvider": "screenshotone",
       "screenshotUrl": "https://api.screenshotone.com/take?access_key=%5Bredacted%5D&url=https%3A%2F%2Fmodel.upou.edu.ph%2Fcourse%2Fview.php%3Fid%3D949&format=jpg&viewport_width=1200&viewport_height=630&block_ads=true&block_cookie_banners=true&block_banners_by_heuristics=false&block_trackers=true&delay=0&timeout=60&response_type=by_format&image_quality=80",
-      "source": "screenshot"
+      "source": "screenshot",
+      "cached": true
     },
     "q3-2026-institutional-mechanism-towards-child-rights-pro": {
       "status": "screenshot",
@@ -446,7 +469,8 @@
       "bytes": 33655,
       "screenshotProvider": "screenshotone",
       "screenshotUrl": "https://api.screenshotone.com/take?access_key=%5Bredacted%5D&url=https%3A%2F%2Fmodel.upou.edu.ph%2Fcourse%2Fview.php%3Fid%3D982&format=jpg&viewport_width=1200&viewport_height=630&block_ads=true&block_cookie_banners=true&block_banners_by_heuristics=false&block_trackers=true&delay=0&timeout=60&response_type=by_format&image_quality=80",
-      "source": "screenshot"
+      "source": "screenshot",
+      "cached": true
     },
     "q3-2026-understanding-school-related-gender-based-violen": {
       "status": "screenshot",
@@ -458,7 +482,8 @@
       "bytes": 33655,
       "screenshotProvider": "screenshotone",
       "screenshotUrl": "https://api.screenshotone.com/take?access_key=%5Bredacted%5D&url=https%3A%2F%2Fmodel.upou.edu.ph%2Fcourse%2Fview.php%3Fid%3D1014&format=jpg&viewport_width=1200&viewport_height=630&block_ads=true&block_cookie_banners=true&block_banners_by_heuristics=false&block_trackers=true&delay=0&timeout=60&response_type=by_format&image_quality=80",
-      "source": "screenshot"
+      "source": "screenshot",
+      "cached": true
     },
     "q3-2026-programme-or-project-intern": {
       "status": "fetched",
@@ -469,7 +494,8 @@
       "contentType": "image/jpeg",
       "bytes": 700682,
       "imageUrl": "https://www.undp.org/sites/g/files/zskgke326/files/2022-07/undp_careers_undpVA.jpg",
-      "source": "og"
+      "source": "og",
+      "cached": true
     },
     "q3-2026-amd-developer-hackathon-act-ii": {
       "status": "screenshot",
@@ -481,7 +507,8 @@
       "bytes": 94382,
       "screenshotProvider": "screenshotone",
       "screenshotUrl": "https://api.screenshotone.com/take?access_key=%5Bredacted%5D&url=https%3A%2F%2Flablab.ai%2Fai-hackathons%2Famd-developer-hackathon-act-ii&format=jpg&viewport_width=1200&viewport_height=630&block_ads=true&block_cookie_banners=true&block_banners_by_heuristics=false&block_trackers=true&delay=0&timeout=60&response_type=by_format&image_quality=80",
-      "source": "screenshot"
+      "source": "screenshot",
+      "cached": true
     },
     "q3-2026-basics-of-resilience": {
       "status": "screenshot",
@@ -493,7 +520,8 @@
       "bytes": 33655,
       "screenshotProvider": "screenshotone",
       "screenshotUrl": "https://api.screenshotone.com/take?access_key=%5Bredacted%5D&url=https%3A%2F%2Fmodel.upou.edu.ph%2Fcourse%2Fview.php%3Fid%3D991&format=jpg&viewport_width=1200&viewport_height=630&block_ads=true&block_cookie_banners=true&block_banners_by_heuristics=false&block_trackers=true&delay=0&timeout=60&response_type=by_format&image_quality=80",
-      "source": "screenshot"
+      "source": "screenshot",
+      "cached": true
     },
     "q3-2026-hazard-and-risk-assessment-fundamentals": {
       "status": "screenshot",
@@ -505,7 +533,8 @@
       "bytes": 33566,
       "screenshotProvider": "screenshotone",
       "screenshotUrl": "https://api.screenshotone.com/take?access_key=%5Bredacted%5D&url=https%3A%2F%2Fmodel.upou.edu.ph%2Fcourse%2Fview.php%3Fid%3D992&format=jpg&viewport_width=1200&viewport_height=630&block_ads=true&block_cookie_banners=true&block_banners_by_heuristics=false&block_trackers=true&delay=0&timeout=60&response_type=by_format&image_quality=80",
-      "source": "screenshot"
+      "source": "screenshot",
+      "cached": true
     },
     "q3-2026-global-hack-week-season-launch": {
       "status": "fetched",
@@ -516,7 +545,8 @@
       "contentType": "image/jpeg",
       "bytes": 117260,
       "imageUrl": "https://framerusercontent.com/images/IozWJPAHEVfK29yuPhYojswr5KE.jpg",
-      "source": "og"
+      "source": "og",
+      "cached": true
     },
     "q3-2026-business-concepts-ideation-and-the-business-plan": {
       "status": "screenshot",
@@ -528,7 +558,8 @@
       "bytes": 33655,
       "screenshotProvider": "screenshotone",
       "screenshotUrl": "https://api.screenshotone.com/take?access_key=%5Bredacted%5D&url=https%3A%2F%2Fmodel.upou.edu.ph%2Fcourse%2Fview.php%3Fid%3D983&format=jpg&viewport_width=1200&viewport_height=630&block_ads=true&block_cookie_banners=true&block_banners_by_heuristics=false&block_trackers=true&delay=0&timeout=60&response_type=by_format&image_quality=80",
-      "source": "screenshot"
+      "source": "screenshot",
+      "cached": true
     },
     "q3-2026-global-hack-week-data-week": {
       "status": "fetched",
@@ -539,7 +570,8 @@
       "contentType": "image/jpeg",
       "bytes": 117260,
       "imageUrl": "https://framerusercontent.com/images/IozWJPAHEVfK29yuPhYojswr5KE.jpg",
-      "source": "og"
+      "source": "og",
+      "cached": true
     },
     "q3-2026-outreachy-december-2026-cohort-watchlist": {
       "status": "fetched",
@@ -550,7 +582,8 @@
       "contentType": "image/png",
       "bytes": 89722,
       "imageUrl": "https://www.outreachy.org/static/outreachy-logo-open-graph-1200x1200.bda3dc7997df.png",
-      "source": "og"
+      "source": "og",
+      "cached": true
     },
     "q3-2026-global-hack-week-agents": {
       "status": "fetched",
@@ -561,7 +594,8 @@
       "contentType": "image/jpeg",
       "bytes": 117260,
       "imageUrl": "https://framerusercontent.com/images/IozWJPAHEVfK29yuPhYojswr5KE.jpg",
-      "source": "og"
+      "source": "og",
+      "cached": true
     },
     "q3-2026-5g-building-craft-mural-design-contest": {
       "status": "screenshot",
@@ -573,7 +607,8 @@
       "bytes": 89166,
       "screenshotProvider": "screenshotone",
       "screenshotUrl": "https://api.screenshotone.com/take?access_key=%5Bredacted%5D&url=https%3A%2F%2Fwww.globe.com.ph%2Fstudent-program&format=jpg&viewport_width=1200&viewport_height=630&block_ads=true&block_cookie_banners=true&block_banners_by_heuristics=false&block_trackers=true&delay=0&timeout=60&response_type=by_format&image_quality=80",
-      "source": "screenshot"
+      "source": "screenshot",
+      "cached": true
     },
     "q3-2026-ai-genesis": {
       "status": "screenshot",
@@ -585,7 +620,8 @@
       "bytes": 76366,
       "screenshotProvider": "screenshotone",
       "screenshotUrl": "https://api.screenshotone.com/take?access_key=%5Bredacted%5D&url=https%3A%2F%2Flablab.ai%2Fai-hackathons%2Fai-genesis-2026&format=jpg&viewport_width=1200&viewport_height=630&block_ads=true&block_cookie_banners=true&block_banners_by_heuristics=false&block_trackers=true&delay=0&timeout=60&response_type=by_format&image_quality=80",
-      "source": "screenshot"
+      "source": "screenshot",
+      "cached": true
     },
     "q3-2026-the-rise-of-ai-agents-hackathon": {
       "status": "screenshot",
@@ -597,7 +633,8 @@
       "bytes": 66073,
       "screenshotProvider": "screenshotone",
       "screenshotUrl": "https://api.screenshotone.com/take?access_key=%5Bredacted%5D&url=https%3A%2F%2Flablab.ai%2Fai-hackathons%2Fai-agents-ai-week-hackathon&format=jpg&viewport_width=1200&viewport_height=630&block_ads=true&block_cookie_banners=true&block_banners_by_heuristics=false&block_trackers=true&delay=0&timeout=60&response_type=by_format&image_quality=80",
-      "source": "screenshot"
+      "source": "screenshot",
+      "cached": true
     },
     "q3-2026-mlh-fellowship": {
       "status": "fetched",
@@ -608,7 +645,8 @@
       "contentType": "image/jpeg",
       "bytes": 397558,
       "imageUrl": "https://www.datocms-assets.com/59307/1638554210-general.jpg",
-      "source": "og"
+      "source": "og",
+      "cached": true
     },
     "q3-2026-globe-student-internships": {
       "status": "screenshot",
@@ -620,7 +658,8 @@
       "bytes": 89166,
       "screenshotProvider": "screenshotone",
       "screenshotUrl": "https://api.screenshotone.com/take?access_key=%5Bredacted%5D&url=https%3A%2F%2Fwww.globe.com.ph%2Fstudent-program&format=jpg&viewport_width=1200&viewport_height=630&block_ads=true&block_cookie_banners=true&block_banners_by_heuristics=false&block_trackers=true&delay=0&timeout=60&response_type=by_format&image_quality=80",
-      "source": "screenshot"
+      "source": "screenshot",
+      "cached": true
     },
     "q3-2026-globe-student-volunteer-program": {
       "status": "screenshot",
@@ -632,7 +671,8 @@
       "bytes": 95962,
       "screenshotProvider": "screenshotone",
       "screenshotUrl": "https://api.screenshotone.com/take?access_key=%5Bredacted%5D&url=https%3A%2F%2Fwww.globe.com.ph%2Fcommunity-builder%2Fstudent-volunteer-program-form&format=jpg&viewport_width=1200&viewport_height=630&block_ads=true&block_cookie_banners=true&block_banners_by_heuristics=false&block_trackers=true&delay=0&timeout=60&response_type=by_format&image_quality=80",
-      "source": "screenshot"
+      "source": "screenshot",
+      "cached": true
     },
     "q3-2026-globe-student-grants": {
       "status": "screenshot",
@@ -644,7 +684,8 @@
       "bytes": 100803,
       "screenshotProvider": "screenshotone",
       "screenshotUrl": "https://api.screenshotone.com/take?access_key=%5Bredacted%5D&url=https%3A%2F%2Fwww.globe.com.ph%2Fcommunity-builder%2Fgrants-form&format=jpg&viewport_width=1200&viewport_height=630&block_ads=true&block_cookie_banners=true&block_banners_by_heuristics=false&block_trackers=true&delay=0&timeout=60&response_type=by_format&image_quality=80",
-      "source": "screenshot"
+      "source": "screenshot",
+      "cached": true
     },
     "q3-2026-devcon-volunteer-program": {
       "status": "fetched",
@@ -655,7 +696,8 @@
       "contentType": "image/png",
       "bytes": 1287874,
       "imageUrl": "https://devcon.ph/wp-content/uploads/2025/08/DEVCON_Philippines_16years.png",
-      "source": "og"
+      "source": "og",
+      "cached": true
     },
     "q3-2026-devcon-build-beyond-code-camps": {
       "status": "fetched",
@@ -666,7 +708,8 @@
       "contentType": "image/jpeg",
       "bytes": 526261,
       "imageUrl": "https://devcon.ph/wp-content/uploads/2026/03/Dom-De-Leon-DEVCON-Michael-Lance-Domagas-DEVCON-Nicole-Gomez-Mysten-Labs-Harrison-Kim-Mysten-Labs.jpg",
-      "source": "og"
+      "source": "og",
+      "cached": true
     },
     "q3-2026-campus-devcon-programs": {
       "status": "fetched",
@@ -677,7 +720,8 @@
       "contentType": "image/png",
       "bytes": 136823,
       "imageUrl": "https://devcon.ph/wp-content/uploads/2024/09/16.png",
-      "source": "og"
+      "source": "og",
+      "cached": true
     },
     "q3-2026-ai-academy-ph-next-cohort-updates": {
       "status": "fetched",
@@ -688,7 +732,8 @@
       "contentType": "image/png",
       "bytes": 1323187,
       "imageUrl": "https://devcon.ph/wp-content/uploads/2025/04/AI-Academy.png",
-      "source": "og"
+      "source": "og",
+      "cached": true
     },
     "q3-2026-google-ai-professional-certificate": {
       "status": "fetched",
@@ -699,7 +744,8 @@
       "contentType": "image/webp",
       "bytes": 19540,
       "imageUrl": "https://www.gstatic.com/marketing-cms/assets/images/54/85/645a5a504d6e8308e6f481d34cf5/hero-lottie-desktop-v2.webp=n-w1440-h810-fcrop64=1,0000116dffffeeb2-rw",
-      "source": "og"
+      "source": "og",
+      "cached": true
     },
     "q3-2026-google-ai-essentials": {
       "status": "fetched",
@@ -710,7 +756,8 @@
       "contentType": "image/webp",
       "bytes": 19540,
       "imageUrl": "https://www.gstatic.com/marketing-cms/assets/images/54/85/645a5a504d6e8308e6f481d34cf5/hero-lottie-desktop-v2.webp=n-w1440-h810-fcrop64=1,0000116dffffeeb2-rw",
-      "source": "og"
+      "source": "og",
+      "cached": true
     },
     "q3-2026-google-cybersecurity-professional-certificate": {
       "status": "fetched",
@@ -721,7 +768,8 @@
       "contentType": "image/jpeg",
       "bytes": 103670,
       "imageUrl": "https://s3.amazonaws.com/coursera_assets/meta_images/generated/XDP/XDP~SPECIALIZATION!~google-cybersecurity/XDP~SPECIALIZATION!~google-cybersecurity.jpeg",
-      "source": "og"
+      "source": "og",
+      "cached": true
     },
     "q3-2026-google-data-analytics-professional-certificate": {
       "status": "fetched",
@@ -732,7 +780,8 @@
       "contentType": "image/jpeg",
       "bytes": 104486,
       "imageUrl": "https://s3.amazonaws.com/coursera_assets/meta_images/generated/XDP/XDP~SPECIALIZATION!~google-data-analytics/XDP~SPECIALIZATION!~google-data-analytics.jpeg",
-      "source": "og"
+      "source": "og",
+      "cached": true
     },
     "q3-2026-google-it-support-professional-certificate": {
       "status": "fetched",
@@ -743,7 +792,8 @@
       "contentType": "image/jpeg",
       "bytes": 94799,
       "imageUrl": "https://s3.amazonaws.com/coursera_assets/meta_images/generated/XDP/XDP~SPECIALIZATION!~google-it-support/XDP~SPECIALIZATION!~google-it-support.jpeg",
-      "source": "og"
+      "source": "og",
+      "cached": true
     },
     "q3-2026-google-ux-design-professional-certificate": {
       "status": "fetched",
@@ -754,7 +804,8 @@
       "contentType": "image/jpeg",
       "bytes": 97308,
       "imageUrl": "https://s3.amazonaws.com/coursera_assets/meta_images/generated/XDP/XDP~SPECIALIZATION!~google-ux-design/XDP~SPECIALIZATION!~google-ux-design.jpeg",
-      "source": "og"
+      "source": "og",
+      "cached": true
     },
     "q3-2026-google-project-management-professional-certifica": {
       "status": "fetched",
@@ -765,7 +816,8 @@
       "contentType": "image/jpeg",
       "bytes": 115373,
       "imageUrl": "https://s3.amazonaws.com/coursera_assets/meta_images/generated/XDP/XDP~SPECIALIZATION!~google-project-management/XDP~SPECIALIZATION!~google-project-management.jpeg",
-      "source": "og"
+      "source": "og",
+      "cached": true
     },
     "q3-2026-google-digital-marketing-and-e-commerce-professi": {
       "status": "fetched",
@@ -776,7 +828,8 @@
       "contentType": "image/jpeg",
       "bytes": 129053,
       "imageUrl": "https://s3.amazonaws.com/coursera_assets/meta_images/generated/XDP/XDP~SPECIALIZATION!~google-digital-marketing-ecommerce/XDP~SPECIALIZATION!~google-digital-marketing-ecommerce.jpeg",
-      "source": "og"
+      "source": "og",
+      "cached": true
     },
     "q3-2026-google-it-automation-with-python-professional-ce": {
       "status": "fetched",
@@ -787,7 +840,8 @@
       "contentType": "image/jpeg",
       "bytes": 116161,
       "imageUrl": "https://s3.amazonaws.com/coursera_assets/meta_images/generated/XDP/XDP~SPECIALIZATION!~google-it-automation/XDP~SPECIALIZATION!~google-it-automation.jpeg",
-      "source": "og"
+      "source": "og",
+      "cached": true
     },
     "q3-2026-google-business-intelligence-professional-certif": {
       "status": "fetched",
@@ -798,7 +852,8 @@
       "contentType": "image/jpeg",
       "bytes": 114818,
       "imageUrl": "https://s3.amazonaws.com/coursera_assets/meta_images/generated/XDP/XDP~SPECIALIZATION!~google-business-intelligence/XDP~SPECIALIZATION!~google-business-intelligence.jpeg",
-      "source": "og"
+      "source": "og",
+      "cached": true
     },
     "q3-2026-google-advanced-data-analytics-professional-cert": {
       "status": "fetched",
@@ -809,7 +864,8 @@
       "contentType": "image/jpeg",
       "bytes": 120792,
       "imageUrl": "https://s3.amazonaws.com/coursera_assets/meta_images/generated/XDP/XDP~SPECIALIZATION!~google-advanced-data-analytics/XDP~SPECIALIZATION!~google-advanced-data-analytics.jpeg",
-      "source": "og"
+      "source": "og",
+      "cached": true
     },
     "q3-2026-visual-graphic-design-nc-iii": {
       "status": "screenshot",
@@ -821,7 +877,8 @@
       "bytes": 55513,
       "screenshotProvider": "screenshotone",
       "screenshotUrl": "https://api.screenshotone.com/take?access_key=%5Bredacted%5D&url=https%3A%2F%2Fe-tesda.gov.ph%2Fcourse%2Findex.php%3Fcategoryid%3D1524&format=jpg&viewport_width=1200&viewport_height=630&block_ads=true&block_cookie_banners=true&block_banners_by_heuristics=false&block_trackers=true&delay=0&timeout=60&response_type=by_format&image_quality=80",
-      "source": "screenshot"
+      "source": "screenshot",
+      "cached": true
     },
     "q3-2026-content-creation-social-media-level-iii": {
       "status": "screenshot",
@@ -833,7 +890,8 @@
       "bytes": 97328,
       "screenshotProvider": "screenshotone",
       "screenshotUrl": "https://api.screenshotone.com/take?access_key=%5Bredacted%5D&url=https%3A%2F%2Fe-tesda.gov.ph%2Fcourse%2Findex.php%3Fcategoryid%3D1789&format=jpg&viewport_width=1200&viewport_height=630&block_ads=true&block_cookie_banners=true&block_banners_by_heuristics=false&block_trackers=true&delay=0&timeout=60&response_type=by_format&image_quality=80",
-      "source": "screenshot"
+      "source": "screenshot",
+      "cached": true
     },
     "q3-2026-digital-marketing-level-iii": {
       "status": "screenshot",
@@ -845,7 +903,8 @@
       "bytes": 51790,
       "screenshotProvider": "screenshotone",
       "screenshotUrl": "https://api.screenshotone.com/take?access_key=%5Bredacted%5D&url=https%3A%2F%2Fe-tesda.gov.ph%2Fcourse%2Findex.php%3Fcategoryid%3D2004&format=jpg&viewport_width=1200&viewport_height=630&block_ads=true&block_cookie_banners=true&block_banners_by_heuristics=false&block_trackers=true&delay=0&timeout=60&response_type=by_format&image_quality=80",
-      "source": "screenshot"
+      "source": "screenshot",
+      "cached": true
     },
     "q3-2026-start-and-improve-your-business": {
       "status": "screenshot",
@@ -857,7 +916,8 @@
       "bytes": 57223,
       "screenshotProvider": "screenshotone",
       "screenshotUrl": "https://api.screenshotone.com/take?access_key=%5Bredacted%5D&url=https%3A%2F%2Fe-tesda.gov.ph%2Fcourse%2Findex.php%3Fcategoryid%3D1321&format=jpg&viewport_width=1200&viewport_height=630&block_ads=true&block_cookie_banners=true&block_banners_by_heuristics=false&block_trackers=true&delay=0&timeout=60&response_type=by_format&image_quality=80",
-      "source": "screenshot"
+      "source": "screenshot",
+      "cached": true
     },
     "q3-2026-establishing-and-operating-micro-small-medium-en": {
       "status": "screenshot",
@@ -869,7 +929,8 @@
       "bytes": 47468,
       "screenshotProvider": "screenshotone",
       "screenshotUrl": "https://api.screenshotone.com/take?access_key=%5Bredacted%5D&url=https%3A%2F%2Fe-tesda.gov.ph%2Fcourse%2Findex.php%3Fcategoryid%3D17&format=jpg&viewport_width=1200&viewport_height=630&block_ads=true&block_cookie_banners=true&block_banners_by_heuristics=false&block_trackers=true&delay=0&timeout=60&response_type=by_format&image_quality=80",
-      "source": "screenshot"
+      "source": "screenshot",
+      "cached": true
     },
     "q3-2026-istar-program": {
       "status": "screenshot",
@@ -881,7 +942,8 @@
       "bytes": 74873,
       "screenshotProvider": "screenshotone",
       "screenshotUrl": "https://api.screenshotone.com/take?access_key=%5Bredacted%5D&url=https%3A%2F%2Fe-tesda.gov.ph%2Fcourse%2Findex.php%3Fcategoryid%3D2026&format=jpg&viewport_width=1200&viewport_height=630&block_ads=true&block_cookie_banners=true&block_banners_by_heuristics=false&block_trackers=true&delay=0&timeout=60&response_type=by_format&image_quality=80",
-      "source": "screenshot"
+      "source": "screenshot",
+      "cached": true
     },
     "q3-2026-microsoft-cybersecurity-course-security-complian": {
       "status": "screenshot",
@@ -893,7 +955,8 @@
       "bytes": 86967,
       "screenshotProvider": "screenshotone",
       "screenshotUrl": "https://api.screenshotone.com/take?access_key=%5Bredacted%5D&url=https%3A%2F%2Fe-tesda.gov.ph%2Fcourse%2Findex.php%3Fcategoryid%3D21&format=jpg&viewport_width=1200&viewport_height=630&block_ads=true&block_cookie_banners=true&block_banners_by_heuristics=false&block_trackers=true&delay=0&timeout=60&response_type=by_format&image_quality=80",
-      "source": "screenshot"
+      "source": "screenshot",
+      "cached": true
     },
     "q3-2026-microsoft-artificial-intelligence-course-azure-a": {
       "status": "screenshot",
@@ -905,7 +968,8 @@
       "bytes": 86975,
       "screenshotProvider": "screenshotone",
       "screenshotUrl": "https://api.screenshotone.com/take?access_key=%5Bredacted%5D&url=https%3A%2F%2Fe-tesda.gov.ph%2Fcourse%2Findex.php%3Fcategoryid%3D21&format=jpg&viewport_width=1200&viewport_height=630&block_ads=true&block_cookie_banners=true&block_banners_by_heuristics=false&block_trackers=true&delay=0&timeout=60&response_type=by_format&image_quality=80",
-      "source": "screenshot"
+      "source": "screenshot",
+      "cached": true
     },
     "q3-2026-ibm-skillsbuild-via-tesda": {
       "status": "screenshot",
@@ -917,7 +981,529 @@
       "bytes": 86975,
       "screenshotProvider": "screenshotone",
       "screenshotUrl": "https://api.screenshotone.com/take?access_key=%5Bredacted%5D&url=https%3A%2F%2Fe-tesda.gov.ph%2Fcourse%2Findex.php%3Fcategoryid%3D21&format=jpg&viewport_width=1200&viewport_height=630&block_ads=true&block_cookie_banners=true&block_banners_by_heuristics=false&block_trackers=true&delay=0&timeout=60&response_type=by_format&image_quality=80",
-      "source": "screenshot"
+      "source": "screenshot",
+      "cached": true
+    },
+    "q3-2026-fusespark-meet-up-philippines": {
+      "status": "screenshot",
+      "path": "/opportunities/q3-2026-fusespark-meet-up-philippines.jpg",
+      "pageUrl": "https://luma.com/86zkwtk4",
+      "issueSlug": "q3-2026",
+      "title": "FuseSpark Meet-up Philippines",
+      "contentType": "image/jpeg",
+      "bytes": 96403,
+      "screenshotProvider": "screenshotone",
+      "screenshotUrl": "https://api.screenshotone.com/take?access_key=%5Bredacted%5D&url=https%3A%2F%2Fluma.com%2F86zkwtk4&format=jpg&viewport_width=1200&viewport_height=630&block_ads=true&block_cookie_banners=true&block_banners_by_heuristics=false&block_trackers=true&delay=0&timeout=60&response_type=by_format&image_quality=80",
+      "source": "screenshot",
+      "cached": true
+    },
+    "q3-2026-sip-scale-x-notion": {
+      "status": "screenshot",
+      "path": "/opportunities/q3-2026-sip-scale-x-notion.jpg",
+      "pageUrl": "https://luma.com/1hgy08gv",
+      "issueSlug": "q3-2026",
+      "title": "Sip & Scale x Notion",
+      "contentType": "image/jpeg",
+      "bytes": 83557,
+      "screenshotProvider": "screenshotone",
+      "screenshotUrl": "https://api.screenshotone.com/take?access_key=%5Bredacted%5D&url=https%3A%2F%2Fluma.com%2F1hgy08gv&format=jpg&viewport_width=1200&viewport_height=630&block_ads=true&block_cookie_banners=true&block_banners_by_heuristics=false&block_trackers=true&delay=0&timeout=60&response_type=by_format&image_quality=80",
+      "source": "screenshot",
+      "cached": true
+    },
+    "q3-2026-huawei-cloud-developer-group-kickoff-event": {
+      "status": "screenshot",
+      "path": "/opportunities/q3-2026-huawei-cloud-developer-group-kickoff-event.jpg",
+      "pageUrl": "https://luma.com/gflpq80z",
+      "issueSlug": "q3-2026",
+      "title": "Huawei Cloud Developer Group — Kickoff Event",
+      "contentType": "image/jpeg",
+      "bytes": 84136,
+      "screenshotProvider": "screenshotone",
+      "screenshotUrl": "https://api.screenshotone.com/take?access_key=%5Bredacted%5D&url=https%3A%2F%2Fluma.com%2Fgflpq80z&format=jpg&viewport_width=1200&viewport_height=630&block_ads=true&block_cookie_banners=true&block_banners_by_heuristics=false&block_trackers=true&delay=0&timeout=60&response_type=by_format&image_quality=80",
+      "source": "screenshot",
+      "cached": true
+    },
+    "q3-2026-celestial-effervescence-serverless-apis-with-lam": {
+      "status": "screenshot",
+      "path": "/opportunities/q3-2026-celestial-effervescence-serverless-apis-with-lam.jpg",
+      "pageUrl": "https://luma.com/98i2gzm9",
+      "issueSlug": "q3-2026",
+      "title": "Celestial Effervescence: Serverless APIs with Lambda + API Gateway",
+      "contentType": "image/jpeg",
+      "bytes": 96841,
+      "screenshotProvider": "screenshotone",
+      "screenshotUrl": "https://api.screenshotone.com/take?access_key=%5Bredacted%5D&url=https%3A%2F%2Fluma.com%2F98i2gzm9&format=jpg&viewport_width=1200&viewport_height=630&block_ads=true&block_cookie_banners=true&block_banners_by_heuristics=false&block_trackers=true&delay=0&timeout=60&response_type=by_format&image_quality=80",
+      "source": "screenshot",
+      "cached": true
+    },
+    "q3-2026-build-nights-design-to-code-workshop": {
+      "status": "screenshot",
+      "path": "/opportunities/q3-2026-build-nights-design-to-code-workshop.jpg",
+      "pageUrl": "https://luma.com/wycpkuj7",
+      "issueSlug": "q3-2026",
+      "title": "Build Nights: Design to Code Workshop",
+      "contentType": "image/jpeg",
+      "bytes": 68522,
+      "screenshotProvider": "screenshotone",
+      "screenshotUrl": "https://api.screenshotone.com/take?access_key=%5Bredacted%5D&url=https%3A%2F%2Fluma.com%2Fwycpkuj7&format=jpg&viewport_width=1200&viewport_height=630&block_ads=true&block_cookie_banners=true&block_banners_by_heuristics=false&block_trackers=true&delay=0&timeout=60&response_type=by_format&image_quality=80",
+      "source": "screenshot",
+      "cached": true
+    },
+    "q3-2026-tech-a-muna-ep-9-beyond-the-hype-ai-that-actuall": {
+      "status": "screenshot",
+      "path": "/opportunities/q3-2026-tech-a-muna-ep-9-beyond-the-hype-ai-that-actuall.jpg",
+      "pageUrl": "https://luma.com/zup6cnf1",
+      "issueSlug": "q3-2026",
+      "title": "Tech-a Muna Ep. 9: Beyond the Hype — AI That Actually Works",
+      "contentType": "image/jpeg",
+      "bytes": 86575,
+      "screenshotProvider": "screenshotone",
+      "screenshotUrl": "https://api.screenshotone.com/take?access_key=%5Bredacted%5D&url=https%3A%2F%2Fluma.com%2Fzup6cnf1&format=jpg&viewport_width=1200&viewport_height=630&block_ads=true&block_cookie_banners=true&block_banners_by_heuristics=false&block_trackers=true&delay=0&timeout=60&response_type=by_format&image_quality=80",
+      "source": "screenshot",
+      "cached": true
+    },
+    "q3-2026-fortify-ai-cybersecurity-strategy-for-bulletproo": {
+      "status": "screenshot",
+      "path": "/opportunities/q3-2026-fortify-ai-cybersecurity-strategy-for-bulletproo.jpg",
+      "pageUrl": "https://luma.com/bfn0iv2l",
+      "issueSlug": "q3-2026",
+      "title": "FORTIFY: AI Cybersecurity Strategy for Bulletproof Growth",
+      "contentType": "image/jpeg",
+      "bytes": 91769,
+      "screenshotProvider": "screenshotone",
+      "screenshotUrl": "https://api.screenshotone.com/take?access_key=%5Bredacted%5D&url=https%3A%2F%2Fluma.com%2Fbfn0iv2l&format=jpg&viewport_width=1200&viewport_height=630&block_ads=true&block_cookie_banners=true&block_banners_by_heuristics=false&block_trackers=true&delay=0&timeout=60&response_type=by_format&image_quality=80",
+      "source": "screenshot",
+      "cached": true
+    },
+    "q3-2026-build-with-gemini-xprize": {
+      "status": "fetched",
+      "path": "/opportunities/q3-2026-build-with-gemini-xprize.png",
+      "pageUrl": "https://xprize.devpost.com/",
+      "issueSlug": "q3-2026",
+      "title": "Build with Gemini XPRIZE",
+      "contentType": "image/png",
+      "bytes": 90775,
+      "imageUrl": "https://d112y698adiu2z.cloudfront.net/photos/production/challenge_thumbnails/004/686/462/datas/original.png",
+      "source": "og",
+      "cached": true
+    },
+    "q3-2026-h0-hack-the-zero-stack-with-vercel-v0-and-aws-da": {
+      "status": "fetched",
+      "path": "/opportunities/q3-2026-h0-hack-the-zero-stack-with-vercel-v0-and-aws-da.png",
+      "pageUrl": "https://h01.devpost.com/",
+      "issueSlug": "q3-2026",
+      "title": "H0: Hack the Zero Stack with Vercel v0 and AWS Databases",
+      "contentType": "image/png",
+      "bytes": 914977,
+      "imageUrl": "https://d112y698adiu2z.cloudfront.net/photos/production/challenge_thumbnails/004/686/189/datas/original.png",
+      "source": "og",
+      "cached": true
+    },
+    "q3-2026-global-ai-hackathon-series-with-qwen-cloud": {
+      "status": "fetched",
+      "path": "/opportunities/q3-2026-global-ai-hackathon-series-with-qwen-cloud.png",
+      "pageUrl": "https://qwencloud-hackathon.devpost.com/",
+      "issueSlug": "q3-2026",
+      "title": "Global AI Hackathon Series with Qwen Cloud",
+      "contentType": "image/png",
+      "bytes": 773908,
+      "imageUrl": "https://d112y698adiu2z.cloudfront.net/photos/production/challenge_thumbnails/004/706/870/datas/original.png",
+      "source": "og",
+      "cached": true
+    },
+    "q3-2026-uipath-agenthack": {
+      "status": "fetched",
+      "path": "/opportunities/q3-2026-uipath-agenthack.jpg",
+      "pageUrl": "https://uipath-agenthack.devpost.com/",
+      "issueSlug": "q3-2026",
+      "title": "UiPath AgentHack",
+      "contentType": "image/jpeg",
+      "bytes": 366835,
+      "imageUrl": "https://d112y698adiu2z.cloudfront.net/photos/production/challenge_thumbnails/004/624/515/datas/original.jpg",
+      "source": "og",
+      "cached": true
+    },
+    "q3-2026-slack-agent-builder-challenge": {
+      "status": "fetched",
+      "path": "/opportunities/q3-2026-slack-agent-builder-challenge.png",
+      "pageUrl": "https://slackhack.devpost.com/",
+      "issueSlug": "q3-2026",
+      "title": "Slack Agent Builder Challenge",
+      "contentType": "image/png",
+      "bytes": 394280,
+      "imageUrl": "https://d112y698adiu2z.cloudfront.net/photos/production/challenge_thumbnails/004/685/418/datas/original.png",
+      "source": "og",
+      "cached": true
+    },
+    "q3-2026-gitlab-transcend-hackathon": {
+      "status": "fetched",
+      "path": "/opportunities/q3-2026-gitlab-transcend-hackathon.png",
+      "pageUrl": "https://gitlab-transcend.devpost.com/",
+      "issueSlug": "q3-2026",
+      "title": "GitLab Transcend Hackathon",
+      "contentType": "image/png",
+      "bytes": 3811529,
+      "imageUrl": "https://d112y698adiu2z.cloudfront.net/photos/production/challenge_thumbnails/004/732/516/datas/original.png",
+      "source": "og",
+      "cached": true
+    },
+    "q3-2026-arm-create-ai-optimization-challenge": {
+      "status": "fetched",
+      "path": "/opportunities/q3-2026-arm-create-ai-optimization-challenge.png",
+      "pageUrl": "https://arm-ai-optimization-challenge.devpost.com/",
+      "issueSlug": "q3-2026",
+      "title": "Arm Create: AI Optimization Challenge",
+      "contentType": "image/png",
+      "bytes": 32281,
+      "imageUrl": "https://d112y698adiu2z.cloudfront.net/photos/production/challenge_thumbnails/004/715/320/datas/original.png",
+      "source": "og",
+      "cached": true
+    },
+    "q3-2026-youth-code-x-ai": {
+      "status": "fetched",
+      "path": "/opportunities/q3-2026-youth-code-x-ai.png",
+      "pageUrl": "https://youth-code-x-ai-29376.devpost.com/",
+      "issueSlug": "q3-2026",
+      "title": "Youth Code x AI",
+      "contentType": "image/png",
+      "bytes": 232371,
+      "imageUrl": "https://d112y698adiu2z.cloudfront.net/photos/production/challenge_thumbnails/004/495/640/datas/original.png",
+      "source": "og",
+      "cached": true
+    },
+    "q3-2026-luma-hackathon-july-3rd-10th": {
+      "status": "fetched",
+      "path": "/opportunities/q3-2026-luma-hackathon-july-3rd-10th.gif",
+      "pageUrl": "https://luma-hackathon-500.devpost.com/",
+      "issueSlug": "q3-2026",
+      "title": "LUMA Hackathon (July 3rd - 10th)",
+      "contentType": "image/gif",
+      "bytes": 14926,
+      "imageUrl": "https://d2dmyh35ffsxbl.cloudfront.net/assets/defaults/thumbnail-placeholder-8c916ef4da99a222ce6ece077c71c7e282f071f830747b2abb5718018cbfa699.gif",
+      "source": "og",
+      "cached": true
+    },
+    "q3-2026-backblaze-generative-media-hackathon-build-with-": {
+      "status": "fetched",
+      "path": "/opportunities/q3-2026-backblaze-generative-media-hackathon-build-with-.png",
+      "pageUrl": "https://backblaze-generative-media.devpost.com/",
+      "issueSlug": "q3-2026",
+      "title": "Backblaze Generative Media Hackathon: Build with Genblaze on B2",
+      "contentType": "image/png",
+      "bytes": 1361838,
+      "imageUrl": "https://d112y698adiu2z.cloudfront.net/photos/production/challenge_thumbnails/004/780/573/datas/original.png",
+      "source": "og",
+      "cached": true
+    },
+    "q3-2026-creator-colosseum-startup-competition-student-fo": {
+      "status": "fetched",
+      "path": "/opportunities/q3-2026-creator-colosseum-startup-competition-student-fo.png",
+      "pageUrl": "https://creatorcolosseum.devpost.com/",
+      "issueSlug": "q3-2026",
+      "title": "Creator Colosseum Startup Competition: Student Founders. Real Startups.",
+      "contentType": "image/png",
+      "bytes": 387011,
+      "imageUrl": "https://d112y698adiu2z.cloudfront.net/photos/production/challenge_thumbnails/004/601/771/datas/original.png",
+      "source": "og",
+      "cached": true
+    },
+    "q3-2026-phystech-2026-physical-activity-and-technology-h": {
+      "status": "fetched",
+      "path": "/opportunities/q3-2026-phystech-2026-physical-activity-and-technology-h.png",
+      "pageUrl": "https://phystech-2026.devpost.com/",
+      "issueSlug": "q3-2026",
+      "title": "PhysTech 2026: Physical Activity and Technology Hack Day",
+      "contentType": "image/png",
+      "bytes": 505498,
+      "imageUrl": "https://d112y698adiu2z.cloudfront.net/photos/production/challenge_thumbnails/004/273/831/datas/original.png",
+      "source": "og",
+      "cached": true
+    },
+    "q3-2026-volthacks": {
+      "status": "fetched",
+      "path": "/opportunities/q3-2026-volthacks.png",
+      "pageUrl": "https://volthacks.devpost.com/",
+      "issueSlug": "q3-2026",
+      "title": "VoltHacks",
+      "contentType": "image/png",
+      "bytes": 1409274,
+      "imageUrl": "https://d112y698adiu2z.cloudfront.net/photos/production/challenge_thumbnails/004/620/967/datas/original.png",
+      "source": "og",
+      "cached": true
+    },
+    "q3-2026-build-the-future-with-ai-from-code-to-no-code": {
+      "status": "fetched",
+      "path": "/opportunities/q3-2026-build-the-future-with-ai-from-code-to-no-code.png",
+      "pageUrl": "https://build-the-future-with-ai.devpost.com/",
+      "issueSlug": "q3-2026",
+      "title": "Build the Future with AI — From Code to No-Code",
+      "contentType": "image/png",
+      "bytes": 1747054,
+      "imageUrl": "https://d112y698adiu2z.cloudfront.net/photos/production/challenge_thumbnails/004/631/974/datas/original.png",
+      "source": "og",
+      "cached": true
+    },
+    "q3-2026-github-readme-generation": {
+      "status": "fetched",
+      "path": "/opportunities/q3-2026-github-readme-generation.png",
+      "pageUrl": "https://github-readme-generation.devpost.com/",
+      "issueSlug": "q3-2026",
+      "title": "Github readme generation",
+      "contentType": "image/png",
+      "bytes": 15830,
+      "imageUrl": "https://d112y698adiu2z.cloudfront.net/photos/production/challenge_thumbnails/004/601/116/datas/original.png",
+      "source": "og",
+      "cached": true
+    },
+    "q3-2026-moonshot-hackathon": {
+      "status": "fetched",
+      "path": "/opportunities/q3-2026-moonshot-hackathon.png",
+      "pageUrl": "https://moonshot-aethra.devpost.com/",
+      "issueSlug": "q3-2026",
+      "title": "Moonshot Hackathon",
+      "contentType": "image/png",
+      "bytes": 1015177,
+      "imageUrl": "https://d112y698adiu2z.cloudfront.net/photos/production/challenge_thumbnails/004/714/753/datas/original.png",
+      "source": "og",
+      "cached": true
+    },
+    "q3-2026-hoobit-hacks-2026": {
+      "status": "fetched",
+      "path": "/opportunities/q3-2026-hoobit-hacks-2026.png",
+      "pageUrl": "https://hoobit-hacks-2026.devpost.com/",
+      "issueSlug": "q3-2026",
+      "title": "Hoobit Hacks 2026",
+      "contentType": "image/png",
+      "bytes": 1251245,
+      "imageUrl": "https://d112y698adiu2z.cloudfront.net/photos/production/challenge_thumbnails/004/517/588/datas/original.png",
+      "source": "og",
+      "cached": true
+    },
+    "q3-2026-futureai-global-hackathon-2026": {
+      "status": "fetched",
+      "path": "/opportunities/q3-2026-futureai-global-hackathon-2026.png",
+      "pageUrl": "https://futureai-global-hackthon.devpost.com/",
+      "issueSlug": "q3-2026",
+      "title": "FutureAI Global Hackathon 2026",
+      "contentType": "image/png",
+      "bytes": 2137973,
+      "imageUrl": "https://d112y698adiu2z.cloudfront.net/photos/production/challenge_thumbnails/004/714/391/datas/original.png",
+      "source": "og",
+      "cached": true
+    },
+    "q3-2026-global-tech-innovation-2026": {
+      "status": "fetched",
+      "path": "/opportunities/q3-2026-global-tech-innovation-2026.png",
+      "pageUrl": "https://global-tech-innovation-2026.devpost.com/",
+      "issueSlug": "q3-2026",
+      "title": "Global Tech Innovation 2026",
+      "contentType": "image/png",
+      "bytes": 2128993,
+      "imageUrl": "https://d112y698adiu2z.cloudfront.net/photos/production/challenge_thumbnails/004/738/257/datas/original.png",
+      "source": "og",
+      "cached": true
+    },
+    "q3-2026-built-with-python-hackathon": {
+      "status": "fetched",
+      "path": "/opportunities/q3-2026-built-with-python-hackathon.png",
+      "pageUrl": "https://built-with-python-hackathon.devpost.com/",
+      "issueSlug": "q3-2026",
+      "title": "Built with Python Hackathon",
+      "contentType": "image/png",
+      "bytes": 8608,
+      "imageUrl": "https://d112y698adiu2z.cloudfront.net/photos/production/challenge_thumbnails/004/719/768/datas/original.png",
+      "source": "og",
+      "cached": true
+    },
+    "q3-2026-brainwave-2026": {
+      "status": "fetched",
+      "path": "/opportunities/q3-2026-brainwave-2026.png",
+      "pageUrl": "https://brainwaves.devpost.com/",
+      "issueSlug": "q3-2026",
+      "title": "Brainwave 2026",
+      "contentType": "image/png",
+      "bytes": 3069688,
+      "imageUrl": "https://d112y698adiu2z.cloudfront.net/photos/production/challenge_thumbnails/004/758/895/datas/original.png",
+      "source": "og",
+      "cached": true
+    },
+    "q3-2026-build-with-gemini": {
+      "status": "fetched",
+      "path": "/opportunities/q3-2026-build-with-gemini.png",
+      "pageUrl": "https://build-with-gemini-0.devpost.com/",
+      "issueSlug": "q3-2026",
+      "title": "Build with Gemini",
+      "contentType": "image/png",
+      "bytes": 3009548,
+      "imageUrl": "https://d112y698adiu2z.cloudfront.net/photos/production/challenge_thumbnails/004/709/147/datas/original.png",
+      "source": "og",
+      "cached": true
+    },
+    "q3-2026-assistive-innovation-challenge-2026": {
+      "status": "fetched",
+      "path": "/opportunities/q3-2026-assistive-innovation-challenge-2026.png",
+      "pageUrl": "https://assistive-innovation-challenge.devpost.com/",
+      "issueSlug": "q3-2026",
+      "title": "Assistive Innovation Challenge 2026",
+      "contentType": "image/png",
+      "bytes": 149351,
+      "imageUrl": "https://d112y698adiu2z.cloudfront.net/photos/production/challenge_thumbnails/004/638/851/datas/original.png",
+      "source": "og",
+      "cached": true
+    },
+    "q3-2026-glitched-games": {
+      "status": "fetched",
+      "path": "/opportunities/q3-2026-glitched-games.png",
+      "pageUrl": "https://glitch-to-win-games.devpost.com/",
+      "issueSlug": "q3-2026",
+      "title": "GLITCHED GAMES",
+      "contentType": "image/png",
+      "bytes": 2024115,
+      "imageUrl": "https://d112y698adiu2z.cloudfront.net/photos/production/challenge_thumbnails/004/572/176/datas/original.png",
+      "source": "og",
+      "cached": true
+    },
+    "q3-2026-cyber-coders": {
+      "status": "fetched",
+      "path": "/opportunities/q3-2026-cyber-coders.png",
+      "pageUrl": "https://cybercoders2026.devpost.com/",
+      "issueSlug": "q3-2026",
+      "title": "Cyber_Coders",
+      "contentType": "image/png",
+      "bytes": 2034574,
+      "imageUrl": "https://d112y698adiu2z.cloudfront.net/photos/production/challenge_thumbnails/004/758/075/datas/original.png",
+      "source": "og",
+      "cached": true
+    },
+    "q3-2026-innovatorsx-startup-sprint": {
+      "status": "fetched",
+      "path": "/opportunities/q3-2026-innovatorsx-startup-sprint.png",
+      "pageUrl": "https://innovatorsx.devpost.com/",
+      "issueSlug": "q3-2026",
+      "title": "InnovatorsX: Startup Sprint",
+      "contentType": "image/png",
+      "bytes": 941698,
+      "imageUrl": "https://d112y698adiu2z.cloudfront.net/photos/production/challenge_thumbnails/004/734/095/datas/original.png",
+      "source": "og",
+      "cached": true
+    },
+    "q3-2026-next-byte-hacks-v3": {
+      "status": "fetched",
+      "path": "/opportunities/q3-2026-next-byte-hacks-v3.jpg",
+      "pageUrl": "https://next-byte-hacks-v3.devpost.com/",
+      "issueSlug": "q3-2026",
+      "title": "Next Byte Hacks V3",
+      "contentType": "image/jpeg",
+      "bytes": 104773,
+      "imageUrl": "https://d112y698adiu2z.cloudfront.net/photos/production/challenge_thumbnails/004/747/325/datas/original.jpg",
+      "source": "og",
+      "cached": true
+    },
+    "q3-2026-hyperbloom-summer-hackathon": {
+      "status": "fetched",
+      "path": "/opportunities/q3-2026-hyperbloom-summer-hackathon.png",
+      "pageUrl": "https://hyperbloom-summer-hackathon.devpost.com/",
+      "issueSlug": "q3-2026",
+      "title": "Hyperbloom Summer Hackathon",
+      "contentType": "image/png",
+      "bytes": 10618,
+      "imageUrl": "https://d112y698adiu2z.cloudfront.net/photos/production/challenge_thumbnails/004/731/729/datas/original.png",
+      "source": "og",
+      "cached": true
+    },
+    "q3-2026-1st-nature-s-blueprint-ideathon-2026": {
+      "status": "fetched",
+      "path": "/opportunities/q3-2026-1st-nature-s-blueprint-ideathon-2026.png",
+      "pageUrl": "https://naturesblueprint.devpost.com/",
+      "issueSlug": "q3-2026",
+      "title": "1st Nature's Blueprint Ideathon 2026 !!",
+      "contentType": "image/png",
+      "bytes": 2575309,
+      "imageUrl": "https://d112y698adiu2z.cloudfront.net/photos/production/challenge_thumbnails/004/696/134/datas/original.png",
+      "source": "og",
+      "cached": true
+    },
+    "q3-2026-hack-begin": {
+      "status": "fetched",
+      "path": "/opportunities/q3-2026-hack-begin.jpg",
+      "pageUrl": "https://hack-begin.devpost.com/",
+      "issueSlug": "q3-2026",
+      "title": "Hack Begin",
+      "contentType": "image/jpeg",
+      "bytes": 47349,
+      "imageUrl": "https://d112y698adiu2z.cloudfront.net/photos/production/challenge_thumbnails/004/708/497/datas/original.jpg",
+      "source": "og",
+      "cached": true
+    },
+    "q3-2026-acesat-education-ai-agent": {
+      "status": "fetched",
+      "path": "/opportunities/q3-2026-acesat-education-ai-agent.png",
+      "pageUrl": "https://acesat-ai-agent.devpost.com/",
+      "issueSlug": "q3-2026",
+      "title": "AceSAT Education AI-Agent",
+      "contentType": "image/png",
+      "bytes": 451517,
+      "imageUrl": "https://d112y698adiu2z.cloudfront.net/photos/production/challenge_thumbnails/004/753/015/datas/original.png",
+      "source": "og",
+      "cached": true
+    },
+    "q3-2026-web-champ": {
+      "status": "fetched",
+      "path": "/opportunities/q3-2026-web-champ.png",
+      "pageUrl": "https://web-champ.devpost.com/",
+      "issueSlug": "q3-2026",
+      "title": "Web Champ",
+      "contentType": "image/png",
+      "bytes": 2061449,
+      "imageUrl": "https://d112y698adiu2z.cloudfront.net/photos/production/challenge_thumbnails/004/776/618/datas/original.png",
+      "source": "og",
+      "cached": true
+    },
+    "q3-2026-aqx-sports-analytics-hackathon": {
+      "status": "fetched",
+      "path": "/opportunities/q3-2026-aqx-sports-analytics-hackathon.png",
+      "pageUrl": "https://aqxanalytics.devpost.com/",
+      "issueSlug": "q3-2026",
+      "title": "AQX Sports Analytics Hackathon",
+      "contentType": "image/png",
+      "bytes": 1197597,
+      "imageUrl": "https://d112y698adiu2z.cloudfront.net/photos/production/challenge_thumbnails/004/743/224/datas/original.png",
+      "source": "og",
+      "cached": true
+    },
+    "q3-2026-ventura-challenge": {
+      "status": "fetched",
+      "path": "/opportunities/q3-2026-ventura-challenge.png",
+      "pageUrl": "https://ventura-challenge.devpost.com/",
+      "issueSlug": "q3-2026",
+      "title": "Ventura Challenge",
+      "contentType": "image/png",
+      "bytes": 127892,
+      "imageUrl": "https://d112y698adiu2z.cloudfront.net/photos/production/challenge_thumbnails/004/522/870/datas/original.png",
+      "source": "og",
+      "cached": true
+    },
+    "q3-2026-unesco-youth-hackathon-2026-media-and-informatio": {
+      "status": "fetched",
+      "path": "/opportunities/q3-2026-unesco-youth-hackathon-2026-media-and-informatio.webp",
+      "pageUrl": "https://www.unesco.org/en/articles/unesco-youth-hackathon-2026",
+      "issueSlug": "q3-2026",
+      "title": "UNESCO Youth Hackathon 2026: Media and Information Literacy",
+      "contentType": "image/webp",
+      "bytes": 31190,
+      "imageUrl": "https://www.unesco.org/sites/default/files/styles/best_image/article/2026-06/Visuals%20-%202026%20%282%29.png.webp?itok=6w2gjt79",
+      "source": "og"
+    },
+    "q3-2026-asean-data-science-explorers-2026": {
+      "status": "favicon",
+      "path": "/opportunities/q3-2026-asean-data-science-explorers-2026.jpg",
+      "pageUrl": "https://aseandse.org/registration/",
+      "issueSlug": "q3-2026",
+      "title": "ASEAN Data Science Explorers 2026",
+      "contentType": "image/jpeg",
+      "bytes": 10514,
+      "faviconUrl": "https://t1.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&url=https://aseandse.org&size=128",
+      "source": "favicon"
     }
   }
 }

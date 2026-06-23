@@ -28,11 +28,11 @@ function loadOpportunityImages() {
 }
 
 export const OPPORTUNITY_TYPE_DEFAULT_IMAGES = {
-  hackathon: "/opportunities/defaults/hackathon.png",
-  internship: "/opportunities/defaults/internship.png",
-  event: "/opportunities/defaults/event.png",
+  hackathon: "/opportunities/defaults/hackathon.svg",
+  internship: "/opportunities/defaults/internship.svg",
+  event: "/opportunities/defaults/event.svg",
   certificate: "/opportunities/defaults/certificate.svg",
-  program: "/opportunities/defaults/program.jpg",
+  program: "/opportunities/defaults/program.svg",
 };
 
 export const OPPORTUNITY_TYPES = {
@@ -142,6 +142,83 @@ export function getOpportunityImagePresentation(item) {
   }
 
   return { className: "" };
+}
+
+const BEGINNER_BLURB_SIGNALS = [
+  /beginner[- ]friendly/i,
+  /\bbeginners\b/i,
+  /no prior(?: \w+)? experience required/i,
+  /no experience required/i,
+  /\bon-?ramp\b/i,
+  /starter for learners/i,
+  /good for .+ beginners/i,
+  /self-paced free courses/i,
+  /lighter entry point/i,
+  /without needing a formal/i,
+];
+
+const NOT_BEGINNER_BLURB = [
+  /already have some/i,
+  /(?:stronger )?next-step option/i,
+  /CPD program/i,
+  /telco pro/i,
+];
+
+const BEGINNER_TITLE_SIGNALS = [
+  /^Introduction to /i,
+  /^Basics of /i,
+  /^Learner Support in /i,
+  /\bEssentials\b/,
+  /\bIT Support Professional Certificate\b/,
+];
+
+/** Explicit `beginnerFriendly` wins; otherwise infer from title/blurb. */
+export function isOpportunityBeginnerFriendly(item) {
+  if (item.beginnerFriendly === true) {
+    return true;
+  }
+  if (item.beginnerFriendly === false) {
+    return false;
+  }
+
+  const title = item.title ?? "";
+  const blurb = item.blurb ?? "";
+
+  if (/\bAdvanced\b/i.test(title)) {
+    return false;
+  }
+
+  if (
+    NOT_BEGINNER_BLURB.some((pattern) => pattern.test(blurb)) &&
+    !/no prior(?: \w+)? experience required/i.test(blurb)
+  ) {
+    return false;
+  }
+
+  if (BEGINNER_BLURB_SIGNALS.some((pattern) => pattern.test(blurb))) {
+    return true;
+  }
+
+  if (BEGINNER_TITLE_SIGNALS.some((pattern) => pattern.test(title))) {
+    return true;
+  }
+
+  if (
+    item.type === "certificate" &&
+    /Professional Certificate/.test(title) &&
+    !/IT Automation|Advanced/.test(title) &&
+    /entry|foundation|students and early-career|career-shifters|side hustles|first-job|junior professionals|design-entry|structured training/i.test(
+      blurb,
+    )
+  ) {
+    return true;
+  }
+
+  if (item.type === "certificate" && /MOOC|MODeL/i.test(`${title} ${blurb}`)) {
+    return true;
+  }
+
+  return false;
 }
 
 export function formatBoardUpdated(date) {
@@ -298,6 +375,34 @@ function formatCalendarMonthLabel(monthKey) {
   });
 }
 
+export function getTodayManilaDateKey() {
+  return new Intl.DateTimeFormat("en-CA", { timeZone: MANILA_TZ }).format(
+    new Date(),
+  );
+}
+
+export function formatCalendarDayHeading(dateKey) {
+  const [year, month, day] = dateKey.split("-").map(Number);
+  return new Date(Date.UTC(year, month - 1, day)).toLocaleDateString("en-US", {
+    weekday: "long",
+    month: "short",
+    day: "numeric",
+    timeZone: "UTC",
+  });
+}
+
+export function groupEventsByDateKey(events) {
+  const map = new Map();
+  for (const event of events) {
+    if (!map.has(event.dateKey)) {
+      map.set(event.dateKey, []);
+    }
+    map.get(event.dateKey).push(event);
+  }
+
+  return [...map.entries()].sort(([a], [b]) => a.localeCompare(b));
+}
+
 /** Flatten item dates into sorted calendar events (Manila time). */
 export function buildOpportunityCalendarEvents(items) {
   const events = [];
@@ -352,20 +457,26 @@ export function groupCalendarEventsByMonth(events) {
     }));
 }
 
-/** @deprecated Use buildOpportunityCalendarEvents */
+/** Month metadata + grid layout data for the opportunity calendar. */
+export function buildCalendarMonths(events) {
+  return groupCalendarEventsByMonth(events).map(
+    ({ monthKey, label, events: monthEvents }) => {
+      const [year, month] = monthKey.split("-").map(Number);
+      return {
+        monthKey,
+        label,
+        year,
+        monthIndex: month - 1,
+        events: monthEvents,
+        eventsByDay: groupEventsByDay(monthEvents),
+      };
+    },
+  );
+}
+
+/** @deprecated Use buildCalendarMonths */
 export function buildIssueCalendarMonths(items) {
-  const events = buildOpportunityCalendarEvents(items);
-  return groupCalendarEventsByMonth(events).map(({ monthKey, label, events: monthEvents }) => {
-    const [year, month] = monthKey.split("-").map(Number);
-    return {
-      monthKey,
-      label,
-      year,
-      monthIndex: month - 1,
-      events: monthEvents,
-      eventsByDay: groupEventsByDay(monthEvents),
-    };
-  });
+  return buildCalendarMonths(buildOpportunityCalendarEvents(items));
 }
 
 function groupEventsByDay(events) {
