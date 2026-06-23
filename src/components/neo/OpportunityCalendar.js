@@ -10,7 +10,7 @@ import {
   isDatePast,
 } from "@/data/opportunities";
 
-const GRID_CHIP_LIMIT = 3;
+const GRID_CHIP_LIMIT = 2;
 
 function truncateTitle(title, max = 42) {
   if (title.length <= max) {
