@@ -637,6 +637,68 @@ export function getOpportunityType(type) {
   };
 }
 
+const OPPORTUNITY_FORMATS = {
+  online: { kind: "online", label: "Online", shortLabel: "Online" },
+  hybrid: { kind: "hybrid", label: "Hybrid", shortLabel: "Hybrid" },
+  onsite: { kind: "onsite", label: "In person", shortLabel: "F2F" },
+};
+
+/** Online / hybrid / in-person from free-text location field. */
+export function getOpportunityFormat(location) {
+  if (!location?.trim()) {
+    return null;
+  }
+
+  const loc = location.trim();
+  const lower = loc.toLowerCase();
+
+  if (/\bhybrid\b/.test(lower)) {
+    return OPPORTUNITY_FORMATS.hybrid;
+  }
+
+  const isOnlineish = /\b(online|remote|livestream|virtual)\b/.test(lower);
+  if (!isOnlineish) {
+    return OPPORTUNITY_FORMATS.onsite;
+  }
+
+  const onlineSlash = /^online\s*\/\s*(.+)$/i.exec(loc);
+  if (onlineSlash) {
+    const place = onlineSlash[1].trim().toLowerCase();
+    if (place === "philippines" || place === "ph") {
+      return OPPORTUNITY_FORMATS.online;
+    }
+    return OPPORTUNITY_FORMATS.hybrid;
+  }
+
+  return OPPORTUNITY_FORMATS.online;
+}
+
+/** Physical place label — omits redundant "Online" when format pill covers it. */
+export function getOpportunityPlaceLabel(location) {
+  if (!location?.trim()) {
+    return null;
+  }
+
+  const loc = location.trim();
+  if (/^(online|remote)$/i.test(loc)) {
+    return null;
+  }
+
+  const stripped = loc
+    .replace(/^online\s*\/\s*/i, "")
+    .replace(/^hybrid\s*\/\s*/i, "")
+    .replace(/\s*\/\s*hybrid\s*$/i, "")
+    .replace(/\bhybrid\b\s*/gi, "")
+    .replace(/^remote\s*\/\s*/i, "")
+    .trim();
+
+  if (!stripped || /^(online|remote)$/i.test(stripped)) {
+    return null;
+  }
+
+  return stripped;
+}
+
 export function groupIssueItemsByType(items) {
   const groups = new Map();
   for (const item of items) {
@@ -697,3 +759,108 @@ export function formatOpportunityDate(date, endDate) {
 export function isDatePast(date) {
   return new Date(date).getTime() < Date.now();
 }
+
+function toManilaDateKey(iso) {
+  return new Intl.DateTimeFormat("en-CA", { timeZone: MANILA_TZ }).format(
+    new Date(iso),
+  );
+}
+
+function formatCalendarMonthLabel(monthKey) {
+  const [year, month] = monthKey.split("-").map(Number);
+  return new Date(Date.UTC(year, month - 1, 1)).toLocaleDateString("en-US", {
+    month: "long",
+    year: "numeric",
+    timeZone: "UTC",
+  });
+}
+
+/** Flatten item dates into calendar events, grouped by month (Manila time). */
+export function buildIssueCalendarMonths(items, issueSlug) {
+  const events = [];
+
+  for (const item of items) {
+    if (!item.dates?.length) {
+      continue;
+    }
+
+    for (const entry of item.dates) {
+      if (!entry.date) {
+        continue;
+      }
+
+      const dateKey = toManilaDateKey(entry.date);
+      events.push({
+        id: `${getOpportunityId(issueSlug, item)}-${entry.label}-${dateKey}`,
+        dateKey,
+        endDateKey: entry.endDate ? toManilaDateKey(entry.endDate) : null,
+        isoDate: entry.date,
+        endDate: entry.endDate ?? null,
+        label: entry.label,
+        title: item.title,
+        url: item.url,
+        type: item.type,
+      });
+    }
+  }
+
+  events.sort(
+    (a, b) =>
+      a.dateKey.localeCompare(b.dateKey) || a.title.localeCompare(b.title),
+  );
+
+  const monthMap = new Map();
+  for (const event of events) {
+    const monthKey = event.dateKey.slice(0, 7);
+    if (!monthMap.has(monthKey)) {
+      monthMap.set(monthKey, []);
+    }
+    monthMap.get(monthKey).push(event);
+  }
+
+  return [...monthMap.entries()]
+    .sort(([a], [b]) => a.localeCompare(b))
+    .map(([monthKey, monthEvents]) => {
+      const [year, month] = monthKey.split("-").map(Number);
+      return {
+        monthKey,
+        label: formatCalendarMonthLabel(monthKey),
+        year,
+        monthIndex: month - 1,
+        events: monthEvents,
+        eventsByDay: groupEventsByDay(monthEvents),
+      };
+    });
+}
+
+function groupEventsByDay(events) {
+  const map = new Map();
+  for (const event of events) {
+    if (!map.has(event.dateKey)) {
+      map.set(event.dateKey, []);
+    }
+    map.get(event.dateKey).push(event);
+  }
+  return map;
+}
+
+export function getMonthGridCells(year, monthIndex) {
+  const firstWeekday = new Date(Date.UTC(year, monthIndex, 1)).getUTCDay();
+  const daysInMonth = new Date(Date.UTC(year, monthIndex + 1, 0)).getUTCDate();
+  const cells = [];
+
+  for (let i = 0; i < firstWeekday; i++) {
+    cells.push(null);
+  }
+
+  for (let day = 1; day <= daysInMonth; day++) {
+    const month = String(monthIndex + 1).padStart(2, "0");
+    const dayStr = String(day).padStart(2, "0");
+    cells.push(`${year}-${month}-${dayStr}`);
+  }
+
+  return cells;
+}
+
+const CALENDAR_WEEKDAYS = ["Su", "Mo", "Tu", "We", "Th", "Fr", "Sa"];
+export { CALENDAR_WEEKDAYS };

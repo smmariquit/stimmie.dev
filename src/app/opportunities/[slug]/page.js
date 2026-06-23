@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { notFound } from "next/navigation";
+import OpportunityCalendar from "@/components/neo/OpportunityCalendar";
 import OpportunityCard from "@/components/neo/OpportunityCard";
 import PageShell from "@/components/neo/PageShell";
 import {
@@ -94,6 +95,8 @@ export default async function OpportunityIssuePage({ params }) {
           );
         })}
       </div>
+
+      <OpportunityCalendar issueSlug={issue.slug} items={issue.items} />
     </PageShell>
   );
 }

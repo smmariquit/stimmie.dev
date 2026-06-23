@@ -1,11 +1,29 @@
 import Image from "next/image";
 import {
   formatOpportunityDate,
+  getOpportunityFormat,
+  getOpportunityPlaceLabel,
   getOpportunityType,
   getPrimaryOpportunityDate,
   isDatePast,
   resolveOpportunityImage,
 } from "@/data/opportunities";
+
+function FormatPill({ format, className = "" }) {
+  if (!format) {
+    return null;
+  }
+
+  return (
+    <span
+      className={`neo-format-pill neo-format-${format.kind} ${className}`.trim()}
+      title={format.label}
+    >
+      <span className="neo-format-dot" aria-hidden="true" />
+      {format.shortLabel}
+    </span>
+  );
+}
 
 function OpportunityPrimaryDate({ dates }) {
   const primary = getPrimaryOpportunityDate(dates);
@@ -28,6 +46,8 @@ function OpportunityPrimaryDate({ dates }) {
 
 export default function OpportunityCard({ item, issueSlug }) {
   const type = getOpportunityType(item.type);
+  const format = getOpportunityFormat(item.location);
+  const place = getOpportunityPlaceLabel(item.location);
   const imageSrc = resolveOpportunityImage(issueSlug, item);
   const isDefaultImage = imageSrc.includes("/opportunities/defaults/");
 
@@ -37,7 +57,7 @@ export default function OpportunityCard({ item, issueSlug }) {
       target="_blank"
       rel="noopener noreferrer"
       className={`neo-media-card neo-opportunity-card neo-opportunity-card--${item.type} group block h-full`}
-      aria-label={`Open opportunity: ${item.title}`}
+      aria-label={`Open opportunity: ${item.title}${format ? ` (${format.label})` : ""}`}
     >
       <article>
         <div className="neo-opportunity-thumb relative">
@@ -56,6 +76,12 @@ export default function OpportunityCard({ item, issueSlug }) {
           >
             {type.label}
           </span>
+          {format ? (
+            <FormatPill
+              format={format}
+              className="neo-opportunity-format-badge"
+            />
+          ) : null}
         </div>
 
         <div className="mt-2">
@@ -63,13 +89,33 @@ export default function OpportunityCard({ item, issueSlug }) {
             {item.title}
           </p>
 
-          {(item.org || item.location) && (
+          {item.org ? (
             <p
-              className="m-0 mt-1 text-sm neo-muted neo-opportunity-meta"
+              className="m-0 mt-1 text-sm neo-muted neo-opportunity-org"
               style={{ fontFamily: "var(--neo-ui)" }}
             >
-              {[item.org, item.location].filter(Boolean).join(" · ")}
+              {item.org}
             </p>
+          ) : null}
+
+          {(format || place) && (
+            <div className="neo-opportunity-location-row m-0 mt-1.5">
+              {place ? (
+                <span className="neo-location-pill" title={place}>
+                  <span className="neo-location-icon" aria-hidden="true">
+                    ⌖
+                  </span>
+                  <span className="neo-location-text">{place}</span>
+                </span>
+              ) : format?.kind === "online" ? (
+                <span className="neo-location-pill neo-location-pill--online">
+                  <span className="neo-location-icon" aria-hidden="true">
+                    ⊕
+                  </span>
+                  <span className="neo-location-text">Worldwide</span>
+                </span>
+              ) : null}
+            </div>
           )}
 
           <OpportunityPrimaryDate dates={item.dates} />

@@ -1355,6 +1355,100 @@ body {
   box-shadow: 2px 2px 0 #000;
 }
 
+.neo-opportunity-format-badge {
+  position: absolute;
+  top: 0.5rem;
+  right: 0.5rem;
+  box-shadow: 2px 2px 0 #000;
+}
+
+.neo-format-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+  font-family: var(--neo-ui);
+  font-size: 0.65rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  padding: 0.12rem 0.45rem;
+  border: 2px solid #000;
+  line-height: 1.2;
+  white-space: nowrap;
+}
+
+.neo-format-dot {
+  width: 0.5rem;
+  height: 0.5rem;
+  border-radius: 50%;
+  border: 1.5px solid currentColor;
+  flex-shrink: 0;
+}
+
+.neo-format-online {
+  background: #d4f4ff;
+  color: #005a7a;
+}
+
+.neo-format-online .neo-format-dot {
+  background: #00b8e6;
+}
+
+.neo-format-hybrid {
+  background: #fff6cc;
+  color: #6a5200;
+}
+
+.neo-format-hybrid .neo-format-dot {
+  background: linear-gradient(135deg, #00b8e6 50%, #ffb800 50%);
+}
+
+.neo-format-onsite {
+  background: #ffe8dc;
+  color: #7a2800;
+}
+
+.neo-format-onsite .neo-format-dot {
+  background: #ff6b35;
+}
+
+.neo-opportunity-location-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.35rem 0.5rem;
+}
+
+.neo-location-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.2rem;
+  font-family: var(--neo-ui);
+  font-size: 0.75rem;
+  color: #444;
+  max-width: 100%;
+}
+
+.neo-location-pill--online {
+  color: #005a7a;
+}
+
+.neo-location-icon {
+  font-size: 0.85rem;
+  line-height: 1;
+  flex-shrink: 0;
+}
+
+.neo-location-text {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.neo-opportunity-org {
+  line-height: 1.35;
+}
+
 .neo-opportunity-card {
   border-top: 3px solid transparent;
 }
@@ -1398,6 +1492,214 @@ body {
   -webkit-box-orient: vertical;
   overflow: hidden;
   color: #333;
+}
+
+/* ── Opportunity calendar ─────────────────────────────────────────── */
+
+.neo-opportunity-calendar {
+  margin-top: 3rem;
+  padding-top: 2rem;
+  border-top: 3px dashed #d6008f;
+}
+
+.neo-cal-heading {
+  font-family: var(--neo-pixel);
+  font-size: 1.5rem;
+  color: var(--neo-accent-red);
+  margin: 0 0 0.5rem;
+}
+
+.neo-cal-intro {
+  font-family: var(--neo-ui);
+  font-size: 0.9rem;
+  margin: 0 0 1rem;
+}
+
+.neo-cal-legend {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem 1rem;
+  margin-bottom: 1.5rem;
+  font-family: var(--neo-ui);
+  font-size: 0.75rem;
+}
+
+.neo-cal-legend-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+}
+
+.neo-cal-months {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.neo-cal-month-title {
+  font-family: var(--neo-pixel);
+  font-size: 1.15rem;
+  margin: 0 0 0.75rem;
+  color: #1a1a1a;
+}
+
+.neo-cal-grid {
+  display: grid;
+  grid-template-columns: repeat(7, minmax(0, 1fr));
+  gap: 2px;
+  border: 2px solid #000;
+  background: #000;
+  margin-bottom: 1rem;
+}
+
+.neo-cal-weekday {
+  font-family: var(--neo-ui);
+  font-size: 0.65rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  text-align: center;
+  padding: 0.35rem 0.15rem;
+  background: #f0f0f0;
+  color: #555;
+}
+
+.neo-cal-day {
+  min-height: 3.25rem;
+  background: #fff;
+  padding: 0.25rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
+}
+
+.neo-cal-day--empty {
+  background: #fafafa;
+}
+
+.neo-cal-day--today {
+  background: #fffce8;
+  box-shadow: inset 0 0 0 2px #000;
+}
+
+.neo-cal-day--past {
+  background: #f8f8f8;
+}
+
+.neo-cal-day--past .neo-cal-day-num {
+  color: #999;
+}
+
+.neo-cal-day-num {
+  font-family: var(--neo-ui);
+  font-size: 0.75rem;
+  font-weight: 700;
+  line-height: 1;
+}
+
+.neo-cal-dots {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 2px;
+  margin-top: auto;
+}
+
+.neo-cal-dot {
+  width: 0.45rem;
+  height: 0.45rem;
+  border-radius: 50%;
+  border: 1px solid #000;
+  flex-shrink: 0;
+}
+
+.neo-cal-dot--hackathon {
+  background: #3ddc84;
+}
+
+.neo-cal-dot--internship {
+  background: #6eb5ff;
+}
+
+.neo-cal-dot--program {
+  background: #ff8ec8;
+}
+
+.neo-cal-dot--event {
+  background: #ffe566;
+}
+
+.neo-cal-dot--certificate {
+  background: #c9a0ff;
+}
+
+.neo-cal-dot-more {
+  font-family: var(--neo-ui);
+  font-size: 0.55rem;
+  font-weight: 700;
+  color: #666;
+  line-height: 1;
+}
+
+.neo-cal-agenda {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.neo-cal-agenda-item {
+  display: grid;
+  grid-template-columns: minmax(7rem, 9rem) 1fr;
+  gap: 0.5rem 0.75rem;
+  align-items: start;
+  padding: 0.5rem 0;
+  border-bottom: 1px dashed #ddd;
+}
+
+.neo-cal-agenda-item--past {
+  opacity: 0.65;
+}
+
+.neo-cal-agenda-date {
+  font-family: ui-monospace, "Cascadia Code", monospace;
+  font-size: 0.75rem;
+  color: #555;
+  white-space: nowrap;
+}
+
+.neo-cal-agenda-link {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 0.35rem 0.5rem;
+  text-decoration: none;
+  color: inherit;
+}
+
+.neo-cal-agenda-link:hover .neo-cal-agenda-title {
+  color: #cc0066;
+}
+
+.neo-cal-agenda-title {
+  font-weight: 700;
+  font-size: 0.95rem;
+}
+
+.neo-cal-agenda-label {
+  font-family: var(--neo-ui);
+  font-size: 0.75rem;
+  color: #666;
+  width: 100%;
+}
+
+@media (max-width: 480px) {
+  .neo-cal-agenda-item {
+    grid-template-columns: 1fr;
+    gap: 0.25rem;
+  }
+
+  .neo-cal-day {
+    min-height: 2.5rem;
+  }
 }
 
 /* ── Visitor counter digits ───────────────────────────────────────── */
