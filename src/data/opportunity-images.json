@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-06-23T17:52:00.830Z",
+  "generatedAt": "2026-06-23T18:16:16.910Z",
   "images": {
     "q3-2026-aws-ai-ml-scholars-program": {
       "status": "screenshot",
@@ -65,14 +65,14 @@
     },
     "q3-2026-bagong-pilipinas-merit-scholarship-program-2026": {
       "status": "screenshot",
-      "path": "/opportunities/q3-2026-bagong-pilipinas-merit-scholarship-program-2026.png",
+      "path": "/opportunities/q3-2026-bagong-pilipinas-merit-scholarship-program-2026.jpg",
       "pageUrl": "https://bpms.ched.gov.ph/",
       "issueSlug": "q3-2026",
       "title": "Bagong Pilipinas Merit Scholarship Program 2026",
-      "contentType": "image/png",
-      "bytes": 77172,
-      "screenshotProvider": "microlink",
-      "screenshotUrl": "https://iad.microlink.io/1l2vUdFg--Fttzyu3MZvuLrUe82zw-rseeUdq3jPwvAhm8vzIFxPcs_Zv2cxYa1O6Ck6RIMLXSRuZUi7uDUPsQ.png",
+      "contentType": "image/jpeg",
+      "bytes": 29527,
+      "screenshotProvider": "screenshotone",
+      "screenshotUrl": "https://api.screenshotone.com/take?access_key=%5Bredacted%5D&url=https%3A%2F%2Fwww.ched.gov.ph%2F&format=jpg&viewport_width=1200&viewport_height=630&block_ads=true&block_cookie_banners=true&block_banners_by_heuristics=false&block_trackers=true&delay=0&timeout=60&response_type=by_format&image_quality=80",
       "source": "screenshot"
     },
     "q3-2026-adb-japan-scholarship-program": {
@@ -113,7 +113,7 @@
       "pageUrl": "https://ph.usembassy.gov/notice-of-funding-opportunity-nofo-young-southeast-asian-leaders-initiative-yseali-summit-2026/",
       "issueSlug": "q3-2026",
       "title": "YSEALI Summit 2026",
-      "error": "og: no og:image or twitter:image found | screenshot: ScreenshotOne HTTP 500: {\"is_successful\":false,\"error_message\":\"The error happens when the API can't connect to the provided URL. It might mean "
+      "error": "og: fetch failed | screenshot: ScreenshotOne HTTP 400: {\"is_successful\":false,\"error_message\":\"Usually, the error happens when the domain name of the requested URL is not reso"
     },
     "q3-2026-up-diliman-graduate-programs-admission-1st-sem": {
       "status": "fetched",
@@ -137,14 +137,14 @@
     },
     "q3-2026-reddit-s-games-with-a-hook-hackathon": {
       "status": "screenshot",
-      "path": "/opportunities/q3-2026-reddit-s-games-with-a-hook-hackathon.png",
+      "path": "/opportunities/q3-2026-reddit-s-games-with-a-hook-hackathon.jpg",
       "pageUrl": "https://www.reddit.com/r/Devvit/comments/1u8f6r4/announcing_our_reddits_games_with_a_hook_virtual/",
       "issueSlug": "q3-2026",
       "title": "Reddit's Games with a Hook Hackathon",
-      "contentType": "image/png",
-      "bytes": 138568,
-      "screenshotProvider": "microlink",
-      "screenshotUrl": "https://iad.microlink.io/Af28KBVWzqppk91yWY_VAYUhKqNCQn5oG7dDUB94GSYgs4aZOujbBDtLBPRv-o52EaL3dfDgaT9r2AB8LKEFNw.png",
+      "contentType": "image/jpeg",
+      "bytes": 88159,
+      "screenshotProvider": "screenshotone",
+      "screenshotUrl": "https://api.screenshotone.com/take?access_key=%5Bredacted%5D&url=https%3A%2F%2Fdevelopers.reddit.com%2Fdocs%2F&format=jpg&viewport_width=1200&viewport_height=630&block_ads=true&block_cookie_banners=true&block_banners_by_heuristics=false&block_trackers=true&delay=0&timeout=60&response_type=by_format&image_quality=80",
       "source": "screenshot"
     },
     "q3-2026-github-readme-generation-hackathon": {
@@ -189,14 +189,14 @@
     },
     "q3-2026-ched-merit-scholarship-program-cmsp": {
       "status": "screenshot",
-      "path": "/opportunities/q3-2026-ched-merit-scholarship-program-cmsp.png",
+      "path": "/opportunities/q3-2026-ched-merit-scholarship-program-cmsp.jpg",
       "pageUrl": "https://caraga.ched.gov.ph/ched-scholarship-program-csp/",
       "issueSlug": "q3-2026",
       "title": "CHED Merit Scholarship Program (CMSP)",
-      "contentType": "image/png",
-      "bytes": 607256,
-      "screenshotProvider": "microlink",
-      "screenshotUrl": "https://iad.microlink.io/PqTzH88lZ06uiXelIQvswNHlslWAWVHl8BWFgaiRSjWCiT4iaS6OO6XGSyRIltniNN2QT95QpZ1bNcsa0qjPzg.png",
+      "contentType": "image/jpeg",
+      "bytes": 29534,
+      "screenshotProvider": "screenshotone",
+      "screenshotUrl": "https://api.screenshotone.com/take?access_key=%5Bredacted%5D&url=https%3A%2F%2Fwww.ched.gov.ph%2F&format=jpg&viewport_width=1200&viewport_height=630&block_ads=true&block_cookie_banners=true&block_banners_by_heuristics=false&block_trackers=true&delay=0&timeout=60&response_type=by_format&image_quality=80",
       "source": "screenshot"
     },
     "q3-2026-aurecon-student-engineer-programme": {
@@ -212,16 +212,15 @@
       "source": "screenshot"
     },
     "q3-2026-dti-hackathon-2026": {
-      "status": "screenshot",
+      "status": "fetched",
       "path": "/opportunities/q3-2026-dti-hackathon-2026.png",
       "pageUrl": "https://www.startupnetworks.co.uk/links/link/30310-dti-hackathon-2026/",
       "issueSlug": "q3-2026",
       "title": "DTI Hackathon 2026",
       "contentType": "image/png",
-      "bytes": 185002,
-      "screenshotProvider": "microlink",
-      "screenshotUrl": "https://iad.microlink.io/ecSycppsljJ9bU3GY_GAMmJYWQCch3Fv-irZhLjWf5Tf7G9YidGPURWodnJaVKsB6k8OG_YCow83tfglDcaFSg.png",
-      "source": "screenshot"
+      "bytes": 58784,
+      "imageUrl": "https://www.dti.gov.ph/wp-content/uploads/2025/10/site-image.png",
+      "source": "og"
     },
     "q3-2026-asean-ai-hackathon-2026-awarding-closing-ceremon": {
       "status": "screenshot",
@@ -236,26 +235,20 @@
       "source": "screenshot"
     },
     "q3-2026-unilever-hr-internship-26": {
-      "status": "fetched",
-      "path": "/opportunities/q3-2026-unilever-hr-internship-26.jpg",
+      "status": "fallback",
+      "path": "/opportunities/defaults/internship.png",
       "pageUrl": "https://careers.unilever.com/en/job/rotterdam/hr-internship-26-generalist-and-business-partnering/34155/95252046048",
-      "imageUrl": "https://tbcdn.talentbrew.com/company/34155/gst_v1/img/uni-og-image-2.jpg",
-      "contentType": "image/jpeg",
-      "bytes": 36030,
       "issueSlug": "q3-2026",
-      "title": "Unilever HR Internship '26"
+      "title": "Unilever HR Internship '26",
+      "error": "og: page HTTP 403 | screenshot: ScreenshotOne HTTP 500: {\"is_successful\":false,\"error_message\":\"If the host doesn't respond successfully within the range of 200-299 status code"
     },
     "q3-2026-unilever-customer-strategy-planning-internship-2": {
-      "status": "screenshot",
-      "path": "/opportunities/q3-2026-unilever-customer-strategy-planning-internship-2.png",
+      "status": "fallback",
+      "path": "/opportunities/defaults/internship.png",
       "pageUrl": "https://careers.unilever.com/en/job/cidde/customer-strategy-and-planning-internship-2026/34155/96153764192",
       "issueSlug": "q3-2026",
       "title": "Unilever Customer Strategy & Planning Internship 2026",
-      "contentType": "image/png",
-      "bytes": 1351696,
-      "screenshotProvider": "microlink",
-      "screenshotUrl": "https://iad.microlink.io/Psag78EbjrP4-wfc0AkIZhwa53Fn6CYycK4JOOPE7hv-KxQjfMgcWP9AnN1R6DOEOwqcXn9FlyoPgtp8T5dPcg.png",
-      "source": "screenshot"
+      "error": "og: page HTTP 403 | screenshot: ScreenshotOne HTTP 500: {\"is_successful\":false,\"error_message\":\"If the host doesn't respond successfully within the range of 200-299 status code"
     },
     "q3-2026-5g-advanced-mobile-broadband": {
       "status": "fetched",
@@ -288,16 +281,15 @@
       "title": "MARS Internship Program (September 2026 Intake)"
     },
     "q3-2026-l-oreal-ph-management-trainee-september-intake": {
-      "status": "screenshot",
-      "path": "/opportunities/q3-2026-l-oreal-ph-management-trainee-september-intake.png",
+      "status": "fetched",
+      "path": "/opportunities/q3-2026-l-oreal-ph-management-trainee-september-intake.jpg",
       "pageUrl": "https://careers.loreal.com/",
       "issueSlug": "q3-2026",
       "title": "L'Oréal PH Management Trainee (September Intake)",
-      "contentType": "image/png",
-      "bytes": 77668,
-      "screenshotProvider": "microlink",
-      "screenshotUrl": "https://iad.microlink.io/TtuWNtowpfOVLWXm6WzcXNAihCsG3HA7LJ_vr9zOVjW4o56etyQMqEfdWd-vIR8WmDHarG-B_EK_T_DymObqUA.png",
-      "source": "screenshot"
+      "contentType": "image/jpeg",
+      "bytes": 101934,
+      "imageUrl": "https://www.loreal.com/-/media/project/loreal/brand-sites/corp/master/lcorp/2-group/about-loreal/our-purpose/landing-page/hero.jpg?rev=b4d2f5da1a19480cab68ce83a7c368ed",
+      "source": "og"
     },
     "q3-2026-dsu-devhack-3-0": {
       "status": "fetched",
@@ -310,16 +302,12 @@
       "title": "DSU DevHack 3.0"
     },
     "q3-2026-munichtech-expo-ai-innovation-hackathon-2026": {
-      "status": "screenshot",
-      "path": "/opportunities/q3-2026-munichtech-expo-ai-innovation-hackathon-2026.png",
+      "status": "fallback",
+      "path": "/opportunities/defaults/hackathon.png",
       "pageUrl": "https://dorahacks.io/hackathon/2019",
       "issueSlug": "q3-2026",
       "title": "MunichTech EXPO AI Innovation Hackathon 2026",
-      "contentType": "image/png",
-      "bytes": 58428,
-      "screenshotProvider": "microlink",
-      "screenshotUrl": "https://iad.microlink.io/kJV7v82wLwsqYjIPYbHOCslCVCWs7-yQaecejRwP_dC4Ue2IOcJ7PPrEQjWh0AeeylNYqe5k00T8k2Gt6PmZdA.png",
-      "source": "screenshot"
+      "error": "og: page HTTP 405 | screenshot: ScreenshotOne HTTP 500: {\"is_successful\":false,\"error_message\":\"If the host doesn't respond successfully within the range of 200-299 status code"
     },
     "q3-2026-iatss-forum-leadership-development-program-2027": {
       "status": "screenshot",
@@ -334,56 +322,60 @@
       "source": "screenshot"
     },
     "q3-2026-luxasia-2026-internships": {
-      "status": "fallback",
-      "path": "/opportunities/defaults/internship.png",
-      "pageUrl": "https://ph.prosple.com/internships-philippines",
+      "status": "fetched",
+      "path": "/opportunities/q3-2026-luxasia-2026-internships.jpg",
+      "pageUrl": "https://www.luxasia.com/",
       "issueSlug": "q3-2026",
       "title": "LUXASIA 2026 Internships",
-      "error": "og: page HTTP 403 | screenshot: Microlink HTTP 408"
+      "contentType": "image/jpeg",
+      "bytes": 25588,
+      "imageUrl": "https://www.luxasia.com/wp-content/uploads/2022/11/og-img.jpg",
+      "source": "og"
     },
     "q3-2026-phoenix-petroleum-operational-excellence-intern": {
-      "status": "screenshot",
-      "path": "/opportunities/q3-2026-phoenix-petroleum-operational-excellence-intern.png",
-      "pageUrl": "https://ph.prosple.com/internships-philippines",
+      "status": "fetched",
+      "path": "/opportunities/q3-2026-phoenix-petroleum-operational-excellence-intern.jpg",
+      "pageUrl": "https://www.phoenixfuels.ph/careers",
       "issueSlug": "q3-2026",
       "title": "Phoenix Petroleum Operational Excellence Intern",
-      "contentType": "image/png",
-      "bytes": 20495,
-      "screenshotProvider": "microlink",
-      "screenshotUrl": "https://iad.microlink.io/Zq7su9XuWcfxu7kxcmn9btDkMrwkfs15qm3dyuMH_CkJl6tvCqZsnYAm8r_e9zW9ERL051rL2-cTi09GDxw5Zw.png",
-      "source": "screenshot"
+      "contentType": "image/jpeg",
+      "bytes": 207732,
+      "imageUrl": "https://www.phoenixfuels.ph/wp-content/uploads/2020/04/MG_3088-1.jpg",
+      "source": "og"
     },
     "q3-2026-monde-nissin-mondexplore-internship-program": {
-      "status": "screenshot",
+      "status": "fetched",
       "path": "/opportunities/q3-2026-monde-nissin-mondexplore-internship-program.png",
-      "pageUrl": "https://ph.prosple.com/internships-philippines",
+      "pageUrl": "https://www.mondenissin.com/careers/",
       "issueSlug": "q3-2026",
       "title": "Monde Nissin MondeXplore Internship Program",
       "contentType": "image/png",
-      "bytes": 7603,
-      "screenshotProvider": "microlink",
-      "screenshotUrl": "https://iad.microlink.io/Zq7su9XuWcfxu7kxcmn9btDkMrwkfs15qm3dyuMH_CkJl6tvCqZsnYAm8r_e9zW9ERL051rL2-cTi09GDxw5Zw.png",
-      "source": "screenshot"
+      "bytes": 39706,
+      "imageUrl": "https://mondenissin.com/wp-content/uploads/2021/01/cropped-MNC-Logo-3.png",
+      "source": "og"
     },
     "q3-2026-globe-telecom-technology-innovation-internship": {
-      "status": "fallback",
-      "path": "/opportunities/defaults/internship.png",
-      "pageUrl": "https://ph.prosple.com/internships-philippines",
+      "status": "screenshot",
+      "path": "/opportunities/q3-2026-globe-telecom-technology-innovation-internship.jpg",
+      "pageUrl": "https://www.globe.com.ph/about-us/careers.html",
       "issueSlug": "q3-2026",
       "title": "Globe Telecom Technology & Innovation Internship",
-      "error": "screenshot: ScreenshotOne HTTP 500: {\"is_successful\":false,\"error_message\":\"If the host doesn't respond successfully within the range of 200-299 status code"
+      "contentType": "image/jpeg",
+      "bytes": 89166,
+      "screenshotProvider": "screenshotone",
+      "screenshotUrl": "https://api.screenshotone.com/take?access_key=%5Bredacted%5D&url=https%3A%2F%2Fwww.globe.com.ph%2Fstudent-program&format=jpg&viewport_width=1200&viewport_height=630&block_ads=true&block_cookie_banners=true&block_banners_by_heuristics=false&block_trackers=true&delay=0&timeout=60&response_type=by_format&image_quality=80",
+      "source": "screenshot"
     },
     "q3-2026-google-career-certificates-via-dict": {
-      "status": "screenshot",
-      "path": "/opportunities/q3-2026-google-career-certificates-via-dict.png",
+      "status": "fetched",
+      "path": "/opportunities/q3-2026-google-career-certificates-via-dict.webp",
       "pageUrl": "https://dict.gov.ph/dict-opens-access-to-free-google-career-certificates",
       "issueSlug": "q3-2026",
       "title": "Google Career Certificates via DICT",
-      "contentType": "image/png",
-      "bytes": 73552,
-      "screenshotProvider": "microlink",
-      "screenshotUrl": "https://iad.microlink.io/5KNhNlLKrfs3ZSCwmI5yBHMMcgHRs-DLT-k0fwjrazFqjSFAOhXmY0Ncy3lMa8FZ23xnhmcyo2wh66cSGXe78g.png",
-      "source": "screenshot"
+      "contentType": "image/webp",
+      "bytes": 19540,
+      "imageUrl": "https://www.gstatic.com/marketing-cms/assets/images/54/85/645a5a504d6e8308e6f481d34cf5/hero-lottie-desktop-v2.webp=n-w1440-h810-fcrop64=1,0000116dffffeeb2-rw",
+      "source": "og"
     },
     "q3-2026-up-open-university-free-moocs-model": {
       "status": "screenshot",

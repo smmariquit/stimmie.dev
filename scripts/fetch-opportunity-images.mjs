@@ -252,7 +252,8 @@ async function fetchOgImageForPage(pageUrl) {
 }
 
 async function saveFromOg({ issue, item, id }) {
-  const imageUrl = await fetchOgImageForPage(item.url);
+  const pageUrl = item.imageUrl || item.url;
+  const imageUrl = await fetchOgImageForPage(pageUrl);
   const probe = await fetchWithTimeout(imageUrl);
 
   if (!probe.ok) {
@@ -280,7 +281,8 @@ async function saveFromOg({ issue, item, id }) {
 
 async function saveFromScreenshot({ issue, item, id }) {
   await sleep(SCREENSHOT_DELAY_MS);
-  const shot = await takePageScreenshot(item.url);
+  const pageUrl = item.imageUrl || item.url;
+  const shot = await takePageScreenshot(pageUrl);
   const manifestEntry = writeImageFile({
     id,
     issue,

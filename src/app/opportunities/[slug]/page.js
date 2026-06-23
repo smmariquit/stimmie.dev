@@ -4,6 +4,8 @@ import OpportunityCard from "@/components/neo/OpportunityCard";
 import PageShell from "@/components/neo/PageShell";
 import {
   getIssueBySlug,
+  getOpportunityType,
+  groupIssueItemsByType,
   opportunityIssues,
 } from "@/data/opportunities";
 
@@ -43,6 +45,8 @@ export default async function OpportunityIssuePage({ params }) {
     notFound();
   }
 
+  const sections = groupIssueItemsByType(issue.items);
+
   return (
     <PageShell
       title={`~ ${issueHeading(issue)} ~`}
@@ -54,16 +58,42 @@ export default async function OpportunityIssuePage({ params }) {
         <Link href="/opportunities">◄ back to all issues</Link>
       </p>
 
-      <ul
-        className="grid grid-cols-1 sm:grid-cols-2 gap-5 list-none p-0 m-0"
-        aria-label={`Opportunities in ${issueHeading(issue)}`}
-      >
-        {issue.items.map((item) => (
-          <li key={`${issue.slug}-${item.title}`}>
-            <OpportunityCard item={item} issueSlug={issue.slug} />
-          </li>
-        ))}
-      </ul>
+      <div className="neo-opportunity-sections">
+        {sections.map(({ type, items }) => {
+          const typeInfo = getOpportunityType(type);
+
+          return (
+            <section
+              key={type}
+              className={`neo-opportunity-section neo-opportunity-section--${type}`}
+              aria-labelledby={`${issue.slug}-${type}-heading`}
+            >
+              <h2
+                id={`${issue.slug}-${type}-heading`}
+                className="neo-opportunity-section-heading"
+              >
+                <span className={`neo-badge ${typeInfo.badge}`}>
+                  {typeInfo.label}
+                </span>
+                <span className="neo-opportunity-section-count">
+                  {items.length}
+                </span>
+              </h2>
+
+              <ul
+                className="grid grid-cols-1 sm:grid-cols-2 gap-5 list-none p-0 m-0"
+                aria-label={`${typeInfo.label} opportunities`}
+              >
+                {items.map((item) => (
+                  <li key={`${issue.slug}-${item.title}`}>
+                    <OpportunityCard item={item} issueSlug={issue.slug} />
+                  </li>
+                ))}
+              </ul>
+            </section>
+          );
+        })}
+      </div>
     </PageShell>
   );
 }

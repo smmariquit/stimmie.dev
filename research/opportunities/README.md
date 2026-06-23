@@ -18,6 +18,7 @@ Run phase 1 first. Attach the source-map response (or its “top 15 sources” s
 
 1. Add a new issue object in `src/data/opportunities.js` (new `slug`, bump `issueNumber`).
 2. Map each JSON entry to an `items[]` object (`title`, `type`, `url`, `org`, `location`, `dates`, `blurb`).
+   - Add `imageUrl` when the apply page blocks bots but a marketing/OG page exists.
 3. Run `npm run opportunities:images` for card images.
 4. Move the response markdown to `archive/` and note the issue slug in the file header.
 

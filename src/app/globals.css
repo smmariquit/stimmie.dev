@@ -1298,6 +1298,108 @@ body {
   filter: saturate(0.85);
 }
 
+.neo-opportunity-sections {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.neo-opportunity-section-heading {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  margin: 0 0 1rem;
+  font-size: 1rem;
+  font-family: var(--neo-ui);
+}
+
+.neo-opportunity-section-count {
+  font-size: 0.85rem;
+  color: #666;
+  font-weight: 600;
+}
+
+.neo-opportunity-section--hackathon {
+  border-left: 4px solid #075c1f;
+  padding-left: 0.85rem;
+}
+
+.neo-opportunity-section--internship {
+  border-left: 4px solid #0a3d7a;
+  padding-left: 0.85rem;
+}
+
+.neo-opportunity-section--program {
+  border-left: 4px solid #8a0058;
+  padding-left: 0.85rem;
+}
+
+.neo-opportunity-section--event {
+  border-left: 4px solid #5a4a00;
+  padding-left: 0.85rem;
+}
+
+.neo-opportunity-section--certificate {
+  border-left: 4px solid #5a0a8a;
+  padding-left: 0.85rem;
+}
+
+.neo-opportunity-thumb {
+  overflow: hidden;
+}
+
+.neo-opportunity-badge {
+  position: absolute;
+  top: 0.5rem;
+  left: 0.5rem;
+  box-shadow: 2px 2px 0 #000;
+}
+
+.neo-opportunity-card {
+  border-top: 3px solid transparent;
+}
+
+.neo-opportunity-card--hackathon {
+  border-top-color: #075c1f;
+}
+
+.neo-opportunity-card--internship {
+  border-top-color: #0a3d7a;
+}
+
+.neo-opportunity-card--program {
+  border-top-color: #8a0058;
+}
+
+.neo-opportunity-card--event {
+  border-top-color: #5a4a00;
+}
+
+.neo-opportunity-card--certificate {
+  border-top-color: #5a0a8a;
+}
+
+.neo-opportunity-primary-date {
+  font-family: var(--neo-ui);
+  font-size: 0.8rem;
+  line-height: 1.4;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.25rem 0.5rem;
+}
+
+.neo-opportunity-meta {
+  line-height: 1.35;
+}
+
+.neo-opportunity-blurb {
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  color: #333;
+}
+
 /* ── Visitor counter digits ───────────────────────────────────────── */
 
 .neo-counter-digit {

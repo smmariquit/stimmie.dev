@@ -4,8 +4,8 @@
 // publishing an edition; bump issueNumber; never reuse slugs.
 //
 // Research pipeline: research/opportunities/ (prompts → responses → here).
-// Cover images: run `npm run opportunities:images` after adding items (fetches
-// og:image from each url into public/opportunities/). Optional `image` overrides.
+// Optional `image` overrides everything. Optional `imageUrl` is used only by
+// `npm run opportunities:images` when the apply page blocks bots/screenshots.
 
 import { existsSync, readFileSync } from "node:fs";
 import { dirname, join } from "node:path";
@@ -39,6 +39,15 @@ export const OPPORTUNITY_TYPES = {
   certificate: { label: "Certificate", badge: "neo-badge-certificate" },
   program: { label: "Program", badge: "neo-badge-program" },
 };
+
+/** Display order for grouped issue pages. */
+export const OPPORTUNITY_TYPE_ORDER = [
+  "hackathon",
+  "internship",
+  "program",
+  "event",
+  "certificate",
+];
 
 export const opportunityIssues = [
   {
@@ -137,6 +146,7 @@ export const opportunityIssues = [
         title: "Bagong Pilipinas Merit Scholarship Program 2026",
         type: "program",
         url: "https://bpms.ched.gov.ph/",
+        imageUrl: "https://www.ched.gov.ph/",
         org: "Commission on Higher Education (CHED)",
         location: "Philippines",
         dates: [{ label: "Application deadline", date: "2026-06-30" }],
@@ -180,6 +190,7 @@ export const opportunityIssues = [
         title: "YSEALI Summit 2026",
         type: "program",
         url: "https://ph.usembassy.gov/notice-of-funding-opportunity-nofo-young-southeast-asian-leaders-initiative-yseali-summit-2026/",
+        imageUrl: "https://www.yseali.state.gov/",
         org: "U.S. Embassy in the Philippines",
         location: "Philippines",
         dates: [
@@ -215,6 +226,7 @@ export const opportunityIssues = [
         title: "Reddit's Games with a Hook Hackathon",
         type: "hackathon",
         url: "https://www.reddit.com/r/Devvit/comments/1u8f6r4/announcing_our_reddits_games_with_a_hook_virtual/",
+        imageUrl: "https://developers.reddit.com/docs/",
         org: "Reddit / Phaser",
         location: "Online",
         dates: [
@@ -281,6 +293,7 @@ export const opportunityIssues = [
         title: "CHED Merit Scholarship Program (CMSP)",
         type: "program",
         url: "https://caraga.ched.gov.ph/ched-scholarship-program-csp/",
+        imageUrl: "https://www.ched.gov.ph/",
         org: "Commission on Higher Education (CHED)",
         location: "Philippines",
         dates: [{ label: "Application deadline", date: "2026-07-31" }],
@@ -301,6 +314,7 @@ export const opportunityIssues = [
         title: "DTI Hackathon 2026",
         type: "hackathon",
         url: "https://www.startupnetworks.co.uk/links/link/30310-dti-hackathon-2026/",
+        imageUrl: "https://www.dti.gov.ph/",
         org: "Department of Trade and Industry",
         location: "Online / Philippines",
         dates: [{ label: "Registration closes", date: "2026-07-31" }],
@@ -321,6 +335,7 @@ export const opportunityIssues = [
         title: "Unilever HR Internship '26",
         type: "internship",
         url: "https://careers.unilever.com/en/job/rotterdam/hr-internship-26-generalist-and-business-partnering/34155/95252046048",
+        imageUrl: "https://www.unilever.com/careers/",
         org: "Unilever Philippines",
         location: "Hybrid",
         dates: [
@@ -337,6 +352,7 @@ export const opportunityIssues = [
         title: "Unilever Customer Strategy & Planning Internship 2026",
         type: "internship",
         url: "https://careers.unilever.com/en/job/cidde/customer-strategy-and-planning-internship-2026/34155/96153764192",
+        imageUrl: "https://www.unilever.com/careers/",
         org: "Unilever Philippines",
         location: "Hybrid",
         dates: [
@@ -389,6 +405,7 @@ export const opportunityIssues = [
         title: "L'Oréal PH Management Trainee (September Intake)",
         type: "internship",
         url: "https://careers.loreal.com/",
+        imageUrl: "https://www.loreal.com/en/philippines/",
         org: "L'Oréal Philippines",
         location: "Pasig",
         dates: [{ label: "Program start", date: "2026-09-01" }],
@@ -411,6 +428,7 @@ export const opportunityIssues = [
         title: "MunichTech EXPO AI Innovation Hackathon 2026",
         type: "hackathon",
         url: "https://dorahacks.io/hackathon/2019",
+        imageUrl: "https://dorahacks.io/hackathon/2019",
         org: "MunichTech EXPO",
         location: "Hybrid / Online",
         dates: [{ label: "Submission deadline", date: "2026-09-20" }],
@@ -430,7 +448,8 @@ export const opportunityIssues = [
       {
         title: "LUXASIA 2026 Internships",
         type: "internship",
-        url: "https://ph.prosple.com/internships-philippines",
+        url: "https://www.luxasia.com/",
+        imageUrl: "https://www.luxasia.com/",
         org: "LUXASIA Philippines",
         location: "Taguig / Alabang",
         dates: [
@@ -446,7 +465,8 @@ export const opportunityIssues = [
       {
         title: "Phoenix Petroleum Operational Excellence Intern",
         type: "internship",
-        url: "https://ph.prosple.com/internships-philippines",
+        url: "https://www.phoenixfuels.ph/careers",
+        imageUrl: "https://www.phoenixfuels.ph/",
         org: "Phoenix Petroleum Philippines",
         location: "Taguig",
         dates: [{ label: "Program start", date: "2026-07-01" }],
@@ -456,7 +476,8 @@ export const opportunityIssues = [
       {
         title: "Monde Nissin MondeXplore Internship Program",
         type: "internship",
-        url: "https://ph.prosple.com/internships-philippines",
+        url: "https://www.mondenissin.com/careers/",
+        imageUrl: "https://www.mondenissin.com/",
         org: "Monde Nissin Corporation",
         location: "Nationwide",
         blurb:
@@ -465,7 +486,8 @@ export const opportunityIssues = [
       {
         title: "Globe Telecom Technology & Innovation Internship",
         type: "internship",
-        url: "https://ph.prosple.com/internships-philippines",
+        url: "https://www.globe.com.ph/about-us/careers.html",
+        imageUrl: "https://www.globe.com.ph/student-program",
         org: "Globe Telecom",
         location: "Hybrid / Taguig / Mandaluyong",
         blurb:
@@ -475,6 +497,7 @@ export const opportunityIssues = [
         title: "Google Career Certificates via DICT",
         type: "certificate",
         url: "https://dict.gov.ph/dict-opens-access-to-free-google-career-certificates",
+        imageUrl: "https://grow.google/intl/en_ph/certificates/",
         org: "Google / DICT / Globe",
         location: "Online",
         blurb:
@@ -612,6 +635,30 @@ export function getOpportunityType(type) {
     label: type,
     badge: "neo-badge-program",
   };
+}
+
+export function groupIssueItemsByType(items) {
+  const groups = new Map();
+  for (const item of items) {
+    if (!groups.has(item.type)) {
+      groups.set(item.type, []);
+    }
+    groups.get(item.type).push(item);
+  }
+
+  return OPPORTUNITY_TYPE_ORDER.filter((type) => groups.has(type)).map((type) => ({
+    type,
+    items: groups.get(type),
+  }));
+}
+
+/** Nearest upcoming date, or first listed if all are past. */
+export function getPrimaryOpportunityDate(dates) {
+  if (!dates?.length) {
+    return null;
+  }
+  const upcoming = dates.find((entry) => !isDatePast(entry.date));
+  return upcoming ?? dates[0];
 }
 
 export function formatOpportunityDate(date, endDate) {
