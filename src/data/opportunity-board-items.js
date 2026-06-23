@@ -1893,4 +1893,20 @@ export const opportunityBoardItems = [
       beginnerFriendly: true,
       blurb: "Teams of two (same ASEAN nationality, ages 18-30) analyze SDG-themed datasets in SAP Analytics Cloud and submit a storyboard. National finals, then regional finals.",
     },
+    {
+      title: "FlyRank AI Internship Program",
+      type: "internship",
+      url: "https://internship.flyrank.ai/apply",
+      imageUrl: "https://internship.flyrank.ai/",
+      org: "FlyRank",
+      location: "Online / Remote",
+      dates: [
+        {
+          label: "July 2026 cohort start",
+          date: "2026-07-01",
+        },
+      ],
+      beginnerFriendly: true,
+      blurb: "Remote unpaid AI internship across six tracks (frontend, backend, ML, UX, marketing, biz dev). Apply with LinkedIn, ship a capstone, earn a verifiable credential and eligible recommendation letter.",
+    },
 ];

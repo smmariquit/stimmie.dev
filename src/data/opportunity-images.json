@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-06-23T19:21:59.754Z",
+  "generatedAt": "2026-06-23T19:26:08.314Z",
   "images": {
     "q3-2026-aws-ai-ml-scholars-program": {
       "status": "screenshot",
@@ -1492,7 +1492,8 @@
       "contentType": "image/webp",
       "bytes": 31190,
       "imageUrl": "https://www.unesco.org/sites/default/files/styles/best_image/article/2026-06/Visuals%20-%202026%20%282%29.png.webp?itok=6w2gjt79",
-      "source": "og"
+      "source": "og",
+      "cached": true
     },
     "q3-2026-asean-data-science-explorers-2026": {
       "status": "favicon",
@@ -1503,7 +1504,19 @@
       "contentType": "image/jpeg",
       "bytes": 10514,
       "faviconUrl": "https://t1.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&url=https://aseandse.org&size=128",
-      "source": "favicon"
+      "source": "favicon",
+      "cached": true
+    },
+    "q3-2026-flyrank-ai-internship-program": {
+      "status": "fetched",
+      "path": "/opportunities/q3-2026-flyrank-ai-internship-program.png",
+      "pageUrl": "https://internship.flyrank.ai/apply",
+      "issueSlug": "q3-2026",
+      "title": "FlyRank AI Internship Program",
+      "contentType": "image/png",
+      "bytes": 63211,
+      "imageUrl": "https://internship.flyrank.ai/opengraph-image",
+      "source": "og"
     }
   }
 }
