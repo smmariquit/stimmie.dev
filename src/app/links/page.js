@@ -17,6 +17,7 @@ const staticRoutes = [
   { title: "Talks", path: "/talks" },
   { title: "Projects", path: "/projects" },
   { title: "Blog", path: "/blog" },
+  { title: "Opportunities", path: "/opportunities" },
   { title: "Keys", path: "/keys" },
   { title: "Changelog", path: "/changelog" },
   { title: "Archive", path: "/archive" },
