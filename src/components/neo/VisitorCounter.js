@@ -44,12 +44,7 @@ export default function VisitorCounter({
 
   return (
     <div>
-      <p
-        className="text-xl mb-2 text-center"
-        style={{ fontFamily: "var(--neo-pixel)", color: "#1a1a1a" }}
-      >
-        {label}
-      </p>
+      <p className="neo-counter-label">{label}</p>
       <p
         className="neo-counter"
         role="status"

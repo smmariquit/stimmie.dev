@@ -904,6 +904,20 @@ body {
   letter-spacing: 0.15em;
 }
 
+.neo-counter-label {
+  font-family: var(--neo-pixel);
+  font-size: 1.25rem;
+  line-height: 1.2;
+  text-align: center;
+  margin: 0 0 0.5rem;
+  color: #1a1a1a;
+}
+
+/* Footer sits on the dark starfield — light label text for contrast. */
+.neo-footer .neo-counter-label {
+  color: #e4e4f0;
+}
+
 .neo-thumb {
   border: 2px solid #000;
   image-rendering: auto;
