@@ -61,18 +61,19 @@ export const opportunityBoardItems = [
       blurb: "Women-centric hybrid hackathon on AI, IoT, and future mobility. Teams of 2–4, beginner-friendly.",
     },
     {
-      title: "Friends of Figma Config Watch Party 2026",
+      id: "q3-2026-friends-of-figma-config-watch-party-2026",
+      title: "Metro Manila Config Watch Party 2026",
       type: "event",
-      url: "https://friends.figma.com/events/details/figma-philippines-presents-figma-slides-party-2026/",
+      url: "https://friends.figma.com/events/details/figma-philippines-presents-metro-manila-config-watch-party-2026/cohost-philippines/",
       org: "Friends of Figma PH / UXPH / PWDO",
-      location: "Makati / Metro Manila",
+      location: "One Ayala, Makati / Metro Manila",
       dates: [
         {
           "label": "Event",
           "date": "2026-06-26"
         }
       ],
-      blurb: "Watch the Figma Config keynote with the local design community. Walk-ins subject to capacity.",
+      blurb: "Watch the Figma Config 2026 keynote with the local design community at KMC One Ayala. Food and networking after.",
     },
     {
       title: "Sip & Scale x Notion",
@@ -103,20 +104,6 @@ export const opportunityBoardItems = [
       ],
       beginnerFriendly: true,
       blurb: "Figma-to-code workshop with Kiro: live demo, design-system handoff tips, and guided build time at Arthaland BGC. Request to join on Luma.",
-    },
-    {
-      title: "DDB Saliksik 2026: National Research Conference Plenary",
-      type: "event",
-      url: "https://ddb.gov.ph/announcement-join-us-live-for-ddb-saliksik-2026/",
-      org: "Dangerous Drugs Board",
-      location: "Online livestream",
-      dates: [
-        {
-          "label": "Event",
-          "date": "2026-06-26"
-        }
-      ],
-      blurb: "National plenary on policy, public health, and drug abuse prevention research. Livestream open.",
     },
     {
       title: "Celestial Effervescence: Serverless APIs with Lambda + API Gateway",
@@ -2407,15 +2394,6 @@ export const opportunityBoardItems = [
       blurb: "Open sponsor tiers from Silver to Platinum plus add-ons like Karaoke Night and Hacker Jeopardy; sign up through the official ROOTCON sponsor form.",
     },
     {
-      title: "Call for Sponsors — PythonAsia 2026",
-      type: "event",
-      url: "https://2026.pythonasia.org/partnership/",
-      imageUrl: "https://2026.pythonasia.org/",
-      org: "PythonPH / DLSU / Python Asia Organization",
-      location: "Philippines / Asia",
-      blurb: "Asia-wide Python community conference seeking for-profit and community partners; sponsor inquiries via the official partnership page.",
-    },
-    {
       title: "GitHub Campus Program",
       type: "program",
       url: "https://github.com/education/schools",
@@ -2437,7 +2415,7 @@ export const opportunityBoardItems = [
       title: "DICT Startup Grant Fund",
       type: "program",
       url: "https://www.startup.gov.ph/",
-      imageUrl: "https://dict.gov.ph/",
+      imageUrl: "https://www.startup.gov.ph/",
       org: "Department of Information and Communications Technology",
       location: "Philippines",
       blurb: "Equity-free grants from PHP 500k to PHP 1M for SEC or DTI-registered ICT startups; apply through Startup Philippines after registering your venture.",

@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-06-23T20:34:50.074Z",
+  "generatedAt": "2026-06-24T04:28:04.820Z",
   "images": {
     "q3-2026-aws-ai-ml-scholars-program": {
       "status": "screenshot",
@@ -39,23 +39,12 @@
     "q3-2026-friends-of-figma-config-watch-party-2026": {
       "status": "fetched",
       "path": "/opportunities/q3-2026-friends-of-figma-config-watch-party-2026.png",
-      "pageUrl": "https://friends.figma.com/events/details/figma-philippines-presents-figma-slides-party-2026/",
-      "imageUrl": "https://res.cloudinary.com/startup-grind/image/upload/c_fill,dpr_2.0,f_auto,g_center,h_1080,q_100,w_1080/v1/gcs/platform-data-figma/events/blob_Zn2wn93",
+      "pageUrl": "https://friends.figma.com/events/details/figma-philippines-presents-metro-manila-config-watch-party-2026/cohost-philippines/",
+      "imageUrl": "https://res.cloudinary.com/startup-grind/image/upload/c_fill,dpr_2.0,f_auto,g_center,h_1080,q_100,w_1080/v1/gcs/platform-data-figma/events/blob_94pYhuj",
       "contentType": "image/png",
-      "bytes": 1583043,
+      "bytes": 744468,
       "issueSlug": "q3-2026",
-      "title": "Friends of Figma Config Watch Party 2026",
-      "cached": true
-    },
-    "q3-2026-ddb-saliksik-2026-national-research-conference-p": {
-      "status": "fetched",
-      "path": "/opportunities/q3-2026-ddb-saliksik-2026-national-research-conference-p.png",
-      "pageUrl": "https://ddb.gov.ph/announcement-join-us-live-for-ddb-saliksik-2026/",
-      "imageUrl": "https://ddb.gov.ph/wp-content/uploads/2026/06/Screenshot-2026-06-23-at-1.51.06-PM.png",
-      "contentType": "image/png",
-      "bytes": 753997,
-      "issueSlug": "q3-2026",
-      "title": "DDB Saliksik 2026: National Research Conference Plenary",
+      "title": "Metro Manila Config Watch Party 2026",
       "cached": true
     },
     "q3-2026-aun-internship-programme-2026-batch-3": {
@@ -1750,7 +1739,8 @@
       "contentType": "image/png",
       "bytes": 1409274,
       "imageUrl": "https://d112y698adiu2z.cloudfront.net/photos/production/challenge_thumbnails/004/620/967/datas/original.png",
-      "source": "og"
+      "source": "og",
+      "cached": true
     },
     "q3-2026-call-for-mentors-brainwave-2026": {
       "status": "fetched",
@@ -1761,7 +1751,8 @@
       "contentType": "image/png",
       "bytes": 3069688,
       "imageUrl": "https://d112y698adiu2z.cloudfront.net/photos/production/challenge_thumbnails/004/758/895/datas/original.png",
-      "source": "og"
+      "source": "og",
+      "cached": true
     },
     "q3-2026-call-for-judges-acesat-education-ai-agent": {
       "status": "fetched",
@@ -1772,7 +1763,8 @@
       "contentType": "image/png",
       "bytes": 451517,
       "imageUrl": "https://d112y698adiu2z.cloudfront.net/photos/production/challenge_thumbnails/004/753/015/datas/original.png",
-      "source": "og"
+      "source": "og",
+      "cached": true
     },
     "q3-2026-call-for-judges-web-champ": {
       "status": "fetched",
@@ -1783,7 +1775,8 @@
       "contentType": "image/png",
       "bytes": 2061449,
       "imageUrl": "https://d112y698adiu2z.cloudfront.net/photos/production/challenge_thumbnails/004/776/618/datas/original.png",
-      "source": "og"
+      "source": "og",
+      "cached": true
     },
     "q3-2026-call-for-judges-h0-hack-the-zero-stack-with-verc": {
       "status": "fetched",
@@ -1794,7 +1787,8 @@
       "contentType": "image/png",
       "bytes": 914977,
       "imageUrl": "https://d112y698adiu2z.cloudfront.net/photos/production/challenge_thumbnails/004/686/189/datas/original.png",
-      "source": "og"
+      "source": "og",
+      "cached": true
     },
     "q3-2026-call-for-judges-phystech-2026-physical-activity-": {
       "status": "fetched",
@@ -1805,7 +1799,8 @@
       "contentType": "image/png",
       "bytes": 505498,
       "imageUrl": "https://d112y698adiu2z.cloudfront.net/photos/production/challenge_thumbnails/004/273/831/datas/original.png",
-      "source": "og"
+      "source": "og",
+      "cached": true
     },
     "q3-2026-call-for-coaches-phystech-2026-physical-activity": {
       "status": "fetched",
@@ -1816,7 +1811,174 @@
       "contentType": "image/png",
       "bytes": 505498,
       "imageUrl": "https://d112y698adiu2z.cloudfront.net/photos/production/challenge_thumbnails/004/273/831/datas/original.png",
+      "source": "og",
+      "cached": true
+    },
+    "q3-2026-grabscholar-college-scholarship": {
+      "status": "screenshot",
+      "path": "/opportunities/q3-2026-grabscholar-college-scholarship.jpg",
+      "pageUrl": "https://www.grab.com/ph/community/grabscholar-college-scholarship/",
+      "issueSlug": "q3-2026",
+      "title": "GrabScholar College Scholarship",
+      "contentType": "image/jpeg",
+      "bytes": 46728,
+      "screenshotProvider": "screenshotone",
+      "screenshotUrl": "https://api.screenshotone.com/take?access_key=%5Bredacted%5D&url=https%3A%2F%2Fwww.grab.com%2Fph%2Fcommunity%2Fgrabscholar-college-scholarship%2F&format=jpg&viewport_width=1200&viewport_height=630&block_ads=true&block_cookie_banners=true&block_banners_by_heuristics=false&block_trackers=true&delay=0&timeout=60&response_type=by_format&image_quality=80",
+      "source": "screenshot"
+    },
+    "q3-2026-call-for-volunteers-icfp-2026": {
+      "status": "fetched",
+      "path": "/opportunities/q3-2026-call-for-volunteers-icfp-2026.jpg",
+      "pageUrl": "https://forms.gle/wdogVw3P25pizryk6",
+      "issueSlug": "q3-2026",
+      "title": "Call for Volunteers — ICFP 2026",
+      "contentType": "image/jpeg;charset=UTF-8",
+      "bytes": 763791,
+      "imageUrl": "https://icfp26.sigplan.org/getImage/carousel/skyline-daytime.jpg?1760459629000",
       "source": "og"
+    },
+    "q3-2026-call-for-volunteers-cppcon-2026": {
+      "status": "screenshot",
+      "path": "/opportunities/q3-2026-call-for-volunteers-cppcon-2026.jpg",
+      "pageUrl": "https://cppcon.org/volunteer",
+      "issueSlug": "q3-2026",
+      "title": "Call for Volunteers — CppCon 2026",
+      "contentType": "image/jpeg",
+      "bytes": 124971,
+      "screenshotProvider": "screenshotone",
+      "screenshotUrl": "https://api.screenshotone.com/take?access_key=%5Bredacted%5D&url=https%3A%2F%2Fcppcon.org%2F&format=jpg&viewport_width=1200&viewport_height=630&block_ads=true&block_cookie_banners=true&block_banners_by_heuristics=false&block_trackers=true&delay=0&timeout=60&response_type=by_format&image_quality=80",
+      "source": "screenshot"
+    },
+    "q3-2026-call-for-sponsors-wordcamp-philippines-2026": {
+      "status": "fetched",
+      "path": "/opportunities/q3-2026-call-for-sponsors-wordcamp-philippines-2026.png",
+      "pageUrl": "https://philippines.wordcamp.org/2026/call-for-sponsors/",
+      "issueSlug": "q3-2026",
+      "title": "Call for Sponsors — WordCamp Philippines 2026",
+      "contentType": "image/png",
+      "bytes": 129968,
+      "imageUrl": "https://i0.wp.com/philippines.wordcamp.org/2026/files/2026/06/WCPH-Homepage.png?fit=1200%2C628&#038;ssl=1",
+      "source": "og"
+    },
+    "q3-2026-call-for-sponsors-rootcon-20": {
+      "status": "fetched",
+      "path": "/opportunities/q3-2026-call-for-sponsors-rootcon-20.jpg",
+      "pageUrl": "https://rootc.onl/sponsors",
+      "issueSlug": "q3-2026",
+      "title": "Call for Sponsors — ROOTCON 20",
+      "contentType": "image/jpeg",
+      "bytes": 28658,
+      "imageUrl": "https://www.rootcon.org/assets/images/styles/rclogo_og.jpg",
+      "source": "og"
+    },
+    "q3-2026-github-campus-program": {
+      "status": "fetched",
+      "path": "/opportunities/q3-2026-github-campus-program.png",
+      "pageUrl": "https://github.com/education/schools",
+      "issueSlug": "q3-2026",
+      "title": "GitHub Campus Program",
+      "contentType": "image/png",
+      "bytes": 10532,
+      "imageUrl": "https://docs.github.com/assets/cb-345/images/social-cards/education.png",
+      "source": "og"
+    },
+    "q3-2026-aws-educate": {
+      "status": "screenshot",
+      "path": "/opportunities/q3-2026-aws-educate.jpg",
+      "pageUrl": "https://aws.amazon.com/education/awseducate/",
+      "issueSlug": "q3-2026",
+      "title": "AWS Educate",
+      "contentType": "image/jpeg",
+      "bytes": 59777,
+      "screenshotProvider": "screenshotone",
+      "screenshotUrl": "https://api.screenshotone.com/take?access_key=%5Bredacted%5D&url=https%3A%2F%2Faws.amazon.com%2Feducation%2Fawseducate%2F&format=jpg&viewport_width=1200&viewport_height=630&block_ads=true&block_cookie_banners=true&block_banners_by_heuristics=false&block_trackers=true&delay=0&timeout=60&response_type=by_format&image_quality=80",
+      "source": "screenshot"
+    },
+    "q3-2026-dict-startup-grant-fund": {
+      "status": "fallback",
+      "path": "/opportunities/defaults/program.svg",
+      "pageUrl": "https://www.startup.gov.ph/",
+      "issueSlug": "q3-2026",
+      "title": "DICT Startup Grant Fund",
+      "error": "page: fetch failed | screenshot: fetch failed | favicon: https://www.startup.gov.ph/favicon.ico: fetch failed | https://t1.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&url=https://www.startup.gov.ph&size=128: favicon HTTP 404 | https://www.google.com/s2/favicons?domain=www.startup.gov.ph&sz=128: favicon HTTP 404 | https://icons.duckduckgo.com/ip3/www.startup.gov.ph.ico: favicon HTTP 404 | https://t1.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&url=https://gov.ph&size=128: favicon HTTP 404 | https://www.google.com/s2/favicons?domain=gov.ph&sz=128: favicon HTTP 404 | https://icons.duckduckgo.com/ip3/gov.ph.ico: favicon HTTP 404"
+    },
+    "q3-2026-call-for-mentors-cardano-accelerator-program-fal": {
+      "status": "favicon",
+      "path": "/opportunities/q3-2026-call-for-mentors-cardano-accelerator-program-fal.jpg",
+      "pageUrl": "https://cardanofoundation.org/cap/call-for-mentors",
+      "issueSlug": "q3-2026",
+      "title": "Call for Mentors — Cardano Accelerator Program Fall 2026",
+      "contentType": "image/jpeg",
+      "bytes": 8788,
+      "faviconUrl": "https://t1.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&url=https://cardanofoundation.org&size=128",
+      "source": "favicon"
+    },
+    "q3-2026-call-for-mentors-eforall-business-accelerator-au": {
+      "status": "fetched",
+      "path": "/opportunities/q3-2026-call-for-mentors-eforall-business-accelerator-au.png",
+      "pageUrl": "https://eforall.org/become-a-mentor",
+      "issueSlug": "q3-2026",
+      "title": "Call for Mentors — EforAll Business Accelerator August 2026",
+      "contentType": "image/png",
+      "bytes": 122,
+      "imageUrl": "https://eforall.org/wp-content/plugins/revslider/public/assets/assets/transparent.png",
+      "source": "og"
+    },
+    "q3-2026-call-for-speakers-ai-community-days-cebu": {
+      "status": "fetched",
+      "path": "/opportunities/q3-2026-call-for-speakers-ai-community-days-cebu.png",
+      "pageUrl": "https://sessionize.com/ai-community-days-in-cebu-philippines/",
+      "issueSlug": "q3-2026",
+      "title": "Call for Speakers — AI Community Days Cebu",
+      "contentType": "image/png",
+      "bytes": 539306,
+      "imageUrl": "https://sessionize.com/image/8295-1140o400o3-4Ss1arQAjef5UuPnoySDAR.png",
+      "source": "og"
+    },
+    "q3-2026-call-for-speakers-elastic-meetups-around-the-wor": {
+      "status": "fetched",
+      "path": "/opportunities/q3-2026-call-for-speakers-elastic-meetups-around-the-wor.png",
+      "pageUrl": "https://sessionize.com/elastic-meetups/",
+      "issueSlug": "q3-2026",
+      "title": "Call for Speakers — Elastic Meetups Around the World",
+      "contentType": "image/png",
+      "bytes": 58469,
+      "imageUrl": "https://sessionize.com/image/6876-1140o400o3-SLSmccKR33Ly9eC5m4r7Ly.png",
+      "source": "og"
+    },
+    "q3-2026-call-for-speakers-tech-tactics-in-education-fall": {
+      "status": "fetched",
+      "path": "/opportunities/q3-2026-call-for-speakers-tech-tactics-in-education-fall.jpg",
+      "pageUrl": "https://techtacticsineducation.com/",
+      "issueSlug": "q3-2026",
+      "title": "Call for Speakers — Tech Tactics in Education Fall 2026",
+      "contentType": "image/jpeg",
+      "bytes": 32084,
+      "imageUrl": "https://techtacticsineducation.com/~/media/EDU/TechTactics/techtactics_og.jpg",
+      "source": "og"
+    },
+    "q3-2026-unidroit-essay-competition-2026": {
+      "status": "fetched",
+      "path": "/opportunities/q3-2026-unidroit-essay-competition-2026.jpg",
+      "pageUrl": "https://www.unidroit.org/news/2026/unidroit-launches-2026-essay-competition/",
+      "issueSlug": "q3-2026",
+      "title": "UNIDROIT Essay Competition 2026",
+      "contentType": "image/jpeg",
+      "bytes": 231214,
+      "imageUrl": "https://www.unidroit.org/wp-content/uploads/2021/05/Civil-procedure-1080.jpg",
+      "source": "og"
+    },
+    "q3-2026-unesco-youth-eyes-on-the-silk-roads-photo-contes": {
+      "status": "screenshot",
+      "path": "/opportunities/q3-2026-unesco-youth-eyes-on-the-silk-roads-photo-contes.jpg",
+      "pageUrl": "https://unescosilkroadphotocontest.org/participate",
+      "issueSlug": "q3-2026",
+      "title": "UNESCO Youth Eyes on the Silk Roads Photo Contest 2026",
+      "contentType": "image/jpeg",
+      "bytes": 91747,
+      "screenshotProvider": "screenshotone",
+      "screenshotUrl": "https://api.screenshotone.com/take?access_key=%5Bredacted%5D&url=https%3A%2F%2Fwww.unesco.org%2Fen%2Farticles%2Fjoin-2026-youth-eyes-silk-roads-photo-contest&format=jpg&viewport_width=1200&viewport_height=630&block_ads=true&block_cookie_banners=true&block_banners_by_heuristics=false&block_trackers=true&delay=0&timeout=60&response_type=by_format&image_quality=80",
+      "source": "screenshot"
     }
   }
 }

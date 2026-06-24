@@ -7,11 +7,45 @@ import {
   getOpportunitiesBoard,
 } from "@/data/opportunities";
 
-export const metadata = {
-  title: "Opportunities",
-  description:
-    "A curated, incomplete roundup of hackathons, internships, events, and programs for students and early-career builders in the Philippines.",
-};
+const OPPORTUNITIES_OG_IMAGE = "/opportunities/og.png";
+
+export function generateMetadata() {
+  const board = getOpportunitiesBoard();
+  const items = getOpportunities();
+  const updated = formatBoardUpdated(board.lastUpdated);
+  const description = `${board.intro} ${items.length} listings · last updated ${updated}.`;
+  const shareTitle = "~ opportunities ~";
+
+  return {
+    title: "Opportunities",
+    description,
+    alternates: {
+      canonical: "/opportunities",
+    },
+    openGraph: {
+      title: shareTitle,
+      description,
+      url: "/opportunities",
+      siteName: "Stimmie",
+      locale: "en_US",
+      type: "website",
+      images: [
+        {
+          url: OPPORTUNITIES_OG_IMAGE,
+          width: 1200,
+          height: 630,
+          alt: "Stimmie opportunities board for hackathons, internships, events, and programs in the Philippines",
+        },
+      ],
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: shareTitle,
+      description,
+      images: [OPPORTUNITIES_OG_IMAGE],
+    },
+  };
+}
 
 export default function OpportunitiesPage() {
   const board = getOpportunitiesBoard();

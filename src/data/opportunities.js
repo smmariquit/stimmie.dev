@@ -7,7 +7,7 @@
 // Optional `image` overrides everything. Optional `imageUrl` for image fetch only.
 
 import { opportunityBoardItems } from "./opportunity-board-items.js";
-import opportunityImagesManifest from "./opportunity-images.json";
+import opportunityImagesManifest from "./opportunity-images.json" with { type: "json" };
 
 const MANILA_TZ = "Asia/Manila";
 /** Matches existing cover-image filenames and manifest keys. */
@@ -25,6 +25,13 @@ export const OPPORTUNITY_TYPE_DEFAULT_IMAGES = {
   certificate: "/opportunities/defaults/certificate.svg",
   program: "/opportunities/defaults/program.svg",
 };
+
+/** Shared cover for UPOU MODeL courses (model.upou.edu.ph). */
+export const UPOU_MODEL_IMAGE = "/opportunities/shared/upou-model.png";
+
+function isUpouModelOpportunity(item) {
+  return /model\.upou\.edu\.ph/i.test(item.url ?? "");
+}
 
 export const OPPORTUNITY_TYPES = {
   hackathon: { label: "Hackathon", badge: "neo-badge-hackathon" },
@@ -46,7 +53,7 @@ export const OPPORTUNITY_TYPE_ORDER = [
 ];
 
 export const opportunitiesBoard = {
-  lastUpdated: "2026-06-26",
+  lastUpdated: "2026-06-27",
   intro:
     "A living roundup of hackathons, game jams, internships, scholarships, events, and programs worth a look if you're in the Philippines (or online). Deadlines are Manila time unless noted.",
   items: opportunityBoardItems,
@@ -94,10 +101,14 @@ export function getOpportunityId(item) {
   return `${OPPORTUNITY_IMAGE_PREFIX}-${slugifyOpportunityTitle(item.title)}`;
 }
 
-/** Manual `image` wins, then fetched og:image, then type default. */
+/** Manual `image` wins, then UPOU MODeL shared art, then fetched og:image, then type default. */
 export function resolveOpportunityImage(item) {
   if (item.image) {
     return item.image;
+  }
+
+  if (isUpouModelOpportunity(item)) {
+    return UPOU_MODEL_IMAGE;
   }
 
   const id = getOpportunityId(item);
@@ -118,7 +129,7 @@ export function resolveOpportunityImage(item) {
 }
 
 export function getOpportunityImagePresentation(item) {
-  if (item.image) {
+  if (item.image || isUpouModelOpportunity(item)) {
     return { className: "" };
   }
 
