@@ -1,86 +1,89 @@
-[
-  {
-    "order": 1,
-    "slug": "01-build-with-gemini",
-    "title": "Build with Gemini",
-    "url": "https://build-with-gemini-0.devpost.com/",
-    "image": "/tech-recommendations/01-build-with-gemini.png",
-    "sourceImage": "/opportunities/q3-2026-build-with-gemini.png"
-  },
-  {
-    "order": 2,
-    "slug": "02-h0-hack-vercel-v0-aws",
-    "title": "H0: Hack the Zero Stack with Vercel v0 and AWS Databases",
-    "url": "https://h01.devpost.com/",
-    "image": "/tech-recommendations/02-h0-hack-vercel-v0-aws.png",
-    "sourceImage": "/opportunities/q3-2026-h0-hack-the-zero-stack-with-vercel-v0-and-aws-da.png"
-  },
-  {
-    "order": 3,
-    "slug": "03-global-ai-hackathon-qwen-cloud",
-    "title": "Global AI Hackathon Series with Qwen Cloud",
-    "url": "https://qwencloud-hackathon.devpost.com/",
-    "image": "/tech-recommendations/03-global-ai-hackathon-qwen-cloud.png",
-    "sourceImage": "/opportunities/q3-2026-global-ai-hackathon-series-with-qwen-cloud.png"
-  },
-  {
-    "order": 4,
-    "slug": "04-moonshot-hackathon",
-    "title": "Moonshot Hackathon",
-    "url": "https://moonshot-aethra.devpost.com/",
-    "image": "/tech-recommendations/04-moonshot-hackathon.png",
-    "sourceImage": "/opportunities/q3-2026-moonshot-hackathon.png"
-  },
-  {
-    "order": 5,
-    "slug": "05-gcash-ml-internships",
-    "title": "GCash ML Internships (MLOps + Research)",
-    "url": "https://gcash.com/careers",
-    "image": "/tech-recommendations/05-gcash-ml-internships.jpg",
-    "sourceImage": "/opportunities/q3-2026-gcash-ml-operations-engineer-intern.jpg",
-    "includes": [
-      "GCash ML Operations Engineer Intern",
-      "GCash ML Research Intern"
-    ]
-  },
-  {
-    "order": 6,
-    "slug": "06-celestial-effervescence-aws-serverless",
-    "title": "Celestial Effervescence: Serverless APIs with Lambda + API Gateway",
-    "url": "https://luma.com/98i2gzm9",
-    "image": "/tech-recommendations/06-celestial-effervescence-aws-serverless.jpg",
-    "sourceImage": "/opportunities/q3-2026-celestial-effervescence-serverless-apis-with-lam.jpg"
-  },
-  {
-    "order": 7,
-    "slug": "07-build-nights-design-to-code-workshop",
-    "title": "Build Nights: Design to Code Workshop",
-    "url": "https://luma.com/wycpkuj7",
-    "image": "/tech-recommendations/07-build-nights-design-to-code-workshop.jpg",
-    "sourceImage": "/opportunities/q3-2026-build-nights-design-to-code-workshop.jpg"
-  },
-  {
-    "order": 8,
-    "slug": "08-fusespark-meet-up-philippines",
-    "title": "FuseSpark Meet-up Philippines",
-    "url": "https://luma.com/86zkwtk4",
-    "image": "/tech-recommendations/08-fusespark-meet-up-philippines.jpg",
-    "sourceImage": "/opportunities/q3-2026-fusespark-meet-up-philippines.jpg"
-  },
-  {
-    "order": 9,
-    "slug": "09-huawei-cloud-developer-group-kickoff-event",
-    "title": "Huawei Cloud Developer Group: Kickoff Event",
-    "url": "https://luma.com/gflpq80z",
-    "image": "/tech-recommendations/09-huawei-cloud-developer-group-kickoff-event.jpg",
-    "sourceImage": "/opportunities/q3-2026-huawei-cloud-developer-group-kickoff-event.jpg"
-  },
-  {
-    "order": 10,
-    "slug": "10-globe-technology-innovation-internship",
-    "title": "Globe Telecom Technology & Innovation Internship",
-    "url": "https://www.globe.com.ph/about-us/careers.html",
-    "image": "/tech-recommendations/10-globe-technology-innovation-internship.jpg",
-    "sourceImage": "/opportunities/q3-2026-globe-telecom-technology-innovation-internship.jpg"
-  }
-]
+{
+  "plug": "This roundup is free to share. If it helps you, kape keeps it running: https://kape.stimmie.dev",
+  "items": [
+    {
+      "order": 1,
+      "slug": "01-build-with-gemini",
+      "title": "Build with Gemini",
+      "url": "https://build-with-gemini-0.devpost.com/",
+      "image": "/tech-recommendations/01-build-with-gemini.png",
+      "sourceImage": "/opportunities/q3-2026-build-with-gemini.png"
+    },
+    {
+      "order": 2,
+      "slug": "02-h0-hack-vercel-v0-aws",
+      "title": "H0: Hack the Zero Stack with Vercel v0 and AWS Databases",
+      "url": "https://h01.devpost.com/",
+      "image": "/tech-recommendations/02-h0-hack-vercel-v0-aws.png",
+      "sourceImage": "/opportunities/q3-2026-h0-hack-the-zero-stack-with-vercel-v0-and-aws-da.png"
+    },
+    {
+      "order": 3,
+      "slug": "03-global-ai-hackathon-qwen-cloud",
+      "title": "Global AI Hackathon Series with Qwen Cloud",
+      "url": "https://qwencloud-hackathon.devpost.com/",
+      "image": "/tech-recommendations/03-global-ai-hackathon-qwen-cloud.png",
+      "sourceImage": "/opportunities/q3-2026-global-ai-hackathon-series-with-qwen-cloud.png"
+    },
+    {
+      "order": 4,
+      "slug": "04-moonshot-hackathon",
+      "title": "Moonshot Hackathon",
+      "url": "https://moonshot-aethra.devpost.com/",
+      "image": "/tech-recommendations/04-moonshot-hackathon.png",
+      "sourceImage": "/opportunities/q3-2026-moonshot-hackathon.png"
+    },
+    {
+      "order": 5,
+      "slug": "05-gcash-ml-internships",
+      "title": "GCash ML Internships (MLOps + Research)",
+      "url": "https://gcash.com/careers",
+      "image": "/tech-recommendations/05-gcash-ml-internships.jpg",
+      "sourceImage": "/opportunities/q3-2026-gcash-ml-operations-engineer-intern.jpg",
+      "includes": [
+        "GCash ML Operations Engineer Intern",
+        "GCash ML Research Intern"
+      ]
+    },
+    {
+      "order": 6,
+      "slug": "06-celestial-effervescence-aws-serverless",
+      "title": "Celestial Effervescence: Serverless APIs with Lambda + API Gateway",
+      "url": "https://luma.com/98i2gzm9",
+      "image": "/tech-recommendations/06-celestial-effervescence-aws-serverless.jpg",
+      "sourceImage": "/opportunities/q3-2026-celestial-effervescence-serverless-apis-with-lam.jpg"
+    },
+    {
+      "order": 7,
+      "slug": "07-build-nights-design-to-code-workshop",
+      "title": "Build Nights: Design to Code Workshop",
+      "url": "https://luma.com/wycpkuj7",
+      "image": "/tech-recommendations/07-build-nights-design-to-code-workshop.jpg",
+      "sourceImage": "/opportunities/q3-2026-build-nights-design-to-code-workshop.jpg"
+    },
+    {
+      "order": 8,
+      "slug": "08-fusespark-meet-up-philippines",
+      "title": "FuseSpark Meet-up Philippines",
+      "url": "https://luma.com/86zkwtk4",
+      "image": "/tech-recommendations/08-fusespark-meet-up-philippines.jpg",
+      "sourceImage": "/opportunities/q3-2026-fusespark-meet-up-philippines.jpg"
+    },
+    {
+      "order": 9,
+      "slug": "09-huawei-cloud-developer-group-kickoff-event",
+      "title": "Huawei Cloud Developer Group: Kickoff Event",
+      "url": "https://luma.com/gflpq80z",
+      "image": "/tech-recommendations/09-huawei-cloud-developer-group-kickoff-event.jpg",
+      "sourceImage": "/opportunities/q3-2026-huawei-cloud-developer-group-kickoff-event.jpg"
+    },
+    {
+      "order": 10,
+      "slug": "10-globe-technology-innovation-internship",
+      "title": "Globe Telecom Technology & Innovation Internship",
+      "url": "https://www.globe.com.ph/about-us/careers.html",
+      "image": "/tech-recommendations/10-globe-technology-innovation-internship.jpg",
+      "sourceImage": "/opportunities/q3-2026-globe-telecom-technology-innovation-internship.jpg"
+    }
+  ]
+}

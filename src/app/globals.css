@@ -1259,6 +1259,33 @@ body {
   color: #8a0058;
 }
 
+/* ── Kape support banner (opportunities page top) ───────────────── */
+.neo-kape-banner {
+  padding: 0.75rem 1rem;
+  border: 2px solid var(--neo-border);
+  background: linear-gradient(135deg, #fff8e8 0%, #ffe8c8 100%);
+  box-shadow: 2px 2px 0 var(--neo-border);
+}
+
+.neo-kape-banner-text {
+  font-family: var(--neo-ui);
+  font-size: max(0.9375rem, 15px);
+  line-height: 1.45;
+  color: var(--neo-ink);
+}
+
+.neo-page a.neo-kape-banner-link,
+.neo-page a.neo-kape-banner-link:visited {
+  color: #6b3a00;
+  font-weight: 700;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+.neo-page a.neo-kape-banner-link:hover {
+  color: #3d2200;
+}
+
 /* ── Opportunities page: minimum readable type sizes ─────────────── */
 .neo-opportunity-page {
   --neo-opp-text-caption: max(0.8125rem, 13px);

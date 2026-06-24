@@ -1,5 +1,6 @@
 import OpportunityBoard from "@/components/neo/OpportunityBoard";
 import OpportunityDisclaimer from "@/components/neo/OpportunityDisclaimer";
+import OpportunityKapeBanner from "@/components/neo/OpportunityKapeBanner";
 import PageShell from "@/components/neo/PageShell";
 import {
   formatBoardUpdated,
@@ -63,6 +64,7 @@ export default function OpportunitiesPage() {
       intro={board.intro}
       current="/opportunities"
       maxWidth="64rem"
+      beforeTitle={<OpportunityKapeBanner />}
     >
       <div className="neo-opportunity-page">
         <p className="neo-opportunity-updated m-0 mb-4 neo-muted">

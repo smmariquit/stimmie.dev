@@ -14,6 +14,7 @@ export default function PageShell({
   current,
   children,
   maxWidth = "60rem",
+  beforeTitle,
 }) {
   return (
     <div className="neo-page" lang="en">
@@ -41,6 +42,7 @@ export default function PageShell({
         </header>
 
         <main id="main-content" tabIndex={-1} className="neo-box min-w-0">
+          {beforeTitle}
           <h1
             className="neo-title"
             style={{ textAlign: "left", fontSize: "2rem" }}

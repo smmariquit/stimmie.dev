@@ -1,93 +1,96 @@
-[
-  {
-    "order": 1,
-    "slug": "01-google-dict-and-ai",
-    "title": "Google Career Certificates & AI (DICT / Grow with Google)",
-    "url": "https://dict.gov.ph/dict-opens-access-to-free-google-career-certificates",
-    "image": "/freshie-recommendations/01-google-dict-and-ai.jpg",
-    "sourceImage": "/opportunities/q3-2026-google-career-certificates-via-dict.jpg",
-    "includes": [
-      "Google Career Certificates via DICT",
-      "Google AI Essentials",
-      "https://grow.google/intl/en_ph/ai-essentials/"
-    ]
-  },
-  {
-    "order": 2,
-    "slug": "02-upou-model-moocs",
-    "title": "UPOU Free MOOCs on MODeL",
-    "url": "https://model.upou.edu.ph/",
-    "image": "/freshie-recommendations/02-upou-model-moocs.jpg",
-    "sourceImage": "/opportunities/q3-2026-up-open-university-free-moocs-model.jpg",
-    "includes": [
-      "Introduction to Open Distance eLearning (ODeL)",
-      "Basics of Resilience",
-      "https://model.upou.edu.ph/course/view.php?id=967",
-      "https://model.upou.edu.ph/course/view.php?id=991"
-    ]
-  },
-  {
-    "order": 3,
-    "slug": "03-kamuxtahan-uxph-online-meetup",
-    "title": "KamUXtahan: UXPH Online Meetup",
-    "url": "https://bit.ly/UXPH-on-Discord",
-    "image": "/freshie-recommendations/03-kamuxtahan-uxph-online-meetup.png",
-    "sourceImage": "/opportunities/q3-2026-kamuxtahan-uxph-online-meetup.png"
-  },
-  {
-    "order": 4,
-    "slug": "04-build-with-gemini",
-    "title": "Build with Gemini",
-    "url": "https://build-with-gemini-0.devpost.com/",
-    "image": "/freshie-recommendations/04-build-with-gemini.png",
-    "sourceImage": "/opportunities/q3-2026-build-with-gemini.png"
-  },
-  {
-    "order": 5,
-    "slug": "05-build-nights-design-to-code-workshop",
-    "title": "Build Nights: Design to Code Workshop",
-    "url": "https://luma.com/wycpkuj7",
-    "image": "/freshie-recommendations/05-build-nights-design-to-code-workshop.jpg",
-    "sourceImage": "/opportunities/q3-2026-build-nights-design-to-code-workshop.jpg"
-  },
-  {
-    "order": 6,
-    "slug": "06-creator-colosseum-startup-competition",
-    "title": "Creator Colosseum Startup Competition: Student Founders. Real Startups.",
-    "url": "https://creatorcolosseum.devpost.com/",
-    "image": "/freshie-recommendations/06-creator-colosseum-startup-competition.jpg",
-    "sourceImage": "/opportunities/q3-2026-creator-colosseum-startup-competition-student-fo.jpg"
-  },
-  {
-    "order": 7,
-    "slug": "07-unesco-silk-roads-photo-contest",
-    "title": "UNESCO Youth Eyes on the Silk Roads Photo Contest 2026",
-    "url": "https://unescosilkroadphotocontest.org/participate",
-    "image": "/freshie-recommendations/07-unesco-silk-roads-photo-contest.jpg",
-    "sourceImage": "/opportunities/q3-2026-unesco-youth-eyes-on-the-silk-roads-photo-contes.jpg"
-  },
-  {
-    "order": 8,
-    "slug": "08-globe-student-volunteer-program",
-    "title": "Globe Student Volunteer Program",
-    "url": "https://www.globe.com.ph/community-builder/student-volunteer-program-form",
-    "image": "/freshie-recommendations/08-globe-student-volunteer-program.jpg",
-    "sourceImage": "/opportunities/q3-2026-globe-student-volunteer-program.jpg"
-  },
-  {
-    "order": 9,
-    "slug": "09-fusespark-meet-up-philippines",
-    "title": "FuseSpark Meet-up Philippines",
-    "url": "https://luma.com/86zkwtk4",
-    "image": "/freshie-recommendations/09-fusespark-meet-up-philippines.jpg",
-    "sourceImage": "/opportunities/q3-2026-fusespark-meet-up-philippines.jpg"
-  },
-  {
-    "order": 10,
-    "slug": "10-huawei-cloud-developer-group-kickoff-event",
-    "title": "Huawei Cloud Developer Group: Kickoff Event",
-    "url": "https://luma.com/gflpq80z",
-    "image": "/freshie-recommendations/10-huawei-cloud-developer-group-kickoff-event.jpg",
-    "sourceImage": "/opportunities/q3-2026-huawei-cloud-developer-group-kickoff-event.jpg"
-  }
-]
+{
+  "plug": "This roundup is free to share. If it helps you, kape keeps it running: https://kape.stimmie.dev",
+  "items": [
+    {
+      "order": 1,
+      "slug": "01-google-dict-and-ai",
+      "title": "Google Career Certificates & AI (DICT / Grow with Google)",
+      "url": "https://dict.gov.ph/dict-opens-access-to-free-google-career-certificates",
+      "image": "/freshie-recommendations/01-google-dict-and-ai.jpg",
+      "sourceImage": "/opportunities/q3-2026-google-career-certificates-via-dict.jpg",
+      "includes": [
+        "Google Career Certificates via DICT",
+        "Google AI Essentials",
+        "https://grow.google/intl/en_ph/ai-essentials/"
+      ]
+    },
+    {
+      "order": 2,
+      "slug": "02-upou-model-moocs",
+      "title": "UPOU Free MOOCs on MODeL",
+      "url": "https://model.upou.edu.ph/",
+      "image": "/freshie-recommendations/02-upou-model-moocs.jpg",
+      "sourceImage": "/opportunities/q3-2026-up-open-university-free-moocs-model.jpg",
+      "includes": [
+        "Introduction to Open Distance eLearning (ODeL)",
+        "Basics of Resilience",
+        "https://model.upou.edu.ph/course/view.php?id=967",
+        "https://model.upou.edu.ph/course/view.php?id=991"
+      ]
+    },
+    {
+      "order": 3,
+      "slug": "03-kamuxtahan-uxph-online-meetup",
+      "title": "KamUXtahan: UXPH Online Meetup",
+      "url": "https://bit.ly/UXPH-on-Discord",
+      "image": "/freshie-recommendations/03-kamuxtahan-uxph-online-meetup.png",
+      "sourceImage": "/opportunities/q3-2026-kamuxtahan-uxph-online-meetup.png"
+    },
+    {
+      "order": 4,
+      "slug": "04-build-with-gemini",
+      "title": "Build with Gemini",
+      "url": "https://build-with-gemini-0.devpost.com/",
+      "image": "/freshie-recommendations/04-build-with-gemini.png",
+      "sourceImage": "/opportunities/q3-2026-build-with-gemini.png"
+    },
+    {
+      "order": 5,
+      "slug": "05-build-nights-design-to-code-workshop",
+      "title": "Build Nights: Design to Code Workshop",
+      "url": "https://luma.com/wycpkuj7",
+      "image": "/freshie-recommendations/05-build-nights-design-to-code-workshop.jpg",
+      "sourceImage": "/opportunities/q3-2026-build-nights-design-to-code-workshop.jpg"
+    },
+    {
+      "order": 6,
+      "slug": "06-creator-colosseum-startup-competition",
+      "title": "Creator Colosseum Startup Competition: Student Founders. Real Startups.",
+      "url": "https://creatorcolosseum.devpost.com/",
+      "image": "/freshie-recommendations/06-creator-colosseum-startup-competition.jpg",
+      "sourceImage": "/opportunities/q3-2026-creator-colosseum-startup-competition-student-fo.jpg"
+    },
+    {
+      "order": 7,
+      "slug": "07-unesco-silk-roads-photo-contest",
+      "title": "UNESCO Youth Eyes on the Silk Roads Photo Contest 2026",
+      "url": "https://unescosilkroadphotocontest.org/participate",
+      "image": "/freshie-recommendations/07-unesco-silk-roads-photo-contest.jpg",
+      "sourceImage": "/opportunities/q3-2026-unesco-youth-eyes-on-the-silk-roads-photo-contes.jpg"
+    },
+    {
+      "order": 8,
+      "slug": "08-globe-student-volunteer-program",
+      "title": "Globe Student Volunteer Program",
+      "url": "https://www.globe.com.ph/community-builder/student-volunteer-program-form",
+      "image": "/freshie-recommendations/08-globe-student-volunteer-program.jpg",
+      "sourceImage": "/opportunities/q3-2026-globe-student-volunteer-program.jpg"
+    },
+    {
+      "order": 9,
+      "slug": "09-fusespark-meet-up-philippines",
+      "title": "FuseSpark Meet-up Philippines",
+      "url": "https://luma.com/86zkwtk4",
+      "image": "/freshie-recommendations/09-fusespark-meet-up-philippines.jpg",
+      "sourceImage": "/opportunities/q3-2026-fusespark-meet-up-philippines.jpg"
+    },
+    {
+      "order": 10,
+      "slug": "10-huawei-cloud-developer-group-kickoff-event",
+      "title": "Huawei Cloud Developer Group: Kickoff Event",
+      "url": "https://luma.com/gflpq80z",
+      "image": "/freshie-recommendations/10-huawei-cloud-developer-group-kickoff-event.jpg",
+      "sourceImage": "/opportunities/q3-2026-huawei-cloud-developer-group-kickoff-event.jpg"
+    }
+  ]
+}
