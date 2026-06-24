@@ -65,6 +65,11 @@ export const FRIENDS = [
     blurb: "GOATed UX guy, first hackathon teammate",
   },
   {
+    name: "Anne Reyes",
+    url: "https://ryeolabs.org",
+    blurb: "fellow ambitious girlie",
+  },
+  {
     name: "Bernard Jezua",
     url: "https://bernardjezua.is-a.dev",
     blurb: "frontend engineer",
