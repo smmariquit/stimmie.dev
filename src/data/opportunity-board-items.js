@@ -184,6 +184,56 @@ export const opportunityBoardItems = [
       blurb: "Project management, research, and media production across ASEAN higher education cooperation.",
     },
     {
+      id: "q3-2026-gcash-ml-operations-engineer-intern",
+      title: "GCash ML Operations Engineer Intern",
+      type: "internship",
+      url: "https://gcash.com/careers",
+      imageUrl: "https://gcash.com/",
+      org: "GCash (Mynt) / Data & Transformation",
+      location: "BGC, Taguig / Hybrid",
+      dates: [
+        {
+          label: "Program start",
+          date: "2026-06-29",
+        },
+        {
+          label: "Alternate start",
+          date: "2026-07-13",
+        },
+        {
+          label: "Program period",
+          date: "2026-06-29",
+          endDate: "2026-12-29",
+        },
+      ],
+      blurb: "6-month MLOps internship building model monitoring tools, deployment automation, and pipeline support. Python, SQL, cloud, and ML libraries. 4 slots. Talent-community opening; not Jumpstart.",
+    },
+    {
+      id: "q3-2026-gcash-ml-research-intern",
+      title: "GCash ML Research Intern",
+      type: "internship",
+      url: "https://gcash.com/careers",
+      imageUrl: "https://gcash.com/",
+      org: "GCash (Mynt) / Data & Transformation",
+      location: "BGC, Taguig / Hybrid",
+      dates: [
+        {
+          label: "Program start",
+          date: "2026-07-06",
+        },
+        {
+          label: "Alternate start",
+          date: "2026-07-13",
+        },
+        {
+          label: "Program period",
+          date: "2026-07-06",
+          endDate: "2026-01-06",
+        },
+      ],
+      blurb: "6-month applied ML internship for Filipino-language data annotation, supervised model training, and technical documentation. Native Filipino speaker required; Bisaya, Ilokano, or Waray a plus. 3 slots. Talent-community opening; not Jumpstart.",
+    },
+    {
       title: "Bagong Pilipinas Merit Scholarship Program 2026",
       type: "program",
       url: "https://bpms.ched.gov.ph/",

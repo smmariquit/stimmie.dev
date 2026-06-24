@@ -2,60 +2,128 @@ import { readFile } from "node:fs/promises";
 import { join } from "node:path";
 import { ImageResponse } from "next/og";
 import {
-  formatBoardUpdated,
   getOpportunities,
   getOpportunitiesBoard,
-  OPPORTUNITY_TYPE_ORDER,
-  OPPORTUNITY_TYPES,
+  getOpportunityImagePresentation,
+  resolveOpportunityImage,
 } from "@/data/opportunities";
 
 export const runtime = "nodejs";
 
-export const alt =
-  "Stimmie opportunities board with live counts by category";
+export const alt = "Mosaic of opportunity board cover images";
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
 
-const TYPE_STYLES = {
-  hackathon: { bg: "#d8ffe0", color: "#075c1f" },
-  "game-jam": { bg: "#fff0e8", color: "#9a3d07" },
-  internship: { bg: "#e8f0ff", color: "#0a3d7a" },
-  program: { bg: "#ffe8f5", color: "#8a0058" },
-  event: { bg: "#fffacd", color: "#5a4a00" },
-  certificate: { bg: "#efe0ff", color: "#5a0a8a" },
-};
+const GAP = 3;
+const ROWS = 3;
+const EVEN_COLS = 4;
+const ODD_COLS = 5;
+const ROW_HEIGHT = Math.floor((size.height - (ROWS - 1) * GAP) / ROWS);
 
-async function loadOgFonts() {
-  const fontDir = join(process.cwd(), "public/fonts/og");
-  const [fredoka, nunito] = await Promise.all([
-    readFile(join(fontDir, "fredoka-latin-700-normal.woff")),
-    readFile(join(fontDir, "nunito-latin-600-normal.woff")),
-  ]);
-  return { fredoka, nunito };
+function hashString(value) {
+  let hash = 0;
+  for (let i = 0; i < value.length; i += 1) {
+    hash = (hash * 31 + value.charCodeAt(i)) | 0;
+  }
+  return hash;
 }
 
-function getTypeCounts(items) {
-  const counts = new Map();
-  for (const type of OPPORTUNITY_TYPE_ORDER) {
-    counts.set(type, 0);
+function getEvenTileWidth() {
+  return Math.floor((size.width - (EVEN_COLS - 1) * GAP) / EVEN_COLS);
+}
+
+function buildBrickTiles() {
+  const tileWidth = getEvenTileWidth();
+  const xOffset = Math.floor((tileWidth + GAP) / 2);
+  const tiles = [];
+
+  for (let row = 0; row < ROWS; row += 1) {
+    const isOddRow = row % 2 === 1;
+    const cols = isOddRow ? ODD_COLS : EVEN_COLS;
+    const y = row * (ROW_HEIGHT + GAP);
+    const startX = isOddRow ? -xOffset : 0;
+
+    for (let col = 0; col < cols; col += 1) {
+      tiles.push({
+        x: startX + col * (tileWidth + GAP),
+        y,
+        width: tileWidth,
+        height: ROW_HEIGHT,
+      });
+    }
   }
+
+  return tiles;
+}
+
+function pickMosaicSources(items, count, seed) {
+  const seen = new Set();
+  const sources = [];
+
   for (const item of items) {
-    counts.set(item.type, (counts.get(item.type) ?? 0) + 1);
+    const src = resolveOpportunityImage(item);
+    const presentation = getOpportunityImagePresentation(item);
+
+    if (seen.has(src)) {
+      continue;
+    }
+    if (presentation.className.includes("favicon")) {
+      continue;
+    }
+    if (src.includes("/defaults/")) {
+      continue;
+    }
+    if (src.endsWith(".webp")) {
+      continue;
+    }
+
+    seen.add(src);
+    sources.push(src);
   }
-  return OPPORTUNITY_TYPE_ORDER.map((type) => ({
-    type,
-    label: OPPORTUNITY_TYPES[type].label,
-    count: counts.get(type) ?? 0,
-    style: TYPE_STYLES[type],
-  })).filter((row) => row.count > 0);
+
+  const ordered = [...sources].sort(
+    (a, b) => hashString(`${seed}:${a}`) - hashString(`${seed}:${b}`),
+  );
+
+  return Array.from({ length: count }, (_, index) => {
+    return ordered[index % ordered.length];
+  });
+}
+
+async function loadImageDataUrl(publicPath) {
+  const filePath = join(process.cwd(), "public", publicPath.replace(/^\//, ""));
+  const extension = filePath.split(".").pop()?.toLowerCase() ?? "png";
+  const buffer = await readFile(filePath);
+
+  if (extension === "svg") {
+    return `data:image/svg+xml;base64,${buffer.toString("base64")}`;
+  }
+
+  const mime =
+    extension === "png"
+      ? "image/png"
+      : extension === "webp"
+        ? "image/webp"
+        : "image/jpeg";
+
+  return `data:${mime};base64,${buffer.toString("base64")}`;
 }
 
 export default async function Image() {
-  const { fredoka, nunito } = await loadOgFonts();
   const board = getOpportunitiesBoard();
   const items = getOpportunities();
-  const rows = getTypeCounts(items);
-  const updated = formatBoardUpdated(board.lastUpdated);
+  const tiles = buildBrickTiles();
+  const sources = pickMosaicSources(items, tiles.length, board.lastUpdated);
+
+  const imageData = await Promise.all(
+    sources.map(async (src) => {
+      try {
+        return await loadImageDataUrl(src);
+      } catch {
+        return null;
+      }
+    }),
+  );
 
   return new ImageResponse(
     <div
@@ -63,184 +131,51 @@ export default async function Image() {
         width: "100%",
         height: "100%",
         display: "flex",
-        alignItems: "center",
-        justifyContent: "center",
+        position: "relative",
+        overflow: "hidden",
         backgroundColor: "#0a0a1a",
-        backgroundImage:
-          "radial-gradient(1px 1px at 20px 30px, #fff, transparent), radial-gradient(1px 1px at 80px 120px, rgba(255,255,255,0.5), transparent), radial-gradient(1px 1px at 160px 60px, rgba(255,255,255,0.4), transparent), radial-gradient(1.5px 1.5px at 240px 180px, #fff, transparent)",
-        padding: 28,
       }}
     >
-      <div
-        style={{
-          display: "flex",
-          flexDirection: "column",
-          width: "100%",
-          height: "100%",
-          backgroundColor: "#fffef5",
-          border: "4px solid #ff00aa",
-          boxShadow: "10px 10px 0 #000",
-          padding: "28px 32px",
-        }}
-      >
+      {tiles.map((tile, index) => (
         <div
+          key={`${tile.x}-${tile.y}`}
           style={{
             display: "flex",
-            justifyContent: "space-between",
-            alignItems: "flex-start",
-            borderBottom: "3px dashed #d6008f",
-            paddingBottom: 16,
-            marginBottom: 16,
+            position: "absolute",
+            left: tile.x,
+            top: tile.y,
+            width: tile.width,
+            height: tile.height,
+            overflow: "hidden",
+            backgroundColor: "#1a1a2e",
           }}
         >
-          <div style={{ display: "flex", flexDirection: "column", gap: 6 }}>
+          {imageData[index] ? (
+            <img
+              alt=""
+              src={imageData[index]}
+              style={{
+                display: "flex",
+                width: "100%",
+                height: "100%",
+                objectFit: "cover",
+              }}
+            />
+          ) : (
             <div
               style={{
                 display: "flex",
-                fontFamily: "Fredoka",
-                fontSize: 46,
-                fontWeight: 700,
-                color: "#c00000",
-                letterSpacing: "0.04em",
-                lineHeight: 1.1,
+                width: "100%",
+                height: "100%",
+                backgroundColor: "#2a2a4a",
               }}
-            >
-              ~ opportunities ~
-            </div>
-            <div
-              style={{
-                display: "flex",
-                fontFamily: "Nunito",
-                fontSize: 22,
-                fontWeight: 700,
-                color: "#1a1a1a",
-              }}
-            >
-              stimmie.dev/opportunities
-            </div>
-          </div>
-          <div
-            style={{
-              display: "flex",
-              flexDirection: "column",
-              alignItems: "center",
-              backgroundColor: "#000",
-              border: "3px solid #000",
-              boxShadow: "4px 4px 0 #d6008f",
-              padding: "10px 18px",
-              minWidth: 150,
-            }}
-          >
-            <div
-              style={{
-                display: "flex",
-                fontFamily: "Fredoka",
-                fontSize: 44,
-                fontWeight: 700,
-                color: "#cc0066",
-                lineHeight: 1,
-              }}
-            >
-              {items.length}
-            </div>
-            <div
-              style={{
-                display: "flex",
-                fontFamily: "Nunito",
-                fontSize: 16,
-                fontWeight: 700,
-                color: "#fff",
-                marginTop: 4,
-                letterSpacing: "0.06em",
-              }}
-            >
-              LISTINGS
-            </div>
-          </div>
+            />
+          )}
         </div>
-
-        <div
-          style={{
-            display: "flex",
-            flexDirection: "row",
-            flexWrap: "wrap",
-            gap: 12,
-            flex: 1,
-            alignContent: "flex-start",
-          }}
-        >
-          {rows.map((row) => (
-            <div
-              key={row.type}
-              style={{
-                display: "flex",
-                alignItems: "center",
-                justifyContent: "space-between",
-                width: 548,
-                backgroundColor: row.style.bg,
-                border: "3px solid #000",
-                boxShadow: "4px 4px 0 #000",
-                padding: "14px 18px",
-              }}
-            >
-              <div
-                style={{
-                  display: "flex",
-                  fontFamily: "Fredoka",
-                  fontSize: 24,
-                  fontWeight: 700,
-                  color: row.style.color,
-                  letterSpacing: "0.02em",
-                }}
-              >
-                {row.label}
-              </div>
-              <div
-                style={{
-                  display: "flex",
-                  alignItems: "center",
-                  justifyContent: "center",
-                  fontFamily: "Fredoka",
-                  fontSize: 32,
-                  fontWeight: 700,
-                  color: row.style.color,
-                  backgroundColor: "#fffef5",
-                  border: "2px solid #000",
-                  minWidth: 56,
-                  padding: "4px 12px",
-                  boxShadow: "2px 2px 0 #000",
-                }}
-              >
-                {row.count}
-              </div>
-            </div>
-          ))}
-        </div>
-
-        <div
-          style={{
-            display: "flex",
-            justifyContent: "center",
-            marginTop: 14,
-            backgroundColor: "#000",
-            color: "#0f0",
-            fontFamily: "Fredoka",
-            fontSize: 20,
-            fontWeight: 700,
-            padding: "8px 16px",
-            letterSpacing: "0.04em",
-          }}
-        >
-          * PH and online * updated {updated} * verify on official sites *
-        </div>
-      </div>
+      ))}
     </div>,
     {
       ...size,
-      fonts: [
-        { name: "Fredoka", data: fredoka, weight: 700, style: "normal" },
-        { name: "Nunito", data: nunito, weight: 600, style: "normal" },
-      ],
     },
   );
 }
