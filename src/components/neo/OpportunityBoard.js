@@ -8,21 +8,31 @@ import {
   getOpportunityType,
   groupIssueItemsByType,
   isOpportunityAiRelated,
-  isOpportunityGameJam,
+  OPPORTUNITY_TYPE_ORDER,
+  OPPORTUNITY_TYPES,
 } from "@/data/opportunities";
 
 export default function OpportunityBoard({ items }) {
-  const [filter, setFilter] = useState("all");
+  const [typeFilter, setTypeFilter] = useState("all");
+  const [aiOnly, setAiOnly] = useState(false);
   const [query, setQuery] = useState("");
+
+  const typeCounts = useMemo(() => {
+    const counts = new Map();
+    for (const item of items) {
+      counts.set(item.type, (counts.get(item.type) ?? 0) + 1);
+    }
+    return counts;
+  }, [items]);
 
   const filteredItems = useMemo(
     () =>
       filterOpportunities(items, {
-        aiOnly: filter === "ai",
-        gameJamOnly: filter === "game-jam",
+        type: typeFilter,
+        aiOnly,
         query,
       }),
-    [items, filter, query],
+    [items, typeFilter, aiOnly, query],
   );
   const sections = useMemo(
     () => groupIssueItemsByType(filteredItems),
@@ -33,33 +43,43 @@ export default function OpportunityBoard({ items }) {
     [items],
   );
 
-  const gameJamCount = useMemo(
-    () => items.filter(isOpportunityGameJam).length,
-    [items],
-  );
-
   const hasSearch = query.trim().length > 0;
-  const hasActiveFilters = filter !== "all" || hasSearch;
+  const hasActiveFilters = typeFilter !== "all" || aiOnly || hasSearch;
 
   function clearFilters() {
-    setFilter("all");
+    setTypeFilter("all");
+    setAiOnly(false);
     setQuery("");
   }
 
   function emptyMessage() {
-    if (hasSearch && filter === "ai") {
-      return "No AI-related listings match your search.";
+    const typeLabel =
+      typeFilter === "all"
+        ? null
+        : (OPPORTUNITY_TYPES[typeFilter]?.label ?? typeFilter);
+
+    if (hasSearch && typeLabel && aiOnly) {
+      return `No ${typeLabel.toLowerCase()} AI-related listings match your search.`;
     }
-    if (hasSearch && filter === "game-jam") {
-      return "No game jams match your search.";
+    if (hasSearch && typeLabel) {
+      return `No ${typeLabel.toLowerCase()} listings match your search.`;
+    }
+    if (hasSearch && aiOnly) {
+      return "No AI-related listings match your search.";
     }
     if (hasSearch) {
       return "No listings match your search.";
     }
-    if (filter === "game-jam") {
-      return "No game jams match this filter right now.";
+    if (typeLabel && aiOnly) {
+      return `No ${typeLabel.toLowerCase()} AI-related listings right now.`;
     }
-    return "No AI-related listings match this filter right now.";
+    if (typeLabel) {
+      return `No ${typeLabel.toLowerCase()} listings right now.`;
+    }
+    if (aiOnly) {
+      return "No AI-related listings match this filter right now.";
+    }
+    return "No listings match this filter right now.";
   }
 
   return (
@@ -90,46 +110,71 @@ export default function OpportunityBoard({ items }) {
             ) : null}
           </span>
         </label>
+      </div>
 
-        <div
-          className="neo-opportunity-filters"
-          role="group"
-          aria-label="Filter opportunities"
-        >
-          <button
-            type="button"
-            className={`neo-opportunity-filter${filter === "all" ? " neo-opportunity-filter--active" : ""}`}
-            aria-pressed={filter === "all"}
-            onClick={() => setFilter("all")}
+      <div className="neo-opportunity-filter-groups">
+        <div className="neo-opportunity-filter-group">
+          <p className="neo-opportunity-filter-group-label">Type</p>
+          <div
+            className="neo-opportunity-filters"
+            role="group"
+            aria-label="Filter by opportunity type"
           >
-            All
-            <span className="neo-opportunity-filter-count">{items.length}</span>
-          </button>
-          <button
-            type="button"
-            className={`neo-opportunity-filter neo-opportunity-filter--game-jam${filter === "game-jam" ? " neo-opportunity-filter--active" : ""}`}
-            aria-pressed={filter === "game-jam"}
-            onClick={() => setFilter("game-jam")}
+            <button
+              type="button"
+              className={`neo-opportunity-filter${typeFilter === "all" ? " neo-opportunity-filter--active" : ""}`}
+              aria-pressed={typeFilter === "all"}
+              onClick={() => setTypeFilter("all")}
+            >
+              All
+              <span className="neo-opportunity-filter-count">{items.length}</span>
+            </button>
+            {OPPORTUNITY_TYPE_ORDER.map((type) => {
+              const count = typeCounts.get(type) ?? 0;
+              if (!count) {
+                return null;
+              }
+
+              const typeInfo = OPPORTUNITY_TYPES[type];
+              return (
+                <button
+                  key={type}
+                  type="button"
+                  className={`neo-opportunity-filter neo-opportunity-filter--${type}${typeFilter === type ? " neo-opportunity-filter--active" : ""}`}
+                  aria-pressed={typeFilter === type}
+                  onClick={() => setTypeFilter(type)}
+                >
+                  {typeInfo.label}
+                  <span className="neo-opportunity-filter-count">{count}</span>
+                </button>
+              );
+            })}
+          </div>
+        </div>
+
+        <div className="neo-opportunity-filter-group">
+          <p className="neo-opportunity-filter-group-label">Tags</p>
+          <div
+            className="neo-opportunity-filters"
+            role="group"
+            aria-label="Filter by tags"
           >
-            Game jams
-            <span className="neo-opportunity-filter-count">{gameJamCount}</span>
-          </button>
-          <button
-            type="button"
-            className={`neo-opportunity-filter neo-opportunity-filter--ai${filter === "ai" ? " neo-opportunity-filter--active" : ""}`}
-            aria-pressed={filter === "ai"}
-            onClick={() => setFilter("ai")}
-          >
-            AI-related
-            <span className="neo-opportunity-filter-count">{aiCount}</span>
-          </button>
+            <button
+              type="button"
+              className={`neo-opportunity-filter neo-opportunity-filter--ai${aiOnly ? " neo-opportunity-filter--active" : ""}`}
+              aria-pressed={aiOnly}
+              onClick={() => setAiOnly((value) => !value)}
+            >
+              AI-related
+              <span className="neo-opportunity-filter-count">{aiCount}</span>
+            </button>
+          </div>
         </div>
       </div>
 
       {hasActiveFilters ? (
         <p
-          className="neo-opportunity-results m-0 mt-3 text-sm neo-muted"
-          style={{ fontFamily: "var(--neo-ui)" }}
+          className="neo-opportunity-results m-0 mt-3 neo-muted"
           aria-live="polite"
         >
           Showing <strong>{filteredItems.length}</strong> of {items.length}{" "}

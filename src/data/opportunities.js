@@ -279,13 +279,22 @@ export function isOpportunityGameJam(item) {
 
 export function filterOpportunities(
   items,
-  { aiOnly = false, gameJamOnly = false, query = "" } = {},
+  {
+    aiOnly = false,
+    gameJamOnly = false,
+    type = "all",
+    query = "",
+  } = {},
 ) {
   let filtered = items;
 
-  if (gameJamOnly) {
-    filtered = filtered.filter(isOpportunityGameJam);
-  } else if (aiOnly) {
+  const typeFilter = gameJamOnly ? "game-jam" : type;
+
+  if (typeFilter !== "all") {
+    filtered = filtered.filter((item) => item.type === typeFilter);
+  }
+
+  if (aiOnly) {
     filtered = filtered.filter(isOpportunityAiRelated);
   }
 
@@ -454,6 +463,105 @@ export function formatOpportunityDate(date, endDate) {
 
 export function isDatePast(date) {
   return new Date(date).getTime() < Date.now();
+}
+
+const DEADLINE_DATE_LABEL_RE =
+  /deadline|closes?|close|due|application|registration|submission|cfp|proposals?|apply|inquiries|rsvp/i;
+
+/** Prefer registration/apply deadlines over event dates when both exist. */
+export function getOpportunityDeadlineEntry(dates) {
+  if (!dates?.length) {
+    return null;
+  }
+
+  const deadlineLike = dates.find((entry) =>
+    DEADLINE_DATE_LABEL_RE.test(entry.label ?? ""),
+  );
+  if (deadlineLike) {
+    return deadlineLike;
+  }
+
+  return getPrimaryOpportunityDate(dates);
+}
+
+/** End of deadline calendar day in Asia/Manila (23:59:59+08:00). */
+export function getManilaDeadlineEndMs(isoDate) {
+  const day = isoDate.slice(0, 10);
+  return new Date(`${day}T23:59:59+08:00`).getTime();
+}
+
+function formatCountdownClock(ms) {
+  const totalSeconds = Math.max(0, Math.floor(ms / 1000));
+  const days = Math.floor(totalSeconds / 86400);
+  if (days >= 2) {
+    return `${days} days left`;
+  }
+  if (days === 1) {
+    return "1 day left";
+  }
+
+  const hours = Math.floor(totalSeconds / 3600);
+  const minutes = Math.floor((totalSeconds % 3600) / 60);
+  const seconds = totalSeconds % 60;
+  const pad = (value) => String(value).padStart(2, "0");
+  return `${pad(hours)}:${pad(minutes)}:${pad(seconds)} left`;
+}
+
+/**
+ * Snapshot for deadline UI. `nowMs` is injectable for tests and live ticks.
+ * @returns {{ status: "none"|"past"|"today"|"soon"|"future", label: string, clock: string, hint: string }}
+ */
+export function getOpportunityDeadlineSnapshot(isoDate, nowMs = Date.now()) {
+  if (!isoDate) {
+    return {
+      status: "none",
+      label: "",
+      clock: "",
+      hint: "",
+    };
+  }
+
+  const endMs = getManilaDeadlineEndMs(isoDate);
+  const diffMs = endMs - nowMs;
+  const deadlineKey = isoDate.slice(0, 10);
+  const todayKey = getTodayManilaDateKey();
+
+  if (diffMs <= 0) {
+    return {
+      status: "past",
+      label: "Deadline passed",
+      clock: "",
+      hint: "Registration may already be closed. Verify on the official site.",
+    };
+  }
+
+  const clock = formatCountdownClock(diffMs);
+
+  if (deadlineKey === todayKey) {
+    return {
+      status: "today",
+      label: "Closes today",
+      clock,
+      hint: "Apply now. The listing may close before midnight if slots fill up.",
+    };
+  }
+
+  const daysLeft = Math.ceil(diffMs / 86400000);
+  if (daysLeft <= 3) {
+    return {
+      status: "soon",
+      label: "Closing soon",
+      clock: daysLeft >= 2 ? clock : clock,
+      hint: "",
+    };
+  }
+
+  return {
+    status: "future",
+    label: "Time left",
+    clock,
+    hint: "",
+  };
 }
 
 function toManilaDateKey(iso) {

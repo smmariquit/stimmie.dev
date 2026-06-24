@@ -24,21 +24,20 @@ export default function OpportunitiesPage() {
       current="/opportunities"
       maxWidth="64rem"
     >
-      <p
-        className="neo-opportunity-updated m-0 mb-4 text-sm neo-muted"
-        style={{ fontFamily: "var(--neo-ui)" }}
-      >
-        <strong>Last updated:</strong>{" "}
-        <time dateTime={board.lastUpdated}>
-          {formatBoardUpdated(board.lastUpdated)}
-        </time>
-        {" · "}
-        {items.length} listings
-      </p>
+      <div className="neo-opportunity-page">
+        <p className="neo-opportunity-updated m-0 mb-4 neo-muted">
+          <strong>Last updated:</strong>{" "}
+          <time dateTime={board.lastUpdated}>
+            {formatBoardUpdated(board.lastUpdated)}
+          </time>
+          {" · "}
+          {items.length} listings
+        </p>
 
-      <OpportunityDisclaimer />
+        <OpportunityDisclaimer />
 
-      <OpportunityBoard items={items} />
+        <OpportunityBoard items={items} />
+      </div>
     </PageShell>
   );
 }

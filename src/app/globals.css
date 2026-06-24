@@ -1259,6 +1259,63 @@ body {
   color: #8a0058;
 }
 
+/* ── Opportunities page: minimum readable type sizes ─────────────── */
+.neo-opportunity-page {
+  --neo-opp-text-caption: max(0.8125rem, 13px);
+  --neo-opp-text-meta: max(0.875rem, 14px);
+  --neo-opp-text-body: max(0.9375rem, 15px);
+  --neo-opp-text-ui: max(1rem, 16px);
+  font-family: var(--neo-ui);
+}
+
+.neo-opportunity-page .neo-opportunity-updated,
+.neo-opportunity-page .neo-opportunity-results,
+.neo-opportunity-page .neo-opportunity-empty,
+.neo-opportunity-page .neo-opportunity-org,
+.neo-opportunity-page .neo-opportunity-blurb,
+.neo-opportunity-page .neo-opportunity-dates,
+.neo-opportunity-page .neo-opportunity-primary-date,
+.neo-opportunity-page .neo-opportunity-deadline-ticker,
+.neo-opportunity-page .neo-opportunity-deadline-ticker-hint,
+.neo-opportunity-page .neo-opportunity-filter,
+.neo-opportunity-page .neo-opportunity-search-input,
+.neo-opportunity-page .neo-opportunity-section-count,
+.neo-opportunity-page .neo-cal-intro,
+.neo-opportunity-page .neo-cal-upcoming-when,
+.neo-opportunity-page .neo-cal-upcoming-label,
+.neo-opportunity-page .neo-cal-event-label,
+.neo-opportunity-page .neo-cal-month-count,
+.neo-opportunity-page .neo-cal-weekday,
+.neo-opportunity-page .neo-cal-day-num,
+.neo-opportunity-page .neo-cal-chip-title,
+.neo-opportunity-page .neo-cal-chip-more,
+.neo-opportunity-page .neo-cal-day-count,
+.neo-opportunity-page .neo-cal-agenda-subtitle {
+  font-size: var(--neo-opp-text-body);
+}
+
+.neo-opportunity-page .neo-opportunity-search-label,
+.neo-opportunity-page .neo-opportunity-filter-group-label,
+.neo-opportunity-page .neo-opportunity-filter-count,
+.neo-opportunity-page .neo-opportunity-date-value,
+.neo-opportunity-page .neo-opportunity-deadline-ticker-clock,
+.neo-opportunity-page .neo-opportunity-badge,
+.neo-opportunity-page .neo-opportunity-format-badge,
+.neo-opportunity-page .neo-opportunity-section-heading .neo-badge,
+.neo-opportunity-page .neo-opportunity-calendar .neo-badge,
+.neo-opportunity-page .neo-format-pill,
+.neo-opportunity-page .neo-location-pill,
+.neo-opportunity-page .neo-beginner-pill,
+.neo-opportunity-page .neo-ai-pill,
+.neo-opportunity-page .neo-cal-chip-type {
+  font-size: var(--neo-opp-text-meta);
+}
+
+.neo-opportunity-page .neo-opportunity-disclaimer-list,
+.neo-opportunity-page .neo-opportunity-disclaimer-subtitle {
+  font-size: var(--neo-opp-text-ui);
+}
+
 .neo-opportunity-dates {
   font-family: var(--neo-ui);
   font-size: 0.85rem;
@@ -1295,6 +1352,109 @@ body {
 
 .neo-opportunity-date-past .neo-opportunity-date-label {
   color: #999;
+}
+
+.neo-opportunity-deadline-ticker {
+  font-family: var(--neo-ui);
+  font-size: 0.82rem;
+  line-height: 1.4;
+}
+
+.neo-opportunity-deadline-ticker-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 0.35rem 0.6rem;
+}
+
+.neo-opportunity-deadline-ticker-label {
+  font-weight: 700;
+  color: #333;
+}
+
+.neo-opportunity-deadline-ticker-context {
+  font-weight: 500;
+  color: #666;
+}
+
+.neo-opportunity-deadline-ticker-clock {
+  font-family: ui-monospace, "Cascadia Code", monospace;
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: #1a1a1a;
+  background: #f5f5f0;
+  border: 1px solid #000;
+  padding: 0.1rem 0.35rem;
+}
+
+.neo-opportunity-deadline-ticker-hint {
+  color: #666;
+  line-height: 1.35;
+}
+
+.neo-opportunity-deadline-ticker--past .neo-opportunity-deadline-ticker-label {
+  color: #888;
+}
+
+.neo-opportunity-deadline-ticker--past .neo-opportunity-deadline-ticker-hint {
+  color: #996600;
+}
+
+.neo-opportunity-deadline-ticker--today .neo-opportunity-deadline-ticker-label,
+.neo-opportunity-deadline-ticker--today .neo-opportunity-deadline-ticker-clock {
+  color: #cc6600;
+}
+
+.neo-opportunity-deadline-ticker--today .neo-opportunity-deadline-ticker-clock {
+  background: #fff8eb;
+  border-color: #cc6600;
+}
+
+.neo-opportunity-deadline-ticker--soon .neo-opportunity-deadline-ticker-label,
+.neo-opportunity-deadline-ticker--soon .neo-opportunity-deadline-ticker-clock {
+  color: #cc0066;
+}
+
+.neo-opportunity-deadline-ticker--soon .neo-opportunity-deadline-ticker-clock {
+  background: #ffe8f3;
+  border-color: #cc0066;
+}
+
+.neo-opportunity-filter-groups {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  margin-top: 0.25rem;
+}
+
+.neo-opportunity-filter-group-label {
+  margin: 0 0 0.35rem;
+  font-family: var(--neo-ui);
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: #666;
+}
+
+.neo-opportunity-filter--hackathon.neo-opportunity-filter--active {
+  background: #ffe8f3;
+}
+
+.neo-opportunity-filter--internship.neo-opportunity-filter--active {
+  background: #e8f4ff;
+}
+
+.neo-opportunity-filter--event.neo-opportunity-filter--active {
+  background: #f3ebff;
+}
+
+.neo-opportunity-filter--program.neo-opportunity-filter--active {
+  background: #eef8ee;
+}
+
+.neo-opportunity-filter--certificate.neo-opportunity-filter--active {
+  background: #fff8e8;
 }
 
 .neo-opportunity-default-image {
@@ -2104,27 +2264,27 @@ body {
 }
 
 @media (max-width: 520px) {
-  .neo-cal-upcoming-item {
+  .neo-opportunity-page .neo-cal-upcoming-item {
     grid-template-columns: 1fr;
     gap: 0.2rem;
   }
 
-  .neo-cal-upcoming-link,
-  .neo-cal-upcoming-label {
+  .neo-opportunity-page .neo-cal-upcoming-link,
+  .neo-opportunity-page .neo-cal-upcoming-label {
     grid-column: 1;
   }
 
-  .neo-cal-day {
+  .neo-opportunity-page .neo-cal-day {
     min-height: 6.25rem;
   }
 
-  .neo-cal-chip-title {
-    font-size: 0.76rem;
+  .neo-opportunity-page .neo-cal-chip-title {
+    font-size: var(--neo-opp-text-meta);
     -webkit-line-clamp: 2;
   }
 
-  .neo-cal-chip-type {
-    font-size: 0.62rem;
+  .neo-opportunity-page .neo-cal-chip-type {
+    font-size: var(--neo-opp-text-caption);
   }
 }
 

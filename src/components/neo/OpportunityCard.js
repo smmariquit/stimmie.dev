@@ -1,4 +1,5 @@
 import Image from "next/image";
+import OpportunityDeadlineTicker from "@/components/neo/OpportunityDeadlineTicker";
 import {
   formatOpportunityDate,
   getOpportunityFormat,
@@ -95,12 +96,7 @@ export default function OpportunityCard({ item }) {
           </p>
 
           {item.org ? (
-            <p
-              className="m-0 mt-1 text-sm neo-muted neo-opportunity-org"
-              style={{ fontFamily: "var(--neo-ui)" }}
-            >
-              {item.org}
-            </p>
+            <p className="m-0 mt-1 neo-muted neo-opportunity-org">{item.org}</p>
           ) : null}
 
           {(format || place || beginnerFriendly || aiRelated) && (
@@ -135,8 +131,10 @@ export default function OpportunityCard({ item }) {
 
           <OpportunityPrimaryDate dates={item.dates} />
 
+          <OpportunityDeadlineTicker dates={item.dates} />
+
           {item.blurb ? (
-            <p className="neo-opportunity-blurb m-0 mt-1.5 text-sm leading-relaxed">
+            <p className="neo-opportunity-blurb m-0 mt-1.5 leading-relaxed">
               {item.blurb}
             </p>
           ) : null}
