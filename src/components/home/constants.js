@@ -67,7 +67,7 @@ export const FRIENDS = [
   {
     name: "Bernard Jezua",
     url: "https://bernardjezua.is-a.dev",
-    blurb: "cool UX designer and senior in UP",
+    blurb: "frontend engineer",
   },
   {
     name: "John Yumul",
