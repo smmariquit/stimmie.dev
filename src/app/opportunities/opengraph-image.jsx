@@ -9,6 +9,7 @@ import {
 } from "@/data/opportunities";
 
 export const runtime = "nodejs";
+export const dynamic = "force-dynamic";
 
 export const alt = "Mosaic of opportunity board cover images";
 export const size = { width: 1200, height: 630 };

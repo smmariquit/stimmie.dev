@@ -20,6 +20,7 @@ export function generateMetadata() {
     return count ? `${OPPORTUNITY_TYPES[type].label} ${count}` : null;
   }).filter(Boolean);
   const description = `${items.length} live listings: ${rows.join(", ")}. Last updated ${updated}. Personal roundup. Verify deadlines on official sites.`;
+  const ogImage = `/opportunities/opengraph-image?v=${board.lastUpdated}`;
 
   return {
     title: "Opportunities",
@@ -34,11 +35,20 @@ export function generateMetadata() {
       siteName: "Stimmie",
       locale: "en_US",
       type: "website",
+      images: [
+        {
+          url: ogImage,
+          width: 1200,
+          height: 630,
+          alt: "Mosaic of opportunity board cover images",
+        },
+      ],
     },
     twitter: {
       card: "summary_large_image",
       title: OPPORTUNITIES_SHARE_TITLE,
       description,
+      images: [ogImage],
     },
   };
 }
