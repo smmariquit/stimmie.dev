@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 450" role="img" aria-label="No preview available">
+  <defs>
+    <pattern id="neo-checker" width="24" height="24" patternUnits="userSpaceOnUse">
+      <rect width="24" height="24" fill="#f3f1eb"/>
+      <rect width="12" height="12" fill="#ebe8e0"/>
+      <rect x="12" y="12" width="12" height="12" fill="#ebe8e0"/>
+    </pattern>
+  </defs>
+  <rect width="800" height="450" fill="url(#neo-checker)"/>
+  <rect x="32" y="32" width="736" height="386" fill="none" stroke="#b8b4a8" stroke-width="2" stroke-dasharray="12 10"/>
+  <rect x="300" y="128" width="200" height="140" fill="#faf9f5" stroke="#b8b4a8" stroke-width="4"/>
+  <circle cx="352" cy="176" r="16" fill="none" stroke="#b0aca0" stroke-width="4"/>
+  <path d="M312 242 L368 196 L416 220 L472 174 L518 242 Z" fill="#d8d4c8" stroke="#b0aca0" stroke-width="3" stroke-linejoin="round"/>
+  <line x1="278" y1="108" x2="522" y2="288" stroke="#9a9488" stroke-width="8" stroke-linecap="round"/>
+  <text x="400" y="332" text-anchor="middle" font-family="ui-sans-serif, system-ui, sans-serif" font-size="26" font-weight="600" fill="#6a665c">No preview available</text>
+</svg>

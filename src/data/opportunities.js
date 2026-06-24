@@ -26,6 +26,10 @@ export const OPPORTUNITY_TYPE_DEFAULT_IMAGES = {
   program: "/opportunities/defaults/program.svg",
 };
 
+/** Shown when no cover image exists or the file fails to load. */
+export const OPPORTUNITY_UNAVAILABLE_IMAGE =
+  "/opportunities/defaults/unavailable.svg";
+
 /** Shared cover for UPOU MODeL courses (model.upou.edu.ph). */
 export const UPOU_MODEL_IMAGE = "/opportunities/shared/upou-model.png";
 
@@ -122,10 +126,7 @@ export function resolveOpportunityImage(item) {
     return entry.path;
   }
 
-  return (
-    OPPORTUNITY_TYPE_DEFAULT_IMAGES[item.type] ??
-    OPPORTUNITY_TYPE_DEFAULT_IMAGES.program
-  );
+  return OPPORTUNITY_UNAVAILABLE_IMAGE;
 }
 
 export function getOpportunityImagePresentation(item) {
@@ -138,6 +139,11 @@ export function getOpportunityImagePresentation(item) {
 
   if (entry?.status === "favicon") {
     return { className: "neo-opportunity-favicon-image" };
+  }
+
+  const resolved = resolveOpportunityImage(item);
+  if (resolved === OPPORTUNITY_UNAVAILABLE_IMAGE) {
+    return { className: "neo-opportunity-placeholder-image" };
   }
 
   const src = entry?.path ?? "";
@@ -516,9 +522,13 @@ function formatCountdownClock(ms) {
 
   const hours = Math.floor(totalSeconds / 3600);
   const minutes = Math.floor((totalSeconds % 3600) / 60);
-  const seconds = totalSeconds % 60;
-  const pad = (value) => String(value).padStart(2, "0");
-  return `${pad(hours)}:${pad(minutes)}:${pad(seconds)} left`;
+  if (hours > 0) {
+    return `${hours}h ${minutes}m left`;
+  }
+  if (minutes > 0) {
+    return `${minutes}m left`;
+  }
+  return "Under 1m left";
 }
 
 /**

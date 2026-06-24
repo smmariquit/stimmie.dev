@@ -4,7 +4,7 @@
  *   1. og:image / twitter:image from the page
  *   2. Screenshot API fallback (ScreenshotOne or Microlink)
  *   3. Favicon on landscape canvas when screenshot is blocked / error-like
- *   4. Type default placeholder
+ *   4. Unavailable placeholder
  *
  *   npm run opportunities:images
  *   npm run opportunities:images -- --force
@@ -19,7 +19,7 @@ import fs from "node:fs";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
 import {
-  OPPORTUNITY_TYPE_DEFAULT_IMAGES,
+  OPPORTUNITY_UNAVAILABLE_IMAGE,
   getOpportunityId,
   getOpportunities,
 } from "../src/data/opportunities.js";
@@ -365,13 +365,9 @@ async function saveFromFavicon({ item, id, pageContext }) {
 }
 
 function saveTypeFallback({ item, id, errors }) {
-  const fallback =
-    OPPORTUNITY_TYPE_DEFAULT_IMAGES[item.type] ??
-    OPPORTUNITY_TYPE_DEFAULT_IMAGES.program;
-
   return {
     status: "fallback",
-    path: fallback,
+    path: OPPORTUNITY_UNAVAILABLE_IMAGE,
     pageUrl: item.url,
     issueSlug: BOARD_SLUG,
     title: item.title,

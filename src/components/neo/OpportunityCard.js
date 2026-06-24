@@ -1,4 +1,4 @@
-import Image from "next/image";
+import OpportunityCoverImage from "@/components/neo/OpportunityCoverImage";
 import OpportunityDeadlineTicker from "@/components/neo/OpportunityDeadlineTicker";
 import {
   formatOpportunityDate,
@@ -67,14 +67,10 @@ export default function OpportunityCard({ item }) {
     >
       <article>
         <div className="neo-opportunity-thumb relative">
-          <Image
+          <OpportunityCoverImage
             src={imageSrc}
             alt={item.imageAlt || item.title}
-            width={800}
-            height={450}
-            quality={90}
-            sizes="(max-width: 640px) 100vw, 360px"
-            className={`neo-thumb-lg w-full aspect-video object-cover${imagePresentation.className ? ` ${imagePresentation.className}` : ""}`}
+            className={imagePresentation.className}
           />
           <span
             className={`neo-badge neo-opportunity-badge ${type.badge}`}
@@ -91,7 +87,7 @@ export default function OpportunityCard({ item }) {
         </div>
 
         <div className="mt-2">
-          <p className="m-0 font-bold text-lg leading-snug group-hover:text-[#cc0066]">
+          <p className="m-0 font-bold text-lg leading-snug neo-opportunity-card-title">
             {item.title}
           </p>
 

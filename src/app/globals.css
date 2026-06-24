@@ -1261,10 +1261,10 @@ body {
 
 /* ── Kape support banner (opportunities page top) ───────────────── */
 .neo-kape-banner {
-  padding: 0.75rem 1rem;
-  border: 2px solid var(--neo-border);
-  background: linear-gradient(135deg, #fff8e8 0%, #ffe8c8 100%);
-  box-shadow: 2px 2px 0 var(--neo-border);
+  padding: 0.65rem 0.9rem;
+  border: 1px solid #d8d4c8;
+  background: #f8f6f0;
+  box-shadow: none;
 }
 
 .neo-kape-banner-text {
@@ -1276,14 +1276,14 @@ body {
 
 .neo-page a.neo-kape-banner-link,
 .neo-page a.neo-kape-banner-link:visited {
-  color: #6b3a00;
-  font-weight: 700;
+  color: #5a5248;
+  font-weight: 600;
   text-decoration: underline;
   text-underline-offset: 2px;
 }
 
 .neo-page a.neo-kape-banner-link:hover {
-  color: #3d2200;
+  color: #2a2620;
 }
 
 /* ── Opportunities page: minimum readable type sizes ─────────────── */
@@ -1467,6 +1467,12 @@ body {
 .neo-opportunity-default-image {
   object-position: center;
   filter: saturate(0.85);
+}
+
+.neo-opportunity-placeholder-image {
+  object-fit: cover;
+  object-position: center;
+  background: #ece9df;
 }
 
 .neo-opportunity-favicon-image {
@@ -2300,6 +2306,252 @@ body {
 
 .neo-opportunity-updated strong {
   color: #1a1a1a;
+}
+
+/* ── Opportunities page: calmer, easier-on-the-eyes mode ─────────── */
+.neo-opportunity-page {
+  --neo-opp-calm-border: #d4d0c4;
+  --neo-opp-calm-muted: #6a665c;
+  --neo-opp-calm-urgent: #7a5c28;
+  --neo-opp-calm-urgent-bg: #f3efe6;
+}
+
+.neo-opportunity-page .neo-thumb-lg {
+  border-width: 1px;
+  border-color: var(--neo-opp-calm-border);
+  box-shadow: none;
+}
+
+.neo-opportunity-page .neo-media-card:hover .neo-thumb-lg {
+  box-shadow: none;
+  border-color: #a8a49a;
+}
+
+.neo-opportunity-page .neo-media-card:hover .neo-opportunity-card-title {
+  color: #3d3a34;
+}
+
+.neo-opportunity-page .neo-opportunity-section--hackathon,
+.neo-opportunity-page .neo-opportunity-section--game-jam,
+.neo-opportunity-page .neo-opportunity-section--internship,
+.neo-opportunity-page .neo-opportunity-section--program,
+.neo-opportunity-page .neo-opportunity-section--event,
+.neo-opportunity-page .neo-opportunity-section--certificate {
+  border-left: 2px solid var(--neo-opp-calm-border);
+  padding-left: 0.75rem;
+}
+
+.neo-opportunity-page .neo-opportunity-card--hackathon,
+.neo-opportunity-page .neo-opportunity-card--game-jam,
+.neo-opportunity-page .neo-opportunity-card--internship,
+.neo-opportunity-page .neo-opportunity-card--program,
+.neo-opportunity-page .neo-opportunity-card--event,
+.neo-opportunity-page .neo-opportunity-card--certificate {
+  border-top-color: transparent;
+}
+
+.neo-opportunity-page .neo-opportunity-badge,
+.neo-opportunity-page .neo-opportunity-format-badge {
+  box-shadow: none;
+  border-width: 1px;
+  border-color: rgba(0, 0, 0, 0.35);
+  font-size: 0.68rem;
+  opacity: 0.92;
+}
+
+.neo-opportunity-page .neo-badge-hackathon {
+  background: rgba(255, 255, 255, 0.9);
+  color: #2d4a32;
+}
+
+.neo-opportunity-page .neo-badge-game-jam {
+  background: rgba(255, 255, 255, 0.9);
+  color: #6a4020;
+}
+
+.neo-opportunity-page .neo-badge-internship {
+  background: rgba(255, 255, 255, 0.9);
+  color: #2a4568;
+}
+
+.neo-opportunity-page .neo-badge-event {
+  background: rgba(255, 255, 255, 0.9);
+  color: #5a4e20;
+}
+
+.neo-opportunity-page .neo-badge-program {
+  background: rgba(255, 255, 255, 0.9);
+  color: #5a3048;
+}
+
+.neo-opportunity-page .neo-badge-certificate {
+  background: rgba(255, 255, 255, 0.9);
+  color: #4a3868;
+}
+
+.neo-opportunity-page .neo-format-pill {
+  border-width: 1px;
+  box-shadow: none;
+  background: rgba(255, 255, 255, 0.92);
+}
+
+.neo-opportunity-page .neo-format-online {
+  color: #3a5a68;
+}
+
+.neo-opportunity-page .neo-format-hybrid {
+  color: #5a5030;
+}
+
+.neo-opportunity-page .neo-format-onsite {
+  color: #5a4030;
+}
+
+.neo-opportunity-page .neo-beginner-pill,
+.neo-opportunity-page .neo-ai-pill {
+  border-width: 1px;
+  border-color: var(--neo-opp-calm-border);
+  box-shadow: none;
+  font-weight: 600;
+  text-transform: none;
+  letter-spacing: 0;
+}
+
+.neo-opportunity-page .neo-beginner-pill {
+  background: #eef2ee;
+  color: #3a5c42;
+}
+
+.neo-opportunity-page .neo-ai-pill {
+  background: #eeecf2;
+  color: #4a4068;
+}
+
+.neo-opportunity-page .neo-opportunity-filter {
+  border-width: 1px;
+  border-color: var(--neo-opp-calm-border);
+  box-shadow: none;
+  font-weight: 600;
+}
+
+.neo-opportunity-page .neo-opportunity-filter:hover {
+  background: #f8f6f0;
+}
+
+.neo-opportunity-page .neo-opportunity-filter--active,
+.neo-opportunity-page .neo-opportunity-filter--hackathon.neo-opportunity-filter--active,
+.neo-opportunity-page .neo-opportunity-filter--game-jam.neo-opportunity-filter--active,
+.neo-opportunity-page .neo-opportunity-filter--internship.neo-opportunity-filter--active,
+.neo-opportunity-page .neo-opportunity-filter--event.neo-opportunity-filter--active,
+.neo-opportunity-page .neo-opportunity-filter--program.neo-opportunity-filter--active,
+.neo-opportunity-page .neo-opportunity-filter--certificate.neo-opportunity-filter--active,
+.neo-opportunity-page .neo-opportunity-filter--ai.neo-opportunity-filter--active,
+.neo-opportunity-page .neo-opportunity-filter--hide-ai.neo-opportunity-filter--active {
+  background: #ebe8e0;
+  color: #2a2824;
+  border-color: #a8a49a;
+}
+
+.neo-opportunity-page .neo-opportunity-filter-link {
+  color: var(--neo-opp-calm-muted);
+}
+
+.neo-opportunity-page .neo-opportunity-deadline-ticker--today .neo-opportunity-deadline-ticker-label,
+.neo-opportunity-page .neo-opportunity-deadline-ticker--today .neo-opportunity-deadline-ticker-clock {
+  color: var(--neo-opp-calm-urgent);
+}
+
+.neo-opportunity-page .neo-opportunity-deadline-ticker--today .neo-opportunity-deadline-ticker-clock {
+  background: var(--neo-opp-calm-urgent-bg);
+  border-color: #d8ccb0;
+}
+
+.neo-opportunity-page .neo-opportunity-deadline-ticker--soon .neo-opportunity-deadline-ticker-label,
+.neo-opportunity-page .neo-opportunity-deadline-ticker--soon .neo-opportunity-deadline-ticker-clock {
+  color: var(--neo-opp-calm-urgent);
+}
+
+.neo-opportunity-page .neo-opportunity-deadline-ticker--soon .neo-opportunity-deadline-ticker-clock {
+  background: var(--neo-opp-calm-urgent-bg);
+  border-color: #d8ccb0;
+}
+
+.neo-opportunity-page .neo-opportunity-deadline-ticker-clock {
+  border-width: 1px;
+  border-color: var(--neo-opp-calm-border);
+  font-weight: 600;
+}
+
+.neo-opportunity-page .neo-opportunity-calendar {
+  margin-top: 2.5rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--neo-opp-calm-border);
+}
+
+.neo-opportunity-page .neo-cal-heading {
+  font-family: var(--neo-ui);
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #3a3834;
+}
+
+.neo-opportunity-page .neo-cal-upcoming {
+  border-width: 1px;
+  border-color: var(--neo-opp-calm-border);
+  box-shadow: none;
+}
+
+.neo-opportunity-page .neo-cal-upcoming-title {
+  font-family: var(--neo-ui);
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: #4a4640;
+}
+
+.neo-opportunity-page .neo-cal-upcoming-link:hover .neo-cal-upcoming-label {
+  color: #3a3834;
+}
+
+.neo-opportunity-page .neo-cal-upcoming-link:hover .neo-cal-upcoming-title-text {
+  color: #3a3834;
+}
+
+.neo-opportunity-page .neo-cal-month-title {
+  font-family: var(--neo-ui);
+  font-weight: 700;
+}
+
+.neo-opportunity-page .neo-cal-grid {
+  border-width: 1px;
+  border-color: var(--neo-opp-calm-border);
+  background: var(--neo-opp-calm-border);
+  gap: 1px;
+}
+
+.neo-opportunity-page .neo-cal-day--today {
+  background: #f8f6ee;
+  box-shadow: inset 0 0 0 1px #c8c0a8;
+}
+
+.neo-opportunity-page .neo-opportunity-search-field {
+  border-width: 1px;
+  border-color: var(--neo-opp-calm-border);
+  box-shadow: none;
+}
+
+.neo-opportunity-page .neo-opportunity-search-field:focus-within {
+  box-shadow: none;
+  border-color: #a8a49a;
+}
+
+.neo-opportunity-page .neo-opportunity-search-clear {
+  border-left-width: 1px;
+  border-left-color: var(--neo-opp-calm-border);
+}
+
+.neo-opportunity-page .neo-opportunity-search-clear:hover {
+  color: #4a4640;
+  background: #f0ede6;
 }
 
 @media (max-width: 520px) {

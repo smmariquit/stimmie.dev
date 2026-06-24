@@ -11,7 +11,7 @@ export default function OpportunityDeadlineTicker({ dates }) {
   const [now, setNow] = useState(() => Date.now());
 
   useEffect(() => {
-    const intervalId = window.setInterval(() => setNow(Date.now()), 1000);
+    const intervalId = window.setInterval(() => setNow(Date.now()), 60_000);
     return () => window.clearInterval(intervalId);
   }, []);
 
