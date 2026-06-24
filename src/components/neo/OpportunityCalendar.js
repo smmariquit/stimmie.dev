@@ -195,13 +195,20 @@ export default function OpportunityCalendar({ items }) {
   const months = buildCalendarMonths(allEvents);
 
   return (
-    <section
-      className="neo-opportunity-calendar"
-      aria-labelledby="opportunity-calendar-heading"
-    >
-      <h2 id="opportunity-calendar-heading" className="neo-cal-heading">
-        Dates &amp; deadlines
-      </h2>
+    <details className="neo-opportunity-calendar neo-cal-disclosure" open>
+      <summary className="neo-cal-disclosure-summary">
+        <span className="neo-cal-disclosure-title-wrap">
+          <h2 id="opportunity-calendar-heading" className="neo-cal-heading m-0">
+            Dates &amp; deadlines
+          </h2>
+          <span className="neo-cal-disclosure-meta">
+            {allEvents.length} dated {allEvents.length === 1 ? "entry" : "entries"}
+          </span>
+        </span>
+        <span className="neo-cal-disclosure-toggle" aria-hidden="true" />
+      </summary>
+
+      <div className="neo-cal-disclosure-body">
       <p className="neo-cal-intro neo-muted">
         Month view plus a full list below (Manila time, UTC+8). Chips in the
         grid show titles. Click any entry to open the official page and
@@ -261,6 +268,7 @@ export default function OpportunityCalendar({ items }) {
           <MonthSection key={month.monthKey} month={month} todayKey={todayKey} />
         ))}
       </div>
-    </section>
+      </div>
+    </details>
   );
 }

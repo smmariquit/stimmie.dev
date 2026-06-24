@@ -1,13 +1,10 @@
 import OpportunityCoverImage from "@/components/neo/OpportunityCoverImage";
-import OpportunityDeadlineTicker from "@/components/neo/OpportunityDeadlineTicker";
+import OpportunityTiming from "@/components/neo/OpportunityTiming";
 import {
-  formatOpportunityDate,
   getOpportunityFormat,
   getOpportunityImagePresentation,
   getOpportunityPlaceLabel,
   getOpportunityType,
-  getPrimaryOpportunityDate,
-  isDatePast,
   isOpportunityBeginnerFriendly,
   isOpportunityAiRelated,
   resolveOpportunityImage,
@@ -29,25 +26,6 @@ function FormatPill({ format, className = "" }) {
   );
 }
 
-function OpportunityPrimaryDate({ dates }) {
-  const primary = getPrimaryOpportunityDate(dates);
-  if (!primary) {
-    return null;
-  }
-
-  const past = isDatePast(primary.date);
-  const value = formatOpportunityDate(primary.date, primary.endDate);
-
-  return (
-    <p
-      className={`neo-opportunity-primary-date m-0 mt-1.5${past ? " neo-opportunity-date-past" : ""}`}
-    >
-      <span className="neo-opportunity-date-label">{primary.label}</span>
-      <span className="neo-opportunity-date-value">{value}</span>
-    </p>
-  );
-}
-
 export default function OpportunityCard({ item }) {
   const type = getOpportunityType(item.type);
   const format = getOpportunityFormat(item.location);
@@ -56,6 +34,7 @@ export default function OpportunityCard({ item }) {
   const imagePresentation = getOpportunityImagePresentation(item);
   const beginnerFriendly = isOpportunityBeginnerFriendly(item);
   const aiRelated = isOpportunityAiRelated(item);
+  const hasMeta = format || place || beginnerFriendly || aiRelated;
 
   return (
     <a
@@ -86,17 +65,16 @@ export default function OpportunityCard({ item }) {
           ) : null}
         </div>
 
-        <div className="mt-2">
-          <p className="m-0 font-bold text-lg leading-snug neo-opportunity-card-title">
-            {item.title}
-          </p>
+        <div className="neo-opportunity-card-body">
+          <header className="neo-opportunity-card-head">
+            <h3 className="neo-opportunity-card-title m-0">{item.title}</h3>
+            {item.org ? (
+              <p className="neo-opportunity-org m-0">{item.org}</p>
+            ) : null}
+          </header>
 
-          {item.org ? (
-            <p className="m-0 mt-1 neo-muted neo-opportunity-org">{item.org}</p>
-          ) : null}
-
-          {(format || place || beginnerFriendly || aiRelated) && (
-            <div className="neo-opportunity-location-row m-0 mt-1.5">
+          {hasMeta ? (
+            <div className="neo-opportunity-location-row">
               {place ? (
                 <span className="neo-location-pill" title={place}>
                   <span className="neo-location-icon" aria-hidden="true">
@@ -123,16 +101,12 @@ export default function OpportunityCard({ item }) {
                 </span>
               ) : null}
             </div>
-          )}
+          ) : null}
 
-          <OpportunityPrimaryDate dates={item.dates} />
-
-          <OpportunityDeadlineTicker dates={item.dates} />
+          <OpportunityTiming dates={item.dates} />
 
           {item.blurb ? (
-            <p className="neo-opportunity-blurb m-0 mt-1.5 leading-relaxed">
-              {item.blurb}
-            </p>
+            <p className="neo-opportunity-blurb m-0">{item.blurb}</p>
           ) : null}
         </div>
       </article>

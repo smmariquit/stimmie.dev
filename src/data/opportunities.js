@@ -346,6 +346,80 @@ function getOpportunitySearchText(item) {
     .toLowerCase();
 }
 
+const SEARCH_QUICK_TERMS = [
+  "hackathon",
+  "internship",
+  "online",
+  "beginner-friendly",
+  "AI",
+  "Google",
+  "scholarship",
+];
+
+/**
+ * @returns {{ text: string, kind: "title"|"org"|"location"|"type"|"quick" }[]}
+ */
+export function getOpportunitySearchSuggestions(items, query = "", limit = 8) {
+  const normalized = query.trim().toLowerCase();
+
+  if (!normalized) {
+    const orgCounts = new Map();
+    for (const item of items) {
+      if (item.org) {
+        orgCounts.set(item.org, (orgCounts.get(item.org) ?? 0) + 1);
+      }
+    }
+
+    const topOrgs = [...orgCounts.entries()]
+      .sort((a, b) => b[1] - a[1] || a[0].localeCompare(b[0]))
+      .slice(0, 4)
+      .map(([org]) => org);
+
+    const quick = [...new Set([...topOrgs, ...SEARCH_QUICK_TERMS])];
+    return quick.slice(0, limit).map((text) => ({ text, kind: "quick" }));
+  }
+
+  const ranked = [];
+  const seen = new Set();
+
+  function add(text, kind, priority) {
+    const trimmed = text?.trim();
+    if (!trimmed) {
+      return;
+    }
+
+    const key = trimmed.toLowerCase();
+    if (seen.has(key) || !key.includes(normalized)) {
+      return;
+    }
+
+    seen.add(key);
+    const startsWith = key.startsWith(normalized) ? 0 : 1;
+    ranked.push({
+      text: trimmed,
+      kind,
+      score: startsWith * 10 + priority,
+    });
+  }
+
+  for (const item of items) {
+    add(item.title, "title", 0);
+    add(item.org, "org", 1);
+    add(item.location, "location", 2);
+    add(OPPORTUNITY_TYPES[item.type]?.label ?? "", "type", 3);
+  }
+
+  return ranked
+    .sort(
+      (a, b) =>
+        a.score - b.score ||
+        a.text.length - b.text.length ||
+        a.text.localeCompare(b.text),
+    )
+    .slice(0, limit)
+    .map(({ text, kind }) => ({ text, kind }));
+}
+
 export function formatBoardUpdated(date) {
   return new Date(date).toLocaleDateString("en-US", {
     month: "long",

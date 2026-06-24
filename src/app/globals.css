@@ -1292,7 +1292,17 @@ body {
   --neo-opp-text-meta: max(0.875rem, 14px);
   --neo-opp-text-body: max(0.9375rem, 15px);
   --neo-opp-text-ui: max(1rem, 16px);
+  /* WCAG AA text on #fffef5 / cream surfaces (≥ 4.5:1 normal text) */
+  --neo-opp-text-primary: #1a1a1a;
+  --neo-opp-text-muted: #4a4640;
+  --neo-opp-text-secondary: #5c5850;
+  --neo-opp-text-subtle: #6a665c;
+  --neo-opp-calm-border: #d4d0c4;
+  --neo-opp-calm-muted: #4a4640;
+  --neo-opp-calm-urgent: #6b4e14;
+  --neo-opp-calm-urgent-bg: #f3efe6;
   font-family: var(--neo-ui);
+  color: var(--neo-opp-text-primary);
 }
 
 .neo-opportunity-page .neo-opportunity-updated,
@@ -1357,13 +1367,13 @@ body {
 }
 
 .neo-opportunity-date-label {
-  color: #666;
+  color: var(--neo-opp-text-muted, #4a4640);
 }
 
 .neo-opportunity-date-label::after {
   content: "·";
   margin-left: 0.5rem;
-  color: #999;
+  color: var(--neo-opp-text-subtle, #6a665c);
 }
 
 .neo-opportunity-date-value {
@@ -1373,12 +1383,12 @@ body {
 }
 
 .neo-opportunity-date-past .neo-opportunity-date-value {
-  color: #888;
+  color: var(--neo-opp-text-secondary, #5c5850);
   text-decoration: line-through;
 }
 
 .neo-opportunity-date-past .neo-opportunity-date-label {
-  color: #999;
+  color: var(--neo-opp-text-secondary, #5c5850);
 }
 
 .neo-opportunity-deadline-ticker {
@@ -1401,7 +1411,7 @@ body {
 
 .neo-opportunity-deadline-ticker-context {
   font-weight: 500;
-  color: #666;
+  color: var(--neo-opp-text-muted, #4a4640);
 }
 
 .neo-opportunity-deadline-ticker-clock {
@@ -1415,16 +1425,16 @@ body {
 }
 
 .neo-opportunity-deadline-ticker-hint {
-  color: #666;
+  color: var(--neo-opp-text-muted, #4a4640);
   line-height: 1.35;
 }
 
 .neo-opportunity-deadline-ticker--past .neo-opportunity-deadline-ticker-label {
-  color: #888;
+  color: var(--neo-opp-text-secondary, #5c5850);
 }
 
 .neo-opportunity-deadline-ticker--past .neo-opportunity-deadline-ticker-hint {
-  color: #996600;
+  color: var(--neo-opp-text-secondary, #5c5850);
 }
 
 .neo-opportunity-deadline-ticker--today .neo-opportunity-deadline-ticker-label,
@@ -1461,7 +1471,7 @@ body {
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 0.04em;
-  color: #666;
+  color: var(--neo-opp-text-muted, #4a4640);
 }
 
 .neo-opportunity-default-image {
@@ -1498,6 +1508,72 @@ body {
   flex-direction: column;
   gap: 0.75rem;
   margin-top: 1.25rem;
+}
+
+.neo-opportunity-search-wrap {
+  position: relative;
+}
+
+.neo-opportunity-search-wrap--open .neo-opportunity-search-field {
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
+}
+
+.neo-opportunity-search-suggestions {
+  position: absolute;
+  z-index: 30;
+  top: 100%;
+  left: 0;
+  right: 0;
+  max-height: 16rem;
+  overflow-y: auto;
+  border: 1px solid var(--neo-opp-calm-border, #d4d0c4);
+  border-top: none;
+  background: #fffef8;
+  box-shadow: 0 4px 0 rgba(0, 0, 0, 0.06);
+}
+
+.neo-opportunity-search-suggestion {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 0.75rem;
+  width: 100%;
+  border: none;
+  border-top: 1px solid #ebe8e0;
+  background: transparent;
+  padding: 0.55rem 0.75rem;
+  text-align: left;
+  font-family: var(--neo-ui);
+  font-size: var(--neo-opp-text-meta, 0.875rem);
+  line-height: 1.35;
+  color: var(--neo-opp-text-primary, #1a1a1a);
+  cursor: pointer;
+}
+
+.neo-opportunity-search-suggestions li:first-child .neo-opportunity-search-suggestion {
+  border-top: none;
+}
+
+.neo-opportunity-search-suggestion:hover,
+.neo-opportunity-search-suggestion--active {
+  background: #f3f0e8;
+}
+
+.neo-opportunity-search-suggestion-text {
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.neo-opportunity-search-suggestion-kind {
+  flex-shrink: 0;
+  font-size: var(--neo-opp-text-caption, 0.8125rem);
+  font-weight: 600;
+  color: var(--neo-opp-text-muted, #4a4640);
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
 }
 
 .neo-opportunity-search {
@@ -1546,7 +1622,7 @@ body {
 }
 
 .neo-opportunity-search-input::placeholder {
-  color: #888;
+  color: var(--neo-opp-text-subtle, #6a665c);
 }
 
 .neo-opportunity-search-clear {
@@ -1652,7 +1728,7 @@ body {
 .neo-opportunity-filter-count {
   font-size: 0.75rem;
   font-weight: 600;
-  opacity: 0.85;
+  color: var(--neo-opp-text-secondary, #5c5850);
 }
 
 .neo-opportunity-filter-link {
@@ -1685,7 +1761,7 @@ body {
 
 .neo-opportunity-section-count {
   font-size: 0.85rem;
-  color: #666;
+  color: var(--neo-opp-text-muted, #4a4640);
   font-weight: 600;
 }
 
@@ -1787,13 +1863,6 @@ body {
   background: #ff6b35;
 }
 
-.neo-opportunity-location-row {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  gap: 0.35rem 0.5rem;
-}
-
 .neo-location-pill {
   display: inline-flex;
   align-items: center;
@@ -1852,8 +1921,105 @@ body {
   box-shadow: 2px 2px 0 #000;
 }
 
+.neo-opportunity-card-body {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  margin-top: 0.65rem;
+}
+
+.neo-opportunity-card-head {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+}
+
+.neo-opportunity-card-title {
+  font-family: var(--neo-ui);
+  font-size: 1.2rem;
+  font-weight: 700;
+  line-height: 1.28;
+  letter-spacing: -0.01em;
+  color: var(--neo-opp-text-primary, #1a1a1a);
+}
+
 .neo-opportunity-org {
-  line-height: 1.35;
+  font-size: var(--neo-opp-text-meta, 0.875rem);
+  font-weight: 500;
+  color: var(--neo-opp-text-muted, #4a4640);
+}
+
+.neo-opportunity-location-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.3rem 0.45rem;
+  font-size: var(--neo-opp-text-caption, 0.8125rem);
+}
+
+.neo-opportunity-card-timing {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.neo-opportunity-timing {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 0.2rem 0.45rem;
+  margin: 0;
+  font-family: var(--neo-ui);
+  font-size: var(--neo-opp-text-meta, 0.875rem);
+  line-height: 1.4;
+  color: var(--neo-opp-text-muted, #4a4640);
+}
+
+.neo-opportunity-timing--secondary {
+  font-size: var(--neo-opp-text-caption, 0.8125rem);
+}
+
+.neo-opportunity-timing-label {
+  font-weight: 500;
+}
+
+.neo-opportunity-timing-date {
+  color: var(--neo-opp-text-primary, #1a1a1a);
+  font-weight: 500;
+}
+
+.neo-opportunity-timing-sep {
+  color: var(--neo-opp-text-subtle, #6a665c);
+  font-weight: 400;
+}
+
+.neo-opportunity-timing-countdown {
+  font-weight: 500;
+  color: var(--neo-opp-text-secondary, #5c5850);
+}
+
+.neo-opportunity-timing-status {
+  font-weight: 600;
+  color: var(--neo-opp-text-primary, #1a1a1a);
+}
+
+.neo-opportunity-timing--today .neo-opportunity-timing-status,
+.neo-opportunity-timing--today .neo-opportunity-timing-countdown,
+.neo-opportunity-timing--soon .neo-opportunity-timing-status,
+.neo-opportunity-timing--soon .neo-opportunity-timing-countdown {
+  color: var(--neo-opp-calm-urgent, #6b4e14);
+  font-weight: 700;
+}
+
+.neo-opportunity-timing--past,
+.neo-opportunity-timing--past .neo-opportunity-timing-date {
+  color: var(--neo-opp-text-secondary, #5c5850);
+}
+
+.neo-opportunity-timing-hint {
+  font-size: var(--neo-opp-text-caption, 0.8125rem);
+  line-height: 1.4;
+  color: var(--neo-opp-text-muted, #4a4640);
 }
 
 .neo-opportunity-card {
@@ -1899,24 +2065,30 @@ body {
 
 .neo-opportunity-blurb {
   display: -webkit-box;
-  -webkit-line-clamp: 2;
+  -webkit-line-clamp: 3;
   -webkit-box-orient: vertical;
   overflow: hidden;
-  color: #333;
+  margin-top: 0.15rem;
+  padding-top: 0.6rem;
+  border-top: 1px solid var(--neo-opp-calm-border, #d4d0c4);
+  font-size: var(--neo-opp-text-meta, 0.875rem);
+  font-weight: 400;
+  line-height: 1.5;
+  color: var(--neo-opp-text-muted, #4a4640);
 }
 
 /* ── Opportunity calendar ─────────────────────────────────────────── */
 
 .neo-opportunity-calendar {
   margin-top: 3rem;
-  padding-top: 2rem;
-  border-top: 3px dashed #d6008f;
+  padding-top: 0;
+  border-top: none;
 }
 
 .neo-cal-heading {
   font-family: var(--neo-pixel);
   font-size: 1.5rem;
-  color: var(--neo-accent-red);
+  color: var(--neo-opp-text-primary, #1a1a1a);
   margin: 0 0 0.5rem;
 }
 
@@ -1935,10 +2107,11 @@ body {
 }
 
 .neo-cal-upcoming-title {
-  font-family: var(--neo-pixel);
-  font-size: 1rem;
+  font-family: var(--neo-ui);
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--neo-opp-text-primary, #1a1a1a);
   margin: 0 0 0.75rem;
-  color: #8a0058;
 }
 
 .neo-cal-upcoming-list {
@@ -1962,13 +2135,19 @@ body {
 }
 
 .neo-cal-upcoming-item--past {
-  opacity: 0.65;
+  opacity: 1;
+}
+
+.neo-cal-upcoming-item--past .neo-cal-upcoming-when,
+.neo-cal-upcoming-item--past .neo-cal-upcoming-label,
+.neo-cal-upcoming-item--past .neo-cal-upcoming-title-text {
+  color: var(--neo-opp-text-secondary, #5c5850);
 }
 
 .neo-cal-upcoming-when {
   font-family: ui-monospace, "Cascadia Code", monospace;
   font-size: 0.85rem;
-  color: #444;
+  color: var(--neo-opp-text-muted, #4a4640);
   line-height: 1.35;
 }
 
@@ -1983,7 +2162,7 @@ body {
 }
 
 .neo-cal-upcoming-link:hover .neo-cal-upcoming-title-text {
-  color: #cc0066;
+  color: var(--neo-opp-text-primary, #1a1a1a);
 }
 
 .neo-cal-upcoming-title-text {
@@ -1995,7 +2174,7 @@ body {
   grid-column: 2;
   font-family: var(--neo-ui);
   font-size: 0.85rem;
-  color: #666;
+  color: var(--neo-opp-text-muted, #4a4640);
 }
 
 .neo-cal-months {
@@ -2018,7 +2197,7 @@ body {
   font-family: var(--neo-ui);
   font-size: 0.9rem;
   font-weight: 600;
-  color: #666;
+  color: var(--neo-opp-text-muted, #4a4640);
 }
 
 .neo-cal-grid {
@@ -2038,7 +2217,7 @@ body {
   text-align: center;
   padding: 0.45rem 0.2rem;
   background: #f0f0f0;
-  color: #555;
+  color: var(--neo-opp-text-muted, #4a4640);
 }
 
 .neo-cal-day {
@@ -2064,7 +2243,7 @@ body {
 }
 
 .neo-cal-day--past .neo-cal-day-num {
-  color: #999;
+  color: var(--neo-opp-text-secondary, #5c5850);
 }
 
 .neo-cal-day-num {
@@ -2098,7 +2277,11 @@ body {
 }
 
 .neo-cal-chip--past {
-  opacity: 0.72;
+  opacity: 1;
+}
+
+.neo-cal-chip--past .neo-cal-chip-title {
+  color: var(--neo-opp-text-secondary, #5c5850);
 }
 
 .neo-cal-chip-type {
@@ -2154,13 +2337,13 @@ body {
   font-family: var(--neo-ui);
   font-size: 0.78rem;
   font-weight: 700;
-  color: #555;
+  color: var(--neo-opp-text-muted, #4a4640);
   text-decoration: underline;
   padding: 0.15rem 0;
 }
 
 .neo-cal-chip-more:hover {
-  color: #cc0066;
+  color: var(--neo-opp-text-primary, #1a1a1a);
 }
 
 .neo-cal-agenda-subtitle {
@@ -2169,7 +2352,7 @@ body {
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 0.04em;
-  color: #666;
+  color: var(--neo-opp-text-muted, #4a4640);
   margin: 0 0 0.65rem;
 }
 
@@ -2189,8 +2372,13 @@ body {
 }
 
 .neo-cal-day-group--past {
-  opacity: 0.72;
+  opacity: 1;
   background: #fafafa;
+}
+
+.neo-cal-day-group--past .neo-cal-day-heading,
+.neo-cal-day-group--past .neo-cal-event-label {
+  color: var(--neo-opp-text-secondary, #5c5850);
 }
 
 .neo-cal-day-heading {
@@ -2211,7 +2399,7 @@ body {
 .neo-cal-day-count {
   font-size: 0.82rem;
   font-weight: 600;
-  color: #666;
+  color: var(--neo-opp-text-muted, #4a4640);
   text-transform: uppercase;
   letter-spacing: 0.03em;
 }
@@ -2231,7 +2419,12 @@ body {
 }
 
 .neo-cal-event--past {
-  opacity: 0.75;
+  opacity: 1;
+}
+
+.neo-cal-event--past .neo-cal-event-title,
+.neo-cal-event--past .neo-cal-event-label {
+  color: var(--neo-opp-text-secondary, #5c5850);
 }
 
 .neo-cal-event--compact {
@@ -2248,7 +2441,7 @@ body {
 }
 
 .neo-cal-event-link:hover .neo-cal-event-title {
-  color: #cc0066;
+  color: var(--neo-opp-text-primary, #1a1a1a);
 }
 
 .neo-cal-event-title {
@@ -2259,7 +2452,7 @@ body {
 .neo-cal-event-label {
   font-family: var(--neo-ui);
   font-size: 0.85rem;
-  color: #666;
+  color: var(--neo-opp-text-muted, #4a4640);
   margin-top: 0.15rem;
 }
 
@@ -2309,11 +2502,109 @@ body {
 }
 
 /* ── Opportunities page: calmer, easier-on-the-eyes mode ─────────── */
-.neo-opportunity-page {
-  --neo-opp-calm-border: #d4d0c4;
-  --neo-opp-calm-muted: #6a665c;
-  --neo-opp-calm-urgent: #7a5c28;
-  --neo-opp-calm-urgent-bg: #f3efe6;
+
+.neo-opportunity-page .neo-muted {
+  color: var(--neo-opp-text-muted);
+}
+
+.neo-opportunity-page .neo-location-pill {
+  color: var(--neo-opp-text-muted);
+}
+
+.neo-opportunity-page .neo-location-pill--online {
+  color: #2a4a58;
+}
+
+.neo-opportunity-page .neo-opportunity-org {
+  color: var(--neo-opp-text-muted);
+}
+
+.neo-opportunity-page .neo-opportunity-blurb {
+  color: var(--neo-opp-text-muted);
+}
+
+.neo-opportunity-page .neo-beginner-pill,
+.neo-opportunity-page .neo-ai-pill {
+  font-size: var(--neo-opp-text-caption);
+  padding: 0.05rem 0.35rem;
+}
+
+.neo-opportunity-page .neo-location-pill {
+  font-size: var(--neo-opp-text-caption);
+}
+
+/* Collapsible calendar */
+.neo-cal-disclosure {
+  border: none;
+  margin: 0;
+  padding: 0;
+}
+
+.neo-cal-disclosure-summary {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  cursor: pointer;
+  list-style: none;
+  margin: 0;
+  padding: 0.35rem 0 0.75rem;
+  border-bottom: 1px solid var(--neo-opp-calm-border);
+}
+
+.neo-cal-disclosure-summary::-webkit-details-marker {
+  display: none;
+}
+
+.neo-cal-disclosure-summary::marker {
+  content: "";
+}
+
+.neo-cal-disclosure-summary:focus-visible {
+  outline: 3px solid #2a2824;
+  outline-offset: 3px;
+}
+
+.neo-cal-disclosure-title-wrap {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 0.35rem 0.75rem;
+  min-width: 0;
+}
+
+.neo-cal-disclosure-meta {
+  font-family: var(--neo-ui);
+  font-size: var(--neo-opp-text-meta);
+  font-weight: 600;
+  color: var(--neo-opp-text-muted);
+}
+
+.neo-cal-disclosure-toggle {
+  flex-shrink: 0;
+  font-family: var(--neo-ui);
+  font-size: var(--neo-opp-text-meta);
+  font-weight: 600;
+  color: var(--neo-opp-text-muted);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+.neo-cal-disclosure-toggle::after {
+  content: "Hide calendar";
+}
+
+.neo-cal-disclosure:not([open]) .neo-cal-disclosure-toggle::after {
+  content: "Show calendar";
+}
+
+.neo-cal-disclosure:not([open]) .neo-cal-disclosure-summary {
+  border-bottom-color: transparent;
+  padding-bottom: 0.35rem;
+}
+
+.neo-cal-disclosure-body {
+  padding-top: 1rem;
 }
 
 .neo-opportunity-page .neo-thumb-lg {
@@ -2356,7 +2647,6 @@ body {
   border-width: 1px;
   border-color: rgba(0, 0, 0, 0.35);
   font-size: 0.68rem;
-  opacity: 0.92;
 }
 
 .neo-opportunity-page .neo-badge-hackathon {
@@ -2453,7 +2743,48 @@ body {
 }
 
 .neo-opportunity-page .neo-opportunity-filter-link {
-  color: var(--neo-opp-calm-muted);
+  color: var(--neo-opp-text-muted);
+}
+
+.neo-opportunity-page .neo-cal-chip-type.neo-badge-hackathon {
+  background: #eef2ee;
+  color: #1f3d24;
+}
+
+.neo-opportunity-page .neo-cal-chip-type.neo-badge-game-jam {
+  background: #f5f0ea;
+  color: #5a3018;
+}
+
+.neo-opportunity-page .neo-cal-chip-type.neo-badge-internship {
+  background: #eef2f8;
+  color: #1a3558;
+}
+
+.neo-opportunity-page .neo-cal-chip-type.neo-badge-event {
+  background: #f5f2e6;
+  color: #3d3418;
+}
+
+.neo-opportunity-page .neo-cal-chip-type.neo-badge-program {
+  background: #f5eef2;
+  color: #4a2038;
+}
+
+.neo-opportunity-page .neo-cal-chip-type.neo-badge-certificate {
+  background: #f0ecf5;
+  color: #3a2858;
+}
+
+.neo-opportunity-page .neo-opportunity-calendar .neo-badge-hackathon,
+.neo-opportunity-page .neo-opportunity-calendar .neo-badge-game-jam,
+.neo-opportunity-page .neo-opportunity-calendar .neo-badge-internship,
+.neo-opportunity-page .neo-opportunity-calendar .neo-badge-event,
+.neo-opportunity-page .neo-opportunity-calendar .neo-badge-program,
+.neo-opportunity-page .neo-opportunity-calendar .neo-badge-certificate {
+  background: #f5f3ee;
+  color: #2a2824;
+  border-color: #a8a49a;
 }
 
 .neo-opportunity-page .neo-opportunity-deadline-ticker--today .neo-opportunity-deadline-ticker-label,
@@ -2484,8 +2815,8 @@ body {
 
 .neo-opportunity-page .neo-opportunity-calendar {
   margin-top: 2.5rem;
-  padding-top: 1.5rem;
-  border-top: 1px solid var(--neo-opp-calm-border);
+  padding-top: 0;
+  border-top: none;
 }
 
 .neo-opportunity-page .neo-cal-heading {
@@ -2536,6 +2867,14 @@ body {
 .neo-opportunity-page .neo-opportunity-search-field {
   border-width: 1px;
   border-color: var(--neo-opp-calm-border);
+  box-shadow: none;
+}
+
+.neo-opportunity-page .neo-opportunity-search-wrap--open .neo-opportunity-search-field {
+  border-color: #a8a49a;
+}
+
+.neo-opportunity-page .neo-opportunity-search-suggestions {
   box-shadow: none;
 }
 

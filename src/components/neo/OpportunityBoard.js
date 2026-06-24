@@ -3,6 +3,7 @@
 import { useMemo, useState } from "react";
 import OpportunityCalendar from "@/components/neo/OpportunityCalendar";
 import OpportunityCard from "@/components/neo/OpportunityCard";
+import OpportunitySearch from "@/components/neo/OpportunitySearch";
 import {
   filterOpportunities,
   getOpportunityType,
@@ -106,31 +107,7 @@ export default function OpportunityBoard({ items }) {
   return (
     <>
       <div className="neo-opportunity-toolbar">
-        <label className="neo-opportunity-search" htmlFor="opportunity-search">
-          <span className="neo-opportunity-search-label">Search</span>
-          <span className="neo-opportunity-search-field">
-            <input
-              id="opportunity-search"
-              type="search"
-              value={query}
-              onChange={(event) => setQuery(event.target.value)}
-              placeholder="Title, org, location, type…"
-              className="neo-opportunity-search-input"
-              autoComplete="off"
-              spellCheck={false}
-            />
-            {hasSearch ? (
-              <button
-                type="button"
-                className="neo-opportunity-search-clear"
-                onClick={() => setQuery("")}
-                aria-label="Clear search"
-              >
-                ×
-              </button>
-            ) : null}
-          </span>
-        </label>
+        <OpportunitySearch items={items} value={query} onChange={setQuery} />
       </div>
 
       <div className="neo-opportunity-filter-groups">
