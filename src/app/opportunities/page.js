@@ -5,16 +5,21 @@ import {
   formatBoardUpdated,
   getOpportunities,
   getOpportunitiesBoard,
+  OPPORTUNITY_TYPE_ORDER,
+  OPPORTUNITY_TYPES,
 } from "@/data/opportunities";
 
-const OPPORTUNITIES_OG_IMAGE = "/opportunities/og.png";
+const OPPORTUNITIES_SHARE_TITLE = "Opportunities";
 
 export function generateMetadata() {
   const board = getOpportunitiesBoard();
   const items = getOpportunities();
   const updated = formatBoardUpdated(board.lastUpdated);
-  const description = `${board.intro} ${items.length} listings · last updated ${updated}.`;
-  const shareTitle = "~ opportunities ~";
+  const rows = OPPORTUNITY_TYPE_ORDER.map((type) => {
+    const count = items.filter((item) => item.type === type).length;
+    return count ? `${OPPORTUNITY_TYPES[type].label} ${count}` : null;
+  }).filter(Boolean);
+  const description = `${items.length} live listings: ${rows.join(", ")}. Last updated ${updated}. Personal roundup — verify deadlines on official sites.`;
 
   return {
     title: "Opportunities",
@@ -23,26 +28,17 @@ export function generateMetadata() {
       canonical: "/opportunities",
     },
     openGraph: {
-      title: shareTitle,
+      title: OPPORTUNITIES_SHARE_TITLE,
       description,
       url: "/opportunities",
       siteName: "Stimmie",
       locale: "en_US",
       type: "website",
-      images: [
-        {
-          url: OPPORTUNITIES_OG_IMAGE,
-          width: 1200,
-          height: 630,
-          alt: "Stimmie opportunities board for hackathons, internships, events, and programs in the Philippines",
-        },
-      ],
     },
     twitter: {
       card: "summary_large_image",
-      title: shareTitle,
+      title: OPPORTUNITIES_SHARE_TITLE,
       description,
-      images: [OPPORTUNITIES_OG_IMAGE],
     },
   };
 }
