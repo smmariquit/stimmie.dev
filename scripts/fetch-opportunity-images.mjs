@@ -52,6 +52,7 @@ const SCREENSHOT_DELAY_MS = 1200;
 const args = process.argv.slice(2);
 const force = args.includes("--force");
 const screenshotOnly = args.includes("--screenshot-only");
+const MIN_SUBSTANTIAL_SCREENSHOT_BYTES = 70_000;
 const retryFallbacks = args.includes("--retry-fallbacks");
 const retryBlockedScreenshots = args.includes("--retry-blocked-screenshots");
 const onlyId = args.find((a) => a.startsWith("--id="))?.split("=")[1];
@@ -294,17 +295,14 @@ async function saveFromOg({ item, id, pageContext }) {
 
 async function saveFromScreenshot({ item, id, pageContext }) {
   const pageUrl = item.imageUrl || item.url;
-  const context =
-    pageContext ?? (await fetchPageContext(pageUrl));
-  if (context.blocked) {
-    throw new Error("page HTML looks blocked");
-  }
 
   await sleep(SCREENSHOT_DELAY_MS);
   const shot = await takePageScreenshot(pageUrl);
 
   if (await looksLikeBlockedScreenshot(shot.buffer)) {
-    throw new Error("screenshot looks like Cloudflare / error page");
+    if (shot.buffer.byteLength < MIN_SUBSTANTIAL_SCREENSHOT_BYTES) {
+      throw new Error("screenshot looks like Cloudflare / error page");
+    }
   }
 
   const manifestEntry = writeImageFile({
@@ -447,16 +445,14 @@ async function processOpportunity(row, manifest) {
     }
   }
 
-  if (!pageContext?.blocked) {
-    try {
-      const result = await saveFromScreenshot({ item, id, pageContext });
-      manifest.images[id] = result.manifestEntry;
-      return result;
-    } catch (error) {
-      errors.push(
-        `screenshot: ${error instanceof Error ? error.message : String(error)}`,
-      );
-    }
+  try {
+    const result = await saveFromScreenshot({ item, id, pageContext });
+    manifest.images[id] = result.manifestEntry;
+    return result;
+  } catch (error) {
+    errors.push(
+      `screenshot: ${error instanceof Error ? error.message : String(error)}`,
+    );
   }
 
   try {

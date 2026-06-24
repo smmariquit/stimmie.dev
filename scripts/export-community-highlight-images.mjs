@@ -1,15 +1,14 @@
 #!/usr/bin/env node
 /**
- * Copy freshie-recommendation cover images into public/freshie-recommendations/
- * for Discord / messenger sharing.
+ * Copy community-highlight cover images into public/community-highlights/
  *
- *   npm run freshie:images
+ *   npm run community:images
  */
 
 import fs from "node:fs";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
-import { FRESHIE_RECOMMENDATIONS } from "../src/data/freshie-recommendations.js";
+import { COMMUNITY_HIGHLIGHTS } from "../src/data/community-highlights.js";
 import {
   getOpportunities,
   resolveOpportunityImage,
@@ -17,7 +16,7 @@ import {
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.join(__dirname, "..");
-const OUT_DIR = path.join(ROOT, "public/freshie-recommendations");
+const OUT_DIR = path.join(ROOT, "public/community-highlights");
 
 function extensionFor(publicPath) {
   const ext = path.extname(publicPath).toLowerCase();
@@ -41,7 +40,7 @@ function main() {
 
   fs.mkdirSync(OUT_DIR, { recursive: true });
 
-  for (const entry of FRESHIE_RECOMMENDATIONS) {
+  for (const entry of COMMUNITY_HIGHLIGHTS) {
     const item = resolveBoardItem(byTitle, entry);
     const sourcePublicPath = resolveOpportunityImage(item);
     const sourcePath = path.join(ROOT, "public", sourcePublicPath.replace(/^\//, ""));
@@ -57,10 +56,12 @@ function main() {
     manifest.push({
       order: Number.parseInt(entry.slug.slice(0, 2), 10),
       slug: entry.slug,
-      title: entry.title ?? item.title,
-      url: entry.url ?? item.url,
-      image: `/freshie-recommendations/${filename}`,
+      title: entry.title,
+      url: entry.url,
+      blurb: entry.blurb,
+      image: `/community-highlights/${filename}`,
       sourceImage: sourcePublicPath,
+      ...(entry.boardTitle ? { boardTitle: entry.boardTitle } : {}),
       ...(entry.includes ? { includes: entry.includes } : {}),
     });
   }
@@ -79,7 +80,7 @@ function main() {
     `${JSON.stringify(manifest, null, 2)}\n`,
   );
 
-  console.log(`Exported ${manifest.length} images to public/freshie-recommendations/`);
+  console.log(`Exported ${manifest.length} images to public/community-highlights/`);
   for (const row of manifest) {
     console.log(`  ${row.image}`);
   }

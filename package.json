@@ -13,7 +13,9 @@
     "opportunities:merge": "node scripts/merge-harvest.mjs",
     "opportunities:devpost": "node scripts/merge-devpost.mjs --harvest",
     "opportunities:stale-nag": "node scripts/opportunities-stale-nag.mjs",
-    "freshie:images": "node scripts/export-freshie-recommendation-images.mjs"
+    "freshie:images": "node scripts/export-freshie-recommendation-images.mjs",
+    "tech:images": "node scripts/export-tech-recommendation-images.mjs",
+    "community:images": "node scripts/export-community-highlight-images.mjs"
   },
   "dependencies": {
     "@vercel/analytics": "^2.0.1",

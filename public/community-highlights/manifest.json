@@ -1,0 +1,118 @@
+[
+  {
+    "order": 1,
+    "slug": "01-aws-ai-ml-scholars",
+    "title": "AWS AI & ML Scholars",
+    "url": "https://aws.amazon.com/about-aws/our-impact/scholars/",
+    "blurb": "Closes Jun 24. Fully funded Udacity gen AI track. No prior ML needed.",
+    "image": "/community-highlights/01-aws-ai-ml-scholars.png",
+    "sourceImage": "/opportunities/q3-2026-aws-ai-ml-scholars-program.png",
+    "boardTitle": "AWS AI & ML Scholars Program"
+  },
+  {
+    "order": 2,
+    "slug": "02-gitlab-transcend-hackathon",
+    "title": "GitLab Transcend Hackathon",
+    "url": "https://gitlab-transcend.devpost.com/",
+    "blurb": "Closes Jun 24. Quick online Devpost sprint.",
+    "image": "/community-highlights/02-gitlab-transcend-hackathon.png",
+    "sourceImage": "/opportunities/q3-2026-gitlab-transcend-hackathon.png",
+    "boardTitle": "GitLab Transcend Hackathon"
+  },
+  {
+    "order": 3,
+    "slug": "03-girlathon-4",
+    "title": "Girlathon 4.0",
+    "url": "https://girlathon26.devfolio.co/",
+    "blurb": "Reg closes Jun 25. Women-centric AI/IoT hackathon. Teams of 2 to 4. Beginner-friendly.",
+    "image": "/community-highlights/03-girlathon-4.png",
+    "sourceImage": "/opportunities/q3-2026-girlathon-4-0.png",
+    "boardTitle": "Girlathon 4.0"
+  },
+  {
+    "order": 4,
+    "slug": "04-build-with-gemini",
+    "title": "Build with Gemini",
+    "url": "https://build-with-gemini-0.devpost.com/",
+    "blurb": "Submit by Jun 26. Beginner-friendly MLH/Devpost hackathon.",
+    "image": "/community-highlights/04-build-with-gemini.png",
+    "sourceImage": "/opportunities/q3-2026-build-with-gemini.png",
+    "boardTitle": "Build with Gemini"
+  },
+  {
+    "order": 5,
+    "slug": "05-build-nights-design-to-code",
+    "title": "Build Nights: Design to Code",
+    "url": "https://luma.com/wycpkuj7",
+    "blurb": "Jun 26 F2F at Arthaland BGC. Figma to code with Kiro. RSVP on Luma, approval required.",
+    "image": "/community-highlights/05-build-nights-design-to-code.jpg",
+    "sourceImage": "/opportunities/q3-2026-build-nights-design-to-code-workshop.jpg",
+    "boardTitle": "Build Nights: Design to Code Workshop"
+  },
+  {
+    "order": 6,
+    "slug": "06-fusespark-meet-up-ph",
+    "title": "FuseSpark Meet-up PH",
+    "url": "https://luma.com/86zkwtk4",
+    "blurb": "Jul 11 F2F at Zero-Ten Park Makati. AI workflows for product/design/biz. Workshop + panel. BYO laptop.",
+    "image": "/community-highlights/06-fusespark-meet-up-ph.jpg",
+    "sourceImage": "/opportunities/q3-2026-fusespark-meet-up-philippines.jpg",
+    "boardTitle": "FuseSpark Meet-up Philippines"
+  },
+  {
+    "order": 7,
+    "slug": "07-adb-japan-scholarship",
+    "title": "ADB Japan Scholarship",
+    "url": "https://www.sih.m.u-tokyo.ac.jp/admission-en/",
+    "blurb": "Apply by Jun 30. Fully funded 2-year Master's in Japan.",
+    "image": "/community-highlights/07-adb-japan-scholarship.jpg",
+    "sourceImage": "/opportunities/q3-2026-adb-japan-scholarship-program.jpg",
+    "boardTitle": "ADB-Japan Scholarship Program"
+  },
+  {
+    "order": 8,
+    "slug": "08-ieee-cs-global-student-challenge",
+    "title": "IEEE CS Global Student Challenge",
+    "url": "https://www.computer.org/publications/tech-news/events/global-student-challenge-2026",
+    "blurb": "Reg closes Jun 28. 2-person teams. Finalists present at ACSAC in LA.",
+    "image": "/community-highlights/08-ieee-cs-global-student-challenge.png",
+    "sourceImage": "/opportunities/q3-2026-ieee-cs-global-student-challenge-2026.png",
+    "boardTitle": "IEEE CS Global Student Challenge 2026"
+  },
+  {
+    "order": 9,
+    "slug": "09-unidroit-essay-competition",
+    "title": "UNIDROIT Essay Competition",
+    "url": "https://www.unidroit.org/news/2026/unidroit-launches-2026-essay-competition/",
+    "blurb": "Apply by Jun 30. Global law essay comp.",
+    "image": "/community-highlights/09-unidroit-essay-competition.jpg",
+    "sourceImage": "/opportunities/q3-2026-unidroit-essay-competition-2026.jpg",
+    "boardTitle": "UNIDROIT Essay Competition 2026"
+  },
+  {
+    "order": 10,
+    "slug": "10-google-grow-with-google",
+    "title": "Google Career Certificates & AI (DICT / Grow with Google)",
+    "url": "https://dict.gov.ph/dict-opens-access-to-free-google-career-certificates",
+    "blurb": "Free and rolling Google certs via DICT plus Grow with Google AI tracks for PH learners.",
+    "image": "/community-highlights/10-google-grow-with-google.jpg",
+    "sourceImage": "/opportunities/q3-2026-google-career-certificates-via-dict.jpg",
+    "includes": [
+      "Google Career Certificates via DICT",
+      "Google AI Essentials",
+      "Google AI Professional Certificate",
+      "Google Data Analytics Professional Certificate",
+      "Google UX Design Professional Certificate",
+      "Google IT Support Professional Certificate",
+      "Google Project Management Professional Certificate",
+      "Google Cybersecurity Professional Certificate",
+      "Google Digital Marketing and E-commerce Professional Certificate",
+      "Google IT Automation with Python Professional Certificate",
+      "Google Business Intelligence Professional Certificate",
+      "Google Advanced Data Analytics Professional Certificate",
+      "https://grow.google/intl/en_ph/certificates/",
+      "https://grow.google/intl/en_ph/ai-essentials/",
+      "https://grow.google/intl/en_ph/ai-professional/"
+    ]
+  }
+]

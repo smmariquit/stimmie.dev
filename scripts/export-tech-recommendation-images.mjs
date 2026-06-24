@@ -1,15 +1,15 @@
 #!/usr/bin/env node
 /**
- * Copy freshie-recommendation cover images into public/freshie-recommendations/
+ * Copy tech-recommendation cover images into public/tech-recommendations/
  * for Discord / messenger sharing.
  *
- *   npm run freshie:images
+ *   npm run tech:images
  */
 
 import fs from "node:fs";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
-import { FRESHIE_RECOMMENDATIONS } from "../src/data/freshie-recommendations.js";
+import { TECH_RECOMMENDATIONS } from "../src/data/tech-recommendations.js";
 import {
   getOpportunities,
   resolveOpportunityImage,
@@ -17,7 +17,7 @@ import {
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.join(__dirname, "..");
-const OUT_DIR = path.join(ROOT, "public/freshie-recommendations");
+const OUT_DIR = path.join(ROOT, "public/tech-recommendations");
 
 function extensionFor(publicPath) {
   const ext = path.extname(publicPath).toLowerCase();
@@ -41,7 +41,7 @@ function main() {
 
   fs.mkdirSync(OUT_DIR, { recursive: true });
 
-  for (const entry of FRESHIE_RECOMMENDATIONS) {
+  for (const entry of TECH_RECOMMENDATIONS) {
     const item = resolveBoardItem(byTitle, entry);
     const sourcePublicPath = resolveOpportunityImage(item);
     const sourcePath = path.join(ROOT, "public", sourcePublicPath.replace(/^\//, ""));
@@ -59,7 +59,7 @@ function main() {
       slug: entry.slug,
       title: entry.title ?? item.title,
       url: entry.url ?? item.url,
-      image: `/freshie-recommendations/${filename}`,
+      image: `/tech-recommendations/${filename}`,
       sourceImage: sourcePublicPath,
       ...(entry.includes ? { includes: entry.includes } : {}),
     });
@@ -79,7 +79,7 @@ function main() {
     `${JSON.stringify(manifest, null, 2)}\n`,
   );
 
-  console.log(`Exported ${manifest.length} images to public/freshie-recommendations/`);
+  console.log(`Exported ${manifest.length} images to public/tech-recommendations/`);
   for (const row of manifest) {
     console.log(`  ${row.image}`);
   }

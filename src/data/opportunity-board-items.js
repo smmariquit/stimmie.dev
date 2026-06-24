@@ -106,6 +106,23 @@ export const opportunityBoardItems = [
       blurb: "Figma-to-code workshop with Kiro: live demo, design-system handoff tips, and guided build time at Arthaland BGC. Request to join on Luma.",
     },
     {
+      id: "q3-2026-kamuxtahan-uxph-online-meetup",
+      title: "KamUXtahan: UXPH Online Meetup",
+      type: "event",
+      url: "https://bit.ly/UXPH-on-Discord",
+      image: "/opportunities/q3-2026-kamuxtahan-uxph-online-meetup.png",
+      org: "UXPH (User Experience Philippines)",
+      location: "Online / UXPH Discord",
+      dates: [
+        {
+          label: "Event",
+          date: "2026-06-27",
+        },
+      ],
+      beginnerFriendly: true,
+      blurb: "Free UXPH community catch-up on Discord: talk UX, share experiences, and say kumusta. Open to beginners, pros, and everyone in between. Sat Jun 27, 1:30–3:30 PM PHT.",
+    },
+    {
       title: "Celestial Effervescence: Serverless APIs with Lambda + API Gateway",
       type: "event",
       url: "https://luma.com/98i2gzm9",
@@ -703,6 +720,7 @@ export const opportunityBoardItems = [
       title: "UP Open University Free MOOCs (MODeL)",
       type: "certificate",
       url: "https://model.upou.edu.ph/",
+      image: "/opportunities/q3-2026-up-open-university-free-moocs-model.jpg",
       org: "University of the Philippines Open University",
       location: "Online",
       blurb: "Self-paced free courses with e-certificates: disaster resilience, data annotation, entrepreneurship, and more.",

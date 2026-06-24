@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-06-24T07:33:04.205Z",
+  "generatedAt": "2026-06-24T08:10:42.862Z",
   "images": {
     "q3-2026-aws-ai-ml-scholars-program": {
       "status": "screenshot",
@@ -71,16 +71,16 @@
       "cached": true
     },
     "q3-2026-adb-japan-scholarship-program": {
-      "status": "favicon",
+      "status": "screenshot",
       "path": "/opportunities/q3-2026-adb-japan-scholarship-program.jpg",
       "pageUrl": "https://www.sih.m.u-tokyo.ac.jp/admission-en/",
       "issueSlug": "q3-2026",
       "title": "ADB-Japan Scholarship Program",
       "contentType": "image/jpeg",
-      "bytes": 10563,
-      "faviconUrl": "https://www.sih.m.u-tokyo.ac.jp/wp-content/uploads/2022/03/cropped-logo1-32x32.png",
-      "source": "favicon",
-      "cached": true
+      "bytes": 93936,
+      "screenshotProvider": "screenshotone",
+      "screenshotUrl": "https://api.screenshotone.com/take?access_key=%5Bredacted%5D&url=https%3A%2F%2Fwww.sih.m.u-tokyo.ac.jp%2Fadmission-en%2F&format=jpg&viewport_width=1200&viewport_height=630&block_ads=true&block_cookie_banners=true&block_banners_by_heuristics=false&block_trackers=true&delay=0&timeout=60&response_type=by_format&image_quality=80",
+      "source": "screenshot"
     },
     "q3-2026-wireless-engineering-foundations-lte-networks": {
       "status": "fetched",
@@ -410,16 +410,15 @@
     },
     "q3-2026-up-open-university-free-moocs-model": {
       "status": "screenshot",
-      "path": "/opportunities/q3-2026-up-open-university-free-moocs-model.png",
+      "path": "/opportunities/q3-2026-up-open-university-free-moocs-model.jpg",
       "pageUrl": "https://model.upou.edu.ph/",
       "issueSlug": "q3-2026",
       "title": "UP Open University Free MOOCs (MODeL)",
-      "contentType": "image/png",
-      "bytes": 2378109,
-      "screenshotProvider": "microlink",
-      "screenshotUrl": "https://iad.microlink.io/TdvsowU0EUF_7mBTKDJF8MhYWgzaSDv10hTm6erP2DxdhEcTVZvjS_qF3wqwGEu6mwakd2g8EFiHGhNfznqzMw.png",
-      "source": "screenshot",
-      "cached": true
+      "contentType": "image/jpeg",
+      "bytes": 121644,
+      "screenshotProvider": "screenshotone",
+      "screenshotUrl": "https://api.screenshotone.com/take?access_key=%5Bredacted%5D&url=https%3A%2F%2Fmodel.upou.edu.ph%2F&format=jpg&viewport_width=1200&viewport_height=630&block_ads=true&block_cookie_banners=true&block_banners_by_heuristics=false&block_trackers=true&delay=0&timeout=60&response_type=by_format&image_quality=80",
+      "source": "screenshot"
     },
     "q3-2026-introduction-to-open-distance-elearning-odel": {
       "status": "screenshot",
@@ -1182,16 +1181,16 @@
       "cached": true
     },
     "q3-2026-creator-colosseum-startup-competition-student-fo": {
-      "status": "fetched",
-      "path": "/opportunities/q3-2026-creator-colosseum-startup-competition-student-fo.png",
+      "status": "screenshot",
+      "path": "/opportunities/q3-2026-creator-colosseum-startup-competition-student-fo.jpg",
       "pageUrl": "https://creatorcolosseum.devpost.com/",
       "issueSlug": "q3-2026",
       "title": "Creator Colosseum Startup Competition: Student Founders. Real Startups.",
-      "contentType": "image/png",
-      "bytes": 387011,
-      "imageUrl": "https://d112y698adiu2z.cloudfront.net/photos/production/challenge_thumbnails/004/601/771/datas/original.png",
-      "source": "og",
-      "cached": true
+      "contentType": "image/jpeg",
+      "bytes": 87025,
+      "screenshotProvider": "screenshotone",
+      "screenshotUrl": "https://api.screenshotone.com/take?access_key=%5Bredacted%5D&url=https%3A%2F%2Fcreatorcolosseum.devpost.com%2F&format=jpg&viewport_width=1200&viewport_height=630&block_ads=true&block_cookie_banners=true&block_banners_by_heuristics=false&block_trackers=true&delay=0&timeout=60&response_type=by_format&image_quality=80",
+      "source": "screenshot"
     },
     "q3-2026-phystech-2026-physical-activity-and-technology-h": {
       "status": "fetched",
@@ -1514,8 +1513,7 @@
       "contentType": "image/png",
       "bytes": 44180,
       "imageUrl": "https://www.computer.org/wp-content/uploads/2026/05/2026globalstudentchallenge_thumbnail.png",
-      "source": "og",
-      "cached": true
+      "source": "og"
     },
     "q3-2026-ieee-hart-hardwaire-challenge": {
       "status": "screenshot",
@@ -1955,15 +1953,16 @@
       "source": "og"
     },
     "q3-2026-unidroit-essay-competition-2026": {
-      "status": "fetched",
+      "status": "screenshot",
       "path": "/opportunities/q3-2026-unidroit-essay-competition-2026.jpg",
       "pageUrl": "https://www.unidroit.org/news/2026/unidroit-launches-2026-essay-competition/",
       "issueSlug": "q3-2026",
       "title": "UNIDROIT Essay Competition 2026",
       "contentType": "image/jpeg",
-      "bytes": 231214,
-      "imageUrl": "https://www.unidroit.org/wp-content/uploads/2021/05/Civil-procedure-1080.jpg",
-      "source": "og"
+      "bytes": 77702,
+      "screenshotProvider": "screenshotone",
+      "screenshotUrl": "https://api.screenshotone.com/take?access_key=%5Bredacted%5D&url=https%3A%2F%2Fwww.unidroit.org%2F&format=jpg&viewport_width=1200&viewport_height=630&block_ads=true&block_cookie_banners=true&block_banners_by_heuristics=false&block_trackers=true&delay=0&timeout=60&response_type=by_format&image_quality=80",
+      "source": "screenshot"
     },
     "q3-2026-unesco-youth-eyes-on-the-silk-roads-photo-contes": {
       "status": "screenshot",
@@ -1975,6 +1974,18 @@
       "bytes": 91747,
       "screenshotProvider": "screenshotone",
       "screenshotUrl": "https://api.screenshotone.com/take?access_key=%5Bredacted%5D&url=https%3A%2F%2Fwww.unesco.org%2Fen%2Farticles%2Fjoin-2026-youth-eyes-silk-roads-photo-contest&format=jpg&viewport_width=1200&viewport_height=630&block_ads=true&block_cookie_banners=true&block_banners_by_heuristics=false&block_trackers=true&delay=0&timeout=60&response_type=by_format&image_quality=80",
+      "source": "screenshot"
+    },
+    "q3-2026-gcash-ml-operations-engineer-intern": {
+      "status": "screenshot",
+      "path": "/opportunities/q3-2026-gcash-ml-operations-engineer-intern.jpg",
+      "pageUrl": "https://gcash.com/careers",
+      "issueSlug": "q3-2026",
+      "title": "GCash ML Operations Engineer Intern",
+      "contentType": "image/jpeg",
+      "bytes": 91791,
+      "screenshotProvider": "screenshotone",
+      "screenshotUrl": "https://api.screenshotone.com/take?access_key=%5Bredacted%5D&url=https%3A%2F%2Fgcash.com%2F&format=jpg&viewport_width=1200&viewport_height=630&block_ads=true&block_cookie_banners=true&block_banners_by_heuristics=false&block_trackers=true&delay=0&timeout=60&response_type=by_format&image_quality=80",
       "source": "screenshot"
     }
   }
