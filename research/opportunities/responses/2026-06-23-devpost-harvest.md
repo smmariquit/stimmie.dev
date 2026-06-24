@@ -1,7 +1,7 @@
 # Devpost harvest — 2026-06-23
 
 - **Date researched:** 2026-06-23
-- **Tool:** `npm run opportunities:devpost` (Devpost API)
+- **Tool:** `npm run opportunities:devpost` (Devpost API + description scan)
 - **Prompt:** [../prompts/03-devpost-harvest.md](../prompts/03-devpost-harvest.md)
 - **Status:** published
 - **Issue slug:** devpost-2026-06-23
@@ -13,11 +13,13 @@
 | Metric | Count |
 | ------ | -----: |
 | API candidates (open, online) | 35 |
-| New merged this run | 0 |
-| Board total after merge | 124 |
-| Prior board count | 124 |
+| Role opportunities (judges, mentors, speakers, volunteers) | 7 |
+| New hackathons merged this run | 0 |
+| New role listings merged this run | 0 |
+| Board total after merge | 144 |
+| Prior board count | 144 |
 
-Filter: open + online + not invite-only; blocklist for region-locked titles; skip closed submission deadlines.
+Filter: open + online + not invite-only; blocklist for region-locked titles; skip closed submission deadlines. Role scan parses each Devpost `#challenge-description` for judge, mentor, speaker, and volunteer calls.
 
 ---
 
@@ -173,7 +175,7 @@ Filter: open + online + not invite-only; blocklist for region-locked titles; ski
   "url": "https://gitlab-transcend.devpost.com/",
   "org": "GitLab",
   "location": "Online",
-  "blurb": "Machine Learning/AI, DevOps, Productivity hackathon on Devpost. Prizes: $20,000. about 23 hours left.",
+  "blurb": "Machine Learning/AI, DevOps, Productivity hackathon on Devpost. Prizes: $20,000. about 22 hours left.",
   "source_platform": "Devpost",
   "source_url": "https://gitlab-transcend.devpost.com/",
   "confidence": "High",
@@ -278,6 +280,34 @@ Filter: open + online + not invite-only; blocklist for region-locked titles; ski
 }
 ```
 
+### Backblaze Generative Media Hackathon: Build with Genblaze on B2
+
+```json
+{
+  "title": "Backblaze Generative Media Hackathon: Build with Genblaze on B2",
+  "type": "hackathon",
+  "url": "https://backblaze-generative-media.devpost.com/",
+  "org": "Backblaze",
+  "location": "Online",
+  "blurb": "Machine Learning/AI, Music/Art, Voice skills hackathon on Devpost. Prizes: $10,000. about 1 month left.",
+  "source_platform": "Devpost",
+  "source_url": "https://backblaze-generative-media.devpost.com/",
+  "confidence": "High",
+  "image_url": "https://backblaze-generative-media.devpost.com/",
+  "dates": [
+    {
+      "label": "Hackathon window",
+      "date": "2026-06-22",
+      "endDate": "2026-08-03"
+    },
+    {
+      "label": "Submission deadline",
+      "date": "2026-08-03"
+    }
+  ]
+}
+```
+
 ### LUMA Hackathon (July 3rd - 10th)
 
 ```json
@@ -304,34 +334,6 @@ Filter: open + online + not invite-only; blocklist for region-locked titles; ski
     }
   ],
   "beginner_friendly": true
-}
-```
-
-### Backblaze Generative Media Hackathon: Build with Genblaze on B2
-
-```json
-{
-  "title": "Backblaze Generative Media Hackathon: Build with Genblaze on B2",
-  "type": "hackathon",
-  "url": "https://backblaze-generative-media.devpost.com/",
-  "org": "Backblaze",
-  "location": "Online",
-  "blurb": "Machine Learning/AI, Music/Art, Voice skills hackathon on Devpost. Prizes: $10,000. about 1 month left.",
-  "source_platform": "Devpost",
-  "source_url": "https://backblaze-generative-media.devpost.com/",
-  "confidence": "High",
-  "image_url": "https://backblaze-generative-media.devpost.com/",
-  "dates": [
-    {
-      "label": "Hackathon window",
-      "date": "2026-06-22",
-      "endDate": "2026-08-03"
-    },
-    {
-      "label": "Submission deadline",
-      "date": "2026-08-03"
-    }
-  ]
 }
 ```
 
@@ -745,7 +747,7 @@ Filter: open + online + not invite-only; blocklist for region-locked titles; ski
   "url": "https://cybercoders2026.devpost.com/",
   "org": "Idustries",
   "location": "Online",
-  "blurb": "Cybersecurity, Web hackathon on Devpost. Prizes: $18. about 2 hours left.",
+  "blurb": "Cybersecurity, Web hackathon on Devpost. Prizes: $18. 28 minutes left.",
   "source_platform": "Devpost",
   "source_url": "https://cybercoders2026.devpost.com/",
   "confidence": "High",
@@ -1018,5 +1020,207 @@ Filter: open + online + not invite-only; blocklist for region-locked titles; ski
     }
   ],
   "beginner_friendly": true
+}
+```
+
+---
+
+## Role opportunities
+
+Calls for judges, mentors, speakers, or volunteers found in Devpost hackathon descriptions. `url` points to the apply form, email, or description anchor when no direct link exists.
+
+### H0: Hack the Zero Stack with Vercel v0 and AWS Databases: Call for Judges
+
+```json
+{
+  "title": "H0: Hack the Zero Stack with Vercel v0 and AWS Databases: Call for Judges",
+  "type": "event",
+  "url": "https://forms.gle/FzLd8BLqzzrkuBMU7",
+  "org": "Amazon",
+  "location": "Online",
+  "blurb": "Devpost hackathon recruiting judges. judge opportunity mentioned in hackathon description.",
+  "source_platform": "Devpost",
+  "source_url": "https://forms.gle/FzLd8BLqzzrkuBMU7",
+  "confidence": "High",
+  "image_url": "https://h01.devpost.com/",
+  "dates": [
+    {
+      "label": "Hackathon window",
+      "date": "2026-05-27",
+      "endDate": "2026-06-29"
+    },
+    {
+      "label": "Hackathon submission deadline",
+      "date": "2026-06-29"
+    }
+  ]
+}
+```
+
+### PhysTech 2026: Physical Activity and Technology Hack Day: Call for Judges
+
+```json
+{
+  "title": "PhysTech 2026: Physical Activity and Technology Hack Day: Call for Judges",
+  "type": "event",
+  "url": "mailto:phystech@yahoo.cim\">phystech@yahoo.com</a></span></strong></p>\\n<p><strong><span",
+  "org": "Binnovative",
+  "location": "Online",
+  "blurb": "Devpost hackathon recruiting judges. judge opportunity mentioned in hackathon description.",
+  "source_platform": "Devpost",
+  "source_url": "mailto:phystech@yahoo.cim\">phystech@yahoo.com</a></span></strong></p>\\n<p><strong><span",
+  "confidence": "High",
+  "image_url": "https://phystech-2026.devpost.com/",
+  "dates": [
+    {
+      "label": "Hackathon window",
+      "date": "2026-02-08",
+      "endDate": "2026-06-27"
+    },
+    {
+      "label": "Hackathon submission deadline",
+      "date": "2026-06-27"
+    }
+  ]
+}
+```
+
+### PhysTech 2026: Physical Activity and Technology Hack Day: Call for Coaches
+
+```json
+{
+  "title": "PhysTech 2026: Physical Activity and Technology Hack Day: Call for Coaches",
+  "type": "event",
+  "url": "mailto:phystech@yahoo.cim\">phystech@yahoo.com</a></span></strong></p>\\n<p><strong><span",
+  "org": "Binnovative",
+  "location": "Online",
+  "blurb": "Devpost hackathon recruiting coaches. coach opportunity mentioned in hackathon description.",
+  "source_platform": "Devpost",
+  "source_url": "mailto:phystech@yahoo.cim\">phystech@yahoo.com</a></span></strong></p>\\n<p><strong><span",
+  "confidence": "High",
+  "image_url": "https://phystech-2026.devpost.com/",
+  "dates": [
+    {
+      "label": "Hackathon window",
+      "date": "2026-02-08",
+      "endDate": "2026-06-27"
+    },
+    {
+      "label": "Hackathon submission deadline",
+      "date": "2026-06-27"
+    }
+  ]
+}
+```
+
+### VoltHacks: Call for Judges
+
+```json
+{
+  "title": "VoltHacks: Call for Judges",
+  "type": "event",
+  "url": "mailto:ehsansadiq141@gmail.com",
+  "org": "Dialogate",
+  "location": "Online",
+  "blurb": "Devpost hackathon recruiting judges. judge opportunity mentioned in hackathon description.",
+  "source_platform": "Devpost",
+  "source_url": "mailto:ehsansadiq141@gmail.com",
+  "confidence": "High",
+  "image_url": "https://volthacks.devpost.com/",
+  "dates": [
+    {
+      "label": "Hackathon window",
+      "date": "2026-05-22",
+      "endDate": "2026-09-05"
+    },
+    {
+      "label": "Hackathon submission deadline",
+      "date": "2026-09-05"
+    }
+  ]
+}
+```
+
+### Brainwave 2026: Call for Mentors
+
+```json
+{
+  "title": "Brainwave 2026: Call for Mentors",
+  "type": "event",
+  "url": "https://forms.gle/AtrJWgV56dbyQ7BJ6",
+  "org": "ACT House",
+  "location": "Online",
+  "blurb": "Devpost hackathon recruiting mentors. mentor opportunity mentioned in hackathon description.",
+  "source_platform": "Devpost",
+  "source_url": "https://forms.gle/AtrJWgV56dbyQ7BJ6",
+  "confidence": "High",
+  "image_url": "https://brainwaves.devpost.com/",
+  "dates": [
+    {
+      "label": "Hackathon window",
+      "date": "2026-06-12",
+      "endDate": "2026-08-09"
+    },
+    {
+      "label": "Hackathon submission deadline",
+      "date": "2026-08-09"
+    }
+  ]
+}
+```
+
+### AceSAT Education AI-Agent: Call for Judges
+
+```json
+{
+  "title": "AceSAT Education AI-Agent: Call for Judges",
+  "type": "event",
+  "url": "mailto:acesat.tx@gmail.com",
+  "org": "AceSAT",
+  "location": "Online",
+  "blurb": "Devpost hackathon recruiting judges. judge opportunity mentioned in hackathon description.",
+  "source_platform": "Devpost",
+  "source_url": "mailto:acesat.tx@gmail.com",
+  "confidence": "High",
+  "image_url": "https://acesat-ai-agent.devpost.com/",
+  "dates": [
+    {
+      "label": "Hackathon window",
+      "date": "2026-06-12",
+      "endDate": "2026-08-15"
+    },
+    {
+      "label": "Hackathon submission deadline",
+      "date": "2026-08-15"
+    }
+  ]
+}
+```
+
+### Web Champ: Call for Judges
+
+```json
+{
+  "title": "Web Champ: Call for Judges",
+  "type": "event",
+  "url": "mailto:abhishekparindya2007may3@gmail.com",
+  "org": "The Fusion",
+  "location": "Online",
+  "blurb": "Devpost hackathon recruiting judges. judge opportunity mentioned in hackathon description.",
+  "source_platform": "Devpost",
+  "source_url": "mailto:abhishekparindya2007may3@gmail.com",
+  "confidence": "High",
+  "image_url": "https://web-champ.devpost.com/",
+  "dates": [
+    {
+      "label": "Hackathon window",
+      "date": "2026-06-16",
+      "endDate": "2026-07-16"
+    },
+    {
+      "label": "Hackathon submission deadline",
+      "date": "2026-07-16"
+    }
+  ]
 }
 ```

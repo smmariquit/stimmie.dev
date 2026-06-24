@@ -29,13 +29,13 @@ Search each bucket; report item count per bucket in the **coverage report**:
 | ------ | ------- | ------------ |
 | Internships | LinkedIn Boolean → **employer ATS**; JobStreet; Kalibrr; Prosple (discovery only) | Mon |
 | Hackathons | Devpost (daily); MLH; HackerEarth; lablab.ai; Devfolio (online/global only) | Tue |
-| Gov scholarships | `bpms.ched.gov.ph`, `sei.dost.gov.ph`, `dict.gov.ph/trainings`, `e-tesda.gov.ph`, `gsis.gov.ph` | Wed |
+| Gov scholarships | `bpms.ched.gov.ph`, `sei.dost.gov.ph`, `unifast.gov.ph`, `dict.gov.ph/trainings`, `e-tesda.gov.ph`, `gsis.gov.ph`, `owwa.gov.ph` | Wed — deep pass: [08-scholarships-harvest.md](./08-scholarships-harvest.md) |
 | Events | Meetup, Eventbrite Manila tech, Luma, DEVCON PH, Friends of Figma, UXPH | Thu |
-| Campus / FB | DEVCON chapters, campus CS org pages, Internships.ph group | Fri |
-| Global programs | Outreachy, GSoC, ADB careers, UN/ASEAN portals | Sat |
+| Campus / FB | DEVCON chapters, campus CS org pages, Internships.ph group — deep pass: [09-campus-university-events-harvest.md](./09-campus-university-events-harvest.md) | Fri |
+| Global programs | Outreachy, GSoC, ADB careers, UN/ASEAN portals — youth exchanges: [10-exchange-programs-harvest.md](./10-exchange-programs-harvest.md) | Sat |
 | Certs / courses | UPOU MODeL, TESDA TOP, Grow with Google PH, AWS Educate, ITU Academy, Cisco NetAcad | Sun |
 
-Also check: GitHub `SimplifyJobs/Summer2026-Internships` (remote filter), Codédex Discord, Reddit signal subs, YC events (virtual/intl only).
+Also check: GitHub `SimplifyJobs/Summer2026-Internships` (remote filter), Codédex Discord, Reddit signal subs, YC events (virtual/intl only). For a **humanities / civic / policy** pass, run [07-humanities-sociocivic-harvest.md](./07-humanities-sociocivic-harvest.md).
 
 **Devpost vs Devfolio:** Devpost daily; Devfolio weekly — only elevate Devfolio items that are explicitly **online** or **global**, not India-only offline events.
 

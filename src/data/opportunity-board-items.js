@@ -1,6 +1,7 @@
 // Opportunity board items. Merged via scripts/merge-harvest.mjs and scripts/merge-devpost.mjs
 // Regenerate harvest: node scripts/merge-harvest.mjs
 // Regenerate Devpost: node scripts/merge-devpost.mjs
+// Proton inbox scan: node scripts/scan-proton-export.mjs /path/to/mail_EXPORT_DIR
 
 export const opportunityBoardItems = [
     {
@@ -204,11 +205,16 @@ export const opportunityBoardItems = [
       location: "Philippines",
       dates: [
         {
-          "label": "Application deadline",
-          "date": "2026-06-30"
-        }
+          label: "Application opens",
+          date: "2026-05-21",
+        },
+        {
+          label: "Application deadline",
+          date: "2026-06-30",
+        },
       ],
-      blurb: "Up to ₱104,000/semester for high-achieving freshmen in priority courses. GWA 95%+ required.",
+      beginnerFriendly: true,
+      blurb: "Incoming college or TVET freshmen from low-income households (top 5% or GWA 95%+) get full tuition and stipends up to PHP 120k per year in priority courses.",
     },
     {
       title: "ADB-Japan Scholarship Program",
@@ -321,7 +327,7 @@ export const opportunityBoardItems = [
     },
     {
       title: "Reddit's Games with a Hook Hackathon",
-      type: "hackathon",
+      type: "game-jam",
       url: "https://redditgameswithahook.devpost.com/",
       imageUrl: "https://redditgameswithahook.devpost.com/",
       org: "Reddit / Phaser",
@@ -372,18 +378,24 @@ export const opportunityBoardItems = [
       blurb: "Buildathon across blockchain, FinTech, and HealthTech infrastructure.",
     },
     {
-      title: "Grab Scholarship 2026",
+      title: "GrabScholar College Scholarship",
       type: "program",
-      url: "https://governmentph.com/grab-scholarship/",
+      url: "https://www.grab.com/ph/community/grabscholar-college-scholarship/",
+      imageUrl: "https://www.grab.com/ph/community/grabscholar-college-scholarship/",
       org: "Grab Philippines",
       location: "Philippines",
       dates: [
         {
-          "label": "Registration closes",
-          "date": "2026-07-17"
-        }
+          label: "Application opens",
+          date: "2026-06-22",
+        },
+        {
+          label: "Application deadline",
+          date: "2026-07-17",
+        },
       ],
-      blurb: "Full tuition, ₱8,000/month allowance, and internship pathways for STEM and business freshmen.",
+      beginnerFriendly: true,
+      blurb: "Incoming freshmen in STEM, business, or sustainability get a four-year full scholarship plus allowances; SHS GPA 90% or higher required.",
     },
     {
       title: "Low Earth Orbit Communication Satellites",
@@ -1632,7 +1644,7 @@ export const opportunityBoardItems = [
     },
     {
       title: "GLITCHED GAMES",
-      type: "hackathon",
+      type: "game-jam",
       url: "https://glitch-to-win-games.devpost.com/",
       imageUrl: "https://glitch-to-win-games.devpost.com/",
       org: "GB3-Productions",
@@ -1902,11 +1914,641 @@ export const opportunityBoardItems = [
       location: "Online / Remote",
       dates: [
         {
-          label: "July 2026 cohort start",
-          date: "2026-07-01",
-        },
+          "label": "July 2026 cohort start",
+          "date": "2026-07-01"
+        }
       ],
       beginnerFriendly: true,
       blurb: "Remote unpaid AI internship across six tracks (frontend, backend, ML, UX, marketing, biz dev). Apply with LinkedIn, ship a capstone, earn a verifiable credential and eligible recommendation letter.",
+    },
+    {
+      title: "IEEE CS Global Student Challenge 2026",
+      type: "hackathon",
+      url: "https://www.computer.org/publications/tech-news/events/global-student-challenge-2026",
+      imageUrl: "https://www.computer.org/publications/tech-news/events/global-student-challenge-2026",
+      org: "IEEE Computer Society",
+      location: "Online / Global",
+      dates: [
+        {
+          "label": "Registration closes",
+          "date": "2026-06-28"
+        },
+        {
+          "label": "Phase I (virtual)",
+          "date": "2026-07-13",
+          "endDate": "2026-08-09"
+        }
+      ],
+      blurb: "Teams of two tackle real-world data and security challenge problems. Top finalists present at ACSAC 2026 in Los Angeles with travel support.",
+    },
+    {
+      title: "IEEE HART HardwAIre Challenge",
+      type: "hackathon",
+      url: "https://hart.ieee.org/projects/competition/",
+      imageUrl: "https://hart.ieee.org/projects/competition/",
+      org: "IEEE HART",
+      location: "Online / Global",
+      blurb: "Student teams (3+ IEEE members plus faculty advisor) build an AI-integrated hardware prototype. Capped at 50 teams; Lab-in-a-Box reimbursement available. US$2,000 grand prize.",
+    },
+    {
+      title: "IEEE CS Juniors Program 2026",
+      type: "program",
+      url: "https://www.computer.org/membership/juniors",
+      imageUrl: "https://www.computer.org/membership/juniors",
+      org: "IEEE Computer Society",
+      location: "Global",
+      dates: [
+        {
+          "label": "Proposal deadline",
+          "date": "2026-06-30"
+        }
+      ],
+      blurb: "Call for proposals to run K-12 STEM and computer science outreach experiences. Funding for chapter-led Juniors initiatives.",
+    },
+    {
+      title: "IEEE Quantum Week 2026: BoF and QTC Award Nominations",
+      type: "program",
+      url: "https://qce.quantum.ieee.org/2026/submission-deadlines/",
+      imageUrl: "https://qce.quantum.ieee.org/2026/",
+      org: "IEEE Quantum Week (QCE)",
+      location: "Global",
+      dates: [
+        {
+          "label": "BoF / QTC nominations due",
+          "date": "2026-07-13"
+        }
+      ],
+      blurb: "Submit Birds-of-a-Feather session proposals or Quantum Technology Consortium award nominations for QCE 2026.",
+    },
+    {
+      title: "IEEE/CVF WACV 2027 Round 2 Paper Enrollment",
+      type: "program",
+      url: "https://wacv.thecvf.com/Conferences/2027/CallForPapers",
+      imageUrl: "https://wacv.thecvf.com/Conferences/2027/CallForPapers",
+      org: "IEEE/CVF WACV",
+      location: "Global",
+      dates: [
+        {
+          "label": "Round 2 paper enrollment",
+          "date": "2026-08-21"
+        },
+        {
+          "label": "Round 2 paper submission",
+          "date": "2026-08-28"
+        }
+      ],
+      blurb: "Second-round window for Winter Conference on Applications of Computer Vision papers. Enrollment one week before full submission.",
+    },
+    {
+      title: "IEEE PerCom 2027 Call for Papers",
+      type: "program",
+      url: "https://percom.org/call-for-papers/",
+      imageUrl: "https://percom.org/",
+      org: "IEEE PerCom",
+      location: "Goa, India",
+      dates: [
+        {
+          "label": "Paper registration",
+          "date": "2026-09-04"
+        },
+        {
+          "label": "Paper submission",
+          "date": "2026-09-11"
+        }
+      ],
+      blurb: "Premier pervasive computing research conference. Register in HotCRP by Sep 4; full papers due Sep 11 (Anywhere on Earth). Conference in Goa, March 2027.",
+    },
+    {
+      title: "StellarPH PH100 2026",
+      type: "program",
+      url: "https://stellarph.io/programs/ph100/2026/apply",
+      imageUrl: "https://stellarph.io/programs/ph100",
+      org: "StellarPH",
+      location: "Philippines",
+      dates: [
+        {
+          "label": "Application deadline",
+          "date": "2026-06-30"
+        }
+      ],
+      blurb: "Annual list spotlighting 100 brightest Filipino talents under 30 in the startup ecosystem. Selected honorees get recognition, network access, and growth opportunities.",
+    },
+    {
+      title: "MLH 100 Days of Solana",
+      type: "program",
+      url: "https://events.mlh.io/events/13995-100-days-of-solana",
+      imageUrl: "https://events.mlh.io/events/13995-100-days-of-solana",
+      org: "Major League Hacking",
+      location: "Online",
+      dates: [
+        {
+          "label": "Series starts",
+          "date": "2026-04-20"
+        },
+        {
+          "label": "Series ends",
+          "date": "2026-07-26"
+        }
+      ],
+      beginnerFriendly: true,
+      blurb: "Free online challenge series with daily hands-on Solana tasks for builders moving from web3 curiosity to shipped projects.",
+    },
+    {
+      title: "SparkFest 2026",
+      type: "hackathon",
+      url: "https://forms.gle/PFsMzmGb2em9LkpbA",
+      imageUrl: "https://gdg.community.dev/gdg-on-campus-polytechnic-university-of-the-philippines-manila-philippines/",
+      org: "GDG on Campus PUP",
+      location: "Manila, Philippines (PUP)",
+      dates: [
+        {
+          "label": "Kick-off",
+          "date": "2026-06-28"
+        },
+        {
+          "label": "First round submissions",
+          "date": "2026-07-02"
+        },
+        {
+          "label": "Final pitching and awards",
+          "date": "2026-07-09"
+        }
+      ],
+      beginnerFriendly: true,
+      blurb: "GDG on Campus PUP flagship hackathon for SHS and college teams building working prototypes for community-impact problems, with mentorship and pitching at Bulwagang Bonifacio.",
+    },
+    {
+      title: "#hackthekitty",
+      type: "hackathon",
+      url: "https://hackthekitty.com/",
+      imageUrl: "https://hackthekitty.com/",
+      org: "coding.kitty",
+      location: "Online",
+      dates: [
+        {
+          "label": "Hackathon starts",
+          "date": "2026-06-24"
+        },
+        {
+          "label": "Submissions due",
+          "date": "2026-07-07"
+        },
+        {
+          "label": "Winners announced",
+          "date": "2026-07-15"
+        }
+      ],
+      beginnerFriendly: true,
+      blurb: "Free 14-day virtual hackathon from coding.kitty for solo devs or pairs: build any stack for the World Cat Domination Day theme, submit a demo and GitHub repo, and compete for prizes.",
+    },
+    {
+      title: "Girls Got Game Jam",
+      type: "game-jam",
+      url: "https://girls-got-game-jam-3.devpost.com/",
+      imageUrl: "https://girls-got-game-jam-3.devpost.com/",
+      org: "Girls Got Game Jam",
+      location: "Online",
+      dates: [
+        {
+          "label": "Jam window",
+          "date": "2026-06-15",
+          "endDate": "2026-06-24"
+        },
+        {
+          "label": "Submission deadline",
+          "date": "2026-06-24"
+        }
+      ],
+      beginnerFriendly: true,
+      blurb: "International online game jam empowering gender minorities in tech to ship a game in nine days on Devpost.",
+    },
+    {
+      title: "Summertime Game Jam",
+      type: "game-jam",
+      url: "https://itch.io/jam/summertime-game-jam",
+      imageUrl: "https://itch.io/jam/summertime-game-jam",
+      org: "itch.io community",
+      location: "Online",
+      dates: [
+        {
+          "label": "Submissions open",
+          "date": "2026-06-15",
+          "endDate": "2026-08-15"
+        },
+        {
+          "label": "Submission deadline",
+          "date": "2026-08-15"
+        }
+      ],
+      beginnerFriendly: true,
+      blurb: "Summer-themed itch.io jam with a hidden secondary theme at kickoff; build a new game from scratch before submissions close in mid-August.",
+    },
+    {
+      title: "Summer Jam: Villain",
+      type: "game-jam",
+      url: "https://itch.io/jam/summer-jam-villain",
+      imageUrl: "https://itch.io/jam/summer-jam-villain",
+      org: "Cyber Honey",
+      location: "Online",
+      dates: [
+        {
+          "label": "Jam window",
+          "date": "2026-06-14",
+          "endDate": "2026-07-14"
+        },
+        {
+          "label": "Submission deadline",
+          "date": "2026-07-14"
+        }
+      ],
+      beginnerFriendly: true,
+      blurb: "Villain-perspective itch.io jam hosted by Cyber Honey: use the revealed hidden theme, credit assets, and submit a playable Windows or browser game.",
+    },
+    {
+      title: "Climate Jam 2026: Plant a Seed",
+      type: "game-jam",
+      url: "https://itch.io/jam/climate-jam-2026",
+      imageUrl: "https://itch.io/jam/climate-jam-2026",
+      org: "IndieCade",
+      location: "Online",
+      dates: [
+        {
+          "label": "Production sprint",
+          "date": "2026-07-01",
+          "endDate": "2026-08-11"
+        },
+        {
+          "label": "Submission deadline",
+          "date": "2026-08-11"
+        }
+      ],
+      blurb: "Six-week global climate game jam from IndieCade with Discord mentors; build awareness or solutions around climate change on itch.io.",
+    },
+    {
+      title: "Summer Slow Jams 2026: Inventory",
+      type: "game-jam",
+      url: "https://itch.io/jam/ssjinventory",
+      imageUrl: "https://itch.io/jam/ssjinventory",
+      org: "Portland Indie Game Squad",
+      location: "Online / Portland, OR",
+      dates: [
+        {
+          "label": "Kickoff",
+          "date": "2026-07-07"
+        },
+        {
+          "label": "Submission deadline",
+          "date": "2026-07-20"
+        },
+        {
+          "label": "Showcase",
+          "date": "2026-07-27"
+        }
+      ],
+      beginnerFriendly: true,
+      blurb: "July edition of PIG Squad's Summer Slow Jams: theme reveal at kickoff, remote-friendly building, and an in-person or streamed showcase in Portland.",
+    },
+    {
+      title: "Call for Judges — VoltHacks",
+      type: "event",
+      url: "mailto:ehsansadiq141@gmail.com",
+      imageUrl: "https://volthacks.devpost.com/",
+      org: "Dialogate",
+      location: "Online",
+      dates: [
+        {
+          "label": "Hackathon window",
+          "date": "2026-05-22",
+          "endDate": "2026-09-05"
+        },
+        {
+          "label": "Hackathon submission deadline",
+          "date": "2026-09-05"
+        }
+      ],
+      blurb: "Devpost hackathon recruiting judges. judge opportunity mentioned in hackathon description.",
+    },
+    {
+      title: "Call for Mentors — Brainwave 2026",
+      type: "event",
+      url: "https://forms.gle/AtrJWgV56dbyQ7BJ6",
+      imageUrl: "https://brainwaves.devpost.com/",
+      org: "ACT House",
+      location: "Online",
+      dates: [
+        {
+          "label": "Hackathon window",
+          "date": "2026-06-12",
+          "endDate": "2026-08-09"
+        },
+        {
+          "label": "Hackathon submission deadline",
+          "date": "2026-08-09"
+        }
+      ],
+      blurb: "Devpost hackathon recruiting mentors. mentor opportunity mentioned in hackathon description.",
+    },
+    {
+      title: "Call for Judges — AceSAT Education AI-Agent",
+      type: "event",
+      url: "mailto:acesat.tx@gmail.com",
+      imageUrl: "https://acesat-ai-agent.devpost.com/",
+      org: "AceSAT",
+      location: "Online",
+      dates: [
+        {
+          "label": "Hackathon window",
+          "date": "2026-06-12",
+          "endDate": "2026-08-15"
+        },
+        {
+          "label": "Hackathon submission deadline",
+          "date": "2026-08-15"
+        }
+      ],
+      blurb: "Devpost hackathon recruiting judges. judge opportunity mentioned in hackathon description.",
+    },
+    {
+      title: "Call for Judges — Web Champ",
+      type: "event",
+      url: "mailto:abhishekparindya2007may3@gmail.com",
+      imageUrl: "https://web-champ.devpost.com/",
+      org: "The Fusion",
+      location: "Online",
+      dates: [
+        {
+          "label": "Hackathon window",
+          "date": "2026-06-16",
+          "endDate": "2026-07-16"
+        },
+        {
+          "label": "Hackathon submission deadline",
+          "date": "2026-07-16"
+        }
+      ],
+      blurb: "Devpost hackathon recruiting judges. judge opportunity mentioned in hackathon description.",
+    },
+    {
+      title: "Call for Judges — H0: Hack the Zero Stack with Vercel v0 and AWS Databases",
+      type: "event",
+      url: "https://forms.gle/FzLd8BLqzzrkuBMU7",
+      imageUrl: "https://h01.devpost.com/",
+      org: "Amazon",
+      location: "Online",
+      dates: [
+        {
+          "label": "Hackathon window",
+          "date": "2026-05-27",
+          "endDate": "2026-06-29"
+        },
+        {
+          "label": "Hackathon submission deadline",
+          "date": "2026-06-29"
+        }
+      ],
+      blurb: "Devpost hackathon recruiting judges. judge opportunity mentioned in hackathon description.",
+    },
+    {
+      title: "Call for Judges — PhysTech 2026: Physical Activity and Technology Hack Day",
+      type: "event",
+      url: "mailto:phystech@yahoo.com",
+      imageUrl: "https://phystech-2026.devpost.com/",
+      org: "Binnovative",
+      location: "Online",
+      dates: [
+        {
+          "label": "Hackathon window",
+          "date": "2026-02-08",
+          "endDate": "2026-06-27"
+        },
+        {
+          "label": "Hackathon submission deadline",
+          "date": "2026-06-27"
+        }
+      ],
+      blurb: "Devpost hackathon recruiting judges. judge opportunity mentioned in hackathon description.",
+    },
+    {
+      title: "Call for Coaches — PhysTech 2026: Physical Activity and Technology Hack Day",
+      type: "event",
+      url: "mailto:phystech@yahoo.com",
+      imageUrl: "https://phystech-2026.devpost.com/",
+      org: "Binnovative",
+      location: "Online",
+      dates: [
+        {
+          "label": "Hackathon window",
+          "date": "2026-02-08",
+          "endDate": "2026-06-27"
+        },
+        {
+          "label": "Hackathon submission deadline",
+          "date": "2026-06-27"
+        }
+      ],
+      blurb: "Devpost hackathon recruiting coaches. coach opportunity mentioned in hackathon description.",
+    },
+    {
+      title: "Call for Volunteers — ICFP 2026",
+      type: "event",
+      url: "https://forms.gle/wdogVw3P25pizryk6",
+      imageUrl: "https://icfp26.sigplan.org/track/icfp-2026-icfp-volunteers",
+      org: "SIGPLAN / ICFP 2026",
+      location: "Online / hybrid",
+      dates: [
+        {
+          label: "Applications close",
+          date: "2026-06-29",
+        },
+        {
+          label: "Conference",
+          date: "2026-08-24",
+          endDate: "2026-08-29",
+        },
+      ],
+      beginnerFriendly: true,
+      blurb: "Student volunteer program for ICFP 2026: conference fees covered for five full days Aug 24-29 in exchange for AV and session support; apply by Jun 29 AoE.",
+    },
+    {
+      title: "Call for Volunteers — CppCon 2026",
+      type: "event",
+      url: "https://cppcon.org/volunteer",
+      imageUrl: "https://cppcon.org/",
+      org: "Standard C++ Foundation",
+      location: "Aurora, Colorado / USA",
+      dates: [
+        {
+          label: "Applications close",
+          date: "2026-08-01",
+        },
+        {
+          label: "Conference week",
+          date: "2026-08-16",
+        },
+      ],
+      blurb: "Conference volunteer roles for CppCon 2026: at least Sunday Aug 16 required, with many volunteers staying the full five-day week; apply by Aug 1.",
+    },
+    {
+      title: "Call for Sponsors — WordCamp Philippines 2026",
+      type: "event",
+      url: "https://philippines.wordcamp.org/2026/call-for-sponsors/",
+      imageUrl: "https://philippines.wordcamp.org/2026/",
+      org: "WordCamp Philippines organizers",
+      location: "Philippines",
+      blurb: "Tiered sponsor packages from Contributor to Super Admin with an online inquiry form; slots are first-come on the official WordCamp PH 2026 page.",
+    },
+    {
+      title: "Call for Sponsors — ROOTCON 20",
+      type: "event",
+      url: "https://rootc.onl/sponsors",
+      imageUrl: "https://rootcon.org/",
+      org: "ROOTCON Conference Inc.",
+      location: "Philippines",
+      blurb: "Open sponsor tiers from Silver to Platinum plus add-ons like Karaoke Night and Hacker Jeopardy; sign up through the official ROOTCON sponsor form.",
+    },
+    {
+      title: "Call for Sponsors — PythonAsia 2026",
+      type: "event",
+      url: "https://2026.pythonasia.org/partnership/",
+      imageUrl: "https://2026.pythonasia.org/",
+      org: "PythonPH / DLSU / Python Asia Organization",
+      location: "Philippines / Asia",
+      blurb: "Asia-wide Python community conference seeking for-profit and community partners; sponsor inquiries via the official partnership page.",
+    },
+    {
+      title: "GitHub Campus Program",
+      type: "program",
+      url: "https://github.com/education/schools",
+      imageUrl: "https://docs.github.com/en/education/about-github-education/use-github-at-your-educational-institution/about-github-campus-program",
+      org: "GitHub",
+      location: "Global",
+      blurb: "Campus-wide GitHub Enterprise Cloud for accredited schools: free for the institution with Actions minutes and Packages storage for student org projects.",
+    },
+    {
+      title: "AWS Educate",
+      type: "program",
+      url: "https://aws.amazon.com/education/awseducate/",
+      imageUrl: "https://aws.amazon.com/education/awseducate/",
+      org: "Amazon Web Services",
+      location: "Global",
+      blurb: "Institutional AWS Educate membership lets educators and students claim cloud credits for coursework, labs, and student-led event infrastructure.",
+    },
+    {
+      title: "DICT Startup Grant Fund",
+      type: "program",
+      url: "https://www.startup.gov.ph/",
+      imageUrl: "https://dict.gov.ph/",
+      org: "Department of Information and Communications Technology",
+      location: "Philippines",
+      blurb: "Equity-free grants from PHP 500k to PHP 1M for SEC or DTI-registered ICT startups; apply through Startup Philippines after registering your venture.",
+    },
+    {
+      title: "Call for Mentors — Cardano Accelerator Program Fall 2026",
+      type: "event",
+      url: "https://cardanofoundation.org/cap/call-for-mentors",
+      imageUrl: "https://cardanofoundation.org/cap",
+      org: "Cardano Foundation",
+      location: "Online / Global",
+      dates: [
+        {
+          label: "Applications close",
+          date: "2026-07-10",
+        },
+      ],
+      blurb: "On-demand one-to-one mentorship for the Fall 2026 CAP cohort over a ten-week accelerator; mentor applications close Jul 10.",
+    },
+    {
+      title: "Call for Mentors — EforAll Business Accelerator August 2026",
+      type: "event",
+      url: "https://eforall.org/become-a-mentor",
+      imageUrl: "https://eforall.org/",
+      org: "Entrepreneurship for All (EforAll)",
+      location: "Online",
+      dates: [
+        {
+          label: "Cohort",
+          date: "2026-08-01",
+        },
+      ],
+      beginnerFriendly: true,
+      blurb: "Volunteer mentors for the August 2026 online business accelerator: twelve two-hour sessions over twelve weeks; rolling intake until the cohort starts.",
+    },
+    {
+      title: "Call for Speakers — AI Community Days Cebu",
+      type: "event",
+      url: "https://sessionize.com/ai-community-days-in-cebu-philippines/",
+      imageUrl: "https://sessionize.com/ai-community-days-in-cebu-philippines/",
+      org: "AI Community Days",
+      location: "Cebu, Philippines",
+      dates: [
+        {
+          label: "CFP closes",
+          date: "2026-06-27",
+        },
+      ],
+      beginnerFriendly: true,
+      blurb: "Community-driven AI event in Cebu welcoming students, faculty, and practitioners to submit talk proposals; CFP closes Jun 27 on Sessionize.",
+    },
+    {
+      title: "Call for Speakers — Elastic Meetups Around the World",
+      type: "event",
+      url: "https://sessionize.com/elastic-meetups/",
+      imageUrl: "https://sessionize.com/elastic-meetups/",
+      org: "Elastic",
+      location: "Online / Global",
+      dates: [
+        {
+          label: "CFP closes",
+          date: "2026-07-14",
+        },
+      ],
+      blurb: "Open call for technical talks at Elastic meetups worldwide; submit through Sessionize by Jul 14.",
+    },
+    {
+      title: "Call for Speakers — Tech Tactics in Education Fall 2026",
+      type: "event",
+      url: "https://techtacticsineducation.com/",
+      imageUrl: "https://techtacticsineducation.com/",
+      org: "Campus Technology",
+      location: "Online / USA",
+      dates: [
+        {
+          label: "Proposals due",
+          date: "2026-08-03",
+        },
+      ],
+      blurb: "Education technology conference seeking panels and workshops from K-12 and higher-ed practitioners; proposals due Aug 3.",
+    },
+    {
+      title: "UNIDROIT Essay Competition 2026",
+      type: "program",
+      url: "https://www.unidroit.org/news/2026/unidroit-launches-2026-essay-competition/",
+      imageUrl: "https://www.unidroit.org/",
+      org: "International Institute for the Unification of Private Law (UNIDROIT)",
+      location: "Online / Global",
+      dates: [
+        {
+          label: "Applications close",
+          date: "2026-06-30",
+        },
+      ],
+      beginnerFriendly: true,
+      blurb: "Law students and recent graduates worldwide can submit essays on international private law for UNIDROIT's 100th anniversary competition with prizes and publication.",
+    },
+    {
+      title: "UNESCO Youth Eyes on the Silk Roads Photo Contest 2026",
+      type: "event",
+      url: "https://unescosilkroadphotocontest.org/participate",
+      imageUrl: "https://www.unesco.org/en/articles/join-2026-youth-eyes-silk-roads-photo-contest",
+      org: "UNESCO Silk Roads Programme",
+      location: "Online / Global",
+      dates: [
+        {
+          label: "Applications close",
+          date: "2026-06-30",
+        },
+      ],
+      beginnerFriendly: true,
+      blurb: "Global photo contest for ages 14 to 25 on living heritage along the Silk Roads, with camera prizes for winners; submissions due Jun 30.",
     },
 ];

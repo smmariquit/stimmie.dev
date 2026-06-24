@@ -6,29 +6,20 @@
 // Research pipeline: research/opportunities/
 // Optional `image` overrides everything. Optional `imageUrl` for image fetch only.
 
-import { existsSync, readFileSync } from "node:fs";
-import { dirname, join } from "node:path";
-import { fileURLToPath } from "node:url";
-
 import { opportunityBoardItems } from "./opportunity-board-items.js";
+import opportunityImagesManifest from "./opportunity-images.json";
 
 const MANILA_TZ = "Asia/Manila";
 /** Matches existing cover-image filenames and manifest keys. */
 const OPPORTUNITY_IMAGE_PREFIX = "q3-2026";
-const manifestPath = join(
-  dirname(fileURLToPath(import.meta.url)),
-  "opportunity-images.json",
-);
 
 function loadOpportunityImages() {
-  if (!existsSync(manifestPath)) {
-    return { images: {} };
-  }
-  return JSON.parse(readFileSync(manifestPath, "utf8"));
+  return opportunityImagesManifest;
 }
 
 export const OPPORTUNITY_TYPE_DEFAULT_IMAGES = {
   hackathon: "/opportunities/defaults/hackathon.svg",
+  "game-jam": "/opportunities/defaults/game-jam.svg",
   internship: "/opportunities/defaults/internship.svg",
   event: "/opportunities/defaults/event.svg",
   certificate: "/opportunities/defaults/certificate.svg",
@@ -37,6 +28,7 @@ export const OPPORTUNITY_TYPE_DEFAULT_IMAGES = {
 
 export const OPPORTUNITY_TYPES = {
   hackathon: { label: "Hackathon", badge: "neo-badge-hackathon" },
+  "game-jam": { label: "Game jam", badge: "neo-badge-game-jam" },
   internship: { label: "Internship", badge: "neo-badge-internship" },
   event: { label: "Event", badge: "neo-badge-event" },
   certificate: { label: "Certificate", badge: "neo-badge-certificate" },
@@ -46,6 +38,7 @@ export const OPPORTUNITY_TYPES = {
 /** Display order for grouped issue pages. */
 export const OPPORTUNITY_TYPE_ORDER = [
   "hackathon",
+  "game-jam",
   "internship",
   "program",
   "event",
@@ -53,9 +46,9 @@ export const OPPORTUNITY_TYPE_ORDER = [
 ];
 
 export const opportunitiesBoard = {
-  lastUpdated: "2026-06-24",
+  lastUpdated: "2026-06-26",
   intro:
-    "A living roundup of hackathons, internships, scholarships, events, and programs worth a look if you're in the Philippines (or online). Deadlines are Manila time unless noted.",
+    "A living roundup of hackathons, game jams, internships, scholarships, events, and programs worth a look if you're in the Philippines (or online). Deadlines are Manila time unless noted.",
   items: opportunityBoardItems,
 };
 
@@ -219,6 +212,109 @@ export function isOpportunityBeginnerFriendly(item) {
   }
 
   return false;
+}
+
+const AI_TEXT_SIGNALS = [
+  /\bAI\b/,
+  /artificial intelligence/i,
+  /machine learning/i,
+  /\bML\b/,
+  /generative AI/i,
+  /\bGenAI\b/i,
+  /\bLLM/i,
+  /large language model/i,
+  /\bGPT\b/i,
+  /\bGemini\b/i,
+  /\bClaude\b/i,
+  /\bBedrock\b/i,
+  /OpenAI/i,
+  /agentic/i,
+  /AI agent/i,
+  /deep learning/i,
+  /neural network/i,
+  /\bNLP\b/i,
+  /natural language processing/i,
+  /computer vision/i,
+  /prompt engineering/i,
+  /\bRAG\b/,
+  /data science/i,
+  /data analytics/i,
+  /SAP Analytics/i,
+  /MLOps/i,
+  /Copilot/i,
+  /diffusion model/i,
+  /transformer/i,
+  /fine-?tun(e|ing)/i,
+];
+
+// MIL hackathon title contains no AI tech signal; UNESCO one is MIL-focused.
+const AI_NEGATIVE_SIGNALS = [
+  /media and information literacy/i,
+  /\bMIL\b(?!\s*(engineer|ops))/i,
+];
+
+/** Explicit `aiRelated` wins; otherwise infer from title, org, and blurb. */
+export function isOpportunityAiRelated(item) {
+  if (item.aiRelated === true) {
+    return true;
+  }
+  if (item.aiRelated === false) {
+    return false;
+  }
+
+  const text = `${item.title ?? ""} ${item.org ?? ""} ${item.blurb ?? ""}`;
+
+  if (AI_NEGATIVE_SIGNALS.some((pattern) => pattern.test(text))) {
+    if (!/\bAI\b|artificial intelligence|machine learning|generative|LLM|GPT|Gemini|Claude|agentic/i.test(text)) {
+      return false;
+    }
+  }
+
+  return AI_TEXT_SIGNALS.some((pattern) => pattern.test(text));
+}
+
+export function isOpportunityGameJam(item) {
+  return item.type === "game-jam";
+}
+
+export function filterOpportunities(
+  items,
+  { aiOnly = false, gameJamOnly = false, query = "" } = {},
+) {
+  let filtered = items;
+
+  if (gameJamOnly) {
+    filtered = filtered.filter(isOpportunityGameJam);
+  } else if (aiOnly) {
+    filtered = filtered.filter(isOpportunityAiRelated);
+  }
+
+  const normalizedQuery = query.trim().toLowerCase();
+  if (normalizedQuery) {
+    const terms = normalizedQuery.split(/\s+/).filter(Boolean);
+    filtered = filtered.filter((item) => {
+      const haystack = getOpportunitySearchText(item);
+      return terms.every((term) => haystack.includes(term));
+    });
+  }
+
+  return filtered;
+}
+
+function getOpportunitySearchText(item) {
+  const typeLabel = OPPORTUNITY_TYPES[item.type]?.label ?? item.type ?? "";
+  let host = "";
+
+  try {
+    host = new URL(item.url).hostname.replace(/^www\./, "");
+  } catch {
+    host = "";
+  }
+
+  return [item.title, item.org, item.blurb, item.location, typeLabel, host]
+    .filter(Boolean)
+    .join(" ")
+    .toLowerCase();
 }
 
 export function formatBoardUpdated(date) {

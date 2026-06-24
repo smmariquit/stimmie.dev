@@ -1,13 +1,10 @@
-import OpportunityCalendar from "@/components/neo/OpportunityCalendar";
-import OpportunityCard from "@/components/neo/OpportunityCard";
+import OpportunityBoard from "@/components/neo/OpportunityBoard";
 import OpportunityDisclaimer from "@/components/neo/OpportunityDisclaimer";
 import PageShell from "@/components/neo/PageShell";
 import {
   formatBoardUpdated,
   getOpportunities,
   getOpportunitiesBoard,
-  getOpportunityType,
-  groupIssueItemsByType,
 } from "@/data/opportunities";
 
 export const metadata = {
@@ -19,7 +16,6 @@ export const metadata = {
 export default function OpportunitiesPage() {
   const board = getOpportunitiesBoard();
   const items = getOpportunities();
-  const sections = groupIssueItemsByType(items);
 
   return (
     <PageShell
@@ -42,44 +38,7 @@ export default function OpportunitiesPage() {
 
       <OpportunityDisclaimer />
 
-      <div className="neo-opportunity-sections mt-6">
-        {sections.map(({ type, items: typeItems }) => {
-          const typeInfo = getOpportunityType(type);
-
-          return (
-            <section
-              key={type}
-              className={`neo-opportunity-section neo-opportunity-section--${type}`}
-              aria-labelledby={`opportunities-${type}-heading`}
-            >
-              <h2
-                id={`opportunities-${type}-heading`}
-                className="neo-opportunity-section-heading"
-              >
-                <span className={`neo-badge ${typeInfo.badge}`}>
-                  {typeInfo.label}
-                </span>
-                <span className="neo-opportunity-section-count">
-                  {typeItems.length}
-                </span>
-              </h2>
-
-              <ul
-                className="grid grid-cols-1 sm:grid-cols-2 gap-5 list-none p-0 m-0"
-                aria-label={`${typeInfo.label} opportunities`}
-              >
-                {typeItems.map((item) => (
-                  <li key={item.title}>
-                    <OpportunityCard item={item} />
-                  </li>
-                ))}
-              </ul>
-            </section>
-          );
-        })}
-      </div>
-
-      <OpportunityCalendar items={items} />
+      <OpportunityBoard items={items} />
     </PageShell>
   );
 }

@@ -11,7 +11,8 @@
     "cf:migrate-redirects": "node --experimental-detect-module scripts/cf-migrate-redirects.mjs",
     "opportunities:images": "node scripts/fetch-opportunity-images.mjs",
     "opportunities:merge": "node scripts/merge-harvest.mjs",
-    "opportunities:devpost": "node scripts/merge-devpost.mjs --harvest"
+    "opportunities:devpost": "node scripts/merge-devpost.mjs --harvest",
+    "opportunities:stale-nag": "node scripts/opportunities-stale-nag.mjs"
   },
   "dependencies": {
     "@vercel/analytics": "^2.0.1",

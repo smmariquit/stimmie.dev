@@ -1,0 +1,28 @@
+name: Opportunities stale nag
+
+on:
+  schedule:
+    # 01:00 UTC ≈ 09:00 Asia/Manila
+    - cron: "0 1 * * *"
+  workflow_dispatch:
+
+jobs:
+  nag:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+          cache: npm
+
+      - run: npm ci
+
+      - name: Send stale board nag email
+        env:
+          RESEND_API_KEY: ${{ secrets.RESEND_API_KEY }}
+          OPPORTUNITIES_NAG_TO: ${{ secrets.OPPORTUNITIES_NAG_TO }}
+          OPPORTUNITIES_NAG_FROM: ${{ secrets.OPPORTUNITIES_NAG_FROM }}
+          OPPORTUNITIES_STALE_DAYS: ${{ vars.OPPORTUNITIES_STALE_DAYS }}
+        run: node scripts/opportunities-stale-nag.mjs
