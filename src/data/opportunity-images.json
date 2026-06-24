@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-06-24T04:28:04.820Z",
+  "generatedAt": "2026-06-24T07:33:04.205Z",
   "images": {
     "q3-2026-aws-ai-ml-scholars-program": {
       "status": "screenshot",
@@ -399,15 +399,14 @@
     },
     "q3-2026-google-career-certificates-via-dict": {
       "status": "fetched",
-      "path": "/opportunities/q3-2026-google-career-certificates-via-dict.webp",
+      "path": "/opportunities/q3-2026-google-career-certificates-via-dict.jpg",
       "pageUrl": "https://dict.gov.ph/dict-opens-access-to-free-google-career-certificates",
       "issueSlug": "q3-2026",
       "title": "Google Career Certificates via DICT",
-      "contentType": "image/webp",
-      "bytes": 19540,
-      "imageUrl": "https://www.gstatic.com/marketing-cms/assets/images/54/85/645a5a504d6e8308e6f481d34cf5/hero-lottie-desktop-v2.webp=n-w1440-h810-fcrop64=1,0000116dffffeeb2-rw",
-      "source": "og",
-      "cached": true
+      "contentType": "image/jpeg",
+      "bytes": 104486,
+      "imageUrl": "https://s3.amazonaws.com/coursera_assets/meta_images/generated/XDP/XDP~SPECIALIZATION!~google-data-analytics/XDP~SPECIALIZATION!~google-data-analytics.jpeg",
+      "source": "og"
     },
     "q3-2026-up-open-university-free-moocs-model": {
       "status": "screenshot",
@@ -726,27 +725,25 @@
     },
     "q3-2026-google-ai-professional-certificate": {
       "status": "fetched",
-      "path": "/opportunities/q3-2026-google-ai-professional-certificate.webp",
+      "path": "/opportunities/q3-2026-google-ai-professional-certificate.jpg",
       "pageUrl": "https://grow.google/intl/en_ph/ai-professional/",
       "issueSlug": "q3-2026",
       "title": "Google AI Professional Certificate",
-      "contentType": "image/webp",
-      "bytes": 19540,
-      "imageUrl": "https://www.gstatic.com/marketing-cms/assets/images/54/85/645a5a504d6e8308e6f481d34cf5/hero-lottie-desktop-v2.webp=n-w1440-h810-fcrop64=1,0000116dffffeeb2-rw",
-      "source": "og",
-      "cached": true
+      "contentType": "image/jpeg",
+      "bytes": 82787,
+      "imageUrl": "https://s3.amazonaws.com/coursera_assets/meta_images/generated/XDP/XDP~SPECIALIZATION!~google-ai/XDP~SPECIALIZATION!~google-ai.jpeg",
+      "source": "og"
     },
     "q3-2026-google-ai-essentials": {
       "status": "fetched",
-      "path": "/opportunities/q3-2026-google-ai-essentials.webp",
+      "path": "/opportunities/q3-2026-google-ai-essentials.jpg",
       "pageUrl": "https://grow.google/intl/en_ph/ai-essentials/",
       "issueSlug": "q3-2026",
       "title": "Google AI Essentials",
-      "contentType": "image/webp",
-      "bytes": 19540,
-      "imageUrl": "https://www.gstatic.com/marketing-cms/assets/images/54/85/645a5a504d6e8308e6f481d34cf5/hero-lottie-desktop-v2.webp=n-w1440-h810-fcrop64=1,0000116dffffeeb2-rw",
-      "source": "og",
-      "cached": true
+      "contentType": "image/jpeg",
+      "bytes": 99595,
+      "imageUrl": "https://s3.amazonaws.com/coursera_assets/meta_images/generated/XDP/XDP~SPECIALIZATION!~ai-essentials-google/XDP~SPECIALIZATION!~ai-essentials-google.jpeg",
+      "source": "og"
     },
     "q3-2026-google-cybersecurity-professional-certificate": {
       "status": "fetched",
