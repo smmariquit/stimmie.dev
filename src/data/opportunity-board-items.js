@@ -5,25 +5,6 @@
 
 export const opportunityBoardItems = [
     {
-      title: "AWS AI & ML Scholars Program",
-      type: "certificate",
-      url: "https://aws.amazon.com/about-aws/our-impact/scholars/",
-      org: "Amazon Web Services / Udacity",
-      location: "Online",
-      dates: [
-        {
-          "label": "Application deadline",
-          "date": "2026-06-24"
-        },
-        {
-          "label": "Program period",
-          "date": "2026-08-04",
-          "endDate": "2026-11-04"
-        }
-      ],
-      blurb: "Fully funded generative AI scholarship via Udacity. Amazon Bedrock, Amazon Q. No prior ML experience required.",
-    },
-    {
       title: "TheFirst Spark 2026: Youth Symposium & Build Sprint",
       type: "hackathon",
       url: "https://www.startupnetworks.co.uk/links/category/26-tenders/",
@@ -1329,26 +1310,6 @@ export const opportunityBoardItems = [
       blurb: "Beginner Friendly, Enterprise, Low/No Code hackathon on Devpost. Prizes: $42,000. 20 days left.",
     },
     {
-      title: "GitLab Transcend Hackathon",
-      type: "hackathon",
-      url: "https://gitlab-transcend.devpost.com/",
-      imageUrl: "https://gitlab-transcend.devpost.com/",
-      org: "GitLab",
-      location: "Online",
-      dates: [
-        {
-          "label": "Hackathon window",
-          "date": "2026-06-10",
-          "endDate": "2026-06-24"
-        },
-        {
-          "label": "Submission deadline",
-          "date": "2026-06-24"
-        }
-      ],
-      blurb: "Machine Learning/AI, DevOps, Productivity hackathon on Devpost. Prizes: $20,000. about 23 hours left.",
-    },
-    {
       title: "Arm Create: AI Optimization Challenge",
       type: "hackathon",
       url: "https://arm-ai-optimization-challenge.devpost.com/",
@@ -1718,26 +1679,6 @@ export const opportunityBoardItems = [
         }
       ],
       blurb: "Gaming, Mobile, Web hackathon on Devpost. Prizes: $0. 7 days left.",
-    },
-    {
-      title: "Cyber_Coders",
-      type: "hackathon",
-      url: "https://cybercoders2026.devpost.com/",
-      imageUrl: "https://cybercoders2026.devpost.com/",
-      org: "Idustries",
-      location: "Online",
-      dates: [
-        {
-          "label": "Hackathon window",
-          "date": "2026-06-13",
-          "endDate": "2026-06-23"
-        },
-        {
-          "label": "Submission deadline",
-          "date": "2026-06-23"
-        }
-      ],
-      blurb: "Cybersecurity, Web hackathon on Devpost. Prizes: $18. about 2 hours left.",
     },
     {
       title: "InnovatorsX: Startup Sprint",
@@ -2157,27 +2098,6 @@ export const opportunityBoardItems = [
       ],
       beginnerFriendly: true,
       blurb: "Free 14-day virtual hackathon from coding.kitty for solo devs or pairs: build any stack for the World Cat Domination Day theme, submit a demo and GitHub repo, and compete for prizes.",
-    },
-    {
-      title: "Girls Got Game Jam",
-      type: "game-jam",
-      url: "https://girls-got-game-jam-3.devpost.com/",
-      imageUrl: "https://girls-got-game-jam-3.devpost.com/",
-      org: "Girls Got Game Jam",
-      location: "Online",
-      dates: [
-        {
-          "label": "Jam window",
-          "date": "2026-06-15",
-          "endDate": "2026-06-24"
-        },
-        {
-          "label": "Submission deadline",
-          "date": "2026-06-24"
-        }
-      ],
-      beginnerFriendly: true,
-      blurb: "International online game jam empowering gender minorities in tech to ship a game in nine days on Devpost.",
     },
     {
       title: "Summertime Game Jam",

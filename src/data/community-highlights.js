@@ -3,21 +3,6 @@
 
 export const COMMUNITY_HIGHLIGHTS = [
   {
-    slug: "01-aws-ai-ml-scholars",
-    title: "AWS AI & ML Scholars",
-    url: "https://aws.amazon.com/about-aws/our-impact/scholars/",
-    boardTitle: "AWS AI & ML Scholars Program",
-    blurb:
-      "Closes Jun 24. Fully funded Udacity gen AI track. No prior ML needed.",
-  },
-  {
-    slug: "02-gitlab-transcend-hackathon",
-    title: "GitLab Transcend Hackathon",
-    url: "https://gitlab-transcend.devpost.com/",
-    boardTitle: "GitLab Transcend Hackathon",
-    blurb: "Closes Jun 24. Quick online Devpost sprint.",
-  },
-  {
     slug: "03-girlathon-4",
     title: "Girlathon 4.0",
     url: "https://girlathon26.devfolio.co/",
