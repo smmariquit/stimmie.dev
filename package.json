@@ -1,6 +1,6 @@
 {
   "name": "stimmie.dev",
-  "version": "2.32.2",
+  "version": "2.33.0",
   "private": true,
   "scripts": {
     "dev": "next dev",
