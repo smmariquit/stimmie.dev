@@ -5,6 +5,21 @@ const nextConfig = {
   /* config options here */
   reactCompiler: true,
 
+  // opengraph-image reads from public/opportunities at runtime; without excludes
+  // NFT traces the entire public/ tree and Vercel deploys fail the size limit.
+  outputFileTracingExcludes: {
+    "/opportunities/opengraph-image": [
+      "public/archive/**",
+      "public/talks/**",
+      "public/projects/**",
+      "public/freshie-recommendations/**",
+      "public/blog/**",
+      "public/logos/**",
+    ],
+    "/opportunities/**": ["public/archive/**", "public/talks/**"],
+    "/*": ["public/archive/**"],
+  },
+
   images: {
     // Next 16 requires every requested `quality` to be allow-listed here,
     // otherwise the image optimizer responds 400 and the image fails to load.

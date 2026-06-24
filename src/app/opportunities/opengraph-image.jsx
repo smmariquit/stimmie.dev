@@ -1,5 +1,5 @@
 import { readFile } from "node:fs/promises";
-import { join } from "node:path";
+import path from "node:path";
 import { ImageResponse } from "next/og";
 import {
   getOpportunities,
@@ -92,8 +92,13 @@ function pickMosaicSources(items, count, seed) {
 }
 
 async function loadImageDataUrl(publicPath) {
-  const filePath = join(process.cwd(), "public", publicPath.replace(/^\//, ""));
-  const extension = filePath.split(".").pop()?.toLowerCase() ?? "png";
+  const normalized = publicPath.replace(/^\//, "");
+  if (!normalized.startsWith("opportunities/")) {
+    throw new Error(`Unexpected opportunity image path: ${publicPath}`);
+  }
+
+  const filePath = path.join(process.cwd(), "public", normalized);
+  const extension = path.extname(filePath).slice(1).toLowerCase() || "png";
   const buffer = await readFile(filePath);
 
   if (extension === "svg") {
