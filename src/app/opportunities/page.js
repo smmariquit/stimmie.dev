@@ -9,7 +9,7 @@ import {
   OPPORTUNITY_TYPES,
 } from "@/data/opportunities";
 
-const OPPORTUNITIES_SHARE_TITLE = "Opportunities";
+const OPPORTUNITIES_SHARE_TITLE = "~ opportunities ~";
 
 export function generateMetadata() {
   const board = getOpportunitiesBoard();
@@ -19,7 +19,7 @@ export function generateMetadata() {
     const count = items.filter((item) => item.type === type).length;
     return count ? `${OPPORTUNITY_TYPES[type].label} ${count}` : null;
   }).filter(Boolean);
-  const description = `${items.length} live listings: ${rows.join(", ")}. Last updated ${updated}. Personal roundup — verify deadlines on official sites.`;
+  const description = `${items.length} live listings: ${rows.join(", ")}. Last updated ${updated}. Personal roundup. Verify deadlines on official sites.`;
 
   return {
     title: "Opportunities",

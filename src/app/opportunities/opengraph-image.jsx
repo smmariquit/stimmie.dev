@@ -16,6 +16,15 @@ export const alt =
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
 
+const TYPE_STYLES = {
+  hackathon: { bg: "#d8ffe0", color: "#075c1f" },
+  "game-jam": { bg: "#fff0e8", color: "#9a3d07" },
+  internship: { bg: "#e8f0ff", color: "#0a3d7a" },
+  program: { bg: "#ffe8f5", color: "#8a0058" },
+  event: { bg: "#fffacd", color: "#5a4a00" },
+  certificate: { bg: "#efe0ff", color: "#5a0a8a" },
+};
+
 async function loadOgFonts() {
   const fontDir = join(process.cwd(), "public/fonts/og");
   const [fredoka, nunito] = await Promise.all([
@@ -34,8 +43,10 @@ function getTypeCounts(items) {
     counts.set(item.type, (counts.get(item.type) ?? 0) + 1);
   }
   return OPPORTUNITY_TYPE_ORDER.map((type) => ({
+    type,
     label: OPPORTUNITY_TYPES[type].label,
     count: counts.get(type) ?? 0,
+    style: TYPE_STYLES[type],
   })).filter((row) => row.count > 0);
 }
 
@@ -52,8 +63,12 @@ export default async function Image() {
         width: "100%",
         height: "100%",
         display: "flex",
-        backgroundColor: "#111827",
-        padding: 48,
+        alignItems: "center",
+        justifyContent: "center",
+        backgroundColor: "#0a0a1a",
+        backgroundImage:
+          "radial-gradient(1px 1px at 20px 30px, #fff, transparent), radial-gradient(1px 1px at 80px 120px, rgba(255,255,255,0.5), transparent), radial-gradient(1px 1px at 160px 60px, rgba(255,255,255,0.4), transparent), radial-gradient(1.5px 1.5px at 240px 180px, #fff, transparent)",
+        padding: 28,
       }}
     >
       <div
@@ -62,9 +77,10 @@ export default async function Image() {
           flexDirection: "column",
           width: "100%",
           height: "100%",
-          backgroundColor: "#ffffff",
-          borderRadius: 20,
-          padding: "40px 48px",
+          backgroundColor: "#fffef5",
+          border: "4px solid #ff00aa",
+          boxShadow: "10px 10px 0 #000",
+          padding: "28px 32px",
         }}
       >
         <div
@@ -72,47 +88,54 @@ export default async function Image() {
             display: "flex",
             justifyContent: "space-between",
             alignItems: "flex-start",
-            marginBottom: 28,
+            borderBottom: "3px dashed #d6008f",
+            paddingBottom: 16,
+            marginBottom: 16,
           }}
         >
-          <div style={{ display: "flex", flexDirection: "column", gap: 8 }}>
+          <div style={{ display: "flex", flexDirection: "column", gap: 6 }}>
             <div
               style={{
                 display: "flex",
                 fontFamily: "Fredoka",
-                fontSize: 44,
+                fontSize: 46,
                 fontWeight: 700,
-                color: "#111827",
+                color: "#c00000",
+                letterSpacing: "0.04em",
                 lineHeight: 1.1,
               }}
             >
-              Opportunities
+              ~ opportunities ~
             </div>
             <div
               style={{
                 display: "flex",
                 fontFamily: "Nunito",
-                fontSize: 24,
-                fontWeight: 600,
-                color: "#4b5563",
+                fontSize: 22,
+                fontWeight: 700,
+                color: "#1a1a1a",
               }}
             >
-              Philippines and online listings
+              stimmie.dev/opportunities
             </div>
           </div>
           <div
             style={{
               display: "flex",
               flexDirection: "column",
-              alignItems: "flex-end",
-              gap: 4,
+              alignItems: "center",
+              backgroundColor: "#000",
+              border: "3px solid #000",
+              boxShadow: "4px 4px 0 #d6008f",
+              padding: "10px 18px",
+              minWidth: 150,
             }}
           >
             <div
               style={{
                 display: "flex",
                 fontFamily: "Fredoka",
-                fontSize: 56,
+                fontSize: 44,
                 fontWeight: 700,
                 color: "#cc0066",
                 lineHeight: 1,
@@ -124,12 +147,14 @@ export default async function Image() {
               style={{
                 display: "flex",
                 fontFamily: "Nunito",
-                fontSize: 22,
+                fontSize: 16,
                 fontWeight: 700,
-                color: "#6b7280",
+                color: "#fff",
+                marginTop: 4,
+                letterSpacing: "0.06em",
               }}
             >
-              listings live
+              LISTINGS
             </div>
           </div>
         </div>
@@ -139,32 +164,33 @@ export default async function Image() {
             display: "flex",
             flexDirection: "row",
             flexWrap: "wrap",
-            gap: 16,
+            gap: 12,
             flex: 1,
             alignContent: "flex-start",
           }}
         >
           {rows.map((row) => (
             <div
-              key={row.label}
+              key={row.type}
               style={{
                 display: "flex",
                 alignItems: "center",
                 justifyContent: "space-between",
-                width: 496,
-                backgroundColor: "#f9fafb",
-                border: "2px solid #e5e7eb",
-                borderRadius: 14,
-                padding: "18px 22px",
+                width: 548,
+                backgroundColor: row.style.bg,
+                border: "3px solid #000",
+                boxShadow: "4px 4px 0 #000",
+                padding: "14px 18px",
               }}
             >
               <div
                 style={{
                   display: "flex",
-                  fontFamily: "Nunito",
-                  fontSize: 26,
+                  fontFamily: "Fredoka",
+                  fontSize: 24,
                   fontWeight: 700,
-                  color: "#111827",
+                  color: row.style.color,
+                  letterSpacing: "0.02em",
                 }}
               >
                 {row.label}
@@ -172,12 +198,17 @@ export default async function Image() {
               <div
                 style={{
                   display: "flex",
+                  alignItems: "center",
+                  justifyContent: "center",
                   fontFamily: "Fredoka",
-                  fontSize: 36,
+                  fontSize: 32,
                   fontWeight: 700,
-                  color: "#111827",
-                  minWidth: 48,
-                  justifyContent: "flex-end",
+                  color: row.style.color,
+                  backgroundColor: "#fffef5",
+                  border: "2px solid #000",
+                  minWidth: 56,
+                  padding: "4px 12px",
+                  boxShadow: "2px 2px 0 #000",
                 }}
               >
                 {row.count}
@@ -189,35 +220,18 @@ export default async function Image() {
         <div
           style={{
             display: "flex",
-            justifyContent: "space-between",
-            alignItems: "center",
-            marginTop: 24,
-            paddingTop: 20,
-            borderTop: "2px solid #e5e7eb",
+            justifyContent: "center",
+            marginTop: 14,
+            backgroundColor: "#000",
+            color: "#0f0",
+            fontFamily: "Fredoka",
+            fontSize: 20,
+            fontWeight: 700,
+            padding: "8px 16px",
+            letterSpacing: "0.04em",
           }}
         >
-          <div
-            style={{
-              display: "flex",
-              fontFamily: "Nunito",
-              fontSize: 24,
-              fontWeight: 700,
-              color: "#111827",
-            }}
-          >
-            stimmie.dev/opportunities
-          </div>
-          <div
-            style={{
-              display: "flex",
-              fontFamily: "Nunito",
-              fontSize: 22,
-              fontWeight: 600,
-              color: "#6b7280",
-            }}
-          >
-            Updated {updated}
-          </div>
+          * PH and online * updated {updated} * verify on official sites *
         </div>
       </div>
     </div>,
