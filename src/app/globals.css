@@ -1437,26 +1437,6 @@ body {
   color: #666;
 }
 
-.neo-opportunity-filter--hackathon.neo-opportunity-filter--active {
-  background: #ffe8f3;
-}
-
-.neo-opportunity-filter--internship.neo-opportunity-filter--active {
-  background: #e8f4ff;
-}
-
-.neo-opportunity-filter--event.neo-opportunity-filter--active {
-  background: #f3ebff;
-}
-
-.neo-opportunity-filter--program.neo-opportunity-filter--active {
-  background: #eef8ee;
-}
-
-.neo-opportunity-filter--certificate.neo-opportunity-filter--active {
-  background: #fff8e8;
-}
-
 .neo-opportunity-default-image {
   object-position: center;
   filter: saturate(0.85);
@@ -1596,12 +1576,44 @@ body {
   color: #fff;
 }
 
-.neo-opportunity-filter--ai.neo-opportunity-filter--active {
-  background: #1a0a5c;
+.neo-opportunity-filter--hackathon.neo-opportunity-filter--active {
+  background: #d8ffe0;
+  color: #075c1f;
 }
 
 .neo-opportunity-filter--game-jam.neo-opportunity-filter--active {
-  background: #9a3d07;
+  background: #fff0e8;
+  color: #9a3d07;
+}
+
+.neo-opportunity-filter--internship.neo-opportunity-filter--active {
+  background: #e8f0ff;
+  color: #0a3d7a;
+}
+
+.neo-opportunity-filter--event.neo-opportunity-filter--active {
+  background: #fffacd;
+  color: #5a4a00;
+}
+
+.neo-opportunity-filter--program.neo-opportunity-filter--active {
+  background: #ffe8f5;
+  color: #8a0058;
+}
+
+.neo-opportunity-filter--certificate.neo-opportunity-filter--active {
+  background: #efe0ff;
+  color: #5a0a8a;
+}
+
+.neo-opportunity-filter--ai.neo-opportunity-filter--active {
+  background: #1a0a5c;
+  color: #fff;
+}
+
+.neo-opportunity-filter--hide-ai.neo-opportunity-filter--active {
+  background: #333;
+  color: #fff;
 }
 
 .neo-opportunity-filter-count {

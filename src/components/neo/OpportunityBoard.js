@@ -14,8 +14,11 @@ import {
 
 export default function OpportunityBoard({ items }) {
   const [typeFilter, setTypeFilter] = useState("all");
-  const [aiOnly, setAiOnly] = useState(false);
+  const [aiFilter, setAiFilter] = useState("all");
   const [query, setQuery] = useState("");
+
+  const aiOnly = aiFilter === "only";
+  const hideAi = aiFilter === "hide";
 
   const typeCounts = useMemo(() => {
     const counts = new Map();
@@ -30,9 +33,10 @@ export default function OpportunityBoard({ items }) {
       filterOpportunities(items, {
         type: typeFilter,
         aiOnly,
+        hideAi,
         query,
       }),
-    [items, typeFilter, aiOnly, query],
+    [items, typeFilter, aiOnly, hideAi, query],
   );
   const sections = useMemo(
     () => groupIssueItemsByType(filteredItems),
@@ -42,14 +46,19 @@ export default function OpportunityBoard({ items }) {
     () => items.filter(isOpportunityAiRelated).length,
     [items],
   );
+  const nonAiCount = items.length - aiCount;
 
   const hasSearch = query.trim().length > 0;
-  const hasActiveFilters = typeFilter !== "all" || aiOnly || hasSearch;
+  const hasActiveFilters = typeFilter !== "all" || aiFilter !== "all" || hasSearch;
 
   function clearFilters() {
     setTypeFilter("all");
-    setAiOnly(false);
+    setAiFilter("all");
     setQuery("");
+  }
+
+  function toggleAiFilter(mode) {
+    setAiFilter((current) => (current === mode ? "all" : mode));
   }
 
   function emptyMessage() {
@@ -61,11 +70,17 @@ export default function OpportunityBoard({ items }) {
     if (hasSearch && typeLabel && aiOnly) {
       return `No ${typeLabel.toLowerCase()} AI-related listings match your search.`;
     }
+    if (hasSearch && typeLabel && hideAi) {
+      return `No non-AI ${typeLabel.toLowerCase()} listings match your search.`;
+    }
     if (hasSearch && typeLabel) {
       return `No ${typeLabel.toLowerCase()} listings match your search.`;
     }
     if (hasSearch && aiOnly) {
       return "No AI-related listings match your search.";
+    }
+    if (hasSearch && hideAi) {
+      return "No non-AI listings match your search.";
     }
     if (hasSearch) {
       return "No listings match your search.";
@@ -73,11 +88,17 @@ export default function OpportunityBoard({ items }) {
     if (typeLabel && aiOnly) {
       return `No ${typeLabel.toLowerCase()} AI-related listings right now.`;
     }
+    if (typeLabel && hideAi) {
+      return `No non-AI ${typeLabel.toLowerCase()} listings right now.`;
+    }
     if (typeLabel) {
       return `No ${typeLabel.toLowerCase()} listings right now.`;
     }
     if (aiOnly) {
       return "No AI-related listings match this filter right now.";
+    }
+    if (hideAi) {
+      return "No non-AI listings match this filter right now.";
     }
     return "No listings match this filter right now.";
   }
@@ -163,10 +184,19 @@ export default function OpportunityBoard({ items }) {
               type="button"
               className={`neo-opportunity-filter neo-opportunity-filter--ai${aiOnly ? " neo-opportunity-filter--active" : ""}`}
               aria-pressed={aiOnly}
-              onClick={() => setAiOnly((value) => !value)}
+              onClick={() => toggleAiFilter("only")}
             >
               AI-related
               <span className="neo-opportunity-filter-count">{aiCount}</span>
+            </button>
+            <button
+              type="button"
+              className={`neo-opportunity-filter neo-opportunity-filter--hide-ai${hideAi ? " neo-opportunity-filter--active" : ""}`}
+              aria-pressed={hideAi}
+              onClick={() => toggleAiFilter("hide")}
+            >
+              Hide AI
+              <span className="neo-opportunity-filter-count">{nonAiCount}</span>
             </button>
           </div>
         </div>

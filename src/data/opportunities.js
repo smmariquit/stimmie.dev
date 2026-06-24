@@ -281,6 +281,7 @@ export function filterOpportunities(
   items,
   {
     aiOnly = false,
+    hideAi = false,
     gameJamOnly = false,
     type = "all",
     query = "",
@@ -296,6 +297,8 @@ export function filterOpportunities(
 
   if (aiOnly) {
     filtered = filtered.filter(isOpportunityAiRelated);
+  } else if (hideAi) {
+    filtered = filtered.filter((item) => !isOpportunityAiRelated(item));
   }
 
   const normalizedQuery = query.trim().toLowerCase();
