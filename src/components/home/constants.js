@@ -65,6 +65,11 @@ export const FRIENDS = [
     blurb: "GOATed UX guy, first hackathon teammate",
   },
   {
+    name: "Adriel Magalona",
+    url: "https://www.adrielmagalona.dev/",
+    blurb: "fellow hackathoner",
+  },
+  {
     name: "Cedrick Guevara",
     url: "https://guevix.vercel.app",
     blurb: "fellow software engineer",
