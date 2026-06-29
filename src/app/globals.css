@@ -1036,6 +1036,21 @@ body {
   background: transparent;
 }
 
+.neo-travellings-badge {
+  text-decoration: none;
+  font-family: var(--neo-ui);
+  font-size: 0.95rem;
+}
+
+.neo-sidebar-box .neo-travellings-badge {
+  color: #1a1a1a;
+}
+
+.neo-travellings-logo {
+  border: 2px solid #000;
+  image-rendering: auto;
+}
+
 @media (prefers-reduced-motion: reduce) {
   .neo-blink,
   .neo-marquee-track {
