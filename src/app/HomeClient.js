@@ -18,6 +18,7 @@ import MobileSectionNav from "@/components/neo/MobileSectionNav";
 import ScrapbookPhoto from "@/components/neo/ScrapbookPhoto";
 import SectionHeading from "@/components/neo/SectionHeading";
 import SkipLink from "@/components/neo/SkipLink";
+import TravellingsBadge from "@/components/neo/TravellingsBadge";
 import { blogPosts } from "@/data/blogs";
 import { projects } from "@/data/projects";
 import { talks } from "@/data/talks";
@@ -507,6 +508,9 @@ export default function HomeClient({ mediaData, version }) {
         </div>
 
         <footer className="neo-footer mt-3">
+          <div className="mb-3 flex justify-center">
+            <TravellingsBadge />
+          </div>
           <p>
             made with ♥ · <Link href="/changelog">v{version}</Link> ·{" "}
             <Link href="/archive">site history</Link>

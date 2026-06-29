@@ -5,6 +5,7 @@ import {
 import { SECTION_LINKS } from "@/components/home/sectionLinks";
 import CribStatus from "@/components/neo/CribStatus";
 import PizzaFriendsPlug from "@/components/neo/PizzaFriendsPlug";
+import TravellingsBadge from "@/components/neo/TravellingsBadge";
 import VisitorCounter from "@/components/neo/VisitorCounter";
 import { socialCategories } from "@/data/socials";
 
@@ -120,6 +121,11 @@ function SidebarHubContent({ version }) {
 
       <div className="neo-sidebar-box">
         <PizzaFriendsPlug />
+      </div>
+
+      <div className="neo-sidebar-box">
+        <h2 className="neo-sidebar-heading neo-accent-blue">~ webring ~</h2>
+        <TravellingsBadge />
       </div>
 
       <div className="neo-sidebar-box">
