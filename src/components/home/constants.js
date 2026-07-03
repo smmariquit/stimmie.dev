@@ -94,13 +94,11 @@ export const FRIENDS = [
 export const SECTION_STAR = "✹";
 
 function formatLastUpdated(iso) {
-  return new Date(iso)
-    .toLocaleDateString("en-US", {
-      month: "long",
-      day: "numeric",
-      year: "numeric",
-    })
-    .toLowerCase();
+  const date = new Date(iso);
+  const month = date.toLocaleString("en-US", { month: "long", timeZone: "UTC" });
+  const day = date.getUTCDate();
+  const year = date.getUTCFullYear();
+  return `${month} ${day}, ${year}`.toLowerCase();
 }
 
 export function getMarqueeText() {

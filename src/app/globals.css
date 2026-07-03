@@ -309,7 +309,7 @@ body {
 
 .neo-divider {
   text-align: center;
-  color: var(--neo-border);
+  color: #c40088;
   font-size: 0.85rem;
   margin: 0.75rem 0;
   letter-spacing: 0.1em;
@@ -535,6 +535,7 @@ body {
   position: relative;
   width: fit-content;
   max-width: min(220px, 42vw);
+  min-height: min(220px, 42vw);
   margin: 0.25rem auto 0;
   transform: rotate(-2.5deg);
   transition: transform 200ms ease;
