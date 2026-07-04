@@ -1,6 +1,6 @@
 # Research
 
-Working area for curated research that feeds the site — prompts, pasted tool outputs, and archives.
+Working area for curated research that feeds the site: prompts, pasted tool outputs, and archives.
 
 **Convention:** all research markdown lives here. Agents are instructed via `.cursor/rules/research-pipeline.mdc` to follow this layout.
 
@@ -30,11 +30,11 @@ flowchart LR
   prompts --> tool --> responses --> verify --> site --> archive
 ```
 
-1. **Prompt** — pick or refine a file in `<topic>/prompts/`.
-2. **Run** — paste into Google Deep Research (or run manually).
-3. **Store** — save the full response in `<topic>/responses/YYYY-MM-DD-<slug>.md`.
-4. **Harvest** — verify links, dedupe, normalize into site data.
-5. **Archive** — move the response to `<topic>/archive/` after publishing.
+1. **Prompt**: pick or refine a file in `<topic>/prompts/`.
+2. **Run**: paste into Google Deep Research (or run manually).
+3. **Store**: save the full response in `<topic>/responses/YYYY-MM-DD-<slug>.md`.
+4. **Harvest**: verify links, dedupe, normalize into site data.
+5. **Archive**: move the response to `<topic>/archive/` after publishing.
 
 ## Response template
 
