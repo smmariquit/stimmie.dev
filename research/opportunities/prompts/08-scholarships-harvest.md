@@ -1,8 +1,8 @@
-# Prompt 8 — Scholarships harvest
+# Prompt 8: Scholarships harvest
 
-**Phase:** Supplemental · **Run in:** Google Deep Research (or Cursor agent browse)  
-**Prerequisite:** optional [01-source-map.md](./01-source-map.md) or [02-harvest.md](./02-harvest.md) for board context  
-**Save output as:** `responses/YYYY-MM-DD-scholarships-harvest.md`  
+**Phase:** Supplemental · **Run in:** Google Deep Research (or Cursor agent browse) 
+**Prerequisite:** optional [01-source-map.md](./01-source-map.md) or [02-harvest.md](./02-harvest.md) for board context 
+**Save output as:** `responses/YYYY-MM-DD-scholarships-harvest.md` 
 **Then:** verify URLs on official portals, merge with `npm run opportunities:merge` or add to `src/data/opportunity-board-items.js`, run `npm run opportunities:images`
 
 Use this for a **scholarships-only pass**: government grants, corporate scholarships, embassy and multilateral study awards, university merit aid, and funded training grants for students in the Philippines.
@@ -15,7 +15,7 @@ Complements the broad [02-harvest.md](./02-harvest.md) (which touches gov schola
 
 Find **actionable scholarships and study grants** worth listing on **stimmie.dev/opportunities** for **Filipino students and early-career learners** (high school seniors entering college, undergraduates, vocational trainees, and recent grads pursuing Master's or funded training).
 
-**Time window:** application period **open now** or **opening within 60 days**. Include only programs whose primary application deadline is still in the future as of today. Rolling intakes are OK if the official page confirms ongoing applications.  
+**Time window:** application period **open now** or **opening within 60 days**. Include only programs whose primary application deadline is still in the future as of today. Rolling intakes are OK if the official page confirms ongoing applications. 
 **Today (Asia/Manila, UTC+8):** **[INSERT DATE]**
 
 ### What counts as a scholarship (include)
@@ -25,7 +25,7 @@ Find **actionable scholarships and study grants** worth listing on **stimmie.dev
 | **National government** | CHED merit/TES programs, DOST-SEI (RA 7687, Merit), GSIS, OWWA dependent grants, UniFAST TES | `program` |
 | **LGUs & agencies** | Provincial/city scholarship boards, DSWD, DA, DENR youth grants | `program` |
 | **Corporate & foundation** | SM Foundation, Ayala Foundation, BPI, Metrobank, Grab, Globe, Jollibee, San Miguel | `program` |
-| **Embassy & bilateral** | Chevening, Fulbright, Australia Awards, Japan MEXT, Korea GKS, Taiwan MOE, US exchange scholarships — **degree** grants here; semester/youth mobility → [10-exchange-programs-harvest.md](./10-exchange-programs-harvest.md) |
+| **Embassy & bilateral** | Chevening, Fulbright, Australia Awards, Japan MEXT, Korea GKS, Taiwan MOE, US exchange scholarships: **degree** grants here; semester/youth mobility → [10-exchange-programs-harvest.md](./10-exchange-programs-harvest.md) |
 | **Multilateral & intl** | ADB-Japan, World Bank JJ/WBG, Erasmus+, ASEAN scholarships | `program` |
 | **University-specific** | UP, Ateneo, DLSU, UST, state U merit/aid calls with public application pages | `program` |
 | **Vocational & TESDA** | TESDA scholarship slots, dual-training grants, industry-sponsored TVET | `program` or `certificate` |
@@ -145,17 +145,17 @@ Harvest-only fields (`scholarship_level`, `coverage`, `benefit_summary`, `field_
 
 ## Output sections (required)
 
-1. **Coverage report** — counts per bucket (gov, corporate, embassy, university, vocational); rejected + why  
-2. **Closing this week** — deadline ≤ 7 days  
-3. **National government** — JSON blocks  
-4. **LGUs & agencies** — JSON blocks  
-5. **Corporate & foundations** — JSON blocks  
-6. **Embassy, bilateral & multilateral** — JSON blocks  
-7. **University-specific** — JSON blocks  
-8. **Vocational, TESDA & training grants** — JSON blocks  
-9. **Low-confidence queue** — FB-only posts, aggregator mirrors, unclear eligibility  
-10. **Horizon radar** — applications opening in 61–120 days  
-11. **Bibliography** — URLs with access dates  
+1. **Coverage report**: counts per bucket (gov, corporate, embassy, university, vocational); rejected + why 
+2. **Closing this week**: deadline ≤ 7 days 
+3. **National government**: JSON blocks 
+4. **LGUs & agencies**: JSON blocks 
+5. **Corporate & foundations**: JSON blocks 
+6. **Embassy, bilateral & multilateral**: JSON blocks 
+7. **University-specific**: JSON blocks 
+8. **Vocational, TESDA & training grants**: JSON blocks 
+9. **Low-confidence queue**: FB-only posts, aggregator mirrors, unclear eligibility 
+10. **Horizon radar**: applications opening in 61–120 days 
+11. **Bibliography**: URLs with access dates 
 
 ### Citations (non-negotiable)
 
@@ -171,9 +171,9 @@ Before merge, compare with `src/data/opportunity-board-items.js`. Mark each entr
 
 ## After harvest
 
-1. Re-check deadlines on BPMS, DOST, and embassy portals (dates shift without notice).  
-2. Merge into `src/data/opportunity-board-items.js`; bump `opportunitiesBoard.lastUpdated`.  
-3. `npm run opportunities:images` — prefer `image_url` on bot-friendly `.gov.ph` press pages when portals block screenshots.
+1. Re-check deadlines on BPMS, DOST, and embassy portals (dates shift without notice). 
+2. Merge into `src/data/opportunity-board-items.js`; bump `opportunitiesBoard.lastUpdated`. 
+3. `npm run opportunities:images`: prefer `image_url` on bot-friendly `.gov.ph` press pages when portals block screenshots.
 
 ---
 
