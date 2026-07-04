@@ -1,4 +1,4 @@
-# Call for speakers harvest — 2026-06-25
+# Call for speakers harvest: 2026-06-25
 
 Source: Prompt [06a-call-for-speakers-harvest.md](../prompts/06a-call-for-speakers-harvest.md)
 
@@ -10,11 +10,11 @@ Source: Prompt [06a-call-for-speakers-harvest.md](../prompts/06a-call-for-speake
 | Rejected / expired | 4+ | Modern Work Manila (Jun 2), PythonAsia CFP (Jan 30), Data Platform Women in Tech (Jun 23) |
 | Horizon (30–60 days) | 0 | No new CFPs opening in that window |
 
-**Closing this week:** AI Community Days Cebu — **2026-06-27** (3 days from harvest date).
+**Closing this week:** AI Community Days Cebu: **2026-06-27** (3 days from harvest date).
 
 ---
 
-## Call for speakers — merged to board
+## Call for speakers: merged to board
 
 | Title | CFP closes | URL | Status |
 | ----- | ---------- | --- | ------ |
@@ -26,7 +26,7 @@ Source: Prompt [06a-call-for-speakers-harvest.md](../prompts/06a-call-for-speake
 
 ## Low-confidence / excluded
 
-- **Data Platform Women in Tech 2026** — CFP closed 2026-06-23 (just before harvest)
+- **Data Platform Women in Tech 2026**: CFP closed 2026-06-23 (just before harvest)
 
 ---
 
