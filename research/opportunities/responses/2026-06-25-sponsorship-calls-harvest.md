@@ -1,4 +1,4 @@
-# Sponsorship calls harvest — 2026-06-25
+# Sponsorship calls harvest: 2026-06-25
 
 Source: Prompt [06c-sponsorship-calls-harvest.md](../prompts/06c-sponsorship-calls-harvest.md)
 
@@ -16,7 +16,7 @@ Source: Prompt [06c-sponsorship-calls-harvest.md](../prompts/06c-sponsorship-cal
 
 ## Call for sponsors (event-level)
 
-Merged to board as `Call for Sponsors — {Event}` with `type: event`.
+Merged to board as `Call for Sponsors: {Event}` with `type: event`.
 
 | Title | URL | Status |
 | ----- | --- | ------ |
@@ -39,8 +39,8 @@ Merged to board as `Call for Sponsors — {Event}` with `type: event`.
 
 ## Low-confidence queue
 
-- **SparkFest 2026** — sponsor drive on social media only; no prospectus
-- **BlueHacks 2026** — named sponsors on site; no open "Become a Sponsor" page
+- **SparkFest 2026**: sponsor drive on social media only; no prospectus
+- **BlueHacks 2026**: named sponsors on site; no open "Become a Sponsor" page
 
 ---
 
