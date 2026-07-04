@@ -19,8 +19,8 @@ Frozen files for historical site versions. **Do not delete** paths listed in `MA
 After changing live-site images that archives still reference:
 
 ```bash
-npm run archive:snapshot   # copy assets into public/archive/
-npm run archive:verify     # confirm MANIFEST.json entries exist
+npm run archive:snapshot # copy assets into public/archive/
+npm run archive:verify # confirm MANIFEST.json entries exist
 ```
 
 `npm run build` runs `archive:verify` automatically.

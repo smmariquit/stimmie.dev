@@ -87,12 +87,12 @@ To run the migration (idempotent, safe to re-run):
 
 ```bash
 # Token needs:
-#   Account → Account Filter Lists: Edit
-#   Account → Account Rulesets: Edit
+# Account → Account Filter Lists: Edit
+# Account → Account Rulesets: Edit
 export CLOUDFLARE_API_TOKEN=...
 export CLOUDFLARE_ACCOUNT_ID=...
 
-# Plan only — no mutations:
+# Plan only: no mutations:
 npm run cf:migrate-redirects -- --dry-run
 
 # Apply changes:

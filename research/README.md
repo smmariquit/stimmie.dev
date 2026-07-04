@@ -8,26 +8,26 @@ Working area for curated research that feeds the site: prompts, pasted tool outp
 
 ```text
 research/
-├── README.md                 ← you are here
+├── README.md ← you are here
 └── <topic>/
-    ├── README.md             ← topic-specific pipeline
-    ├── prompts/              ← copy-paste prompts for Deep Research, etc.
-    ├── responses/            ← pasted outputs (user + agents)
-    └── archive/              ← responses already shipped to the site
+ ├── README.md ← topic-specific pipeline
+ ├── prompts/ ← copy-paste prompts for Deep Research, etc.
+ ├── responses/ ← pasted outputs (user + agents)
+ └── archive/ ← responses already shipped to the site
 ```
 
 ## Workflow
 
 ```mermaid
 flowchart LR
-  prompts["prompts/*.md"]
-  tool["Deep Research / manual search"]
-  responses["responses/YYYY-MM-DD-*.md"]
-  verify["Verify & dedupe"]
-  site["src/data/… or content"]
-  archive["archive/"]
+ prompts["prompts/*.md"]
+ tool["Deep Research / manual search"]
+ responses["responses/YYYY-MM-DD-*.md"]
+ verify["Verify & dedupe"]
+ site["src/data/… or content"]
+ archive["archive/"]
 
-  prompts --> tool --> responses --> verify --> site --> archive
+ prompts --> tool --> responses --> verify --> site --> archive
 ```
 
 1. **Prompt**: pick or refine a file in `<topic>/prompts/`.
