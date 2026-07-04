@@ -1,8 +1,8 @@
-# Prompt 10 — Exchange programs harvest
+# Prompt 10: Exchange programs harvest
 
-**Phase:** Supplemental · **Run in:** Google Deep Research (or Cursor agent browse)  
-**Prerequisite:** optional [01-source-map.md](./01-source-map.md) or [02-harvest.md](./02-harvest.md) for board context  
-**Save output as:** `responses/YYYY-MM-DD-exchange-programs-harvest.md`  
+**Phase:** Supplemental · **Run in:** Google Deep Research (or Cursor agent browse) 
+**Prerequisite:** optional [01-source-map.md](./01-source-map.md) or [02-harvest.md](./02-harvest.md) for board context 
+**Save output as:** `responses/YYYY-MM-DD-exchange-programs-harvest.md` 
 **Then:** verify URLs and eligibility, merge into `src/data/opportunity-board-items.js`, run `npm run opportunities:images`
 
 Use this for **student exchange and mobility programs**: semester abroad, youth delegations, cultural exchanges, short-term study visits, and university bilateral swaps where Filipinos **study or represent the PH overseas** (or join inbound exchanges open to PH students).
@@ -15,7 +15,7 @@ Use this for **student exchange and mobility programs**: semester abroad, youth 
 
 Find **actionable exchange and mobility programs** worth listing on **stimmie.dev/opportunities** for **Filipino students and recent graduates** (high school, undergraduate, graduate, and early-career where programs allow).
 
-**Time window:** application period **open now** or **opening within 60 days**. Program start may be later (next semester or summer). Include only calls whose application deadline is still in the future as of today.  
+**Time window:** application period **open now** or **opening within 60 days**. Program start may be later (next semester or summer). Include only calls whose application deadline is still in the future as of today. 
 **Today (Asia/Manila, UTC+8):** **[INSERT DATE]**
 
 ### What counts (include)
@@ -150,17 +150,17 @@ Harvest-only fields (`exchange_type`, `duration`, `funding`, `eligible_level`, `
 
 ## Output sections (required)
 
-1. **Coverage report** — counts per bucket; PH-eligible confirmed Y/N; rejected + why  
-2. **Closing this week** — deadline ≤ 7 days  
-3. **University outbound mobility** — JSON blocks  
-4. **Embassy & bilateral exchanges** — JSON blocks  
-5. **Youth delegations & ASEAN** — JSON blocks  
-6. **NGO & cultural exchange** — JSON blocks  
-7. **Summer, virtual & short-term** — JSON blocks  
-8. **Internship-abroad (exchange-administered)** — JSON blocks  
-9. **Low-confidence queue** — FB-only, agency reposts, unclear PH eligibility  
-10. **Horizon radar** — applications opening in 61–120 days  
-11. **Bibliography** — URLs with access dates  
+1. **Coverage report**: counts per bucket; PH-eligible confirmed Y/N; rejected + why 
+2. **Closing this week**: deadline ≤ 7 days 
+3. **University outbound mobility**: JSON blocks 
+4. **Embassy & bilateral exchanges**: JSON blocks 
+5. **Youth delegations & ASEAN**: JSON blocks 
+6. **NGO & cultural exchange**: JSON blocks 
+7. **Summer, virtual & short-term**: JSON blocks 
+8. **Internship-abroad (exchange-administered)**: JSON blocks 
+9. **Low-confidence queue**: FB-only, agency reposts, unclear PH eligibility 
+10. **Horizon radar**: applications opening in 61–120 days 
+11. **Bibliography**: URLs with access dates 
 
 ### Citations (non-negotiable)
 
@@ -170,9 +170,9 @@ Every JSON block must include **`source_url`**. Bibliography must list verificat
 
 ## After harvest
 
-1. Confirm **Philippine eligibility** on the official page (many exchanges are country-restricted).  
-2. Cross-check [08-scholarships-harvest.md](./08-scholarships-harvest.md) output to avoid duplicate degree-scholarship entries.  
-3. Merge into board; bump `opportunitiesBoard.lastUpdated`.  
+1. Confirm **Philippine eligibility** on the official page (many exchanges are country-restricted). 
+2. Cross-check [08-scholarships-harvest.md](./08-scholarships-harvest.md) output to avoid duplicate degree-scholarship entries. 
+3. Merge into board; bump `opportunitiesBoard.lastUpdated`. 
 4. For university exchanges, note if **GWA or language requirement** exists in `blurb` or harvest notes.
 
 ---
