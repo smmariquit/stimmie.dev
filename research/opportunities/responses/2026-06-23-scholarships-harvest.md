@@ -1,4 +1,4 @@
-# Scholarships harvest — 2026-06-23
+# Scholarships harvest: 2026-06-23
 
 Source: Prompt [08-scholarships-harvest.md](../prompts/08-scholarships-harvest.md)
 
@@ -6,12 +6,12 @@ Source: Prompt [08-scholarships-harvest.md](../prompts/08-scholarships-harvest.m
 
 | Bucket | Found | Action |
 | ------ | ----- | ------ |
-| National government | 1 | BPMS / CHED — **updated** on board |
-| Corporate & foundations | 1 | GrabScholar — **fixed URL** (was governmentph.com aggregator) |
-| LGU, embassy, university, TESDA | 0 | — |
-| Low-confidence | 2 | GSIS STEM, Metrobank MSP — **not merged** |
+| National government | 1 | BPMS / CHED: **updated** on board |
+| Corporate & foundations | 1 | GrabScholar: **fixed URL** (was governmentph.com aggregator) |
+| LGU, embassy, university, TESDA | 0 |: |
+| Low-confidence | 2 | GSIS STEM, Metrobank MSP: **not merged** |
 
-**Closing this week:** Bagong Pilipinas Merit Scholarship — **2026-06-30**.
+**Closing this week:** Bagong Pilipinas Merit Scholarship: **2026-06-30**.
 
 **Rejected:** CHED SIKAP, DOST-SEI undergrad (next cycle Oct 2026), OWWA EDSP, SM College (Feb window closed).
 
@@ -37,9 +37,9 @@ Source: Prompt [08-scholarships-harvest.md](../prompts/08-scholarships-harvest.m
 
 ## Horizon radar
 
-- DOST-SEI Undergraduate (RA 7687) — next cycle ~Oct 2026
-- Erasmus Mundus Joint Masters — annual cycle
-- BARMM BASE / BASE-MERIT 2026 — noted in bibliography; not verified for merge
+- DOST-SEI Undergraduate (RA 7687): next cycle ~Oct 2026
+- Erasmus Mundus Joint Masters: annual cycle
+- BARMM BASE / BASE-MERIT 2026: noted in bibliography; not verified for merge
 
 ---
 
