@@ -1,6 +1,7 @@
 // src/app/layout.js
 
 import { Analytics } from "@vercel/analytics/react";
+import { DatadogInit } from "@/components/DatadogInit";
 import { body, display } from "./fonts";
 import "./globals.css";
 
@@ -68,6 +69,7 @@ export default function RootLayout({ children }) {
     <html lang="en">
       <body className={`antialiased ${display.variable} ${body.variable}`}>
         {children}
+        <DatadogInit />
         <Analytics />
       </body>
     </html>
