@@ -1,8 +1,8 @@
-# Prompt 6b — Call for judges & mentors harvest
+# Prompt 6b: Call for judges & mentors harvest
 
-**Phase:** Supplemental (sub-prompt of [06-contributor-calls-harvest.md](./06-contributor-calls-harvest.md))  
-**Run in:** Google Deep Research or Cursor agent browse  
-**Save as:** sections inside `responses/YYYY-MM-DD-contributor-calls-harvest.md` (`## Call for judges`, `## Call for mentors`)  
+**Phase:** Supplemental (sub-prompt of [06-contributor-calls-harvest.md](./06-contributor-calls-harvest.md)) 
+**Run in:** Google Deep Research or Cursor agent browse 
+**Save as:** sections inside `responses/YYYY-MM-DD-contributor-calls-harvest.md` (`## Call for judges`, `## Call for mentors`) 
 **Shared rules & JSON schema:** see Prompt 6
 
 ---
@@ -11,16 +11,16 @@
 
 Identify **open calls for judges and mentors** at hackathons, pitch competitions, accelerators, and builder programs aimed at student developers.
 
-**Deadline rule:** applications close within **45 days**, still in the future today.  
+**Deadline rule:** applications close within **45 days**, still in the future today. 
 **Today (Asia/Manila, UTC+8):** **[INSERT DATE]**
 
-### Judges — include
+### Judges: include
 
 - Hackathon judge signup (Devpost description, Google Form, organizer page)
 - Pitch competition jury, demo day panel, case competition scoring roles
 - Roles where **students or alumni judges** are explicitly welcome (`beginner_friendly: true`)
 
-### Mentors — include
+### Mentors: include
 
 - “Coach teams”, mentor applications, office hours volunteers
 - Accelerator / Startup Weekend mentor intake with a clear apply path
@@ -44,7 +44,7 @@ Identify **open calls for judges and mentors** at hackathons, pitch competitions
 | URL | Form or official volunteer page |
 | Commitment | e.g. “score 10 projects”, “2h office hours” if stated |
 
-Title format: `Call for Judges — {Event}` or `Call for Mentors — {Event}`.
+Title format: `Call for Judges: {Event}` or `Call for Mentors: {Event}`.
 
 ---
 
@@ -76,12 +76,12 @@ npm run opportunities:devpost
 
 ## Output (these sections only)
 
-1. **Judges & mentors coverage** — counts per role; sources; rejected  
-2. **Closing this week** — deadline ≤ 7 days  
-3. **Call for judges** — JSON blocks  
-4. **Call for mentors** — JSON blocks  
-5. **Low-confidence queue**  
-6. **Citations** — URL + access date  
+1. **Judges & mentors coverage**: counts per role; sources; rejected 
+2. **Closing this week**: deadline ≤ 7 days 
+3. **Call for judges**: JSON blocks 
+4. **Call for mentors**: JSON blocks 
+5. **Low-confidence queue** 
+6. **Citations**: URL + access date 
 
 Target **≥5 verified judge/mentor calls** combined when active.
 
