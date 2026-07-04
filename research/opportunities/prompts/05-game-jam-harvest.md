@@ -1,8 +1,8 @@
-# Prompt 5 — Game jam harvest
+# Prompt 5: Game jam harvest
 
-**Phase:** Supplemental · **Run in:** Google Deep Research (or Cursor agent browse)  
-**Prerequisite:** none (optional: [02-harvest.md](./02-harvest.md) for full board context)  
-**Save output as:** `responses/YYYY-MM-DD-game-jam-harvest.md`  
+**Phase:** Supplemental · **Run in:** Google Deep Research (or Cursor agent browse) 
+**Prerequisite:** none (optional: [02-harvest.md](./02-harvest.md) for full board context) 
+**Save output as:** `responses/YYYY-MM-DD-game-jam-harvest.md` 
 **Then:** verify URLs, merge with `npm run opportunities:merge` or add to `src/data/opportunity-board-items.js`, run `npm run opportunities:images`
 
 Use this when you want a **game-jam-only pass**: itch.io jams, Ludum Dare, DEV game challenges, Devpost game jams, GMTK, and campus/indie jams PH students can join online.
@@ -13,7 +13,7 @@ Use this when you want a **game-jam-only pass**: itch.io jams, Ludum Dare, DEV g
 
 Find **open or upcoming game jams** worth listing on **stimmie.dev/opportunities** for **students and early-career game builders in the Philippines** (or **online/global** jams anyone can enter remotely).
 
-**Time window:** submissions open now or opening within the next **45 days**. Include jams whose submission deadline is still in the future as of today.  
+**Time window:** submissions open now or opening within the next **45 days**. Include jams whose submission deadline is still in the future as of today. 
 **Today (Asia/Manila, UTC+8):** **[INSERT DATE]**
 
 ### What counts as a game jam
@@ -133,11 +133,11 @@ Some jam pages recruit **judges, mentors, speakers, or playtesters**. If the jam
 
 ## Also include
 
-1. **Coverage report** — jams found per source; how many rejected (closed, regional, not a game jam) and why  
-2. **Closing this week** — jams with submission deadline within 7 days  
-3. **Horizon radar** — jams opening in 30–60 days (GMTK, GGJ, LD) even without firm submission dates yet  
-4. **Low-confidence queue** — FB-only, Discord-only, or vague flyers needing manual verify  
-5. **Bibliography** — URLs with access dates  
+1. **Coverage report**: jams found per source; how many rejected (closed, regional, not a game jam) and why 
+2. **Closing this week**: jams with submission deadline within 7 days 
+3. **Horizon radar**: jams opening in 30–60 days (GMTK, GGJ, LD) even without firm submission dates yet 
+4. **Low-confidence queue**: FB-only, Discord-only, or vague flyers needing manual verify 
+5. **Bibliography**: URLs with access dates 
 
 Target **15–25 verified game jams** per run if the ecosystem is active; be honest if the window is thin ("only 6 open global jams found") rather than padding with expired listings.
 

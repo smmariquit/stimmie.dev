@@ -1,8 +1,8 @@
-# Prompt 6d — Volunteer & facilitator harvest
+# Prompt 6d: Volunteer & facilitator harvest
 
-**Phase:** Supplemental (sub-prompt of [06-contributor-calls-harvest.md](./06-contributor-calls-harvest.md))  
-**Run in:** Google Deep Research or Cursor agent browse  
-**Save as:** section inside `responses/YYYY-MM-DD-contributor-calls-harvest.md` (header: `## Call for mentors & facilitators` — volunteers subsection)  
+**Phase:** Supplemental (sub-prompt of [06-contributor-calls-harvest.md](./06-contributor-calls-harvest.md)) 
+**Run in:** Google Deep Research or Cursor agent browse 
+**Save as:** section inside `responses/YYYY-MM-DD-contributor-calls-harvest.md` (header: `## Call for mentors & facilitators`: volunteers subsection) 
 **Shared rules & JSON schema:** see Prompt 6
 
 ---
@@ -13,7 +13,7 @@ Compile **open calls for volunteers and facilitators** at student or tech events
 
 **Not in scope here:** hackathon judges/mentors (→ [06b](./06b-call-for-judges-mentors-harvest.md)); speakers (→ [06a](./06a-call-for-speakers-harvest.md)).
 
-**Deadline rule:** sign-up closes within **45 days**, still open today.  
+**Deadline rule:** sign-up closes within **45 days**, still open today. 
 **Today (Asia/Manila, UTC+8):** **[INSERT DATE]**
 
 ### Include
@@ -64,11 +64,11 @@ site:lu.ma volunteer OR facilitator OR ambassador
 
 ## Output (this section only)
 
-1. **Volunteer coverage** — count, sources, rejected  
-2. **Closing this week** — deadline ≤ 7 days  
-3. **JSON blocks** — sorted by deadline  
-4. **Low-confidence** — generic sign-ups  
-5. **Citations** — URL + access date  
+1. **Volunteer coverage**: count, sources, rejected 
+2. **Closing this week**: deadline ≤ 7 days 
+3. **JSON blocks**: sorted by deadline 
+4. **Low-confidence**: generic sign-ups 
+5. **Citations**: URL + access date 
 
 Target **≥3 verified volunteer calls** when active.
 

@@ -1,4 +1,4 @@
-# Volunteer & facilitator harvest — 2026-06-25
+# Volunteer & facilitator harvest: 2026-06-25
 
 Source: Prompt [06d-volunteer-facilitator-harvest.md](../prompts/06d-volunteer-facilitator-harvest.md)
 
@@ -16,11 +16,11 @@ Source: Prompt [06d-volunteer-facilitator-harvest.md](../prompts/06d-volunteer-f
 
 ## Closing this week
 
-- **ICFP 2026 Student Volunteers** — applications close **2026-06-29** (AoE). Only call closing within 7 days of harvest date.
+- **ICFP 2026 Student Volunteers**: applications close **2026-06-29** (AoE). Only call closing within 7 days of harvest date.
 
 ---
 
-## Call for volunteers — JSON blocks
+## Call for volunteers: JSON blocks
 
 ```json
 {
@@ -80,8 +80,8 @@ Source: Prompt [06d-volunteer-facilitator-harvest.md](../prompts/06d-volunteer-f
 
 ## Rejected (context)
 
-- WordCamp Asia 2026 Volunteer — closed before harvest date
-- AIDS 2026 Volunteer — closed before harvest date
+- WordCamp Asia 2026 Volunteer: closed before harvest date
+- AIDS 2026 Volunteer: closed before harvest date
 
 ---
 

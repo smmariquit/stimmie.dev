@@ -26,9 +26,9 @@
 
 ### Low-confidence queue
 
-- **Founder Institute Vibe Coding Pro Bootcamp** (`fi.co/bootcamp/vibe-coding-pro`) — paid commercial bootcamp; skipped unless you want paid programs on the board.
-- **DEV challenges** (Finish-Up-A-Thon, Hermes Agent, June Solstice Game Jam, Gemma 4, Google Cloud NEXT Writing) — all closed; winners announced or submissions past due.
-- **LinkedIn newsletter** `lu.ma/hf0reyr6` — from April 2025; stale.
+- **Founder Institute Vibe Coding Pro Bootcamp** (`fi.co/bootcamp/vibe-coding-pro`): paid commercial bootcamp; skipped unless you want paid programs on the board.
+- **DEV challenges** (Finish-Up-A-Thon, Hermes Agent, June Solstice Game Jam, Gemma 4, Google Cloud NEXT Writing): all closed; winners announced or submissions past due.
+- **LinkedIn newsletter** `lu.ma/hf0reyr6`: from April 2025; stale.
 
 ### Horizon radar
 
@@ -38,7 +38,7 @@
 
 ## Closing within seven days
 
-### CLOSES IN 7 DAYS — StellarPH PH100 2026
+### CLOSES IN 7 DAYS: StellarPH PH100 2026
 
 ```json
 {

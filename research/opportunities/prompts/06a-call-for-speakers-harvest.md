@@ -1,8 +1,8 @@
-# Prompt 6a — Call for speakers harvest
+# Prompt 6a: Call for speakers harvest
 
-**Phase:** Supplemental (sub-prompt of [06-contributor-calls-harvest.md](./06-contributor-calls-harvest.md))  
-**Run in:** Google Deep Research or Cursor agent browse  
-**Save as:** section inside `responses/YYYY-MM-DD-contributor-calls-harvest.md` (header: `## Call for speakers`)  
+**Phase:** Supplemental (sub-prompt of [06-contributor-calls-harvest.md](./06-contributor-calls-harvest.md)) 
+**Run in:** Google Deep Research or Cursor agent browse 
+**Save as:** section inside `responses/YYYY-MM-DD-contributor-calls-harvest.md` (header: `## Call for speakers`) 
 **Shared rules & JSON schema:** see Prompt 6
 
 ---
@@ -11,7 +11,7 @@
 
 List all **currently open calls for speakers** (talks, panels, workshops, lightning talks) at tech and academic events relevant to **students and early-career builders** in the Philippines, plus **online/global** CFPs they can submit to remotely.
 
-**Deadline rule:** CFP closes within the **next 45 days** and is still in the future as of today.  
+**Deadline rule:** CFP closes within the **next 45 days** and is still in the future as of today. 
 **Today (Asia/Manila, UTC+8):** **[INSERT DATE]**
 
 ### Include
@@ -65,12 +65,12 @@ site:lu.ma ("CFP" OR "call for speakers")
 
 ## Output (this section only)
 
-1. **Speakers coverage** — count found, sources checked, rejected + why  
-2. **Closing this week** — speaker CFPs with deadline ≤ 7 days  
-3. **JSON blocks** — sorted by nearest deadline  
-4. **Low-confidence** — vague posts, missing apply links  
-5. **Horizon** — CFPs opening in 30–60 days  
-6. **Citations** — URL + access date for each entry  
+1. **Speakers coverage**: count found, sources checked, rejected + why 
+2. **Closing this week**: speaker CFPs with deadline ≤ 7 days 
+3. **JSON blocks**: sorted by nearest deadline 
+4. **Low-confidence**: vague posts, missing apply links 
+5. **Horizon**: CFPs opening in 30–60 days 
+6. **Citations**: URL + access date for each entry 
 
 Target **≥5 verified speaker calls** when the ecosystem is active.
 

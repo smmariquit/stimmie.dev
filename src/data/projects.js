@@ -90,6 +90,21 @@ export const projects = [
     tags: ["Monetization", "Open Source", "Creator Economy"],
     link: "https://kape.stimmie.dev",
   },
+  {
+    slug: "web-portfolio",
+    title: "Web & Mobile Portfolio",
+    src: "/projects/web-portfolio.jpg",
+    date: "2026",
+    description:
+      "My freelance web and mobile developer portfolio: production-ready builds, fixed quotes, and real shipped projects you can click through.",
+    body: [
+      "web.stimmie.dev is where I put my serious freelance hat on. It's a dedicated portfolio for the web and mobile development work I do for clients — not side experiments, but real projects that reach real users.",
+      "The site lays out how I work: scope and pricing in writing before I write a line of code, weekly staging links for feedback, and the repo in the client's name at launch. Projects range from offline-capable mobile apps to campus tools and photography platforms.",
+      "Built on Nuxt with Hanken Grotesk and a dark teal design system. It doubles as a hiring page — rates, how we work, and a contact brief all in one place.",
+    ],
+    tags: ["Freelance", "Web", "Mobile", "Portfolio", "Nuxt"],
+    link: "https://web.stimmie.dev",
+  },
 ];
 
 export function getProjectBySlug(slug) {

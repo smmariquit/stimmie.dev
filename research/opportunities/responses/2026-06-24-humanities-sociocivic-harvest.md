@@ -1,4 +1,4 @@
-# Humanities & sociocivic harvest — 2026-06-24
+# Humanities & sociocivic harvest: 2026-06-24
 
 Source: Prompt [07-humanities-sociocivic-harvest.md](../prompts/07-humanities-sociocivic-harvest.md)
 

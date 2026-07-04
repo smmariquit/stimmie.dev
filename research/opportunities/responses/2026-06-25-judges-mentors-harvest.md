@@ -1,4 +1,4 @@
-# Judges & mentors harvest — 2026-06-25
+# Judges & mentors harvest: 2026-06-25
 
 Source: Prompt [06b-call-for-judges-mentors-harvest.md](../prompts/06b-call-for-judges-mentors-harvest.md)
 
@@ -8,7 +8,7 @@ Source: Prompt [06b-call-for-judges-mentors-harvest.md](../prompts/06b-call-for-
 | ---- | ----- | ----- |
 | Judges | 0 | No open hackathon or competition judge calls within 45-day window |
 | Mentors | 2 | Cardano CAP Fall 2026; EforAll Aug 2026 accelerator |
-| Rejected | — | TreeHacks 2025, NYUAD 2026 (outside date range) |
+| Rejected |: | TreeHacks 2025, NYUAD 2026 (outside date range) |
 
 **Closing this week:** None.
 
@@ -20,7 +20,7 @@ No active calls within the deadline window.
 
 ---
 
-## Call for mentors — merged to board
+## Call for mentors: merged to board
 
 | Title | Deadline | URL | Status |
 | ----- | -------- | --- | ------ |

@@ -137,6 +137,12 @@ export const socialCategories = [
     label: "Writing & Resources",
     links: [
       {
+        name: "Archive of Our Own",
+        href: "https://archiveofourown.org/users/omegaversesmutfactory101",
+        icon: "/logos/ao3.svg",
+        alt: "Archive of Our Own (AO3) profile",
+      },
+      {
         name: "Medium",
         href: "https://medium.com/@semariquit",
         icon: "/logos/medium.png",
