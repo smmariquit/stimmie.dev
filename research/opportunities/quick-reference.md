@@ -1,4 +1,4 @@
-# Quick reference — manual checks
+# Quick reference: manual checks
 
 Bookmark list while Deep Research runs. See [01-source-map.md](./prompts/01-source-map.md) for the full source-map prompt.
 
