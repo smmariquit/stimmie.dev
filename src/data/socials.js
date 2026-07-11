@@ -137,6 +137,12 @@ export const socialCategories = [
     label: "Writing & Resources",
     links: [
       {
+        name: "Literary",
+        href: "https://literary.stimmie.dev",
+        icon: "/logos/literary.svg",
+        alt: "Literary - My personal writing collection",
+      },
+      {
         name: "Medium",
         href: "https://medium.com/@semariquit",
         icon: "/logos/medium.png",
