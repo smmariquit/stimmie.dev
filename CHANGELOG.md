@@ -6,6 +6,14 @@ All notable changes to this project are documented here. This file is generated 
 
 ### Features
 
+* add link to Literary in socials ([1c7b9b8](https://github.com/smmariquit/stimmie.dev/commit/1c7b9b8eb470df019c992f7146dbd70887884392))
+* add long-form AI-generated pieces as blogs ([63d7824](https://github.com/smmariquit/stimmie.dev/commit/63d782486af6d12e715f685d66dee74f9ab94451))
+* add pics.stimmie.dev to projects ([2e6b2d0](https://github.com/smmariquit/stimmie.dev/commit/2e6b2d058a843c41a6e3c1ba515ffcc3af021df0))
+
+## [2.40.0](https://github.com/smmariquit/stimmie.dev/compare/v2.39.2...v2.40.0) (2026-07-11)
+
+### Features
+
 * add long-form AI-generated pieces as blogs ([63d7824](https://github.com/smmariquit/stimmie.dev/commit/63d782486af6d12e715f685d66dee74f9ab94451))
 * add pics.stimmie.dev to projects ([2e6b2d0](https://github.com/smmariquit/stimmie.dev/commit/2e6b2d058a843c41a6e3c1ba515ffcc3af021df0))
 
