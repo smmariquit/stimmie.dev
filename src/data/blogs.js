@@ -24,4 +24,18 @@ export const blogPosts = [
       "A reflection on all the books I devoured this year: fiction, non-fiction, and everything in between.",
     coverImage: "/blog/default-cover.jpg",
   },
+  {
+    slug: "the-province-of-doing-nothing",
+    title: "The Province of Doing Nothing",
+    date: "April 2025",
+    excerpt: "I grew up in the province, where doing nothing is an art form practiced by experts.",
+    coverImage: "/blog/default-cover.jpg",
+  },
+  {
+    slug: "on-rereading",
+    title: "On Rereading",
+    date: "January 2025",
+    excerpt: "I reread books the way some people revisit restaurants. Not because I've forgotten what's on the menu.",
+    coverImage: "/blog/default-cover.jpg",
+  },
 ];
