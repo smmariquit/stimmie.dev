@@ -143,6 +143,12 @@ export const socialCategories = [
         alt: "Literary - My personal writing collection",
       },
       {
+        name: "Pics",
+        href: "https://pics.stimmie.dev",
+        icon: "/logos/pics.svg",
+        alt: "Pics - My photography portfolio",
+      },
+      {
         name: "Medium",
         href: "https://medium.com/@semariquit",
         icon: "/logos/medium.png",
