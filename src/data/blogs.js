@@ -25,6 +25,13 @@ export const blogPosts = [
     coverImage: "/blog/default-cover.jpg",
   },
   {
+    slug: "on-walking",
+    title: "On Walking",
+    date: "June 2025",
+    excerpt: "There is a particular hour in the late afternoon when the campus empties out and the acacia shadows stretch long across the oval.",
+    coverImage: "/blog/default-cover.jpg",
+  },
+  {
     slug: "the-province-of-doing-nothing",
     title: "The Province of Doing Nothing",
     date: "April 2025",
