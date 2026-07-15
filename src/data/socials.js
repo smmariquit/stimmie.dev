@@ -193,6 +193,18 @@ export const socialCategories = [
         icon: "/logos/duolingo.svg",
         alt: "Duolingo - language learning profile",
       },
+      {
+        name: "itch.io",
+        href: "https://stimmieuwu.itch.io/",
+        icon: "/logos/itchio.png",
+        alt: "itch.io - games I've made",
+      },
+      {
+        name: "Fun",
+        href: "https://fun.stimmie.dev",
+        icon: "/logos/fun.svg",
+        alt: "fun.stimmie.dev - daily browser games I built",
+      },
     ],
   },
 ];
