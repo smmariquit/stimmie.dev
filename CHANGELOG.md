@@ -15,6 +15,26 @@ All notable changes to this project are documented here. This file is generated 
 
 ### Bug Fixes
 
+* **ci:** safe PR body check; skip Dependabot ([b570f53](https://github.com/smmariquit/stimmie.dev/commit/b570f53e98fcdd76005185eca5df208f724cae89))
+* **ui:** remove bounce hover stacks and tokenize neo accents ([9f60ac8](https://github.com/smmariquit/stimmie.dev/commit/9f60ac8b2c69f5e4086f905b11d9c564efea7660))
+
+### Documentation
+
+* remove em dashes from README ([6d967f4](https://github.com/smmariquit/stimmie.dev/commit/6d967f4ff4adb946c9919a589f2a1cea6ec31134))
+
+## [2.40.0](https://github.com/smmariquit/stimmie.dev/compare/v2.39.2...v2.40.0) (2026-07-16)
+
+### Features
+
+* add 'On Walking' to blog ([3b5a388](https://github.com/smmariquit/stimmie.dev/commit/3b5a3880c27286fe520a715ab8b4cd5f2458b643))
+* add itch.io and fun.stimmie.dev to Play socials ([7f8d695](https://github.com/smmariquit/stimmie.dev/commit/7f8d6955a0f00de9a4915bc29304f55bc5d48ea5))
+* add link to Literary in socials ([1c7b9b8](https://github.com/smmariquit/stimmie.dev/commit/1c7b9b8eb470df019c992f7146dbd70887884392))
+* add link to Pics in socials ([fe8bc6c](https://github.com/smmariquit/stimmie.dev/commit/fe8bc6c1ba5a924b4307c81f44659441afd74909))
+* add long-form AI-generated pieces as blogs ([63d7824](https://github.com/smmariquit/stimmie.dev/commit/63d782486af6d12e715f685d66dee74f9ab94451))
+* add pics.stimmie.dev to projects ([2e6b2d0](https://github.com/smmariquit/stimmie.dev/commit/2e6b2d058a843c41a6e3c1ba515ffcc3af021df0))
+
+### Bug Fixes
+
 * **ui:** remove bounce hover stacks and tokenize neo accents ([9f60ac8](https://github.com/smmariquit/stimmie.dev/commit/9f60ac8b2c69f5e4086f905b11d9c564efea7660))
 
 ### Documentation
