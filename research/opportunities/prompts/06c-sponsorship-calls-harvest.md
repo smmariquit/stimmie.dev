@@ -1,8 +1,8 @@
-# Prompt 6c — Sponsorship calls & programs harvest
+# Prompt 6c: Sponsorship calls & programs harvest
 
-**Phase:** Supplemental (sub-prompt of [06-contributor-calls-harvest.md](./06-contributor-calls-harvest.md))  
-**Run in:** Google Deep Research or Cursor agent browse  
-**Save as:** sections inside `responses/YYYY-MM-DD-contributor-calls-harvest.md` (`## Call for sponsors`, `## Sponsorship programs`)  
+**Phase:** Supplemental (sub-prompt of [06-contributor-calls-harvest.md](./06-contributor-calls-harvest.md)) 
+**Run in:** Google Deep Research or Cursor agent browse 
+**Save as:** sections inside `responses/YYYY-MM-DD-contributor-calls-harvest.md` (`## Call for sponsors`, `## Sponsorship programs`) 
 **Shared rules & JSON schema:** see Prompt 6
 
 ---
@@ -13,10 +13,10 @@ Find **sponsorship opportunities** for campus orgs and student-led events: (A) e
 
 **Audience:** campus org officers, hackathon organizers, and student leaders in the Philippines (+ global programs PH orgs can apply to).
 
-**Deadline rule:** inquiries or applications close within **45 days**, still open today.  
+**Deadline rule:** inquiries or applications close within **45 days**, still open today. 
 **Today (Asia/Manila, UTC+8):** **[INSERT DATE]**
 
-### A — Call for sponsors (event-level)
+### A: Call for sponsors (event-level)
 
 **Include:** “Become a sponsor”, sponsorship prospectus, partner inquiry form on an official event site.
 
@@ -24,7 +24,7 @@ Find **sponsorship opportunities** for campus orgs and student-led events: (A) e
 
 Use `type: event`, `contributor_role: sponsor`.
 
-### B — Sponsorship programs (org-level funding)
+### B: Sponsorship programs (org-level funding)
 
 **Include:** corporate/community programs where **student orgs apply for budget** (GDG community support, GitHub Campus, AWS Cloud Club funding, CSR innovation grants, DICT/CHED programs).
 
@@ -68,12 +68,12 @@ site:lu.ma sponsor OR "partner with us"
 
 ## Output (these sections only)
 
-1. **Sponsorship coverage** — event-level vs program counts; rejected  
-2. **Closing this week** — deadline ≤ 7 days  
-3. **Call for sponsors** — JSON blocks (event-level)  
-4. **Sponsorship programs** — JSON blocks (`org_level: true`)  
-5. **Low-confidence** — vague contact pages  
-6. **Citations** — URL + access date  
+1. **Sponsorship coverage**: event-level vs program counts; rejected 
+2. **Closing this week**: deadline ≤ 7 days 
+3. **Call for sponsors**: JSON blocks (event-level) 
+4. **Sponsorship programs**: JSON blocks (`org_level: true`) 
+5. **Low-confidence**: vague contact pages 
+6. **Citations**: URL + access date 
 
 Target **≥3 verified entries** per subsection when active.
 

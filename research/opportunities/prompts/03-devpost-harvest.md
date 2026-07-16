@@ -1,7 +1,7 @@
-# Prompt 3 — Devpost harvest (hackathons + role calls)
+# Prompt 3: Devpost harvest (hackathons + role calls)
 
-**Phase:** Supplemental · **Run in:** Cursor / local script (API) or Google Deep Research (manual browse)  
-**Prerequisite:** none (optional: [02-harvest.md](./02-harvest.md) for full board context)  
+**Phase:** Supplemental · **Run in:** Cursor / local script (API) or Google Deep Research (manual browse) 
+**Prerequisite:** none (optional: [02-harvest.md](./02-harvest.md) for full board context) 
 **Save output as:** `responses/YYYY-MM-DD-devpost-harvest.md`
 
 Use this when you want a **Devpost-only pass** without re-running the full multi-bucket harvest.
@@ -84,9 +84,9 @@ Use `type`: `"event"` when the Devpost description recruits judges, mentors, spe
 
 ### Also include
 
-1. **Coverage report** — count fetched, merged, role calls found, skipped (duplicate / blocklist / closed)
-2. **Closing soon** — hackathons with submission deadline within 7 days
-3. **Role opportunities** — judges / mentors / speakers / volunteers with apply links
-4. **Bibliography** — Devpost API or browse URL with access date
+1. **Coverage report**: count fetched, merged, role calls found, skipped (duplicate / blocklist / closed)
+2. **Closing soon**: hackathons with submission deadline within 7 days
+3. **Role opportunities**: judges / mentors / speakers / volunteers with apply links
+4. **Bibliography**: Devpost API or browse URL with access date
 
 Asia/Manila (UTC+8). Today: **[INSERT DATE]**.

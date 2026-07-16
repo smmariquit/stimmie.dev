@@ -1,4 +1,4 @@
-# Contributor prompt review — 2026-06-25
+# Contributor prompt review: 2026-06-25
 
 Meta-analysis of [06-contributor-calls-harvest.md](../prompts/06-contributor-calls-harvest.md): prompt type, best practices, and modular refactor.
 

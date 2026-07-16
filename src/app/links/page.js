@@ -45,7 +45,7 @@ function LinkRow({ href, label, sub, external }) {
         rel={external ? "noopener noreferrer" : undefined}
         className="neo-link-card group block"
       >
-        <span className="font-bold block break-words group-hover:text-[#cc0066]">
+        <span className="font-bold block break-words group-hover:text-[var(--neo-hover-accent)]">
           {label}
         </span>
         {sub && (

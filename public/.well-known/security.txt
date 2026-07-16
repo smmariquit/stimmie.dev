@@ -1,0 +1,4 @@
+Contact: mailto:semariquit@gmail.com
+Preferred-Languages: en
+Canonical: https://www.stimmie.dev/.well-known/security.txt
+Policy: https://www.stimmie.dev/privacy

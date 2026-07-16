@@ -137,6 +137,18 @@ export const socialCategories = [
     label: "Writing & Resources",
     links: [
       {
+        name: "Literary",
+        href: "https://literary.stimmie.dev",
+        icon: "/logos/literary.svg",
+        alt: "Literary - My personal writing collection",
+      },
+      {
+        name: "Pics",
+        href: "https://pics.stimmie.dev",
+        icon: "/logos/pics.svg",
+        alt: "Pics - My photography portfolio",
+      },
+      {
         name: "Medium",
         href: "https://medium.com/@semariquit",
         icon: "/logos/medium.png",
@@ -180,6 +192,18 @@ export const socialCategories = [
         href: "https://www.duolingo.com/profile/stimmie",
         icon: "/logos/duolingo.svg",
         alt: "Duolingo - language learning profile",
+      },
+      {
+        name: "itch.io",
+        href: "https://stimmieuwu.itch.io/",
+        icon: "/logos/itchio.png",
+        alt: "itch.io - games I've made",
+      },
+      {
+        name: "Fun",
+        href: "https://fun.stimmie.dev",
+        icon: "/logos/fun.svg",
+        alt: "fun.stimmie.dev - daily browser games I built",
       },
     ],
   },

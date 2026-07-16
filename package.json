@@ -1,6 +1,6 @@
 {
   "name": "stimmie.dev",
-  "version": "2.38.0",
+  "version": "2.40.0",
   "private": true,
   "scripts": {
     "dev": "next dev",
@@ -19,24 +19,24 @@
   },
   "dependencies": {
     "@vercel/analytics": "^2.0.1",
-    "framer-motion": "^12.23.24",
-    "next": "^16.1.1",
+    "framer-motion": "^12.41.0",
+    "next": "^16.2.10",
     "react": "19.2.0",
     "react-dom": "19.2.0",
     "react-github-calendar": "^5.0.4",
     "rss-parser": "^3.13.0"
   },
   "devDependencies": {
-    "@biomejs/biome": "2.2.0",
+    "@biomejs/biome": "2.5.4",
     "@semantic-release/changelog": "^6.0.3",
     "@semantic-release/commit-analyzer": "^13.0.1",
     "@semantic-release/git": "^10.0.1",
-    "@semantic-release/github": "^12.0.6",
-    "@semantic-release/release-notes-generator": "^14.1.0",
+    "@semantic-release/github": "^12.0.9",
+    "@semantic-release/release-notes-generator": "^14.1.1",
     "@tailwindcss/postcss": "^4",
     "babel-plugin-react-compiler": "1.0.0",
-    "conventional-changelog-conventionalcommits": "^9.3.1",
-    "markdownlint-cli": "^0.48.0",
+    "conventional-changelog-conventionalcommits": "^10.2.1",
+    "markdownlint-cli": "^0.49.1",
     "semantic-release": "^25.0.3",
     "tailwindcss": "^4"
   }

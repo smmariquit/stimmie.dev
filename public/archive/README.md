@@ -27,4 +27,4 @@ npm run archive:verify     # confirm MANIFEST.json entries exist
 
 Live site code lives in `src/data/` and `src/app/HomeClient.js`. Archives use frozen modules in `src/archive/`.
 
-**Do not reference `/archive/*` from the live site** — archives and production are independent bundles.
+**Do not reference `/archive/*` from the live site**: archives and production are independent bundles.

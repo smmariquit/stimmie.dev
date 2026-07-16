@@ -1,8 +1,8 @@
-# Prompt 9 — Campus & university events harvest
+# Prompt 9: Campus & university events harvest
 
-**Phase:** Supplemental · **Run in:** Google Deep Research (or Cursor agent browse)  
-**Prerequisite:** optional [01-source-map.md](./01-source-map.md) for source context  
-**Save output as:** `responses/YYYY-MM-DD-campus-events-harvest.md`  
+**Phase:** Supplemental · **Run in:** Google Deep Research (or Cursor agent browse) 
+**Prerequisite:** optional [01-source-map.md](./01-source-map.md) for source context 
+**Save output as:** `responses/YYYY-MM-DD-campus-events-harvest.md` 
 **Then:** verify dates and RSVP links, merge into `src/data/opportunity-board-items.js`, run `npm run opportunities:images`
 
 Use this for **university-specific events and org activities** in the Philippines: campus hackathons, org general assemblies, workshops, career fairs, symposiums, competitions, and volunteer drives posted by **student organizations** on Facebook and sister channels.
@@ -17,7 +17,7 @@ Complements [02-harvest.md](./02-harvest.md) (Campus / FB bucket). For national 
 
 Find **upcoming campus events** worth listing on **stimmie.dev/opportunities** for **students and early-career builders** who can attend in person (or hybrid with a clear online RSVP).
 
-**Time window:** event date or registration deadline within the **next 45 days**, still in the future as of today.  
+**Time window:** event date or registration deadline within the **next 45 days**, still in the future as of today. 
 **Today (Asia/Manila, UTC+8):** **[INSERT DATE]**
 
 ### What counts (include)
@@ -164,16 +164,16 @@ Harvest-only fields (`university`, `access`, `facebook_source_url`) may be dropp
 
 ## Output sections (required)
 
-1. **Coverage report** — event count **per university**; FB Pages checked; rejected + why  
-2. **Closing this week** — registration or event within 7 days  
-3. **UP System** (UPD, UPLB, UPM, + others found) — JSON blocks  
-4. **DLSU** — JSON blocks  
-5. **Ateneo (ADMU)** — JSON blocks  
-6. **UST** — JSON blocks  
-7. **Other universities** (PUP, FEU, NU, Mapúa, etc.) — JSON blocks  
-8. **Low-confidence queue** — FB-only, DM to register, missing dates  
-9. **Horizon radar** — announced but registration not open yet (30–60 days)  
-10. **Bibliography** — URLs with access dates (include Facebook Page/Event URLs)  
+1. **Coverage report**: event count **per university**; FB Pages checked; rejected + why 
+2. **Closing this week**: registration or event within 7 days 
+3. **UP System** (UPD, UPLB, UPM, + others found): JSON blocks 
+4. **DLSU**: JSON blocks 
+5. **Ateneo (ADMU)**: JSON blocks 
+6. **UST**: JSON blocks 
+7. **Other universities** (PUP, FEU, NU, Mapúa, etc.): JSON blocks 
+8. **Low-confidence queue**: FB-only, DM to register, missing dates 
+9. **Horizon radar**: announced but registration not open yet (30–60 days) 
+10. **Bibliography**: URLs with access dates (include Facebook Page/Event URLs) 
 
 ### Citations (non-negotiable)
 
@@ -183,20 +183,20 @@ Every entry needs **`source_url`** (usually Facebook) plus the **`url`** readers
 
 ## Facebook workflow tips (for the agent)
 
-1. Start from the university or org **Facebook Page** (blue check or long-standing page with org name).  
-2. Open **Events** tab; filter upcoming.  
-3. Open each event → check **Discussion** / description for Google Form or Luma link.  
-4. Check Page **About** for website, Linktree, or Instagram.  
-5. If the post is a **shared** flyer, trace to the **original** org Page.  
+1. Start from the university or org **Facebook Page** (blue check or long-standing page with org name). 
+2. Open **Events** tab; filter upcoming. 
+3. Open each event → check **Discussion** / description for Google Form or Luma link. 
+4. Check Page **About** for website, Linktree, or Instagram. 
+5. If the post is a **shared** flyer, trace to the **original** org Page. 
 6. Do not invent dates; if the year is missing on a graphic, corroborate with a comment or org Story highlight.
 
 ---
 
 ## After harvest
 
-1. Re-check RSVP links (campus events cancel or go waitlist-only fast).  
-2. Prefer `image_url` from Luma or a public org banner (FB CDN URLs expire; use org website when possible).  
-3. Merge into board; bump `opportunitiesBoard.lastUpdated`.  
+1. Re-check RSVP links (campus events cancel or go waitlist-only fast). 
+2. Prefer `image_url` from Luma or a public org banner (FB CDN URLs expire; use org website when possible). 
+3. Merge into board; bump `opportunitiesBoard.lastUpdated`. 
 4. Replace any national duplicate already listed from Devpost with the **campus-specific** entry if it adds venue/org context.
 
 ---

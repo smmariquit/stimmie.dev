@@ -89,31 +89,12 @@ export default function ArchivedV1() {
         }}
       >
         {imagesSortedByMeanRGB.map((image) => (
-          <motion.div
-            key={image.src}
-            whileHover={{
-              scale: 1.05,
-              zIndex: 10,
-              filter: "brightness(1.08)",
-              boxShadow: "0 20px 30px rgba(0,0,0,0.35)",
-            }}
-            transition={{ type: "spring", stiffness: 300, damping: 20 }}
-          >
+          <motion.div key={image.src}>
             <Thumb key={image.src} image={image} />
           </motion.div>
         ))}
         {imagesSortedByMeanRGB.map((image) => (
-          <motion.div
-            key={`dup-${image.src}`}
-            whileHover={{
-              filter: "sepia(0) blur(0)",
-              scale: 1.05,
-              zIndex: 10,
-              filter: "brightness(1.08)",
-              boxShadow: "0 20px 30px rgba(0,0,0,0.35)",
-            }}
-            transition={{ type: "spring", stiffness: 300, damping: 20 }}
-          >
+          <motion.div key={`dup-${image.src}`}>
             <Thumb image={image} />
           </motion.div>
         ))}

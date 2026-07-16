@@ -1,8 +1,8 @@
-# Prompt 6 — Contributor & sponsor calls (orchestrator)
+# Prompt 6: Contributor & sponsor calls (orchestrator)
 
-**Phase:** Supplemental · **Run in:** Google Deep Research (or Cursor agent browse)  
-**Prerequisite:** none (optional: [02-harvest.md](./02-harvest.md) for board context)  
-**Save output as:** `responses/YYYY-MM-DD-contributor-calls-harvest.md`  
+**Phase:** Supplemental · **Run in:** Google Deep Research (or Cursor agent browse) 
+**Prerequisite:** none (optional: [02-harvest.md](./02-harvest.md) for board context) 
+**Save output as:** `responses/YYYY-MM-DD-contributor-calls-harvest.md` 
 **Then:** verify URLs, merge with `npm run opportunities:merge` or add to `src/data/opportunity-board-items.js`, run `npm run opportunities:images`
 
 ---
@@ -34,7 +34,7 @@ Opportunities that are **not “sign up as a participant”** but **contributor 
 
 **Audience:** students, early-career builders, and campus org officers in the Philippines (plus online/global calls they can join remotely).
 
-**Time window:** applications open now or opening within **45 days**; deadline must still be in the future as of today.  
+**Time window:** applications open now or opening within **45 days**; deadline must still be in the future as of today. 
 **Today (Asia/Manila, UTC+8):** **[INSERT DATE]**
 
 ---
@@ -72,7 +72,7 @@ Every JSON block must include **`source_url`** (where you found it) and the bibl
 
 ### Contributor calls (speakers, judges, mentors, volunteers)
 
-Use **`type`: `"event"`**. Title: **`Call for {Role}s — {Event or Program Name}`**.
+Use **`type`: `"event"`**. Title: **`Call for {Role}s: {Event or Program Name}`**.
 
 ```json
 {
@@ -155,16 +155,16 @@ Use this section only if you are **not** running 06a–06d separately.
 
 ### Output sections (required)
 
-1. **Coverage report** — counts per role; rejected + why  
-2. **Closing this week** — deadline ≤ 7 days  
-3. **Call for speakers** — JSON blocks  
-4. **Call for judges** — JSON blocks  
-5. **Call for mentors & facilitators** — JSON blocks  
-6. **Call for sponsors** — JSON blocks  
-7. **Sponsorship programs** — JSON blocks  
-8. **Low-confidence queue**  
-9. **Horizon radar** — opens in 30–60 days  
-10. **Bibliography** — URLs + access dates  
+1. **Coverage report**: counts per role; rejected + why 
+2. **Closing this week**: deadline ≤ 7 days 
+3. **Call for speakers**: JSON blocks 
+4. **Call for judges**: JSON blocks 
+5. **Call for mentors & facilitators**: JSON blocks 
+6. **Call for sponsors**: JSON blocks 
+7. **Sponsorship programs**: JSON blocks 
+8. **Low-confidence queue** 
+9. **Horizon radar**: opens in 30–60 days 
+10. **Bibliography**: URLs + access dates 
 
 Target **20–35 verified calls** if the ecosystem is active; state honestly if thin.
 

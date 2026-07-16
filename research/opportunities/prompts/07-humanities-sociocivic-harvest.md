@@ -1,8 +1,8 @@
-# Prompt 7 — Humanities & sociocivic harvest
+# Prompt 7: Humanities & sociocivic harvest
 
-**Phase:** Supplemental · **Run in:** Google Deep Research (or Cursor agent browse)  
-**Prerequisite:** optional [01-source-map.md](./01-source-map.md) or [02-harvest.md](./02-harvest.md) for board context  
-**Save output as:** `responses/YYYY-MM-DD-humanities-sociocivic-harvest.md`  
+**Phase:** Supplemental · **Run in:** Google Deep Research (or Cursor agent browse) 
+**Prerequisite:** optional [01-source-map.md](./01-source-map.md) or [02-harvest.md](./02-harvest.md) for board context 
+**Save output as:** `responses/YYYY-MM-DD-humanities-sociocivic-harvest.md` 
 **Then:** verify URLs, merge with `npm run opportunities:merge` or add to `src/data/opportunity-board-items.js`, run `npm run opportunities:images`
 
 Use this when you want a **humanities and sociocivic pass**: essay contests, fellowships, policy programs, civic leadership, journalism, debate/MUN, arts and culture, NGO internships, and social-impact opportunities that are **not primarily coding hackathons**.
@@ -15,7 +15,7 @@ Complements the tech-heavy [02-harvest.md](./02-harvest.md) and [03-devpost-harv
 
 Find **actionable opportunities** worth listing on **stimmie.dev/opportunities** for **students and early-career builders in the Philippines** whose interests skew **humanities, social sciences, civic engagement, policy, media, arts, and community work** (plus **online/global** programs they can join remotely).
 
-**Time window:** applications, registrations, or submissions open now or opening within **45 days**. Include only calls whose primary deadline is still in the future as of today.  
+**Time window:** applications, registrations, or submissions open now or opening within **45 days**. Include only calls whose primary deadline is still in the future as of today. 
 **Today (Asia/Manila, UTC+8):** **[INSERT DATE]**
 
 ### Domain buckets (search each; report counts)
@@ -32,7 +32,7 @@ Find **actionable opportunities** worth listing on **stimmie.dev/opportunities**
 | **Social impact build** | Civic-tech or social-good **competitions** where the deliverable is policy brief, campaign, documentary, or community project (not pure code) | `hackathon` or `event` |
 | **NGO & multilateral** | UNDP, UNICEF, UN Volunteers, ADB youth, ASEAN internships with policy/communications/social development focus | `internship` or `program` |
 | **Humanities scholarships** | CHED merit for social sciences, DOST non-STEM where applicable, Chevening, Fulbright → deep pass: [08-scholarships-harvest.md](./08-scholarships-harvest.md) | `program` |
-| **Campus & PH orgs** | `.edu.ph` research fairs, social-science org calls — campus events: [09-campus-university-events-harvest.md](./09-campus-university-events-harvest.md) | `event` |
+| **Campus & PH orgs** | `.edu.ph` research fairs, social-science org calls: campus events: [09-campus-university-events-harvest.md](./09-campus-university-events-harvest.md) | `event` |
 
 ### Hard excludes
 
@@ -144,18 +144,18 @@ Same rules as [02-harvest.md](./02-harvest.md): if `url` is a `.gov.ph` portal b
 
 ## Output sections (required)
 
-1. **Coverage report** — counts per domain bucket; sources checked; rejected + why  
-2. **Closing this week** — deadline ≤ 7 days  
-3. **Writing, media & essay** — JSON blocks  
-4. **Debate, diplomacy & moot court** — JSON blocks  
-5. **Civic, policy & leadership** — JSON blocks  
-6. **Arts, culture & humanities programs** — JSON blocks  
-7. **NGO, multilateral & internships** — JSON blocks  
-8. **Scholarships & fellowships** — JSON blocks  
-9. **Social-impact competitions** (non-code-primary) — JSON blocks  
-10. **Low-confidence queue** — FB-only, vague posts, missing apply links  
-11. **Horizon radar** — opens in 30–60 days  
-12. **Bibliography** — URLs with access dates  
+1. **Coverage report**: counts per domain bucket; sources checked; rejected + why 
+2. **Closing this week**: deadline ≤ 7 days 
+3. **Writing, media & essay**: JSON blocks 
+4. **Debate, diplomacy & moot court**: JSON blocks 
+5. **Civic, policy & leadership**: JSON blocks 
+6. **Arts, culture & humanities programs**: JSON blocks 
+7. **NGO, multilateral & internships**: JSON blocks 
+8. **Scholarships & fellowships**: JSON blocks 
+9. **Social-impact competitions** (non-code-primary): JSON blocks 
+10. **Low-confidence queue**: FB-only, vague posts, missing apply links 
+11. **Horizon radar**: opens in 30–60 days 
+12. **Bibliography**: URLs with access dates 
 
 ### Citations (non-negotiable)
 
@@ -165,9 +165,9 @@ Every JSON block must include **`source_url`**. The bibliography must list each 
 
 ## After harvest
 
-1. Verify deadlines on official pages (embassy NOFOs and university forms go stale fast).  
-2. Merge into `src/data/opportunity-board-items.js`; bump `opportunitiesBoard.lastUpdated`.  
-3. `npm run opportunities:images` for card covers.  
+1. Verify deadlines on official pages (embassy NOFOs and university forms go stale fast). 
+2. Merge into `src/data/opportunity-board-items.js`; bump `opportunitiesBoard.lastUpdated`. 
+3. `npm run opportunities:images` for card covers. 
 4. Cross-check against existing board entries to avoid dupes (especially YSEALI, UNDP, UPOU MOOCs).
 
 ---

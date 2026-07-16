@@ -1,7 +1,7 @@
-# Prompt 4 — Email inbox harvest (Gemini in Gmail)
+# Prompt 4: Email inbox harvest (Gemini in Gmail)
 
-**Phase:** Supplemental · **Run in:** Gmail Gemini (side panel or `@Gemini` in compose)  
-**Save output as:** `responses/YYYY-MM-DD-email-harvest.md`  
+**Phase:** Supplemental · **Run in:** Gmail Gemini (side panel or `@Gemini` in compose) 
+**Save output as:** `responses/YYYY-MM-DD-email-harvest.md` 
 **Then:** verify URLs manually, merge with `npm run opportunities:merge` or add by hand
 
 Paste everything below the line into Gemini while Gmail context is enabled.
@@ -12,7 +12,7 @@ Paste everything below the line into Gemini while Gmail context is enabled.
 
 You have access to my Gmail. Scan my inbox (and Promotions / Updates if relevant) for **actionable opportunities** I could list on **stimmie.dev/opportunities**: hackathons, internships, scholarships, events, certificates, and programs for **students and early-career builders in the Philippines** (or **online/global** opportunities PH applicants can join).
 
-**Time window:** last **45 days**, plus any email with a deadline still in the future as of today.  
+**Time window:** last **45 days**, plus any email with a deadline still in the future as of today. 
 **Today (Asia/Manila, UTC+8):** **[INSERT DATE]**
 
 ### What counts as an opportunity
@@ -75,9 +75,9 @@ Also search subject/body keywords: `hackathon`, `internship`, `OJT`, `scholarshi
 
 ### Also include
 
-1. **Inbox coverage report** — how many emails scanned, how many opportunities found, how many rejected and why  
-2. **Sender leaderboard** — which senders produced the most real opportunities  
-3. **Low-confidence queue** — items that need me to verify manually (FB-only links, vague flyers)  
-4. **Horizon radar** — "save the date" or "applications open soon" from email, even without a firm deadline  
+1. **Inbox coverage report**: how many emails scanned, how many opportunities found, how many rejected and why 
+2. **Sender leaderboard**: which senders produced the most real opportunities 
+3. **Low-confidence queue**: items that need me to verify manually (FB-only links, vague flyers) 
+4. **Horizon radar**: "save the date" or "applications open soon" from email, even without a firm deadline 
 
 Sort by nearest actionable date. Be honest about gaps ("no internship emails this window") rather than inventing listings.

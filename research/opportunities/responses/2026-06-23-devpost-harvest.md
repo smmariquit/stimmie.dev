@@ -1,4 +1,4 @@
-# Devpost harvest — 2026-06-23
+# Devpost harvest: 2026-06-23
 
 - **Date researched:** 2026-06-23
 - **Tool:** `npm run opportunities:devpost` (Devpost API + description scan)
@@ -423,7 +423,7 @@ Filter: open + online + not invite-only; blocklist for region-locked titles; ski
 }
 ```
 
-### Build the Future with AI — From Code to No-Code
+### Build the Future with AI: From Code to No-Code
 
 ```json
 {

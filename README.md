@@ -60,7 +60,7 @@ Cloudflare doesn't push events when you add a Bulk Redirect, so the sitemap
 | `CLOUDFLARE_SITEMAP_HOST` | no | Legacy single-host fallback (still honoured) |
 | `CLOUDFLARE_REVALIDATE` | no | TTL in seconds for CF API fetch cache. Defaults to 3600 |
 
-Without these vars the integration is a no-op — the sitemap still builds
+Without these vars the integration is a no-op; the sitemap still builds
 fine. Transient API errors are logged to `console.warn` and do not break
 the build.
 
@@ -77,9 +77,9 @@ talks, links) are covered without extra config.
 The single source of truth for short-link redirects lives in
 [`src/data/redirects.js`](./src/data/redirects.js) and is consumed by:
 
-- `middleware.js` — handles `<category>.stimmie.dev/<slug>` at the edge runtime
-- `src/app/r/[...slug]/page.js` — handles `stimmie.dev/r/<slug>` on apex
-- `scripts/cf-migrate-redirects.mjs` — syncs the map into a Cloudflare
+- `middleware.js`: handles `<category>.stimmie.dev/<slug>` at the edge runtime
+- `src/app/r/[...slug]/page.js`: handles `stimmie.dev/r/<slug>` on apex
+- `scripts/cf-migrate-redirects.mjs`: syncs the map into a Cloudflare
   Bulk Redirect List so the redirect happens at Cloudflare's edge,
   before the request ever reaches Next.js.
 
@@ -92,7 +92,7 @@ To run the migration (idempotent, safe to re-run):
 export CLOUDFLARE_API_TOKEN=...
 export CLOUDFLARE_ACCOUNT_ID=...
 
-# Plan only — no mutations:
+# Plan only; no mutations:
 npm run cf:migrate-redirects -- --dry-run
 
 # Apply changes:

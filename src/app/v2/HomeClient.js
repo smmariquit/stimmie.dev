@@ -58,7 +58,7 @@ function SocialIcon({ link }) {
       alt={altText}
       width={24}
       height={24}
-      className={`rounded hover:scale-110 transition-transform w-5 h-5 md:w-6 md:h-6 ${link.name === "GitHub" || link.name === "Kattis" ? "invert" : ""}`}
+      className={`rounded w-5 h-5 md:w-6 md:h-6 ${link.name === "GitHub" || link.name === "Kattis" ? "invert" : ""}`}
     />
   );
 
@@ -143,8 +143,6 @@ export default function HomeClient({ mediaData }) {
               {/* Section 1: Hero - Stimmie, Software Engineer */}
               <motion.div
                 className="col-span-1 row-span-1 bg-gray-900/90 backdrop-blur-sm rounded-2xl p-4 md:p-5 lg:p-6 flex flex-col justify-between border border-gray-800"
-                whileHover={{ scale: 1.02 }}
-                transition={{ type: "spring", stiffness: 300, damping: 20 }}
                 role="region"
                 aria-label="About Stimmie"
               >
@@ -191,8 +189,6 @@ export default function HomeClient({ mediaData }) {
               {/* Section 2: Talks & Workshops */}
               <motion.section
                 className="col-span-1 md:col-span-2 lg:col-span-2 row-span-1 bg-gray-900/90 backdrop-blur-sm rounded-2xl p-4 border border-gray-800 flex flex-col"
-                whileHover={{ scale: 1.01 }}
-                transition={{ type: "spring", stiffness: 300, damping: 20 }}
                 aria-labelledby="talks-heading"
               >
                 <div className="flex items-center justify-between mb-2">
@@ -226,7 +222,7 @@ export default function HomeClient({ mediaData }) {
                           alt={`Talk: ${t.title}`}
                           width={320}
                           height={180}
-                          className="object-cover w-full h-full group-hover:scale-105 transition-transform"
+                          className="object-cover w-full h-full"
                         />
                         <div className="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-1">
                           <p className="text-[9px] md:text-[10px] text-white leading-tight line-clamp-2">
@@ -242,8 +238,6 @@ export default function HomeClient({ mediaData }) {
               {/* Section 4: Blogs */}
               <motion.div
                 className="col-span-1 row-span-1 bg-gray-900/90 backdrop-blur-sm rounded-2xl p-4 border border-gray-800"
-                whileHover={{ scale: 1.02 }}
-                transition={{ type: "spring", stiffness: 300, damping: 20 }}
                 role="region"
                 aria-label="Blog posts"
               >
@@ -257,7 +251,7 @@ export default function HomeClient({ mediaData }) {
                       📝 Blog
                     </h2>
                     <span
-                      className="text-[11px] md:text-xs text-blue-400 opacity-0 group-hover:opacity-100 transition-opacity"
+                      className="text-[11px] md:text-xs text-blue-400"
                       aria-hidden="true"
                     >
                       Read more →
@@ -270,7 +264,7 @@ export default function HomeClient({ mediaData }) {
                     {blogPosts.slice(0, 3).map((post, idx) => (
                       <article
                         key={idx}
-                        className="bg-gray-800/60 rounded-lg p-2 md:p-3 group-hover:bg-gray-800/80 transition-colors"
+                        className="bg-gray-800/60 rounded-lg p-2 md:p-3"
                         role="listitem"
                       >
                         <p className="text-xs md:text-sm font-semibold text-white line-clamp-2">
@@ -291,8 +285,6 @@ export default function HomeClient({ mediaData }) {
               {/* Section 3: Projects */}
               <motion.section
                 className="col-span-1 md:col-span-2 lg:col-span-2 row-span-1 bg-gray-900/90 backdrop-blur-sm rounded-2xl p-4 border border-gray-800 flex flex-col"
-                whileHover={{ scale: 1.01 }}
-                transition={{ type: "spring", stiffness: 300, damping: 20 }}
                 aria-labelledby="projects-heading"
               >
                 <div className="flex items-center justify-between mb-2">
@@ -326,7 +318,7 @@ export default function HomeClient({ mediaData }) {
                           alt={`Project: ${p.title}`}
                           width={320}
                           height={180}
-                          className="object-cover w-full h-full group-hover:scale-105 transition-transform"
+                          className="object-cover w-full h-full"
                         />
                         <div className="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity flex flex-col justify-end p-2">
                           <p className="text-[9px] md:text-xs text-white font-semibold line-clamp-2">
@@ -342,8 +334,6 @@ export default function HomeClient({ mediaData }) {
               {/* Section 5: Services */}
               <motion.div
                 className="col-span-1 row-span-1 bg-gray-900/90 backdrop-blur-sm rounded-2xl p-4 overflow-hidden border border-gray-800"
-                whileHover={{ scale: 1.01 }}
-                transition={{ type: "spring", stiffness: 300, damping: 20 }}
               >
                 <h2 className="font-bold text-base md:text-lg mb-2 text-white">
                   💼 Services
@@ -368,8 +358,6 @@ export default function HomeClient({ mediaData }) {
               {/* Section 6: GitHub Activity */}
               <motion.div
                 className="col-span-1 row-span-1 bg-gray-900/90 backdrop-blur-sm rounded-2xl p-4 overflow-hidden border border-gray-800"
-                whileHover={{ scale: 1.02 }}
-                transition={{ type: "spring", stiffness: 300, damping: 20 }}
                 role="region"
                 aria-label="GitHub Activity"
               >
@@ -402,8 +390,6 @@ export default function HomeClient({ mediaData }) {
               {/* Section 7: Now Watching / Reading */}
               <motion.div
                 className="col-span-1 row-span-1 bg-gray-900/90 backdrop-blur-sm rounded-2xl p-4 overflow-hidden border border-gray-800"
-                whileHover={{ scale: 1.02 }}
-                transition={{ type: "spring", stiffness: 300, damping: 20 }}
                 role="region"
                 aria-label="Currently watching and reading"
               >
@@ -538,8 +524,6 @@ export default function HomeClient({ mediaData }) {
               {/* Section 8: The Stimmieverse */}
               <motion.div
                 className="col-span-1 md:col-span-2 lg:col-span-3 row-span-1 bg-gray-900/90 backdrop-blur-sm rounded-2xl p-4 overflow-hidden border border-gray-800"
-                whileHover={{ scale: 1.01 }}
-                transition={{ type: "spring", stiffness: 300, damping: 20 }}
                 role="region"
                 aria-label="Stimmieverse Subdomains"
               >
@@ -646,7 +630,7 @@ export default function HomeClient({ mediaData }) {
                       rel="noopener noreferrer"
                       className="group block"
                     >
-                      <div className="bg-gray-800/80 rounded-xl p-3 h-full hover:bg-gray-700 transition-colors border border-transparent hover:border-gray-500 shadow-sm">
+                      <div className="bg-gray-800/80 rounded-xl p-3 h-full shadow-sm">
                         <div className="flex items-center gap-2 mb-2">
                           <span className="text-base md:text-lg">
                             {site.icon}
