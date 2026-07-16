@@ -79,7 +79,7 @@ export default function TalksPage() {
                       {formatDate(talk.date)}
                     </time>
                   </p>
-                  <h2 className="font-bold text-lg mt-1 group-hover:text-[#cc0066]">
+                  <h2 className="font-bold text-lg mt-1 group-hover:text-[var(--neo-hover-accent)]">
                     {talk.title}
                   </h2>
                   <p className="text-base neo-muted mt-0.5 mb-1">

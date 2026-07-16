@@ -18,6 +18,7 @@ import MobileSectionNav from "@/components/neo/MobileSectionNav";
 import ScrapbookPhoto from "@/components/neo/ScrapbookPhoto";
 import SectionHeading from "@/components/neo/SectionHeading";
 import SkipLink from "@/components/neo/SkipLink";
+import TravellingsBadge from "@/components/neo/TravellingsBadge";
 import { blogPosts } from "@/data/blogs";
 import { projects } from "@/data/projects";
 import { talks } from "@/data/talks";
@@ -228,7 +229,7 @@ export default function HomeClient({ mediaData, version }) {
                       sizes="(max-width: 640px) 100vw, 360px"
                       className="neo-thumb-lg w-full aspect-video object-cover"
                     />
-                    <h3 className="font-bold mt-2 group-hover:text-[#cc0066]">
+                    <h3 className="font-bold mt-2 group-hover:text-[var(--neo-hover-accent)]">
                       {p.title}
                     </h3>
                     {p.date && (
@@ -281,7 +282,7 @@ export default function HomeClient({ mediaData, version }) {
                           className="neo-thumb-lg w-full aspect-video object-cover"
                         />
                       )}
-                      <h3 className="font-bold mt-2 group-hover:text-[#cc0066]">
+                      <h3 className="font-bold mt-2 group-hover:text-[var(--neo-hover-accent)]">
                         {t.title}
                       </h3>
                       <p className="text-base neo-muted mt-0.5 font-mono">
@@ -507,6 +508,9 @@ export default function HomeClient({ mediaData, version }) {
         </div>
 
         <footer className="neo-footer mt-3">
+          <div className="mb-3 flex justify-center">
+            <TravellingsBadge />
+          </div>
           <p>
             made with ♥ · <Link href="/changelog">v{version}</Link> ·{" "}
             <Link href="/archive">site history</Link>

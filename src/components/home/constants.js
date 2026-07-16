@@ -65,9 +65,24 @@ export const FRIENDS = [
     blurb: "GOATed UX guy, first hackathon teammate",
   },
   {
+    name: "Adriel Magalona",
+    url: "https://www.adrielmagalona.dev/",
+    blurb: "fellow hackathoner",
+  },
+  {
+    name: "Cedrick Guevara",
+    url: "https://guevix.vercel.app",
+    blurb: "fellow software engineer",
+  },
+  {
+    name: "Anne Reyes",
+    url: "https://ryeolabs.org",
+    blurb: "fellow ambitious girlie",
+  },
+  {
     name: "Bernard Jezua",
     url: "https://bernardjezua.is-a.dev",
-    blurb: "cool UX designer and senior in UP",
+    blurb: "frontend engineer",
   },
   {
     name: "John Yumul",
@@ -79,13 +94,11 @@ export const FRIENDS = [
 export const SECTION_STAR = "✹";
 
 function formatLastUpdated(iso) {
-  return new Date(iso)
-    .toLocaleDateString("en-US", {
-      month: "long",
-      day: "numeric",
-      year: "numeric",
-    })
-    .toLowerCase();
+  const date = new Date(iso);
+  const month = date.toLocaleString("en-US", { month: "long", timeZone: "UTC" });
+  const day = date.getUTCDate();
+  const year = date.getUTCFullYear();
+  return `${month} ${day}, ${year}`.toLowerCase();
 }
 
 export function getMarqueeText() {

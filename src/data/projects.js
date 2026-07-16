@@ -90,6 +90,20 @@ export const projects = [
     tags: ["Monetization", "Open Source", "Creator Economy"],
     link: "https://kape.stimmie.dev",
   },
+  {
+    slug: "pics",
+    title: "Pics",
+    src: "/projects/pics.jpg",
+    date: "2026",
+    description:
+      "A full-screen wall of my camera roll: hundreds of unedited photos in random order, with a subtle vintage tint and zero explanation.",
+    body: [
+      "pics.stimmie.dev is the least curated thing I have ever shipped on purpose. It takes years of photos straight from my camera roll (street corners, breakfasts, ruins, friends) and throws them onto one full-screen grid, shuffled on every visit.",
+      "There is no framework and no build step: a Python script converts the originals (including HEIF) into optimized WebP renditions and a tiny manifest, and a single static HTML page renders the wall with a keyboard-and-swipe lightbox. A CSS filter gives every frame the same faded vintage tint so the chaos still feels like one archive.",
+    ],
+    tags: ["Photography", "Static Site", "Vanilla JS"],
+    link: "https://pics.stimmie.dev",
+  },
 ];
 
 export function getProjectBySlug(slug) {

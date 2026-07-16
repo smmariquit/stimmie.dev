@@ -10,7 +10,7 @@ import {
   OPPORTUNITY_TYPES,
 } from "@/data/opportunities";
 
-const OPPORTUNITIES_SHARE_TITLE = "~ opportunities ~";
+const OPPORTUNITIES_SHARE_TITLE = "~* opportunities *~";
 
 export function generateMetadata() {
   const board = getOpportunitiesBoard();
@@ -60,7 +60,7 @@ export default function OpportunitiesPage() {
 
   return (
     <PageShell
-      title="~ opportunities ~"
+      title="~* opportunities *~"
       intro={board.intro}
       current="/opportunities"
       maxWidth="64rem"

@@ -60,7 +60,7 @@ Cloudflare doesn't push events when you add a Bulk Redirect, so the sitemap
 | `CLOUDFLARE_SITEMAP_HOST` | no | Legacy single-host fallback (still honoured) |
 | `CLOUDFLARE_REVALIDATE` | no | TTL in seconds for CF API fetch cache. Defaults to 3600 |
 
-Without these vars the integration is a no-op: the sitemap still builds
+Without these vars the integration is a no-op; the sitemap still builds
 fine. Transient API errors are logged to `console.warn` and do not break
 the build.
 
@@ -80,8 +80,8 @@ The single source of truth for short-link redirects lives in
 - `middleware.js`: handles `<category>.stimmie.dev/<slug>` at the edge runtime
 - `src/app/r/[...slug]/page.js`: handles `stimmie.dev/r/<slug>` on apex
 - `scripts/cf-migrate-redirects.mjs`: syncs the map into a Cloudflare
- Bulk Redirect List so the redirect happens at Cloudflare's edge,
- before the request ever reaches Next.js.
+  Bulk Redirect List so the redirect happens at Cloudflare's edge,
+  before the request ever reaches Next.js.
 
 To run the migration (idempotent, safe to re-run):
 
@@ -92,7 +92,7 @@ To run the migration (idempotent, safe to re-run):
 export CLOUDFLARE_API_TOKEN=...
 export CLOUDFLARE_ACCOUNT_ID=...
 
-# Plan only — no mutations:
+# Plan only; no mutations:
 npm run cf:migrate-redirects -- --dry-run
 
 # Apply changes:
@@ -107,7 +107,7 @@ The script:
 1. Creates (or finds) a Bulk Redirect List named `stimmie_redirects`.
 2. Computes a diff between local + CF state, then adds/deletes items.
 3. Ensures the account-level `http_request_redirect` ruleset has a rule
- that consults the list (`http.request.full_uri in $stimmie_redirects`).
+   that consults the list (`http.request.full_uri in $stimmie_redirects`).
 
 After the migration runs, both the apex `/r/<slug>` and the
 `<category>.stimmie.dev/<slug>` URLs redirect at the CF edge. The
@@ -124,15 +124,15 @@ to automate versioning, `CHANGELOG.md`, and GitHub Releases from
 
 The commit type controls what kind of release (if any) is produced:
 
-| Type | Bump | Appears in changelog |
+| Type                | Bump  | Appears in changelog |
 | ------------------- | ----- | -------------------- |
-| `feat:` | minor | yes (Features) |
-| `fix:` | patch | yes (Bug Fixes) |
-| `perf:` | patch | yes (Performance) |
-| `refactor:` | patch | yes (Refactors) |
-| `docs:` | patch | yes (Documentation) |
-| `BREAKING CHANGE:`* | major | yes |
-| `chore:` `ci:` `style:` `test:` `build:` | none | no |
+| `feat:`             | minor | yes (Features)       |
+| `fix:`              | patch | yes (Bug Fixes)      |
+| `perf:`             | patch | yes (Performance)    |
+| `refactor:`         | patch | yes (Refactors)      |
+| `docs:`             | patch | yes (Documentation)  |
+| `BREAKING CHANGE:`* | major | yes                  |
+| `chore:` `ci:` `style:` `test:` `build:` | none  | no                   |
 
 \*Either include `BREAKING CHANGE:` in the commit body, or use `feat!:` / `fix!:` etc.
 
@@ -141,8 +141,8 @@ The commit type controls what kind of release (if any) is produced:
 1. A commit lands on `main`.
 2. `.github/workflows/release.yml` runs `npx semantic-release`.
 3. semantic-release inspects all commits since the last tag, decides the next
- version, updates `package.json` + `CHANGELOG.md`, tags the commit, and
- creates a [GitHub Release](https://github.com/smmariquit/stimmie.dev/releases).
+   version, updates `package.json` + `CHANGELOG.md`, tags the commit, and
+   creates a [GitHub Release](https://github.com/smmariquit/stimmie.dev/releases).
 4. The bot's release commit is marked `[skip ci]` so it does not retrigger.
 
 ### Dry-run locally
@@ -153,6 +153,7 @@ npx semantic-release --dry-run --no-ci
 
 This prints what *would* be released without actually creating tags or pushes.
 
+
 ---
 *If this project helped you out, consider [treating me to a coffee](https://kape.stimmie.dev) ☕*
 
@@ -160,6 +161,7 @@ This prints what *would* be released without actually creating tags or pushes.
 - **Tech Stack:** React, TailwindCSS, Next.js, Node.js/NPM
 - **Repository Size:** 513 tracked files
 - **Latest Update:** `b5f9aac chore: add stale issue and PR validators`
+
 
 ---
 *☕ If you found this project useful, you can support my work at [kape.stimmie.dev](https://kape.stimmie.dev)!*

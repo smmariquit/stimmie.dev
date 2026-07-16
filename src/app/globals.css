@@ -101,6 +101,9 @@
   --neo-accent-red: #c00000;
   --neo-accent-blue: #0a6699;
   --neo-accent-purple: #7a00b8;
+  --neo-hover-accent: var(--neo-hover-accent);
+  --neo-hover-bg: var(--neo-hover-bg);
+  --neo-accent-magenta: var(--neo-accent-magenta);
   --neo-section-star: "✹ ";
   /* Display + body fonts come from next/font (see src/app/fonts.js).
      --neo-pixel kept as the variable name for back-compat, but it now maps to
@@ -172,15 +175,12 @@ body {
 .bg-tile {
   --rot: 0deg;
   transform: rotate(var(--rot));
-  transition:
-    transform 350ms cubic-bezier(0.34, 1.3, 0.64, 1),
-    filter 250ms ease;
+  transition: transform 350ms ease-out;
   will-change: transform;
 }
 .bg-tile:hover {
   transform: rotate(0deg) scale(1.08);
   z-index: 20;
-  filter: brightness(1.18) saturate(1.15);
 }
 
 .bg-tile-grid > .bg-tile:nth-child(7n + 3) {
@@ -239,8 +239,7 @@ body {
   color: var(--neo-link-visited);
 }
 .neo-page a:hover {
-  color: #cc0066;
-  background: #fffacd;
+  color: var(--neo-hover-accent);
 }
 
 .neo-shell {
@@ -309,7 +308,7 @@ body {
 
 .neo-divider {
   text-align: center;
-  color: var(--neo-border);
+  color: #c40088;
   font-size: 0.85rem;
   margin: 0.75rem 0;
   letter-spacing: 0.1em;
@@ -497,7 +496,7 @@ body {
   background: #fff;
   border: 2px solid #1a1a1a;
   border-left: 5px solid var(--neo-accent-blue);
-  box-shadow: 2px 2px 0 #d6008f;
+  box-shadow: 2px 2px 0 var(--neo-accent-magenta);
 }
 
 .neo-subheading {
@@ -512,7 +511,7 @@ body {
   line-height: 1.65;
   padding: 0.75rem 1rem;
   background: #fff;
-  border: 2px dashed #d6008f;
+  border: 2px dashed var(--neo-accent-magenta);
 }
 
 /* ── About: scrapbook photo + intro ───────────────────────────────── */
@@ -535,6 +534,7 @@ body {
   position: relative;
   width: fit-content;
   max-width: min(220px, 42vw);
+  min-height: min(220px, 42vw);
   margin: 0.25rem auto 0;
   transform: rotate(-2.5deg);
   transition: transform 200ms ease;
@@ -625,7 +625,7 @@ body {
   padding: 0.55rem 0.65rem;
   background: #fafafa;
   border: 2px solid #1a1a1a;
-  box-shadow: 2px 2px 0 #d6008f;
+  box-shadow: 2px 2px 0 var(--neo-accent-magenta);
   font-size: 0.95rem;
   line-height: 1.4;
 }
@@ -682,7 +682,6 @@ body {
 
 .neo-page a.neo-writing-title:hover {
   color: var(--neo-accent-red);
-  background: #fffacd;
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -839,7 +838,6 @@ body {
 }
 
 .neo-mobile-section-pill:hover {
-  background: #fff7fb;
   color: var(--neo-accent-red);
 }
 
@@ -1008,10 +1006,6 @@ body {
   background: transparent;
 }
 
-.neo-media-card:hover .neo-thumb-lg {
-  box-shadow: 4px 4px 0 #cc0066;
-}
-
 .neo-pixel-btn {
   image-rendering: pixelated;
   border: 2px outset #ccc;
@@ -1034,6 +1028,21 @@ body {
 .neo-page .neo-footer a:hover {
   color: #ffe000;
   background: transparent;
+}
+
+.neo-travellings-badge {
+  text-decoration: none;
+  font-family: var(--neo-ui);
+  font-size: 0.95rem;
+}
+
+.neo-sidebar-box .neo-travellings-badge {
+  color: #1a1a1a;
+}
+
+.neo-travellings-logo {
+  border: 2px solid #000;
+  image-rendering: auto;
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -1061,7 +1070,7 @@ body {
   padding: 0.5rem 0.85rem;
   border: 2px solid #000;
   text-decoration: none;
-  transition: top 120ms ease-in;
+  transition: top 120ms ease-out;
 }
 .neo-skip-link:focus {
   top: 0.5rem;
@@ -1072,7 +1081,7 @@ body {
 .neo-page button:focus-visible,
 .neo-page [tabindex]:focus-visible,
 .neo-page summary:focus-visible {
-  outline: 3px solid #d6008f;
+  outline: 3px solid var(--neo-accent-magenta);
   outline-offset: 2px;
   border-radius: 2px;
 }
@@ -1184,9 +1193,7 @@ body {
   box-shadow: 3px 3px 0 #9a9a9a;
   padding: 0.85rem 1rem;
   text-decoration: none;
-  transition:
-    box-shadow 120ms ease,
-    transform 120ms ease;
+  transition: box-shadow 120ms ease-out;
 }
 .neo-page a.neo-link-card,
 .neo-page a.neo-link-card:visited {
@@ -1194,11 +1201,7 @@ body {
   color: inherit;
 }
 .neo-link-card:hover {
-  box-shadow: 4px 4px 0 #d6008f;
-  background: #fff7fb;
-}
-.neo-page a.neo-link-card:hover {
-  background: #fff7fb;
+  box-shadow: 4px 4px 0 var(--neo-accent-magenta);
 }
 
 .neo-tag {
@@ -1206,7 +1209,7 @@ body {
   font-family: var(--neo-ui);
   font-size: 0.8rem;
   background: #ffe9f6;
-  border: 1px solid #d6008f;
+  border: 1px solid var(--neo-accent-magenta);
   color: #8a005c;
   padding: 0.05rem 0.45rem;
   margin: 0 0.25rem 0.25rem 0;
@@ -1247,7 +1250,7 @@ body {
   color: #0a3d7a;
 }
 .neo-badge-event {
-  background: #fffacd;
+  background: var(--neo-hover-bg);
   color: #5a4a00;
 }
 .neo-badge-certificate {
@@ -1449,12 +1452,12 @@ body {
 
 .neo-opportunity-deadline-ticker--soon .neo-opportunity-deadline-ticker-label,
 .neo-opportunity-deadline-ticker--soon .neo-opportunity-deadline-ticker-clock {
-  color: #cc0066;
+  color: var(--neo-hover-accent);
 }
 
 .neo-opportunity-deadline-ticker--soon .neo-opportunity-deadline-ticker-clock {
   background: #ffe8f3;
-  border-color: #cc0066;
+  border-color: var(--neo-hover-accent);
 }
 
 .neo-opportunity-filter-groups {
@@ -1618,7 +1621,7 @@ body {
 
 .neo-opportunity-search-field:focus-within {
   background: #fffef8;
-  box-shadow: 3px 3px 0 #cc0066;
+  box-shadow: 3px 3px 0 var(--neo-hover-accent);
 }
 
 .neo-opportunity-search-input::placeholder {
@@ -1638,8 +1641,7 @@ body {
 }
 
 .neo-opportunity-search-clear:hover {
-  background: #ffe8f3;
-  color: #cc0066;
+  color: var(--neo-hover-accent);
 }
 
 .neo-opportunity-results strong {
@@ -1701,7 +1703,7 @@ body {
 }
 
 .neo-opportunity-filter--event.neo-opportunity-filter--active {
-  background: #fffacd;
+  background: var(--neo-hover-bg);
   color: #5a4a00;
 }
 
@@ -1734,7 +1736,7 @@ body {
 .neo-opportunity-filter-link {
   font: inherit;
   font-weight: 700;
-  color: #cc0066;
+  color: var(--neo-hover-accent);
   background: none;
   border: none;
   padding: 0;
@@ -2613,11 +2615,6 @@ body {
   box-shadow: none;
 }
 
-.neo-opportunity-page .neo-media-card:hover .neo-thumb-lg {
-  box-shadow: none;
-  border-color: #a8a49a;
-}
-
 .neo-opportunity-page .neo-media-card:hover .neo-opportunity-card-title {
   color: #3d3a34;
 }
@@ -2890,7 +2887,6 @@ body {
 
 .neo-opportunity-page .neo-opportunity-search-clear:hover {
   color: #4a4640;
-  background: #f0ede6;
 }
 
 @media (max-width: 520px) {
@@ -2937,7 +2933,7 @@ body {
   color: var(--neo-accent-red);
   margin: 2rem 0 0.5rem;
   padding-top: 1rem;
-  border-top: 2px dashed #d6008f;
+  border-top: 2px dashed var(--neo-accent-magenta);
 }
 .neo-prose h3 {
   font-family: var(--neo-ui);
