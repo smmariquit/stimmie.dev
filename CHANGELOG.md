@@ -4,6 +4,8 @@ All notable changes to this project are documented here. This file is generated 
 
 ## [2.40.0](https://github.com/smmariquit/stimmie.dev/compare/v2.39.2...v2.40.0) (2026-07-16)
 
+## [2.40.0](https://github.com/smmariquit/stimmie.dev/compare/v2.39.2...v2.40.0) (2026-07-16)
+
 ### Features
 
 * add 'On Walking' to blog ([3b5a388](https://github.com/smmariquit/stimmie.dev/commit/3b5a3880c27286fe520a715ab8b4cd5f2458b643))
