@@ -8,7 +8,7 @@ export default function LegalMicroLink({
 }) {
   const styles = subtle
     ? "text-[10px] opacity-40 hover:opacity-70"
-    : "text-xs opacity-70 hover:opacity-100 underline-offset-2 hover:underline";
+    : "text-xs opacity-70 underline-offset-2 hover:underline";
 
   return (
     <Link href={href} className={`transition-opacity ${styles} ${className}`}>

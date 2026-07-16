@@ -20,6 +20,7 @@ export default function ScrapbookPhoto({
           className="neo-scrapbook-img"
           sizes="(max-width: 640px) 45vw, 200px"
           priority
+          fetchPriority="high"
         />
       </div>
       {caption ? (

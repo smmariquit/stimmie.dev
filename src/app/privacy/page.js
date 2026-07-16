@@ -10,7 +10,7 @@ export default function PrivacyPage() {
     <main className="max-w-2xl mx-auto px-4 py-10 pb-16">
       <Link
         href="/"
-        className="text-sm opacity-60 hover:opacity-100 hover:underline mb-8 inline-block"
+        className="text-sm opacity-60 hover:underline mb-8 inline-block"
       >
         ← back home
       </Link>

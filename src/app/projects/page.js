@@ -40,7 +40,7 @@ export default function ProjectsPage() {
                   sizes="(max-width: 640px) 100vw, 360px"
                   className="neo-thumb-lg w-full aspect-video object-cover"
                 />
-                <h2 className="font-bold text-xl mt-2 group-hover:text-[#cc0066]">
+                <h2 className="font-bold text-xl mt-2 group-hover:text-[var(--neo-hover-accent)]">
                   {project.title}
                 </h2>
                 {project.date && (

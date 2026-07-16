@@ -30,7 +30,7 @@ export default function BlogPage() {
               >
                 {post.date}
               </span>
-              <span className="block font-bold text-xl mt-0.5 group-hover:text-[#cc0066]">
+              <span className="block font-bold text-xl mt-0.5 group-hover:text-[var(--neo-hover-accent)]">
                 {post.title}
               </span>
               {post.excerpt && (

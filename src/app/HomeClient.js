@@ -229,7 +229,7 @@ export default function HomeClient({ mediaData, version }) {
                       sizes="(max-width: 640px) 100vw, 360px"
                       className="neo-thumb-lg w-full aspect-video object-cover"
                     />
-                    <h3 className="font-bold mt-2 group-hover:text-[#cc0066]">
+                    <h3 className="font-bold mt-2 group-hover:text-[var(--neo-hover-accent)]">
                       {p.title}
                     </h3>
                     {p.date && (
@@ -282,7 +282,7 @@ export default function HomeClient({ mediaData, version }) {
                           className="neo-thumb-lg w-full aspect-video object-cover"
                         />
                       )}
-                      <h3 className="font-bold mt-2 group-hover:text-[#cc0066]">
+                      <h3 className="font-bold mt-2 group-hover:text-[var(--neo-hover-accent)]">
                         {t.title}
                       </h3>
                       <p className="text-base neo-muted mt-0.5 font-mono">
