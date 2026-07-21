@@ -129,8 +129,8 @@ export default async function Image() {
               lineHeight: 1.3,
             }}
           >
-            Get extra eyes on your resume, portfolio, or interview prep. Send
-            it over and I&apos;ll review it!
+            Get extra eyes on your resume, portfolio, or interview prep. Send it
+            over and I&apos;ll review it!
           </div>
 
           <div

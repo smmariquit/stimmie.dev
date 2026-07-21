@@ -2,21 +2,38 @@
 
 "use client";
 
-import { useActionState } from "react";
+import { useActionState, useState } from "react";
 import { submitWorkshopRequest } from "./actions";
+
+const CAL_URL = "https://cal.com/simonee";
 
 export default function WorkshopForm() {
   const [state, formAction, pending] = useActionState(
     submitWorkshopRequest,
     null,
   );
+  const [wantsCall, setWantsCall] = useState(false);
 
   if (state?.ok) {
     return (
-      <p className="neo-facts mt-4 p-4" style={{ border: "2px solid #1a1a1a" }}>
-        📬 Got it! I&apos;ll get back to you on your preferred channel within a
-        few days.
-      </p>
+      <div
+        className="neo-facts mt-4 p-4"
+        style={{ border: "2px solid #1a1a1a" }}
+      >
+        <p>
+          📬 Got it! I&apos;ll get back to you on your preferred channel within
+          a few days.
+        </p>
+        {wantsCall && (
+          <p className="mt-2 font-bold">
+            📅 One more step: book your call at{" "}
+            <a href={CAL_URL} target="_blank" rel="noopener noreferrer">
+              cal.com/simonee
+            </a>
+            .
+          </p>
+        )}
+      </div>
     );
   }
 
@@ -76,7 +93,44 @@ export default function WorkshopForm() {
           placeholder="Google Drive, PDF, or website link"
           className="neo-input mt-1 font-normal"
         />
+        <span className="block text-base neo-muted mt-1 font-normal">
+          ⚠ Make sure the link is <strong>accessible</strong>! On Google Drive:
+          Share, then set &quot;Anyone with the link&quot; to Viewer. I
+          can&apos;t review what I can&apos;t open.
+        </span>
       </label>
+
+      <fieldset className="m-0 p-0" style={{ border: "none" }}>
+        <legend className="font-bold p-0">How do you want the feedback?</legend>
+        <label className="block mt-1">
+          <input
+            type="radio"
+            name="feedback"
+            value="Email or DM"
+            defaultChecked
+            onChange={() => setWantsCall(false)}
+          />{" "}
+          ✉ Just email or DM me the feedback
+        </label>
+        <label className="block mt-1">
+          <input
+            type="radio"
+            name="feedback"
+            value="Call"
+            onChange={() => setWantsCall(true)}
+          />{" "}
+          ☎ Let&apos;s talk it through on a call
+        </label>
+        {wantsCall && (
+          <p className="mt-2">
+            📅 Book a slot at{" "}
+            <a href={CAL_URL} target="_blank" rel="noopener noreferrer">
+              cal.com/simonee
+            </a>{" "}
+            (I&apos;ll remind you after you submit too).
+          </p>
+        )}
+      </fieldset>
 
       <label className="block font-bold" htmlFor="rw-notes">
         Anything else? (optional)

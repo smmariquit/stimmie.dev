@@ -51,6 +51,7 @@ export const NAV_LINKS = [
   { label: "talks", href: "/talks" },
   { label: "blog", href: "/blog" },
   { label: "opportunities", href: "/opportunities" },
+  { label: "resume workshop", href: "/resume-workshop" },
   { label: "links", href: "/links" },
   { label: "changelog", href: "/changelog" },
   { label: "archive", href: "/archive" },
@@ -95,7 +96,10 @@ export const SECTION_STAR = "✹";
 
 function formatLastUpdated(iso) {
   const date = new Date(iso);
-  const month = date.toLocaleString("en-US", { month: "long", timeZone: "UTC" });
+  const month = date.toLocaleString("en-US", {
+    month: "long",
+    timeZone: "UTC",
+  });
   const day = date.getUTCDate();
   const year = date.getUTCFullYear();
   return `${month} ${day}, ${year}`.toLowerCase();

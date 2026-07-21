@@ -118,6 +118,7 @@ export default function ResumeWorkshopPage() {
     <PageShell
       title="~ resume workshop ~"
       intro="Stimmie's resume and portfolio workshop. Extra eyes on your resume, portfolio, or interview prep. Pay-as-you-can."
+      current="/resume-workshop"
       maxWidth="56rem"
     >
       <p>

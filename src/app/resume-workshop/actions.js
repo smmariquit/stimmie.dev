@@ -25,6 +25,7 @@ export async function submitWorkshopRequest(_prevState, formData) {
   const name = field("name", 200);
   const contact = field("contact", 300);
   const need = field("need", 100);
+  const feedback = field("feedback", 100);
   const link = field("link", 1000);
   const notes = field("notes", 5000);
 
@@ -39,6 +40,7 @@ export async function submitWorkshopRequest(_prevState, formData) {
     `Name: ${name}`,
     `Contact: ${contact}`,
     `Needs: ${need || "(not specified)"}`,
+    `Feedback via: ${feedback || "(not specified)"}`,
     `Link: ${link || "(none)"}`,
     "",
     notes || "(no notes)",
