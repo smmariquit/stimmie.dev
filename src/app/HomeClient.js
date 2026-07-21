@@ -208,6 +208,27 @@ export default function HomeClient({ mediaData, version }) {
 
             <StarDivider />
 
+            <NeoSection title="resume workshop" id="resume-workshop">
+              <div
+                className="text-center p-5"
+                style={{ border: "3px double #d6008f", background: "#fff7fb" }}
+              >
+                <p className="mx-auto mb-3">
+                  Applying as a student assistant, joining an org, or hunting
+                  an internship? Send me your resume or portfolio for a free,
+                  pay-as-you-can review. 20+ people helped and counting!
+                </p>
+                <Link
+                  href="/resume-workshop"
+                  className="neo-link-card inline-block font-bold"
+                >
+                  📨 get your resume reviewed
+                </Link>
+              </div>
+            </NeoSection>
+
+            <StarDivider />
+
             <NeoSection
               title="my projects"
               id="projects"

@@ -2,6 +2,7 @@
 
 export const SECTION_LINKS = [
   { label: "about me", href: "#about" },
+  { label: "resume workshop", href: "#resume-workshop" },
   { label: "projects", href: "#projects" },
   { label: "talks", href: "#talks" },
   { label: "writing", href: "#writing" },
