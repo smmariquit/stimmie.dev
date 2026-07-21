@@ -28,6 +28,9 @@ export const TODO_TARGET = "https://docs.google.com/presentation/d/...";
 // category -> { slug -> destination }
 export const redirectMap = {
   workshops: {
+    // Historic share link for the resume workshop (used to point at a
+    // now-deleted Google Form). Keep the slug alive forever.
+    resume: "https://stimmie.dev/resume-workshop",
     "dsg-codeit-day1": TODO_TARGET,
     "dsg-codeit-day2": TODO_TARGET,
     "nextstep-hacks": TODO_TARGET,

@@ -1204,6 +1204,20 @@ body {
   box-shadow: 4px 4px 0 var(--neo-accent-magenta);
 }
 
+.neo-input {
+  display: block;
+  width: 100%;
+  background: #fffef5;
+  border: 2px solid #1a1a1a;
+  padding: 0.55rem 0.75rem;
+  font-family: var(--neo-ui);
+  font-size: 1rem;
+}
+.neo-input:focus {
+  outline: 3px solid var(--neo-accent-magenta);
+  outline-offset: 1px;
+}
+
 .neo-tag {
   display: inline-block;
   font-family: var(--neo-ui);

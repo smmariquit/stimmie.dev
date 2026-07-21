@@ -8,6 +8,10 @@ import { useEffect } from "react";
 
 // Workshop redirects - add your workshop links here!
 const workshops = {
+  resume: {
+    title: "Stimmie's Resume & Portfolio Workshop",
+    url: "https://stimmie.dev/resume-workshop",
+  },
   "dsg-codeit-day1": {
     title: "UPLB DSG x UPRHS CodeIT Workshop Day 1",
     url: "https://docs.google.com/presentation/d/YOUR_PRESENTATION_ID_1",
