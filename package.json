@@ -22,7 +22,7 @@
     "framer-motion": "^12.42.2",
     "next": "^16.2.10",
     "react": "19.2.8",
-    "react-dom": "19.2.0",
+    "react-dom": "19.2.8",
     "react-github-calendar": "^5.0.6",
     "rss-parser": "^3.13.0"
   },
