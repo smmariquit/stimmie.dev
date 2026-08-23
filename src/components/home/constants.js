@@ -61,6 +61,41 @@ export const NAV_LINKS = [
 // Friends & neighbors on the web. Newest friends go at the top.
 export const FRIENDS = [
   {
+    name: "Keith Fajardo",
+    url: "https://keithfajardo.com",
+    blurb: "analytics engineer, dbt developer & trainer",
+  },
+  {
+    name: "Arron Parejas",
+    url: "https://domodomo.site",
+    blurb: "makes free browser tools & AI utilities",
+  },
+  {
+    name: "Eirmon John Paculan",
+    url: "https://riecodes.com",
+    blurb: "full-stack dev building web, mobile, IoT & computer vision",
+  },
+  {
+    name: "John Carlo Santos",
+    url: "https://kuyacarlo.dev",
+    blurb: "data engineer, DevOps builder & hackathon competitor",
+  },
+  {
+    name: "Richard Parayno",
+    url: "https://richardparayno.com",
+    blurb: "HCI researcher, community leader & design engineer",
+  },
+  {
+    name: "Artemio Arcega",
+    url: "https://artemiui.vercel.app",
+    blurb: "a collection of ideas and pixels",
+  },
+  {
+    name: "Iyel Villanueva Rodriguez",
+    url: "https://gilrodriguez.rxrcode.dev/",
+    blurb: "Shopify developer & commerce engineer",
+  },
+  {
     name: "Rovic",
     url: "https://rovicdesign.framer.website/",
     blurb: "GOATed UX guy, first hackathon teammate",
