@@ -3103,4 +3103,135 @@ export const opportunityBoardItems = [
       beginnerFriendly: true,
       blurb: "GitHub's annual global game jam themed around a surprise prompt revealed on day one, built for programmers of any skill level and engine.",
     },
+    {
+      title: "Global Innovation Build Challenge V2 (GIBC V2)",
+      type: "hackathon",
+      url: "https://gibc-v2.devpost.com/",
+      org: "Kang Chiao International School (KCIS)",
+      location: "Online",
+      dates: [
+        {
+          label: "Build period",
+          date: "2026-07-11",
+          endDate: "2026-09-21",
+        },
+        {
+          label: "Submission deadline",
+          date: "2026-09-21",
+        },
+      ],
+      blurb: "Student-led global hackathon on foundational LLMs, applied AI, and open invention. Solo or teams up to 6, $148k+ in non-cash prizes.",
+    },
+    {
+      title: "Hack for Humanity: Summer 2026",
+      type: "hackathon",
+      url: "https://hack-for-humanity-summer-26.devpost.com/",
+      org: "Hack for Humanity",
+      location: "Online",
+      dates: [
+        {
+          label: "Submission deadline",
+          date: "2026-09-04",
+        },
+      ],
+      beginnerFriendly: true,
+      blurb: "AI for mental and physical health hackathon, teams of 2-4, no prior experience required. Cash and non-cash prizes on Devpost.",
+    },
+    {
+      title: "RevenueCat Shipaton 2026",
+      type: "hackathon",
+      url: "https://revenuecat-shipaton-2026.devpost.com/",
+      org: "RevenueCat",
+      location: "Online",
+      dates: [
+        {
+          label: "Ship window",
+          date: "2026-08-01",
+          endDate: "2026-09-30",
+        },
+        {
+          label: "Submission deadline",
+          date: "2026-09-30",
+        },
+      ],
+      blurb: "Ship a brand new app and integrate the RevenueCat SDK during the event window. Global online competition with a $740k cash prize pool.",
+    },
+    {
+      title: "GatewayHacks 2026",
+      type: "hackathon",
+      url: "https://gatewayhacks-2026.devpost.com/",
+      org: "GatewayGS",
+      location: "Online",
+      dates: [
+        {
+          label: "Hackathon window",
+          date: "2026-09-01",
+          endDate: "2026-10-02",
+        },
+      ],
+      beginnerFriendly: true,
+      blurb: "Fully virtual, four-week hackathon open to anyone from first-time coders to experienced ML engineers. $53,585 in cash prizes.",
+    },
+    {
+      title: "Global Hack Week: Hacktoberfest",
+      type: "hackathon",
+      url: "https://ghw.mlh.com/events/open-source",
+      org: "Major League Hacking",
+      location: "Online",
+      dates: [
+        {
+          label: "Event",
+          date: "2026-10-09",
+          endDate: "2026-10-15",
+        },
+      ],
+      beginnerFriendly: true,
+      blurb: "A free online week of open-source challenges, workshops, and community sessions for students who want portfolio-ready contributions.",
+    },
+    {
+      title: "PCAFPD Scholarship",
+      type: "program",
+      url: "https://rpcvphilippines.org/applications/",
+      org: "Peace Corps Alumni Foundation for Philippine Development",
+      location: "Philippines",
+      dates: [
+        {
+          label: "Application deadline",
+          date: "2026-09-30",
+        },
+      ],
+      beginnerFriendly: true,
+      blurb: "Undergraduate and graduate scholarships for Filipino students with financial need who commit to working in the Philippines after graduation.",
+    },
+    {
+      title: "DOST-SEI Undergraduate Scholarship 2027",
+      type: "program",
+      url: "https://www.science-scholarships.ph/",
+      org: "DOST Science Education Institute",
+      location: "Philippines",
+      dates: [
+        {
+          label: "Application deadline",
+          date: "2026-09-17",
+        },
+      ],
+      beginnerFriendly: true,
+      blurb: "Free undergraduate scholarship for Grade 12 graduating students or SHS grads not yet in college, STEM strand or top 5% of non-STEM classes.",
+    },
+    {
+      title: "Accenture Philippines Internship Program",
+      type: "internship",
+      url: "https://www.accenture.com/ph-en/careers/jobsearch?jk=%22internship%22",
+      org: "Accenture Philippines",
+      location: "Philippines",
+      blurb: "Rolling internship intake for undergraduates at four-year colleges and universities to work on real client projects. Third-year students and up.",
+    },
+    {
+      title: "PLDT Enhanced Internship Program",
+      type: "internship",
+      url: "https://careers.pldt.com.ph/content/Internships/?locale=en_US",
+      org: "PLDT",
+      location: "Onsite / Philippines",
+      blurb: "Onsite internship in IT, data science, cybersecurity, network engineering, or ICT business, with fast-track conversion for top performers.",
+    },
 ];
