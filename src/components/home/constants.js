@@ -61,6 +61,21 @@ export const NAV_LINKS = [
 // Friends & neighbors on the web. Newest friends go at the top.
 export const FRIENDS = [
   {
+    name: "Marsh (brickwall2900)",
+    url: "https://brickwall2900.github.io",
+    blurb: "Java dev who builds stuff for the love of it 😅",
+  },
+  {
+    name: "Ken Ramiscal",
+    url: "https://kendan.dev",
+    blurb: "web developer building SvelteKit apps & IoT projects",
+  },
+  {
+    name: "Kalinaw Lukas Aom Bebis",
+    url: "https://lukasbebis.com",
+    blurb: "CS student & fullstack dev exploring SolidJS and systems",
+  },
+  {
     name: "Keith Fajardo",
     url: "https://keithfajardo.com",
     blurb: "analytics engineer, dbt developer & trainer",
