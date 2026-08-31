@@ -3234,4 +3234,196 @@ export const opportunityBoardItems = [
       location: "Onsite / Philippines",
       blurb: "Onsite internship in IT, data science, cybersecurity, network engineering, or ICT business, with fast-track conversion for top performers.",
     },
+    {
+      title: "NextStep Hacks 2026",
+      type: "hackathon",
+      url: "https://nextstep2026.devpost.com/",
+      org: "HackAlphaX",
+      location: "Online",
+      dates: [
+        {
+          label: "Submission deadline",
+          date: "2026-09-13",
+        },
+      ],
+      beginnerFriendly: true,
+      blurb: "Beginner-friendly online hackathon for student teams building a tech solution to an environmental problem in their community or the world.",
+    },
+    {
+      title: "Beginner's Paradise: FirstCommit",
+      type: "hackathon",
+      url: "https://firstcommit.devpost.com/",
+      org: "FirstCommit",
+      location: "Online",
+      dates: [
+        {
+          label: "Submission deadline",
+          date: "2026-09-30",
+        },
+      ],
+      beginnerFriendly: true,
+      blurb: "Online hackathon for students ages 13 to 21 making their first coding project, judged on learning and growth over polish.",
+    },
+    {
+      title: "Next Founders Hackathon",
+      type: "hackathon",
+      url: "https://next-founders.devpost.com/",
+      org: "Next Founders",
+      location: "Online",
+      dates: [
+        {
+          label: "Submission deadline",
+          date: "2026-10-15",
+        },
+      ],
+      beginnerFriendly: true,
+      blurb: "Low/no-code friendly online hackathon for students ages 13 to 22 to build a product, platform, or tool the way a startup would.",
+    },
+    {
+      title: "OpenCV AI Competition 2026",
+      type: "hackathon",
+      url: "https://opencv26.devpost.com/",
+      org: "OpenCV Foundation, powered by AWS",
+      location: "Online",
+      dates: [
+        {
+          label: "Build phase",
+          date: "2026-08-26",
+          endDate: "2026-10-26",
+        },
+        {
+          label: "Final submission deadline",
+          date: "2026-10-26",
+        },
+      ],
+      blurb: "Global online computer vision competition to build vision systems on OpenCV 5 and AWS, with a $12,000 prize pool and cloud compute grants.",
+    },
+    {
+      title: "UnivaBio",
+      type: "hackathon",
+      url: "https://univabio.devpost.com/",
+      org: "BioCatalysis and UnivaDev",
+      location: "Online",
+      dates: [
+        {
+          label: "Submission deadline",
+          date: "2026-10-06",
+        },
+      ],
+      beginnerFriendly: true,
+      blurb: "Beginner-friendly student hackathon on AI for human health, building products to help detect illness earlier or live with it more easily.",
+    },
+    {
+      title: "MLH Global Hack Week: Builders Week",
+      type: "hackathon",
+      url: "https://ghw.mlh.com/events/builders-week",
+      org: "Major League Hacking",
+      location: "Online",
+      dates: [
+        {
+          label: "Event week",
+          date: "2026-11-06",
+          endDate: "2026-11-12",
+        },
+      ],
+      beginnerFriendly: true,
+      blurb: "Free, fully online week from Major League Hacking with beginner-friendly workshops and challenges built around what it means to be a builder.",
+    },
+    {
+      title: "Hawktober Horrors 2026",
+      type: "game-jam",
+      url: "https://itch.io/jam/hawktoberhorrors2026",
+      org: "HawkZombie",
+      location: "Online",
+      dates: [
+        {
+          label: "Submission window",
+          date: "2026-09-01",
+          endDate: "2026-10-03",
+        },
+      ],
+      beginnerFriendly: true,
+      blurb: "Month-long online horror game jam now in its ninth year, themed around fractured narratives this round. Games run on Windows or in browser.",
+    },
+    {
+      title: "Uplifting Game Jam",
+      type: "game-jam",
+      url: "https://itch.io/jam/uplifting-game-jam-9",
+      org: "itch.io community",
+      location: "Online",
+      dates: [
+        {
+          label: "Submission window",
+          date: "2026-09-01",
+          endDate: "2026-09-14",
+        },
+      ],
+      beginnerFriendly: true,
+      blurb: "Two-week online game jam with the prompt to make a game that uplifts, inspires, and brings joy. Cash prizes for the top five entries.",
+    },
+    {
+      title: "Digital Pet Jam",
+      type: "game-jam",
+      url: "https://itch.io/jam/digital-pet-jam",
+      org: "itch.io community",
+      location: "Online",
+      dates: [
+        {
+          label: "Submission window",
+          date: "2026-09-25",
+          endDate: "2026-10-31",
+        },
+      ],
+      beginnerFriendly: true,
+      blurb: "Unranked, prize-free online jam about digital pets, open to games, art, writing, music, or zines made during the window.",
+    },
+    {
+      title: "Craftpix Indie Jam #1-2026",
+      type: "game-jam",
+      url: "https://itch.io/jam/craftpix-indie-jam-1-2026",
+      org: "Craftpix",
+      location: "Online",
+      dates: [
+        {
+          label: "Building period",
+          date: "2026-09-03",
+          endDate: "2026-09-14",
+        },
+        {
+          label: "Voting period",
+          date: "2026-09-14",
+          endDate: "2026-09-25",
+        },
+      ],
+      beginnerFriendly: true,
+      blurb: "12-day online game jam asking entrants to build a fun, streamable game using at least one free Craftpix asset.",
+    },
+    {
+      title: "AWS Community Day Cebu 2026",
+      type: "event",
+      url: "https://commday2026.awsugcebu.org/",
+      org: "AWS User Group Cebu",
+      location: "University of the Philippines Cebu, Cebu City",
+      dates: [
+        {
+          label: "Event date",
+          date: "2026-09-12",
+        },
+      ],
+      blurb: "Community-led day of cloud and AI sessions, hands-on labs, and parallel technical tracks hosted by AWS User Group Cebu at UP Cebu.",
+    },
+    {
+      title: "AWS Student Community Day: Mega Manila 2026",
+      type: "event",
+      url: "https://www.aws-scd.cloud/",
+      org: "AWS Student User Group Philippines and AWS Student Builder Group Alpha",
+      location: "Asia Pacific College, Makati City",
+      dates: [
+        {
+          label: "Event date",
+          date: "2026-09-11",
+        },
+      ],
+      blurb: "Student-focused cloud event with workshops, tech talks, and competitions across AI agents, AWS technologies, and cloud architecture tracks.",
+    },
 ];
