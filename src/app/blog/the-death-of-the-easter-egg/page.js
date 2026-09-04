@@ -303,7 +303,7 @@ export default function TheDeathOfTheEasterEggPage() {
         </p>
 
         <p>
-          Perhaps the point was only ever this: that somewhere in the binary
+          Perhaps the point was only ever this: that somewhere in the program
           there is a wall with a name on it, and the name is there because a
           person was.
         </p>
