@@ -68,6 +68,12 @@ export default function TheDeathOfTheEasterEggPage() {
         </p>
 
         <Figure
+          src="/blog/easter-egg/excel97-credits.jpg"
+          alt="A black slab in the Excel 97 flight simulator with the names of the developers printed on it: Amit Dekate, Bob Coffen, Dan Egnor, John Kruper, Kevin Fischer, Rich Kaethler, and the word Externals"
+          caption="The monolith. Those are real people. Some of them are probably still at Microsoft."
+        />
+
+        <Figure
           src="/blog/easter-egg/excel97-blue-terrain.jpg"
           alt="Rolling blue mountains in the Excel 97 flight simulator, low resolution"
           caption="The same terrain, another day. It was generated at random, which meant no two people saw quite the same hills."
