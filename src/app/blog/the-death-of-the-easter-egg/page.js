@@ -7,6 +7,21 @@ export const metadata = {
   title: "The Death of the Easter Egg",
   description:
     "Somebody hid a flight simulator inside a spreadsheet once. Then the code started writing itself, and nobody had a reason to leave a piece of themselves behind.",
+  openGraph: {
+    title: "The Death of the Easter Egg",
+    description:
+      "Somebody hid a flight simulator inside a spreadsheet once. Then the code started writing itself, and nobody had a reason to leave a piece of themselves behind.",
+    url: "https://stimmie.dev/blog/the-death-of-the-easter-egg",
+    type: "article",
+    images: [{ url: "/blog/easter-egg/og.png", width: 1080, height: 1080, alt: "The Death of the Easter Egg" }],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "The Death of the Easter Egg",
+    description:
+      "Somebody hid a flight simulator inside a spreadsheet once. Then the code started writing itself, and nobody had a reason to leave a piece of themselves behind.",
+    images: ["/blog/easter-egg/og.png"],
+  },
 };
 
 function Figure({ src, alt, caption, narrow }) {
