@@ -168,6 +168,12 @@ export default function PrivacyAmongUsPage() {
         </p>
 
         <p>
+          If the name Decentraleyes rings a bell, it is the same idea. LocalCDN started in 2020 as a fork of
+          Decentraleyes with a longer list of libraries and CDNs, and it is the one that still gets regular updates.
+          Run one or the other, never both, or they will fight over the same requests.
+        </p>
+
+        <p>
           The old argument against this was that shared CDNs were good for speed, because a copy of jQuery cached
           from one site could be reused on the next. That argument is dead now. Browsers partition the HTTP cache by
           the site you are on, so a file cached from site A does not help on site B. Safari has done this since 2013,
