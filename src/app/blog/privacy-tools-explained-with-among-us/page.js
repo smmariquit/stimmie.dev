@@ -231,6 +231,8 @@ export default function PrivacyAmongUsPage() {
 
         <p className="text-sm neo-muted">
           Also on{" "}
+          <a href="https://dev.to/stimmie/privacy-tools-explained-with-among-us-2j85">Dev.to</a>,{" "}
+          <a href="https://stimmie.hashnode.dev/privacy-tools-explained-with-among-us">Hashnode</a>, and{" "}
           <a href="https://medium.com/@stimmieuwu/privacy-tools-explained-with-among-us-6d8a0bd4179c">Medium</a>{" "}
           (the short original). Source and images on{" "}
           <a href="https://github.com/smmariquit/stimmie.dev">GitHub</a>.
