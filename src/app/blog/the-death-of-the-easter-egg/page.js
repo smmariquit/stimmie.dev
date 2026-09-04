@@ -253,6 +253,13 @@ export default function TheDeathOfTheEasterEggPage() {
           caption="The Konami code. Type it on the right website and confetti falls, or the page flips, or a dinosaur appears. It has been the default hidden thing since the eighties."
         />
 
+        <Figure
+          src="/blog/easter-egg/npm-konami.jpg"
+          alt="npm search results for konami code, showing over a thousand packages that listen for the sequence"
+          caption="Over a thousand packages on npm that listen for it. You do not write the easter egg. You install it."
+          narrow
+        />
+
         <h2>What I am not saying</h2>
 
         <p>
