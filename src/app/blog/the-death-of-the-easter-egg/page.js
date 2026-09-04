@@ -332,8 +332,9 @@ export default function TheDeathOfTheEasterEggPage() {
         <p className="text-sm neo-muted">
           Also on{" "}
           <a href="https://dev.to/stimmie/the-death-of-the-easter-egg-25kl">Dev.to</a>,{" "}
-          <a href="https://medium.com/@stimmieuwu/the-death-of-the-easter-egg-cde1ef47a66b">Medium</a>, and{" "}
-          <a href="https://stimmie.hashnode.dev/the-death-of-the-easter-egg">Hashnode</a>.
+          <a href="https://medium.com/@stimmieuwu/the-death-of-the-easter-egg-cde1ef47a66b">Medium</a>,{" "}
+          <a href="https://stimmie.hashnode.dev/the-death-of-the-easter-egg">Hashnode</a>, and{" "}
+          <a href="https://www.linkedin.com/pulse/death-easter-egg-simon-ezekiel-mariquit-ebgze/">LinkedIn</a>.
           Source and images on{" "}
           <a href="https://github.com/smmariquit/stimmie.dev">GitHub</a>.
         </p>
