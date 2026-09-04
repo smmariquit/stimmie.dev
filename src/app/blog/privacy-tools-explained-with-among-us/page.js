@@ -73,8 +73,8 @@ export default function PrivacyAmongUsPage() {
 
         <p>
           In Among Us terms, the site you typed in is the ship you boarded. Every third-party request is a crewmate
-          who walked in from somewhere else. Some of them are doing tasks: the font, the script library. Some of them
-          are impostors: the analytics pixel whose only job is to remember you were here. The problem is that from the
+          who walked in from somewhere else. Some of them are doing tasks, like the font and the script library. Some of them
+          are impostors, like the analytics pixel whose only job is to remember you were here. The problem is that from the
           outside they look identical. Each one is a request leaving your browser, and each request carries your IP
           address and the page you are on.
         </p>
@@ -83,7 +83,7 @@ export default function PrivacyAmongUsPage() {
           The three tools are three different ways of dealing with the crew.
         </p>
 
-        <h2>Adblockers: the wanted poster</h2>
+        <h2>The wanted poster</h2>
 
         <p>
           uBlock Origin, AdBlock Plus, and the rest work from filter lists. The big one is EasyList, which removes most
@@ -100,7 +100,7 @@ export default function PrivacyAmongUsPage() {
           past until a maintainer notices and adds it.
         </p>
 
-        <h2>Privacy Badger: the sus meter</h2>
+        <h2>The sus meter</h2>
 
         <p>
           Privacy Badger is made by the Electronic Frontier Foundation and it deliberately does not use a list. Their
@@ -119,14 +119,14 @@ export default function PrivacyAmongUsPage() {
         <Figure
           src="/blog/privacy-among-us/diagram-2.png"
           alt="Diagram showing a tracker domain observed on site A, site B, and site C, filling three strikes, then being blocked"
-          caption="Three sites, three strikes. That is the whole rule."
+          caption="Three sites, three strikes."
         />
 
         <p>
           That is a sus meter. The crewmate is not on any list. It just keeps turning up in rooms it has no reason to
           be in, and after the third room the Badger calls the meeting and ejects it. Because this is learned rather
           than listed, it catches trackers nobody has written a rule for yet. The extension also ships with a head
-          start: the EFF runs a training project called Badger Sett that visits thousands of popular sites and
+          start. The EFF runs a training project called Badger Sett that visits thousands of popular sites and
           pre-learns the trackers on them, so a fresh install is not starting from zero.
         </p>
 
@@ -138,7 +138,7 @@ export default function PrivacyAmongUsPage() {
           with a click-to-activate placeholder, so the button does not phone home until you press it.
         </p>
 
-        <h2>LocalCDN: never leave the ship</h2>
+        <h2>Never leave the ship</h2>
 
         <p>
           This one handles a leak the other two mostly ignore. Sites do not host every script themselves. A huge
@@ -163,7 +163,7 @@ export default function PrivacyAmongUsPage() {
         <p>
           LocalCDN&apos;s own description is that it emulates content delivery networks. It intercepts the request,
           finds the same library at the same version in a bundle it ships with, and injects that instead. Nothing
-          leaves. In the game: you never have to go to MIRA HQ to pick up your tools, because somebody already stocked
+          leaves. In the game, you never have to go to MIRA HQ to pick up your tools, because somebody already stocked
           the storage room on the ship.
         </p>
 
