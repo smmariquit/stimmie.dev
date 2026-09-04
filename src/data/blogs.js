@@ -2,6 +2,14 @@
 
 export const blogPosts = [
   {
+    slug: "privacy-tools-explained-with-among-us",
+    title: "Privacy tools explained with Among Us",
+    date: "September 4, 2026",
+    excerpt:
+      "An adblocker, Privacy Badger, and LocalCDN do three different jobs. Crewmates, impostors, and one very sus cookie.",
+    coverImage: "/blog/privacy-among-us/cover.jpg",
+  },
+  {
     slug: "the-death-of-the-easter-egg",
     title: "The Death of the Easter Egg",
     date: "September 4, 2026",
