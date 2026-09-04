@@ -31,6 +31,10 @@ const nextConfig = {
     contentSecurityPolicy: "default-src 'self'; script-src 'none'; sandbox;",
   },
 
+  async redirects() {
+    return [{ source: "/blog/on-rereading", destination: "/blog/on-rewatching", permanent: true }];
+  },
+
   env: {
     NEXT_PUBLIC_BUILD_DATE:
       process.env.NEXT_PUBLIC_BUILD_DATE ?? new Date().toISOString(),

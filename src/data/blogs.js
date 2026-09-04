@@ -2,6 +2,14 @@
 
 export const blogPosts = [
   {
+    slug: "the-death-of-the-easter-egg",
+    title: "The Death of the Easter Egg",
+    date: "September 4, 2026",
+    excerpt:
+      "Somebody hid a flight simulator inside a spreadsheet once. Then the code started writing itself.",
+    coverImage: "/blog/default-cover.jpg",
+  },
+  {
     slug: "juneyour",
     title: "Parkour 🤸‍♂️",
     date: "June 1, 2026",
@@ -39,10 +47,10 @@ export const blogPosts = [
     coverImage: "/blog/default-cover.jpg",
   },
   {
-    slug: "on-rereading",
-    title: "On Rereading",
+    slug: "on-rewatching",
+    title: "On Rewatching",
     date: "January 2025",
-    excerpt: "I reread books the way some people revisit restaurants. Not because I've forgotten what's on the menu.",
+    excerpt: "I have watched Your Name five times. I am not entirely sure about the number, but five is what I tell people and five is what I believe.",
     coverImage: "/blog/default-cover.jpg",
   },
 ];

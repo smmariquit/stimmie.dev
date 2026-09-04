@@ -26,7 +26,7 @@ export default function OnWalkingPage() {
 
         <p>I distrust people who never walk. Not in a moral way, I'm not that sort, but in a diagnostic way. Something in them has gone rigid. They have forgotten that the body is not a vehicle for the head. It is the other way around.</p>
 
-        <p>When I cannot write, I walk. When I cannot think, I walk. When I am angry at someone and composing devastating replies in my head, I walk, and by the third kilometer the replies have dissolved and I am watching a mynah bird harass a cat and the anger seems very far away and very silly.</p>
+        <p>When I cannot write, I walk. When I cannot think, I walk. When I am angry at someone and composing devastating replies in my head, I walk, and by the third kilometer the replies have dissolved and I am watching a stray cat cross the road and the anger seems very far away and very silly.</p>
 
         <p>Walking does not solve your problems. It puts them at the correct scale.</p>
       </article>
