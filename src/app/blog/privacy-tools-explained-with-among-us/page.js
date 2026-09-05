@@ -67,7 +67,7 @@ export default function PrivacyAmongUsPage() {
         <Figure
           src="/blog/privacy-among-us/diagram-1.png"
           alt="One load of the inquirer.net front page on 5 September 2026. Three first-party hosts on the left. Twenty-four third-party hosts on the right with request counts, led by fundingchoicesmessages.google.com, doubleclick, googlesyndication, izooto, and Google Fonts."
-          caption="I loaded the Inquirer front page once while writing this and logged every request. The three hosts on the left belong to the Inquirer. The twenty-four on the right do not."
+          caption="Every request the Inquirer front page made in one load on 5 September 2026, split by who received it."
         />
 
         <p>
@@ -115,7 +115,7 @@ export default function PrivacyAmongUsPage() {
         <Figure
           src="/blog/privacy-among-us/diagram-2.png"
           alt="Table of eight companies that appeared on the front pages of inquirer.net, rappler.com, and philstar.com in the same afternoon: doubleclick.net, googlesyndication.com, criteo, creativecdn.com, openxcdn.net, adtrafficquality.google, and google.com, with request counts per site."
-          caption="Three Philippine news sites, one afternoon. Eight companies were on all three. That is the pattern Privacy Badger is built to notice."
+          caption="Front pages of the Inquirer, Rappler, and Philstar, loaded one after another on 5 September 2026. Each number is how many requests that company received during the load."
         />
 
         <p>
