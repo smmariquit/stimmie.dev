@@ -31,6 +31,27 @@ function Figure({ src, alt, caption }) {
   );
 }
 
+const TOOLS = [
+  ["uBlock Origin", "https://ublockorigin.com/", "ublock"],
+  ["AdBlock Plus", "https://adblockplus.org/", "adblockplus"],
+  ["Privacy Badger", "https://privacybadger.org/", "privacy-badger"],
+  ["LocalCDN", "https://www.localcdn.org/", "localcdn"],
+  ["Decentraleyes", "https://decentraleyes.org/", "decentraleyes"],
+];
+
+function ToolRow() {
+  return (
+    <ul className="my-6 flex flex-wrap gap-x-6 gap-y-3 list-none p-0">
+      {TOOLS.map(([name, href, icon]) => (
+        <li key={icon} className="flex items-center gap-2">
+          <img src={`/blog/privacy-among-us/logos/${icon}.png`} alt="" width="32" height="32" loading="lazy" />
+          <a href={href}>{name}</a>
+        </li>
+      ))}
+    </ul>
+  );
+}
+
 export default function PrivacyAmongUsPage() {
   return (
     <PageShell title="Privacy tools explained with Among Us" current="/blog" maxWidth="52rem">
@@ -85,7 +106,7 @@ export default function PrivacyAmongUsPage() {
         <h2>The wanted poster</h2>
 
         <p>
-          uBlock Origin, AdBlock Plus, and the rest work from filter lists. The big one is <a href="https://easylist.to/">EasyList</a>, which removes most adverts from international webpages and is maintained by four people (<a href="https://github.com/ryanbr">Fanboy</a>, <a href="https://github.com/monzta">MonztA</a>, <a href="https://github.com/Khrin">Khrin</a>, and <a href="https://github.com/Yuki2718">Yuki2718</a>) with help from a forum. Its sibling <a href="https://easylist.to/easylist/easyprivacy.txt">EasyPrivacy</a> targets tracking rather than ads. A filter list is a long set
+          <a href="https://ublockorigin.com/">uBlock Origin</a>, <a href="https://adblockplus.org/">AdBlock Plus</a>, and the rest work from filter lists. The big one is <a href="https://easylist.to/">EasyList</a>, which removes most adverts from international webpages and is maintained by four people (<a href="https://github.com/ryanbr">Fanboy</a>, <a href="https://github.com/monzta">MonztA</a>, <a href="https://github.com/Khrin">Khrin</a>, and <a href="https://github.com/Yuki2718">Yuki2718</a>) with help from a forum. Its sibling <a href="https://easylist.to/easylist/easyprivacy.txt">EasyPrivacy</a> targets tracking rather than ads. A filter list is a long set
           of rules that match URLs and page elements. If a request matches a rule, the blocker stops it before it
           leaves your browser.
         </p>
@@ -100,7 +121,7 @@ export default function PrivacyAmongUsPage() {
         <h2>The sus meter</h2>
 
         <p>
-          Privacy Badger is made by the Electronic Frontier Foundation and it deliberately does not use a list. Their
+          <a href="https://privacybadger.org/">Privacy Badger</a> is made by the Electronic Frontier Foundation and it deliberately does not use a list. Their
           FAQ puts it plainly: they define what tracking looks like, and the extension blocks domains it observes
           tracking in the wild. What counts as a tracker depends on how a domain behaves, not on anybody&apos;s
           judgment.
@@ -157,14 +178,14 @@ export default function PrivacyAmongUsPage() {
         />
 
         <p>
-          LocalCDN&apos;s own description is that it emulates content delivery networks. It intercepts the request,
+          <a href="https://www.localcdn.org/">LocalCDN</a>&apos;s own description is that it emulates content delivery networks. It intercepts the request,
           finds the same library at the same version in a bundle it ships with, and injects that instead. Nothing
           leaves. In the game, you never have to go to MIRA HQ to pick up your tools, because somebody already stocked
           the storage room on the ship.
         </p>
 
         <p>
-          If the name Decentraleyes rings a bell, it is the same idea. LocalCDN started in 2020 as a fork of
+          If the name <a href="https://decentraleyes.org/">Decentraleyes</a> rings a bell, it is the same idea. LocalCDN started in 2020 as a fork of
           Decentraleyes with a longer list of libraries and CDNs, and it is the one that still gets regular updates.
           Run one or the other, never both, or they will fight over the same requests.
         </p>
@@ -183,6 +204,8 @@ export default function PrivacyAmongUsPage() {
           Put the three side by side and the overlap is smaller than the &quot;install all of these&quot; advice
           suggests.
         </p>
+
+        <ToolRow />
 
         <ul>
           <li>
