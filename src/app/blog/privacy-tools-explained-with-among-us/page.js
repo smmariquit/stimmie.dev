@@ -61,14 +61,13 @@ export default function PrivacyAmongUsPage() {
         <p>
           A web page is not one place. When you open a news article, the article itself comes from the news site, but
           the fonts might come from Google, the script library from a CDN, the ads from an ad company, the comments
-          from a company the news site contracted, and the Like button from Facebook. The EFF&apos;s own explanation of
-          Privacy Badger starts from exactly this picture, and it is the right place to start.
+          from a company the news site contracted, and the Like button from Facebook. The EFF&apos;s own explanation of Privacy Badger starts from exactly this picture, and it is the right place to start. To check it was not an exaggeration I loaded the Inquirer front page once and logged every request. Three hosts were the Inquirer. Twenty-four were other companies, and they got fifty-four requests between them.
         </p>
 
         <Figure
           src="/blog/privacy-among-us/diagram-1.png"
-          alt="Diagram of a news page loading resources from five third-party domains: Google Fonts, cdnjs, an ad network, an analytics tracker, and a Facebook Like button"
-          caption="The site you typed in is the first party. Everyone else is a third party."
+          alt="One load of the inquirer.net front page on 5 September 2026. Three first-party hosts on the left. Twenty-four third-party hosts on the right with request counts, led by fundingchoicesmessages.google.com, doubleclick, googlesyndication, izooto, and Google Fonts."
+          caption="I loaded the Inquirer front page once while writing this and logged every request. The three hosts on the left belong to the Inquirer. The twenty-four on the right do not."
         />
 
         <p>
@@ -86,9 +85,7 @@ export default function PrivacyAmongUsPage() {
         <h2>The wanted poster</h2>
 
         <p>
-          uBlock Origin, AdBlock Plus, and the rest work from filter lists. The big one is EasyList, which removes most
-          adverts from international webpages and is maintained by four people (Fanboy, MonztA, Khrin, and Yuki2718)
-          with help from a forum. Its sibling EasyPrivacy targets tracking rather than ads. A filter list is a long set
+          uBlock Origin, AdBlock Plus, and the rest work from filter lists. The big one is <a href="https://easylist.to/">EasyList</a>, which removes most adverts from international webpages and is maintained by four people (<a href="https://github.com/ryanbr">Fanboy</a>, <a href="https://github.com/monzta">MonztA</a>, <a href="https://github.com/Khrin">Khrin</a>, and <a href="https://github.com/Yuki2718">Yuki2718</a>) with help from a forum. Its sibling <a href="https://easylist.to/easylist/easyprivacy.txt">EasyPrivacy</a> targets tracking rather than ads. A filter list is a long set
           of rules that match URLs and page elements. If a request matches a rule, the blocker stops it before it
           leaves your browser.
         </p>
@@ -112,14 +109,13 @@ export default function PrivacyAmongUsPage() {
         <p>
           Concretely, it watches the third-party domains that embed images, scripts, and ads in the pages you visit,
           and it looks for the techniques trackers use: cookies that uniquely identify you, local storage
-          &quot;supercookies&quot;, canvas fingerprinting. If it sees the same third-party host doing that on three
-          separate sites, it stops loading anything from that host.
+          &quot;supercookies&quot;, canvas fingerprinting. If it sees the same third-party host doing that on three separate sites, it stops loading anything from that host. That number is not hard to hit. I opened the Inquirer, Rappler, and Philstar front pages in a row and eight companies were waiting on all three.
         </p>
 
         <Figure
           src="/blog/privacy-among-us/diagram-2.png"
-          alt="Diagram showing a tracker domain observed on site A, site B, and site C, filling three strikes, then being blocked"
-          caption="Three sites, three strikes."
+          alt="Table of eight companies that appeared on the front pages of inquirer.net, rappler.com, and philstar.com in the same afternoon: doubleclick.net, googlesyndication.com, criteo, creativecdn.com, openxcdn.net, adtrafficquality.google, and google.com, with request counts per site."
+          caption="Three Philippine news sites, one afternoon. Eight companies were on all three. That is the pattern Privacy Badger is built to notice."
         />
 
         <p>
