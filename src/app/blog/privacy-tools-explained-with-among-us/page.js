@@ -166,11 +166,33 @@ export default function PrivacyAmongUsPage() {
           &quot;supercookies&quot;, canvas fingerprinting. If it sees the same third-party host doing that on three separate sites, it stops loading anything from that host. That number is not hard to hit. I opened the Inquirer, Rappler, and Philstar front pages in a row and eight companies were waiting on all three.
         </p>
 
-        <Figure
-          src="/blog/privacy-among-us/diagram-2.png"
-          alt="Table of eight companies that appeared on the front pages of inquirer.net, rappler.com, and philstar.com in the same afternoon: doubleclick.net, googlesyndication.com, criteo, creativecdn.com, openxcdn.net, adtrafficquality.google, and google.com, with request counts per site."
-          caption="Front pages of the Inquirer, Rappler, and Philstar, loaded one after another on 5 September 2026. Each number is how many requests that company received during the load."
-        />
+        <table className="my-6 w-full text-sm border-collapse font-mono">
+          <thead>
+            <tr className="border-b-2 border-current text-left">
+              <th className="py-1 pr-4">Domain</th><th className="py-1 pr-4 text-right">Inquirer</th><th className="py-1 pr-4 text-right">Rappler</th><th className="py-1 text-right">Philstar</th>
+            </tr>
+          </thead>
+          <tbody>
+            {[
+              ["googlesyndication.com", 5, 26, 43],
+              ["doubleclick.net", 5, 27, 32],
+              ["google.com", 15, 24, 22],
+              ["adtrafficquality.google", 5, 5, 5],
+              ["criteo.com", 1, 3, 9],
+              ["creativecdn.com", 1, 3, 4],
+              ["criteo.net", 1, 1, 1],
+              ["openxcdn.net", 1, 1, 1],
+            ].map(([host, a, b, c]) => (
+              <tr key={host} className="border-t border-current">
+                <td className="py-1 pr-4 break-all">{host}</td>
+                <td className="py-1 pr-4 text-right">{a}</td>
+                <td className="py-1 pr-4 text-right">{b}</td>
+                <td className="py-1 text-right">{c}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+        <p className="text-sm neo-muted font-mono">Front pages of the Inquirer, Rappler, and Philstar, loaded one after another on 5 September 2026. Each number is how many requests that domain received during the load.</p>
 
         <p>
           That is a sus meter. The crewmate is not on any list. It just keeps turning up in rooms it has no reason to
@@ -204,11 +226,20 @@ export default function PrivacyAmongUsPage() {
           all day.
         </p>
 
-        <Figure
-          src="/blog/privacy-among-us/diagram-3.png"
-          alt="Two flows. Without LocalCDN a request for jquery.min.js goes to cdnjs.cloudflare.com, which logs it. With LocalCDN the request is answered inside the browser and never leaves."
-          caption="Same file either way. Only one of them tells Cloudflare about it."
-        />
+        <table className="my-6 w-full text-sm border-collapse font-mono">
+          <thead>
+            <tr className="border-b-2 border-current text-left">
+              <th className="py-1 pr-4"></th><th className="py-1 pr-4">Without LocalCDN</th><th className="py-1">With LocalCDN</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr className="border-t border-current"><td className="py-1 pr-4">Page asks for</td><td className="py-1 pr-4 break-all">cdnjs.cloudflare.com/.../jquery.min.js</td><td className="py-1 break-all">cdnjs.cloudflare.com/.../jquery.min.js</td></tr>
+            <tr className="border-t border-current"><td className="py-1 pr-4">Answered by</td><td className="py-1 pr-4">Cloudflare</td><td className="py-1">a copy bundled in the extension</td></tr>
+            <tr className="border-t border-current"><td className="py-1 pr-4">Leaves your browser</td><td className="py-1 pr-4">yes</td><td className="py-1">no</td></tr>
+            <tr className="border-t border-current"><td className="py-1 pr-4">Cloudflare learns</td><td className="py-1 pr-4">your IP, the page you were on</td><td className="py-1">nothing</td></tr>
+          </tbody>
+        </table>
+        <p className="text-sm neo-muted font-mono">Same file either way. Only one of them tells Cloudflare about it.</p>
 
         <p>
           <a href="https://www.localcdn.org/">LocalCDN</a>&apos;s own description is that it emulates content delivery networks. It intercepts the request,
