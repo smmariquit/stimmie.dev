@@ -122,7 +122,7 @@ export default function PrivacyAmongUsPage() {
             <tr className="border-t border-current"><td className="py-1 pr-4 align-top">Adgebra</td><td className="py-1 pr-4 break-all">adgebra.co.in</td><td className="py-1 text-right align-top">1</td></tr>
           </tbody>
         </table>
-        <p className="text-sm neo-muted font-mono">Every request the Inquirer front page made in one load on 5 September 2026. The first four hosts are the Inquirer. The other twenty-four are not.</p>
+        <p className="text-sm neo-muted font-mono">Every request the Inquirer front page made in one load on 5 September 2026, grouped by the company that received it.</p>
 
         <p>
           In Among Us terms, the site you typed in is the ship you boarded. Every third-party request is a crewmate
