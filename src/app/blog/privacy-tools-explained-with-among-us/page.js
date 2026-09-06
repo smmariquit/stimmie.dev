@@ -31,27 +31,6 @@ function Figure({ src, alt, caption }) {
   );
 }
 
-const TOOLS = [
-  ["uBlock Origin", "https://ublockorigin.com/", "ublock"],
-  ["AdBlock Plus", "https://adblockplus.org/", "adblockplus"],
-  ["Privacy Badger", "https://privacybadger.org/", "privacy-badger"],
-  ["LocalCDN", "https://www.localcdn.org/", "localcdn"],
-  ["Decentraleyes", "https://decentraleyes.org/", "decentraleyes"],
-];
-
-function ToolRow() {
-  return (
-    <ul className="my-6 flex flex-wrap gap-x-6 gap-y-3 list-none p-0">
-      {TOOLS.map(([name, href, icon]) => (
-        <li key={icon} className="flex items-center gap-2">
-          <img src={`/blog/privacy-among-us/logos/${icon}.png`} alt="" width="32" height="32" loading="lazy" />
-          <a href={href}>{name}</a>
-        </li>
-      ))}
-    </ul>
-  );
-}
-
 export default function PrivacyAmongUsPage() {
   return (
     <PageShell title="Privacy tools explained with Among Us" current="/blog" maxWidth="52rem">
@@ -205,22 +184,47 @@ export default function PrivacyAmongUsPage() {
           suggests.
         </p>
 
-        <ToolRow />
-
-        <ul>
-          <li>
-            The adblocker with EasyList and EasyPrivacy removes ads and every tracker that someone has already written
-            a rule for. Most of them.
-          </li>
-          <li>
-            Privacy Badger catches the trackers that are not on any list yet, and handles the social widgets and the
-            opt-out signals.
-          </li>
-          <li>
-            LocalCDN closes a specific leak, the shared library request, that neither of the others considers a
-            problem.
-          </li>
-        </ul>
+        <table className="my-6 w-full text-sm border-collapse">
+          <thead>
+            <tr className="border-b-2 border-current text-left">
+              <th className="py-2 pr-4">Tool</th>
+              <th className="py-2 pr-4">Catches</th>
+              <th className="py-2">Misses</th>
+            </tr>
+          </thead>
+          <tbody className="align-top">
+            <tr className="border-b border-current">
+              <td className="py-2 pr-4 whitespace-nowrap">
+                <img src="/blog/privacy-among-us/logos/ublock.png" alt="" width="20" height="20" className="inline mr-2 align-text-bottom" loading="lazy" />
+                <a href="https://ublockorigin.com/">uBlock Origin</a>
+                <br />
+                <img src="/blog/privacy-among-us/logos/adblockplus.png" alt="" width="20" height="20" className="inline mr-2 align-text-bottom" loading="lazy" />
+                <a href="https://adblockplus.org/">AdBlock Plus</a>
+              </td>
+              <td className="py-2 pr-4">Ads, and every tracker that someone has already written a rule for in <a href="https://easylist.to/">EasyList</a> or <a href="https://easylist.to/easylist/easyprivacy.txt">EasyPrivacy</a>. Most of them.</td>
+              <td className="py-2">Anything not on the list yet.</td>
+            </tr>
+            <tr className="border-b border-current">
+              <td className="py-2 pr-4 whitespace-nowrap">
+                <img src="/blog/privacy-among-us/logos/privacy-badger.png" alt="" width="20" height="20" className="inline mr-2 align-text-bottom" loading="lazy" />
+                <a href="https://privacybadger.org/">Privacy Badger</a>
+              </td>
+              <td className="py-2 pr-4">Trackers that are not on any list yet, once it has seen them on three sites. Social widgets. Sites that ignore the opt-out signals.</td>
+              <td className="py-2">Shared library requests, since serving a file is not tracking.</td>
+            </tr>
+            <tr className="border-b border-current">
+              <td className="py-2 pr-4 whitespace-nowrap">
+                <img src="/blog/privacy-among-us/logos/localcdn.png" alt="" width="20" height="20" className="inline mr-2 align-text-bottom" loading="lazy" />
+                <a href="https://www.localcdn.org/">LocalCDN</a>
+                <br />
+                <img src="/blog/privacy-among-us/logos/decentraleyes.png" alt="" width="20" height="20" className="inline mr-2 align-text-bottom" loading="lazy" />
+                <a href="https://decentraleyes.org/">Decentraleyes</a>
+              </td>
+              <td className="py-2 pr-4">The shared library request, which neither of the others considers a problem.</td>
+              <td className="py-2">Ads and trackers. It only answers requests for libraries it has a copy of.</td>
+            </tr>
+          </tbody>
+        </table>
 
         <h2>What none of them do</h2>
 
