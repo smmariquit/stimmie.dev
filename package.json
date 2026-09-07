@@ -23,7 +23,7 @@
     "next": "^16.3.2",
     "react": "19.2.8",
     "react-dom": "19.2.8",
-    "react-github-calendar": "^5.0.6",
+    "react-github-calendar": "^5.0.9",
     "rss-parser": "^3.13.0"
   },
   "devDependencies": {
