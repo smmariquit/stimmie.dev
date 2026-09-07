@@ -39,6 +39,12 @@ export default function OnBeingBusyPage() {
         <p>The people I admire are the ones who have fun, who keep doing things with no finish line alongside their responsibilities. Philosophers call these atelic activities. A walk that goes nowhere is one. So is a game you are bad at and keep playing anyway. I admire that far more than someone who is always busy and has lost all sense of whimsy, because the first person has kept the part of themselves that the busyness was supposed to be for.</p>
 
         <p>I would rather see an empty afternoon on someone&apos;s calendar and hear what they did with it.</p>
+
+        <hr />
+
+        <p className="text-sm neo-muted font-mono">
+          Also on <a href="https://medium.com/@stimmieuwu/on-being-busy-0ed65a9d77a6">Medium</a>.
+        </p>
       </article>
     </PageShell>
   );
