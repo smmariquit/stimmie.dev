@@ -2,6 +2,13 @@
 
 export const blogPosts = [
   {
+    slug: "on-being-busy",
+    title: "On Being Busy",
+    date: "September 8, 2026",
+    excerpt: "Being busy is a means to an end. So what is the end?",
+    coverImage: "/blog/default-cover.jpg",
+  },
+  {
     slug: "privacy-tools-explained-with-among-us",
     title: "Privacy tools explained with Among Us",
     date: "September 4, 2026",
