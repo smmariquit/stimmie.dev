@@ -9,7 +9,7 @@ export const metadata = {
     description: "Being busy is a means to an end. So what is the end?",
     url: "https://stimmie.dev/blog/on-being-busy",
     type: "article",
-    images: [{ url: "/blog/on-being-busy/cover.png", width: 1200, height: 630, alt: "A week as a Tetris board, every piece locked in, one hole on Thursday afternoon that no piece can reach" }],
+    images: [{ url: "/blog/on-being-busy/cover.png", width: 1200, height: 630, alt: "A week as a Tetris board, pieces labelled standup, thesis, org mtg, stacked almost to the top with holes buried under them, one more piece falling" }],
   },
   twitter: { card: "summary_large_image", images: ["/blog/on-being-busy/cover.png"] },
 };
