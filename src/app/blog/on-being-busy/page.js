@@ -4,6 +4,14 @@ import PageShell from "@/components/neo/PageShell";
 export const metadata = {
   title: "On Being Busy",
   description: "Being busy is a means to an end. So what is the end?",
+  openGraph: {
+    title: "On Being Busy",
+    description: "Being busy is a means to an end. So what is the end?",
+    url: "https://stimmie.dev/blog/on-being-busy",
+    type: "article",
+    images: [{ url: "/blog/on-being-busy/cover.png", width: 1200, height: 630, alt: "A week on a calendar with every slot filled except one afternoon" }],
+  },
+  twitter: { card: "summary_large_image", images: ["/blog/on-being-busy/cover.png"] },
 };
 
 export default function OnBeingBusyPage() {
