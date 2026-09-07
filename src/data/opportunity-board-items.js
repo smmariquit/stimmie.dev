@@ -3426,4 +3426,243 @@ export const opportunityBoardItems = [
       ],
       blurb: "Student-focused cloud event with workshops, tech talks, and competitions across AI agents, AWS technologies, and cloud architecture tracks.",
     },
+    {
+      title: "ML Empowerment Build Challenge 3.0",
+      type: "hackathon",
+      url: "https://ml-build-challenge-3.devpost.com/",
+      org: "ML Empowerment Foundation",
+      location: "Online",
+      dates: [
+        {
+          label: "Submission deadline",
+          date: "2026-10-05",
+        },
+      ],
+      beginnerFriendly: true,
+      blurb: "A free 12-lesson AI curriculum paired with a build challenge for students, open worldwide including the Philippines. No prior AI background is needed to learn the basics and submit a project for a share of a 1,000 dollar prize pool.",
+    },
+    {
+      title: "Practice to Create",
+      type: "hackathon",
+      url: "https://practicetocreate.devpost.com/",
+      org: "Jitjai Organization",
+      location: "Online",
+      dates: [
+        {
+          label: "Submission deadline",
+          date: "2026-09-25",
+        },
+      ],
+      beginnerFriendly: true,
+      blurb: "A no-code ideathon where students pitch a solution to a real problem using only a slide deck or a Figma or Canva mockup, then get direct written feedback from an experienced innovator. Open worldwide, including the Philippines, with zero coding required.",
+    },
+    {
+      title: "Build, Ship, Shape: Amazon Developer Hackathon",
+      type: "hackathon",
+      url: "https://amazonappdev2026.devpost.com/",
+      org: "Amazon",
+      location: "Online",
+      dates: [
+        {
+          label: "Submission deadline",
+          date: "2026-10-23",
+        },
+      ],
+      blurb: "Amazon's first global hackathon for building across Fire TV, Alexa+, Ring, and Bee devices, with 138,000 dollars total in cash and AWS credit prizes. Open to entrants worldwide aside from a short list of sanctioned countries, so Philippine developers are eligible.",
+    },
+    {
+      title: "Godot Wild Jam #97",
+      type: "game-jam",
+      url: "https://itch.io/jam/godot-wild-jam-97",
+      org: "Godot Wild Jam community",
+      location: "Online",
+      dates: [
+        {
+          label: "Jam starts",
+          date: "2026-09-11",
+        },
+        {
+          label: "Submission deadline",
+          date: "2026-09-20",
+        },
+      ],
+      beginnerFriendly: true,
+      blurb: "A nine-day worldwide game jam for anyone building in the free, open-source Godot engine, with teams of up to five and an active Discord community for support. Newcomers to Godot are explicitly welcomed.",
+    },
+    {
+      title: "Tranki Jam #1",
+      type: "game-jam",
+      url: "https://itch.io/jam/tranki-jam-1",
+      org: "Independent (hosted by developer Anaïs)",
+      location: "Online",
+      dates: [
+        {
+          label: "Jam starts",
+          date: "2026-09-14",
+        },
+        {
+          label: "Submission deadline",
+          date: "2026-10-04",
+        },
+      ],
+      beginnerFriendly: true,
+      blurb: "A low-pressure, non-competitive three-week game jam built around the open theme Return, aimed as much at first-time game makers as veterans. There is no ranking or judging, just a relaxed deadline to finish something.",
+    },
+    {
+      title: "IBM Bob 2.0 Hackathon",
+      type: "hackathon",
+      url: "https://lablab.ai/ai-hackathons/ibm-bob-2-hackathon",
+      org: "IBM (hosted on lablab.ai)",
+      location: "Online",
+      dates: [
+        {
+          label: "Event dates",
+          date: "2026-09-25",
+          endDate: "2026-09-27",
+        },
+      ],
+      blurb: "A 48-hour fully online build sprint centered on IBM's Bob 2.0 AI coding assistant, open to solo builders or teams from anywhere in the world. 10,000 dollars in prizes and live expert support run through the weekend.",
+    },
+    {
+      title: "AssemblyAI Voice Agent Hackathon",
+      type: "hackathon",
+      url: "https://lablab.ai/ai-hackathons/assemblyai-voice-agent-hackathon",
+      org: "AssemblyAI (hosted on lablab.ai)",
+      location: "Online",
+      dates: [
+        {
+          label: "Submission deadline",
+          date: "2026-09-30",
+        },
+      ],
+      blurb: "A month-long online challenge to build a working voice agent on AssemblyAI's speech APIs, with rolling registration so late starters can still join and submit before the deadline. 10,000 dollars in cash and API credits are on offer.",
+    },
+    {
+      title: "Founders Live in Manila",
+      type: "event",
+      url: "https://luma.com/qjaynm7u",
+      org: "Seekers Guild",
+      location: "Makati City, Metro Manila",
+      dates: [
+        {
+          label: "Event",
+          date: "2026-09-11",
+        },
+      ],
+      blurb: "Five founders get 99 seconds each to pitch and the audience votes a winner, followed by a networking happy hour for founders, builders, investors, and operators. Held at Common Ground 8, Rockwell, Makati; part of a global Founders Live chapter network.",
+    },
+    {
+      title: "GDG Cloud Manila Cloud Next Extended 2026",
+      type: "event",
+      url: "https://gdg.community.dev/events/details/google-gdg-cloud-manila-presents-gdg-cloud-manila-cloud-next-extended-2026/",
+      org: "GDG Cloud Manila",
+      location: "Online",
+      dates: [
+        {
+          label: "Event",
+          date: "2026-09-12",
+        },
+      ],
+      blurb: "A free virtual watch-along of Google Cloud Next highlights with talks and community sessions on AI, DevOps, and Google Cloud tooling, running 1pm to 6pm Philippine time. Registration is free with limited RSVP slots.",
+    },
+    {
+      title: "Grok Bot Meetup Cebu",
+      type: "event",
+      url: "https://luma.com/cursor-dyb8",
+      org: "SpaceXAI / Cursor community Cebu",
+      location: "Cebu City",
+      dates: [
+        {
+          label: "Event",
+          date: "2026-09-19",
+        },
+      ],
+      beginnerFriendly: true,
+      blurb: "Cebu's first Grok Bot meetup, with live demos and discussion of AI building workflows for designers, PMs, founders, and developers. Explicitly says all welcome, no experience required, venue to be confirmed closer to the date.",
+    },
+    {
+      title: "Building the Parallel: Logos Technical Workshop",
+      type: "event",
+      url: "https://www.getcebby.com/events/building-the-parallel--1775858457026",
+      org: "Logos (with Cebby)",
+      location: "Online",
+      dates: [
+        {
+          label: "Event",
+          date: "2026-09-09",
+        },
+      ],
+      blurb: "A hands-on technical workshop on the Logos decentralized tech stack covering node setup, Basecamp installation, and how to contribute to RFPs and Lambda Prizes. Aimed at developers, researchers, and builders interested in decentralized infrastructure.",
+    },
+    {
+      title: "AI Show and Tell: Grok Bot Live Demo & Developer Insights (S21)",
+      type: "event",
+      url: "https://www.getcebby.com/events/s21-ai-show-and-tell-for-the-tech-startup-community--1775858457011",
+      org: "Geeks on a Beach (GOAB) x Philippine AI Report",
+      location: "Online",
+      dates: [
+        {
+          label: "Event",
+          date: "2026-09-23",
+        },
+      ],
+      blurb: "A live Zoom session where a senior engineer demos Grok Bot and its practical developer applications, part of GOAB's ongoing Startup Mastery Series. Open to founders, product owners, and software developers wanting a quick refresh on new AI tools.",
+    },
+    {
+      title: "Quality Assurance in Open Distance eLearning (ODeL)",
+      type: "certificate",
+      url: "https://model.upou.edu.ph/course/view.php?id=974",
+      org: "University of the Philippines Open University",
+      location: "Online",
+      dates: [
+        {
+          label: "September 2026 cohort",
+          date: "2026-09-07",
+          endDate: "2026-10-02",
+        },
+      ],
+      blurb: "A free UPOU MODeL course on quality assurance practices in open and distance eLearning, useful for teachers, school staff, and anyone exploring ODeL as a mode of study or work. The current cohort is open now through October 2, 2026.",
+    },
+    {
+      title: "E-Guro Introductory Course in Teaching K to 3 Learners: A Journey to Early Childhood Education",
+      type: "certificate",
+      url: "https://model.upou.edu.ph/course/view.php?id=1052",
+      org: "University of the Philippines Open University",
+      location: "Online",
+      dates: [
+        {
+          label: "September 2026 cohort",
+          date: "2026-09-05",
+          endDate: "2026-10-05",
+        },
+      ],
+      blurb: "A free UPOU MODeL introductory course on teaching kindergarten to grade 3 learners, meant for aspiring and current teachers interested in early childhood education. The current cohort runs through October 5, 2026.",
+    },
+    {
+      title: "Working in a Gender-Diverse Environment",
+      type: "certificate",
+      url: "https://e-tesda.gov.ph/course/view.php?id=2497",
+      org: "TESDA Online Program",
+      location: "Online",
+      beginnerFriendly: true,
+      blurb: "A free, self-paced TESDA Online Program module giving a basic orientation on gender and development, social inclusion, and building workplaces free from gender discrimination, open to anyone with no prior experience needed.",
+    },
+    {
+      title: "The Tampere Convention and Telecommunications Deployments When Disasters Strike",
+      type: "certificate",
+      url: "https://academy.itu.int/training-courses/full-catalogue/tampere-convention-and-telecommunications-deployments-when-disasters-strike-2",
+      org: "ITU Academy",
+      location: "Online",
+      beginnerFriendly: true,
+      blurb: "A free, self-paced ITU Academy course introducing the Tampere Convention that governs telecom deployment during disaster relief and mitigation, taking about 1.5 hours with no prerequisites. It suits students and early-career people interested in disaster resilience or emergency telecommunications.",
+    },
+    {
+      title: "Practical Disaster Response: How to Develop Table-Top Simulation Exercises (TTX)",
+      type: "certificate",
+      url: "https://academy.itu.int/training-courses/full-catalogue/practical-disaster-response-how-develop-table-top-simulation-exercises-ttx-2",
+      org: "ITU Academy",
+      location: "Online",
+      beginnerFriendly: true,
+      blurb: "A free, self-paced ITU Academy course, about 2 hours across five modules, that teaches how to design table-top simulation exercises for testing national emergency telecommunications and disaster preparedness plans. It has no entry requirements and is open to anyone.",
+    },
 ];
