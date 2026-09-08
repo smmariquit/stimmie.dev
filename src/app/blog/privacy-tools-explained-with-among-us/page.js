@@ -384,7 +384,6 @@ export default function PrivacyAmongUsPage() {
         <p className="text-sm neo-muted">
           Also on{" "}
           <a href="https://dev.to/stimmie/privacy-tools-explained-with-among-us-2j85">Dev.to</a>,{" "}
-          <a href="https://stimmie.hashnode.dev/privacy-tools-explained-with-among-us">Hashnode</a>,{" "}
           <a href="https://daily.dev/posts/an-adblocker-privacy-badger-and-localcdn-do-three-different-jobs-real-request-logs-from-three-new-u8a8cu7z1">daily.dev</a>, and{" "}
           <a href="https://medium.com/@stimmieuwu/privacy-tools-explained-with-among-us-6d8a0bd4179c">Medium</a>{" "}
           (the short original). Source and images on{" "}
