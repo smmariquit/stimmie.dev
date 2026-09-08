@@ -5,7 +5,7 @@ export const blogPosts = [
     slug: "top-ten-percent-on-kaggle",
     title: "What I learned placing top 10% in a Kaggle competition",
     date: "September 10, 2026",
-    excerpt: "Twelve days on Playground S6E8, from a ten-minute baseline to 351st of 3,532, and the forty questions I did not know the answers to.",
+    excerpt: "My first Kaggle competition, start to finish. What the score means, what the data generator left behind, and why nothing can score a perfect 1.0.",
     coverImage: "/blog/kaggle/cover.png",
   },
   {
