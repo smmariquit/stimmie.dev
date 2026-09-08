@@ -165,15 +165,15 @@ export default function PrivacyAmongUsPage() {
           minutes since early morning.
         </p>
 
-        <table className="my-6 w-full text-sm border-collapse font-mono">
+        <table className="my-6 text-sm border-collapse font-mono">
           <thead>
             <tr className="border-b-2 border-current text-left">
-              <th className="py-1 pr-4">Day</th><th className="py-1 text-right">Commits to EasyList</th>
+              <th className="py-1 pr-10">Day</th><th className="py-1 text-right">Commits to EasyList</th>
             </tr>
           </thead>
           <tbody>
             {[["1 Sep 2026", 174], ["2 Sep", 149], ["3 Sep", 138], ["4 Sep", 178], ["5 Sep", 173], ["6 Sep", 187], ["7 Sep", 185]].map(([d, n]) => (
-              <tr key={d} className="border-t border-current"><td className="py-1 pr-4">{d}</td><td className="py-1 text-right">{n}</td></tr>
+              <tr key={d} className="border-t border-current"><td className="py-1 pr-10">{d}</td><td className="py-1 text-right">{n}</td></tr>
             ))}
           </tbody>
         </table>
