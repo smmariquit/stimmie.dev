@@ -81,7 +81,7 @@ export default function PrivacyAmongUsPage() {
         <p>
           A web page is not one place. When you open a news article, the article itself comes from the news site, but
           the fonts might come from Google, the script library from a CDN, the ads from an ad company, the comments
-          from a company the news site contracted, and the Like button from Facebook. The EFF&apos;s own explanation of Privacy Badger starts from exactly this picture, and it is the right place to start. To check it was not an exaggeration I loaded the Inquirer front page once and logged every request. Four hosts were the Inquirer&apos;s own. Twenty-four were other companies, and they got fifty-four requests between them.
+          from a company the news site contracted, and the Like button from Facebook. The <a href="https://www.eff.org/">Electronic Frontier Foundation</a>, the nonprofit that makes Privacy Badger, opens its own explanation of the tool with this same picture. To check it was not an exaggeration I loaded the <a href="https://www.inquirer.net/">Inquirer</a> front page once and logged every request. Four hosts were the Inquirer&apos;s own. Twenty-four were other companies, and they got fifty-four requests between them.
         </p>
 
         <table className="my-6 w-full text-sm border-collapse font-mono">
@@ -153,7 +153,7 @@ export default function PrivacyAmongUsPage() {
         <h2>The sus meter</h2>
 
         <p>
-          <a href="https://privacybadger.org/">Privacy Badger</a> is made by the Electronic Frontier Foundation and it deliberately does not use a list. Their
+          <a href="https://privacybadger.org/">Privacy Badger</a> is made by the EFF and it deliberately does not use a list. Their
           FAQ puts it plainly: they define what tracking looks like, and the extension blocks domains it observes
           tracking in the wild. What counts as a tracker depends on how a domain behaves, not on anybody&apos;s
           judgment.
