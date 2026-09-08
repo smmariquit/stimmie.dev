@@ -333,8 +333,9 @@ export default function TheDeathOfTheEasterEggPage() {
           Also on{" "}
           <a href="https://dev.to/stimmie/the-death-of-the-easter-egg-25kl">Dev.to</a>,{" "}
           <a href="https://medium.com/@stimmieuwu/the-death-of-the-easter-egg-cde1ef47a66b">Medium</a>,{" "}
-          <a href="https://stimmie.hashnode.dev/the-death-of-the-easter-egg">Hashnode</a>, and{" "}
-          <a href="https://www.linkedin.com/pulse/death-easter-egg-simon-ezekiel-mariquit-ebgze/">LinkedIn</a>.
+          <a href="https://stimmie.hashnode.dev/the-death-of-the-easter-egg">Hashnode</a>,{" "}
+          <a href="https://www.linkedin.com/pulse/death-easter-egg-simon-ezekiel-mariquit-ebgze/">LinkedIn</a>, and{" "}
+          <a href="https://daily.dev/posts/the-death-of-the-easter-egg-somebody-hid-a-flight-simulator-in-excel-97-then-the-code-started-writ-uxwsm4wyt">daily.dev</a>.
           Source and images on{" "}
           <a href="https://github.com/smmariquit/stimmie.dev">GitHub</a>.
         </p>
