@@ -73,8 +73,7 @@ export default function PrivacyAmongUsPage() {
 
         <p>
           It took me an embarrassingly long time to notice that the three of them do three different jobs, and that
-          two of them barely overlap. So here is the version I wish somebody had drawn for me, in the only metaphor
-          that ever made it stick.
+          two of them barely overlap. Among Us is how it finally made sense to me, so that is how I will explain it.
         </p>
 
         <h2>The map</h2>
