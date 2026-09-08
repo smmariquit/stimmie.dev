@@ -51,14 +51,14 @@ export default function KagglePage() {
 
         <p>
           On the 19th of August I had five free hours and a message in the guild chat about an AI contest in
-          December. I figured the quickest way to find out what I did not know was to enter a Kaggle competition
-          that same afternoon. I also wanted something to post on LinkedIn. I am not going to pretend otherwise.
+          December. I figured the quickest way to find out what I didn&apos;t know was to enter a Kaggle competition
+          that same afternoon. I also wanted something to post on LinkedIn. I&apos;m not going to pretend otherwise.
         </p>
 
         <p>
           I had never entered one before. Twelve days later I finished 351st of 3,532 teams on one leaderboard and
           369th on the other, which is the top ten percent on one and a hair outside it on the other. This is the
-          whole thing in order, written for the version of me who opened the page on day one and did not know what
+          whole thing in order, written for the version of me who opened the page on day one and didn&apos;t know what
           any of the words meant.
         </p>
 
@@ -67,7 +67,7 @@ export default function KagglePage() {
         <p>
           You get two files. <code>train.csv</code> has 691,369 rows, each one a person, with twelve columns about
           them (hours of screen time, hours on social media, hours gaming, hours of sleep, notifications per day,
-          age, and so on) plus one final column called <code>addicted_label</code> that is 1 or 0. That last column
+          age, and so on) plus one final column called <code>addicted_label</code> that&apos;s 1 or 0. That last column
           is the answer.
         </p>
 
@@ -82,7 +82,7 @@ export default function KagglePage() {
 691371,0.9002`}</code></pre>
 
         <p>
-          That second number is a confidence between 0 and 1 rather than a yes or no, which I had not expected.
+          That second number is a confidence between 0 and 1 rather than a yes or no, which I hadn&apos;t expected.
           Kaggle scores the file, puts you on a leaderboard, and lets you upload five times a day. The competition
           I entered was{" "}
           <a href="https://www.kaggle.com/competitions/playground-series-s6e8">Playground Series Season 6, Episode 8</a>,
@@ -90,16 +90,16 @@ export default function KagglePage() {
           money, thousands of entrants, and the data is generated rather than collected, which matters later.
         </p>
 
-        <h2>The score, and why it is not accuracy</h2>
+        <h2>The score, and why it isn&apos;t accuracy</h2>
 
         <p>
           The metric here is ROC AUC. It took me a few tries to get it, and this is the phrasing that stuck.
         </p>
 
         <p>
-          Take one person who really is addicted and one who really is not, both at random. Look at the two numbers
-          your model gave them. Did it give the addicted one the higher number? AUC is simply how often that is
-          true. Guess randomly and you are right half the time, so 0.5. Get it right every time and you score 1.0.
+          Take one person who really is addicted and one who really isn&apos;t, both at random. Look at the two numbers
+          your model gave them. Did it give the addicted one the higher number? AUC is simply how often that&apos;s
+          true. Guess randomly and you&apos;re right half the time, so 0.5. Get it right every time and you score 1.0.
         </p>
 
         <p>
@@ -126,7 +126,7 @@ export default function KagglePage() {
 
         <p>
           My first question was how anyone finds the extra 0.0065, and my second was whether 0.0065 is even a lot.
-          On this problem it is, because the entire field lives inside about half a percent. A ten-minute script
+          On this problem it&apos;s, because the entire field lives inside about half a percent. A ten-minute script
           put me within 0.65 percent of first place, and the remaining twelve days went on the last 0.006. I had
           assumed the gap between a beginner and the top would be wide, and most of it closed in ten minutes.
         </p>
@@ -140,7 +140,7 @@ export default function KagglePage() {
         <h2>Cross-validation, and why the leaderboard lies</h2>
 
         <p>
-          I did not know what a fold was. A fold is one of the equal chunks the training data gets cut into. With
+          I didn&apos;t know what a fold was. A fold is one of the equal chunks the training data gets cut into. With
           five folds you train on four of them, predict the fifth, rotate until every chunk has been predicted
           once by a model that never saw it, then average the five scores. That average is called your CV, and it
           is your own private leaderboard.
@@ -148,7 +148,7 @@ export default function KagglePage() {
 
         <p>
           It matters more than the public one. The public leaderboard is scored on a slice of the test set, and
-          every time you look at it and change something in response, you are quietly fitting your model to that
+          every time you look at it and change something in response, you&apos;re quietly fitting your model to that
           slice. Do it fifty times and your leaderboard score is measuring how well you memorised the leaderboard.
         </p>
 
@@ -162,10 +162,10 @@ export default function KagglePage() {
         <h2>Leakage</h2>
 
         <p>
-          Leakage is when your model sees something during training that it will not have at prediction time. The
+          Leakage is when your model sees something during training that it won&apos;t have at prediction time. The
           textbook example: predict whether a patient has diabetes, and include &quot;is taking insulin&quot; as a
           column. The model scores 0.99 and is useless, because in real life the insulin comes after the diagnosis
-          you are trying to predict.
+          you&apos;re trying to predict.
         </p>
 
         <p>
@@ -178,8 +178,8 @@ export default function KagglePage() {
           The subtler version bit other people. Target encoding is a common trick where you replace a category with
           the average answer for that category. Do that <em>before</em> you split into folds and each fold's
           training data now contains a summary of its own validation answers. Several popular public notebooks did
-          exactly this. Their validation scores were beautiful and their leaderboard scores were not. Until then I
-          had thought of leakage as a mistake careless people make. It is also a mistake careful people make when
+          exactly this. Their validation scores were beautiful and their leaderboard scores weren&apos;t. Until then I
+          had thought of leakage as a mistake careless people make. It&apos;s also a mistake careful people make when
           the loop is one line too short.
         </p>
 
@@ -214,7 +214,7 @@ export default function KagglePage() {
         <p>
           The second one is a rule. In the generated data, daily screen time is never less than social media plus
           gaming plus work hours. Not rarely: never, in all 595,515 rows that have all four values. The real survey
-          breaks that rule in more than half its rows, so the generator was enforcing something the humans did not.
+          breaks that rule in more than half its rows, so the generator was enforcing something the humans didn&apos;t.
           The size of the gap, which I started calling slack, predicts the answer at 0.765 AUC entirely on its own.
         </p>
 
@@ -241,7 +241,7 @@ export default function KagglePage() {
 
         <p>
           You then have to combine 84 sets of guesses into one. I tried three ways of doing it and they all landed
-          within 0.0001 of each other, which told me the combining method was not where the score lived. What did
+          within 0.0001 of each other, which told me the combining method wasn&apos;t where the score lived. What did
           move it was adding a model that made <em>different</em> mistakes from the others. Another copy of the same
           model with a new random seed was worth about 0.00003, which is nothing.
         </p>
@@ -257,7 +257,7 @@ export default function KagglePage() {
         <p>
           On August 23 I joined it, submitting the blend verbatim with the description &quot;public blend, forked,
           max public&quot;. It scored 0.97117 and put me at rank 98 of 2,687. I took a screenshot. I want to be
-          clear that the number was not mine.
+          clear that the number wasn&apos;t mine.
         </p>
 
         <p>
@@ -274,7 +274,7 @@ export default function KagglePage() {
         />
 
         <p>
-          The fork handed me a score that other people were already busy improving on. I do not think I would have
+          The fork handed me a score that other people were already busy improving on. I don&apos;t think I&apos;d have
           understood that from reading about it.
         </p>
 
@@ -289,7 +289,7 @@ export default function KagglePage() {
         <p>
           One of my slots went to the fork. The other went to the best thing I had built myself, a fifteen-seed
           bagged ElasticNet stack, CV 0.96998, public 0.97101. My theory was that the fork was fitted to the public
-          slice and would fall, the honest entry would hold, and I would come out ahead of the queue.
+          slice and would fall, the honest entry would hold, and I&apos;d come out ahead of the queue.
         </p>
 
         <p>
@@ -297,7 +297,7 @@ export default function KagglePage() {
           dropped by about the same amount, the fork still won, and I landed at 369th. The theory was wrong, or the
           effect was too small to see. The winner,{" "}
           <a href="https://www.kaggle.com/cdeotte">Chris Deotte</a>, scored 0.97207 public and 0.97176 private,
-          clear of every cluster on both boards. On this problem, that is what a grandmaster is worth.
+          clear of every cluster on both boards. On this problem, that&apos;s what a grandmaster is worth.
         </p>
 
         <p>
@@ -324,28 +324,28 @@ export default function KagglePage() {
         <h2>The ceiling</h2>
 
         <p>
-          Somewhere around day three I asked why I could not simply keep going until the score hit 1.0. The answer
+          Somewhere around day three I asked why I couldn&apos;t simply keep going until the score hit 1.0. The answer
           has a name.
         </p>
 
         <p>
-          For any set of features there is a true probability that a person with those exact numbers is addicted.
+          For any set of features there&apos;s a true probability that a person with those exact numbers is addicted.
           Call it p. If p is only ever 0 or 1, meaning the numbers fully determine the answer, then a perfect model
           scores 1.0. But if two people can share every number and get different answers, no model can rank one
-          above the other, and every pair like that costs you score. The loss you cannot avoid is called the
+          above the other, and every pair like that costs you score. The loss you can&apos;t avoid is called the
           <em> Bayes error</em>, and the best score anyone could possibly reach is the{" "}
           <a href="https://en.wikipedia.org/wiki/Bayes_error_rate">Bayes-optimal</a> one.
         </p>
 
         <p>
           You can see it in this data. Round four of the columns and group the people who match. Most of them end
-          up in a group where the answer is not unanimous.
+          up in a group where the answer isn&apos;t unanimous.
         </p>
 
         <Figure
           src="/blog/kaggle/bayes-ceiling.png"
           alt="A proportion bar showing 83 percent of people in look-alike groups sit in a group containing both answers, with the example of 3,339 people sharing four rounded values of whom 17 percent were labelled addicted."
-          caption="The 685,219 people who share four rounded numbers with at least nineteen others. 83 percent of them sit in a group where the answer is not unanimous. One such group holds 3,339 people who all reported 4h screen time, 1h social media, 7h sleep and 1h gaming, and 17 percent of them were labelled addicted."
+          caption="The 685,219 people who share four rounded numbers with at least nineteen others. 83 percent of them sit in a group where the answer isn&apos;t unanimous. One such group holds 3,339 people who all reported 4h screen time, 1h social media, 7h sleep and 1h gaming, and 17 percent of them were labelled addicted."
         />
 
         <p>
@@ -359,15 +359,15 @@ export default function KagglePage() {
         <h2>Whether to do it again</h2>
 
         <p>
-          Halfway through I asked whether someone who does not especially want an AI engineering job should grind
+          Halfway through I asked whether someone who doesn&apos;t especially want an AI engineering job should grind
           this. My answer now is that one competition teaches you what cross-validation is for, what leakage looks
-          like when it is subtle, how to read someone else&apos;s notebook and check its claims against the raw
+          like when it&apos;s subtle, how to read someone else&apos;s notebook and check its claims against the raw
           data, and how little the last three decimals are worth. The second competition teaches you the same
           things again.
         </p>
 
         <p>
-          So I am not entering Episode 9. The December contest is a different shape, seven hours, a team of three,
+          So I&apos;m not entering Episode 9. The December contest is a different shape, seven hours, a team of three,
           no leaderboard to probe, and what carries over is the discipline rather than the models. One fixed fold
           split, and a submission only when the honest number moves.
         </p>
@@ -375,7 +375,7 @@ export default function KagglePage() {
         <p>
           What I posted on LinkedIn was the rank. What I saved was the list of questions I asked between the 19th
           and the 31st, starting with &quot;why AUC&quot; and ending with &quot;is there a theoretical maximum a
-          perfect model cannot reach&quot;. If I had to keep one of the two, it would be the list.
+          perfect model can&apos;t reach&quot;. If I had to keep one of the two, it would be the list.
         </p>
 
         <hr />

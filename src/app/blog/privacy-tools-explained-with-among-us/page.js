@@ -73,15 +73,15 @@ export default function PrivacyAmongUsPage() {
 
         <p>
           It took me an embarrassingly long time to notice that the three of them do three different jobs, and that
-          two of them barely overlap. Among Us is how it finally made sense to me, so that is how I will explain it.
+          two of them barely overlap. Among Us is how it finally made sense to me, so that&apos;s how I&apos;ll explain it.
         </p>
 
         <p>
-          A web page is not one place. When you open a news article, the article itself comes from the news site, but
+          A web page isn&apos;t one place. When you open a news article, the article itself comes from the news site, but
           the fonts might come from Google, the script library from a CDN, the ads from an ad company, the comments
           from a company the news site contracted, and the Like button from Facebook. The{" "}
           <a href="https://www.eff.org/">Electronic Frontier Foundation</a>, the nonprofit that makes Privacy Badger,
-          opens its own explanation of the tool with this same picture. To check it was not an exaggeration I loaded
+          opens its own explanation of the tool with this same picture. To check it wasn&apos;t an exaggeration I loaded
           the <a href="https://www.inquirer.net/">Inquirer</a> front page once and logged every request. Four hosts
           were the Inquirer&apos;s own. Twenty-four were other companies, and they got fifty-four requests between
           them.
@@ -131,7 +131,7 @@ export default function PrivacyAmongUsPage() {
           who walked in from somewhere else. Some of them are doing tasks, like the font and the script library. Some
           of them are impostors, like the analytics pixel whose only job is to remember you were here. The problem is
           that from the outside they look identical. Each one is a request leaving your browser, and each request
-          carries your IP address and the page you are on.
+          carries your IP address and the page you&apos;re on.
         </p>
 
         <p>The three tools are three different ways of dealing with the crew.</p>
@@ -198,9 +198,9 @@ export default function PrivacyAmongUsPage() {
 +||brightline.tv^$third-party,~xmlhttprequest`}</code></pre>
 
         <p>
-          The bigger players do not bother with new domains. Facebook in 2019 started splitting the word Sponsored on
+          The bigger players don&apos;t bother with new domains. Facebook in 2019 started splitting the word Sponsored on
           its ads into scrambled pieces of text so that no rule could match it, the maintainers wrote rules for the
-          scrambling, and Facebook changed it again. Some trackers get served from a subdomain of the site you are on,
+          scrambling, and Facebook changed it again. Some trackers get served from a subdomain of the site you&apos;re on,
           through a CNAME record that quietly points at the tracking company, so a blocker that only looks at the
           hostname sees a first-party request and lets it through. uBlock Origin on Firefox has been able to unmask
           those since 2020. When YouTube started blocking adblock users outright in late 2023, the lists were updated
@@ -211,7 +211,7 @@ export default function PrivacyAmongUsPage() {
         <h2>Privacy Badger</h2>
 
         <p>
-          <a href="https://privacybadger.org/">Privacy Badger</a> is made by the EFF and it deliberately does not use
+          <a href="https://privacybadger.org/">Privacy Badger</a> is made by the EFF and it deliberately doesn&apos;t use
           a list. Their <a href="https://privacybadger.org/#faq">FAQ</a> says: &quot;we define what tracking looks
           like, and then Privacy Badger blocks or restricts domains that it observes tracking in the wild.&quot;
           Whether something counts as a tracker depends on how the domain behaves, not on a maintainer&apos;s
@@ -222,7 +222,7 @@ export default function PrivacyAmongUsPage() {
           Concretely, it watches the third-party domains that embed images, scripts, and ads in the pages you visit,
           and it looks for the techniques trackers use: cookies that uniquely identify you, local storage
           &quot;supercookies&quot;, canvas fingerprinting. If it sees the same third-party host doing that on three
-          separate sites, it stops loading anything from that host. Three is not many. I opened the{" "}
+          separate sites, it stops loading anything from that host. Three isn&apos;t many. I opened the{" "}
           <a href="https://www.inquirer.net/">Inquirer</a>, <a href="https://www.rappler.com/">Rappler</a>, and{" "}
           <a href="https://www.philstar.com/">Philstar</a> front pages in a row and these eight domains were on all
           of them.
@@ -259,23 +259,23 @@ export default function PrivacyAmongUsPage() {
         <p>
           In the game this is the crewmate nobody reported, who keeps turning up in rooms it has no reason to be in,
           until after the third room the Badger calls the meeting and ejects it. Because the rule is about behaviour
-          rather than a name, it catches trackers nobody has written a rule for yet. A fresh install does not start
+          rather than a name, it catches trackers nobody has written a rule for yet. A fresh install doesn&apos;t start
           from zero either. The EFF runs a training project called Badger Sett that visits thousands of popular sites
           and pre-learns the trackers on them, and ships that with the extension.
         </p>
 
         <p>
-          Privacy Badger does not block ads for being ads, only the ones that track you, which the EFF says is
+          Privacy Badger doesn&apos;t block ads for being ads, only the ones that track you, which the EFF says is
           deliberate, to give advertisers a reason to behave. It also sends the Global Privacy Control and Do Not
           Track signals to every site, and if a tracker ignores them the Badger learns to block it anyway. Social
-          widgets like the Like button get replaced with a click-to-activate placeholder, so the button does not phone
+          widgets like the Like button get replaced with a click-to-activate placeholder, so the button doesn&apos;t phone
           home until you press it.
         </p>
 
         <h2>LocalCDN</h2>
 
         <p>
-          The third tool deals with a leak that the other two mostly leave alone. Sites do not host every script
+          The third tool deals with a leak that the other two mostly leave alone. Sites don&apos;t host every script
           themselves. A large share of them load jQuery, Bootstrap, Font Awesome, or a Google font from a shared
           content delivery network: ajax.googleapis.com, cdnjs.cloudflare.com, code.jquery.com, cdn.jsdelivr.net,
           unpkg.com. Those scripts are legitimate, crewmates doing tasks, but every time your browser fetches one, the
@@ -283,8 +283,8 @@ export default function PrivacyAmongUsPage() {
         </p>
 
         <p>
-          An adblocker will not touch these because they are real code the page needs, and Privacy Badger usually
-          will not either, because serving a file is not tracking by its definition. The request goes out on every
+          An adblocker won&apos;t touch these because they&apos;re real code the page needs, and Privacy Badger usually
+          won&apos;t either, because serving a file isn&apos;t tracking by its definition. The request goes out on every
           site that uses the library, which is most of them.
         </p>
 
@@ -311,8 +311,8 @@ export default function PrivacyAmongUsPage() {
         </p>
 
         <p>
-          If the name <a href="https://decentraleyes.org/">Decentraleyes</a> rings a bell, it is the same idea.
-          LocalCDN started in 2020 as a fork of Decentraleyes with a longer list of libraries and CDNs, and it is the
+          If the name <a href="https://decentraleyes.org/">Decentraleyes</a> rings a bell, it&apos;s the same idea.
+          LocalCDN started in 2020 as a fork of Decentraleyes with a longer list of libraries and CDNs, and it&apos;s the
           one that still gets regular updates. Run one or the other, never both, or they will fight over the same
           requests.
         </p>
@@ -320,8 +320,8 @@ export default function PrivacyAmongUsPage() {
         <p>
           The old argument against this was that shared CDNs were good for speed, because a copy of jQuery cached
           from one site could be reused on the next. That stopped being true a few years ago. Browsers now partition
-          the HTTP cache by the site you are on, so a file cached from site A does not help on site B. Safari has done
-          this since 2013, Chrome since version 86 in late 2020, and Firefox since version 85 in early 2021. What is
+          the HTTP cache by the site you&apos;re on, so a file cached from site A doesn&apos;t help on site B. Safari has done
+          this since 2013, Chrome since version 86 in late 2020, and Firefox since version 85 in early 2021. What&apos;s
           left of the shared CDN is the privacy cost.
         </p>
 
@@ -340,7 +340,7 @@ export default function PrivacyAmongUsPage() {
             a rule for, which is most of them.
           </li>
           <li>
-            Privacy Badger catches the trackers that are not on any list yet, and handles the social widgets and the
+            Privacy Badger catches the trackers that aren&apos;t on any list yet, and handles the social widgets and the
             opt-out signals.
           </li>
           <li>
@@ -352,9 +352,9 @@ export default function PrivacyAmongUsPage() {
         <hr />
 
         <p>
-          None of them do anything about the first party. The site you are on still sees everything you do on it, and
-          the Privacy Badger FAQ says plainly that this is out of scope. If you are logged in, that site knows who you
-          are. They do not hide your IP address from anyone you actually connect to, which is what the VPN was for.
+          None of them do anything about the first party. The site you&apos;re on still sees everything you do on it, and
+          the Privacy Badger FAQ says plainly that this is out of scope. If you&apos;re logged in, that site knows who you
+          are. They don&apos;t hide your IP address from anyone you actually connect to, which is what the VPN was for.
           They can also break things. Privacy Badger&apos;s placeholders exist because blocking a widget outright
           would leave a hole in the page, and LocalCDN can only substitute a library it has a copy of, so a site that
           uses an unusual version will fall back to the network anyway.
@@ -363,7 +363,7 @@ export default function PrivacyAmongUsPage() {
         <p>
           What I run now is an adblocker with the two Easy lists, Privacy Badger, and LocalCDN on Firefox. Firefox&apos;s
           own tracking protection overlaps with the Badger, and the EFF says the two get along. I stopped thinking of
-          them as a collection once I understood that they are three crewmates doing three different tasks, and I
+          them as a collection once I understood that they&apos;re three crewmates doing three different tasks, and I
           have stopped expecting any one of them to do the other two&apos;s job.
         </p>
 

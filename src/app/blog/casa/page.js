@@ -59,19 +59,19 @@ export default function CasaPage() {
 
         <h2>Non-technical lessons</h2>
         <p>
-          1. This is *the* biggest one. You cannot mask ineffective leadership
+          1. This is *the* biggest one. You can&apos;t mask ineffective leadership
           by overcontribution. Yes, I was the one with the most commits, most
           hours worked. I could give myself a medal. But I realized that&apos;s
           not a good approach because I wasn&apos;t going out of my comfort
           zone. Coding for 14 hours, while difficult, is a difficulty I&apos;m
           personally accustomed to. But confronting people for their
-          shortcomings, motivating them, and keeping team morale is not
+          shortcomings, motivating them, and keeping team morale isn&apos;t
           something I&apos;m naturally good at.
         </p>
         <p>
           2. Make people *own* things instead of just handing out tasks. People
           will end up more passionate about their work if they fully understand
-          why they are doing it and that it is their brainchild so to speak
+          why they&apos;re doing it and that it&apos;s their brainchild so to speak
         </p>
         <p>
           3. The power of passive aggressive corpo-speak messages insanely
@@ -116,7 +116,7 @@ export default function CasaPage() {
           tests that don&apos;t apply to the project.
         </p>
         <p>
-          5. It is NEVER too late to resolve technical debt. I had the choice of
+          5. It&apos;s NEVER too late to resolve technical debt. I had the choice of
           whether or not to resolve something 4 weeks before the final deadline.
           I chose not too because I thought it&apos;s too late, but that
           specific thing was a big headache for those four weeks.

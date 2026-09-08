@@ -12,7 +12,7 @@ export const blogPosts = [
     slug: "on-being-busy",
     title: "On Being Busy",
     date: "September 8, 2026",
-    excerpt: "Being busy is a means to an end. So what is the end?",
+    excerpt: "Being busy is a means to an end. So what&apos;s the end?",
     coverImage: "/blog/on-being-busy/cover.png",
   },
   {
@@ -58,7 +58,7 @@ export const blogPosts = [
     slug: "on-walking",
     title: "On Walking",
     date: "June 2025",
-    excerpt: "There is a particular hour in the late afternoon when the campus empties out and the acacia shadows stretch long across the oval.",
+    excerpt: "There&apos;s a particular hour in the late afternoon when the campus empties out and the acacia shadows stretch long across the oval.",
     coverImage: "/blog/default-cover.jpg",
   },
   {
@@ -72,7 +72,7 @@ export const blogPosts = [
     slug: "on-rewatching",
     title: "On Rewatching",
     date: "January 2025",
-    excerpt: "I have watched Your Name five times. I am not entirely sure about the number, but five is what I tell people and five is what I believe.",
+    excerpt: "I&apos;ve watched Your Name five times. I&apos;m not entirely sure about the number, but five is what I tell people and five is what I believe.",
     coverImage: "/blog/default-cover.jpg",
   },
 ];
