@@ -76,8 +76,6 @@ export default function PrivacyAmongUsPage() {
           two of them barely overlap. Among Us is how it finally made sense to me, so that is how I will explain it.
         </p>
 
-        <h2>The map</h2>
-
         <p>
           A web page is not one place. When you open a news article, the article itself comes from the news site, but
           the fonts might come from Google, the script library from a CDN, the ads from an ad company, the comments
@@ -135,7 +133,7 @@ export default function PrivacyAmongUsPage() {
           The three tools are three different ways of dealing with the crew.
         </p>
 
-        <h2>The wanted poster</h2>
+        <h2>Adblockers</h2>
 
         <p>
           <a href="https://ublockorigin.com/">uBlock Origin</a>, <a href="https://adblockplus.org/">AdBlock Plus</a>, and the rest work from filter lists. The big one is <a href="https://easylist.to/">EasyList</a>, which removes most adverts from international webpages and is maintained by four people (<a href="https://github.com/ryanbr">Fanboy</a>, <a href="https://github.com/monzta">MonztA</a>, <a href="https://github.com/Khrin">Khrin</a>, and <a href="https://github.com/Yuki2718">Yuki2718</a>) with help from a forum. Its sibling <a href="https://easylist.to/easylist/easyprivacy.txt">EasyPrivacy</a> targets tracking rather than ads. A filter list is a long set
@@ -150,7 +148,7 @@ export default function PrivacyAmongUsPage() {
           past until a maintainer notices and adds it.
         </p>
 
-        <h2>The sus meter</h2>
+        <h2>Privacy Badger</h2>
 
         <p>
           <a href="https://privacybadger.org/">Privacy Badger</a> is made by the EFF and it deliberately does not use a list. Their
@@ -209,7 +207,7 @@ export default function PrivacyAmongUsPage() {
           with a click-to-activate placeholder, so the button does not phone home until you press it.
         </p>
 
-        <h2>Never leave the ship</h2>
+        <h2>LocalCDN</h2>
 
         <p>
           This one handles a leak the other two mostly ignore. Sites do not host every script themselves. A huge
@@ -261,7 +259,7 @@ export default function PrivacyAmongUsPage() {
           public CDNs went away, and the privacy cost stayed.
         </p>
 
-        <h2>Who catches what</h2>
+        <hr />
 
         <p>
           Put the three side by side and the overlap is smaller than the &quot;install all of these&quot; advice
@@ -285,7 +283,7 @@ export default function PrivacyAmongUsPage() {
           </li>
         </ul>
 
-        <h2>What none of them do</h2>
+        <hr />
 
         <p>
           They do nothing about the first party. The site you are on still sees everything you do on it, and the
