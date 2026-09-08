@@ -2,7 +2,7 @@ import Link from "next/link";
 import PageShell from "@/components/neo/PageShell";
 
 const desc =
-  "Twelve days on Kaggle Playground S6E8, from a 0.96487 baseline to 369th of 3,532. What cross-validation, leakage, synthetic-data artifacts, and the fork wall turned out to mean.";
+  "Twelve days on Kaggle Playground S6E8, from a 0.96487 baseline to 351st of 3,532. What cross-validation, leakage, synthetic-data artifacts, and forking a public notebook turned out to mean.";
 
 export const metadata = {
   title: "What I learned placing top 10% in a Kaggle competition",
@@ -12,7 +12,7 @@ export const metadata = {
     description: desc,
     url: "https://stimmie.dev/blog/top-ten-percent-on-kaggle",
     type: "article",
-    images: [{ url: "/blog/kaggle/cover.png", width: 1200, height: 630, alt: "Kaggle S6E8 submissions, CV against leaderboard" }],
+    images: [{ url: "/blog/kaggle/cover.png", width: 1200, height: 630, alt: "Kaggle S6E8 submissions, cross-validation against public and private scores" }],
   },
   twitter: { card: "summary_large_image", images: ["/blog/kaggle/cover.png"] },
 };
@@ -57,9 +57,10 @@ export default function KagglePage() {
         </p>
 
         <p>
-          I finished 369th out of 3,532 teams on the private leaderboard, 351st on the public one. Every submission
-          I made is below, with the number I trusted (cross-validation), the number everyone sees (public), and the
-          number that counts (private).
+          I finished 351st of 3,532 teams on the public leaderboard and 369th on the private one. That is the top
+          ten percent on one board and a hair outside it on the other, which is the honest version of the title.
+          Every submission I made is below, with the number I trusted (cross-validation), the number everyone sees
+          (public), and the number that counts (private).
         </p>
 
         <table className="my-6 w-full text-sm border-collapse font-mono">
@@ -151,26 +152,31 @@ export default function KagglePage() {
         <h2>The wall</h2>
 
         <p>
-          Forty-two teams on the public leaderboard had exactly 0.97117, the same score to the fifth decimal.
-          That is one public notebook, itself a blend of other public notebooks, forked by everyone who opened it.
-          Kaggle breaks exact ties by who submitted first, so the top of the public board was mostly a queue.
-          On August 23 I submitted it too, verbatim, with the description &quot;public blend, forked, max public&quot;,
-          and it put me at rank 98 for a week. I want to be clear that number was not mine. Nothing I built
-          scored higher than the wall on the public set, and nothing anyone built did either, except the winner.
+          Partway through I noticed a lot of identical scores on the public leaderboard. That happens when one
+          public notebook, itself a blend of other public notebooks, gets forked by everyone who opens it. Kaggle
+          breaks exact ties by who submitted first, so a chunk of the board was less a ranking than a queue. On
+          August 23 I joined it, submitting the blend verbatim with the description &quot;public blend, forked,
+          max public&quot;. It scored 0.97117 and put me at rank 98 of 2,687. I took a screenshot. I want to be
+          clear that the number was not mine.
         </p>
 
         <p>
-          Kaggle lets you choose two submissions to be scored on the private leaderboard. One slot went to the fork.
-          The other went to the best thing we made ourselves, a fifteen-seed bagged ElasticNet stack with
-          cross-validation 0.96998 and public 0.97101. The theory was that the fork was fitted to the public slice
-          and would drop on private, and the honest one would hold, and I would come out ahead of the queue.
+          By the deadline that same submission was rank 351 of 3,532. Nothing about it had changed. The public
+          notebook kept being improved and re-forked, and the newer forks piled into clusters above mine, 72 teams
+          tied at 0.97128 and 71 at 0.97130, while 344 teams in total finished above me. The queue had moved and I
+          was standing where it used to be. Borrowing a number gets you the number and not the position, and I do
+          not think I would have understood that from reading about it.
         </p>
 
         <p>
-          On September 1 the fork went from 0.97117 to 0.97090. Ours went from 0.97101 to 0.97071. Both dropped by
-          about the same amount, the fork still won, and I moved from 351st to 369th. The theory was wrong, or at
-          least the effect was too small to matter. The winner, Chris Deotte, finished at 0.97176, which is 0.0009
-          above the wall. On this problem, that is what a grandmaster is worth.
+          Kaggle lets you pick two submissions to be scored privately. One slot went to the fork. The other went
+          to the best thing we built ourselves, a fifteen-seed bagged ElasticNet stack, cross-validation 0.96998
+          and public 0.97101. My theory was that the fork was fitted to the public slice and would fall on private,
+          the honest entry would hold, and I would come out ahead of the queue. On September 1 the fork went from
+          0.97117 to 0.97090 and the honest one from 0.97101 to 0.97071. Both dropped by about the same amount,
+          the fork still won, and I landed at 369th. The theory was wrong, or the effect was too small to see. The
+          winner, Chris Deotte, scored 0.97207 public and 0.97176 private, clear of every cluster on both boards.
+          On this problem, that is what a grandmaster is worth.
         </p>
 
         <h2>Why nobody scores 1.0</h2>

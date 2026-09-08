@@ -5,7 +5,7 @@ export const blogPosts = [
     slug: "top-ten-percent-on-kaggle",
     title: "What I learned placing top 10% in a Kaggle competition",
     date: "September 10, 2026",
-    excerpt: "Twelve days on Playground S6E8, from a ten-minute baseline to 369th of 3,532, and the forty questions I did not know the answers to.",
+    excerpt: "Twelve days on Playground S6E8, from a ten-minute baseline to 351st of 3,532, and the forty questions I did not know the answers to.",
     coverImage: "/blog/kaggle/cover.png",
   },
   {
