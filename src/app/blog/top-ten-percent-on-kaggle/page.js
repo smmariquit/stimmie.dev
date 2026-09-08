@@ -311,6 +311,15 @@ export default function KagglePage() {
         </p>
 
         <p>
+          Second place is the one I keep rereading.{" "}
+          <a href="https://www.kaggle.com/competitions/playground-series-s6e8/writeups/2nd-place-solution">Xin Feng</a>{" "}
+          did it by hand on Kaggle&apos;s free GPUs and a twenty dollar subscription, and his writeup lands on the
+          same rule this post keeps circling: trust your own out-of-fold score, and treat the public leaderboard as
+          a check rather than a target. He also says he spent his last week hunting for a better way to blend when
+          he should have been improving one model, which is the mistake I made in miniature with my 84.
+        </p>
+
+        <p>
           I have my own answer, which is that the thing I could not have outsourced was knowing whether to believe
           my own validation. Deotte says something close to this in the comments: humans cannot beat agents on
           coding speed any more, only on the insight the agent overlooked. Learning what a fold is for turns out
@@ -404,7 +413,8 @@ export default function KagglePage() {
           and its{" "}
           <a href="https://www.kaggle.com/competitions/playground-series-s6e8/leaderboard">final leaderboard</a>,
           which is where the rank and cluster counts come from, plus{" "}
-          <a href="https://www.kaggle.com/competitions/playground-series-s6e8/writeups/1st-place-distributed-intelligence-nvidia-infe">the winning writeup</a>{" "}
+          <a href="https://www.kaggle.com/competitions/playground-series-s6e8/writeups/1st-place-distributed-intelligence-nvidia-infe">the winning writeup</a>,{" "}
+          <a href="https://www.kaggle.com/competitions/playground-series-s6e8/writeups/2nd-place-solution">the second place writeup</a>{" "}
           and <a href="https://www.kaggle.com/stimmie">my own profile</a>. The source survey:{" "}
           <a href="https://www.kaggle.com/datasets/algozee/smartphone-addiction-prediction-data">Smartphone Addiction Prediction Data</a>.
           The libraries: <a href="https://lightgbm.readthedocs.io/">LightGBM</a>,{" "}
