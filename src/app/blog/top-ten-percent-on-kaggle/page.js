@@ -297,12 +297,30 @@ export default function KagglePage() {
           dropped by about the same amount, the fork still won, and I landed at 369th. The theory was wrong, or the
           effect was too small to see. The winner,{" "}
           <a href="https://www.kaggle.com/cdeotte">Chris Deotte</a>, scored 0.97207 public and 0.97176 private,
-          clear of every cluster on both boards. On this problem, that&apos;s what a grandmaster is worth.
+          clear of every cluster on both boards.
         </p>
 
         <p>
-          Here is every submission I made, with the number I trusted, the number everyone could see, and the number
-          that counted.
+          His{" "}
+          <a href="https://www.kaggle.com/competitions/playground-series-s6e8/writeups/1st-place-distributed-intelligence-nvidia-infe">writeup</a>{" "}
+          is not what I expected. He ran a swarm of language model agents, set two of them competing to build the
+          best single model, and one of those models won the competition on its own, without an ensemble, which
+          he says had not happened in a Playground competition in eighteen months. The comments underneath are
+          worth reading too, because a lot of people finishing a few hundred places above and below me were asking
+          the same question about what is left for a person to do.
+        </p>
+
+        <p>
+          I have my own answer, which is that the thing I could not have outsourced was knowing whether to believe
+          my own validation. Deotte says something close to this in the comments: humans cannot beat agents on
+          coding speed any more, only on the insight the agent overlooked. Learning what a fold is for turns out
+          to be the part that keeps mattering.
+        </p>
+
+        <p>
+          Here is every submission I made, all of them public on{" "}
+          <a href="https://www.kaggle.com/stimmie">my Kaggle profile</a>, with the number I trusted, the number
+          everyone could see, and the number that counted.
         </p>
 
         <table className="my-6 w-full text-sm border-collapse font-mono">
@@ -385,7 +403,9 @@ export default function KagglePage() {
           <a href="https://www.kaggle.com/competitions/playground-series-s6e8">Predicting Smartphone Addiction</a>{" "}
           and its{" "}
           <a href="https://www.kaggle.com/competitions/playground-series-s6e8/leaderboard">final leaderboard</a>,
-          which is where the rank and cluster counts come from. The source survey:{" "}
+          which is where the rank and cluster counts come from, plus{" "}
+          <a href="https://www.kaggle.com/competitions/playground-series-s6e8/writeups/1st-place-distributed-intelligence-nvidia-infe">the winning writeup</a>{" "}
+          and <a href="https://www.kaggle.com/stimmie">my own profile</a>. The source survey:{" "}
           <a href="https://www.kaggle.com/datasets/algozee/smartphone-addiction-prediction-data">Smartphone Addiction Prediction Data</a>.
           The libraries: <a href="https://lightgbm.readthedocs.io/">LightGBM</a>,{" "}
           <a href="https://xgboost.readthedocs.io/">XGBoost</a>, and{" "}
