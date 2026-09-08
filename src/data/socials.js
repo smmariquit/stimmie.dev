@@ -197,7 +197,7 @@ export const socialCategories = [
         name: "itch.io",
         href: "https://stimmieuwu.itch.io/",
         icon: "/logos/itchio.png",
-        alt: "itch.io - games I've made",
+        alt: "itch.io - game jam entries I helped build",
       },
       {
         name: "Fun",
