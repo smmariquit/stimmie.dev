@@ -82,8 +82,8 @@ export default function KagglePage() {
 691371,0.9002`}</code></pre>
 
         <p>
-          The second number is not a yes or no. It is how confident you are, between 0 and 1. That surprised me.
-          Kaggle scores you and puts you on a leaderboard, and you can upload five times a day. The competition
+          That second number is a confidence between 0 and 1 rather than a yes or no, which I had not expected.
+          Kaggle scores the file, puts you on a leaderboard, and lets you upload five times a day. The competition
           I entered was{" "}
           <a href="https://www.kaggle.com/competitions/playground-series-s6e8">Playground Series Season 6, Episode 8</a>,
           which ran from the start of August to the 31st. Playground competitions are the practice tier: no prize
@@ -93,8 +93,7 @@ export default function KagglePage() {
         <h2>The score, and why it is not accuracy</h2>
 
         <p>
-          The metric here is ROC AUC, and nobody explains it well the first time, so here is the version that
-          finally worked for me.
+          The metric here is ROC AUC. It took me a few tries to get it, and this is the phrasing that stuck.
         </p>
 
         <p>
@@ -114,7 +113,7 @@ export default function KagglePage() {
         <Figure
           src="/blog/kaggle/what-auc-measures.png"
           alt="Two overlapping histograms of my model's predicted probabilities across all 691,369 training people, one for those actually addicted and one for those not, showing heavy separation but real overlap."
-          caption="My model's guess for every person in the training set, split by what they actually were. AUC is the chance a randomly picked pink sits to the right of a randomly picked blue. The overlap in the middle is the score I did not have."
+          caption="My model&apos;s guess for each of the 691,369 training people, split by what they actually were. Blue piles up near zero, pink near one, and the purple is where they overlap. AUC is the chance a random pink sits to the right of a random blue, which here came to 0.96995. Counts are on a log scale, since the bar at 1.0 is otherwise forty times taller than anything else."
         />
 
         <h2>The first hour</h2>
@@ -128,8 +127,8 @@ export default function KagglePage() {
         <p>
           My first question was how anyone finds the extra 0.0065, and my second was whether 0.0065 is even a lot.
           On this problem it is, because the entire field lives inside about half a percent. A ten-minute script
-          put me within 0.65 percent of first place, and the remaining twelve days went on the last 0.006. That
-          ratio is the whole shape of competitive machine learning and I did not know it before that afternoon.
+          put me within 0.65 percent of first place, and the remaining twelve days went on the last 0.006. I had
+          assumed the gap between a beginner and the top would be wide, and most of it closed in ten minutes.
         </p>
 
         <p>
@@ -203,7 +202,7 @@ export default function KagglePage() {
         <Figure
           src="/blog/kaggle/repeated-values.png"
           alt="Bar chart of the 18 most common exact values of daily screen time hours, each appearing between roughly 1,700 and 3,434 times across 595,515 rows."
-          caption="The 18 most common values of daily screen time. A real measurement would almost never repeat like this."
+          caption="The eighteen most common values of daily screen time. There are only 1,389 distinct values across 595,515 rows, and the most common one repeats 3,434 times."
         />
 
         <p>
@@ -222,7 +221,7 @@ export default function KagglePage() {
         <Figure
           src="/blog/kaggle/slack-constraint.png"
           alt="Histogram of daily screen time minus the sum of social media, gaming and work hours, with a dashed line at zero and no mass at all to the left of it."
-          caption="Daily screen time minus the sum of its parts, every row that has all four numbers. Nothing falls to the left of zero."
+          caption="Daily screen time minus social media, gaming and work hours, for every row that carries all four. None of the 595,515 rows falls below zero. The real survey breaks the same rule in more than half of its own rows."
         />
 
         <p>
@@ -271,12 +270,12 @@ export default function KagglePage() {
         <Figure
           src="/blog/kaggle/leaderboard-clusters.png"
           alt="Bar chart of how many teams share each exact public leaderboard score near the top, with tall bars of 72 and 71 teams at 0.97128 and 0.97130, and my own cluster of 24 teams at 0.97117 highlighted."
-          caption="Teams sharing each exact score at the top of the final leaderboard. Identical scores mean identical files. My cluster is the pink one, and the tall bars to its right are later forks of the same notebook."
+          caption="How many teams share each exact score at the top of the final public leaderboard. Identical scores mean identical files. Mine is the pink bar, tied with 23 others, and the bars of 72 and 71 teams to its right are later forks of the same notebook."
         />
 
         <p>
-          Borrowing a number gets you the number and not the position, and I do not think I would have understood
-          that from reading about it.
+          The fork handed me a score that other people were already busy improving on. I do not think I would have
+          understood that from reading about it.
         </p>
 
         <h2>The two finals</h2>
@@ -346,7 +345,7 @@ export default function KagglePage() {
         <Figure
           src="/blog/kaggle/bayes-ceiling.png"
           alt="A proportion bar showing 83 percent of people in look-alike groups sit in a group containing both answers, with the example of 3,339 people sharing four rounded values of whom 17 percent were labelled addicted."
-          caption="Group people by four rounded numbers and 83 percent of them land in a group that contains both answers. That overlap is the part of the score nobody can win."
+          caption="The 685,219 people who share four rounded numbers with at least nineteen others. 83 percent of them sit in a group where the answer is not unanimous. One such group holds 3,339 people who all reported 4h screen time, 1h social media, 7h sleep and 1h gaming, and 17 percent of them were labelled addicted."
         />
 
         <p>
