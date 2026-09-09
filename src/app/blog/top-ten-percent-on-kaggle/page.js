@@ -2,7 +2,7 @@ import Link from "next/link";
 import PageShell from "@/components/neo/PageShell";
 
 const desc =
-  "My first Kaggle competition, start to finish: what the score means, what cross-validation is for, what the data generator left behind, and why 351st of 3,532 was the honest result.";
+  "My first Kaggle competition, start to finish. What the score means, what cross-validation is for, what the data generator left behind, and why 351st of 3,532 was the honest result.";
 
 export const metadata = {
   title: "What I learned placing top 10% in a Kaggle competition",
@@ -73,7 +73,7 @@ export default function KagglePage() {
 
         <p>
           <code>test.csv</code> has 296,000 more people and no answer column. Your job is to guess. You upload a
-          two-column file, one row per person, and it looks like this:
+          two-column file, one row per person, in this shape.
         </p>
 
         <pre className="text-sm"><code>{`id,addicted_label
@@ -86,7 +86,7 @@ export default function KagglePage() {
           Kaggle scores the file, puts you on a leaderboard, and lets you upload five times a day. The competition
           I entered was{" "}
           <a href="https://www.kaggle.com/competitions/playground-series-s6e8">Playground Series Season 6, Episode 8</a>,
-          which ran from the start of August to the 31st. Playground competitions are the practice tier: no prize
+          which ran from the start of August to the 31st. Playground competitions are the practice tier, with no prize
           money, thousands of entrants, and the data is generated rather than collected, which matters later.
         </p>
 
@@ -105,7 +105,7 @@ export default function KagglePage() {
         <p>
           The important part is that AUC only cares about the <em>order</em>, not the actual values. A model that
           outputs 0.9 and 0.8 scores the same as one that outputs 0.02 and 0.01, as long as the right person is on
-          top. This is why you submit probabilities and never round them to 0 and 1: rounding throws away the
+          top. This is why you submit probabilities and never round them to 0 and 1. Rounding throws away the
           ordering inside each group and your score collapses. I know because the first thing I wanted to do was
           round them.
         </p>
@@ -126,7 +126,7 @@ export default function KagglePage() {
 
         <p>
           My first question was how anyone finds the extra 0.0065, and my second was whether 0.0065 is even a lot.
-          On this problem it&apos;s, because the entire field lives inside about half a percent. A ten-minute script
+          On this problem it is, because the entire field lives inside about half a percent. A ten-minute script
           put me within 0.65 percent of first place, and the remaining twelve days went on the last 0.006. I had
           assumed the gap between a beginner and the top would be wide, and most of it closed in ten minutes.
         </p>
@@ -163,8 +163,8 @@ export default function KagglePage() {
 
         <p>
           Leakage is when your model sees something during training that it won&apos;t have at prediction time. The
-          textbook example: predict whether a patient has diabetes, and include &quot;is taking insulin&quot; as a
-          column. The model scores 0.99 and is useless, because in real life the insulin comes after the diagnosis
+          textbook example is a model that predicts whether a patient has diabetes from a set of columns that includes
+          &quot;is taking insulin&quot;. The model scores 0.99 and is useless, because in real life the insulin comes after the diagnosis
           you&apos;re trying to predict.
         </p>
 
@@ -213,7 +213,7 @@ export default function KagglePage() {
 
         <p>
           The second one is a rule. In the generated data, daily screen time is never less than social media plus
-          gaming plus work hours. Not rarely: never, in all 595,515 rows that have all four values. The real survey
+          gaming plus work hours. That holds in all 595,515 rows that have all four values, without a single exception. The real survey
           breaks that rule in more than half its rows, so the generator was enforcing something the humans didn&apos;t.
           The size of the gap, which I started calling slack, predicts the answer at 0.765 AUC entirely on its own.
         </p>
@@ -227,14 +227,14 @@ export default function KagglePage() {
         <p>
           I also tried the obvious cheat. If the fake data came from a real survey, why not just find the survey
           and use the real answers? I found it, confirmed it was the source, and added it to the training data. The
-          score got worse: 0.96632 to 0.96628 with one copy, and 0.96596 with ten. The generator had re-invented
+          score got worse, from 0.96632 to 0.96628 with one copy, and to 0.96596 with ten. The generator had re-invented
           the answers from scratch, so the real ones had nothing to say about the fake people.
         </p>
 
         <h2>Eighty-four models</h2>
 
         <p>
-          The last stretch was volume. By the end there were 84 different models: LightGBM, XGBoost and CatBoost
+          The last stretch was volume. By the end there were 84 different models. LightGBM, XGBoost and CatBoost
           across different random seeds and fold counts, plus a small neural network that treats each column as a
           word in a sentence, which I took from a public notebook after my own attempt at one came out worse.
         </p>
@@ -251,7 +251,8 @@ export default function KagglePage() {
         <p>
           Partway through I noticed a lot of identical scores on the leaderboard. That happens when one public
           notebook, itself a blend of other public notebooks, gets forked by everyone who opens it. Kaggle breaks
-          exact ties by who submitted first, so a chunk of the board was less a ranking than a queue.
+          exact ties by who submitted first, so a chunk of the board was ordered by submission time rather
+          than by anything the models did.
         </p>
 
         <p>
@@ -263,8 +264,8 @@ export default function KagglePage() {
         <p>
           By the deadline the same file was rank 351 of 3,532. Nothing about it had changed. The notebook kept
           being improved and re-forked, and the newer forks piled into clusters above mine, 72 teams tied at
-          0.97128 and 71 at 0.97130, with 344 teams above me in total. The queue had moved and I was standing where
-          it used to be.
+          0.97128 and 71 at 0.97130, with 344 teams above me in total. My file sat still while the
+          people around me kept improving theirs.
         </p>
 
         <Figure
@@ -281,7 +282,7 @@ export default function KagglePage() {
         <h2>The two finals</h2>
 
         <p>
-          Here is the part that makes Kaggle interesting. The leaderboard you watch all competition is computed on
+          Kaggle scores you twice. The leaderboard you watch all competition is computed on
           a slice of the test set. The real one, scored on everything else, is hidden until the deadline. You pick
           two submissions to be judged on it.
         </p>
@@ -314,22 +315,22 @@ export default function KagglePage() {
           Second place is the one I keep rereading.{" "}
           <a href="https://www.kaggle.com/competitions/playground-series-s6e8/writeups/2nd-place-solution">Xin Feng</a>{" "}
           did it by hand on Kaggle&apos;s free GPUs and a twenty dollar subscription, and his writeup lands on the
-          same rule this post keeps circling: trust your own out-of-fold score, and treat the public leaderboard as
-          a check rather than a target. He also says he spent his last week hunting for a better way to blend when
+          same rule this post keeps circling, which is to trust your own out-of-fold score and treat the public
+          leaderboard as a check rather than a target. He also says he spent his last week hunting for a better way to blend when
           he should have been improving one model, which is the mistake I made in miniature with my 84.
         </p>
 
         <p>
           I have my own answer, which is that the thing I could not have outsourced was knowing whether to believe
-          my own validation. Deotte says something close to this in the comments: humans cannot beat agents on
-          coding speed any more, only on the insight the agent overlooked. Learning what a fold is for turns out
+          my own validation. Deotte says something close to this in the comments, where he writes that humans
+          cannot beat agents on coding speed any more, only on the insight the agent overlooked. Learning what a fold is for turns out
           to be the part that keeps mattering.
         </p>
 
         <p>
-          Here is every submission I made, all of them public on{" "}
-          <a href="https://www.kaggle.com/stimmie">my Kaggle profile</a>, with the number I trusted, the number
-          everyone could see, and the number that counted.
+          Every submission I made is public on{" "}
+          <a href="https://www.kaggle.com/stimmie">my Kaggle profile</a>. The table below has my own
+          cross-validation score next to the public and private scores for each one.
         </p>
 
         <table className="my-6 w-full text-sm border-collapse font-mono">
@@ -351,8 +352,8 @@ export default function KagglePage() {
         <h2>The ceiling</h2>
 
         <p>
-          Somewhere around day three I asked why I couldn&apos;t simply keep going until the score hit 1.0. The answer
-          has a name.
+          Somewhere around day three I asked why I couldn&apos;t simply keep going until the score hit 1.0. There is a
+          limit built into the data itself, and it has a name.
         </p>
 
         <p>
@@ -376,7 +377,7 @@ export default function KagglePage() {
         />
 
         <p>
-          Which reframes the whole competition. Everyone above 0.97 was already pressed against that ceiling, and
+          That changes what the competition was about. Everyone above 0.97 was already pressed against that ceiling, and
           the fight was over the last thousandth. Kaggle gives you thirty free GPU hours a week, and I spent an
           evening getting my own laptop&apos;s graphics card working after finding it walled off by a virtual
           machine config I had set up a year earlier and forgotten. None of it changed the number, because the
