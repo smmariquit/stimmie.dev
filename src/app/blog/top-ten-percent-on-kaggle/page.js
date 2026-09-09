@@ -159,6 +159,12 @@ export default function KagglePage() {
           put the CV number in every submission description so I could tell later what had actually helped.
         </p>
 
+        <Figure
+          src="/blog/kaggle/submissions-tracking.png"
+          alt="Line chart of my ten submissions in order, with my cross-validation score, the public leaderboard score and the private leaderboard score moving together, and the two submissions taken from public notebooks shaded."
+          caption="My ten submissions in order. The public and private scores sit about 0.001 above my own cross-validation and move with it the whole way, which is what a trustworthy fold split looks like. The two shaded submissions came from public notebooks, so they have no cross-validation of my own."
+        />
+
         <h2>Leakage</h2>
 
         <p>
