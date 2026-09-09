@@ -202,15 +202,15 @@ export default function KagglePage() {
 
         <p>
           The one genuinely useful thing to do with the public score is to check it once against your CV at the
-          start. Mine agreed to within 0.002, and the leaderboard was slightly higher than CV, which is the healthy
-          direction. That told me my validation was honest. From then on I only submitted when CV went up, and I
+          start. Mine agreed to within 0.002, with the leaderboard slightly higher than CV. Had it come in below CV I would
+          have known my folds were flattering me. From then on I only submitted when CV went up, and I
           put the CV number in every submission description so I could tell later what had actually helped.
         </p>
 
         <Figure
           src="/blog/kaggle/submissions-tracking.png"
           alt="Line chart of my ten submissions in order, with my cross-validation score, the public leaderboard score and the private leaderboard score moving together, and the two submissions taken from public notebooks shaded."
-          caption="My ten submissions in order. The public and private scores sit about 0.001 above my own cross-validation and move with it the whole way, which is what a trustworthy fold split looks like. The two shaded submissions came from public notebooks, so they have no cross-validation of my own."
+          caption="My ten submissions in order. The public and private scores sit about 0.001 above my own cross-validation and move with it the whole way. The two shaded submissions came from public notebooks, so they have no cross-validation of my own."
         />
 
         <h2>Leakage</h2>
@@ -225,7 +225,7 @@ export default function KagglePage() {
         <p>
           The cheap check is to score every column on its own against the answer. If one column nearly solves the
           problem by itself, something is wrong. Here the strongest were daily screen time and weekend screen time,
-          and neither came close to solving it alone, which is what a strong honest feature looks like.
+          and neither came close to solving it alone.
         </p>
 
         <p>
@@ -297,7 +297,7 @@ export default function KagglePage() {
           You then have to combine 84 sets of guesses into one. I tried three ways of doing it and they all landed
           within 0.0001 of each other, which told me the combining method wasn&apos;t where the score lived. What did
           move it was adding a model that made <em>different</em> mistakes from the others. Another copy of the same
-          model with a new random seed was worth about 0.00003, which is nothing.
+          model with a new random seed was worth about 0.00003.
         </p>
 
         <h2>Forking the public notebook</h2>
@@ -369,14 +369,13 @@ export default function KagglePage() {
           Second place is the one I keep rereading.{" "}
           <a href="https://www.kaggle.com/competitions/playground-series-s6e8/writeups/2nd-place-solution">Xin Feng</a>{" "}
           did it by hand on Kaggle&apos;s free GPUs and a twenty dollar subscription, and his writeup lands on the
-          same rule this post keeps circling, which is to trust your own out-of-fold score and treat the public
-          leaderboard as a check rather than a target. He also says he spent his last week hunting for a better way to blend when
-          he should have been improving one model, which is the mistake I made in miniature with my 84.
+          same rule this post keeps circling. Trust your own out-of-fold score and treat the public leaderboard as a
+          check rather than a target. He also says he spent his last week hunting for a better way to blend when
+          he should have been improving one model. I made that mistake in miniature with my 84.
         </p>
 
         <p>
-          I have my own answer, which is that the thing I could not have outsourced was knowing whether to believe
-          my own validation. Deotte says something close to this in the comments, where he writes that humans
+          The thing I could not have outsourced was knowing whether to believe my own validation. Deotte says something close to this in the comments, where he writes that humans
           cannot beat agents on coding speed any more, only on the insight the agent overlooked. Learning what a fold is for turns out
           to be the part that keeps mattering.
         </p>
