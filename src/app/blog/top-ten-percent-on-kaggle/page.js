@@ -71,6 +71,19 @@ export default function KagglePage() {
           is the answer.
         </p>
 
+        <p>The first three rows look like this, exactly as they come.</p>
+
+        <pre className="text-sm overflow-x-auto"><code>{`id,age,daily_screen_time_hours,social_media_hours,gaming_hours,work_study_hours,sleep_hours,notifications_per_day,app_opens_per_day,weekend_screen_time,gender,stress_level,academic_work_impact,addicted_label
+0,24.0,,1.83,1.59,2.11,7.46,122.0,38.0,8.63,Male,Medium,No,1
+1,19.0,5.97,1.08,,3.03,8.22,76.0,19.0,,Female,Medium,No,0
+2,18.0,5.09,,,,6.25,134.0,60.0,7.47,Female,Low,Yes,0`}</code></pre>
+
+        <p>
+          The gaps are real. Person 0 has no screen time recorded, person 2 is missing three of the hour columns,
+          and only 595,515 of the 691,369 rows carry all four of the hour columns at once. That matters later,
+          because the strongest thing I found in this data only exists in the rows that have all four.
+        </p>
+
         <p>
           <code>test.csv</code> has 296,000 more people and no answer column. Your job is to guess. You upload a
           two-column file, one row per person, in this shape.
