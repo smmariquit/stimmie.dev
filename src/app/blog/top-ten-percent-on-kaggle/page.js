@@ -26,6 +26,23 @@ function Figure({ src, alt, caption }) {
   );
 }
 
+const ROWS = [
+  ["id", "0", "1", "2"],
+  ["age", "24.0", "19.0", "18.0"],
+  ["daily_screen_time_hours", "", "5.97", "5.09"],
+  ["social_media_hours", "1.83", "1.08", ""],
+  ["gaming_hours", "1.59", "", ""],
+  ["work_study_hours", "2.11", "3.03", ""],
+  ["sleep_hours", "7.46", "8.22", "6.25"],
+  ["notifications_per_day", "122.0", "76.0", "134.0"],
+  ["app_opens_per_day", "38.0", "19.0", "60.0"],
+  ["weekend_screen_time", "8.63", "", "7.47"],
+  ["gender", "Male", "Female", "Female"],
+  ["stress_level", "Medium", "Medium", "Low"],
+  ["academic_work_impact", "No", "No", "Yes"],
+  ["addicted_label", "1", "0", "0"],
+];
+
 const SUBS = [
   ["Aug 19", "LightGBM baseline, 5-fold", "0.96321", "0.96487", "0.96471"],
   ["Aug 19", "v3, nested target encoding, slack feature, 3-model stack", "0.96809", "0.96950", "0.96920"],
@@ -71,12 +88,30 @@ export default function KagglePage() {
           is the answer.
         </p>
 
-        <p>The first three rows look like this, exactly as they come.</p>
+        <p>The first three rows look like this, one column per person.</p>
 
-        <pre className="text-sm overflow-x-auto"><code>{`id,age,daily_screen_time_hours,social_media_hours,gaming_hours,work_study_hours,sleep_hours,notifications_per_day,app_opens_per_day,weekend_screen_time,gender,stress_level,academic_work_impact,addicted_label
-0,24.0,,1.83,1.59,2.11,7.46,122.0,38.0,8.63,Male,Medium,No,1
-1,19.0,5.97,1.08,,3.03,8.22,76.0,19.0,,Female,Medium,No,0
-2,18.0,5.09,,,,6.25,134.0,60.0,7.47,Female,Low,Yes,0`}</code></pre>
+        <table className="my-6 w-full text-sm border-collapse font-mono">
+          <thead>
+            <tr className="border-b-2 border-current text-left">
+              <th className="py-1 pr-3">column</th>
+              <th className="py-1 pr-3 text-right">person 0</th>
+              <th className="py-1 pr-3 text-right">person 1</th>
+              <th className="py-1 text-right">person 2</th>
+            </tr>
+          </thead>
+          <tbody>
+            {ROWS.map(([name, a, b, c]) => (
+              <tr key={name} className="border-t border-current">
+                <td className="py-1 pr-3">{name}</td>
+                {[a, b, c].map((v, i) => (
+                  <td key={i} className={`py-1 text-right${i < 2 ? " pr-3" : ""}${v === "" ? " neo-muted" : ""}`}>
+                    {v === "" ? "empty" : v}
+                  </td>
+                ))}
+              </tr>
+            ))}
+          </tbody>
+        </table>
 
         <p>
           The gaps are real. Person 0 has no screen time recorded, person 2 is missing three of the hour columns,
