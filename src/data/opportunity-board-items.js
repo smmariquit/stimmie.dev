@@ -3665,4 +3665,332 @@ export const opportunityBoardItems = [
       beginnerFriendly: true,
       blurb: "A free, self-paced ITU Academy course, about 2 hours across five modules, that teaches how to design table-top simulation exercises for testing national emergency telecommunications and disaster preparedness plans. It has no entry requirements and is open to anyone.",
     },
+    {
+      title: "AMD Developer Hackathon: ACT III",
+      type: "hackathon",
+      url: "https://lablab.ai/ai-hackathons/amd-developer-hackathon-act-iii",
+      org: "AMD / lablab.ai",
+      location: "Online",
+      dates: [
+        {
+          label: "Online build",
+          date: "2026-10-12",
+          endDate: "2026-10-18",
+        },
+      ],
+      blurb: "A week-long online build challenge on real AMD infrastructure, with an optional onsite showcase in Rome, Milan, and Imperia. Open worldwide for the online track.",
+    },
+    {
+      title: "WeAreDevelopers Hackathon",
+      type: "hackathon",
+      url: "https://lablab.ai/ai-hackathons/wearedevelopers-hackathon",
+      org: "lablab.ai / WeAreDevelopers",
+      location: "Online",
+      dates: [
+        {
+          label: "Online build",
+          date: "2026-09-18",
+          endDate: "2026-09-24",
+        },
+      ],
+      blurb: "A week-long online AI build tied to the WeAreDevelopers World Congress North America, open to remote builders anywhere.",
+    },
+    {
+      title: "JagJam 2026",
+      type: "game-jam",
+      url: "https://itch.io/jam/jagjam-2026",
+      org: "Boris_K (itch.io)",
+      location: "Online",
+      dates: [
+        {
+          label: "Submissions close",
+          date: "2026-10-31",
+        },
+      ],
+      blurb: "A long-running online jam for making homebrew games for the Atari Jaguar, open worldwide to solo devs and teams of any experience level.",
+    },
+    {
+      title: "Scream Jam 2026",
+      type: "game-jam",
+      url: "https://itch.io/jam/scream-jam-2026",
+      org: "Scream Zone (itch.io)",
+      location: "Online",
+      dates: [
+        {
+          label: "Jam period",
+          date: "2026-10-16",
+          endDate: "2026-10-23",
+        },
+      ],
+      beginnerFriendly: true,
+      blurb: "A week-long horror-themed online game jam open worldwide, welcoming both beginner and experienced developers on any engine.",
+    },
+    {
+      title: "Godot Wild Jam #100",
+      type: "game-jam",
+      url: "https://itch.io/jam/godot-wild-jam-100",
+      org: "Godot Wild Jam community",
+      location: "Online",
+      dates: [
+        {
+          label: "Jam period",
+          date: "2026-12-11",
+          endDate: "2026-12-20",
+        },
+      ],
+      beginnerFriendly: true,
+      blurb: "The 100th edition of this monthly online jam for the Godot engine, open worldwide and welcoming newcomers to Godot.",
+    },
+    {
+      title: "JPMorganChase 2027 Asia Analyst Development Program (Summer Analyst, Philippines)",
+      type: "internship",
+      url: "https://zapply.jobs/jobs/2a9178f9-9988-4845-bb07-cf33e4dce65c/",
+      org: "JPMorganChase",
+      location: "Philippines",
+      dates: [
+        {
+          label: "Application deadline",
+          date: "2026-11-30",
+        },
+      ],
+      blurb: "A nine-week summer analyst internship in the Philippines that feeds into JPMorganChase's 2028 full-time Asia Analyst Development Program, open to students expecting to graduate between December 2027 and June 2028.",
+    },
+    {
+      title: "ADB Young Professionals Program 2027",
+      type: "program",
+      url: "https://www.adb.org/careers/260870",
+      org: "Asian Development Bank",
+      location: "Manila, Philippines",
+      dates: [
+        {
+          label: "Application deadline",
+          date: "2026-09-30",
+        },
+      ],
+      blurb: "ADB's flagship entry-level recruitment track for early-career professionals under 32, offering rotational assignments across the bank's operations and knowledge departments based mainly at its Manila headquarters.",
+    },
+    {
+      title: "Founder Institute Philippines 2027 Cohort",
+      type: "program",
+      url: "https://fi.co/apply/manila",
+      org: "Founder Institute Manila",
+      location: "Manila, Philippines / Virtual",
+      dates: [
+        {
+          label: "Early application deadline",
+          date: "2027-04-27",
+        },
+        {
+          label: "Program dates",
+          date: "2027-07-28",
+          endDate: "2027-09-30",
+        },
+      ],
+      blurb: "A pre-seed startup accelerator cohort for Philippine-based founders, running virtually with in-person Manila networking and mentorship from local startup veterans.",
+    },
+    {
+      title: "Shipaton Manila 2026",
+      type: "event",
+      url: "https://luma.com/gb15kvjw",
+      org: "Flutter Philippines (with Swift PH and FFDG Manila)",
+      location: "Pasig",
+      dates: [
+        {
+          label: "Event",
+          date: "2026-09-19",
+        },
+      ],
+      blurb: "In-person meetup for RevenueCat's global mobile hackathon, featuring a talk on app monetization and a mini hackathon with a new student track for international prizes.",
+    },
+    {
+      title: "Café Notion",
+      type: "event",
+      url: "https://luma.com/lsbl3uhr",
+      org: "Notion at APC",
+      location: "Makati",
+      dates: [
+        {
+          label: "Workshop",
+          date: "2026-09-19",
+        },
+      ],
+      beginnerFriendly: true,
+      blurb: "A hands-on beginner session on building a simple Notion system to organize tasks and beat procrastination, open to non-APC attendees as well as students.",
+    },
+    {
+      title: "118th Agile Philippines Meetup",
+      type: "event",
+      url: "https://www.meetup.com/agilephilippines/events/316311306/",
+      org: "Agile Philippines",
+      location: "Taguig",
+      dates: [
+        {
+          label: "Event",
+          date: "2026-09-15",
+        },
+      ],
+      blurb: "In-person gathering at GCash's BGC office with a light dinner and talks for people working in or curious about agile practices.",
+    },
+    {
+      title: "Software Freedom Day 2026: The Future is Open",
+      type: "event",
+      url: "https://www.meetup.com/manila-wordpress-meetup/events/316416614/",
+      org: "WordPress Manila Meetup x Huawei Cloud Developer Group Philippines",
+      location: "Taguig",
+      dates: [
+        {
+          label: "Talks and workshops",
+          date: "2026-09-19",
+        },
+      ],
+      beginnerFriendly: true,
+      blurb: "A celebration of free and open source software with talks and hands-on workshops on open source and AI, explicitly welcoming developers, designers, students, and educators.",
+    },
+    {
+      title: "DevOps User Group Event 04",
+      type: "event",
+      url: "https://www.meetup.com/manila-devops-user-group/events/316096488/",
+      org: "Manila DevOps User Group (PSUGMNL)",
+      location: "Makati",
+      dates: [
+        {
+          label: "Talks and lightning talks",
+          date: "2026-09-19",
+        },
+      ],
+      blurb: "Free technical meetup on AI agents and Microsoft Copilot with lightning talks, complimentary food, and certificates for attendees.",
+    },
+    {
+      title: "Your Logo Is Not Your Brand",
+      type: "event",
+      url: "https://www.startupgrind.com/events/details/startup-grind-hong-kong-presents-your-logo-is-not-your-brand-with-lorena-chan/cohost-manila",
+      org: "Startup Grind Manila (with Startup Grind Hong Kong)",
+      location: "Online",
+      dates: [
+        {
+          label: "Virtual talk",
+          date: "2026-09-17",
+        },
+      ],
+      blurb: "Online session with brand strategist Lorena Chan on common branding myths that cost early-stage founders money and what startups actually need instead.",
+    },
+    {
+      title: "What $1.6B in Raised Capital Taught Us About Pitch Decks",
+      type: "event",
+      url: "https://www.startupgrind.com/events/details/startup-grind-doha-presents-what-16b-in-raised-capital-taught-us-about-pitch-decks-that-actually-work-and-what-doesnt/cohost-manila",
+      org: "Startup Grind Manila (with Startup Grind Doha)",
+      location: "Online",
+      dates: [
+        {
+          label: "Virtual talk",
+          date: "2026-09-21",
+        },
+      ],
+      blurb: "Pitch Deck Studios founder Ada Mazurek shares case studies and a five-question framework for building investor pitch decks, drawn from decks that raised over 1.6 billion dollars.",
+    },
+    {
+      title: "AI Community Days Cebu 2026",
+      type: "event",
+      url: "https://www.communitydays.org/event/2026-09-24/ai-community-days-cebu",
+      org: "AI Community Days (Microsoft community initiative)",
+      location: "Cebu City",
+      dates: [
+        {
+          label: "Keynotes and workshops",
+          date: "2026-09-24",
+        },
+      ],
+      beginnerFriendly: true,
+      blurb: "Free, in-person day of keynotes, hands-on AI workshops, and a community showcase at Cebu IT Park, open to anyone interested in AI.",
+    },
+    {
+      title: "The AI Assisted Web Designer: Faster Delivery Without Losing Creative Control",
+      type: "event",
+      url: "https://ixdf.org/meetups/the-ai-assisted-web-designer-faster-delivery-without-losing-creative-control-sep-24th-2026",
+      org: "IxDF Cebu (Interaction Design Foundation local group)",
+      location: "Online",
+      dates: [
+        {
+          label: "Virtual meetup",
+          date: "2026-09-24",
+        },
+      ],
+      beginnerFriendly: true,
+      blurb: "Free online session on using AI to speed up client revisions while keeping creative control, with downloadable templates and no membership required.",
+    },
+    {
+      title: "PyWorks October 2026: Data and AI",
+      type: "event",
+      url: "https://www.meetup.com/pythonph/events/311387560/",
+      org: "Python Philippines",
+      location: "Quezon City",
+      dates: [
+        {
+          label: "Full-day hands-on workshop",
+          date: "2026-10-03",
+        },
+      ],
+      blurb: "Full-day, two-track hands-on workshop covering data engineering and analytics on one track and generative AI and prompt engineering on the other.",
+    },
+    {
+      title: "Digital Literacy",
+      type: "certificate",
+      url: "https://e-tesda.gov.ph/course/index.php?categoryid=1310",
+      org: "TESDA Online Program",
+      location: "Online",
+      beginnerFriendly: true,
+      blurb: "A free self-paced bundle covering Microsoft-backed digital literacy basics, workplace data privacy, and safe Wi-Fi use, good for students who want foundational computer and online-safety skills before more advanced IT courses.",
+    },
+    {
+      title: "Personal Financial Management Courses",
+      type: "certificate",
+      url: "https://e-tesda.gov.ph/course/index.php?categoryid=1729",
+      org: "TESDA Online Program and Bangko Sentral ng Pilipinas",
+      location: "Online",
+      beginnerFriendly: true,
+      blurb: "Short BSP-backed modules on budgeting, saving, debt management, basic investing, and fraud prevention, a practical financial literacy primer for students managing their first paychecks or side income.",
+    },
+    {
+      title: "Universal Service Funds for School Connectivity",
+      type: "certificate",
+      url: "https://academy.itu.int/training-courses/full-catalogue/universal-service-funds-school-connectivity",
+      org: "ITU Academy",
+      location: "Online",
+      dates: [
+        {
+          label: "Registration deadline",
+          date: "2026-09-24",
+        },
+        {
+          label: "Course dates",
+          date: "2026-10-12",
+          endDate: "2026-11-13",
+        },
+      ],
+      blurb: "A free instructor-led course on financing and sustaining school internet connectivity, useful for students interested in ICT policy, edtech, or telecom regulation. Registration is open now through September 24 for the October cohort.",
+    },
+    {
+      title: "Introduction to Broadband Mapping",
+      type: "certificate",
+      url: "https://academy.itu.int/training-courses/full-catalogue/introduction-broadband-mapping-0",
+      org: "ITU Academy",
+      location: "Online",
+      beginnerFriendly: true,
+      blurb: "A free four-hour self-paced course on GIS fundamentals and geospatial data collection for mapping broadband coverage, a practical entry point for students interested in telecom infrastructure or public-sector GIS work.",
+    },
+    {
+      title: "Call for Judges — ML Empowerment Build Challenge 3.0",
+      type: "event",
+      url: "mailto:mlempowerfdn@gmail.com",
+      imageUrl: "https://ml-build-challenge-3.devpost.com/",
+      org: "ML Empowerment Foundation",
+      location: "Online",
+      dates: [
+        {
+          label: "Judges announced",
+          date: "2026-09-21",
+        },
+      ],
+      blurb: "ML Empowerment Foundation is inviting volunteer judges for its AI and machine learning build challenge. Email the organizers to apply before judges are announced on September 21, 2026.",
+    },
 ];
