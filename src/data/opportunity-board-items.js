@@ -3993,4 +3993,230 @@ export const opportunityBoardItems = [
       ],
       blurb: "ML Empowerment Foundation is inviting volunteer judges for its AI and machine learning build challenge. Email the organizers to apply before judges are announced on September 21, 2026.",
     },
+    {
+      title: "Godot Wild Jam #98",
+      type: "game-jam",
+      url: "https://itch.io/jam/godot-wild-jam-98",
+      org: "Godot Wild Jam community",
+      location: "Online",
+      dates: [
+        {
+          label: "Jam period",
+          date: "2026-10-09",
+          endDate: "2026-10-18",
+        },
+      ],
+      beginnerFriendly: true,
+      blurb: "Nine-day online jam for the Godot engine with a theme announced at kickoff. Open to solo developers and teams of any experience level worldwide.",
+    },
+    {
+      title: "Month of Horror #2: Withering Away",
+      type: "game-jam",
+      url: "https://itch.io/jam/month-of-horror-2",
+      org: "Beregon and BroodyGaming",
+      location: "Online",
+      dates: [
+        {
+          label: "Jam period",
+          date: "2026-10-07",
+          endDate: "2026-11-09",
+        },
+      ],
+      beginnerFriendly: true,
+      blurb: "Casual month-long horror game jam open to any engine or style, built around a decay and entropy theme. Good fit for solo developers or small teams.",
+    },
+    {
+      title: "Eclipse Publishing $500 Game Jam",
+      type: "game-jam",
+      url: "https://itch.io/jam/eclipse-publishingjam",
+      org: "Eclipse Publishing and Game Studios",
+      location: "Online",
+      dates: [
+        {
+          label: "Jam period",
+          date: "2026-10-01",
+          endDate: "2026-10-05",
+        },
+      ],
+      blurb: "96-hour online game jam with a $500 prize pool and guaranteed written feedback for every entrant. Theme is revealed when submissions open.",
+    },
+    {
+      title: "RGDC Jam 2026",
+      type: "game-jam",
+      url: "https://itch.io/jam/rgdc-gamejam2026",
+      org: "Rickards Game Development Club",
+      location: "Online",
+      dates: [
+        {
+          label: "Jam period",
+          date: "2026-10-01",
+          endDate: "2026-10-31",
+        },
+      ],
+      beginnerFriendly: true,
+      blurb: "Month-long online game jam run by a student game dev club, open to anyone. Casual and no-prize, good for building a portfolio.",
+    },
+    {
+      title: "B1T Jam 6",
+      type: "game-jam",
+      url: "https://itch.io/jam/b1t-jam-6",
+      org: "Macrow",
+      location: "Online",
+      dates: [
+        {
+          label: "Jam period",
+          date: "2026-10-31",
+          endDate: "2026-11-10",
+        },
+      ],
+      blurb: "Ten-day online jam with a fixed constraint of building a game using only two colors. Active Discord community, open worldwide.",
+    },
+    {
+      title: "TechEx Amsterdam Hackathon",
+      type: "hackathon",
+      url: "https://lablab.ai/ai-hackathons/techex-amsterdam-hackathon",
+      org: "lablab.ai / TechEx Events",
+      location: "Online / Amsterdam",
+      dates: [
+        {
+          label: "Online build",
+          date: "2026-10-16",
+          endDate: "2026-10-19",
+        },
+        {
+          label: "Onsite showcase",
+          date: "2026-10-19",
+          endDate: "2026-10-20",
+        },
+      ],
+      blurb: "Week-long online AI build sprint tied to AI & Big Data Expo Europe, with an optional onsite showcase at RAI Amsterdam for selected teams. Remote participation covers the full build phase.",
+    },
+    {
+      title: "Vultr: Agent Rush Hackathon",
+      type: "hackathon",
+      url: "https://lablab.ai/ai-hackathons/vultr-hackathon",
+      org: "lablab.ai / Vultr",
+      location: "Online",
+      dates: [
+        {
+          label: "Online build",
+          date: "2026-11-03",
+          endDate: "2026-11-08",
+        },
+      ],
+      blurb: "Week-long online sprint building AI agents sandboxed on Vultr infrastructure, with an optional onsite showcase for approved teams. Open globally; travel is not covered.",
+    },
+    {
+      title: "Modern Work Conference Manila 2026",
+      type: "event",
+      url: "https://www.communitydays.org/event/2026-09-29/modern-work-conference-manila-2026",
+      org: "Modern Work Conference Manila (community-led)",
+      location: "Makati / Metro Manila",
+      dates: [
+        {
+          label: "Conference",
+          date: "2026-09-29",
+        },
+      ],
+      beginnerFriendly: true,
+      blurb: "Free, community-led day of talks on Microsoft 365, Azure, security, and AI at Microsoft Philippines' Makati office. Open to students exploring careers and working professionals alike.",
+    },
+    {
+      title: "DevFest Cloud Manila Virtual Track: Hands-On Sessions",
+      type: "event",
+      url: "https://gdg.community.dev/events/details/google-gdg-cloud-manila-presents-devfest-cloud-manila-virtual-track-hands-on-sessions/",
+      org: "GDG Cloud Manila",
+      location: "Online",
+      dates: [
+        {
+          label: "Virtual hands-on labs",
+          date: "2026-10-03",
+        },
+      ],
+      beginnerFriendly: true,
+      blurb: "Free virtual kickoff to DevFest Cloud Manila with guided hands-on labs on Google Cloud, open to developers and students of any skill level with just a laptop and internet connection.",
+    },
+    {
+      title: "GDG Cloud Manila DevFest 2026",
+      type: "event",
+      url: "https://gdg.community.dev/events/details/google-gdg-cloud-manila-presents-gdg-cloud-manila-devfest-2026/",
+      org: "GDG Cloud Manila",
+      location: "Makati / Metro Manila",
+      dates: [
+        {
+          label: "DevFest",
+          date: "2026-10-10",
+        },
+      ],
+      beginnerFriendly: true,
+      blurb: "In-person flagship cloud and developer conference from GDG Cloud Manila, with talks and networking for builders of all levels. Free to register.",
+    },
+    {
+      title: "DevFest Baguio 2026",
+      type: "event",
+      url: "https://gdg.community.dev/events/details/google-gdg-baguio-presents-devfest-baguio-2026/",
+      org: "GDG Baguio",
+      location: "Baguio City",
+      dates: [
+        {
+          label: "DevFest",
+          date: "2026-10-23",
+          endDate: "2026-10-24",
+        },
+      ],
+      beginnerFriendly: true,
+      blurb: "Free two-day tech festival at the University of the Cordilleras covering AI, cloud, mobile, and web development, with talks, workshops, and a hackathon track for newcomers and experienced developers alike.",
+    },
+    {
+      title: "Advanced Multi-GNSS: Technical Foundations and Economic Applications",
+      type: "certificate",
+      url: "https://academy.itu.int/training-courses/full-catalogue/advanced-multi-global-navigation-satellite-systems-technical-foundations-and-economic-applications",
+      org: "ITU Academy",
+      location: "Online",
+      dates: [
+        {
+          label: "Registration deadline",
+          date: "2026-10-09",
+        },
+        {
+          label: "Course dates",
+          date: "2026-10-19",
+          endDate: "2026-10-30",
+        },
+      ],
+      blurb: "Instructor-led ITU Academy course on multi-GNSS satellite navigation, covering technical fundamentals and economic applications for engineering and geospatial students. Costs $150; registration is open now.",
+    },
+    {
+      title: "Call for Judges — LexHack 2026",
+      type: "event",
+      url: "https://lexhack-2026.devpost.com/",
+      org: "LexHack",
+      location: "Online",
+      dates: [
+        {
+          label: "Hackathon submission deadline",
+          date: "2026-09-27",
+        },
+      ],
+      beginnerFriendly: true,
+      blurb: "LexHack, a student hackathon on AI for legal and civic tech, is recruiting judges and organizing committee members online. No prior experience needed; apply before the hackathon wraps on September 27.",
+    },
+    {
+      title: "Manaaki New Zealand Scholarships 2027 Intake",
+      type: "program",
+      url: "https://www.nzscholarships.govt.nz/",
+      org: "New Zealand Ministry of Foreign Affairs and Trade",
+      location: "New Zealand",
+      dates: [
+        {
+          label: "Applications open",
+          date: "2027-03-01",
+        },
+        {
+          label: "Applications close",
+          date: "2027-04-10",
+        },
+      ],
+      blurb: "Fully funded scholarship for Filipino citizens to study in New Zealand, covering tuition, a living allowance, travel, and insurance. The Philippines is an eligible country for the 2027 intake, opening March 1, 2027.",
+    },
 ];
