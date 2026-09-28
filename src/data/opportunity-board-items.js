@@ -4219,4 +4219,237 @@ export const opportunityBoardItems = [
       ],
       blurb: "Fully funded scholarship for Filipino citizens to study in New Zealand, covering tuition, a living allowance, travel, and insurance. The Philippines is an eligible country for the 2027 intake, opening March 1, 2027.",
     },
+    {
+      title: "ForgeHacks Online 2026",
+      type: "hackathon",
+      url: "https://forgehacks-2026.devpost.com/",
+      org: "ForgeHacks",
+      location: "Online",
+      dates: [
+        {
+          label: "Hackathon week",
+          date: "2026-10-03",
+          endDate: "2026-10-10",
+        },
+        {
+          label: "Submission deadline",
+          date: "2026-10-10",
+        },
+      ],
+      beginnerFriendly: true,
+      blurb: "Free online student hackathon open worldwide, building AI solutions across healthcare, education, climate, business, cybersecurity, and creativity tracks. Teams of 1 to 4.",
+    },
+    {
+      title: "GameDev.tv Halloween Jam 2026",
+      type: "game-jam",
+      url: "https://itch.io/jam/gamedevtv-halloween-jam-2026",
+      org: "GameDev.tv",
+      location: "Online",
+      dates: [
+        {
+          label: "Jam",
+          date: "2026-10-02",
+          endDate: "2026-10-12",
+        },
+      ],
+      beginnerFriendly: true,
+      blurb: "10-day Halloween themed game jam open to solo developers or teams of up to 6 from any country, any engine allowed, theme revealed at the start.",
+    },
+    {
+      title: "GDevelop BIG Game Jam #10",
+      type: "game-jam",
+      url: "https://itch.io/jam/gdevelop-big-game-jam-10",
+      org: "GDevelop",
+      location: "Online",
+      dates: [
+        {
+          label: "Jam",
+          date: "2026-11-06",
+          endDate: "2026-11-15",
+        },
+      ],
+      beginnerFriendly: true,
+      blurb: "9-day jam open to anyone globally, built in the free open source no-code friendly GDevelop engine, teams of up to 4, browser playable submissions.",
+    },
+    {
+      title: "20 Second Game Jam 2026",
+      type: "game-jam",
+      url: "https://itch.io/jam/20-second-game-jam-2026",
+      org: "Akzidenz, xenobrain, and fascinationworks",
+      location: "Online",
+      dates: [
+        {
+          label: "Jam",
+          date: "2026-10-23",
+          endDate: "2026-11-16",
+        },
+      ],
+      beginnerFriendly: true,
+      blurb: "Relaxed, explicitly beginner friendly jam where the whole game must be playable in 20 seconds or less. No judges, no rankings, no prizes.",
+    },
+    {
+      title: "ASEAN AI Summit on MSME Growth 2026",
+      type: "event",
+      url: "https://asean-summit-registration.vercel.app/",
+      org: "DICT Philippines (ASEAN ISA Committee)",
+      location: "Online",
+      dates: [
+        {
+          label: "Summit",
+          date: "2026-10-06",
+          endDate: "2026-10-07",
+        },
+      ],
+      blurb: "Free two-day online regional summit on practical AI adoption for MSMEs, streamed live from PICC Manila, launching the ASEAN MSME AI Readiness Framework. Open to general attendees including students.",
+    },
+    {
+      title: "Emerging Technologies for Digital Future",
+      type: "certificate",
+      url: "https://academy.itu.int/training-courses/full-catalogue/emerging-technologies-digital-future",
+      org: "ITU Academy",
+      location: "Online",
+      dates: [
+        {
+          label: "Registration deadline",
+          date: "2026-10-10",
+        },
+        {
+          label: "Course",
+          date: "2026-10-12",
+          endDate: "2026-10-25",
+        },
+      ],
+      blurb: "Free two-week instructor-led ITU Academy course on emerging ICT trends (5G-Advanced, AI, green cloud), for engineers, regulators, and academia with a telecom/ICT background. Limited to about 70 seats, application-based.",
+    },
+    {
+      title: "Emerging Technologies and Human Rights Online",
+      type: "certificate",
+      url: "https://academy.itu.int/training-courses/full-catalogue/emerging-technologies-and-human-rights-online-1",
+      org: "ITU Academy (UNU-MERIT, EU Global Gateway)",
+      location: "Online",
+      dates: [
+        {
+          label: "Registration deadline",
+          date: "2026-10-11",
+        },
+        {
+          label: "Course",
+          date: "2026-10-30",
+          endDate: "2026-12-15",
+        },
+      ],
+      blurb: "Free 18-hour introductory course on emerging tech and human rights with weekly synchronous sessions through mid-December. Targeted at policymakers and government staff, only 30 places by application.",
+    },
+    {
+      title: "Incident Response for Secure School Connectivity",
+      type: "certificate",
+      url: "https://academy.itu.int/training-courses/full-catalogue/incident-response-secure-school-connectivity",
+      org: "ITU Academy",
+      location: "Online",
+      dates: [
+        {
+          label: "Registration deadline",
+          date: "2026-10-12",
+        },
+        {
+          label: "Course start",
+          date: "2026-11-02",
+        },
+      ],
+      blurb: "Free four-week Zoom based course on incident response for school connectivity, aimed at education ministry IT staff, cybersecurity agency staff, and regulators. Only 40 places by application.",
+    },
+    {
+      title: "Call for Speakers — WordCamp Asia 2027",
+      type: "event",
+      url: "https://asia.wordcamp.org/2027/call-for-speakers/",
+      org: "WordCamp Asia / WordPress Foundation",
+      location: "Penang, Malaysia",
+      dates: [
+        {
+          label: "Submission deadline",
+          date: "2026-11-08",
+        },
+        {
+          label: "Event",
+          date: "2027-04-09",
+          endDate: "2027-04-11",
+        },
+      ],
+      beginnerFriendly: true,
+      blurb: "Open call for speakers for WordCamp Asia 2027 at PWCC Penang, welcoming first-time speakers across lightning talks, regular talks, joint talks, and workshops. Selected speakers get a complimentary ticket.",
+    },
+    {
+      title: "Call for Volunteers — WordCamp Asia 2027",
+      type: "event",
+      url: "https://asia.wordcamp.org/2027/call-for-volunteers/",
+      org: "WordCamp Asia / WordPress Foundation",
+      location: "Penang, Malaysia",
+      dates: [
+        {
+          label: "Application deadline",
+          date: "2026-11-13",
+        },
+        {
+          label: "Event",
+          date: "2027-04-09",
+          endDate: "2027-04-11",
+        },
+      ],
+      beginnerFriendly: true,
+      blurb: "Open volunteer applications for WordCamp Asia 2027 across event operations, speaker support, registration, and accessibility. No prior WordPress experience needed; volunteers get a complimentary pass plus meals and swag.",
+    },
+    {
+      title: "Call for Sponsors — WordCamp Asia 2027",
+      type: "event",
+      url: "https://asia.wordcamp.org/2027/call-for-sponsors/",
+      org: "WordCamp Asia / WordPress Foundation",
+      location: "Penang, Malaysia",
+      dates: [
+        {
+          label: "Event",
+          date: "2027-04-09",
+          endDate: "2027-04-11",
+        },
+      ],
+      blurb: "Open sponsorship call for WordCamp Asia 2027, five package tiers from 3,000 to 45,000 USD plus smaller activations, first come first served. Last edition's livestream reached over 22,000 viewers.",
+    },
+    {
+      title: "YSEALI Academic Fellows Program (Spring & Fall 2027)",
+      type: "program",
+      url: "https://www.ysealiafp.org/apply",
+      org: "U.S. Department of State / YSEALI",
+      location: "Philippines-based applicants, program hosted in the United States",
+      dates: [
+        {
+          label: "Application deadline",
+          date: "2026-10-12",
+        },
+        {
+          label: "Spring 2027 cohort",
+          date: "2027-04-01",
+          endDate: "2027-05-05",
+        },
+        {
+          label: "Fall 2027 cohort",
+          date: "2027-09-16",
+          endDate: "2027-10-20",
+        },
+      ],
+      beginnerFriendly: true,
+      blurb: "Fully funded five-week academic exchange in the US for Southeast Asian leaders aged 18-25, open to Filipino citizens residing in the Philippines. One application covers both the Spring and Fall 2027 cohorts.",
+    },
+    {
+      title: "DOST-ASTHRDP Graduate Scholarship (2nd Semester AY 2026-2027)",
+      type: "program",
+      url: "https://science.upd.edu.ph/dost-athrdp-applications-for-2nd-semester-ay-2026-2027-now-open/",
+      org: "DOST-SEI / National Science Consortium",
+      location: "Philippines",
+      dates: [
+        {
+          label: "Application deadline",
+          date: "2026-10-23",
+        },
+      ],
+      blurb: "Fully funded Master's and PhD scholarship for Filipino citizens admitted to a National Science Consortium university in a DOST priority S&T field, with a monthly stipend, thesis allowance, and research grant.",
+    },
 ];
