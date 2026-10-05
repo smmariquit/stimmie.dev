@@ -57,7 +57,7 @@ export const OPPORTUNITY_TYPE_ORDER = [
 ];
 
 export const opportunitiesBoard = {
-  lastUpdated: "2026-09-28",
+  lastUpdated: "2026-10-05",
   intro:
     "A living roundup of hackathons, game jams, internships, scholarships, events, and programs worth a look if you're in the Philippines (or online). Deadlines are Manila time unless noted.",
   items: opportunityBoardItems,
