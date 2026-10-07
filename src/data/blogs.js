@@ -2,6 +2,13 @@
 
 export const blogPosts = [
   {
+    slug: "how-a-leaked-key-sent-me-to-collections",
+    title: "How a leaked API key sent me to collections",
+    date: "October 8, 2026",
+    excerpt: "A Gemini key on GitHub, a $25 budget that only warned me, and a debt collector still asking for $64.39.",
+    coverImage: "/blog/default-cover.jpg",
+  },
+  {
     slug: "top-ten-percent-on-kaggle",
     title: "What I learned placing top 10% in a Kaggle competition",
     date: "September 10, 2026",
