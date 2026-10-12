@@ -4713,4 +4713,110 @@ export const opportunityBoardItems = [
       beginnerFriendly: true,
       blurb: "Free self-paced MOOC on classical and modern physics fundamentals for secondary-level learners, with an e-certificate on completion.",
     },
+    {
+      title: "Nebius x NVIDIA Global AI Hackathon",
+      type: "hackathon",
+      url: "https://nebiusglobalaihackathon.devpost.com/",
+      org: "Nebius, NVIDIA",
+      location: "Online (Global)",
+      dates: [
+        {
+          label: "Submission deadline",
+          date: "2026-10-30",
+        },
+      ],
+      beginnerFriendly: true,
+      blurb: "Global online hackathon to build a working AI system on open, independent infrastructure with Nebius and NVIDIA tooling, with a $50,000 cash prize pool. Open to entrants worldwide aside from a short list of sanctioned countries, so Philippine developers are eligible.",
+    },
+    {
+      title: "Build With AI: Basics",
+      type: "hackathon",
+      url: "https://learn-ai-basics.devpost.com/",
+      org: "Devpost",
+      location: "Online (Global)",
+      dates: [
+        {
+          label: "Submission deadline",
+          date: "2026-10-26",
+        },
+      ],
+      beginnerFriendly: true,
+      blurb: "Beginner-friendly online hackathon to build a working first draft of an app in an afternoon using AI best practices and a coding agent. Open to entrants worldwide aside from a short list of sanctioned countries, so Philippine developers are eligible.",
+    },
+    {
+      title: "Life After Code",
+      type: "hackathon",
+      url: "https://gitlab-transcend.devpost.com/",
+      org: "GitLab",
+      location: "Online (Global)",
+      dates: [
+        {
+          label: "Submission deadline",
+          date: "2026-10-27",
+        },
+      ],
+      blurb: "Global online hackathon to build the path to production at the speed of imagination with GitLab's platform, with a $45,000 cash prize pool. Philippines is not on the short list of excluded countries, so Philippine developers are eligible.",
+    },
+    {
+      title: "Meta VR Start Developer Competition 2026",
+      type: "hackathon",
+      url: "https://start-developer-competition-26.devpost.com/",
+      org: "Meta",
+      location: "Online (Global)",
+      dates: [
+        {
+          label: "Submission deadline",
+          date: "2026-11-18",
+        },
+      ],
+      blurb: "Eight-week global competition to build Entertainment, Gaming, or Productivity experiences for Meta VR Glasses and Meta Quest, with a $1,000,000 cash prize pool. Requires joining the free Meta VR Start developer program before submitting; Philippines is not on the short list of excluded countries.",
+    },
+    {
+      title: "Blended Teaching and Learning Using OERs",
+      type: "certificate",
+      url: "https://model.upou.edu.ph/course/view.php?id=976",
+      org: "University of the Philippines Open University",
+      location: "Online",
+      dates: [
+        {
+          label: "Course runs",
+          date: "2026-10-19",
+          endDate: "2026-11-13",
+        },
+      ],
+      beginnerFriendly: true,
+      blurb: "Free self-paced MOOC on blending open educational resources into teaching practice, aimed at educators and future education builders, with an e-certificate on completion.",
+    },
+    {
+      title: "Implementing and Evaluating Programs for Child Rights",
+      type: "certificate",
+      url: "https://model.upou.edu.ph/course/view.php?id=1032",
+      org: "University of the Philippines Open University",
+      location: "Online",
+      dates: [
+        {
+          label: "Course runs",
+          date: "2026-10-06",
+          endDate: "2026-10-31",
+        },
+      ],
+      beginnerFriendly: true,
+      blurb: "Free self-paced MOOC on designing, implementing, and evaluating child rights protection programs, useful for campus advocates and public-interest builders, with an e-certificate on completion.",
+    },
+    {
+      title: "Risk Analysis for Project Management",
+      type: "certificate",
+      url: "https://model.upou.edu.ph/course/view.php?id=1035",
+      org: "University of the Philippines Open University",
+      location: "Online",
+      dates: [
+        {
+          label: "Course runs",
+          date: "2026-10-19",
+          endDate: "2026-11-14",
+        },
+      ],
+      beginnerFriendly: true,
+      blurb: "Free self-paced MOOC on identifying and analyzing project risks, useful groundwork for students and early-career project builders, with an e-certificate on completion.",
+    },
 ];
