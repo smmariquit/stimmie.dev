@@ -13,6 +13,7 @@
     "opportunities:merge": "node scripts/merge-harvest.mjs",
     "opportunities:devpost": "node scripts/merge-devpost.mjs --harvest",
     "opportunities:stale-nag": "node scripts/opportunities-stale-nag.mjs",
+    "opportunities:discord-digest": "node scripts/opportunities-discord-digest.mjs",
     "freshie:images": "node scripts/export-freshie-recommendation-images.mjs",
     "tech:images": "node scripts/export-tech-recommendation-images.mjs",
     "community:images": "node scripts/export-community-highlight-images.mjs"

@@ -43,3 +43,16 @@ Shared JSON schema and excludes live in [06](./prompts/06-contributor-calls-harv
 ## Image automation
 
 Card images: `npm run opportunities:images` (OG meta → screenshot API → type default). See `.env.example` for screenshot keys.
+
+## Discord weekly digest
+
+`npm run opportunities:discord-digest` posts an `@everyone` ping to a Discord
+channel with whatever's new on the board that week. Meant to run daily via
+Heroku Scheduler; it no-ops on any day but Monday (Asia/Manila), so it fires
+once the weekly research commit (above) has landed on `main`. It diffs the
+live `opportunityBoardItems` against the `main` branch's state from ~36
+hours ago via the GitHub API, so it needs no local state and posts nothing
+when there's genuinely nothing new. See `.env.example` for
+`DISCORD_WEBHOOK_URL` and `scripts/opportunities-discord-digest.mjs` for the
+full rundown, including why the GitHub lookups pass `sha=main` explicitly
+(this repo's default branch is `staging`, dependency bumps only).
