@@ -31,6 +31,10 @@ const nextConfig = {
     contentSecurityPolicy: "default-src 'self'; script-src 'none'; sandbox;",
   },
 
+  async rewrites() {
+    return [{ source: "/dailyten", destination: "/dailyten/index.html" }];
+  },
+
   async redirects() {
     return [{ source: "/blog/on-rereading", destination: "/blog/on-rewatching", permanent: true }];
   },

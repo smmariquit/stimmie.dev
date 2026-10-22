@@ -1,0 +1,620 @@
+<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style><title>Eliens Daily Ten</title>
+</head><body>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;600&family=IBM+Plex+Sans:wght@400;500;600&family=Saira+Condensed:wght@600;800&display=swap">
+<style>
+/* Layout: one narrow column. Today's set on top (it becomes the quiz), then an ICPC-style scoreboard with balloons, streaks, review queue, settings. */
+:root{
+  --bg:#eef0f4; --surface:#ffffff; --sunk:#f5f6f9; --ink:#141822; --muted:#596173; --line:#d9dce5;
+  --accent:#1f47c9; --accent-ink:#ffffff; --accent-soft:#e3e9fb;
+  --ac:#167a42; --ac-soft:#ddf1e5; --wa:#bf3030; --wa-soft:#f8e0e0; --tle:#9a6608; --tle-soft:#f6ebd2;
+  --r0:#808080; --r1:#118a11; --r2:#0b8c8c; --r3:#2b4fd6; --r4:#9c27b0; --r5:#d97706;
+  --display:"Saira Condensed","Arial Narrow",system-ui,sans-serif;
+  --body:"IBM Plex Sans",system-ui,-apple-system,"Segoe UI",sans-serif;
+  --mono:"IBM Plex Mono",ui-monospace,"SF Mono",Menlo,Consolas,monospace;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --bg:#0d1016; --surface:#161a23; --sunk:#11141b; --ink:#e7e9ef; --muted:#9aa1b2; --line:#2a303d;
+  --accent:#86a2ff; --accent-ink:#0d1016; --accent-soft:#1d2540;
+  --ac:#46d385; --ac-soft:#13281d; --wa:#ff7a7a; --wa-soft:#2e1617; --tle:#f2b84b; --tle-soft:#2c2412;
+  --r0:#a0a0a0; --r1:#4ccf4c; --r2:#3fd0d0; --r3:#7f9bff; --r4:#d27ae6; --r5:#f5a43a;
+  color-scheme:dark;
+}}
+:root[data-theme="dark"]{
+  --bg:#0d1016; --surface:#161a23; --sunk:#11141b; --ink:#e7e9ef; --muted:#9aa1b2; --line:#2a303d;
+  --accent:#86a2ff; --accent-ink:#0d1016; --accent-soft:#1d2540;
+  --ac:#46d385; --ac-soft:#13281d; --wa:#ff7a7a; --wa-soft:#2e1617; --tle:#f2b84b; --tle-soft:#2c2412;
+  --r0:#a0a0a0; --r1:#4ccf4c; --r2:#3fd0d0; --r3:#7f9bff; --r4:#d27ae6; --r5:#f5a43a;
+  color-scheme:dark;
+}
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--ink);font-family:var(--body);font-size:15px;line-height:1.5}
+.wrap{max-width:720px;margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));padding-block:20px 48px;display:flex;flex-direction:column;gap:28px}
+h1,h2{font-family:var(--display);text-wrap:balance;margin:0;letter-spacing:.01em}
+h1{font-size:2.6rem;font-weight:800;line-height:1}
+h2{font-size:1.35rem;font-weight:600;text-transform:uppercase;letter-spacing:.06em;color:var(--muted)}
+p{margin:0}
+.eyebrow{font-size:.75rem;text-transform:uppercase;letter-spacing:.12em;color:var(--muted);margin-bottom:6px}
+.top{display:flex;justify-content:space-between;align-items:flex-end;gap:16px;flex-wrap:wrap}
+.countdown{font-family:var(--mono);font-size:.8rem;border:1px solid var(--line);border-radius:6px;padding:6px 10px;background:var(--surface);color:var(--muted)}
+.countdown b{color:var(--ink);font-weight:600}
+.banner{background:var(--tle-soft);color:var(--ink);border:1px solid var(--line);border-radius:8px;padding:10px 12px;font-size:.9rem}
+section{display:flex;flex-direction:column;gap:12px;min-width:0}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:20px;display:flex;flex-direction:column;gap:16px;min-width:0}
+.muted{color:var(--muted)}
+.small{font-size:.85rem}
+.mono{font-family:var(--mono);font-variant-numeric:tabular-nums}
+button,.btn{font:inherit;font-weight:600;border-radius:8px;border:1px solid var(--line);background:var(--surface);color:var(--ink);padding:10px 16px;cursor:pointer}
+button.primary{background:var(--accent);border-color:var(--accent);color:var(--accent-ink)}
+button:focus-visible,input:focus-visible,summary:focus-visible{outline:3px solid var(--accent);outline-offset:2px}
+button:disabled{opacity:.5;cursor:default}
+input{font:inherit;padding:9px 12px;border-radius:8px;border:1px solid var(--line);background:var(--sunk);color:var(--ink);min-width:0}
+.row{display:flex;gap:10px;flex-wrap:wrap;align-items:center}
+.set-head{display:flex;justify-content:space-between;align-items:baseline;gap:12px;flex-wrap:wrap}
+.big{font-family:var(--display);font-weight:800;font-size:3rem;line-height:1}
+.mix{display:flex;gap:6px;flex-wrap:wrap}
+.tag{font-size:.72rem;text-transform:uppercase;letter-spacing:.08em;padding:3px 8px;border-radius:999px;background:var(--sunk);border:1px solid var(--line);color:var(--muted)}
+.tag.review{background:var(--accent-soft);color:var(--accent);border-color:transparent}
+/* quiz */
+.qmeta{display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap}
+.qnum{display:flex;align-items:center;gap:10px;font-family:var(--display);font-weight:600;font-size:1.2rem}
+.timer{font-family:var(--mono);font-variant-numeric:tabular-nums;font-size:.95rem;color:var(--muted)}
+.bar{height:6px;border-radius:3px;background:var(--sunk);overflow:hidden;border:1px solid var(--line)}
+.bar i{display:block;height:100%;background:var(--accent);transform-origin:left;transition:transform .2s linear}
+.bar.low i{background:var(--tle)}
+.qtext{font-size:1.08rem;font-weight:500;line-height:1.45}
+pre{margin:0;background:var(--sunk);border:1px solid var(--line);border-radius:8px;padding:12px 14px;overflow-x:auto;font-family:var(--mono);font-size:.85rem;line-height:1.55;tab-size:4}
+.opts{display:flex;flex-direction:column;gap:8px}
+.opt{display:flex;gap:12px;align-items:flex-start;text-align:left;font-weight:400;padding:12px 14px;background:var(--surface)}
+.opt .k{font-family:var(--mono);font-weight:600;min-width:1.2em;color:var(--muted)}
+.opt:hover:not(:disabled){border-color:var(--accent)}
+.opt.right{background:var(--ac-soft);border-color:var(--ac)}
+.opt.wrong{background:var(--wa-soft);border-color:var(--wa)}
+.opt:disabled{opacity:1}
+.verdict{display:inline-flex;align-items:center;font-family:var(--mono);font-weight:600;font-size:.8rem;padding:2px 8px;border-radius:4px;letter-spacing:.04em}
+.v-AC{background:var(--ac-soft);color:var(--ac)} .v-WA{background:var(--wa-soft);color:var(--wa)} .v-TLE{background:var(--tle-soft);color:var(--tle)}
+.feedback{border-left:3px solid var(--line);padding:4px 0 4px 14px;display:flex;flex-direction:column;gap:6px}
+.feedback.AC{border-color:var(--ac)} .feedback.WA{border-color:var(--wa)} .feedback.TLE{border-color:var(--tle)}
+/* board */
+.tablewrap{overflow-x:auto;border:1px solid var(--line);border-radius:12px;background:var(--surface)}
+table{border-collapse:collapse;width:100%;font-variant-numeric:tabular-nums}
+th,td{padding:10px 8px;text-align:center;border-bottom:1px solid var(--line);white-space:nowrap}
+tr:last-child td{border-bottom:0}
+th{font-size:.72rem;text-transform:uppercase;letter-spacing:.08em;color:var(--muted);font-weight:600}
+td.name,th.name{text-align:left;padding-left:14px}
+td.name b{font-weight:600}
+.cell{display:inline-flex;width:24px;height:28px;align-items:center;justify-content:center}
+.dash{color:var(--muted);font-family:var(--mono)}
+/* stats */
+.stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:10px}
+.stat{background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:12px 14px;display:flex;flex-direction:column;gap:2px;min-width:0}
+.stat .n{font-family:var(--display);font-weight:800;font-size:2rem;line-height:1.05}
+.stat .l{font-size:.78rem;color:var(--muted)}
+.rankline{display:flex;flex-direction:column;gap:6px}
+.xpbar{height:6px;border-radius:3px;background:var(--sunk);border:1px solid var(--line);overflow:hidden}
+.xpbar i{display:block;height:100%}
+ul.plain{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:8px}
+ul.plain li{background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:10px 14px;display:flex;justify-content:space-between;gap:12px;min-width:0}
+ul.plain li span:first-child{min-width:0}
+details{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:12px 16px}
+details summary{cursor:pointer;font-weight:600}
+.recap{display:flex;flex-direction:column;gap:16px;margin-top:14px}
+.recap-item{display:flex;flex-direction:column;gap:6px;padding-top:12px;border-top:1px solid var(--line)}
+.settings{display:flex;flex-direction:column;gap:14px}
+label{font-size:.85rem;color:var(--muted);display:flex;flex-direction:column;gap:4px}
+@media (prefers-reduced-motion: reduce){*{transition:none!important;animation:none!important}}
+</style>
+
+<div class="wrap">
+  <header class="top">
+    <div>
+      <p class="eyebrow">UPLB Eliens · ICPC Asia Manila prep</p>
+      <h1>Daily Ten</h1>
+    </div>
+    <div class="countdown" id="countdown">Regional date <b>TBA</b></div>
+  </header>
+
+  <div id="banner" class="banner" hidden></div>
+
+  <section class="card" id="today" aria-live="polite">
+    <p class="muted">Loading today's set…</p>
+  </section>
+
+  <section>
+    <h2>Today's board</h2>
+    <div class="tablewrap"><table id="board"></table></div>
+    <p class="small muted">Ranked like ICPC: problems solved, then penalty (seconds spent on the ones you got right).</p>
+  </section>
+
+  <section>
+    <h2>Streaks</h2>
+    <div class="stats" id="stats"></div>
+  </section>
+
+  <section>
+    <h2>Your review queue</h2>
+    <ul class="plain" id="queue"></ul>
+  </section>
+
+  <section>
+    <h2>Settings</h2>
+    <div class="card settings">
+      <div class="row" id="tgrow" hidden>
+        <span class="small muted" id="tgtext" style="flex:1 1 200px"></span>
+        <button type="button" id="tgbtn">Get nagged on Telegram</button>
+      </div>
+      <form id="nickform" class="row">
+        <label style="flex:1 1 200px">Scoreboard name<input id="nick" maxlength="20" placeholder="e.g. Si"></label>
+        <button type="submit">Save name</button>
+      </form>
+      <form id="dateform" class="row" hidden>
+        <label style="flex:1 1 200px">ICPC Asia Manila 2026 contest date<input id="regional" type="date"></label>
+        <button type="submit">Set date</button>
+      </form>
+    </div>
+  </section>
+</div>
+
+<script src="/dailyten/dt.js"></script>
+<script>
+/* ---------- Question bank ---------- */
+let BANK, BY_ID;
+const CAT = {cx:'Constraints', bf:'Brute force', ed:'Edge case', py:'Python', tc:'Technique', db:'Find the bug', im:'Implementation'};
+const WEIGHT = {bf:3, ed:3, im:3, db:2, py:2, cx:2, tc:1.5};
+const BALLOON = ['#e5484d','#f76b15','#f5b300','#46a758','#12a594','#0090ff','#3e63dd','#8e4ec6','#d6409f','#a1714f'];
+const LIMIT = 75;
+const RANKS = [[0,'Newbie','--r0'],[300,'Pupil','--r1'],[800,'Specialist','--r2'],[1600,'Expert','--r3'],[3000,'Candidate Master','--r4'],[5000,'Master','--r5']];
+const LETTERS = ['A','B','C','D'];
+
+/* ---------- helpers ---------- */
+const $ = id => document.getElementById(id);
+const el = (tag, cls, text) => { const e = document.createElement(tag); if (cls) e.className = cls; if (text != null) e.textContent = text; return e; };
+const sleep = ms => new Promise(r => setTimeout(r, ms));
+const manilaDay = (t = Date.now()) => new Date(t + 8 * 3600e3).toISOString().slice(0, 10);
+const addDays = (s, n) => new Date(Date.parse(s + 'T00:00:00Z') + n * 864e5).toISOString().slice(0, 10);
+const fmtDay = s => new Date(s + 'T00:00:00Z').toLocaleDateString('en-US', {month:'short', day:'numeric', timeZone:'UTC'});
+function hash(s){ let h = 2166136261; for (let i = 0; i < s.length; i++){ h ^= s.charCodeAt(i); h = Math.imul(h, 16777619); } return h >>> 0; }
+function rng(seed){ let a = seed; return () => { a |= 0; a = a + 0x6D2B79F5 | 0; let t = Math.imul(a ^ a >>> 15, 1 | a); t = t + Math.imul(t ^ t >>> 7, 61 | t) ^ t; return ((t ^ t >>> 14) >>> 0) / 4294967296; }; }
+function shuffle(arr, r){ const a = arr.slice(); for (let i = a.length - 1; i > 0; i--){ const j = Math.floor(r() * (i + 1)); [a[i], a[j]] = [a[j], a[i]]; } return a; }
+function lsGet(k){ try { return JSON.parse(localStorage.getItem(k)); } catch { return null; } }
+function lsSet(k, v){ try { v == null ? localStorage.removeItem(k) : localStorage.setItem(k, JSON.stringify(v)); } catch {} }
+
+function balloon(color, size = 22){
+  const ns = 'http://www.w3.org/2000/svg';
+  const s = document.createElementNS(ns, 'svg');
+  s.setAttribute('viewBox', '0 0 20 26'); s.setAttribute('width', size * 20 / 26); s.setAttribute('height', size); s.setAttribute('aria-hidden', 'true');
+  s.innerHTML = `<ellipse cx="10" cy="9" rx="8" ry="8.6" fill="${color}"/><path d="M8.4 17.2 L10 19 L11.6 17.2 Z" fill="${color}"/><path d="M10 19 C 8.5 21.5, 11.5 22.5, 10 25.5" stroke="var(--muted)" stroke-width="1" fill="none"/><ellipse cx="7" cy="6" rx="2" ry="2.8" fill="#fff" fill-opacity=".35"/>`;
+  return s;
+}
+
+/* ---------- state ---------- */
+const S = { db:null, user:null, me:null, local:false, admin:false, readOnly:false,
+  players:{}, day:null, config:{}, today:manilaDay(), quiz:null, timer:null };
+
+function myDoc(){ return S.players[S.me] || {nick:'', results:{}, missed:{}}; }
+function dayXP(r){ return r.s * 10 + (r.f || 0) * 5 + (r.s === 10 ? 20 : 0); }
+function totalXP(p){ return Object.values(p.results || {}).reduce((a, r) => a + dayXP(r), 0); }
+function rankOf(xp){ let i = 0; while (i + 1 < RANKS.length && xp >= RANKS[i + 1][0]) i++; return i; }
+function streak(p){ const set = new Set(Object.keys(p.results || {})); let d = set.has(S.today) ? S.today : addDays(S.today, -1); let n = 0; while (set.has(d)){ n++; d = addDays(d, -1); } return n; }
+function bestStreak(p){ const ks = Object.keys(p.results || {}).sort(); let best = 0, cur = 0, prev = null; for (const k of ks){ cur = (prev && addDays(prev, 1) === k) ? cur + 1 : 1; best = Math.max(best, cur); prev = k; } return best; }
+function duoStreak(ids){ if (ids.length < 2) return null; const sets = ids.map(id => new Set(Object.keys(S.players[id].results || {}))); const all = d => sets.every(s => s.has(d)); let d = all(S.today) ? S.today : addDays(S.today, -1); let n = 0; while (all(d)){ n++; d = addDays(d, -1); } return n; }
+function weekStart(){ const dow = (new Date(S.today + 'T00:00:00Z').getUTCDay() + 6) % 7; return addDays(S.today, -dow); }
+function weekXP(p){ const ws = weekStart(); return Object.entries(p.results || {}).filter(([k]) => k >= ws && k <= S.today).reduce((a, [, r]) => a + dayXP(r), 0); }
+function perm(id){ return shuffle([0, 1, 2, 3], rng(hash(S.today + '|' + id))); }
+
+function banner(msg){ const b = $('banner'); b.textContent = msg; b.hidden = !msg; }
+
+/* ---------- building the day's set ---------- */
+function pickSet(reviews, seen){
+  const r = rng(hash('eliens:' + S.today));
+  reviews = reviews.filter(id => BY_ID[id]).slice(0, 3);
+  const chosen = new Set(reviews);
+  const quota = {1:4, 2:4, 3:2};
+  reviews.forEach(id => { const l = BY_ID[id].l; quota[l] = Math.max(0, quota[l] - 1); });
+  const others = [];
+  for (const l of [1, 2, 3]){
+    const pool = BANK.filter(q => q.l === l && !chosen.has(q.id));
+    let cands = pool.filter(q => !seen.has(q.id));
+    if (cands.length < quota[l]) cands = pool;
+    const keyed = cands.map(q => [Math.pow(r(), 1 / WEIGHT[q.c]), q]).sort((a, b) => b[0] - a[0]);
+    keyed.slice(0, quota[l]).forEach(([, q]) => { chosen.add(q.id); others.push(q.id); });
+  }
+  let items = reviews.concat(others).slice(0, 10);
+  while (items.length < 10){ const rest = BANK.filter(q => !items.includes(q.id)); items.push(rest[Math.floor(r() * rest.length)].id); }
+  items.sort((a, b) => BY_ID[a].l - BY_ID[b].l || hash(S.today + a) - hash(S.today + b));
+  return {items, reviews};
+}
+
+async function buildDay(){
+  const seen = new Set();
+  try { const ds = await S.db.collection('days').limit(1000).get(); ds.docs.forEach(d => { const it = d.exists && d.data().items; if (it && d.id !== S.today) it.forEach(x => seen.add(x)); }); } catch {}
+  const due = [];
+  try { const ps = await S.db.collection('players').get(); ps.docs.forEach(d => { const m = (d.exists && d.data().missed) || {}; for (const [id, v] of Object.entries(m)) if (BY_ID[id] && v.due <= S.today) due.push([v.due, id]); }); } catch {}
+  due.sort((a, b) => a[0] < b[0] ? -1 : a[0] > b[0] ? 1 : 0);
+  return pickSet([...new Set(due.map(x => x[1]))], seen);
+}
+
+async function ensureDay(){
+  const ref = S.db.doc('days/' + S.today);
+  let snap = await ref.get();
+  const ok = s => s.exists && Array.isArray(s.data().items) && s.data().items.length === 10;
+  if (!ok(snap)){
+    let got = {acquired:false};
+    try { got = await ref.acquire({holder:S.me, ttlMs:8000}); } catch {}
+    if (got.acquired){
+      snap = await ref.get();
+      if (!ok(snap)){
+        const day = await buildDay();
+        try { await ref.set(day); snap = await ref.get(); } catch { /* read-only viewer: still show the set */ }
+        S.day = ok(snap) ? snap.data() : day; return;
+      }
+    } else {
+      await sleep(1500); snap = await ref.get();
+    }
+  }
+  S.day = ok(snap) ? snap.data() : pickSet([], new Set());
+}
+
+/* ---------- local fallback ---------- */
+function startLocal(){
+  S.local = true; S.me = 'local';
+  S.players = {local: lsGet('dt-player') || {nick:'', results:{}, missed:{}}};
+  const p = S.players.local;
+  const due = Object.entries(p.missed || {}).filter(([id, v]) => BY_ID[id] && v.due <= S.today).sort((a, b) => a[1].due < b[1].due ? -1 : 1).map(([id]) => id);
+  let day = lsGet('dt-day');
+  if (!day || day.date !== S.today){
+    const seen = new Set(lsGet('dt-seen') || []);
+    day = Object.assign(pickSet(due, seen), {date:S.today});
+    lsSet('dt-day', day);
+    lsSet('dt-seen', [...seen, ...day.items].slice(-400));
+  }
+  S.day = day;
+  banner('Scores are only saved on this device because the server isn’t reachable. Reload to try again.');
+  renderAll();
+}
+
+/* ---------- saving ---------- */
+async function savePlayer(doc){
+  S.players[S.me] = doc; renderAll();
+  if (S.local){ lsSet('dt-player', doc); return true; }
+  try { await S.db.doc('players/' + S.me).set(doc); return true; }
+  catch (e){
+    if (e && e.code === 'invalid_argument'){ S.readOnly = true; banner('You can see the board, but your score can’t be saved with view-only access. Ask the owner to invite you as an Editor.'); }
+    else if (e && e.code === 'quota_exceeded'){ banner('Storage is full, so this score wasn’t saved.'); }
+    else { banner('Couldn’t save your score. Check your connection and reload; your answers are kept on this device.'); }
+    return false;
+  }
+}
+
+/* ---------- render: today card ---------- */
+function renderToday(){
+  const box = $('today'); box.replaceChildren();
+  if (S.quiz){ renderQuestion(box); return; }
+  if (!S.day){ box.append(el('p', 'muted', 'Loading today’s set…')); return; }
+  const me = myDoc();
+  const res = (me.results || {})[S.today];
+  const head = el('div', 'set-head');
+  const left = el('div');
+  left.append(el('p', 'eyebrow', fmtDay(S.today) + ' · Manila time'));
+  if (res){
+    const big = el('p', 'big'); big.textContent = res.s + '/10'; left.append(big);
+    left.append(el('p', 'muted mono small', 'Penalty ' + res.p + 's · +' + dayXP(res) + ' XP'));
+  } else {
+    left.append(el('h2', null, 'Today’s ten'));
+  }
+  head.append(left);
+  const strip = el('div', 'row');
+  S.day.items.forEach((id, i) => {
+    const a = res && res.a && res.a[i];
+    if (a && a[1] === 'AC') strip.append(balloon(BALLOON[i], 26));
+    else { const d = el('span', 'cell dash', a ? '×' : '·'); d.title = a ? a[1] : 'Not yet'; strip.append(d); }
+  });
+  head.append(strip);
+  box.append(head);
+
+  const mix = el('div', 'mix');
+  const counts = {};
+  S.day.items.forEach(id => { const c = BY_ID[id].c; counts[c] = (counts[c] || 0) + 1; });
+  Object.entries(counts).sort((a, b) => b[1] - a[1]).forEach(([c, n]) => mix.append(el('span', 'tag', CAT[c] + ' ×' + n)));
+  if (S.day.reviews && S.day.reviews.length) mix.append(el('span', 'tag review', S.day.reviews.length + ' review'));
+  box.append(mix);
+
+  if (res){
+    box.append(recap(res));
+    box.append(el('p', 'small muted', 'Next set unlocks at midnight Manila time.'));
+    return;
+  }
+  const prog = lsGet('dt-prog');
+  const resuming = prog && prog.date === S.today && prog.ans.length;
+  box.append(el('p', 'muted', '10 questions, ' + LIMIT + ' seconds each. Running out of time counts as TLE. Keys 1 to 4 pick an answer, Enter goes to the next one.'));
+  if (!me.nick){
+    const f = el('form', 'row');
+    const lab = el('label'); lab.style.flex = '1 1 200px'; lab.append('Your scoreboard name');
+    const inp = el('input'); inp.id = 'nick-first'; inp.maxLength = 20; inp.required = true; inp.placeholder = 'e.g. Si';
+    lab.append(inp); f.append(lab);
+    const b = el('button', 'primary', 'Start'); b.type = 'submit'; f.append(b);
+    f.addEventListener('submit', e => { e.preventDefault(); const v = inp.value.trim(); if (!v) return; S.pendingNick = v; startQuiz(); });
+    box.append(f);
+    if (S.user){ S.user.me().then(m => { if (m.name && !inp.value) inp.value = m.name.split(' ')[0]; }).catch(() => {}); }
+  } else {
+    const b = el('button', 'primary', resuming ? 'Resume (' + prog.ans.length + '/10 done)' : 'Start today’s ten');
+    b.addEventListener('click', startQuiz);
+    box.append(b);
+  }
+}
+
+function recap(res){
+  const d = el('details');
+  d.append(el('summary', null, 'Review today’s answers'));
+  const list = el('div', 'recap');
+  S.day.items.forEach((id, i) => {
+    const q = BY_ID[id]; const a = res.a && res.a[i]; const order = perm(id);
+    const item = el('div', 'recap-item');
+    const top = el('div', 'row');
+    top.append(el('span', 'verdict v-' + (a ? a[1] : 'TLE'), a ? a[1] : 'N/A'));
+    top.append(el('span', 'tag', CAT[q.c]));
+    item.append(top);
+    item.append(el('p', null, q.q));
+    if (q.k) item.append(el('pre', null, q.k));
+    const pos = order.indexOf(q.a);
+    item.append(el('p', null, 'Answer: ' + LETTERS[pos] + '. ' + q.o[q.a]));
+    item.append(el('p', 'muted small', q.w));
+    list.append(item);
+  });
+  d.append(list);
+  return d;
+}
+
+/* ---------- quiz ---------- */
+function startQuiz(){
+  if (!S.day) return;
+  const prog = lsGet('dt-prog');
+  S.quiz = (prog && prog.date === S.today) ? prog : {date:S.today, i:0, ans:[]};
+  S.quiz.picked = null;
+  showQuestion();
+}
+function showQuestion(){
+  const q = S.quiz;
+  q.picked = null; q.t0 = performance.now();
+  clearInterval(S.timer);
+  S.timer = setInterval(tick, 200);
+  renderToday();
+  const first = document.querySelector('.opt'); if (first) first.focus({preventScroll:true});
+}
+function tick(){
+  const q = S.quiz; if (!q || q.picked !== null) return;
+  const left = Math.max(0, LIMIT - (performance.now() - q.t0) / 1000);
+  const t = document.querySelector('.timer'); if (t) t.textContent = Math.ceil(left) + 's';
+  const bar = document.querySelector('.bar'); if (bar){ bar.firstChild.style.transform = 'scaleX(' + (left / LIMIT) + ')'; bar.classList.toggle('low', left < 15); }
+  if (left <= 0) pick(-1);
+}
+function pick(pos){
+  const q = S.quiz; if (!q || q.picked !== null) return;
+  clearInterval(S.timer);
+  const id = S.day.items[q.i]; const item = BY_ID[id]; const order = perm(id);
+  const secs = Math.min(LIMIT, Math.round((performance.now() - q.t0) / 1000));
+  const verdict = pos < 0 ? 'TLE' : (order[pos] === item.a ? 'AC' : 'WA');
+  q.picked = pos;
+  q.ans.push([id, verdict, secs]);
+  lsSet('dt-prog', {date:q.date, i:q.i, ans:q.ans});
+  renderToday();
+  const nb = document.getElementById('nextbtn'); if (nb) nb.focus({preventScroll:true});
+}
+function next(){
+  const q = S.quiz; if (!q || q.picked === null) return;
+  q.i++;
+  if (q.i >= 10) finish(); else showQuestion();
+}
+async function finish(){
+  const q = S.quiz; S.quiz = null; clearInterval(S.timer);
+  const ac = q.ans.filter(a => a[1] === 'AC');
+  const res = {s: ac.length, p: ac.reduce((t, a) => t + a[2], 0), f: ac.filter(a => a[2] <= 30).length, a: q.ans};
+  const prev = myDoc();
+  const missed = Object.assign({}, prev.missed || {});
+  const GAP = [1, 3, 7];
+  q.ans.forEach(([id, v]) => {
+    if (v === 'AC'){
+      if (missed[id]){ const box = missed[id].box + 1; if (box >= GAP.length) delete missed[id]; else missed[id] = {box, due: addDays(S.today, GAP[box])}; }
+    } else missed[id] = {box:0, due: addDays(S.today, 1)};
+  });
+  const doc = {nick: prev.nick || S.pendingNick || 'Player', results: Object.assign({}, prev.results || {}, {[S.today]: res}), missed};
+  const saved = await savePlayer(doc);
+  if (saved) lsSet('dt-prog', null);
+  renderAll();
+  window.scrollTo({top:0, behavior: matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth'});
+}
+
+function renderQuestion(box){
+  const q = S.quiz; const id = S.day.items[q.i]; const item = BY_ID[id]; const order = perm(id);
+  const meta = el('div', 'qmeta');
+  const num = el('div', 'qnum');
+  num.append(balloon(BALLOON[q.i], 22));
+  num.append(el('span', null, 'Question ' + (q.i + 1) + ' of 10'));
+  meta.append(num);
+  const tags = el('div', 'row');
+  tags.append(el('span', 'tag', CAT[item.c]));
+  if (S.day.reviews && S.day.reviews.includes(id)) tags.append(el('span', 'tag review', 'Review'));
+  if (q.picked === null) tags.append(el('span', 'timer', LIMIT + 's'));
+  meta.append(tags);
+  box.append(meta);
+  if (q.picked === null){ const bar = el('div', 'bar'); bar.append(el('i')); box.append(bar); }
+
+  box.append(el('p', 'qtext', item.q));
+  if (item.k) box.append(el('pre', null, item.k));
+
+  const opts = el('div', 'opts');
+  const done = q.picked !== null;
+  const correctPos = order.indexOf(item.a);
+  order.forEach((orig, pos) => {
+    const b = el('button', 'opt'); b.type = 'button';
+    b.append(el('span', 'k', LETTERS[pos]));
+    b.append(el('span', null, item.o[orig]));
+    if (done){
+      b.disabled = true;
+      if (pos === correctPos) b.classList.add('right');
+      else if (pos === q.picked) b.classList.add('wrong');
+    } else b.addEventListener('click', () => pick(pos));
+    opts.append(b);
+  });
+  box.append(opts);
+
+  if (done){
+    const last = q.ans[q.ans.length - 1];
+    const fb = el('div', 'feedback ' + last[1]);
+    const line = el('div', 'row');
+    line.append(el('span', 'verdict v-' + last[1], last[1]));
+    line.append(el('span', 'muted small mono', last[2] + 's'));
+    fb.append(line);
+    fb.append(el('p', null, 'Answer: ' + LETTERS[correctPos] + '. ' + item.o[item.a]));
+    fb.append(el('p', 'muted', item.w));
+    box.append(fb);
+    const nb = el('button', 'primary', q.i === 9 ? 'Finish and submit' : 'Next question');
+    nb.id = 'nextbtn'; nb.addEventListener('click', next);
+    box.append(nb);
+  }
+}
+
+document.addEventListener('keydown', e => {
+  if (!S.quiz || e.target.tagName === 'INPUT') return;
+  if (S.quiz.picked === null && /^[1-4]$/.test(e.key)){ e.preventDefault(); pick(+e.key - 1); }
+  else if (S.quiz.picked !== null && e.key === 'Enter' && document.activeElement?.id !== 'nextbtn'){ e.preventDefault(); next(); }
+});
+
+/* ---------- render: board, stats, queue ---------- */
+function playerIds(){ return Object.keys(S.players).filter(id => S.players[id] && S.players[id].nick); }
+function nameEl(id){
+  const p = S.players[id]; const r = rankOf(totalXP(p));
+  const b = el('b', null, p.nick + (id === S.me ? ' (you)' : ''));
+  b.style.color = 'var(' + RANKS[r][2] + ')';
+  return b;
+}
+function renderBoard(){
+  const t = $('board'); t.replaceChildren();
+  const head = el('tr');
+  head.append(el('th', 'name', 'Player'));
+  for (let i = 0; i < 10; i++){ const th = el('th', null, String(i + 1)); head.append(th); }
+  head.append(el('th', null, 'Solved'), el('th', null, 'Penalty'));
+  const thead = el('thead'); thead.append(head); t.append(thead);
+  const tb = el('tbody');
+  const ids = playerIds();
+  ids.sort((a, b) => {
+    const ra = (S.players[a].results || {})[S.today], rb = (S.players[b].results || {})[S.today];
+    return (rb ? rb.s : -1) - (ra ? ra.s : -1) || (ra ? ra.p : 0) - (rb ? rb.p : 0);
+  });
+  if (!ids.length){
+    const tr = el('tr'); const td = el('td', 'name muted', 'No one has played yet. Finish today’s ten to post the first score.'); td.colSpan = 13; td.style.whiteSpace = 'normal'; tr.append(td); tb.append(tr);
+  }
+  ids.forEach(id => {
+    const res = (S.players[id].results || {})[S.today];
+    const tr = el('tr');
+    const n = el('td', 'name'); n.append(nameEl(id)); tr.append(n);
+    for (let i = 0; i < 10; i++){
+      const td = el('td'); const a = res && res.a && res.a[i];
+      if (a && a[1] === 'AC'){ const c = el('span', 'cell'); c.title = 'AC in ' + a[2] + 's'; c.append(balloon(BALLOON[i], 22)); td.append(c); }
+      else td.append(el('span', 'cell dash', a ? '−' : '·'));
+      tr.append(td);
+    }
+    tr.append(el('td', 'mono', res ? String(res.s) : '–'));
+    tr.append(el('td', 'mono', res ? res.p + 's' : '–'));
+    tb.append(tr);
+  });
+  t.append(tb);
+}
+function stat(n, l){ const s = el('div', 'stat'); s.append(el('span', 'n', String(n)), el('span', 'l', l)); return s; }
+function renderStats(){
+  const box = $('stats'); box.replaceChildren();
+  const me = myDoc();
+  const xp = totalXP(me); const r = rankOf(xp);
+  box.append(stat(streak(me), 'Your streak (days)'));
+  box.append(stat(bestStreak(me), 'Your best streak'));
+  const ids = playerIds();
+  const duo = duoStreak(ids);
+  box.append(stat(duo === null ? '–' : duo, duo === null ? 'Duo streak: waiting for a teammate' : 'Duo streak (all of you played)'));
+  const others = ids.filter(id => id !== S.me);
+  const myW = weekXP(me);
+  const theirW = others.length ? Math.max(...others.map(id => weekXP(S.players[id]))) : null;
+  box.append(stat(myW + (theirW !== null ? ' : ' + theirW : ''), theirW !== null ? 'This week, you vs. teammate (XP)' : 'XP this week'));
+  const rk = el('div', 'stat rankline');
+  const rn = el('span', 'n', RANKS[r][1]); rn.style.color = 'var(' + RANKS[r][2] + ')'; rn.style.fontSize = '1.5rem';
+  rk.append(rn);
+  const nextAt = r + 1 < RANKS.length ? RANKS[r + 1][0] : null;
+  rk.append(el('span', 'l', xp + ' XP' + (nextAt ? ' · ' + (nextAt - xp) + ' to ' + RANKS[r + 1][1] : ' · top rank')));
+  const xb = el('div', 'xpbar'); const fill = el('i');
+  const lo = RANKS[r][0]; fill.style.width = (nextAt ? Math.min(100, (xp - lo) / (nextAt - lo) * 100) : 100) + '%';
+  fill.style.background = 'var(' + RANKS[r][2] + ')';
+  xb.append(fill); rk.append(xb);
+  rk.style.gridColumn = '1 / -1';
+  box.append(rk);
+}
+function renderQueue(){
+  const ul = $('queue'); ul.replaceChildren();
+  const m = Object.entries(myDoc().missed || {}).filter(([id]) => BY_ID[id]).sort((a, b) => a[1].due < b[1].due ? -1 : 1);
+  if (!m.length){ ul.append(el('li', 'muted', 'Empty. Anything you miss comes back 1, 3, then 7 days later until you get it right three times.')); return; }
+  m.slice(0, 12).forEach(([id, v]) => {
+    const li = el('li');
+    li.append(el('span', null, BY_ID[id].q));
+    li.append(el('span', 'muted small mono', (v.due <= S.today ? 'due' : fmtDay(v.due)) + ' · ' + (v.box + 1) + '/3'));
+    ul.append(li);
+  });
+}
+function renderCountdown(){
+  const c = $('countdown'); c.replaceChildren();
+  const d = S.config.regional;
+  if (!d){ c.append('Regional date '); c.append(el('b', null, 'TBA')); return; }
+  const days = Math.round((Date.parse(d + 'T00:00:00Z') - Date.parse(S.today + 'T00:00:00Z')) / 864e5);
+  if (days > 0){ c.append(el('b', null, days + ' days')); c.append(' to ICPC Manila'); }
+  else if (days === 0){ c.append(el('b', null, 'Contest day')); c.append(' · good luck'); }
+  else { c.append('ICPC Manila was ' + fmtDay(d)); }
+  if ($('regional') && !$('regional').value) $('regional').value = d;
+}
+async function renderTg(){
+  if (S.local || !S.user || !S.user.tgStatus) return;
+  let linked = false; try { linked = await S.user.tgStatus(); } catch { return; }
+  $('tgrow').hidden = false;
+  $('tgtext').textContent = linked ? 'Telegram linked. Missed concepts come back as a question until you answer them right.' : 'Missed a concept? Get a Telegram question that keeps coming back until you answer it right.';
+  $('tgbtn').textContent = linked ? 'Relink Telegram' : 'Get nagged on Telegram';
+}
+$('tgbtn').addEventListener('click', async () => { try { window.open(await S.user.tgLink(), '_blank', 'noopener'); } catch { banner('Couldn’t make a Telegram link. Try again in a minute.'); } });
+function renderSettings(){
+  const n = $('nick'); if (document.activeElement !== n) n.value = myDoc().nick || '';
+  $('dateform').hidden = !(S.admin && !S.local);
+}
+function renderAll(){ renderToday(); renderBoard(); renderStats(); renderQueue(); renderCountdown(); renderSettings(); }
+
+$('nickform').addEventListener('submit', async e => {
+  e.preventDefault(); const v = $('nick').value.trim(); if (!v) return;
+  const d = myDoc(); await savePlayer({nick:v, results:d.results || {}, missed:d.missed || {}});
+});
+$('dateform').addEventListener('submit', async e => {
+  e.preventDefault(); const v = $('regional').value; if (!v || !S.db) return;
+  try { await S.db.doc('meta/config').set(Object.assign({}, S.config, {regional:v})); } catch { banner('Couldn’t save the date.'); }
+});
+
+/* ---------- boot ---------- */
+async function boot(){
+  BANK = await (await fetch("/dailyten/bank.json")).json();
+  BY_ID = Object.fromEntries(BANK.map(q => [q.id, q]));
+  renderAll();
+  const use = window.claude && window.claude.use;
+  if (use){
+    try { S.db = await window.claude.use('db'); } catch {}
+    try { S.user = await window.claude.use('user'); } catch {}
+  }
+  if (S.db && S.user){ try { S.me = await S.user.id(); } catch {} }
+  if (!S.db || !S.me){ startLocal(); return; }
+  try { S.admin = await S.user.canEdit(); } catch {}
+  S.db.collection('players').onSnapshot(snap => {
+    const next = {}; snap.docs.forEach(d => { if (d.exists) next[d.id] = d.data(); });
+    S.players = next;
+    if (!S.quiz) renderAll(); else { renderBoard(); renderStats(); }
+  }, () => banner('Lost the live connection to the board. Reload to reconnect.'));
+  S.db.doc('meta/config').onSnapshot(d => { S.config = d.exists ? d.data() : {}; renderCountdown(); }, () => {});
+  try { await ensureDay(); } catch { S.day = pickSet([], new Set()); }
+  renderAll(); renderTg();
+  setInterval(() => { const t = manilaDay(); if (t !== S.today && !S.quiz){ S.today = t; S.day = null; renderAll(); ensureDay().then(renderAll).catch(() => {}); } }, 60000);
+}
+boot();
+</script>
+
+</body></html>
