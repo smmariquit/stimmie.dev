@@ -36,7 +36,7 @@ const SOFTWARE_ENGINEERING = [
     org: "HearthCraft",
     url: "https://hearthcraft.stimmie.dev",
     period: "Apr 2018 – Apr 2025",
-    note: "A non-pay-to-win survival Minecraft server that grew into a safe space for 50,000+ players, with around $5k annual recurring revenue that helped fund college and charitable givebacks.",
+    note: "A non-pay-to-win survival Minecraft server that grew into a safe space for 40,000+ players, with around $5k annual recurring revenue that helped fund college and charitable givebacks.",
   },
   {
     role: "Freelance Software & Minecraft Developer",
@@ -344,7 +344,7 @@ export default function CareerPage() {
           HearthCraft
         </Link>
         , a popular non-pay-to-win survival server that became a safe space for
-        50,000+ players. At around $5,000 in annual recurring revenue, it helped
+        40,000+ players. At around $5,000 in annual recurring revenue, it helped
         fund much of my college life, gave back to charity, and gradually pushed
         me toward a career in software engineering. These days I run{" "}
         <Link
