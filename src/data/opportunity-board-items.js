@@ -4819,4 +4819,54 @@ export const opportunityBoardItems = [
       beginnerFriendly: true,
       blurb: "Free self-paced MOOC on identifying and analyzing project risks, useful groundwork for students and early-career project builders, with an e-certificate on completion.",
     },
+    {
+      title: "thatgamejam #02",
+      type: "game-jam",
+      url: "https://itch.io/jam/thatgamejam02",
+      org: "thatgamecompany",
+      location: "Online",
+      dates: [
+        {
+          label: "Submissions open",
+          date: "2026-10-24",
+        },
+        {
+          label: "Submissions close",
+          date: "2026-11-07",
+        },
+      ],
+      beginnerFriendly: true,
+      blurb: "Two-week global game jam from thatgamecompany, open to solo developers or teams of up to five building around a music-track theme.",
+    },
+    {
+      title: "Beyond the Keyframe: Motion Design in the Agentic Era",
+      type: "event",
+      url: "https://friends.figma.com/events/details/figma-manila-presents-beyond-the-keyframe-motion-design-in-the-agentic-era-fof-world-tour-2026/",
+      org: "Friends of Figma Manila",
+      location: "Online",
+      dates: [
+        {
+          label: "Online session",
+          date: "2026-11-05",
+        },
+      ],
+      beginnerFriendly: true,
+      blurb: "Free online Friends of Figma Manila talk on how AI agents are changing motion design workflows, with a live Q&A, timed for the Philippine evening.",
+    },
+    {
+      title: "Philippine Tech Show 2027",
+      type: "event",
+      url: "https://www.philtechshow.net",
+      org: "Philippine Cable and Telecommunications Association",
+      location: "SMX Convention Center, Pasay City / Metro Manila",
+      dates: [
+        {
+          label: "Event",
+          date: "2027-04-06",
+          endDate: "2027-04-07",
+        },
+      ],
+      beginnerFriendly: true,
+      blurb: "Free two-day telecom and ICT expo with seminars on cloud, cybersecurity, and AI, open to attendees without a tech background.",
+    },
 ];
