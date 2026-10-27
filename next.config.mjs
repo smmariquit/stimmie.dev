@@ -32,7 +32,10 @@ const nextConfig = {
   },
 
   async rewrites() {
-    return [{ source: "/dailyten", destination: "/dailyten/index.html" }];
+    return [
+      { source: "/dailyten", destination: "/dailyten/index.html" },
+      { source: "/iop-tour", destination: "/iop-tour/index.html" },
+    ];
   },
 
   async redirects() {
