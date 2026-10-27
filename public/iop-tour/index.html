@@ -1,0 +1,245 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <base href="/iop-tour/">
+  <meta name="robots" content="noindex">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Wing C virtual tour, Institute of Physics, UPLB</title>
+  <meta name="description" content="A 3D map of the Institute of Physics rooms on the second floor of Wing C, Physical Sciences Building, UPLB.">
+  <script>document.documentElement.classList.add("js")</script>
+  <link rel="icon" href="assets/img/emblem.png">
+  <link rel="stylesheet" href="assets/tour.css">
+  <script type="importmap">
+    {
+      "imports": {
+        "three": "./assets/vendor/three.module.min.js",
+        "three/addons/controls/OrbitControls.js": "./assets/vendor/OrbitControls.js",
+        "three/addons/renderers/CSS2DRenderer.js": "./assets/vendor/CSS2DRenderer.js"
+      }
+    }
+  </script>
+  <script type="module" src="assets/tour.js"></script>
+</head>
+<body>
+  <a class="skip-link" href="#rooms">Skip to the room list</a>
+
+  <header class="masthead">
+    <img class="masthead-emblem" src="assets/img/emblem.png" alt="" width="40" height="40">
+    <div class="masthead-text">
+      <p class="masthead-title">Institute of Physics</p>
+      <p class="masthead-sub">Physical Sciences Building, Wing C</p>
+    </div>
+  </header>
+
+  <main class="layout">
+    <section class="stage" aria-label="3D model of Wing C" tabindex="-1">
+      <div class="stage-canvas" role="img" aria-label="3D model of the Physical Sciences Building with the Institute of Physics rooms highlighted. Use the room list to explore it."></div>
+      <div class="stage-labels" aria-hidden="true"></div>
+      <div class="compass" aria-hidden="true"><span>N</span></div>
+
+      <div class="stage-controls" role="toolbar" aria-label="Tour controls" hidden>
+        <button type="button" class="btn btn-primary" data-action="inside" hidden>Look inside</button>
+        <button type="button" class="btn btn-primary" data-action="outside" hidden>Back to map</button>
+        <button type="button" class="btn btn-primary" data-action="play">Play tour</button>
+        <button type="button" class="btn" data-action="prev" aria-label="Previous stop"><span aria-hidden="true">&larr;</span><span class="btn-label">Previous</span></button>
+        <button type="button" class="btn" data-action="next" aria-label="Next stop"><span class="btn-label">Next</span><span aria-hidden="true">&rarr;</span></button>
+        <span class="controls-gap"></span>
+        <button type="button" class="btn" data-floor-button="2" aria-pressed="true">2nd floor</button>
+        <button type="button" class="btn" data-floor-button="1" aria-pressed="false">Ground floor</button>
+        <button type="button" class="btn" data-action="overview">Whole wing</button>
+      </div>
+
+      <div class="caption" aria-live="polite" hidden>
+        <div class="caption-text">
+          <h2 class="caption-title"></h2>
+          <p class="caption-meta"></p>
+          <p class="caption-desc"></p>
+        </div>
+        <img class="caption-photo" alt="" width="1050" height="1400" hidden>
+      </div>
+    </section>
+
+    <aside class="panel" id="rooms" aria-labelledby="rooms-heading">
+      <h2 id="rooms-heading" class="panel-heading">Rooms</h2>
+      <p class="panel-intro">The main entrance of Wing C faces Oblation Park. Open a room to see it on the model.</p>
+      <ul class="legend" aria-label="Room colours on the model">
+        <li data-type="lab">Laboratory</li>
+        <li data-type="office">Office</li>
+        <li data-type="facility">Facility</li>
+        <li data-type="venue">Lecture and conference</li>
+      </ul>
+
+      <section class="floor" data-floor="2" aria-labelledby="floor-2">
+        <h3 id="floor-2" class="floor-heading">2nd floor</h3>
+        <ul class="room-list">
+          <li class="room" data-code="C-201" data-floor="2" data-type="office" data-along="-6.1 -1" data-across="15.8 24.5" data-door="+">
+            <details>
+              <summary><span class="room-code">PS C-201</span> <span class="room-name">Faculty Room</span></summary>
+              <p class="room-desc">Faculty room beside the conference room.</p>
+            </details>
+          </li>
+          <li class="room" data-code="C-200c" data-floor="2" data-type="venue" data-along="-10.2 -6.1" data-across="15.8 24.5" data-door="+">
+            <details>
+              <summary><span class="room-code">PS C-200c</span> <span class="room-name">IoP Conference Room</span></summary>
+              <p class="room-desc">The Institute’s conference room.</p>
+            </details>
+          </li>
+          <li class="room" data-code="C-200b" data-furnish="director" data-floor="2" data-type="office" data-along="-16.1 -10.2" data-across="15.8 24.5" data-door="+">
+            <details>
+              <summary><span class="room-code">PS C-200b</span> <span class="room-name">Office of the Director</span></summary>
+              <p class="room-desc">Office of the Director of the Institute of Physics.</p>
+            </details>
+          </li>
+          <li class="room" data-code="C-200a" data-furnish="optics" data-floor="2" data-type="lab" data-along="-20 -16.1" data-across="15.8 24.5" data-door="-">
+            <details>
+              <summary><span class="room-code">PS C-200a</span> <span class="room-name">Terahertz Laboratory</span></summary>
+              <p class="room-desc">Research laboratory for experiments with terahertz waves, a band of electromagnetic waves. It has its own PCs. Its entrance is at the back.</p>
+            </details>
+          </li>
+          <li class="room" data-code="C-202" data-furnish="ta" data-floor="2" data-type="office" data-along="7 13" data-across="18 25.7" data-door="+">
+            <details>
+              <summary><span class="room-code">PS C-202</span> <span class="room-name">Teaching Assistant Room</span></summary>
+              <p class="room-desc">Office of the teaching associates, most of them graduate students.</p>
+              <a class="room-photo" href="assets/img/rooms/c-202-door.webp"><img src="assets/img/rooms/c-202-door.webp" alt="Door of PS C-202 with its Teaching Assistant Room sign" width="1050" height="1400" loading="lazy"></a>
+            </details>
+          </li>
+          <li class="room" data-code="Toilets" data-furnish="toilets" data-floor="2" data-type="facility" data-along="7 13" data-across="28.8 34.4" data-door="-" data-tour="no">
+            <details>
+              <summary><span class="room-code">Toilets</span> <span class="room-name">Restrooms</span></summary>
+              <p class="room-desc">Gentlemen’s and ladies’ restrooms, next to the hallway.</p>
+              <a class="room-photo" href="assets/img/rooms/toilet-gentlemen.webp"><img src="assets/img/rooms/toilet-gentlemen.webp" alt="Door of the gentlemen’s restroom" width="1050" height="1400" loading="lazy"></a>
+              <a class="room-photo" href="assets/img/rooms/toilet-ladies.webp"><img src="assets/img/rooms/toilet-ladies.webp" alt="Open door of the ladies’ restroom" width="1050" height="1400" loading="lazy"></a>
+            </details>
+          </li>
+          <li class="room" data-code="C-203" data-furnish="computers" data-floor="2" data-type="lab" data-along="13 19.5" data-across="28.8 34.4" data-door="-">
+            <details>
+              <summary><span class="room-code">PS C-203</span> <span class="room-name">Computing Laboratory</span></summary>
+              <p class="room-desc">Computing laboratory for Applied Physics courses with small classes. Up to 20 students.</p>
+              <a class="room-photo" href="assets/img/rooms/c-203-door.webp"><img src="assets/img/rooms/c-203-door.webp" alt="Door of PS C-203 with a maximum capacity sign of 20" width="1050" height="1400" loading="lazy"></a>
+            </details>
+          </li>
+          <li class="room" data-code="C-204" data-floor="2" data-type="lab" data-along="13 20.5" data-across="18 25.7" data-door="+">
+            <details>
+              <summary><span class="room-code">PS C-204</span> <span class="room-name">Physics Laboratory</span></summary>
+              <p class="room-desc">Teaching laboratory, usually for mechanics. Up to 28 students.</p>
+              <a class="room-photo" href="assets/img/rooms/c-204-door.webp"><img src="assets/img/rooms/c-204-door.webp" alt="Door of PS C-204 with a maximum capacity sign of 28" width="1050" height="1400" loading="lazy"></a>
+            </details>
+          </li>
+          <li class="room" data-code="C-205" data-floor="2" data-type="office" data-along="19.5 25.5" data-across="28.8 34.4" data-door="-">
+            <details>
+              <summary><span class="room-code">PS C-205</span> <span class="room-name">Faculty Room</span></summary>
+              <p class="room-desc">Faculty room.</p>
+              <a class="room-photo" href="assets/img/rooms/c-205-door.webp"><img src="assets/img/rooms/c-205-door.webp" alt="Door of PS C-205 with a Faculty Room sign and a whereabouts board" width="1050" height="1400" loading="lazy"></a>
+            </details>
+          </li>
+          <li class="room" data-code="C-206" data-floor="2" data-type="lab" data-along="20.5 27.5" data-across="18 25.7" data-door="+">
+            <details>
+              <summary><span class="room-code">PS C-206</span> <span class="room-name">Physics Laboratory</span></summary>
+              <p class="room-desc">Teaching laboratory, usually for electricity and magnetism. Up to 28 students.</p>
+              <a class="room-photo" href="assets/img/rooms/c-206-door.webp"><img src="assets/img/rooms/c-206-door.webp" alt="Door of PS C-206 with a maximum capacity sign of 28" width="1050" height="1400" loading="lazy"></a>
+            </details>
+          </li>
+          <li class="room" data-code="C-207" data-floor="2" data-type="office" data-along="25.5 31" data-across="28.8 34.4" data-door="-">
+            <details>
+              <summary><span class="room-code">PS C-207</span> <span class="room-name">Faculty Room</span></summary>
+              <p class="room-desc">Faculty room.</p>
+              <a class="room-photo" href="assets/img/rooms/c-207-door.webp"><img src="assets/img/rooms/c-207-door.webp" alt="Door of PS C-207 with a Faculty Room sign and a whereabouts board" width="1050" height="1400" loading="lazy"></a>
+            </details>
+          </li>
+          <li class="room" data-code="C-208" data-floor="2" data-type="facility" data-along="27.5 33.5" data-across="18 25.7" data-door="+">
+            <details>
+              <summary><span class="room-code">PS C-208</span> <span class="room-name">Lab Instrument Preparation Room</span></summary>
+              <p class="room-desc">Stores the instruments for the teaching laboratories. Lab classes borrow equipment here and bring it to the lab rooms.</p>
+              <a class="room-photo" href="assets/img/rooms/c-208-shelves.webp"><img src="assets/img/rooms/c-208-shelves.webp" alt="Shelves of meters, trays and lab kits in the preparation room" width="1050" height="1400" loading="lazy"></a>
+              <a class="room-photo" href="assets/img/rooms/c-208-equipment.webp"><img src="assets/img/rooms/c-208-equipment.webp" alt="Shelves of oscilloscopes, power supplies and parts bins in the preparation room" width="1050" height="1400" loading="lazy"></a>
+            </details>
+          </li>
+          <li class="room" data-code="C-209" data-floor="2" data-type="office" data-along="31 36.5" data-across="28.8 34.4" data-door="-">
+            <details>
+              <summary><span class="room-code">PS C-209</span> <span class="room-name">Faculty Room</span></summary>
+              <p class="room-desc">Faculty room.</p>
+              <a class="room-photo" href="assets/img/rooms/c-209-door.webp"><img src="assets/img/rooms/c-209-door.webp" alt="Door of PS C-209 with a Faculty Room sign and conference posters" width="1050" height="1400" loading="lazy"></a>
+            </details>
+          </li>
+          <li class="room" data-code="C-210" data-furnish="chemlab" data-floor="2" data-type="lab" data-along="33.5 40" data-across="18 25.7" data-door="+">
+            <details>
+              <summary><span class="room-code">PS C-210</span> <span class="room-name">Materials Physics Room</span></summary>
+              <p class="room-desc">Materials physics laboratory. Restricted: it holds chemicals, so the door stays locked.</p>
+              <a class="room-photo" href="assets/img/rooms/c-210-door.webp"><img src="assets/img/rooms/c-210-door.webp" alt="Locked door of PS C-210 with a Restricted Isolation Area sign" width="1050" height="1400" loading="lazy"></a>
+            </details>
+          </li>
+          <li class="room" data-code="C-211" data-floor="2" data-type="office" data-along="36.5 41.5" data-across="28.8 34.4" data-door="-">
+            <details>
+              <summary><span class="room-code">PS C-211</span> <span class="room-name">Faculty Room</span></summary>
+              <p class="room-desc">Faculty room.</p>
+              <a class="room-photo" href="assets/img/rooms/c-211-door.webp"><img src="assets/img/rooms/c-211-door.webp" alt="Door of PS C-211 with a Faculty Room sign and a whereabouts board" width="1050" height="1400" loading="lazy"></a>
+            </details>
+          </li>
+          <li class="room" data-code="C-212" data-furnish="servers" data-floor="2" data-type="facility" data-along="40 44.5" data-across="18 25.7" data-door="+">
+            <details>
+              <summary><span class="room-code">PS C-212</span> <span class="room-name">HPC Room</span></summary>
+              <p class="room-desc">High-performance computing room. It holds the Institute’s server racks.</p>
+              <a class="room-photo" href="assets/img/rooms/c-212-servers.webp"><img src="assets/img/rooms/c-212-servers.webp" alt="Server racks and air conditioners in the HPC room" width="1050" height="1400" loading="lazy"></a>
+            </details>
+          </li>
+          <li class="room" data-code="C-213" data-floor="2" data-type="office" data-along="41.5 46.25" data-across="28.8 34.4" data-door="-">
+            <details>
+              <summary><span class="room-code">PS C-213</span> <span class="room-name">Faculty Room</span></summary>
+              <p class="room-desc">Faculty room.</p>
+              <a class="room-photo" href="assets/img/rooms/c-213-door.webp"><img src="assets/img/rooms/c-213-door.webp" alt="Door of PS C-213 with a Faculty Room sign and a whereabouts board" width="1050" height="1400" loading="lazy"></a>
+            </details>
+          </li>
+          <li class="room" data-code="C-214" data-floor="2" data-type="lab" data-along="44.5 51" data-across="18 25.7" data-door="+">
+            <details>
+              <summary><span class="room-code">PS C-214</span> <span class="room-name">Physics Laboratory</span></summary>
+              <p class="room-desc">Teaching laboratory, usually for mechanics. Up to 28 students.</p>
+              <a class="room-photo" href="assets/img/rooms/c-214-doorway.webp"><img src="assets/img/rooms/c-214-doorway.webp" alt="Open doorway of PS C-214 showing a whiteboard of physics equations" width="1050" height="1400" loading="lazy"></a>
+            </details>
+          </li>
+          <li class="room" data-code="C-215" data-floor="2" data-type="office" data-along="46.25 51" data-across="28.8 34.4" data-door="-">
+            <details>
+              <summary><span class="room-code">PS C-215</span> <span class="room-name">Faculty Room</span></summary>
+              <p class="room-desc">Faculty room at the east end of the wing.</p>
+              <a class="room-photo" href="assets/img/rooms/c-215-door.webp"><img src="assets/img/rooms/c-215-door.webp" alt="Door of PS C-215 with a Faculty Room sign and a whereabouts board" width="1050" height="1400" loading="lazy"></a>
+            </details>
+          </li>
+        </ul>
+      </section>
+
+      <section class="floor" data-floor="1" aria-labelledby="floor-1">
+        <h3 id="floor-1" class="floor-heading">Ground floor</h3>
+        <ul class="room-list">
+          <li class="room" data-code="C-101" data-furnish="lecture" data-floor="1" data-type="venue" data-along="-20 -10.2" data-across="15.8 24.5">
+            <details>
+              <summary><span class="room-code">PS C-101</span> <span class="room-name">Lecture Room</span></summary>
+              <p class="room-desc">Lecture room directly below the Director’s Office and the Terahertz Laboratory. Its entrance is on the parking side.</p>
+            </details>
+          </li>
+          <li class="room" data-code="PSLH B" data-furnish="hall" data-floor="1" data-type="venue" data-along="1 16" data-across="-12 5.5">
+            <details>
+              <summary><span class="room-code">PSLH B</span> <span class="room-name">Physical Sciences Lecture Hall B</span></summary>
+              <p class="room-desc">Lecture hall for large classes, behind the Wing C hallway.</p>
+            </details>
+          </li>
+        </ul>
+      </section>
+    </aside>
+  </main>
+
+  <dialog class="lightbox" aria-label="Photo">
+    <form method="dialog"><button class="btn lightbox-close" type="submit">Close</button></form>
+    <img class="lightbox-img" alt="">
+    <p class="lightbox-caption"></p>
+  </dialog>
+
+  <footer class="footer">
+    <div class="lockup-band">
+      <img src="assets/img/iop-lockup.webp" alt="College of Arts and Sciences, Institute of Physics, University of the Philippines Los Baños" width="1200" height="277" loading="lazy">
+    </div>
+    <p><a href="https://iop.uplb.edu.ph/">Institute of Physics website</a>. <a href="https://www.facebook.com/iopcasuplb">Institute of Physics on Facebook</a>.</p>
+    <p>Room sizes are approximate. Layout from a sketch and walkthrough by the Institute of Physics, October 2026.</p>
+    <p>Building outline <a href="https://www.openstreetmap.org/copyright">© OpenStreetMap contributors</a>. 3D rendering by <a href="https://threejs.org/">three.js</a>.</p>
+  </footer>
+</body>
+</html>
