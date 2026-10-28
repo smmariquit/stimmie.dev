@@ -35,9 +35,16 @@
   --type-hall: #a59d94;
   --model-wall: #f1ece6;
   --model-slab: #a39b91;
-  --model-block: #d9d1c6;
-  --model-glass: #33414d;
-  --model-ground: #26321f;
+  /* Outside of F.O. Santos Hall (IoP photos): dark tuff block, white concrete
+     slab edges and fins, jalousie windows, black railings, a concrete roof. */
+  --model-brick: #4b4541;
+  --model-mortar: #2e2a28;
+  --model-concrete: #ebe7df;
+  --model-roof: #8f8a83;
+  --model-rail: #1f1f23;
+  --model-paving: #6e6a64;
+  --model-glass: #2a333b;
+  --model-ground: #2f4626;
   --model-sky: #120c10;
 }
 
@@ -112,15 +119,17 @@ html:not(.js) .stage { display: none; }
 .controls-gap { flex: 1 1 0; min-width: 0; }
 
 .btn {
-  min-height: 44px; min-width: 44px; padding: 0 1rem;
-  display: inline-flex; align-items: center; justify-content: center; gap: 0.4rem;
+  min-height: 36px; min-width: 36px; padding: 0 0.85rem;
+  display: inline-flex; align-items: center; justify-content: center; gap: 0.35rem;
   white-space: nowrap;
-  font: 800 0.875rem/1 var(--font-body);
+  font: 800 0.8125rem/1 var(--font-body);
   color: var(--ink); background: var(--bg-glass);
   border: 1px solid var(--line-strong); border-radius: 999px;
   cursor: pointer;
   transition: background-color 150ms cubic-bezier(0.25, 1, 0.5, 1), border-color 150ms cubic-bezier(0.25, 1, 0.5, 1), transform 100ms cubic-bezier(0.25, 1, 0.5, 1);
 }
+/* Fingers need the bigger target; mice don't. */
+@media (pointer: coarse) { .btn { min-height: 44px; min-width: 44px; } }
 .btn:hover { border-color: var(--teal); }
 .btn:active { transform: translateY(1px); }
 .btn:disabled { opacity: 0.45; cursor: not-allowed; border-color: var(--line); }

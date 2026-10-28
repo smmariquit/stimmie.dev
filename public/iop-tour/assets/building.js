@@ -44,6 +44,13 @@ export const HALLS = [
   { label: "Hallway", floor: 1, along: [-1, 7], across: [6, 34.4] },
 ];
 
+/**
+ * The Wing C entrance bay: the stretch of the front facade (along, in metres) where
+ * the ground-floor hallway opens toward Oblation Park, and that facade's `across`.
+ * Read off the outline (the short front edges between the two long wings).
+ */
+export const ENTRANCE = { along: [-2.3, 8.8], across: 34.4 };
+
 export const STAIRS = [
   { floor: 1, along: [1.25, 5.75], across: [16.75, 22.75] },
   { floor: 2, along: [1.25, 5.75], across: [16.75, 22.75] },
