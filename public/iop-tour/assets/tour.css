@@ -205,6 +205,27 @@ html:not(.js) .stage { display: none; }
 .room-desc { margin: 0 0.8rem 0.6rem; max-width: 62ch; }
 .room-photo { display: inline-block; margin: 0 0 0.8rem 0.8rem; border-radius: 8px; overflow: hidden; }
 .room-photo img { display: block; width: 8.5rem; height: 11rem; object-fit: cover; }
+/* Class schedule: plain lines in index.html, turned into day tabs by tour.js. */
+.room-sched { margin: 0 0.8rem 0.8rem; }
+.room-sched-title { margin: 0 0 0.5rem; color: var(--ink-muted); font-size: 0.875rem; }
+.room-sched-list { margin: 0; padding-left: 1.1rem; font-size: 0.875rem; color: var(--ink-muted); }
+.sched-tabs { display: flex; flex-wrap: wrap; gap: 0.3rem; margin: 0 0 0.4rem; }
+.sched-tab {
+  min-height: 32px; padding: 0 0.7rem;
+  font: 800 0.75rem/1 var(--font-body); color: var(--ink);
+  background: transparent; border: 1px solid var(--line-strong); border-radius: 999px; cursor: pointer;
+}
+@media (pointer: coarse) { .sched-tab { min-height: 44px; } }
+.sched-tab:hover { border-color: var(--teal); }
+.sched-tab:focus-visible { outline: 2px solid var(--teal); outline-offset: 2px; }
+.sched-tab[aria-pressed="true"] { background: var(--ink); color: var(--bg); border-color: var(--ink); }
+.sched-list { margin: 0; padding: 0; list-style: none; font-size: 0.875rem; }
+.sched-list li { display: grid; grid-template-columns: 7.5em minmax(0, 1fr); gap: 0.6rem; padding: 0.4rem 0; border-top: 1px solid var(--line); }
+.sched-time { color: var(--ink-muted); font-variant-numeric: tabular-nums; }
+.sched-course { display: block; font-weight: 800; }
+.sched-who { display: block; color: var(--ink-muted); overflow-wrap: anywhere; }
+.sched-list li.is-now { border-top-color: var(--teal); }
+.sched-list li.is-now .sched-course { color: var(--teal); }
 
 .lightbox {
   max-width: min(92vw, 60rem); max-height: 92dvh; padding: var(--space-s);

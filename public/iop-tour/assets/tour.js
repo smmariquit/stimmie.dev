@@ -81,6 +81,60 @@ const rooms = [...document.querySelectorAll(".room")].map((li) => {
   };
 });
 
+// --- Class schedules -------------------------------------------------------
+// A room can list its classes as plain lines, "DAYS START-END | COURSE | TEACHER"
+// (e.g. "TTh 8:30-10:00 | PHYS 122 T | AAD Villanueva"), so whoever updates them each
+// semester only edits text. Hours 1 to 6 mean PM: classes run from 7 AM to 7 PM.
+// Here the lines become day tabs, today's first, with the class running now marked.
+// Without JavaScript the plain list still reads fine. Runs before the 3D setup, so it
+// works where WebGL does not.
+const DAYS = [["M", "Mon"], ["T", "Tue"], ["W", "Wed"], ["Th", "Thu"], ["F", "Fri"], ["S", "Sat"]];
+const toMin = (t) => { const [h, m] = t.split(":").map(Number); return (h < 7 ? h + 12 : h) * 60 + m; };
+const clock = (min) => `${((Math.floor(min / 60) + 11) % 12) + 1}:${String(min % 60).padStart(2, "0")}`;
+const splitDays = (s) => s.match(/Th|[MTWFS]/g) ?? [];
+function manilaNow() {
+  const p = Object.fromEntries(new Intl.DateTimeFormat("en-US", { timeZone: "Asia/Manila", weekday: "short", hour: "numeric", minute: "numeric", hourCycle: "h23" })
+    .formatToParts(new Date()).map((x) => [x.type, x.value]));
+  return { day: { Mon: "M", Tue: "T", Wed: "W", Thu: "Th", Fri: "F", Sat: "S" }[p.weekday], min: Number(p.hour) * 60 + Number(p.minute) };
+}
+for (const box of document.querySelectorAll(".room-sched")) {
+  const list = box.querySelector(".room-sched-list");
+  const classes = [];
+  for (const li of list.children) {
+    const m = li.textContent.match(/^\s*([MTWFSh]+)\s+(\d{1,2}:\d{2})\s*-\s*(\d{1,2}:\d{2})\s*\|\s*(.+?)\s*\|\s*(.+?)\s*$/);
+    if (!m) { console.warn("Schedule line not understood:", li.textContent); continue; }
+    classes.push({ days: splitDays(m[1]), start: toMin(m[2]), end: toMin(m[3]), course: m[4], who: m[5] });
+  }
+  const days = DAYS.filter(([d]) => classes.some((c) => c.days.includes(d)));
+  if (!days.length) continue;
+  const now = manilaNow();
+  const tabs = Object.assign(document.createElement("div"), { className: "sched-tabs" });
+  tabs.setAttribute("role", "group");
+  tabs.setAttribute("aria-label", "Day");
+  const out = Object.assign(document.createElement("ol"), { className: "sched-list" });
+  const show = (day) => {
+    for (const b of tabs.children) b.setAttribute("aria-pressed", String(b.dataset.day === day));
+    out.replaceChildren(...classes.filter((c) => c.days.includes(day)).sort((a, b) => a.start - b.start).map((c) => {
+      const row = document.createElement("li");
+      const live = day === now.day && now.min >= c.start && now.min < c.end;
+      row.className = live ? "is-now" : "";
+      row.innerHTML = `<span class="sched-time">${clock(c.start)} to ${clock(c.end)}</span><span><span class="sched-course"></span><span class="sched-who"></span></span>`;
+      row.querySelector(".sched-course").textContent = c.course + (live ? " (now)" : "");
+      row.querySelector(".sched-who").textContent = c.who;
+      return row;
+    }));
+  };
+  for (const [d, name] of days) {
+    const b = Object.assign(document.createElement("button"), { type: "button", className: "sched-tab", textContent: name });
+    b.dataset.day = d;
+    b.addEventListener("click", () => show(d));
+    tabs.append(b);
+  }
+  list.hidden = true;
+  list.after(tabs, out);
+  show(days.some(([d]) => d === now.day) ? now.day : days[0][0]);
+}
+
 // --- Scene -----------------------------------------------------------------
 const stage = document.querySelector(".stage");
 const canvasHost = stage.querySelector(".stage-canvas");
