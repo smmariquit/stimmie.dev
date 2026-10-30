@@ -1,7 +1,8 @@
-/* Design system: Room TBA (uplbtools/room-tba), adapted to the IoP site.
-   Warm off-white surfaces and UP maroon in light mode; Room TBA's warm dark neutrals
-   (src/lib/theme.ts) in dark mode. The theme follows <html data-theme>: the IoP site's
-   toggle sets it, and on the standalone page an inline script sets it from the system. */
+/* Interface: the Room TBA design system (uplbtools/room-tba, MIT) in IoP colours.
+   Room TBA's components (chips, panels, shadows, schedule grid) with the IoP site's tokens
+   (07-editorial-home.css): paper backgrounds, maroon headings, teal accents, and the site's
+   dark palette. The theme follows <html data-theme>: the IoP site's toggle sets it, and on
+   the standalone page an inline script sets it from the system. */
 @font-face { font-family: "Avenir"; src: url("fonts/Avenir-Roman.woff") format("woff"); font-weight: 400; font-display: swap; }
 @font-face { font-family: "Avenir"; src: url("fonts/Avenir-Heavy.woff") format("woff"); font-weight: 700; font-display: swap; }
 @font-face { font-family: "Optima"; src: url("fonts/Optima-Demi.woff") format("woff"); font-weight: 600; font-display: swap; }
@@ -12,23 +13,25 @@
   --font-ui: "Inter", "Avenir", "Avenir Next", "Segoe UI", system-ui, sans-serif;
   /* The IoP site sets every h1 to h3 in Optima, so the tour's headings take it too. */
   --font-display: "Optima", "Trebuchet MS", "Segoe UI", sans-serif;
-  --surface: hsl(5 20% 97%);
-  --surface-panel: hsl(5 18% 96%);
-  --surface-2: hsl(5 14% 92%);
-  --text: #221e1d;
-  --text-muted: #5c5452;
-  --border: hsl(5 10% 68%);
-  --divider: hsl(5 12% 88%);
-  --accent-text: #7b1113;
-  --accent-fill: #7b1113;
-  --accent-soft: #fdf3f3;
-  --accent-border: #d8b9ba;
-  --accent-border-hover: #c58f91;
-  --on-accent: #fffafa;
-  --scrim: hsla(5, 20%, 10%, 0.55);
-  --lockup-bg: #fffafa;
-  --shadow-chrome: 0 0 0 1px hsla(15, 8%, 20%, 0.14), 0 1px 3px hsla(0, 0%, 0%, 0.12), 0 4px 12px hsla(0, 0%, 0%, 0.16), 0 10px 24px hsla(0, 0%, 0%, 0.1);
-  --shadow-panel: 0 0 0 1px hsla(15, 8%, 20%, 0.16), 0 2px 8px hsla(0, 0%, 0%, 0.14), 0 8px 20px hsla(0, 0%, 0%, 0.18), 0 16px 32px hsla(0, 0%, 0%, 0.08);
+  /* IoP site tokens: --iop-paper, --iop-paper-2, --iop-ink, --iop-ink-2, --iop-head, --iop-teal. */
+  --surface: #fbf9f6;
+  --surface-panel: #f3eee7;
+  --surface-2: #ebe4da;
+  --text: #1f1a19;
+  --text-muted: #5a524f;
+  --head: #3a1114;
+  --border: rgb(40 20 20 / 0.26);
+  --divider: rgb(40 20 20 / 0.14);
+  --accent-text: #0f7a70;
+  --accent-fill: #0f7a70;
+  --accent-soft: #e6f1ee;
+  --accent-border: #9cc9c1;
+  --accent-border-hover: #5fa89e;
+  --on-accent: #fff;
+  --scrim: rgb(31 26 25 / 0.55);
+  --lockup-bg: #fbf9f6;
+  --shadow-chrome: 0 0 0 1px rgb(40 20 20 / 0.12), 0 1px 3px rgb(40 20 20 / 0.12), 0 4px 12px rgb(40 20 20 / 0.14), 0 10px 24px rgb(40 20 20 / 0.08);
+  --shadow-panel: 0 0 0 1px rgb(40 20 20 / 0.14), 0 2px 8px rgb(40 20 20 / 0.12), 0 8px 20px rgb(40 20 20 / 0.16), 0 16px 32px rgb(40 20 20 / 0.06);
   --radius: 1rem;
   --radius-control: 0.625rem;
   --control: 2.75rem;
@@ -38,20 +41,20 @@
   --space-m: 1.5rem;
   --masthead-h: 64px;
   --panel-w: 23rem;
-  /* Schedule grid: Room TBA's ScheduleRenderer colours. */
-  --sched-head: hsl(5 53% 32%);
-  --sched-time: hsl(5 53% 28%);
-  --sched-grid: hsl(5 10% 78%);
-  --sched-grid-light: hsl(5 10% 88%);
-  --sched-lec: #1565c0;
-  --sched-lab: #2e7d32;
-  /* Room colours on the model, from Room TBA's class-type colours (lecture blue, lab green).
-     tour.js reads these, so the legend and the 3D always match. Hex, not OKLCH: three.js
-     Color cannot parse oklch(). */
-  --type-lab: #2e7d32;
-  --type-office: #ef6c00;
-  --type-facility: #546e7a;
-  --type-venue: #1565c0;
+  /* Schedule grid: Room TBA's ScheduleRenderer layout, IoP maroon bands, maroon lectures and teal labs. */
+  --sched-head: #3a1114;
+  --sched-time: #4a1a1d;
+  --sched-grid: rgb(40 20 20 / 0.22);
+  --sched-grid-light: rgb(40 20 20 / 0.09);
+  --sched-lec: #8e1b20;
+  --sched-lab: #0f7a70;
+  /* Room colours on the model: the schedule's lecture maroon and lab teal, UP gold for
+     offices. tour.js reads these, so the legend and the 3D always match. Hex, not OKLCH:
+     three.js Color cannot parse oklch(). */
+  --type-lab: #0f7a70;
+  --type-office: #d39b2a;
+  --type-facility: #6b7780;
+  --type-venue: #8e1b20;
   --type-hall: #b8b0a8;
   --model-wall: #f1ece6;
   --model-slab: #a39b91;
@@ -70,29 +73,31 @@
 
 :root[data-theme="dark"] {
   color-scheme: dark;
-  --surface: #211d1c;
-  --surface-panel: #1a1716;
-  --surface-2: #2a2625;
-  --text: #efe9e4;
-  --text-muted: #b3aaa3;
-  --border: #4a4442;
-  --divider: #36312f;
-  --accent-text: #f2a69c;
-  --accent-fill: #a8362b;
-  --accent-soft: #3a2422;
-  --accent-border: #8a4a44;
-  --accent-border-hover: #b0645c;
-  --on-accent: #fff;
+  /* The IoP site's dark tokens. */
+  --surface: #1a1918;
+  --surface-panel: #121212;
+  --surface-2: #24221f;
+  --text: #e9e6e3;
+  --text-muted: #aaa39e;
+  --head: #f4ecea;
+  --border: rgb(255 255 255 / 0.24);
+  --divider: rgb(255 255 255 / 0.14);
+  --accent-text: #5fc7bb;
+  --accent-fill: #5fc7bb;
+  --accent-soft: rgb(95 199 187 / 0.12);
+  --accent-border: rgb(95 199 187 / 0.45);
+  --accent-border-hover: rgb(95 199 187 / 0.7);
+  --on-accent: #0b1413;
   --scrim: rgb(0 0 0 / 0.7);
   --shadow-chrome: 0 0 0 1px rgb(0 0 0 / 0.5), 0 2px 8px rgb(0 0 0 / 0.4);
   --shadow-panel: 0 0 0 1px rgb(0 0 0 / 0.5), 0 8px 24px rgb(0 0 0 / 0.45);
-  --sched-head: #5a2421;
-  --sched-time: #4a1e1b;
-  --sched-grid: #4a4442;
-  --sched-grid-light: #36312f;
+  --sched-head: #3a1a1c;
+  --sched-time: #2c1416;
+  --sched-grid: rgb(255 255 255 / 0.16);
+  --sched-grid-light: rgb(255 255 255 / 0.07);
   --model-paving: #6e6a64;
   --model-ground: #2f4626;
-  --model-sky: #141110;
+  --model-sky: #121212;
 }
 
 *, *::before, *::after { box-sizing: border-box; }
@@ -124,7 +129,7 @@ a { color: var(--accent-text); text-underline-offset: 2px; }
 }
 .masthead-emblem { width: 36px; height: 36px; flex: none; }
 .masthead-text { min-width: 0; }
-.masthead-title { margin: 0; font: 600 1.0625rem/1.2 var(--font-display); color: var(--accent-text); }
+.masthead-title { margin: 0; font: 600 1.0625rem/1.2 var(--font-display); color: var(--head); }
 .masthead-sub { margin: 0; color: var(--text-muted); font-size: 0.8125rem; line-height: 1.3; }
 
 .layout {
@@ -200,7 +205,7 @@ html:not(.js) .stage { display: none; }
   background: var(--surface); border-radius: var(--radius); box-shadow: var(--shadow-panel);
 }
 .caption-text { min-width: 0; flex: 1 1 auto; }
-.caption-title { margin: 0; font: 600 clamp(1.25rem, 2.2vw, 1.625rem)/1.2 var(--font-display); overflow-wrap: anywhere; }
+.caption-title { margin: 0; color: var(--head); font: 600 clamp(1.25rem, 2.2vw, 1.625rem)/1.2 var(--font-display); overflow-wrap: anywhere; }
 .caption-meta { margin: 0.2rem 0 0; color: var(--text-muted); font-size: 0.8125rem; font-weight: 700; }
 .caption-desc { margin: 0.4rem 0 0; max-width: 62ch; font-size: 0.9375rem; }
 .caption-photo { flex: none; width: 7rem; height: 9.3rem; object-fit: cover; border-radius: var(--radius-control); }
@@ -224,7 +229,7 @@ html:not(.js) .stage { display: none; }
   background: var(--surface-panel);
   scrollbar-width: thin; scrollbar-color: var(--border) transparent;
 }
-.panel-heading { margin: 0; font: 600 1.375rem/1.2 var(--font-display); }
+.panel-heading { margin: 0; color: var(--head); font: 600 1.375rem/1.2 var(--font-display); }
 .panel-intro { margin: 0.3rem 0 var(--space-s); color: var(--text-muted); font-size: 0.875rem; }
 .floor + .floor { margin-top: var(--space-m); }
 .floor-heading { margin: 0 0 0.5rem; color: var(--text-muted); font: 600 0.9375rem/1.3 var(--font-display); }
@@ -282,7 +287,7 @@ html:not(.js) .stage { display: none; }
 .week { width: min(96vw, 64rem); max-width: none; max-height: 92dvh; padding: 0; border: 0; border-radius: var(--radius); background: var(--surface); color: var(--text); box-shadow: var(--shadow-panel); overflow: hidden; }
 .week::backdrop { background: var(--scrim); }
 .week-bar { display: flex; align-items: center; justify-content: space-between; gap: var(--space-s); padding: 0.75rem 0.75rem 0.75rem var(--space-s); border-bottom: 1px solid var(--divider); }
-.week-title { margin: 0; font: 600 1.25rem/1.25 var(--font-display); }
+.week-title { margin: 0; color: var(--head); font: 600 1.25rem/1.25 var(--font-display); }
 .week-sub { margin: 0.1rem 0 0; color: var(--text-muted); font-size: 0.8125rem; }
 .week-key { display: flex; gap: 0.9rem; margin: 0; padding: 0.6rem var(--space-s); list-style: none; font-size: 0.75rem; font-weight: 700; color: var(--text-muted); }
 .week-key li { display: flex; align-items: center; gap: 0.35rem; }
@@ -311,7 +316,7 @@ html:not(.js) .stage { display: none; }
   background: var(--sched-lec); color: #fff; line-height: 1.25;
 }
 .week-block.is-lab { background: var(--sched-lab); }
-.week-block.is-now { outline: 2px solid var(--accent-text); outline-offset: 1px; }
+.week-block.is-now { outline: 2px solid var(--head); outline-offset: 1px; }
 .week-block b { display: block; font-size: 0.75rem; overflow-wrap: anywhere; }
 .week-block span { display: block; font-size: 0.6875rem; opacity: 0.92; overflow-wrap: anywhere; }
 
