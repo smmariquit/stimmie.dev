@@ -1,44 +1,103 @@
-/* Tokens: dark theme of the IoP redesign (iop-proto/assets/styles.css). */
+/* Interface: the Room TBA design system (uplbtools/room-tba, MIT) in IoP colours.
+   Room TBA's components (chips, panels, shadows, schedule grid) with the IoP site's tokens
+   (07-editorial-home.css): paper backgrounds, maroon headings, teal accents, and the site's
+   dark palette. The theme follows <html data-theme>: the IoP site's toggle sets it, and on
+   the standalone page an inline script sets it from the system. */
 @font-face { font-family: "Avenir"; src: url("fonts/Avenir-Roman.woff") format("woff"); font-weight: 400; font-display: swap; }
-@font-face { font-family: "Avenir"; src: url("fonts/Avenir-Heavy.woff") format("woff"); font-weight: 800; font-display: swap; }
-@font-face { font-family: "Optima"; src: url("fonts/Optima-Medium.woff") format("woff"); font-weight: 500; font-display: swap; }
+@font-face { font-family: "Avenir"; src: url("fonts/Avenir-Heavy.woff") format("woff"); font-weight: 700; font-display: swap; }
 @font-face { font-family: "Optima"; src: url("fonts/Optima-Demi.woff") format("woff"); font-weight: 600; font-display: swap; }
 
 :root {
-  color-scheme: dark;
+  color-scheme: light;
+  /* Room TBA sets everything in Inter; the IoP site already loads Avenir, so it takes Inter's place. */
+  --font-ui: "Inter", "Avenir", "Avenir Next", "Segoe UI", system-ui, sans-serif;
+  /* The IoP site sets every h1 to h3 in Optima, so the tour's headings take it too. */
   --font-display: "Optima", "Trebuchet MS", "Segoe UI", sans-serif;
-  --font-body: "Avenir", "Avenir Next", "Segoe UI", system-ui, sans-serif;
-  --bg: oklch(0.12 0.018 350);
-  --bg-raised: oklch(0.185 0.032 350);
-  --bg-glass: oklch(0.12 0.018 350 / 0.92);
-  --ink: oklch(0.95 0.006 330);
-  --ink-muted: oklch(0.76 0.01 330);
-  --teal: oklch(0.8 0.1 184);
-  --teal-ink: oklch(0.17 0.02 190);
-  --gold: oklch(0.82 0.12 85);
-  --line: oklch(0.95 0.006 330 / 0.17);
-  --line-strong: oklch(0.95 0.006 330 / 0.28);
-  --radius: 14px;
-  --space-xs: 0.7rem;
-  --space-s: 1.1rem;
-  --space-m: 1.8rem;
+  /* IoP site tokens: --iop-paper, --iop-paper-2, --iop-ink, --iop-ink-2, --iop-head, --iop-teal. */
+  --surface: #fbf9f6;
+  --surface-panel: #f3eee7;
+  --surface-2: #ebe4da;
+  --text: #1f1a19;
+  --text-muted: #5a524f;
+  --head: #3a1114;
+  --border: rgb(40 20 20 / 0.26);
+  --divider: rgb(40 20 20 / 0.14);
+  --accent-text: #0f7a70;
+  --accent-fill: #0f7a70;
+  --accent-soft: #e6f1ee;
+  --accent-border: #9cc9c1;
+  --accent-border-hover: #5fa89e;
+  --on-accent: #fff;
+  --scrim: rgb(31 26 25 / 0.55);
+  --lockup-bg: #fbf9f6;
+  --shadow-chrome: 0 0 0 1px rgb(40 20 20 / 0.12), 0 1px 3px rgb(40 20 20 / 0.12), 0 4px 12px rgb(40 20 20 / 0.14), 0 10px 24px rgb(40 20 20 / 0.08);
+  --shadow-panel: 0 0 0 1px rgb(40 20 20 / 0.14), 0 2px 8px rgb(40 20 20 / 0.12), 0 8px 20px rgb(40 20 20 / 0.16), 0 16px 32px rgb(40 20 20 / 0.06);
+  --radius: 1rem;
+  --radius-control: 0.625rem;
+  --control: 2.75rem;
+  --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
+  --space-xs: 0.5rem;
+  --space-s: 1rem;
+  --space-m: 1.5rem;
   --masthead-h: 64px;
-  --panel-w: 22rem;
-  --scrim: oklch(0 0 0 / 0.8);
-  --lockup-bg: oklch(0.972 0.009 85);
-  /* Room colours on the model. tour.js reads these, so the legend and the 3D always match.
-     Hex, not OKLCH: three.js Color cannot parse oklch(). */
-  --type-lab: #3aa89c;
-  --type-office: #c9a46c;
-  --type-facility: #7d8fa6;
-  --type-venue: #b5476a;
-  --type-hall: #a59d94;
+  --panel-w: 23rem;
+  /* Schedule grid: Room TBA's ScheduleRenderer layout, IoP maroon bands, maroon lectures and teal labs. */
+  --sched-head: #3a1114;
+  --sched-time: #4a1a1d;
+  --sched-grid: rgb(40 20 20 / 0.22);
+  --sched-grid-light: rgb(40 20 20 / 0.09);
+  --sched-lec: #8e1b20;
+  --sched-lab: #0f7a70;
+  /* Room colours on the model: the schedule's lecture maroon and lab teal, UP gold for
+     offices. tour.js reads these, so the legend and the 3D always match. Hex, not OKLCH:
+     three.js Color cannot parse oklch(). */
+  --type-lab: #0f7a70;
+  --type-office: #d39b2a;
+  --type-facility: #6b7780;
+  --type-venue: #8e1b20;
+  --type-hall: #b8b0a8;
   --model-wall: #f1ece6;
   --model-slab: #a39b91;
-  --model-block: #d9d1c6;
-  --model-glass: #33414d;
-  --model-ground: #26321f;
-  --model-sky: #120c10;
+  /* Outside of F.O. Santos Hall (IoP photos): dark tuff block, white concrete
+     slab edges and fins, jalousie windows, black railings, a concrete roof. */
+  --model-brick: #4b4541;
+  --model-mortar: #2e2a28;
+  --model-concrete: #ebe7df;
+  --model-roof: #8f8a83;
+  --model-rail: #1f1f23;
+  --model-paving: #9b968e;
+  --model-glass: #2a333b;
+  --model-ground: #9fb48a;
+  --model-sky: #e9e4df;
+}
+
+:root[data-theme="dark"] {
+  color-scheme: dark;
+  /* The IoP site's dark tokens. */
+  --surface: #1a1918;
+  --surface-panel: #121212;
+  --surface-2: #24221f;
+  --text: #e9e6e3;
+  --text-muted: #aaa39e;
+  --head: #f4ecea;
+  --border: rgb(255 255 255 / 0.24);
+  --divider: rgb(255 255 255 / 0.14);
+  --accent-text: #5fc7bb;
+  --accent-fill: #5fc7bb;
+  --accent-soft: rgb(95 199 187 / 0.12);
+  --accent-border: rgb(95 199 187 / 0.45);
+  --accent-border-hover: rgb(95 199 187 / 0.7);
+  --on-accent: #0b1413;
+  --scrim: rgb(0 0 0 / 0.7);
+  --shadow-chrome: 0 0 0 1px rgb(0 0 0 / 0.5), 0 2px 8px rgb(0 0 0 / 0.4);
+  --shadow-panel: 0 0 0 1px rgb(0 0 0 / 0.5), 0 8px 24px rgb(0 0 0 / 0.45);
+  --sched-head: #3a1a1c;
+  --sched-time: #2c1416;
+  --sched-grid: rgb(255 255 255 / 0.16);
+  --sched-grid-light: rgb(255 255 255 / 0.07);
+  --model-paving: #6e6a64;
+  --model-ground: #2f4626;
+  --model-sky: #121212;
 }
 
 *, *::before, *::after { box-sizing: border-box; }
@@ -47,17 +106,17 @@
 html, body { overflow-x: clip; }
 body {
   margin: 0;
-  background: var(--bg);
-  color: var(--ink);
-  font: 400 1rem/1.6 var(--font-body);
+  background: var(--surface-panel);
+  color: var(--text);
+  font: 400 1rem/1.55 var(--font-ui);
 }
 img { max-width: 100%; height: auto; }
-a { color: var(--teal); text-underline-offset: 2px; }
-:focus-visible { outline: 3px solid var(--teal); outline-offset: 2px; }
+a { color: var(--accent-text); text-underline-offset: 2px; }
+:focus-visible { outline: 2px solid var(--accent-text); outline-offset: 2px; }
 
 .skip-link {
   position: absolute; left: var(--space-s); top: -4rem; z-index: 50;
-  padding: 0.6rem 1rem; background: var(--teal); color: var(--teal-ink); border-radius: 8px;
+  padding: 0.6rem 1rem; background: var(--accent-fill); color: var(--on-accent); border-radius: var(--radius-control);
 }
 .skip-link:focus { top: var(--space-xs); }
 
@@ -65,12 +124,13 @@ a { color: var(--teal); text-underline-offset: 2px; }
   height: var(--masthead-h);
   display: flex; align-items: center; gap: 0.75rem;
   padding: 0 var(--space-s);
-  border-bottom: 1px solid var(--line);
+  background: var(--surface);
+  border-bottom: 1px solid var(--divider);
 }
-.masthead-emblem { width: 40px; height: 40px; flex: none; }
+.masthead-emblem { width: 36px; height: 36px; flex: none; }
 .masthead-text { min-width: 0; }
-.masthead-title { margin: 0; font: 600 1.15rem/1.2 var(--font-display); }
-.masthead-sub { margin: 0; color: var(--ink-muted); font-size: 0.875rem; line-height: 1.3; }
+.masthead-title { margin: 0; font: 600 1.0625rem/1.2 var(--font-display); color: var(--head); }
+.masthead-sub { margin: 0; color: var(--text-muted); font-size: 0.8125rem; line-height: 1.3; }
 
 .layout {
   display: grid;
@@ -95,119 +155,182 @@ html:not(.js) .stage { display: none; }
 .stage.is-inside [data-floor-button],
 .stage.is-inside [data-action="overview"] { display: none; }
 
+/* Compass: Room TBA's round map control. */
 .compass {
   position: absolute; top: var(--space-s); right: var(--space-s);
-  width: 44px; height: 44px; border-radius: 50%;
+  width: var(--control); height: var(--control); border-radius: 50%;
   display: grid; place-items: center;
-  background: var(--bg-glass); border: 1px solid var(--line-strong);
-  font: 800 0.8rem/1 var(--font-body);
+  background: var(--surface); color: var(--text); box-shadow: var(--shadow-chrome);
+  font: 700 0.75rem/1 var(--font-ui);
 }
 .compass span { display: block; transform: rotate(var(--bearing, 0deg)); }
-.compass span::before { content: ""; display: block; width: 0; height: 0; margin: -4px auto 2px; border: 5px solid transparent; border-bottom: 8px solid var(--gold); border-top: 0; }
+.compass span::before { content: ""; display: block; width: 0; height: 0; margin: -4px auto 2px; border: 5px solid transparent; border-bottom: 8px solid var(--accent-text); border-top: 0; }
 
 .stage-controls {
-  position: absolute; top: var(--space-s); left: var(--space-s); right: calc(var(--space-s) + 56px);
+  position: absolute; top: var(--space-s); left: var(--space-s); right: calc(var(--space-s) + var(--control) + 0.75rem);
   display: flex; flex-wrap: wrap; gap: 0.5rem; align-items: center;
 }
 .controls-gap { flex: 1 1 0; min-width: 0; }
 
+/* Buttons: Room TBA's map chrome row chip. */
 .btn {
-  min-height: 44px; min-width: 44px; padding: 0 1rem;
-  display: inline-flex; align-items: center; justify-content: center; gap: 0.4rem;
+  min-height: var(--control); min-width: var(--control); padding: 0.375rem 0.875rem;
+  display: inline-flex; align-items: center; justify-content: center; gap: 0.375rem;
   white-space: nowrap;
-  font: 800 0.875rem/1 var(--font-body);
-  color: var(--ink); background: var(--bg-glass);
-  border: 1px solid var(--line-strong); border-radius: 999px;
+  font: 700 0.8125rem/1 var(--font-ui);
+  color: var(--text); background: var(--surface);
+  border: 1px solid var(--border); border-radius: var(--radius-control);
   cursor: pointer;
-  transition: background-color 150ms cubic-bezier(0.25, 1, 0.5, 1), border-color 150ms cubic-bezier(0.25, 1, 0.5, 1), transform 100ms cubic-bezier(0.25, 1, 0.5, 1);
+  transition: background-color 150ms var(--ease-out), border-color 150ms var(--ease-out), color 150ms var(--ease-out);
 }
-.btn:hover { border-color: var(--teal); }
+.stage-controls .btn { box-shadow: var(--shadow-chrome); border-color: transparent; }
+.btn:hover { border-color: var(--accent-border-hover); background: var(--accent-soft); }
 .btn:active { transform: translateY(1px); }
-.btn:disabled { opacity: 0.45; cursor: not-allowed; border-color: var(--line); }
-.btn[aria-pressed="true"] { background: var(--ink); color: var(--bg); border-color: var(--ink); }
-.btn-primary { background: var(--teal); color: var(--teal-ink); border-color: var(--teal); }
+.btn:focus-visible { outline: 2px solid var(--accent-text); outline-offset: 2px; }
+.btn:disabled { opacity: 0.45; cursor: not-allowed; }
+.btn[aria-pressed="true"] { background: var(--accent-fill); color: var(--on-accent); border-color: var(--accent-fill); }
+.btn-primary, .btn-primary:hover { background: var(--accent-fill); color: var(--on-accent); border-color: var(--accent-fill); }
+.btn-primary:hover { filter: brightness(1.08); }
 /* One primary at a time: while a room offers Look inside or Back to map, the tour button steps back. */
 .stage-controls:has([data-action="inside"]:not([hidden]), [data-action="outside"]:not([hidden])) [data-action="play"] {
-  background: var(--bg-glass); color: var(--ink); border-color: var(--line-strong);
+  background: var(--surface); color: var(--text);
 }
 
-/* Caption: the tour's narration card, sized to read on a recorded video. */
+/* Caption: the tour's narration card (Room TBA panel), sized to read on a recorded video. */
 .caption {
   position: absolute; left: var(--space-s); bottom: var(--space-s);
   width: min(34rem, calc(100% - 2 * var(--space-s)));
   display: flex; gap: var(--space-s); align-items: stretch;
   padding: var(--space-s);
-  background: var(--bg-glass); border: 1px solid var(--line-strong); border-radius: var(--radius);
+  background: var(--surface); border-radius: var(--radius); box-shadow: var(--shadow-panel);
 }
 .caption-text { min-width: 0; flex: 1 1 auto; }
-.caption-title { margin: 0; font: 600 clamp(1.25rem, 2.4vw, 1.75rem)/1.2 var(--font-display); overflow-wrap: anywhere; }
-.caption-meta { margin: 0.2rem 0 0; color: var(--ink-muted); font-size: 0.875rem; }
-.caption-desc { margin: 0.4rem 0 0; max-width: 62ch; }
-.caption-photo { flex: none; width: 7.5rem; height: 10rem; object-fit: cover; border-radius: 10px; }
+.caption-title { margin: 0; color: var(--head); font: 600 clamp(1.25rem, 2.2vw, 1.625rem)/1.2 var(--font-display); overflow-wrap: anywhere; }
+.caption-meta { margin: 0.2rem 0 0; color: var(--text-muted); font-size: 0.8125rem; font-weight: 700; }
+.caption-desc { margin: 0.4rem 0 0; max-width: 62ch; font-size: 0.9375rem; }
+.caption-photo { flex: none; width: 7rem; height: 9.3rem; object-fit: cover; border-radius: var(--radius-control); }
 
-/* Labels drawn over the model (CSS2DRenderer). */
+/* Labels drawn over the model (CSS2DRenderer): Room TBA's small chip. */
 .label {
   padding: 0.2rem 0.55rem; border-radius: 999px;
-  background: var(--bg-glass); border: 1px solid var(--line-strong);
-  color: var(--ink); font: 800 0.75rem/1.3 var(--font-body);
+  background: var(--surface); border: 1px solid var(--border);
+  color: var(--text); font: 700 0.6875rem/1.3 var(--font-ui);
   white-space: nowrap;
 }
-.label.is-active { background: var(--ink); color: var(--bg); border-color: var(--ink); font-size: 0.9rem; }
-.label.is-hall { border-color: transparent; color: var(--ink-muted); font-weight: 400; }
-.label.is-landmark { color: var(--gold); border-color: var(--gold); }
+.label.is-active { background: var(--accent-fill); color: var(--on-accent); border-color: var(--accent-fill); font-size: 0.8125rem; }
+.label.is-hall { background: transparent; border-color: transparent; color: var(--text-muted); text-shadow: 0 0 3px var(--surface), 0 0 6px var(--surface); }
+.label.is-landmark { color: var(--accent-text); border-color: var(--accent-border); }
 
 /* Room list */
 .panel {
   min-height: 0; overflow-y: auto;
   padding: var(--space-s);
-  border-left: 1px solid var(--line);
-  background: var(--bg);
+  border-left: 1px solid var(--divider);
+  background: var(--surface-panel);
+  scrollbar-width: thin; scrollbar-color: var(--border) transparent;
 }
-.panel-heading { margin: 0; font: 600 1.4rem/1.2 var(--font-display); }
-.panel-intro { margin: 0.4rem 0 var(--space-s); color: var(--ink-muted); }
+.panel-heading { margin: 0; color: var(--head); font: 600 1.375rem/1.2 var(--font-display); }
+.panel-intro { margin: 0.3rem 0 var(--space-s); color: var(--text-muted); font-size: 0.875rem; }
 .floor + .floor { margin-top: var(--space-m); }
-.floor-heading { margin: 0 0 0.5rem; font: 600 1.1rem/1.3 var(--font-display); }
+.floor-heading { margin: 0 0 0.5rem; color: var(--text-muted); font: 600 0.9375rem/1.3 var(--font-display); }
 
-.legend { display: flex; flex-wrap: wrap; gap: 0.35rem 0.9rem; margin: 0 0 var(--space-s); padding: 0; list-style: none; font-size: 0.875rem; color: var(--ink-muted); }
+.legend { display: flex; flex-wrap: wrap; gap: 0.35rem 0.9rem; margin: 0 0 var(--space-s); padding: 0; list-style: none; font-size: 0.8125rem; font-weight: 700; color: var(--text-muted); }
 .legend li { display: flex; align-items: center; gap: 0.4rem; }
-.legend li::before { content: ""; width: 0.9rem; height: 0.9rem; border-radius: 3px; background: var(--swatch); }
+.legend li::before { content: ""; width: 0.75rem; height: 0.75rem; border-radius: 3px; background: var(--swatch); }
 
-.room-list { margin: 0; padding: 0; list-style: none; display: grid; gap: 0.35rem; }
-.room details { border: 1px solid var(--line); border-radius: 10px; background: var(--bg-raised); }
-.room details[open] { border-color: var(--teal); }
+.room-list { margin: 0; padding: 0; list-style: none; display: grid; gap: 0.375rem; }
+.room details { border: 1px solid var(--divider); border-radius: var(--radius-control); background: var(--surface); transition: border-color 150ms var(--ease-out); }
+.room details:hover { border-color: var(--border); }
+.room details[open] { border-color: var(--accent-border); box-shadow: 0 0 0 1px var(--accent-border); }
 .room summary {
-  min-height: 44px; padding: 0.55rem 0.8rem;
+  min-height: var(--control); padding: 0.5rem 0.75rem;
   display: flex; align-items: baseline; gap: 0.5rem;
-  cursor: pointer; list-style: none;
+  cursor: pointer; list-style: none; border-radius: var(--radius-control);
 }
 .room summary::-webkit-details-marker { display: none; }
 .room summary::before {
   content: ""; flex: none; align-self: center;
-  width: 0.7rem; height: 0.7rem; border-radius: 3px;
-  background: var(--swatch, var(--line-strong));
+  width: 0.625rem; height: 0.625rem; border-radius: 3px;
+  background: var(--swatch, var(--border));
 }
 [data-type="lab"] { --swatch: var(--type-lab); }
 [data-type="office"] { --swatch: var(--type-office); }
 [data-type="facility"] { --swatch: var(--type-facility); }
 [data-type="venue"] { --swatch: var(--type-venue); }
-.room-code { flex: none; font-weight: 800; }
-.room-name { min-width: 0; color: var(--ink-muted); overflow-wrap: anywhere; }
-.room details[open] .room-name { color: var(--ink); }
-.room-desc { margin: 0 0.8rem 0.6rem; max-width: 62ch; }
-.room-photo { display: inline-block; margin: 0 0 0.8rem 0.8rem; border-radius: 8px; overflow: hidden; }
-.room-photo img { display: block; width: 8.5rem; height: 11rem; object-fit: cover; }
+.room-code { flex: none; font-weight: 700; font-size: 0.9375rem; }
+.room-name { min-width: 0; color: var(--text-muted); font-size: 0.9375rem; overflow-wrap: anywhere; }
+.room details[open] .room-name { color: var(--text); }
+.room-desc { margin: 0 0.75rem 0.6rem; max-width: 62ch; font-size: 0.9375rem; }
+.room-photo { display: inline-block; margin: 0 0 0.75rem 0.75rem; border-radius: var(--radius-control); overflow: hidden; }
+.room-photo img { display: block; width: 8rem; height: 10.5rem; object-fit: cover; }
+
+/* Class schedule in a room card: today's classes, then the full week in a dialog.
+   Plain lines in index.html (or the Room Schedules page) are turned into this by tour.js. */
+.room-sched { margin: 0 0.75rem 0.75rem; padding-top: 0.6rem; border-top: 1px solid var(--divider); }
+.room-sched-list { margin: 0; padding-left: 1.1rem; font-size: 0.8125rem; color: var(--text-muted); }
+.sched-head { display: flex; align-items: baseline; justify-content: space-between; gap: 0.5rem; margin: 0 0 0.4rem; }
+.sched-title { margin: 0; font: 700 0.8125rem/1.3 var(--font-ui); }
+.sched-term { margin: 0; color: var(--text-muted); font-size: 0.75rem; text-align: right; }
+.sched-today { margin: 0 0 0.6rem; padding: 0; list-style: none; font-size: 0.8125rem; }
+.sched-today li { display: grid; grid-template-columns: 7.4em minmax(0, 1fr); gap: 0.5rem; padding: 0.35rem 0; }
+.sched-today li + li { border-top: 1px solid var(--divider); }
+.sched-time { color: var(--text-muted); font-variant-numeric: tabular-nums; white-space: nowrap; }
+.sched-course { display: block; font-weight: 700; }
+.sched-who { display: block; color: var(--text-muted); overflow-wrap: anywhere; }
+.sched-today li.is-now .sched-course { color: var(--accent-text); }
+.sched-now { margin-left: 0.35rem; padding: 0.05rem 0.4rem; border-radius: 999px; background: var(--accent-fill); color: var(--on-accent); font-size: 0.6875rem; font-weight: 700; vertical-align: 0.05em; }
+.sched-empty { margin: 0 0 0.6rem; color: var(--text-muted); font-size: 0.8125rem; }
+.btn-week { width: 100%; min-height: 2.25rem; }
+
+/* Week dialog: Room TBA's ScheduleRenderer grid, as HTML so it reads and scales.
+   Rows are half hours from 7:00 AM; tour.js sets --days and --rows. */
+.week { width: min(96vw, 64rem); max-width: none; max-height: 92dvh; padding: 0; border: 0; border-radius: var(--radius); background: var(--surface); color: var(--text); box-shadow: var(--shadow-panel); overflow: hidden; }
+.week::backdrop { background: var(--scrim); }
+.week-bar { display: flex; align-items: center; justify-content: space-between; gap: var(--space-s); padding: 0.75rem 0.75rem 0.75rem var(--space-s); border-bottom: 1px solid var(--divider); }
+.week-title { margin: 0; color: var(--head); font: 600 1.25rem/1.25 var(--font-display); }
+.week-sub { margin: 0.1rem 0 0; color: var(--text-muted); font-size: 0.8125rem; }
+.week-key { display: flex; gap: 0.9rem; margin: 0; padding: 0.6rem var(--space-s); list-style: none; font-size: 0.75rem; font-weight: 700; color: var(--text-muted); }
+.week-key li { display: flex; align-items: center; gap: 0.35rem; }
+.week-key li::before { content: ""; width: 0.75rem; height: 0.75rem; border-radius: 2px; background: var(--k); }
+.week-scroll { overflow: auto; padding: 0 var(--space-s) var(--space-s); max-height: calc(92dvh - 7rem); }
+.week-grid {
+  --row: 1.6rem;
+  display: grid; min-width: 40rem;
+  grid-template-columns: 3.4rem repeat(var(--days, 5), minmax(0, 1fr));
+  grid-template-rows: 2rem repeat(var(--rows, 24), var(--row));
+  border-radius: 0.5rem;
+  background:
+    repeating-linear-gradient(to bottom, transparent 0 calc(2 * var(--row) - 1px), var(--sched-grid) calc(2 * var(--row) - 1px) calc(2 * var(--row))) 0 2rem / 100% calc(100% - 2rem) no-repeat,
+    repeating-linear-gradient(to bottom, transparent 0 calc(var(--row) - 1px), var(--sched-grid-light) calc(var(--row) - 1px) var(--row)) 0 2rem / 100% calc(100% - 2rem) no-repeat,
+    var(--surface);
+  font-size: 0.75rem;
+}
+/* Day row and time column stay in view while the grid scrolls (phones scroll it sideways). */
+.week-corner { grid-row: 1; grid-column: 1; background: var(--sched-head); position: sticky; top: 0; left: 0; z-index: 3; border-top-left-radius: 0.5rem; }
+.week-day { grid-row: 1; position: sticky; top: 0; z-index: 2; display: grid; place-items: center; background: var(--sched-head); color: #fff; font-weight: 700; font-size: 0.8125rem; border-left: 1px solid rgb(255 255 255 / 0.12); }
+.week-day.is-today { box-shadow: inset 0 -3px 0 #fff; }
+.week-hour { grid-column: 1; position: sticky; left: 0; z-index: 1; display: flex; justify-content: center; padding-top: 0.2rem; background: var(--sched-time); color: #fff; font-variant-numeric: tabular-nums; border-top: 1px solid rgb(255 255 255 / 0.12); }
+.week-col { grid-row: 2 / -1; border-left: 1px solid var(--sched-grid); }
+.week-block {
+  margin: 1px 2px; padding: 0.25rem 0.35rem; border-radius: 3px; overflow: hidden; min-width: 0;
+  background: var(--sched-lec); color: #fff; line-height: 1.25;
+}
+.week-block.is-lab { background: var(--sched-lab); }
+.week-block.is-now { outline: 2px solid var(--head); outline-offset: 1px; }
+.week-block b { display: block; font-size: 0.75rem; overflow-wrap: anywhere; }
+.week-block span { display: block; font-size: 0.6875rem; opacity: 0.92; overflow-wrap: anywhere; }
 
 .lightbox {
   max-width: min(92vw, 60rem); max-height: 92dvh; padding: var(--space-s);
-  background: var(--bg-raised); color: var(--ink);
-  border: 1px solid var(--line-strong); border-radius: var(--radius);
+  background: var(--surface); color: var(--text);
+  border: 0; border-radius: var(--radius); box-shadow: var(--shadow-panel);
 }
 .lightbox::backdrop { background: var(--scrim); }
 .lightbox form { display: flex; justify-content: flex-end; margin-bottom: 0.6rem; }
-.lightbox-img { display: block; max-height: 74dvh; width: auto; margin: 0 auto; border-radius: 10px; }
-.lightbox-caption { margin: 0.6rem 0 0; color: var(--ink-muted); }
+.lightbox-img { display: block; max-height: 74dvh; width: auto; margin: 0 auto; border-radius: var(--radius-control); }
+.lightbox-caption { margin: 0.6rem 0 0; color: var(--text-muted); font-size: 0.875rem; }
 
-.footer { padding: var(--space-s); border-top: 1px solid var(--line); color: var(--ink-muted); font-size: 0.875rem; }
+.footer { padding: var(--space-s); border-top: 1px solid var(--divider); background: var(--surface-panel); color: var(--text-muted); font-size: 0.8125rem; }
 .footer p { margin: 0.2rem 0; max-width: 80ch; }
 /* The official lockup is drawn for light backgrounds, so it sits on paper. */
 .lockup-band { margin: 0 0 var(--space-s); padding: var(--space-s); background: var(--lockup-bg); border-radius: var(--radius); max-width: 40rem; }
@@ -217,24 +340,27 @@ html:not(.js) .stage { display: none; }
 @media (max-width: 900px) {
   .layout { grid-template-columns: minmax(0, 1fr); height: auto; }
   .stage { height: 62svh; min-height: 22rem; }
-  .panel { border-left: 0; border-top: 1px solid var(--line); overflow: visible; }
+  .panel { border-left: 0; border-top: 1px solid var(--divider); overflow: visible; }
   /* Two rows along the bottom: tour buttons, then floors. Arrows replace the
      Previous and Next words so both rows fit a 360px screen. */
   .stage-controls { left: var(--space-xs); right: var(--space-xs); top: auto; bottom: var(--space-xs); gap: 0.4rem; }
-  .stage-controls .btn { flex: none; padding: 0 0.8rem; }
+  .stage-controls .btn { flex: none; padding: 0 0.75rem; }
   .btn-label { display: none; }
   /* The open room in the list below carries the description and photos. */
-  .caption { bottom: auto; top: var(--space-s); width: calc(100% - 2 * var(--space-s) - 56px); padding: var(--space-xs); }
+  .caption { bottom: auto; top: var(--space-s); width: calc(100% - 2 * var(--space-s) - var(--control) - 0.75rem); padding: var(--space-xs) 0.75rem; }
   .caption-desc, .caption .caption-photo { display: none; }
   .controls-gap { flex-basis: 100%; height: 0; }
+  .week { width: 100vw; max-height: 100dvh; height: 100dvh; border-radius: 0; }
+  .week-scroll { max-height: calc(100dvh - 7rem); padding: 0 0 var(--space-s); }
+  .week-grid { border-radius: 0; }
 }
 
 /* Recording mode (?record): only the model, the title and the caption. */
 .record .layout { grid-template-columns: minmax(0, 1fr); height: 100dvh; }
 .record .masthead {
   position: fixed; z-index: 5; top: var(--space-s); left: var(--space-s);
-  height: auto; padding: 0.6rem 0.9rem; border: 1px solid var(--line-strong); border-radius: var(--radius);
-  background: var(--bg-glass);
+  height: auto; padding: 0.6rem 0.9rem; border: 0; border-radius: var(--radius);
+  box-shadow: var(--shadow-panel);
 }
 .record .panel, .record .footer, .record .stage-controls, .record .skip-link { display: none; }
 .record .caption { width: min(46rem, calc(100% - 2 * var(--space-s))); }

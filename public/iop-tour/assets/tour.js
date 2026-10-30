@@ -4,7 +4,7 @@
 import * as THREE from "three";
 import { OrbitControls } from "three/addons/controls/OrbitControls.js";
 import { CSS2DObject, CSS2DRenderer } from "three/addons/renderers/CSS2DRenderer.js";
-import { FLOOR_HEIGHT, FLOORS, HALLS, OBLATION, OUTLINE, STAIRS, WING_ANGLE_DEG } from "./building.js";
+import { ENTRANCE, FLOOR_HEIGHT, FLOORS, HALLS, OBLATION, OUTLINE, STAIRS, WING_ANGLE_DEG } from "./building.js";
 
 const params = new URLSearchParams(location.search);
 const RECORD = params.has("record");
@@ -31,7 +31,10 @@ const COLORS = {
   hall: color("--type-hall"),
   wall: color("--model-wall"),
   slab: color("--model-slab"),
-  block: color("--model-block"),
+  concrete: color("--model-concrete"),
+  roof: color("--model-roof"),
+  rail: color("--model-rail"),
+  paving: color("--model-paving"),
   glass: color("--model-glass"),
   ground: color("--model-ground"),
   sky: color("--model-sky"),
@@ -77,6 +80,168 @@ const rooms = [...document.querySelectorAll(".room")].map((li) => {
     size: Math.max(u[1] - u[0], v[1] - v[0]),
   };
 });
+
+// --- Class schedules -------------------------------------------------------
+// Staff and faculty keep the schedules on the WordPress page "Room Schedules"
+// (/room-schedules/): one heading per room, like "PS C-206", and a table under it with
+// one row per class: Days | Time | Course and section | Teacher. When the tour runs on
+// the IoP site it reads that page, so an edit there shows up here on the next load.
+// Each room in index.html also keeps a copy as plain lines,
+// "DAYS START-END | COURSE | TEACHER", shown first and kept when the page cannot be
+// reached (the off-campus copy, or the site is down). Hours 1 to 6 mean PM: classes run
+// from 7 AM to 7 PM, and an end time at or before the start is PM too ("4:00-7:00").
+// Shown as today's list in the room card and a full-week grid in a dialog.
+// Runs before the 3D setup, so it works where WebGL does not.
+const SCHEDULE_PAGE = "/wp-json/wp/v2/pages?slug=room-schedules&_fields=content";
+const DAYS = [["M", "Mon"], ["T", "Tue"], ["W", "Wed"], ["Th", "Thu"], ["F", "Fri"], ["S", "Sat"]];
+const toMin = (t) => { const [h, m = 0] = t.split(":").map(Number); return (h < 7 ? h + 12 : h) * 60 + m; };
+const clock = (min) => `${((Math.floor(min / 60) + 11) % 12) + 1}:${String(min % 60).padStart(2, "0")}`;
+const roomKey = (s) => s.trim().toUpperCase().replace(/^PS\s+/, "").replace(/\s+/g, " ");
+function parseClass(days, time, course, who) {
+  const d = days.replace(/[^A-Za-z]/g, "").match(/Th|[MTWFS]/g) ?? [];
+  const t = time.replace(/[\u2013\u2014]/g, "-").match(/(\d{1,2}(?::\d{2})?)\s*-\s*(\d{1,2}(?::\d{2})?)/);
+  if (!d.length || !t || !course.trim()) return null;
+  const start = toMin(t[1]);
+  let end = toMin(t[2]);
+  if (end <= start) end += 12 * 60; // "4:00-7:00": a 7 that ends a class is 7 PM
+  return { days: d, start, end, course: course.trim(), who: who.trim() };
+}
+function manilaNow() {
+  const p = Object.fromEntries(new Intl.DateTimeFormat("en-US", { timeZone: "Asia/Manila", weekday: "short", hour: "numeric", minute: "numeric", hourCycle: "h23" })
+    .formatToParts(new Date()).map((x) => [x.type, x.value]));
+  return { day: { Mon: "M", Tue: "T", Wed: "W", Thu: "Th", Fri: "F", Sat: "S" }[p.weekday], min: Number(p.hour) * 60 + Number(p.minute) };
+}
+const DAY_NAME = { M: "Monday", T: "Tuesday", W: "Wednesday", Th: "Thursday", F: "Friday", S: "Saturday" };
+// Lab sections end in L ("2L", "C1L") or are .1 courses; the rest are lectures. Sets the
+// block colour in the week grid (Room TBA's lab green and lecture blue).
+const isLab = (course) => /\s[A-Z]*\d+L$/.test(course) || /\d\.1\b/.test(course);
+const roomTitle = (room) => room.querySelector(".room-code")?.textContent ?? room.dataset.code;
+// Rows are half hours from 7:00 AM; classes end by 7:00 PM, later ones stretch the grid.
+const GRID_START = 7 * 60;
+function showSchedule(room, classes, term) {
+  let box = room.querySelector(".room-sched");
+  if (!classes.length) { box?.remove(); return; }
+  if (!box) {
+    box = Object.assign(document.createElement("div"), { className: "room-sched" });
+    room.querySelector("details").append(box);
+  }
+  room.schedule = { classes, term };
+  const now = manilaNow();
+  const head = Object.assign(document.createElement("div"), { className: "sched-head" });
+  head.append(
+    Object.assign(document.createElement("p"), { className: "sched-title", textContent: now.day ? `Classes today, ${DAY_NAME[now.day]}` : "Classes today" }),
+    Object.assign(document.createElement("p"), { className: "sched-term", textContent: term }),
+  );
+  const today = classes.filter((c) => c.days.includes(now.day)).sort((a, b) => a.start - b.start);
+  let list;
+  if (today.length) {
+    list = Object.assign(document.createElement("ol"), { className: "sched-today" });
+    for (const c of today) {
+      const live = now.min >= c.start && now.min < c.end;
+      const row = document.createElement("li");
+      if (live) row.className = "is-now";
+      row.innerHTML = `<span class="sched-time"></span><span><span class="sched-course"></span><span class="sched-who"></span></span>`;
+      row.querySelector(".sched-time").textContent = `${clock(c.start)} to ${clock(c.end)}`;
+      row.querySelector(".sched-course").textContent = c.course;
+      if (live) row.querySelector(".sched-course").append(Object.assign(document.createElement("span"), { className: "sched-now", textContent: "Now" }));
+      row.querySelector(".sched-who").textContent = c.who;
+      list.append(row);
+    }
+  } else {
+    list = Object.assign(document.createElement("p"), { className: "sched-empty", textContent: now.day ? "No classes here today." : "No classes on Sundays." });
+  }
+  const week = Object.assign(document.createElement("button"), { type: "button", className: "btn btn-week", textContent: "Full week" });
+  week.setAttribute("aria-haspopup", "dialog");
+  week.addEventListener("click", () => openWeek(room));
+  box.replaceChildren(head, list, week);
+}
+let weekDialog;
+function openWeek(room) {
+  const { classes, term } = room.schedule;
+  if (!weekDialog) {
+    weekDialog = Object.assign(document.createElement("dialog"), { className: "week" });
+    weekDialog.setAttribute("aria-labelledby", "week-title");
+    weekDialog.innerHTML = `<div class="week-bar"><div><h2 class="week-title" id="week-title"></h2><p class="week-sub"></p></div><form method="dialog"><button class="btn">Close</button></form></div>
+<ul class="week-key"><li style="--k: var(--sched-lec)">Lecture</li><li style="--k: var(--sched-lab)">Laboratory</li></ul>
+<div class="week-scroll"><div class="week-grid" role="table"></div></div>`;
+    (root === document.documentElement ? document.body : root).append(weekDialog);
+  }
+  const now = manilaNow();
+  const days = DAYS.filter(([d]) => d !== "S" || classes.some((c) => c.days.includes("S")));
+  const end = Math.max(19 * 60, ...classes.map((c) => c.end));
+  const rows = Math.ceil((end - GRID_START) / 30);
+  const row = (min) => Math.round((min - GRID_START) / 30) + 2;
+  const grid = weekDialog.querySelector(".week-grid");
+  grid.style.setProperty("--days", days.length);
+  grid.style.setProperty("--rows", rows);
+  grid.setAttribute("aria-label", `${roomTitle(room)} classes by day and time`);
+  const cell = (cls, col, rowStart, rowEnd, text) => {
+    const el = Object.assign(document.createElement("div"), { className: cls });
+    el.style.gridColumn = String(col);
+    el.style.gridRow = rowEnd ? `${rowStart} / ${rowEnd}` : String(rowStart);
+    if (text) el.textContent = text;
+    return el;
+  };
+  const parts = [cell("week-corner", 1, 1)];
+  days.forEach(([d, name], i) => {
+    const day = cell("week-day" + (d === now.day ? " is-today" : ""), i + 2, 1, 0, name);
+    day.setAttribute("role", "columnheader");
+    parts.push(day, cell("week-col", i + 2, 2, rows + 2));
+  });
+  for (let h = 7; h * 60 < GRID_START + rows * 30; h++) parts.push(cell("week-hour", 1, row(h * 60), row(h * 60) + 2, clock(h * 60)));
+  for (const c of classes) {
+    for (const d of c.days) {
+      const i = days.findIndex(([x]) => x === d);
+      if (i < 0) continue;
+      const live = d === now.day && now.min >= c.start && now.min < c.end;
+      const b = cell(`week-block${isLab(c.course) ? " is-lab" : ""}${live ? " is-now" : ""}`, i + 2, row(c.start), row(c.end));
+      b.setAttribute("role", "cell");
+      b.innerHTML = "<b></b><span></span><span></span>";
+      b.querySelector("b").textContent = c.course;
+      const [t, w] = b.querySelectorAll("span");
+      t.textContent = `${DAY_NAME[d].slice(0, 3)} ${clock(c.start)} to ${clock(c.end)}`;
+      w.textContent = c.who;
+      parts.push(b);
+    }
+  }
+  grid.replaceChildren(...parts);
+  weekDialog.querySelector(".week-title").textContent = `${roomTitle(room)} class schedule`;
+  weekDialog.querySelector(".week-sub").textContent = term;
+  weekDialog.showModal();
+  weekDialog.querySelector(".week-scroll").scrollTop = 0;
+}
+// The copy in index.html first, so something shows at once...
+for (const room of document.querySelectorAll(".room")) {
+  const box = room.querySelector(".room-sched");
+  if (!box) continue;
+  const classes = [...box.querySelectorAll(".room-sched-list li")].map((li) => {
+    const [when = "", course = "", who = ""] = li.textContent.split("|");
+    const m = when.trim().match(/^(\S+)\s+(.+)$/);
+    const c = m && parseClass(m[1], m[2], course, who);
+    if (!c) console.warn("Schedule line not understood:", li.textContent);
+    return c;
+  }).filter(Boolean);
+  showSchedule(room, classes, box.dataset.term);
+}
+// ...then the WordPress page, which replaces it when it loads. Rows that do not read as a
+// class (the header row, a blank row) are skipped.
+fetch(SCHEDULE_PAGE).then((r) => (r.ok ? r.json() : [])).then((pages) => {
+  const html = pages[0]?.content?.rendered;
+  if (!html) return;
+  const doc = new DOMParser().parseFromString(html, "text/html");
+  const termLine = [...doc.querySelectorAll("p")].map((p) => p.textContent.trim()).find((t) => /^Term:/i.test(t));
+  const term = termLine ? termLine.replace(/^Term:\s*/i, "") : "this semester";
+  const byRoom = new Map();
+  let key = null;
+  for (const el of doc.body.querySelectorAll("h2, table")) {
+    if (el.tagName === "H2") { key = roomKey(el.textContent); continue; }
+    if (!key) continue;
+    const rows = [...el.querySelectorAll("tr")].map((tr) => [...tr.cells].map((td) => td.textContent));
+    byRoom.set(key, rows.map(([d = "", t = "", c = "", w = ""]) => parseClass(d, t, c, w)).filter(Boolean));
+  }
+  if (!byRoom.size) return;
+  for (const room of document.querySelectorAll(".room")) showSchedule(room, byRoom.get(roomKey(room.dataset.code)) ?? [], term);
+}).catch(() => {});
 
 // --- Scene -----------------------------------------------------------------
 const stage = document.querySelector(".stage");
@@ -164,6 +329,56 @@ const ceilingTex = canvasTexture(256, 128, (g) => {
   g.fillRect(0, 0, 256, 2);
   g.fillRect(0, 64, 256, 2);
 });
+
+// Outside finishes, from the front and entrance photos of F.O. Santos Hall.
+// Dark tuff block in small courses (about 0.2 x 0.1 m), a little uneven in tone.
+const BRICK_M = [0.8, 0.4]; // canvas covers four blocks by four courses
+const brickTex = canvasTexture(256, 128, (g) => {
+  g.fillStyle = css.getPropertyValue("--model-mortar").trim();
+  g.fillRect(0, 0, 256, 128);
+  const base = new THREE.Color(css.getPropertyValue("--model-brick").trim());
+  for (let row = 0; row < 4; row++) {
+    for (let i = -1; i < 4; i++) {
+      // Mixes row and column, so no block lines up with the one above it in tone.
+      const tone = base.clone().offsetHSL(0, 0, ((((i + 2) * 5 + row * 3) % 7) - 3) * 0.01);
+      g.fillStyle = `#${tone.getHexString()}`;
+      g.fillRect(i * 64 + (row % 2) * 32 + 2, row * 32 + 2, 60, 28);
+    }
+  }
+});
+// Jalousie windows: dark glass behind light glass louvres, a pale frame every 1.2 m.
+const JALOUSIE_M = [1.2, 1.3];
+const jalousieTex = canvasTexture(128, 128, (g) => {
+  g.fillStyle = css.getPropertyValue("--model-glass").trim();
+  g.fillRect(0, 0, 128, 128);
+  g.fillStyle = "rgba(205, 214, 218, 0.5)";
+  for (let y = 8; y < 120; y += 9) g.fillRect(4, y, 124, 2);
+  g.fillStyle = css.getPropertyValue("--model-concrete").trim();
+  g.fillRect(0, 0, 4, 128);
+  g.fillRect(0, 0, 128, 4);
+  g.fillRect(0, 124, 128, 4);
+});
+// Railing: top and bottom rails with thin bars; the gaps are cut out (alphaTest).
+const RAIL_M = [0.6, 1.0];
+const railTex = canvasTexture(64, 64, (g) => {
+  g.fillStyle = css.getPropertyValue("--model-rail").trim();
+  g.fillRect(0, 0, 64, 5);
+  g.fillRect(0, 58, 64, 4);
+  for (let x = 4; x < 64; x += 12) g.fillRect(x, 0, 3, 64);
+});
+// Mipmaps average the bars into a grey veil that moires at a distance; sharp bars read better.
+railTex.generateMipmaps = false;
+railTex.minFilter = THREE.LinearFilter;
+// The entrance gates: light steel bars over the dark lobby.
+const GATE_M = [1, 2.9];
+const gateTex = canvasTexture(64, 128, (g) => {
+  g.fillStyle = "#1b1a1d";
+  g.fillRect(0, 0, 64, 128);
+  g.fillStyle = "#b9b7b2";
+  for (let x = 2; x < 64; x += 8) g.fillRect(x, 0, 2, 128);
+  g.fillRect(0, 26, 64, 3);
+  g.fillRect(0, 100, 64, 3);
+});
 const repeated = (tex, x, y) => {
   const t = tex.clone();
   t.repeat.set(x, y);
@@ -217,29 +432,97 @@ const facades = outline.map((a, i) => {
   const len = Math.hypot(b.x - a.x, b.y - a.y);
   return { mid: { x: (a.x + b.x) / 2, y: (a.y + b.y) / 2 }, len, angle: Math.atan2(b.y - a.y, b.x - a.x), out: { x: -(b.y - a.y) / len, y: (b.x - a.x) / len } };
 });
-/** A box along one facade edge, pushed `offset` metres outward. */
-function facadeBox(f, length, thickness, h, y, offset, material, name) {
-  const mesh = new THREE.Mesh(new THREE.BoxGeometry(length, h, thickness), material);
+const PARAPET_H = 1.0;
+
+// The outside is hundreds of small pieces (slab edges, fins, louvres, rails), so
+// each kind is baked into one geometry per storey: a handful of draw calls,
+// smooth even in software WebGL.
+const _m = new THREE.Matrix4();
+/** Box geometry with its UVs in units of a texture `module` (metres), so one material tiles every size. */
+function boxGeom(length, h, thickness, module) {
+  const g = new THREE.BoxGeometry(length, h, thickness);
+  if (module) {
+    const uv = g.attributes.uv;
+    for (let i = 0; i < uv.count; i++) uv.setXY(i, (uv.getX(i) * length) / module[0], (uv.getY(i) * h) / module[1]);
+  }
+  return g;
+}
+/** A box along facade edge `f`, pushed `offset` metres outward and `slide` metres along it from its middle. */
+function facadeGeom(f, length, thickness, h, y, offset, slide = 0, module = null) {
+  const c = { x: f.mid.x + f.out.x * offset + Math.cos(f.angle) * slide, y: f.mid.y + f.out.y * offset + Math.sin(f.angle) * slide };
+  return boxGeom(length, h, thickness, module).applyMatrix4(_m.makeRotationY(f.angle).setPosition(toWorld(c, y + h / 2)));
+}
+/** wingBox, baked into geometry for merging. */
+function wingGeom(u, v, du, dv, h, y, module = null) {
+  return boxGeom(du, h, dv, module).applyMatrix4(_m.makeRotationY(theta).setPosition(toWorld(wing(u, v), y + h / 2)));
+}
+/** One mesh from many indexed geometries (position, normal, uv). */
+function merged(geoms, material, name, { shadow = true } = {}) {
+  const pos = [], nor = [], uv = [], index = [];
+  for (const g of geoms) {
+    const base = pos.length / 3;
+    pos.push(...g.attributes.position.array);
+    nor.push(...g.attributes.normal.array);
+    uv.push(...g.attributes.uv.array);
+    for (const i of g.index.array) index.push(base + i);
+  }
+  const geometry = new THREE.BufferGeometry();
+  geometry.setAttribute("position", new THREE.Float32BufferAttribute(pos, 3));
+  geometry.setAttribute("normal", new THREE.Float32BufferAttribute(nor, 3));
+  geometry.setAttribute("uv", new THREE.Float32BufferAttribute(uv, 2));
+  geometry.setIndex(index);
+  const mesh = new THREE.Mesh(geometry, material);
   mesh.name = name;
-  mesh.position.copy(toWorld({ x: f.mid.x + f.out.x * offset, y: f.mid.y + f.out.y * offset }, y + h / 2));
-  mesh.rotation.y = f.angle;
-  mesh.castShadow = mesh.receiveShadow = true;
+  mesh.castShadow = shadow;
+  mesh.receiveShadow = true;
   return mesh;
 }
-const PARAPET_H = 1.0;
-const glassMat = mat(COLORS.glass, { roughness: 0.3 });
+
+// Named: the shell carries both, and render/build_scene.py tells them apart by name.
+const brickMat = mat(0xffffff, { name: "brick", map: repeated(brickTex, 1 / BRICK_M[0], 1 / BRICK_M[1]), roughness: 0.95 });
+const concreteMat = mat(COLORS.concrete, { roughness: 0.8 });
+const roofMat = mat(COLORS.roof, { name: "roof", roughness: 0.95 });
+const glassMat = mat(0xffffff, { map: jalousieTex, roughness: 0.3 });
+const railMat = mat(0xffffff, { map: railTex, alphaTest: 0.5, side: THREE.DoubleSide, roughness: 0.5 });
+
+// White concrete: every floor slab and the roof edge stick out as a band, the
+// front corridors get a fin every few metres, and the floors above the ground
+// get a railing on the band. These horizontals are what people know the building by.
+const BAND_H = 0.3;
+const BAND_OUT = 0.5;
+const FIN_STEP = 3;
+const RAIL_H = 1.0;
+const ACROSS_FRONT = 0.9;
+const toWingUV = (p) => ({ u: p.x * ALONG.x + p.y * ALONG.y, v: p.x * ACROSS.x + p.y * ACROSS.y });
+const isFront = (e) => e.out.x * ACROSS.x + e.out.y * ACROSS.y > ACROSS_FRONT;
+const inBay = (e) => {
+  const { u, v } = toWingUV(e.mid);
+  return isFront(e) && u > ENTRANCE.along[0] - 0.5 && u < ENTRANCE.along[1] + 0.5 && Math.abs(v - ENTRANCE.across) < 1;
+};
 
 const storeys = [];
 for (let f = 1; f <= FLOORS; f++) {
   const y = floorBase(f);
   const block = new THREE.Group();
-  const shell = new THREE.Mesh(blockGeom, mat(COLORS.block));
+  // Caps (the roof on top) take the first material, the walls the second.
+  const shell = new THREE.Mesh(blockGeom, [roofMat, brickMat]);
   shell.name = "block";
   shell.position.y = y;
   shell.castShadow = shell.receiveShadow = true;
   block.add(shell);
-  // ponytail: one window band per facade edge, not real window bays.
-  for (const e of facades) if (e.len > 2) block.add(facadeBox(e, e.len - 1, 0.06, 1.3, y + 1.1, 0.02, glassMat, "glass"));
+  const glass = [], bands = [], fins = [], rails = [];
+  for (const e of facades) {
+    bands.push(facadeGeom(e, e.len + BAND_OUT * 2, BAND_OUT, BAND_H, y + FLOOR_HEIGHT - BAND_H, BAND_OUT / 2));
+    if (e.len <= 2 || inBay(e)) continue;
+    // ponytail: one window band per facade edge, not real window bays.
+    glass.push(facadeGeom(e, e.len - 1, 0.06, JALOUSIE_M[1], y + 1.1, 0.02, 0, JALOUSIE_M));
+    if (!isFront(e) || e.len < 8) continue;
+    const n = Math.floor((e.len - 1) / FIN_STEP);
+    for (let i = 0; i <= n; i++) fins.push(facadeGeom(e, 0.14, BAND_OUT, FLOOR_HEIGHT - BAND_H, y, BAND_OUT / 2, (i - n / 2) * FIN_STEP));
+    if (f > 1) rails.push(facadeGeom(e, e.len - 0.6, 0.03, RAIL_H, y, BAND_OUT - 0.08, 0, RAIL_M));
+  }
+  block.add(merged(glass, glassMat, "glass"), merged(bands, concreteMat, "band"), merged(fins, concreteMat, "fin"));
+  if (rails.length) block.add(merged(rails, railMat, "rail", { shadow: false }));
   // The rest of the building's floor plate, tiled like the rooms but in plain concrete.
   const slab = new THREE.Mesh(slabGeom, mat(COLORS.slab, { map: repeated(tileTex, 1 / TILE_M, 1 / TILE_M) }));
   slab.position.y = y;
@@ -248,11 +531,53 @@ for (let f = 1; f <= FLOORS; f++) {
   const ghost = new THREE.LineSegments(edgeGeom, new THREE.LineBasicMaterial({ color: COLORS.wall, transparent: true, opacity: 0.14, fog: false }));
   ghost.position.y = y;
   const contents = new THREE.Group();
-  for (const e of facades) contents.add(facadeBox(e, e.len + WALL_T, WALL_T, PARAPET_H, y + SLAB, -WALL_T / 2, wallMat, "parapet"));
+  // The outside walls of the open floor, cut at sill height: painted block inside,
+  // a thin skin of the outside block on the outer face. Separate skins, so the
+  // painted face never fights the room walls that sit in the same place.
+  contents.add(
+    merged(facades.map((e) => facadeGeom(e, e.len + WALL_T, WALL_T, PARAPET_H, y + SLAB, -WALL_T / 2)), wallMat, "parapet"),
+    merged(facades.map((e) => facadeGeom(e, e.len + WALL_T, 0.02, PARAPET_H, y + SLAB, 0.01, 0, BRICK_M)), brickMat, "parapet-brick"),
+  );
   scene.add(block, slab, ghost, contents);
   storeys.push({ floor: f, block, slab, ghost, contents });
 }
 const storey = (f) => storeys[f - 1];
+
+// The entrance bay facing Oblation Park: at every floor and at the roof, a deep
+// white slab whose underside dips into two shallow arches (iop.jpg), with a railing
+// on the two lower ones. Below them, the barred lobby gates and the front steps.
+{
+  const [u0, u1] = ENTRANCE.along;
+  const W = u1 - u0 + 0.6, D = 2.2, T = 0.75, RISE = 0.45, PIER = 0.5;
+  const s = new THREE.Shape();
+  s.moveTo(-W / 2, 0);
+  s.lineTo(W / 2, 0);
+  s.lineTo(W / 2, -T);
+  s.lineTo(W / 2 - PIER, -T);
+  s.quadraticCurveTo(W / 4, -T + 2 * RISE, PIER / 2, -T);
+  s.lineTo(-PIER / 2, -T);
+  s.quadraticCurveTo(-W / 4, -T + 2 * RISE, -W / 2 + PIER, -T);
+  s.lineTo(-W / 2, -T);
+  s.closePath();
+  const canopyGeom = new THREE.ExtrudeGeometry(s, { depth: D, bevelEnabled: false, curveSegments: 16 });
+  // Shape x runs along the facade, its extrusion (z) out toward Oblation Park.
+  const along = toWorld(ALONG), out = toWorld(ACROSS), up = new THREE.Vector3(0, 1, 0);
+  const um = (u0 + u1) / 2, front = ENTRANCE.across - 0.1;
+  for (let f = 1; f <= FLOORS; f++) {
+    const top = floorBase(f) + FLOOR_HEIGHT;
+    const canopy = new THREE.Mesh(canopyGeom, concreteMat);
+    canopy.name = "canopy";
+    canopy.applyMatrix4(_m.makeBasis(along.clone().negate(), up, out).setPosition(toWorld(wing(um, front), top)));
+    canopy.castShadow = canopy.receiveShadow = true;
+    storey(f).block.add(canopy);
+    if (f < FLOORS) storey(f).block.add(merged([wingGeom(um, front + D - 0.08, W - 0.4, 0.03, RAIL_H, top, RAIL_M)], railMat, "rail", { shadow: false }));
+  }
+  storey(1).block.add(merged([wingGeom(um, ENTRANCE.across + 0.02, 7, 0.04, GATE_M[1], 0.3, GATE_M)], mat(0xffffff, { map: gateTex, roughness: 0.6 }), "gate"));
+  // Steps up to the lobby floor, and the paved forecourt toward Oblation Park.
+  const steps = [0, 1, 2].map((k) => wingGeom(um, ENTRANCE.across + 0.2 + 0.4 * k, 9, 0.4, SLAB - 0.1 * k, 0));
+  scene.add(merged(steps, mat(COLORS.slab), "steps"));
+  scene.add(merged([wingGeom(21, 42, 54, 15, 0.02, 0)], mat(COLORS.paving, { roughness: 1 }), "paving", { shadow: false }));
+}
 
 for (const hall of HALLS) {
   const [u0, u1] = hall.along;
@@ -310,7 +635,7 @@ const propMat = (hex) => {
   if (!propMats.has(hex)) propMats.set(hex, mat(new THREE.Color(hex)));
   return propMats.get(hex);
 };
-const WOOD = "#8b6a4f", DARK = "#2b2b30", BOARD = "#f2f2f0", METAL = "#9aa0a6", SEAT = "#6b5246";
+const WOOD = "#8b6a4f", DARK = "#2b2b30", BOARD = "#f2f2f0", METAL = "#9aa0a6", SEAT = "#6b5246", TIER = "#9c958c";
 // Boards hang on walls the sun doesn't reach; a little glow keeps them white.
 propMats.set(BOARD, mat(new THREE.Color(BOARD), { emissive: new THREE.Color(BOARD), emissiveIntensity: 0.45, roughness: 0.3 }));
 // Faint grain on wood and a little sheen on metal, so tables and shelves read up close.
@@ -328,7 +653,7 @@ const grainTex = canvasTexture(256, 64, (g) => {
 });
 propMats.set(WOOD, mat(new THREE.Color(WOOD), { map: grainTex, roughness: 0.6 }));
 propMats.set(METAL, mat(new THREE.Color(METAL), { roughness: 0.4 }));
-const PROP_NAMES = { [WOOD]: "wood", [DARK]: "dark", [BOARD]: "board", [METAL]: "metal", [SEAT]: "seat" };
+const PROP_NAMES = { [WOOD]: "wood", [DARK]: "dark", [BOARD]: "board", [METAL]: "metal", [SEAT]: "seat", [TIER]: "tier" };
 
 const DEFAULT_KIND = { lab: "benches", office: "desks", facility: "shelves", venue: "conference" };
 
@@ -414,8 +739,12 @@ function furnish(room, y) {
     case "hall":
       board();
       table(u0 + 1.8, vm, 0.8, 2.4, 0.75);
-      // Tiered: each row a little higher than the one in front.
-      for (let u = u0 + 3.5, i = 0; u <= u1 - 0.8; u += 1.0, i++) put(u, vm, 0.5, dv - 2.4, 0.45, SEAT, Math.min(1.2, i * 0.08));
+      // Tiered: each row stands on a concrete step a little higher than the one in front.
+      for (let u = u0 + 3.5, i = 0; u <= u1 - 0.8; u += 1.0, i++) {
+        const lift = Math.min(0.6, i * 0.06);
+        if (lift) put(u + 0.25, vm, 1.0, dv - 2.4, lift, TIER);
+        put(u, vm, 0.5, dv - 2.4, 0.45, SEAT, lift);
+      }
       break;
     case "shelves":
       // Shelving down both side walls with an aisle from the door.
@@ -476,6 +805,9 @@ for (const room of rooms) {
 }
 
 // --- Floors ----------------------------------------------------------------
+// One past the top floor: every storey closed, the building as it stands. The
+// tour opens and closes on it.
+const EXTERIOR = FLOORS + 1;
 let focusFloor = 2;
 const floorButtons = [...document.querySelectorAll("[data-floor-button]")];
 
@@ -508,8 +840,18 @@ function fitDistance(widthM, depthM) {
   const halfH = Math.atan(Math.tan(halfV) * camera.aspect);
   return Math.max(widthM / 2 / Math.tan(halfH), depthM / 2 / Math.tan(halfV)) * 1.1;
 }
+// The front of Wing C from the Oblation Park side, low enough to read the facade.
+function exteriorShot() {
+  const target = toWorld(wing(14, 26), 5);
+  const dir = toWorld({ x: ACROSS.x - 0.45 * ALONG.x, y: ACROSS.y - 0.45 * ALONG.y }).normalize();
+  const rise = (22 * Math.PI) / 180;
+  const d = fitDistance(78, 34);
+  return { pos: target.clone().addScaledVector(dir, Math.cos(rise) * d).add(new THREE.Vector3(0, Math.sin(rise) * d, 0)), target };
+}
+
 // Frames everything mapped on a floor: its rooms and halls.
 function overviewShot(floor = focusFloor) {
+  if (floor === EXTERIOR) return exteriorShot();
   const boxes = [...rooms.filter((r) => r.floor === floor), ...HALLS.filter((h) => h.floor === floor).map((h) => ({ u: h.along, v: h.across }))];
   const [u0, u1] = [Math.min(...boxes.map((b) => b.u[0])), Math.max(...boxes.map((b) => b.u[1]))];
   const [v0, v1] = [Math.min(...boxes.map((b) => b.v[0])), Math.max(...boxes.map((b) => b.v[1]))];
@@ -758,8 +1100,8 @@ function showStop(i) {
     select(stop, { scroll: !playing });
   } else {
     select(null);
-    setFloor(2);
-    flyTo(overviewShot(2));
+    setFloor(EXTERIOR);
+    flyTo(exteriorShot());
   }
   schedule();
 }
@@ -879,7 +1221,10 @@ const projected = new THREE.Vector3();
 function declutter(width, height) {
   const items = [];
   for (const l of labels) {
-    if (l.el.style.display === "none") continue;
+    if (l.el.style.display === "none") {
+      l.shown = false;
+      continue;
+    }
     if (!l.w) {
       l.w = l.el.offsetWidth;
       l.h = l.el.offsetHeight;
@@ -890,7 +1235,9 @@ function declutter(width, height) {
     const rank = l.room && l.room === active ? 0 : l.rank;
     items.push({ l, rank, depth, x: (projected.x * 0.5 + 0.5) * width, y: (-projected.y * 0.5 + 0.5) * height });
   }
-  items.sort((a, b) => a.rank - b.rank || a.depth - b.depth);
+  // A label already on screen keeps its place over an equal-rank newcomer, so
+  // labels at similar depths don't trade places every frame while the camera moves.
+  items.sort((a, b) => a.rank - b.rank || !!b.l.shown - !!a.l.shown || a.depth - b.depth);
   // Buttons, the compass and the caption count as taken, so no label hides under them.
   const origin = stage.getBoundingClientRect();
   const kept = [...stage.querySelectorAll(".stage-controls .btn, .compass, .caption")]
@@ -901,11 +1248,9 @@ function declutter(width, height) {
     });
   for (const { l, x, y } of items) {
     const box = { l: x - l.w / 2 - 3, r: x + l.w / 2 + 3, t: y - l.h / 2 - 2, b: y + l.h / 2 + 2 };
-    if (kept.some((k) => box.l < k.r && k.l < box.r && box.t < k.b && k.t < box.b)) {
-      l.el.style.display = "none";
-    } else {
-      kept.push(box);
-    }
+    l.shown = !kept.some((k) => box.l < k.r && k.l < box.r && box.t < k.b && k.t < box.b);
+    if (l.shown) kept.push(box);
+    else l.el.style.display = "none";
   }
 }
 
@@ -931,9 +1276,22 @@ renderer.setAnimationLoop((now) => {
   declutter(stage.clientWidth, stage.clientHeight);
 });
 
+// --- Theme -----------------------------------------------------------------
+// The sky, fog, ground and paving follow the page theme. The IoP site's toggle (or, on
+// the standalone page, the system setting) flips <html data-theme> while the tour is open.
+const paving = scene.getObjectByName("paving");
+function applyTheme() {
+  const sky = color("--model-sky");
+  scene.background.copy(sky);
+  scene.fog.color.copy(sky);
+  ground.material.color.copy(color("--model-ground"));
+  paving?.material.color.copy(color("--model-paving"));
+}
+new MutationObserver(applyTheme).observe(document.documentElement, { attributes: true, attributeFilter: ["data-theme"] });
+
 // --- Start -----------------------------------------------------------------
 // tools/export-glb.mjs reads the scene through this to build the Blender render.
-if (params.has("export")) window.tourExport = { scene, rooms, setWalls, FULL_H, storeys };
+if (params.has("export")) window.tourExport = { scene, rooms, setWalls, FULL_H, storeys, camera, controls, setFloor, exteriorShot };
 
 document.querySelector(".stage-controls").hidden = false;
 resize();
