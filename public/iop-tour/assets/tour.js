@@ -89,7 +89,8 @@ const rooms = [...document.querySelectorAll(".room")].map((li) => {
 // Each room in index.html also keeps a copy as plain lines,
 // "DAYS START-END | COURSE | TEACHER", shown first and kept when the page cannot be
 // reached (the off-campus copy, or the site is down). Hours 1 to 6 mean PM: classes run
-// from 7 AM to 7 PM. Shown as day tabs, today's first, with the class running now marked.
+// from 7 AM to 7 PM, and an end time at or before the start is PM too ("4:00-7:00").
+// Shown as today's list in the room card and a full-week grid in a dialog.
 // Runs before the 3D setup, so it works where WebGL does not.
 const SCHEDULE_PAGE = "/wp-json/wp/v2/pages?slug=room-schedules&_fields=content";
 const DAYS = [["M", "Mon"], ["T", "Tue"], ["W", "Wed"], ["Th", "Thu"], ["F", "Fri"], ["S", "Sat"]];
@@ -100,47 +101,114 @@ function parseClass(days, time, course, who) {
   const d = days.replace(/[^A-Za-z]/g, "").match(/Th|[MTWFS]/g) ?? [];
   const t = time.replace(/[\u2013\u2014]/g, "-").match(/(\d{1,2}(?::\d{2})?)\s*-\s*(\d{1,2}(?::\d{2})?)/);
   if (!d.length || !t || !course.trim()) return null;
-  return { days: d, start: toMin(t[1]), end: toMin(t[2]), course: course.trim(), who: who.trim() };
+  const start = toMin(t[1]);
+  let end = toMin(t[2]);
+  if (end <= start) end += 12 * 60; // "4:00-7:00": a 7 that ends a class is 7 PM
+  return { days: d, start, end, course: course.trim(), who: who.trim() };
 }
 function manilaNow() {
   const p = Object.fromEntries(new Intl.DateTimeFormat("en-US", { timeZone: "Asia/Manila", weekday: "short", hour: "numeric", minute: "numeric", hourCycle: "h23" })
     .formatToParts(new Date()).map((x) => [x.type, x.value]));
   return { day: { Mon: "M", Tue: "T", Wed: "W", Thu: "Th", Fri: "F", Sat: "S" }[p.weekday], min: Number(p.hour) * 60 + Number(p.minute) };
 }
+const DAY_NAME = { M: "Monday", T: "Tuesday", W: "Wednesday", Th: "Thursday", F: "Friday", S: "Saturday" };
+// Lab sections end in L ("2L", "C1L") or are .1 courses; the rest are lectures. Sets the
+// block colour in the week grid (Room TBA's lab green and lecture blue).
+const isLab = (course) => /\s[A-Z]*\d+L$/.test(course) || /\d\.1\b/.test(course);
+const roomTitle = (room) => room.querySelector(".room-code")?.textContent ?? room.dataset.code;
+// Rows are half hours from 7:00 AM; classes end by 7:00 PM, later ones stretch the grid.
+const GRID_START = 7 * 60;
 function showSchedule(room, classes, term) {
   let box = room.querySelector(".room-sched");
-  const days = DAYS.filter(([d]) => classes.some((c) => c.days.includes(d)));
-  if (!days.length) { box?.remove(); return; }
+  if (!classes.length) { box?.remove(); return; }
   if (!box) {
     box = Object.assign(document.createElement("div"), { className: "room-sched" });
     room.querySelector("details").append(box);
   }
+  room.schedule = { classes, term };
   const now = manilaNow();
-  const title = Object.assign(document.createElement("p"), { className: "room-sched-title", textContent: `Classes, ${term}` });
-  const tabs = Object.assign(document.createElement("div"), { className: "sched-tabs" });
-  tabs.setAttribute("role", "group");
-  tabs.setAttribute("aria-label", "Day");
-  const out = Object.assign(document.createElement("ol"), { className: "sched-list" });
-  const show = (day) => {
-    for (const b of tabs.children) b.setAttribute("aria-pressed", String(b.dataset.day === day));
-    out.replaceChildren(...classes.filter((c) => c.days.includes(day)).sort((a, b) => a.start - b.start).map((c) => {
+  const head = Object.assign(document.createElement("div"), { className: "sched-head" });
+  head.append(
+    Object.assign(document.createElement("p"), { className: "sched-title", textContent: now.day ? `Classes today, ${DAY_NAME[now.day]}` : "Classes today" }),
+    Object.assign(document.createElement("p"), { className: "sched-term", textContent: term }),
+  );
+  const today = classes.filter((c) => c.days.includes(now.day)).sort((a, b) => a.start - b.start);
+  let list;
+  if (today.length) {
+    list = Object.assign(document.createElement("ol"), { className: "sched-today" });
+    for (const c of today) {
+      const live = now.min >= c.start && now.min < c.end;
       const row = document.createElement("li");
-      const live = day === now.day && now.min >= c.start && now.min < c.end;
-      row.className = live ? "is-now" : "";
-      row.innerHTML = `<span class="sched-time">${clock(c.start)} to ${clock(c.end)}</span><span><span class="sched-course"></span><span class="sched-who"></span></span>`;
-      row.querySelector(".sched-course").textContent = c.course + (live ? " (now)" : "");
+      if (live) row.className = "is-now";
+      row.innerHTML = `<span class="sched-time"></span><span><span class="sched-course"></span><span class="sched-who"></span></span>`;
+      row.querySelector(".sched-time").textContent = `${clock(c.start)} to ${clock(c.end)}`;
+      row.querySelector(".sched-course").textContent = c.course;
+      if (live) row.querySelector(".sched-course").append(Object.assign(document.createElement("span"), { className: "sched-now", textContent: "Now" }));
       row.querySelector(".sched-who").textContent = c.who;
-      return row;
-    }));
-  };
-  for (const [d, name] of days) {
-    const b = Object.assign(document.createElement("button"), { type: "button", className: "sched-tab", textContent: name });
-    b.dataset.day = d;
-    b.addEventListener("click", () => show(d));
-    tabs.append(b);
+      list.append(row);
+    }
+  } else {
+    list = Object.assign(document.createElement("p"), { className: "sched-empty", textContent: now.day ? "No classes here today." : "No classes on Sundays." });
   }
-  box.replaceChildren(title, tabs, out);
-  show(days.some(([d]) => d === now.day) ? now.day : days[0][0]);
+  const week = Object.assign(document.createElement("button"), { type: "button", className: "btn btn-week", textContent: "Full week" });
+  week.setAttribute("aria-haspopup", "dialog");
+  week.addEventListener("click", () => openWeek(room));
+  box.replaceChildren(head, list, week);
+}
+let weekDialog;
+function openWeek(room) {
+  const { classes, term } = room.schedule;
+  if (!weekDialog) {
+    weekDialog = Object.assign(document.createElement("dialog"), { className: "week" });
+    weekDialog.setAttribute("aria-labelledby", "week-title");
+    weekDialog.innerHTML = `<div class="week-bar"><div><h2 class="week-title" id="week-title"></h2><p class="week-sub"></p></div><form method="dialog"><button class="btn">Close</button></form></div>
+<ul class="week-key"><li style="--k: var(--sched-lec)">Lecture</li><li style="--k: var(--sched-lab)">Laboratory</li></ul>
+<div class="week-scroll"><div class="week-grid" role="table"></div></div>`;
+    (root === document.documentElement ? document.body : root).append(weekDialog);
+  }
+  const now = manilaNow();
+  const days = DAYS.filter(([d]) => d !== "S" || classes.some((c) => c.days.includes("S")));
+  const end = Math.max(19 * 60, ...classes.map((c) => c.end));
+  const rows = Math.ceil((end - GRID_START) / 30);
+  const row = (min) => Math.round((min - GRID_START) / 30) + 2;
+  const grid = weekDialog.querySelector(".week-grid");
+  grid.style.setProperty("--days", days.length);
+  grid.style.setProperty("--rows", rows);
+  grid.setAttribute("aria-label", `${roomTitle(room)} classes by day and time`);
+  const cell = (cls, col, rowStart, rowEnd, text) => {
+    const el = Object.assign(document.createElement("div"), { className: cls });
+    el.style.gridColumn = String(col);
+    el.style.gridRow = rowEnd ? `${rowStart} / ${rowEnd}` : String(rowStart);
+    if (text) el.textContent = text;
+    return el;
+  };
+  const parts = [cell("week-corner", 1, 1)];
+  days.forEach(([d, name], i) => {
+    const day = cell("week-day" + (d === now.day ? " is-today" : ""), i + 2, 1, 0, name);
+    day.setAttribute("role", "columnheader");
+    parts.push(day, cell("week-col", i + 2, 2, rows + 2));
+  });
+  for (let h = 7; h * 60 < GRID_START + rows * 30; h++) parts.push(cell("week-hour", 1, row(h * 60), row(h * 60) + 2, clock(h * 60)));
+  for (const c of classes) {
+    for (const d of c.days) {
+      const i = days.findIndex(([x]) => x === d);
+      if (i < 0) continue;
+      const live = d === now.day && now.min >= c.start && now.min < c.end;
+      const b = cell(`week-block${isLab(c.course) ? " is-lab" : ""}${live ? " is-now" : ""}`, i + 2, row(c.start), row(c.end));
+      b.setAttribute("role", "cell");
+      b.innerHTML = "<b></b><span></span><span></span>";
+      b.querySelector("b").textContent = c.course;
+      const [t, w] = b.querySelectorAll("span");
+      t.textContent = `${DAY_NAME[d].slice(0, 3)} ${clock(c.start)} to ${clock(c.end)}`;
+      w.textContent = c.who;
+      parts.push(b);
+    }
+  }
+  grid.replaceChildren(...parts);
+  weekDialog.querySelector(".week-title").textContent = `${roomTitle(room)} class schedule`;
+  weekDialog.querySelector(".week-sub").textContent = term;
+  weekDialog.showModal();
+  weekDialog.querySelector(".week-scroll").scrollTop = 0;
 }
 // The copy in index.html first, so something shows at once...
 for (const room of document.querySelectorAll(".room")) {
@@ -1207,6 +1275,19 @@ renderer.setAnimationLoop((now) => {
   labelRenderer.render(scene, camera);
   declutter(stage.clientWidth, stage.clientHeight);
 });
+
+// --- Theme -----------------------------------------------------------------
+// The sky, fog, ground and paving follow the page theme. The IoP site's toggle (or, on
+// the standalone page, the system setting) flips <html data-theme> while the tour is open.
+const paving = scene.getObjectByName("paving");
+function applyTheme() {
+  const sky = color("--model-sky");
+  scene.background.copy(sky);
+  scene.fog.color.copy(sky);
+  ground.material.color.copy(color("--model-ground"));
+  paving?.material.color.copy(color("--model-paving"));
+}
+new MutationObserver(applyTheme).observe(document.documentElement, { attributes: true, attributeFilter: ["data-theme"] });
 
 // --- Start -----------------------------------------------------------------
 // tools/export-glb.mjs reads the scene through this to build the Blender render.

@@ -7,7 +7,14 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Wing C virtual tour, Institute of Physics, UPLB</title>
   <meta name="description" content="A 3D map of the Institute of Physics rooms on the second floor of Wing C, Physical Sciences Building, UPLB.">
-  <script>document.documentElement.classList.add("js")</script>
+  <script>
+    // Theme before first paint, from the system setting (the IoP site sets data-theme itself).
+    document.documentElement.classList.add("js");
+    const dark = matchMedia("(prefers-color-scheme: dark)");
+    const setTheme = () => { document.documentElement.dataset.theme = dark.matches ? "dark" : "light"; };
+    setTheme();
+    dark.addEventListener("change", setTheme);
+  </script>
   <link rel="icon" href="assets/img/emblem.png">
   <link rel="stylesheet" href="assets/tour.css">
   <script type="importmap">
