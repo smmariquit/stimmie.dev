@@ -82,32 +82,41 @@ const rooms = [...document.querySelectorAll(".room")].map((li) => {
 });
 
 // --- Class schedules -------------------------------------------------------
-// A room can list its classes as plain lines, "DAYS START-END | COURSE | TEACHER"
-// (e.g. "TTh 8:30-10:00 | PHYS 122 T | AAD Villanueva"), so whoever updates them each
-// semester only edits text. Hours 1 to 6 mean PM: classes run from 7 AM to 7 PM.
-// Here the lines become day tabs, today's first, with the class running now marked.
-// Without JavaScript the plain list still reads fine. Runs before the 3D setup, so it
-// works where WebGL does not.
+// Staff and faculty keep the schedules on the WordPress page "Room Schedules"
+// (/room-schedules/): one heading per room, like "PS C-206", and a table under it with
+// one row per class: Days | Time | Course and section | Teacher. When the tour runs on
+// the IoP site it reads that page, so an edit there shows up here on the next load.
+// Each room in index.html also keeps a copy as plain lines,
+// "DAYS START-END | COURSE | TEACHER", shown first and kept when the page cannot be
+// reached (the off-campus copy, or the site is down). Hours 1 to 6 mean PM: classes run
+// from 7 AM to 7 PM. Shown as day tabs, today's first, with the class running now marked.
+// Runs before the 3D setup, so it works where WebGL does not.
+const SCHEDULE_PAGE = "/wp-json/wp/v2/pages?slug=room-schedules&_fields=content";
 const DAYS = [["M", "Mon"], ["T", "Tue"], ["W", "Wed"], ["Th", "Thu"], ["F", "Fri"], ["S", "Sat"]];
-const toMin = (t) => { const [h, m] = t.split(":").map(Number); return (h < 7 ? h + 12 : h) * 60 + m; };
+const toMin = (t) => { const [h, m = 0] = t.split(":").map(Number); return (h < 7 ? h + 12 : h) * 60 + m; };
 const clock = (min) => `${((Math.floor(min / 60) + 11) % 12) + 1}:${String(min % 60).padStart(2, "0")}`;
-const splitDays = (s) => s.match(/Th|[MTWFS]/g) ?? [];
+const roomKey = (s) => s.trim().toUpperCase().replace(/^PS\s+/, "").replace(/\s+/g, " ");
+function parseClass(days, time, course, who) {
+  const d = days.replace(/[^A-Za-z]/g, "").match(/Th|[MTWFS]/g) ?? [];
+  const t = time.replace(/[\u2013\u2014]/g, "-").match(/(\d{1,2}(?::\d{2})?)\s*-\s*(\d{1,2}(?::\d{2})?)/);
+  if (!d.length || !t || !course.trim()) return null;
+  return { days: d, start: toMin(t[1]), end: toMin(t[2]), course: course.trim(), who: who.trim() };
+}
 function manilaNow() {
   const p = Object.fromEntries(new Intl.DateTimeFormat("en-US", { timeZone: "Asia/Manila", weekday: "short", hour: "numeric", minute: "numeric", hourCycle: "h23" })
     .formatToParts(new Date()).map((x) => [x.type, x.value]));
   return { day: { Mon: "M", Tue: "T", Wed: "W", Thu: "Th", Fri: "F", Sat: "S" }[p.weekday], min: Number(p.hour) * 60 + Number(p.minute) };
 }
-for (const box of document.querySelectorAll(".room-sched")) {
-  const list = box.querySelector(".room-sched-list");
-  const classes = [];
-  for (const li of list.children) {
-    const m = li.textContent.match(/^\s*([MTWFSh]+)\s+(\d{1,2}:\d{2})\s*-\s*(\d{1,2}:\d{2})\s*\|\s*(.+?)\s*\|\s*(.+?)\s*$/);
-    if (!m) { console.warn("Schedule line not understood:", li.textContent); continue; }
-    classes.push({ days: splitDays(m[1]), start: toMin(m[2]), end: toMin(m[3]), course: m[4], who: m[5] });
-  }
+function showSchedule(room, classes, term) {
+  let box = room.querySelector(".room-sched");
   const days = DAYS.filter(([d]) => classes.some((c) => c.days.includes(d)));
-  if (!days.length) continue;
+  if (!days.length) { box?.remove(); return; }
+  if (!box) {
+    box = Object.assign(document.createElement("div"), { className: "room-sched" });
+    room.querySelector("details").append(box);
+  }
   const now = manilaNow();
+  const title = Object.assign(document.createElement("p"), { className: "room-sched-title", textContent: `Classes, ${term}` });
   const tabs = Object.assign(document.createElement("div"), { className: "sched-tabs" });
   tabs.setAttribute("role", "group");
   tabs.setAttribute("aria-label", "Day");
@@ -130,10 +139,41 @@ for (const box of document.querySelectorAll(".room-sched")) {
     b.addEventListener("click", () => show(d));
     tabs.append(b);
   }
-  list.hidden = true;
-  list.after(tabs, out);
+  box.replaceChildren(title, tabs, out);
   show(days.some(([d]) => d === now.day) ? now.day : days[0][0]);
 }
+// The copy in index.html first, so something shows at once...
+for (const room of document.querySelectorAll(".room")) {
+  const box = room.querySelector(".room-sched");
+  if (!box) continue;
+  const classes = [...box.querySelectorAll(".room-sched-list li")].map((li) => {
+    const [when = "", course = "", who = ""] = li.textContent.split("|");
+    const m = when.trim().match(/^(\S+)\s+(.+)$/);
+    const c = m && parseClass(m[1], m[2], course, who);
+    if (!c) console.warn("Schedule line not understood:", li.textContent);
+    return c;
+  }).filter(Boolean);
+  showSchedule(room, classes, box.dataset.term);
+}
+// ...then the WordPress page, which replaces it when it loads. Rows that do not read as a
+// class (the header row, a blank row) are skipped.
+fetch(SCHEDULE_PAGE).then((r) => (r.ok ? r.json() : [])).then((pages) => {
+  const html = pages[0]?.content?.rendered;
+  if (!html) return;
+  const doc = new DOMParser().parseFromString(html, "text/html");
+  const termLine = [...doc.querySelectorAll("p")].map((p) => p.textContent.trim()).find((t) => /^Term:/i.test(t));
+  const term = termLine ? termLine.replace(/^Term:\s*/i, "") : "this semester";
+  const byRoom = new Map();
+  let key = null;
+  for (const el of doc.body.querySelectorAll("h2, table")) {
+    if (el.tagName === "H2") { key = roomKey(el.textContent); continue; }
+    if (!key) continue;
+    const rows = [...el.querySelectorAll("tr")].map((tr) => [...tr.cells].map((td) => td.textContent));
+    byRoom.set(key, rows.map(([d = "", t = "", c = "", w = ""]) => parseClass(d, t, c, w)).filter(Boolean));
+  }
+  if (!byRoom.size) return;
+  for (const room of document.querySelectorAll(".room")) showSchedule(room, byRoom.get(roomKey(room.dataset.code)) ?? [], term);
+}).catch(() => {});
 
 // --- Scene -----------------------------------------------------------------
 const stage = document.querySelector(".stage");
