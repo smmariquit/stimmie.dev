@@ -46,7 +46,7 @@ export const projects = [
       "The site combines a searchable directory of rooms, dorms, buildings, colleges, and divisions with a 3D campus viewer built on Astro. You can look up where you need to be and orient yourself in space before you end up late to class because you took the wrong footpath.",
     ],
     tags: ["3D", "Astro", "Campus"],
-    link: "https://room-tba.stimmie.dev",
+    link: "https://room-tba.uplb.tools",
   },
   {
     slug: "elbi-gradesim",
