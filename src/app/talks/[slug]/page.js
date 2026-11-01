@@ -116,6 +116,16 @@ export default async function TalkPage({ params }) {
               View Slides ↗
             </Link>
           )}
+          {talk.readLink && (
+            <Link
+              href={talk.readLink}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="neo-link-card inline-block font-bold"
+            >
+              Reading version ↗
+            </Link>
+          )}
           {talk.replayLink && (
             <Link
               href={talk.replayLink}

@@ -253,6 +253,19 @@ export const talks = [
       "Mock review session for CMSC 21 (programming fundamentals) ahead of exams.",
     slidesLink: "https://workshops.stimmie.dev/cmsc21",
   },
+  {
+    slug: "uxplore-ux-figma-basics",
+    title: "UX and Figma Basics for UXplore",
+    actionPhoto: null,
+    slidesThumbnail: "/talks/uxplore-thumbnail.jpg",
+    date: "2026-10-14T10:00:00+08:00",
+    event: "UXplore, UPLB Mathematical Sciences Society",
+    type: "Workshop",
+    description:
+      "A guest workshop for UXplore participants on user research, mobile wireframes and Figma, taught with before and after examples. The slides and a text-denser reading version of them are online.",
+    slidesLink: "https://workshops.stimmie.dev/uxplore/",
+    readLink: "https://workshops.stimmie.dev/uxplore/read/",
+  },
 ];
 
 export function getTalkBySlug(slug) {
