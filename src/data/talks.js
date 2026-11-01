@@ -266,6 +266,18 @@ export const talks = [
     slidesLink: "https://workshops.stimmie.dev/uxplore/",
     readLink: "https://workshops.stimmie.dev/uxplore/read/",
   },
+  {
+    slug: "dict-data-analytics-training-of-trainers-day-7",
+    title: "DICT Data Analytics Training of Trainers, Day 7",
+    actionPhoto: null,
+    slidesThumbnail: null,
+    date: "2026-10-02T08:00:00+08:00",
+    event: "DICT online training, with Data Engineering Pilipinas",
+    type: "Workshop",
+    audienceSize: 15,
+    description:
+      "A full-day guest session on Day 7 of the DICT online Data Analytics Training of Trainers. Lecture first, then hands-on work in a student notebook, and the trainees submitted their finished notebooks at the end.",
+  },
 ];
 
 export function getTalkBySlug(slug) {

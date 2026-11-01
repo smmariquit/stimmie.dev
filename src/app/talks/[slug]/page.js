@@ -22,14 +22,16 @@ export async function generateMetadata({ params }) {
     openGraph: {
       title: talk.title,
       description: talk.description,
-      images: [{ url: talk.actionPhoto || talk.slidesThumbnail }],
+      images: [talk.actionPhoto || talk.slidesThumbnail]
+        .filter(Boolean)
+        .map((url) => ({ url })),
       type: "article",
     },
     twitter: {
       card: "summary_large_image",
       title: talk.title,
       description: talk.description,
-      images: [talk.actionPhoto || talk.slidesThumbnail],
+      images: [talk.actionPhoto || talk.slidesThumbnail].filter(Boolean),
     },
   };
 }
