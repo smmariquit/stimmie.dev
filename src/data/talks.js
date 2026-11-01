@@ -268,13 +268,14 @@ export const talks = [
   },
   {
     slug: "dict-data-analytics-training-of-trainers-day-7",
-    title: "DICT Data Analytics Training of Trainers, Day 7: Pivot Tables and Aggregations",
+    title:
+      "DICT Data Analytics Training of Trainers, Day 7: Pivot Tables and Aggregations",
     actionPhoto: null,
     slidesThumbnail: null,
     date: "2026-10-02T08:00:00+08:00",
     event: "DICT online training, with Data Engineering Pilipinas",
     type: "Workshop",
-    audienceSize: 15,
+    audienceSize: 30,
     description:
       "A full-day session on pivot tables and aggregations for Day 7 of the DICT online Data Analytics Training of Trainers. Lecture first, then hands-on work in a student notebook, and the trainees submitted their finished notebooks at the end.",
   },
