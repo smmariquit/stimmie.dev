@@ -51,7 +51,7 @@ export const projects = [
     description:
       "A fully immersive 3D campus viewer for UPLB. Navigate through academic buildings and find your classes easily.",
     tags: ["3D", "Astro", "Campus"],
-    link: "https://room-tba.stimmie.dev",
+    link: "https://room-tba.uplb.tools",
   },
   {
     slug: "elbi-gradesim",

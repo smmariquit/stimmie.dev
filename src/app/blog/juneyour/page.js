@@ -67,7 +67,7 @@ const achievements = [
   {
     cat: "building",
     text: "Built Room TBA, a search engine for rooms, dorms, buildings, colleges, and divisions at UPLB",
-    link: "https://room-tba.stimmie.dev",
+    link: "https://room-tba.uplb.tools",
     linkLabel: "Try Room TBA →",
   },
   {
