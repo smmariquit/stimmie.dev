@@ -22,14 +22,16 @@ export async function generateMetadata({ params }) {
     openGraph: {
       title: talk.title,
       description: talk.description,
-      images: [{ url: talk.actionPhoto || talk.slidesThumbnail }],
+      images: [talk.actionPhoto || talk.slidesThumbnail]
+        .filter(Boolean)
+        .map((url) => ({ url })),
       type: "article",
     },
     twitter: {
       card: "summary_large_image",
       title: talk.title,
       description: talk.description,
-      images: [talk.actionPhoto || talk.slidesThumbnail],
+      images: [talk.actionPhoto || talk.slidesThumbnail].filter(Boolean),
     },
   };
 }
@@ -114,6 +116,16 @@ export default async function TalkPage({ params }) {
               className="neo-link-card inline-block font-bold"
             >
               View Slides ↗
+            </Link>
+          )}
+          {talk.readLink && (
+            <Link
+              href={talk.readLink}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="neo-link-card inline-block font-bold"
+            >
+              Reading version ↗
             </Link>
           )}
           {talk.replayLink && (
