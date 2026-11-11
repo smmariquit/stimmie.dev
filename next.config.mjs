@@ -4,6 +4,8 @@
 const nextConfig = {
   /* config options here */
   reactCompiler: true,
+  // Static export served by Cloudflare Workers static assets (wrangler.jsonc).
+  output: "export",
 
   // opengraph-image reads from public/opportunities at runtime; without excludes
   // NFT traces the entire public/ tree and Vercel deploys fail the size limit.
@@ -21,6 +23,8 @@ const nextConfig = {
   },
 
   images: {
+    // No image optimizer in a static export; files are served as-is.
+    unoptimized: true,
     // Next 16 requires every requested `quality` to be allow-listed here,
     // otherwise the image optimizer responds 400 and the image fails to load.
     qualities: [75, 90, 100],
@@ -31,16 +35,9 @@ const nextConfig = {
     contentSecurityPolicy: "default-src 'self'; script-src 'none'; sandbox;",
   },
 
-  async rewrites() {
-    return [
-      { source: "/dailyten", destination: "/dailyten/index.html" },
-      { source: "/iop-tour", destination: "/iop-tour/index.html" },
-    ];
-  },
-
-  async redirects() {
-    return [{ source: "/blog/on-rereading", destination: "/blog/on-rewatching", permanent: true }];
-  },
+  // /dailyten, /iop-tour and /blog/on-rereading are handled by Workers static
+  // assets (auto trailing slash + public/_redirects); headers live in
+  // public/_headers. Rewrites/redirects/headers don't apply to a static export.
 
   env: {
     NEXT_PUBLIC_BUILD_DATE:

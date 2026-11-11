@@ -3,7 +3,23 @@
 "use client";
 
 import { useActionState, useState } from "react";
-import { submitWorkshopRequest } from "./actions";
+
+// Posts to the Worker's /api/workshop (worker/workshop.js); the site is a
+// static export so there are no server actions.
+async function submitWorkshopRequest(_prevState, formData) {
+  try {
+    const res = await fetch("/api/workshop", {
+      method: "POST",
+      body: formData,
+    });
+    return await res.json();
+  } catch {
+    return {
+      error:
+        "The form isn't working right now. Message me directly instead, the links are right below!",
+    };
+  }
+}
 
 const CAL_URL = "https://cal.com/simonee";
 

@@ -9,7 +9,7 @@ import {
 } from "@/data/opportunities";
 
 export const runtime = "nodejs";
-export const dynamic = "force-dynamic";
+export const dynamic = "force-static";
 
 export const alt = "Mosaic of opportunity board cover images";
 export const size = { width: 1200, height: 630 };
@@ -101,6 +101,9 @@ async function loadImageDataUrl(publicPath) {
   const extension = path.extname(filePath).slice(1).toLowerCase() || "png";
   const buffer = await readFile(filePath);
 
+  // kaggle-microcourse.png is really an SVG; satori can't size it, so skip
+  // anything that isn't what its extension says (caller renders a blank tile).
+  if (extension !== "svg" && buffer[0] === 0x3c) return null;
   if (extension === "svg") {
     return `data:image/svg+xml;base64,${buffer.toString("base64")}`;
   }
@@ -110,7 +113,9 @@ async function loadImageDataUrl(publicPath) {
       ? "image/png"
       : extension === "webp"
         ? "image/webp"
-        : "image/jpeg";
+        : extension === "gif"
+          ? "image/gif"
+          : "image/jpeg";
 
   return `data:${mime};base64,${buffer.toString("base64")}`;
 }

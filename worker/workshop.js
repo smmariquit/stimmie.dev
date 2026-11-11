@@ -1,19 +1,17 @@
-// src/app/resume-workshop/actions.js
-
-"use server";
+// worker/workshop.js — POST /api/workshop (was a Next server action).
 
 const TO = "semariquit@gmail.com";
 // Prefer a verified sender from env (e.g. noreply@uplbtools.me). The Resend
 // sandbox fallback only delivers to the account's own email, which is still
 // fine here since that is where submissions go.
-const FROM =
+const FROM = () =>
   process.env.RESEND_FROM_EMAIL ||
   "stimmie.dev workshop <onboarding@resend.dev>";
 
 const FALLBACK_ERROR =
   "The form isn't working right now. Message me directly instead, the links are right below!";
 
-export async function submitWorkshopRequest(_prevState, formData) {
+export async function submitWorkshopRequest(formData) {
   // Honeypot: humans never see this field.
   if (formData.get("website")) return { ok: true };
 
@@ -54,7 +52,7 @@ export async function submitWorkshopRequest(_prevState, formData) {
         "Content-Type": "application/json",
       },
       body: JSON.stringify({
-        from: FROM,
+        from: FROM(),
         to: [TO],
         subject: `Resume workshop: ${name}`,
         text,

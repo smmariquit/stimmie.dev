@@ -4,28 +4,26 @@
 import { createHash, randomBytes } from "node:crypto";
 import pg from "pg";
 
-export const dynamic = "force-dynamic";
-
-// ponytail: one connection per serverless instance, Heroku essential-0 caps at 20
-const pool =
-  globalThis.__dtPool ??
-  new pg.Pool({
+// Workers can't share sockets across requests, so each request opens its own
+// client (index.js closes it). ponytail: no pooling, add Hyperdrive if latency hurts.
+export function connect() {
+  return new pg.Client({
     connectionString: process.env.DATABASE_URL,
     ssl: /@(localhost|127\.0\.0\.1)[:/]/.test(process.env.DATABASE_URL ?? "")
       ? false
       : { rejectUnauthorized: false },
-    max: 1,
   });
-globalThis.__dtPool = pool;
+}
 
-let ready;
-function init() {
-  ready ??= pool.query(`
+let ready = false;
+async function init(pool) {
+  if (ready) return;
+  await pool.query(`
     create table if not exists dt_docs (path text primary key, data jsonb not null, updated_at timestamptz not null default now());
     create table if not exists dt_codes (code text primary key, player_id text not null, created_at timestamptz not null default now());
     create table if not exists dt_tg (player_id text primary key, chat_id text not null);
   `);
-  return ready;
+  ready = true;
 }
 
 const PATH = /^(players|days|meta)\/[A-Za-z0-9_-]{1,64}$/;
@@ -45,8 +43,8 @@ const who = (req) => {
 const admins = () =>
   (process.env.DT_ADMIN_IDS ?? "").split(",").filter(Boolean);
 
-export async function GET(req) {
-  await init();
+export async function GET(req, pool) {
+  await init(pool);
   const q = new URL(req.url).searchParams;
   if (q.has("act")) {
     const me = who(req);
@@ -76,8 +74,8 @@ export async function GET(req) {
   return json(rows);
 }
 
-export async function PUT(req) {
-  await init();
+export async function PUT(req, pool) {
+  await init(pool);
   const p = new URL(req.url).searchParams.get("d");
   if (!PATH.test(p ?? "")) return json({ error: "bad path" }, 400);
   const raw = await req.text();
@@ -121,8 +119,8 @@ export async function PUT(req) {
   return json({ ok: true });
 }
 
-export async function POST(req) {
-  await init();
+export async function POST(req, pool) {
+  await init(pool);
   const me = who(req);
   if (!me || new URL(req.url).searchParams.get("act") !== "link")
     return json({ error: "no" }, 400);
