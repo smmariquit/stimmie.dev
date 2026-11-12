@@ -1,9 +1,20 @@
 import Link from "next/link";
 import PageShell from "@/components/neo/PageShell";
 
+const desc =
+  "I've watched Your Name five times. I'm not entirely sure about the number, but five is what I tell people and five is what I believe.";
+
 export const metadata = {
   title: "On Rewatching",
-  description: "I&apos;ve watched Your Name five times. I&apos;m not entirely sure about the number, but five is what I tell people and five is what I believe.",
+  description: desc,
+  openGraph: {
+    title: "On Rewatching",
+    description: desc,
+    url: "https://stimmie.dev/blog/on-rewatching",
+    type: "article",
+    images: [{ url: "/blog/default-cover.jpg" }],
+  },
+  twitter: { card: "summary_large_image", images: ["/blog/default-cover.jpg"] },
 };
 
 export default function OnRewatchingPage() {

@@ -1,9 +1,20 @@
 import Link from "next/link";
 import PageShell from "@/components/neo/PageShell";
 
+const desc =
+  "I grew up in the province, where doing nothing is an art form practiced by experts.";
+
 export const metadata = {
   title: "The Province of Doing Nothing",
-  description: "I grew up in the province, where doing nothing is an art form practiced by experts.",
+  description: desc,
+  openGraph: {
+    title: "The Province of Doing Nothing",
+    description: desc,
+    url: "https://stimmie.dev/blog/the-province-of-doing-nothing",
+    type: "article",
+    images: [{ url: "/blog/default-cover.jpg" }],
+  },
+  twitter: { card: "summary_large_image", images: ["/blog/default-cover.jpg"] },
 };
 
 export default function ProvinceOfDoingNothingPage() {
