@@ -1,9 +1,20 @@
 import Link from "next/link";
 import PageShell from "@/components/neo/PageShell";
 
+const desc =
+  "There's a particular hour in the late afternoon when the campus empties out and the acacia shadows stretch long across the oval...";
+
 export const metadata = {
   title: "On Walking",
-  description: "There&apos;s a particular hour in the late afternoon when the campus empties out and the acacia shadows stretch long across the oval...",
+  description: desc,
+  openGraph: {
+    title: "On Walking",
+    description: desc,
+    url: "https://stimmie.dev/blog/on-walking",
+    type: "article",
+    images: [{ url: "/blog/default-cover.jpg" }],
+  },
+  twitter: { card: "summary_large_image", images: ["/blog/default-cover.jpg"] },
 };
 
 export default function OnWalkingPage() {
