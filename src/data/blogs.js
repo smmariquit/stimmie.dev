@@ -2,6 +2,13 @@
 
 export const blogPosts = [
   {
+    slug: "everyone-forgets-the-embed",
+    title: "Everyone forgets the embed",
+    date: "November 13, 2026",
+    excerpt: "People design every pixel of their website and forget the card that shows up when someone pastes the link. I forgot too.",
+    coverImage: "/blog/everyone-forgets-the-embed/cover.png",
+  },
+  {
     slug: "how-a-leaked-key-sent-me-to-collections",
     title: "How a leaked API key sent me to collections",
     date: "October 8, 2026",
