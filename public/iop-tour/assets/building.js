@@ -2,15 +2,18 @@
 // Room content (names, descriptions, photos, room boxes) lives in index.html;
 // this file only holds the shell the rooms sit in.
 
-// Building outline from OpenStreetMap (© OpenStreetMap contributors, ODbL),
+// Building outline from OpenStreetMap (© OpenStreetMap contributors, ODbL), with two corners
+// of Wing C squared off (the map data cuts the north-east corner diagonally and slants the west
+// end, which sliced through C-101A; one point on the back edge slid along its edge so the
+// centroid stays put),
 // [lon, lat], first point repeated at the end like the source way.
 export const OUTLINE = [
   [121.2416125, 14.1642209], [121.2419549, 14.1643768], [121.241917, 14.1644552],
-  [121.2417559, 14.1643881], [121.2417017, 14.164481], [121.2418619, 14.1645542],
+  [121.2417457, 14.1643838], [121.2417017, 14.164481], [121.2418619, 14.1645542],
   [121.241859, 14.1645605], [121.2418555, 14.164568], [121.2418382, 14.164605],
   [121.2418772, 14.1646197], [121.2419107, 14.1646336], [121.2419334, 14.164644],
-  [121.2422479, 14.1647774], [121.2422917, 14.1647631], [121.2423453, 14.1646601],
-  [121.2421532, 14.1645763], [121.2419666, 14.164502], [121.2419925, 14.1644529],
+  [121.2422802, 14.164791], [121.2422917, 14.1647631], [121.2423453, 14.1646601],
+  [121.2421311, 14.164567], [121.2419666, 14.164502], [121.2419925, 14.1644529],
   [121.2422046, 14.1645381], [121.2423174, 14.1643073], [121.2420906, 14.1642075],
   [121.2421096, 14.1641583], [121.2422587, 14.1642229], [121.2424156, 14.1639086],
   [121.2421674, 14.1637937], [121.2420969, 14.1639216], [121.2420752, 14.1639612],
@@ -44,7 +47,18 @@ export const HALLS = [
   { label: "Hallway", floor: 1, along: [-1, 7], across: [6, 34.4] },
 ];
 
+/**
+ * The Wing C entrance bay: the stretch of the front facade (along, in metres) where
+ * the ground-floor hallway opens toward Oblation Park, and that facade's `across`.
+ * Read off the outline (the short front edges between the two long wings).
+ */
+export const ENTRANCE = { along: [-2.3, 8.8], across: 34.4 };
+
 export const STAIRS = [
-  { floor: 1, along: [1.25, 5.75], across: [16.75, 22.75] },
-  { floor: 2, along: [1.25, 5.75], across: [16.75, 22.75] },
+  { floor: 1, along: [7.2, 12], across: [18.6, 23.2], climb: "back" },
+  { floor: 2, along: [2.4, 6.9], across: [16, 20.6], climb: "back" },
+  // North end of Wing C: a stairwell in the room row on the C-205 side, past C-215 and across the
+  // corridor from C-214. The steps run away from the corridor, which itself ends at a wall.
+  { floor: 1, along: [48.1, 50.5], across: [28.9, 34], climb: "front" },
+  { floor: 2, along: [48.1, 50.5], across: [28.9, 34], climb: "front" },
 ];
