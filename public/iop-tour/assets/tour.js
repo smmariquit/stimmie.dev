@@ -75,6 +75,8 @@ const rooms = [...document.querySelectorAll(".room")].map((li) => {
     u,
     v,
     door: li.dataset.door ?? null,
+    // data-door-at="west" puts the door at the west end of its wall instead of the middle.
+    doorAt: li.dataset.doorAt ?? "middle",
     inTour: li.dataset.tour !== "no",
     center: toWorld(wing((u[0] + u[1]) / 2, (v[0] + v[1]) / 2), floorBase(floor) + SLAB),
     size: Math.max(u[1] - u[0], v[1] - v[0]),
@@ -241,6 +243,48 @@ fetch(SCHEDULE_PAGE).then((r) => (r.ok ? r.json() : [])).then((pages) => {
   }
   if (!byRoom.size) return;
   for (const room of document.querySelectorAll(".room")) showSchedule(room, byRoom.get(roomKey(room.dataset.code)) ?? [], term);
+}).catch(() => {});
+
+// --- Room names, descriptions and photos -------------------------------------
+// Staff edit these on the WordPress page "Tour Rooms" (/tour-rooms/): one table, one row
+// per room: Room | Name | Description | Photo (one or more images). The Room
+// cell must match a room already in index.html ("PS C-206" or "C-206"), because the
+// room's place on the model lives there; other rows are skipped. An empty cell keeps
+// the text built into index.html, which is also what shows when the page can't load.
+const ROOMS_PAGE = "/wp-json/wp/v2/pages?slug=tour-rooms&_fields=content";
+fetch(ROOMS_PAGE).then((r) => (r.ok ? r.json() : [])).then((pages) => {
+  const html = pages[0]?.content?.rendered;
+  if (!html) return;
+  const doc = new DOMParser().parseFromString(html, "text/html");
+  for (const tr of doc.querySelectorAll("tr")) {
+    const [codeCell, nameCell, descCell, photoCell] = tr.cells;
+    const room = codeCell && rooms.find((r) => roomKey(r.code) === roomKey(codeCell.textContent));
+    if (!room) continue;
+    const name = nameCell?.textContent.trim();
+    const desc = descCell?.textContent.trim();
+    const imgs = [...(photoCell?.querySelectorAll("img") ?? [])];
+    if (name) {
+      room.name = name;
+      room.li.querySelector(".room-name").textContent = name;
+    }
+    if (desc) {
+      room.desc = desc;
+      let p = room.li.querySelector(".room-desc");
+      if (!p) room.details.querySelector("summary").after((p = Object.assign(document.createElement("p"), { className: "room-desc" })));
+      p.textContent = desc;
+    }
+    if (imgs.length) {
+      room.photos = imgs.map((img) => ({ src: img.getAttribute("src"), alt: img.alt || `Door of ${room.title}` }));
+      room.li.querySelectorAll(".room-photo").forEach((a) => a.remove());
+      let after = room.li.querySelector(".room-desc") ?? room.details.querySelector("summary");
+      for (const photo of room.photos) {
+        const a = Object.assign(document.createElement("a"), { className: "room-photo", href: photo.src });
+        a.append(Object.assign(document.createElement("img"), { ...photo, width: 1050, height: 1400, loading: "lazy" }));
+        after.after(a);
+        after = a;
+      }
+    }
+  }
 }).catch(() => {});
 
 // --- Scene -----------------------------------------------------------------
@@ -593,12 +637,19 @@ for (const s of STAIRS) {
   const [u0, u1] = s.along;
   const [v0, v1] = s.across;
   const y = floorBase(s.floor) + SLAB;
-  // Steps climb toward the front of the wing (the Oblation side).
+  // climb: which way you face going up. "front" (the Oblation side, the default),
+  // "back", "east" (toward the far end of Wing C) or "west".
   const steps = 8;
-  const run = (v1 - v0) / steps;
+  const climb = s.climb ?? "front";
+  const alongU = climb === "east" || climb === "west";
+  const run = (alongU ? u1 - u0 : v1 - v0) / steps;
   for (let i = 0; i < steps; i++) {
     const h = ((i + 1) / steps) * WALL_H;
-    storey(s.floor).contents.add(wingBox((u0 + u1) / 2, v0 + run * (i + 0.5), u1 - u0, run, h, y, mat(COLORS.wall), "stairs"));
+    const k = run * (i + 0.5);
+    const box = alongU
+      ? wingBox(climb === "east" ? u0 + k : u1 - k, (v0 + v1) / 2, run, v1 - v0, h, y, mat(COLORS.wall), "stairs")
+      : wingBox((u0 + u1) / 2, climb === "back" ? v1 - k : v0 + k, u1 - u0, run, h, y, mat(COLORS.wall), "stairs");
+    storey(s.floor).contents.add(box);
   }
   labels.push({ ...makeLabel("Stairs", "is-hall", storey(s.floor).contents, toWorld(wing((u0 + u1) / 2, (v0 + v1) / 2), y + WALL_H + 0.6)), rank: 3 });
 }
@@ -614,7 +665,11 @@ function roomWalls(room, y) {
     [a1, (b0 + b1) / 2, t, b1 - b0 + t],
   ];
   for (const [side, v] of [["-", b0], ["+", b1]]) {
-    if (room.door === side) {
+    if (room.door === side && room.doorAt === "west") {
+      // Door gap 0.4 m in from the west corner.
+      const rest = len - 0.4 - DOOR_W;
+      segments.push([a0 + 0.2, v, 0.4, t], [a1 - rest / 2, v, rest, t]);
+    } else if (room.door === side) {
       // A gap in the middle of the corridor side reads as the door.
       const piece = (len - DOOR_W) / 2;
       segments.push([a0 + piece / 2, v, piece, t], [a1 - piece / 2, v, piece, t]);
@@ -736,16 +791,19 @@ function furnish(room, y) {
       table(u0 + 1.4, vm, 0.7, 1.6, 0.75);
       rows(u0 + 2.8, u1 - 0.8, 1.0, 0.45, 0.45, SEAT);
       break;
-    case "hall":
-      board();
-      table(u0 + 1.8, vm, 0.8, 2.4, 0.75);
+    case "hall": {
+      // data-board="end" puts the board on the east wall (the u1 end), seats facing it.
+      const m = room.li.dataset.board === "end" ? (u) => u0 + u1 - u : (u) => u;
+      put(m(u0 + 0.12), vm, 0.06, Math.min(3, dv - 1.5), 1.2, BOARD, 0.9);
+      table(m(u0 + 1.8), vm, 0.8, 2.4, 0.75);
       // Tiered: each row stands on a concrete step a little higher than the one in front.
       for (let u = u0 + 3.5, i = 0; u <= u1 - 0.8; u += 1.0, i++) {
         const lift = Math.min(0.6, i * 0.06);
-        if (lift) put(u + 0.25, vm, 1.0, dv - 2.4, lift, TIER);
-        put(u, vm, 0.5, dv - 2.4, 0.45, SEAT, lift);
+        if (lift) put(m(u + 0.25), vm, 1.0, dv - 2.4, lift, TIER);
+        put(m(u), vm, 0.5, dv - 2.4, 0.45, SEAT, lift);
       }
       break;
+    }
     case "shelves":
       // Shelving down both side walls with an aisle from the door.
       for (const u of [u0 + 0.35, u1 - 0.35]) put(u, vm, 0.45, dv - 1.6, 2, WOOD);
@@ -995,8 +1053,9 @@ function enterRoom(room) {
   ceiling.visible = true;
   // Stand just inside the door and look across toward the west wall, where the
   // board hangs, a little downward. Rooms without a door: from the west end, facing in.
+  const doorU = room.doorAt === "west" ? room.u[0] + 0.4 + DOOR_W / 2 : um;
   const eye = room.door
-    ? wing(um, room.door === "+" ? room.v[1] - 0.6 : room.v[0] + 0.6)
+    ? wing(doorU, room.door === "+" ? room.v[1] - 0.6 : room.v[0] + 0.6)
     : wing(room.u[0] + 0.8, vm);
   const look = room.door ? wing(room.u[0] + 0.3 * (room.u[1] - room.u[0]), vm) : wing(um, vm);
   const pos = toWorld(eye, room.baseY + EYE_H);
@@ -1040,7 +1099,7 @@ for (const room of rooms) {
 // --- Tour ------------------------------------------------------------------
 const intro = {
   title: "Institute of Physics, Wing C",
-  desc: "The Institute of Physics rooms on the 2nd floor of Wing C, plus two lecture rooms on the ground floor. The main entrance faces Oblation Park.",
+  desc: "The Institute of Physics rooms on the 2nd floor of Wing C, plus its lecture and faculty rooms on the ground floor. The main entrance faces Oblation Park.",
   photos: [{ src: "assets/img/fo-santos-hall.webp", alt: "Entrance of Francisco O. Santos Hall with the UPLB building sign" }],
 };
 const outro = {

@@ -18,12 +18,12 @@
   --surface-panel: #f3eee7;
   --surface-2: #ebe4da;
   --text: #1f1a19;
-  --text-muted: #5a524f;
+  --text-muted: #524a47;
   --head: #3a1114;
   --border: rgb(40 20 20 / 0.26);
   --divider: rgb(40 20 20 / 0.14);
-  --accent-text: #0f7a70;
-  --accent-fill: #0f7a70;
+  --accent-text: #0a5a52;
+  --accent-fill: #0a5a52;
   --accent-soft: #e6f1ee;
   --accent-border: #9cc9c1;
   --accent-border-hover: #5fa89e;
@@ -47,7 +47,7 @@
   --sched-grid: rgb(40 20 20 / 0.22);
   --sched-grid-light: rgb(40 20 20 / 0.09);
   --sched-lec: #8e1b20;
-  --sched-lab: #0f7a70;
+  --sched-lab: #0a5a52;
   /* Room colours on the model: the schedule's lecture maroon and lab teal, UP gold for
      offices. tour.js reads these, so the legend and the 3D always match. Hex, not OKLCH:
      three.js Color cannot parse oklch(). */
@@ -60,7 +60,7 @@
   --model-slab: #a39b91;
   /* Outside of F.O. Santos Hall (IoP photos): dark tuff block, white concrete
      slab edges and fins, jalousie windows, black railings, a concrete roof. */
-  --model-brick: #4b4541;
+  --model-brick: #5f4b3b; /* tuff block, sampled from the door photos (shade #4d433a to #63594d) */
   --model-mortar: #2e2a28;
   --model-concrete: #ebe7df;
   --model-roof: #8f8a83;
