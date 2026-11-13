@@ -34,8 +34,7 @@ export default function ClaudeCodeSessionsPage() {
         <p>
           As I write this, there are 27 Claude Code sessions open on my laptop.
           One handles my org UXLB, one handles school, one handles job
-          applications, one handles this blog, and so on down a list of 30
-          projects. Most of them are sitting idle, waiting for me to say
+          applications, and so on down a list of 30 projects. Most of them are sitting idle, waiting for me to say
           something. A few are in the middle of a task.
         </p>
 
@@ -44,8 +43,6 @@ export default function ClaudeCodeSessionsPage() {
           think the complaints are the interesting part, so this is the setup
           and how it got that way.
         </p>
-
-        <h2>One session per project</h2>
 
         <p>
           I&apos;m in a lot of orgs, I have classes, and I take on paid work.
@@ -66,19 +63,11 @@ export default function ClaudeCodeSessionsPage() {
         </p>
 
         <p>
-          This is the top of the board right now, with this blog&apos;s own row.
-          I left out the rest because it&apos;s full of other people&apos;s
-          names.
+          This is the top line of the board right now. I left out the rows
+          under it because they&apos;re full of other people&apos;s names.
         </p>
 
-        <pre className="text-sm"><code>{`Fri 12:27   27 sessions   2218 MB of memory free
-
-writing     0m   writing
-    - The setup post waits on your read. After that I'll run the
-      1 to 100 review passes, take the screenshots and build the cover.
-    - Hashnode waits on you to sign in at hashnode.com in your
-      laptop's Chrome. Then I'll post "Everyone forgets the embed" there.
-    - The Canva cleanup waits on your yes.`}</code></pre>
+        <pre className="text-sm"><code>{`Fri 12:27   27 sessions   2218 MB of memory free`}</code></pre>
 
         <p>
           Each project keeps its state in the CLAUDE.md file in its folder,
@@ -87,8 +76,6 @@ writing     0m   writing
           the other project&apos;s State. That way I don&apos;t have to
           re-explain anything when two projects meet.
         </p>
-
-        <h2>The front desk</h2>
 
         <p>
           One session is different. I call it the front desk. Anything that
@@ -100,13 +87,10 @@ writing     0m   writing
         </p>
 
         <p>
-          The sessions can also talk to each other. This post is an example. I
-          asked the writing session to write about my setup, and it asked the
-          front desk, which knows the setup better than I do. The answer came
-          back over a Unix socket a few minutes later.
+          The sessions can also talk to each other over Unix sockets. A project
+          session can ask the front desk something directly instead of waiting
+          for me to pass the message along.
         </p>
-
-        <h2>Nobody touches my calendar but one script</h2>
 
         <p>
           With this many sessions, dates get messy. If every session could write
@@ -132,8 +116,6 @@ writing     0m   writing
           write a prep note into the event, as long as the laptop has at least 3
           GB of memory free.
         </p>
-
-        <h2>Every rule has a date</h2>
 
         <p>
           My global CLAUDE.md is mostly rules, and almost every rule has the
@@ -168,15 +150,14 @@ writing     0m   writing
         </p>
 
         <p>
-          Then there&apos;s the writing. I got tired of telling every session
+          Then there&apos;s how the agents write. I got tired of telling every session
           not to use colons, em dashes and sentence fragments, so a hook adds
           those rules to every single message I send.
         </p>
 
-        <h2>What the agents can&apos;t do</h2>
-
         <p>
-          Every project agent has the tools for deleting email, trashing Drive
+          There are also things the agents can&apos;t do. Every project agent
+          has the tools for deleting email, trashing Drive
           files and deleting calendar events taken away. Anything that sends,
           posts or pays needs me to say so in the chat, every time. Logins,
           passwords, 2FA codes and CAPTCHAs are always mine.
@@ -191,8 +172,6 @@ writing     0m   writing
           the login keyring, because a 1Password prompt in the middle of a job
           would block it until I came back.
         </p>
-
-        <h2>What still breaks</h2>
 
         <p>
           It still breaks plenty. Both Gmail connectors were signed out today.
