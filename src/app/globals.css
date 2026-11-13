@@ -2964,6 +2964,11 @@ body {
   margin-bottom: 0.5rem;
   line-height: 1.7;
 }
+.neo-prose pre {
+  margin: 0 0 1rem;
+  max-width: 100%;
+  overflow-x: auto;
+}
 .neo-prose .neo-stat {
   background: #fff7fb;
   border: 2px solid #1a1a1a;
