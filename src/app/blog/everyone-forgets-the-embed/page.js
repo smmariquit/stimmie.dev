@@ -111,6 +111,12 @@ export default function EveryoneForgetsTheEmbedPage() {
           it, it won&apos;t make anyone else want to either.
         </p>
 
+        <Figure
+          src="/blog/everyone-forgets-the-embed/on-walking-after.png"
+          alt="Discord preview of stimmie.dev/blog/on-walking after the fix, with the title On Walking, the first line of the essay and the blog cover"
+          caption="The same link after the fix."
+        />
+
         <hr />
 
         <p className="text-sm">
