@@ -10,6 +10,8 @@ All notable changes to this project are documented here. This file is generated 
 
 ## [2.40.0](https://github.com/smmariquit/stimmie.dev/compare/v2.39.2...v2.40.0) (2026-11-13)
 
+## [2.40.0](https://github.com/smmariquit/stimmie.dev/compare/v2.39.2...v2.40.0) (2026-11-13)
+
 ## [2.40.0](https://github.com/smmariquit/stimmie.dev/compare/v2.39.2...v2.40.0) (2026-11-12)
 
 ## [2.40.0](https://github.com/smmariquit/stimmie.dev/compare/v2.39.2...v2.40.0) (2026-11-12)
