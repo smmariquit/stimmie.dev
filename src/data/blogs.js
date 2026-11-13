@@ -2,6 +2,13 @@
 
 export const blogPosts = [
   {
+    slug: "claude-code-sessions",
+    title: "I have 27 Claude Code sessions open right now",
+    date: "November 14, 2026",
+    excerpt: "One session per project, a front desk for everything else, and a calendar only one script can touch.",
+    coverImage: "/blog/claude-code-sessions/cover.png",
+  },
+  {
     slug: "everyone-forgets-the-embed",
     title: "Everyone forgets the embed",
     date: "November 13, 2026",
