@@ -38,6 +38,7 @@ export const redirectMap = {
   talks: {
     "qcu-ml-python": TODO_TARGET,
     "dep-ai-study": TODO_TARGET,
+    cmsc199: "https://www.canva.com/d/Mb8ta-WDVvx8zRu",
   },
   links: {
     freshie: "https://guide.stimmie.dev/freshie",
