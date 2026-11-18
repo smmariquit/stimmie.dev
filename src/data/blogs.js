@@ -5,7 +5,7 @@ export const blogPosts = [
     slug: "what-uplb-students-ask-on-reddit",
     title: "What UPLB students ask on Reddit",
     date: "November 16, 2026",
-    excerpt: "Two years of r/peyups, r/uplb and r/upelbi, 6,613 UPLB posts, and the 32% that got no reply.",
+    excerpt: "Two years of r/peyups, r/uplb and r/upelbi, 6,613 UPLB posts, and the 34% that got no reply.",
     coverImage: "/blog/what-uplb-students-ask-on-reddit/cover.png",
   },
   {
