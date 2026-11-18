@@ -30,11 +30,11 @@ export const metadata = {
 const BASE = "/blog/what-uplb-students-ask-on-reddit";
 
 const NO_REPLY = [
-  ["r/peyups, about UPLB", "5,463", "30%"],
-  ["r/peyups, other campuses", "36,726", "25%"],
-  ["r/uplb", "596", "43%"],
+  ["r/peyups, about UPLB", "5,463", "33%"],
+  ["r/peyups, other campuses", "36,726", "30%"],
+  ["r/uplb", "596", "44%"],
   ["r/upelbi", "554", "33%"],
-  ["All posts about UPLB", "6,613", "32%"],
+  ["All posts about UPLB", "6,613", "34%"],
 ];
 
 const COURSES = [
@@ -127,7 +127,8 @@ export default function UplbRedditPage() {
           r/peyups covers every UP campus, so I counted a post as being about
           UPLB when it was on r/uplb or r/upelbi, or when its title or text said
           UPLB, Elbi, Los Baños or LB. That gave 7,353 posts. I dropped deleted
-          comments and AutoModerator. About 10% of the UPLB posts had been
+          comments, AutoModerator, the moderators&apos; removal notices and other
+          bot accounts. About 10% of the UPLB posts had been
           removed or deleted, and 87% of those have no replies, so I left them
           out of every reply number. Otherwise a moderator&apos;s decision would
           look like nobody answering. That leaves 6,613 posts. The method has
@@ -139,9 +140,9 @@ export default function UplbRedditPage() {
 
         <p>
           The first thing I checked was how many posts get no reply at all.
-          It&apos;s 32%, or 2,089 of the 6,613 (95% interval 30.5% to 32.7%).
+          It&apos;s 34%, or 2,254 of the 6,613 (95% interval 33.0% to 35.2%).
           Most posts get a comment or two. The median is one, and the top 10% of
-          posts hold 49% of all the comments. Many of the ten busiest threads
+          posts hold half of all the comments. Many of the ten busiest threads
           are stories and opinions, like a thread about how cheap the food in UPLB
           is (95 comments) or one about a deleted UP mail account (67).
         </p>
@@ -154,8 +155,8 @@ export default function UplbRedditPage() {
 
         <p>
           On r/peyups, a post about UPLB goes unanswered more often than a post
-          about another campus. The gap is five points, and the risk ratio is
-          1.20 (95% interval 1.15 to 1.26). The smaller subreddits don&apos;t
+          about another campus. The gap is three points, and the risk ratio is
+          1.10 (95% interval 1.06 to 1.15). The smaller subreddits don&apos;t
           fix that. r/uplb has the highest rate of the four, and its median
           first reply takes 2.1 hours against 0.8 on r/peyups.
         </p>
@@ -164,24 +165,24 @@ export default function UplbRedditPage() {
           The topic matters too. I grouped the 7,353 posts into 12 topics with a
           topic model (NMF) and named each group from its top words and sample
           titles. The no-reply rate differs between topics by more than chance
-          (chi-square test, p &lt; 0.001), from 39% for manual appeals to 23% for
+          (chi-square test, p &lt; 0.001), from 40% for manual appeals to 26% for
           UPCAT results. The difference is real but small, since Cramér&apos;s V
-          is only 0.08. SLAS and DOST questions come second at 37%.
+          is only 0.08. SLAS and DOST questions come second at 39%.
         </p>
 
         <Figure
           src={`${BASE}/topics.png`}
-          alt="Dot and line chart of the no-reply rate for each of 12 topics, from 39% for manual appeals to 23% for UPCAT results, with 95% intervals"
-          caption="No-reply rate by topic. The lines are 95% intervals and the gold line is the 32% average."
+          alt="Dot and line chart of the no-reply rate for each of 12 topics, from 40% for manual appeals to 26% for UPCAT results, with 95% intervals"
+          caption="No-reply rate by topic. The lines are 95% intervals and the gold line is the 34% average."
         />
 
         <p>
           Then I asked what goes with getting a reply. I fit a logistic
           regression on the 6,613 posts, where the outcome is whether a post got
-          any reply. A title with a question mark has odds of a reply 1.45 times
-          higher (95% interval 1.28 to 1.65). A post twice as long has odds 1.33
-          times higher (1.27 to 1.39). A post made from May to July has odds 0.85
-          times as high (0.76 to 0.94). Time of day, weekends, naming a course
+          any reply. A title with a question mark has odds of a reply 1.43 times
+          higher (95% interval 1.27 to 1.61). A post twice as long has odds 1.32
+          times higher (1.27 to 1.38). A post made from May to July has odds 0.84
+          times as high (0.76 to 0.93). Time of day, weekends, naming a course
           code and which subreddit the post is on all have intervals that cross
           1, so I can&apos;t tell them apart from no effect. This is correlation.
           It shows what goes with a reply and doesn&apos;t show what causes one.
@@ -190,16 +191,16 @@ export default function UplbRedditPage() {
 
         <Figure
           src={`${BASE}/replies.png`}
-          alt="Chart of the odds ratios from the regression, with a question mark in the title at 1.45 and a post twice as long at 1.33 clearly above 1"
+          alt="Chart of the odds ratios from the regression, with a question mark in the title at 1.43 and a post twice as long at 1.32 clearly above 1"
           caption="Odds ratios from the regression. The faded rows have intervals that cross 1."
         />
 
         <p>
-          Replies come fast when they come. Among the 4,524 posts that got a
+          Replies come fast when they come. Among the 4,359 posts that got a
           reply, half got their first one within 56 minutes. 77% got one within
           6 hours and 91% within 24 hours. After a silent day the odds drop. Of
-          all 6,613 posts, 68% got a reply, but 2,491 were still silent after 24
-          hours, and only 402 of those (16%) got a comment later.
+          all 6,613 posts, 66% got a reply, but 2,652 were still silent after 24
+          hours, and only 398 of those (15%) got a comment later.
         </p>
 
         <p>
@@ -247,6 +248,13 @@ export default function UplbRedditPage() {
         </p>
 
         <hr />
+
+        <p className="text-sm neo-muted">
+          Corrected on November 18, 2026. The first version counted the
+          moderators&apos; removal notices and bot comments as replies. The reply
+          numbers above now leave them out, so the no-reply rate is 34% instead
+          of 32%.
+        </p>
 
         <p className="text-sm neo-muted">
           The guide is at{" "}
