@@ -427,4 +427,498 @@ int main(void) {
     answer: "3",
     why: "f counts the 1 bits of n. 13 is 1101 in binary, which has three 1s.",
   },
+  {
+    id: "c-deref-copy",
+    lang: "c",
+    level: 1,
+    code: `int y = 25;
+int *p = &y;
+int x = *p;
+y = 30;
+printf("%d %d %d", y, x, *p);`,
+    answer: "30 25 30",
+    why: "x got a copy of 25 before y changed. *p reads y itself, so it shows the new 30.",
+  },
+  {
+    id: "c-write-through",
+    lang: "c",
+    level: 1,
+    code: `int a = 5, b = 9;
+int *p = &a;
+*p = b;
+b = 1;
+printf("%d %d", a, b);`,
+    answer: "9 1",
+    why: "*p = b copies 9 into a, because p points to a. Changing b afterward doesn't touch a.",
+  },
+  {
+    id: "c-pointer-copy",
+    lang: "c",
+    level: 1,
+    code: `int x = 10;
+int *p1 = &x, *p2;
+p2 = p1;
+*p2 += 5;
+printf("%d %d", x, *p1);`,
+    answer: "15 15",
+    why: "p2 = p1 makes both pointers hold the address of x, so a write through p2 shows up through p1 too.",
+  },
+  {
+    id: "c-array-name",
+    lang: "c",
+    level: 1,
+    code: `int list[4] = {10, 20, 30, 40};
+int *p = list;
+printf("%d %d %d", *p, *(p + 2), p[3]);`,
+    answer: "10 30 40",
+    why: "An array name is the address of its first element. *p is list[0], *(p + 2) is list[2] and p[3] means *(p + 3).",
+  },
+  {
+    id: "c-type-sizes",
+    lang: "c",
+    level: 1,
+    code: `printf("%d %d %d %d", (int)sizeof(char), (int)sizeof(int),
+       (int)sizeof(float), (int)sizeof(double));`,
+    answer: "1 4 4 8",
+    why: "A char takes 1 byte, an int 4, a float 4 and a double 8.",
+  },
+  {
+    id: "c-step-by-type",
+    lang: "c",
+    level: 2,
+    code: `int a[] = {5, 6, 7, 8};
+int *p = a;
+p++;
+p += 2;
+printf("%d %d", *p, (int)(p - a));`,
+    answer: "8 3",
+    why: "Each step moves by one int, not one byte. p ends at index 3, so *p is 8 and p - a is 3.",
+  },
+  {
+    id: "c-post-increment-deref",
+    lang: "c",
+    level: 2,
+    code: `int a[] = {1, 2, 3};
+int *p = a;
+printf("%d ", *p++);
+printf("%d ", *p);
+printf("%d ", (*p)++);
+printf("%d", a[1]);`,
+    answer: "1 2 2 3",
+    why: "*p++ reads a[0] and then moves p to a[1]. (*p)++ adds one to the value a[1] itself, and it prints the old 2 first.",
+  },
+  {
+    id: "c-pointer-sum",
+    lang: "c",
+    level: 2,
+    code: `int list[5] = {4, 8, 15, 16, 23};
+int *p, sum = 0;
+for (p = list; p <= &list[4]; ++p)
+    sum = sum + *p;
+printf("%d", sum);`,
+    answer: "66",
+    why: "The loop visits every element through the pointer. The last visited address is &list[4], and 4 + 8 + 15 + 16 + 23 is 66.",
+  },
+  {
+    id: "c-upper-loop",
+    lang: "c",
+    level: 2,
+    code: `char name[] = "ab c";
+char *p;
+for (p = name; *p != '\\0'; ++p)
+    if (*p >= 'a' && *p <= 'z')
+        *p -= 32;
+printf("%s", name);`,
+    answer: "AB C",
+    why: "Lowercase letters are 32 above uppercase ones. The space is skipped and the loop stops at the null character.",
+  },
+  {
+    id: "c-substring",
+    lang: "c",
+    level: 2,
+    code: `char name[] = "Mitch Andaya";
+char *p = &name[6];
+printf("%s|%s", p, name + 3);`,
+    answer: "Andaya|ch Andaya",
+    why: "A pointer to a middle character acts as the start of a shorter string. &name[6] starts at the A, and name + 3 starts at the c.",
+  },
+  {
+    id: "c-call-by-value",
+    lang: "c",
+    level: 2,
+    code: `#include <stdio.h>
+
+void bump(int n) { n += 1; }
+void pbump(int *n) { *n += 1; }
+
+int main(void) {
+    int x = 5;
+    bump(x);
+    pbump(&x);
+    pbump(&x);
+    printf("%d", x);
+    return 0;
+}`,
+    answer: "7",
+    why: "bump changes a copy, so it does nothing to x. Each pbump call adds 1 to the real x, so 5 becomes 7.",
+  },
+  {
+    id: "c-pointer-compare",
+    lang: "c",
+    level: 2,
+    code: `int a[] = {1, 2, 3};
+int *p = a, *q = a + 2;
+printf("%d %d %d", p < q, (int)(q - p), *q - *p);`,
+    answer: "1 2 2",
+    why: "p < q is true, which prints 1. Subtracting two pointers counts elements, so q - p is 2. *q - *p is 3 - 1.",
+  },
+  {
+    id: "c-byte-distance",
+    lang: "c",
+    level: 3,
+    code: `int a[5];
+char *c1 = (char *)&a[0], *c2 = (char *)&a[3];
+printf("%d %d", (int)(&a[3] - &a[0]), (int)(c2 - c1));`,
+    answer: "3 12",
+    why: "Subtracting int pointers counts ints, which gives 3. The same two addresses seen as char pointers are 3 * 4 = 12 bytes apart.",
+  },
+  {
+    id: "c-reverse-pointers",
+    lang: "c",
+    level: 3,
+    code: `char s[] = "Mitch";
+char *a = s, *b = s + 4;
+while (a < b) {
+    char t = *a;
+    *a = *b;
+    *b = t;
+    a++;
+    b--;
+}
+printf("%s", s);`,
+    answer: "hctiM",
+    why: "The two pointers swap letters and walk toward each other, and they stop when they meet in the middle. The string reads backward.",
+  },
+  {
+    id: "c-find-end",
+    lang: "c",
+    level: 3,
+    code: `char s[] = "pointers";
+char *p = s;
+while (*p)
+    p++;
+printf("%d", (int)(p - s));`,
+    answer: "8",
+    why: "p stops on the null character, which counts as false. That's 8 steps from the start, so p - s is the length.",
+  },
+  {
+    id: "c-out-params",
+    lang: "c",
+    level: 3,
+    code: `#include <stdio.h>
+
+void minmax(int *lo, int *hi, int a, int b) {
+    if (a < b) { *lo = a; *hi = b; }
+    else       { *lo = b; *hi = a; }
+}
+
+int main(void) {
+    int low, high;
+    minmax(&low, &high, 9, 3);
+    printf("%d %d", low, high);
+    return 0;
+}`,
+    answer: "3 9",
+    why: "The function writes its results through the two addresses, so low and high are set without any return value.",
+  },
+  {
+    id: "c-array-param",
+    lang: "c",
+    level: 3,
+    code: `#include <stdio.h>
+
+void f(int a[]) { a[0] = 99; a = 0; }
+
+int main(void) {
+    int v[3] = {1, 2, 3};
+    f(v);
+    printf("%d %d", v[0], v[1]);
+    return 0;
+}`,
+    answer: "99 2",
+    why: "An array argument is passed as an address, so a[0] = 99 changes the real array. a = 0 only changes the function's own copy of that address.",
+  },
+  {
+    id: "c-skip-by-two",
+    lang: "c",
+    level: 3,
+    code: `int a[] = {1, 2, 3, 4, 5, 6};
+int *p = a, s = 0;
+while (p < a + 6) {
+    s += *p;
+    p += 2;
+}
+printf("%d", s);`,
+    answer: "9",
+    why: "p visits a[0], a[2] and a[4], which hold 1, 3 and 5. The next step lands on a + 6 and ends the loop.",
+  },
+  {
+    id: "c-offsets",
+    lang: "c",
+    level: 3,
+    code: `int a[] = {10, 20, 30, 40, 50};
+int *p = &a[1];
+printf("%d %d %d", p[1], p[-1], (int)(&p[2] - a));`,
+    answer: "30 10 3",
+    why: "A pointer can be indexed from where it points, and a negative index goes backward. &p[2] is a[3], which is 3 ints from a.",
+  },
+  {
+    id: "c-deref-precedence",
+    lang: "c",
+    level: 3,
+    code: `int a[] = {10, 20, 30};
+int *p = a + 1;
+printf("%d %d %d %d", *p + 1, *(p + 1), *p - 1, *(p - 1));`,
+    answer: "21 30 19 10",
+    why: "*p + 1 adds to the value, and *(p + 1) reads the next element. The brackets decide which one happens.",
+  },
+  {
+    id: "c-count-odd",
+    lang: "c",
+    level: 3,
+    code: `int v[] = {4, 6, 5, 7, 8, 11, 10, 3, 18, 9};
+int *p = v, odd = 0;
+while (p < v + 10) {
+    if (*p % 2)
+        odd++;
+    p++;
+}
+printf("%d odd", odd);`,
+    answer: "5 odd",
+    why: "Odd numbers leave a remainder of 1, which counts as true. The odd ones are 5, 7, 11, 3 and 9.",
+  },
+  {
+    id: "c-pointer-to-pointer",
+    lang: "c",
+    level: 4,
+    code: `int x = 1, y = 2;
+int *p = &x;
+int **pp = &p;
+**pp = 10;
+*pp = &y;
+**pp += 5;
+printf("%d %d %d", x, y, *p);`,
+    answer: "10 7 7",
+    why: "**pp = 10 writes into x. *pp = &y then repoints p at y, so **pp += 5 changes y, and *p now reads y.",
+  },
+  {
+    id: "c-capitalize-words",
+    lang: "c",
+    level: 4,
+    code: `char s[] = "mitCh anDaya";
+char *p = s;
+int start = 1;
+for (; *p; p++) {
+    if (*p == ' ') {
+        start = 1;
+    } else if (start) {
+        if (*p >= 'a' && *p <= 'z') *p -= 32;
+        start = 0;
+    } else if (*p >= 'A' && *p <= 'Z') {
+        *p += 32;
+    }
+}
+printf("%s", s);`,
+    answer: "Mitch Andaya",
+    why: "The first letter of each word is made uppercase, and every other letter is made lowercase. A space starts a new word.",
+  },
+  {
+    id: "c-edit-string",
+    lang: "c",
+    level: 4,
+    code: `char a[] = "hello";
+char *p = a;
+*p = 'j';
+p += 4;
+*p = 'y';
+printf("%s %c", a, *(a + 1));`,
+    answer: "jelly e",
+    why: "p starts at h, so *p = 'j' makes jello. p += 4 lands on the last letter, which becomes y. a + 1 is still e.",
+  },
+  {
+    id: "py-func-reference",
+    lang: "python",
+    level: 2,
+    code: `def add(lst):
+    lst.append(1)
+    lst = [9]
+    lst.append(2)
+
+a = [0]
+add(a)
+print(a)`,
+    answer: "[0, 1]",
+    why: "The first append changes the list that a refers to. lst = [9] then makes lst refer to a new list, so the second append never reaches a.",
+  },
+  {
+    id: "py-shallow-copy",
+    lang: "python",
+    level: 3,
+    code: `a = [[1, 2], [3]]
+b = a[:]
+b[0].append(9)
+b.append([4])
+print(a, len(b))`,
+    answer: "[[1, 2, 9], [3]] 3",
+    why: "a[:] copies only the outer list, so both lists share the same inner lists. The append to b[0] shows up in a, but the new item stays in b only.",
+  },
+  {
+    id: "py-is-vs-equal",
+    lang: "python",
+    level: 3,
+    code: `a = [1]
+b = [1]
+c = a
+print(a == b, a is b, a is c)`,
+    answer: "True False True",
+    why: "== compares the contents and is compares whether it's the same object. a and b hold equal contents but are different lists, and c is the same list as a.",
+  },
+  {
+    id: "js-object-reference",
+    lang: "js",
+    level: 2,
+    code: `function f(o) {
+  o.x = 1;
+  o = { x: 2 };
+  o.y = 3;
+}
+const a = {};
+f(a);
+console.log(JSON.stringify(a));`,
+    answer: '{"x":1}',
+    why: "o.x = 1 changes the object that a refers to. o = { x: 2 } then points o at a new object, so the y never reaches a.",
+  },
+  {
+    id: "js-const-array",
+    lang: "js",
+    level: 2,
+    code: `const a = [1];
+const b = a;
+b.push(2);
+console.log(a.length, a === b);`,
+    answer: "2 true",
+    why: "const stops reassignment, not changes to the array. b is the same array as a, so push shows up in both.",
+  },
+  {
+    id: "js-closure-counter",
+    lang: "js",
+    level: 3,
+    code: `function make() {
+  let n = 0;
+  return () => ++n;
+}
+const c1 = make(), c2 = make();
+c1();
+c1();
+console.log(c1(), c2());`,
+    answer: "3 1",
+    why: "Each call to make creates its own n. c1 has been called three times, and c2 has been called once.",
+  },
+  {
+    id: "py-class-attribute",
+    lang: "python",
+    level: 3,
+    code: `class Counter:
+    total = 0
+
+    def __init__(self):
+        Counter.total += 1
+        self.id = Counter.total
+
+a = Counter()
+b = Counter()
+b.total = 10
+print(a.id, b.id, Counter.total, a.total, b.total)`,
+    answer: "1 2 2 2 10",
+    why: "total is shared by the class. b.total = 10 creates a separate total on b only, so the class and a still see 2.",
+  },
+  {
+    id: "py-super-override",
+    lang: "python",
+    level: 3,
+    code: `class Animal:
+    def speak(self):
+        return self.sound() + "!"
+
+    def sound(self):
+        return "..."
+
+class Dog(Animal):
+    def sound(self):
+        return "woof"
+
+class Puppy(Dog):
+    def sound(self):
+        return super().sound() + " yip"
+
+print(Animal().speak(), Dog().speak(), Puppy().speak())`,
+    answer: "...! woof! woof yip!",
+    why: "self.sound() picks the version in the object's own class. super().sound() in Puppy calls Dog's version and then adds yip.",
+  },
+  {
+    id: "py-init-chain",
+    lang: "python",
+    level: 4,
+    code: `class A:
+    def __init__(self):
+        print("A start")
+        self.setup()
+        print("A end")
+
+    def setup(self):
+        print("A setup")
+
+class B(A):
+    def __init__(self):
+        print("B start")
+        super().__init__()
+        print("B end")
+
+    def setup(self):
+        print("B setup")
+
+B()`,
+    answer: "B start\nA start\nB setup\nA end\nB end",
+    why: "B() runs B's __init__ first. super().__init__() runs A's, and its self.setup() picks B's setup because the object is a B.",
+  },
+  {
+    id: "js-lost-this",
+    lang: "js",
+    level: 3,
+    code: `class Box {
+  constructor() { this.n = 1; }
+  get() { return this?.n; }
+}
+const b = new Box();
+const g = b.get;
+console.log(b.get(), g(), g.call({ n: 7 }));`,
+    answer: "1 undefined 7",
+    why: "A method called as b.get() has b as this. Pulled out as g(), it has no this, and class code runs in strict mode so this is undefined. call sets this to the object you pass.",
+  },
+  {
+    id: "js-field-order",
+    lang: "js",
+    level: 4,
+    code: `class A {
+  constructor() { this.show(); }
+  show() { console.log("A"); }
+}
+class B extends A {
+  x = 5;
+  show() { console.log(this.x); }
+}
+new B();`,
+    answer: "undefined",
+    why: "The parent constructor runs before the child's x = 5 is set. show is B's version, so it prints undefined.",
+  },
 ];
