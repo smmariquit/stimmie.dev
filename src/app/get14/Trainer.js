@@ -21,7 +21,7 @@ const DEFAULT_ORDER = (() => {
     .map((p) => p.id);
 })();
 
-function shuffled(ids) {
+export function shuffled(ids) {
   const out = [...ids];
   for (let i = out.length - 1; i > 0; i--) {
     const j = Math.floor(Math.random() * (i + 1));
@@ -34,7 +34,7 @@ function clock(seconds) {
   return `${Math.floor(seconds / 60)}:${String(seconds % 60).padStart(2, "0")}`;
 }
 
-function FilterGroup({ label, options, value, onPick }) {
+export function FilterGroup({ label, options, value, onPick }) {
   return (
     // biome-ignore lint/a11y/useSemanticElements: a fieldset can't wrap flex chips cleanly
     <div className="g14-filter" role="group" aria-label={label}>

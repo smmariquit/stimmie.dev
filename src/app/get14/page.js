@@ -48,6 +48,10 @@ export default function Get14Page() {
           and C. They aren&apos;t from YSES, and the real contest may be very
           different.
         </p>
+        <p className="mt-2">
+          For fast reps on the small steps, play the{" "}
+          <Link href="/get14/drills">60 second drills</Link>.
+        </p>
 
         <h2 className="neo-section-title">how to practice</h2>
         <ol className="neo-facts list-decimal pl-6 m-0 mt-2 space-y-1">
