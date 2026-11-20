@@ -36,8 +36,10 @@ export default function Get14DrillsPage() {
       <div className="g14-page">
         <p>
           These drills train the small steps inside the{" "}
-          <Link href="/get14">practice problems</Link>, one line at a time. They
-          aren&apos;t from YSES.
+          <Link href="/get14">practice problems</Link>, one line at a time. The
+          rules behind them are on the{" "}
+          <Link href="/get14/cheatsheet">cheat sheet</Link>. They aren&apos;t
+          from YSES.
         </p>
 
         <Drills />

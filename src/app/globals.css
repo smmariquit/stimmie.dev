@@ -3436,3 +3436,120 @@ body {
     opacity: 0;
   }
 }
+
+/* ── /get14/cheatsheet ────────────────────────────────────────────── */
+
+.g14c {
+  margin-top: 0;
+}
+.g14c code {
+  font-family: var(--g14-mono);
+  font-size: 0.92rem;
+}
+
+.g14c-jumps {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem 1rem;
+  margin-top: 1rem;
+  font-family: var(--neo-ui);
+  font-weight: 700;
+}
+
+.g14c-scroll {
+  margin-top: 0.75rem;
+  overflow-x: auto;
+}
+.g14c-table {
+  width: 100%;
+  min-width: 34rem;
+  border-collapse: collapse;
+  background: var(--g14-code-bg);
+}
+.g14c-table th,
+.g14c-table td {
+  padding: 0.4rem 0.6rem;
+  text-align: left;
+  vertical-align: top;
+  border: 2px solid var(--g14-ink);
+}
+.g14c-table thead th {
+  font-family: var(--neo-ui);
+  color: var(--neo-box);
+  background: var(--g14-ink);
+}
+.g14c-table tbody th {
+  font-family: var(--neo-ui);
+  font-weight: 400;
+  line-height: 1.3;
+}
+.g14c-table td code,
+.g14c-table td strong {
+  display: block;
+}
+.g14c-table td strong,
+.g14c-out {
+  font-family: var(--g14-mono);
+  color: var(--g14-right);
+}
+.g14c-none {
+  color: var(--g14-marker);
+}
+
+.g14c-group {
+  margin: 1.25rem 0 0.4rem;
+  font-family: var(--neo-ui);
+  font-size: 1.05rem;
+  font-weight: 700;
+}
+.g14c-rows {
+  display: grid;
+  gap: 0.5rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.g14c-rows li {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 0.15rem 1rem;
+  padding: 0.5rem 0.75rem;
+  background: var(--g14-code-bg);
+  border: 2px solid var(--g14-ink);
+}
+.g14c-code {
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+}
+.g14c-out {
+  text-align: right;
+  overflow-wrap: anywhere;
+}
+.g14c-why {
+  grid-column: 1 / -1;
+  font-size: 0.95rem;
+  line-height: 1.4;
+  color: var(--g14-marker);
+}
+
+.g14c-powers code {
+  margin-right: 0.5rem;
+}
+.g14c-order {
+  margin: 0.5rem 0 0;
+  padding-left: 2rem;
+  list-style: decimal;
+}
+.g14c-order code {
+  white-space: pre-wrap;
+}
+
+@media (max-width: 40rem) {
+  .g14c-rows li {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  .g14c-out {
+    text-align: left;
+  }
+}
+

@@ -50,7 +50,9 @@ export default function Get14Page() {
         </p>
         <p className="mt-2">
           For fast reps on the small steps, play the{" "}
-          <Link href="/get14/drills">60 second drills</Link>.
+          <Link href="/get14/drills">60 second drills</Link>, and read the{" "}
+          <Link href="/get14/cheatsheet">cheat sheet</Link> for the rules behind
+          them.
         </p>
 
         <h2 className="neo-section-title">how to practice</h2>
