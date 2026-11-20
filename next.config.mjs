@@ -35,7 +35,7 @@ const nextConfig = {
     contentSecurityPolicy: "default-src 'self'; script-src 'none'; sandbox;",
   },
 
-  // /dailyten, /iop-tour and /blog/on-rereading are handled by Workers static
+  // /dailyten and /blog/on-rereading are handled by Workers static
   // assets (auto trailing slash + public/_redirects); headers live in
   // public/_headers. Rewrites/redirects/headers don't apply to a static export.
 
