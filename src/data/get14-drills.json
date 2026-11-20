@@ -1,0 +1,3154 @@
+{
+  "rules": [
+    "Python // rounds down, and % takes the sign of the right side.",
+    "C / drops the decimal part, and % takes the sign of the left side.",
+    "Write both in binary. & needs both 1, | needs either, ^ needs different. << n multiplies by 2^n, >> n divides by 2^n, and ~x is -(x + 1).",
+    "** goes first (right to left), then unary minus, then * // %, then + -, then << >>, then &.",
+    "Binary places are 32 16 8 4 2 1. Hex is 16s and 1s. Octal is 8s and 1s.",
+    "get returns the default when the key is missing.",
+    "pop() removes and returns the last item.",
+    "A string times n repeats it n times.",
+    "Count the values, and remember range stops before the end.",
+    "Halve n until the test fails, and // rounds down.",
+    "Update x one statement at a time and write each value down.",
+    "The if keeps only odd v here.",
+    "+ joins strings and adds numbers.",
+    "The right side is read first, then both are assigned.",
+    "A negative index counts from the end, and -1 is the last item.",
+    "pop(0) removes and returns the first item.",
+    "continue skips the rest of the loop body for odd v.",
+    "b = a is the same list, so both names see the change.",
+    "range stops before the end, and the if keeps even v.",
+    "A set drops duplicates.",
+    "and returns the first falsy value, or the last value.",
+    "range stops before the end value.",
+    "/ always gives a float, and // rounds down.",
+    "join puts the separator between the items.",
+    "find returns the first index, or -1 when it's missing.",
+    "or returns the first truthy value, or the last value.",
+    "int() cuts toward zero, and // rounds down.",
+    "b + [9] builds a new list, so a doesn't change.",
+    "A negative step counts down and still stops before the end value.",
+    "A step of -1 walks backward, so it reverses.",
+    "enumerate gives (index, item) pairs.",
+    "split makes a list, then the index picks one piece.",
+    "sorted returns a new list and leaves a alone.",
+    "The slice starts at the first number, then jumps by the step.",
+    "Trace the calls down to the base case, then multiply back up.",
+    "insert(1, 0) puts 0 at index 1 and pushes the rest right.",
+    "a[:] makes a copy, so a doesn't change.",
+    "A step of 2 takes every other character, starting at index 0.",
+    "Destructuring goes by position, and a default fills a missing spot.",
+    "Braces need an explicit return, so this gives undefined.",
+    "sort() with no function compares items as strings, so 10 comes before 2.",
+    "JS has no integer division, so / keeps the decimal.",
+    "A missing property is undefined, not an error.",
+    "parseInt reads digits until a non-digit. Number needs the whole string to be a number.",
+    "push returns the new length, not the array.",
+    "shift removes and returns the first item.",
+    "Each arrow function keeps its own i.",
+    "i++ gives the old value, and ++i gives the new one.",
+    "add(a) returns a second function that still remembers a.",
+    "The default is used only when the argument is missing.",
+    "unshift adds to the front and returns the new length.",
+    "slice(start, end) copies from start and stops before end.",
+    "splice(start, count) removes count items in place.",
+    "p = o points to the same object.",
+    "|| skips any falsy value. ?? only skips null and undefined.",
+    "slice(-2) takes the last two characters.",
+    "+ runs left to right, so after the string everything gets joined.",
+    "var isn't scoped to the loop, and the loop ends when i reaches the limit.",
+    "*, - and / turn strings into numbers.",
+    "+ runs left to right, so the numbers add first and then join the string.",
+    "reduce carries s from item to item, starting at 0.",
+    "The callbacks run after the loop, and they all share one var i.",
+    "With +, a string turns the other side into a string.",
+    "let inside a block is a different variable.",
+    "filter keeps items where the function is truthy, and odd % 2 is 1.",
+    "A setTimeout callback waits until the current code is done.",
+    "floor goes down, and trunc goes toward zero.",
+    "&& returns the first falsy value, or the last value.",
+    "let gives each turn of the loop its own i.",
+    "map makes a new array with the function applied to each item.",
+    "indexOf returns the position, or -1 when it's missing.",
+    "pop removes and returns the last item.",
+    "String joins, and Number adds.",
+    "The spread splits the string into characters.",
+    "The cast happens first, so this is float division.",
+    "++i adds 1 first, then gives the new value.",
+    "The inner loop runs 3, then 2, then 1 times.",
+    "i is 0 and then 2, so only those two items count.",
+    "An unsigned char wraps around at 256.",
+    "A single = assigns 0, and 0 is false, so the else runs.",
+    "Subtracting two pointers gives the number of elements between them.",
+    "Without break, a case falls into the next one.",
+    "The test uses the old i, then i goes up before the body runs.",
+    "s + n starts the string at index n.",
+    "p + 1 moves one element forward.",
+    "List the values i takes, and stop before the limit.",
+    "This builds the number with its digits reversed.",
+    "The ternary picks the first value when the test is true.",
+    "i-- gives the old value first, then i goes down by 1.",
+    "A 0 in the array ends the string there.",
+    "* binds before +, so this is (the item p points at) + 1.",
+    "% 10 takes the last digit, and / 10 drops it.",
+    "*p is v itself, so the change shows in v.",
+    "strlen doesn't count the ending null character.",
+    "*p = *q copies the value, so a no longer follows b.",
+    "i++ gives the old value first, then i goes up by 1.",
+    "Update v one statement at a time and write each value down.",
+    "break leaves the loop before i++ runs again.",
+    "Logic operators give 1 for true and 0 for false.",
+    "p[i] is *(p + i), so a negative index looks behind p.",
+    "*p++ reads the item, then moves p forward.",
+    "The int division happens first, then the cast.",
+    "'0' is 48, 'A' is 65 and 'a' is 97.",
+    "NaN, null and undefined are all falsy.",
+    "Hex A to F are 10 to 15.",
+    "split() with no argument skips repeated spaces. split(\" \") keeps an empty piece.",
+    "sizeof the array over sizeof one item gives the item count.",
+    "range(3) is 0, 1, 2, and range(0) is empty.",
+    "The powers of 2 go 1, 2, 4, 8, 16, 32, 64, 128, 256, 512, 1024.",
+    "The precision rounds to that many decimal places.",
+    "0.1 and 0.2 aren't exact in binary, but halves and quarters are.",
+    "== compares values, so two lists with the same items are equal.",
+    "sizeof counts the ending null character, and strlen doesn't.",
+    "typeof gives a lowercase string.",
+    "Strings compare by character code, and uppercase comes first.",
+    "'0' is 48, and subtracting '0' turns a digit character into its number.",
+    "i *= 2 + 1 means i = i * (2 + 1).",
+    "| 0 cuts off the decimal part.",
+    "find returns the item, and findIndex returns -1 when nothing matches.",
+    "charCodeAt gives the code, and fromCharCode goes back.",
+    "An empty string becomes 0 with Number.",
+    "&& is logic and gives 1. & is bitwise, and 01 & 10 is 0.",
+    "\\n is one character.",
+    "1 << n is 2 to the n.",
+    "pow(2, 5) is 2 ** 5.",
+    "An escape like \\n is one character.",
+    "Empty containers and zero are falsy. A list with anything in it is truthy.",
+    "Arrays are objects in JS.",
+    "typeof always returns a string.",
+    "True is 1, false is 0, and any nonzero value is true.",
+    "A char is a small number, so ++ moves to the next letter.",
+    "at() takes negative indexes, and brackets don't.",
+    "The comma operator gives its last value.",
+    "Uppercase letters come first in ASCII.",
+    "append changes the list and returns None.",
+    "splice returns the removed items, and slice returns a copy.",
+    "Dividing by zero gives Infinity, and 0 / 0 is NaN.",
+    "A cast to int cuts toward zero on both sides.",
+    "Adding 1 to a string pointer skips the first character.",
+    "capitalize makes only the first letter uppercase.",
+    "{} is an empty dict, and {1} is a set.",
+    "== converts [] and an empty string to 0, but null only equals undefined.",
+    "Parentheses alone don't make a tuple. The comma does.",
+    "INT_MAX is 2 to the 31st minus 1.",
+    "%c prints the character, and %d prints its code.",
+    "== converts types first, and === doesn't.",
+    "A unary + turns a string into a number.",
+    "5 is 101 and 3 is 011 in binary.",
+    "slice(-1) is the last character.",
+    "split(\"\") splits into single characters.",
+    "None is falsy, but it isn't equal to False.",
+    "A nested array counts as one item.",
+    "An int can equal a float, but a string never equals a number.",
+    "Hex F is 15, so 0x1F is 16 + 15.",
+    "Strings compare character by character.",
+    "None and empty containers are falsy. A tuple with one item is truthy.",
+    "typeof null is object, which is an old quirk.",
+    "Uppercase letters sort before lowercase.",
+    "+ runs before ==.",
+    "int division cuts toward zero.",
+    "Only the empty string is falsy. Any character makes it truthy.",
+    "null becomes 0, undefined becomes NaN, and true becomes 1.",
+    "A 0 before the width pads with zeros.",
+    "index gives the position, and count gives how many.",
+    "ord turns a character into its code, and chr goes back.",
+    "The cast makes it floating point division.",
+    "and returns its last value when both are truthy, so or never runs.",
+    "Math.round sends .5 upward, so -2.5 becomes -2.",
+    "Uppercase and lowercase are 32 apart.",
+    "A let with no value is undefined, and undefined + 1 is NaN.",
+    "sort and reverse both return the array, so they chain.",
+    "A leading 0 makes an octal literal, so 010 is 8.",
+    "% takes the sign of the left side.",
+    "divmod gives the quotient and the remainder as a tuple.",
+    "Setting length cuts the array.",
+    "NaN isn't equal to anything, even itself.",
+    "A double is 8 bytes, and a float is 4.",
+    "+ turns arrays into strings first.",
+    "%x is hex, %X is uppercase hex, and %o is octal.",
+    "Missing initializers become 0.",
+    "padStart fills on the left up to the length.",
+    "An array turns into its items joined by commas.",
+    "Only the empty string is falsy.",
+    "in checks substrings, list items and dict keys.",
+    "A negative power divides, and a power of 0.5 is a square root.",
+    "/ and * run left to right, and int division loses the half.",
+    "/ always gives a float, and // of two ints gives an int.",
+    "indexOf gives -1 when it's missing.",
+    "Empty arrays and objects are truthy in JS.",
+    "An f-string runs the code inside the braces.",
+    "a++ gives the old a here.",
+    "A char is 1 byte, and an int is 4 bytes on a normal PC.",
+    "int adds, str joins, and float prints with a decimal point.",
+    "NaN is still a number.",
+    "== treats null and undefined as equal, and === doesn't.",
+    "* and % have the same rank and run left to right, before +.",
+    "Uppercase letters come before lowercase in ASCII.",
+    "list.sort() sorts in place and returns None.",
+    "C has no power operator, and ^ is XOR.",
+    "Python == compares values and never turns a string into a number.",
+    "% takes the sign of the left side here. Python would give a positive result.",
+    "?? only replaces null and undefined. || replaces any falsy value.",
+    "Python // rounds down, even for negatives.",
+    "Python % takes the sign of the right side. C and JS take the sign of the left.",
+    "** is power and ^ is XOR.",
+    "The loop stops when i reaches the limit, so i ends at the limit.",
+    "JS == converts types, but two arrays are equal only when they're the same object.",
+    "// loses the half, and / keeps it.",
+    "Python strings can't change in place, so replace returns a new one.",
+    "JS + turns both arrays into strings and joins them.",
+    "Math.round sends .5 upward. Python rounds it to the nearest even number.",
+    "== on C strings compares addresses. strcmp returns 0 when they match.",
+    "Strings compare character by character, and 1 comes before 9.",
+    "Python uses len() as a function.",
+    "C uses strlen from string.h.",
+    "C int division loses the half, so 7 / 2 * 2 is 6.",
+    "A comparison gives 1 in C.",
+    "With no var or let inside, f changes the outer x.",
+    "JS && and || give back one of the values, not true or false.",
+    "Python + joins two lists into one.",
+    "b points at the same array.",
+    "JS / never drops the decimal, so the halves add back up. C would lose 1.",
+    "The int division happens before the 1.0 can turn it into a double.",
+    "Python prints True with a capital T, and True counts as 1.",
+    "JS strings can't change in place, and the assignment is silently ignored.",
+    "JS prints true in lowercase, and true counts as 1.",
+    "A C char array can be changed in place.",
+    "Assigning inside a function makes a local x, so the outer one stays.",
+    "Python treats an empty list as falsy. JS treats [] as truthy.",
+    "A char is a number in C, and '0' is 48.",
+    "This runs left to right, so 3 > 2 gives a true value, and that isn't greater than 1.",
+    "or returns the last value when nothing is truthy.",
+    "Python / always gives a float.",
+    "Spread and concat are how JS joins arrays.",
+    "A string literal is a non-null pointer, so it's true in C even when empty.",
+    "Python brackets take negative indexes.",
+    "JS uses the length property.",
+    "The inner x only lives inside its block.",
+    "Python chains comparisons, so 3 > 2 > 1 means 3 > 2 and 2 > 1.",
+    "Two strings compare by character. A string and a number compare as numbers.",
+    "The loop variable keeps its last value, which is one below the range end.",
+    "Python and/or give back one of the values, not True or False.",
+    "b = a is the same list.",
+    "Python repeats a string with *. JS would turn it into a number.",
+    "C int division drops the decimal, so each half loses 0.5.",
+    "parseInt and trunc cut toward zero, and floor goes down.",
+    "The spread makes a copy, so a doesn't change.",
+    "JS / keeps the decimal, so nothing is lost.",
+    "JS treats [] as truthy. Python treats an empty list as falsy.",
+    "C logic operators give 1 or 0. Python and JS give back one of the values.",
+    "JS * turns the string into a number, and + joins.",
+    "sort() with no function compares items as strings. Python sorts numbers as numbers.",
+    "var inside f makes a local x.",
+    "A compare function p - q sorts numbers going up.",
+    "Python rounds .5 to the nearest even number. JS Math.round sends it up.",
+    "JS brackets don't take negative indexes, and at() does.",
+    "A cast to int cuts toward zero."
+  ],
+  "items": [
+    ["math", "python", "-14 % -4", "-2", 0],
+    ["math", "python", "-3 // 6", "-1", 0],
+    ["math", "python", "26 // 3", "8", 0],
+    ["math", "python", "-1 // 9", "-1", 0],
+    ["math", "python", "5 // 3", "1", 0],
+    ["math", "python", "-6 // 7", "-1", 0],
+    ["math", "python", "31 // 6", "5", 0],
+    ["math", "python", "31 % -3", "-2", 0],
+    ["math", "python", "-10 // -3", "3", 0],
+    ["math", "python", "-10 % 2", "0", 0],
+    ["math", "python", "-13 // -4", "3", 0],
+    ["math", "python", "-19 // 3", "-7", 0],
+    ["math", "python", "-7 // 8", "-1", 0],
+    ["math", "python", "17 % 9", "8", 0],
+    ["math", "python", "35 // 3", "11", 0],
+    ["math", "python", "-9 // 3", "-3", 0],
+    ["math", "python", "12 // 5", "2", 0],
+    ["math", "python", "8 % -4", "0", 0],
+    ["math", "python", "11 // 6", "1", 0],
+    ["math", "python", "-14 % 3", "1", 0],
+    ["math", "python", "-3 % 6", "3", 0],
+    ["math", "python", "-19 // 4", "-5", 0],
+    ["math", "python", "-13 % -3", "-1", 0],
+    ["math", "python", "7 % 9", "7", 0],
+    ["math", "python", "14 // 8", "1", 0],
+    ["math", "python", "7 % 8", "7", 0],
+    ["math", "python", "-4 // 9", "-1", 0],
+    ["math", "python", "-5 // 9", "-1", 0],
+    ["math", "python", "-16 % -4", "0", 0],
+    ["math", "python", "-19 // 8", "-3", 0],
+    ["math", "python", "-19 // 7", "-3", 0],
+    ["math", "python", "40 // 9", "4", 0],
+    ["math", "python", "2 % 6", "2", 0],
+    ["math", "python", "-18 // -3", "6", 0],
+    ["math", "python", "31 % 6", "1", 0],
+    ["math", "python", "4 % 3", "1", 0],
+    ["math", "python", "-8 % 6", "4", 0],
+    ["math", "python", "-20 // -4", "5", 0],
+    ["math", "python", "13 // 7", "1", 0],
+    ["math", "python", "-13 % 2", "1", 0],
+    ["math", "python", "29 % 5", "4", 0],
+    ["math", "python", "-6 // 6", "-1", 0],
+    ["math", "python", "-9 % 5", "1", 0],
+    ["math", "python", "18 // 7", "2", 0],
+    ["math", "python", "26 % 7", "5", 0],
+    ["math", "c", "-10 / 5   (both int)", "-2", 1],
+    ["math", "js", "19 % 5", "4", 1],
+    ["math", "c", "32 / 2   (both int)", "16", 1],
+    ["math", "c", "24 % -4", "0", 1],
+    ["math", "c", "3 / 3   (both int)", "1", 1],
+    ["math", "c", "-24 / 4   (both int)", "-6", 1],
+    ["math", "c", "32 / -4   (both int)", "-8", 1],
+    ["math", "js", "18 % 2", "0", 1],
+    ["math", "c", "17 / -3   (both int)", "-5", 1],
+    ["math", "c", "26 / 5   (both int)", "5", 1],
+    ["math", "c", "-8 / 4   (both int)", "-2", 1],
+    ["math", "c", "-2 % 7", "-2", 1],
+    ["math", "c", "22 / -4   (both int)", "-5", 1],
+    ["math", "js", "30 % 7", "2", 1],
+    ["math", "c", "-23 % 3", "-2", 1],
+    ["math", "c", "24 % 3", "0", 1],
+    ["math", "js", "-22 % 2", "0", 1],
+    ["math", "c", "-25 % 4", "-1", 1],
+    ["math", "c", "-30 / -4   (both int)", "7", 1],
+    ["math", "c", "33 / 2   (both int)", "16", 1],
+    ["math", "c", "4 / 5   (both int)", "0", 1],
+    ["math", "c", "35 % 2", "1", 1],
+    ["math", "c", "-30 % 7", "-2", 1],
+    ["math", "c", "20 / -3   (both int)", "-6", 1],
+    ["math", "c", "14 / 7   (both int)", "2", 1],
+    ["math", "js", "-13 % 6", "-1", 1],
+    ["math", "c", "-3 / -4   (both int)", "0", 1],
+    ["math", "c", "-22 / -4   (both int)", "5", 1],
+    ["math", "c", "19 / -3   (both int)", "-6", 1],
+    ["math", "js", "23 % 5", "3", 1],
+    ["math", "c", "30 / 5   (both int)", "6", 1],
+    ["math", "c", "36 % 3", "0", 1],
+    ["math", "c", "-6 % 6", "0", 1],
+    ["math", "c", "1 / 3   (both int)", "0", 1],
+    ["math", "c", "-24 / 2   (both int)", "-12", 1],
+    ["math", "c", "6 / -3   (both int)", "-2", 1],
+    ["math", "c", "-22 % 3", "-1", 1],
+    ["math", "js", "17 % -4", "1", 1],
+    ["math", "c", "-17 / 7   (both int)", "-2", 1],
+    ["math", "c", "9 / 2   (both int)", "4", 1],
+    ["math", "js", "28 % 4", "0", 1],
+    ["math", "c", "30 % 6", "0", 1],
+    ["math", "js", "-23 % 2", "-1", 1],
+    ["math", "c", "16 / 6   (both int)", "2", 1],
+    ["math", "c", "-8 % 4", "0", 1],
+    ["math", "any", "9 | 13", "13", 2],
+    ["math", "any", "3 & 15", "3", 2],
+    ["math", "any", "37 >> 2", "9", 2],
+    ["math", "any", "10 << 4", "160", 2],
+    ["math", "any", "111 >> 2", "27", 2],
+    ["math", "any", "6 | 4", "6", 2],
+    ["math", "any", "89 >> 2", "22", 2],
+    ["math", "any", "14 ^ 9", "7", 2],
+    ["math", "any", "2 << 1", "4", 2],
+    ["math", "any", "5 & 14", "4", 2],
+    ["math", "any", "3 ^ 5", "6", 2],
+    ["math", "any", "13 | 13", "13", 2],
+    ["math", "any", "2 | 9", "11", 2],
+    ["math", "any", "~7", "-8", 2],
+    ["math", "any", "5 << 4", "80", 2],
+    ["math", "any", "7 & 13", "5", 2],
+    ["math", "any", "8 & 13", "8", 2],
+    ["math", "any", "105 >> 1", "52", 2],
+    ["math", "any", "~17", "-18", 2],
+    ["math", "any", "1 | 10", "11", 2],
+    ["math", "any", "34 >> 3", "4", 2],
+    ["math", "any", "104 >> 3", "13", 2],
+    ["math", "any", "4 << 1", "8", 2],
+    ["math", "any", "6 | 14", "14", 2],
+    ["math", "any", "~15", "-16", 2],
+    ["math", "any", "2 & 13", "0", 2],
+    ["math", "any", "~2", "-3", 2],
+    ["math", "any", "82 >> 1", "41", 2],
+    ["math", "any", "15 | 2", "15", 2],
+    ["math", "any", "8 | 9", "9", 2],
+    ["math", "any", "6 << 4", "96", 2],
+    ["math", "any", "16 >> 3", "2", 2],
+    ["math", "any", "~11", "-12", 2],
+    ["math", "any", "15 & 9", "9", 2],
+    ["math", "any", "14 ^ 5", "11", 2],
+    ["math", "any", "8 | 8", "8", 2],
+    ["math", "any", "~3", "-4", 2],
+    ["math", "any", "9 & 8", "8", 2],
+    ["math", "any", "1 ^ 13", "12", 2],
+    ["math", "any", "9 & 7", "1", 2],
+    ["math", "any", "4 | 9", "13", 2],
+    ["math", "any", "6 & 9", "0", 2],
+    ["math", "any", "~5", "-6", 2],
+    ["math", "any", "7 ^ 1", "6", 2],
+    ["math", "any", "13 | 2", "15", 2],
+    ["math", "python", "2 ** 1 ** 2", "2", 3],
+    ["math", "python", "4 % 8 * 4", "16", 3],
+    ["math", "python", "5 % 4 * 7", "7", 3],
+    ["math", "python", "6 * 3 // 3", "6", 3],
+    ["math", "python", "12 * 6 // 2", "36", 3],
+    ["math", "python", "5 % 7 * 3", "15", 3],
+    ["math", "python", "4 % 2 * 6", "0", 3],
+    ["math", "python", "-2 ** 2", "-4", 3],
+    ["math", "python", "4 * 9 // 3", "12", 3],
+    ["math", "python", "10 + 6 * 2", "22", 3],
+    ["math", "python", "9 + 7 << 1", "32", 3],
+    ["math", "python", "7 - 3 % 7", "4", 3],
+    ["math", "python", "-4 ** 2", "-16", 3],
+    ["math", "python", "9 & 8 + 1", "9", 3],
+    ["math", "python", "5 & 3 + 1", "4", 3],
+    ["math", "python", "-6 ** 2", "-36", 3],
+    ["math", "python", "8 & 9 + 1", "8", 3],
+    ["math", "python", "(9 + 6) // 5", "3", 3],
+    ["math", "python", "-3 ** 2", "-9", 3],
+    ["math", "python", "2 & 2 + 1", "2", 3],
+    ["math", "python", "5 % 4 * 5", "5", 3],
+    ["math", "python", "4 + 2 << 1", "12", 3],
+    ["math", "python", "5 + 2 << 1", "14", 3],
+    ["math", "python", "2 + 5 * 6", "32", 3],
+    ["math", "python", "7 & 7 + 1", "0", 3],
+    ["math", "python", "8 + 2 * 7", "22", 3],
+    ["math", "python", "2 * 2 // 2", "2", 3],
+    ["math", "python", "11 % 2 * 7", "7", 3],
+    ["math", "python", "12 % 7 * 3", "15", 3],
+    ["math", "python", "9 + 8 << 1", "34", 3],
+    ["math", "python", "(4 + 9) // 3", "4", 3],
+    ["math", "python", "4 // 4 * 4 + 4 % 4", "4", 3],
+    ["math", "python", "12 + 6 * 5", "42", 3],
+    ["math", "python", "2 * 7 // 2", "7", 3],
+    ["math", "python", "2 + 2 << 1", "8", 3],
+    ["math", "python", "2 ** 2 ** 2", "16", 3],
+    ["math", "python", "11 - 4 % 4", "11", 3],
+    ["math", "python", "4 - 8 % 5", "1", 3],
+    ["math", "python", "7 % 3 * 6", "6", 3],
+    ["math", "python", "12 & 6 + 1", "4", 3],
+    ["math", "python", "8 % 7 * 2", "2", 3],
+    ["math", "python", "12 // 5 * 5 + 12 % 5", "12", 3],
+    ["math", "python", "9 % 9 * 2", "0", 3],
+    ["math", "python", "10 + 6 << 1", "32", 3],
+    ["math", "python", "6 - 6 % 7", "0", 3],
+    ["math", "any", "0o43 in decimal", "35", 4],
+    ["math", "any", "5 in binary (no 0b)", "101", 4],
+    ["math", "any", "46 in binary (no 0b)", "101110", 4],
+    ["math", "any", "0o26 in decimal", "22", 4],
+    ["math", "any", "50 in binary (no 0b)", "110010", 4],
+    ["math", "any", "0x1F in decimal", "31", 4],
+    ["math", "any", "43 in binary (no 0b)", "101011", 4],
+    ["math", "any", "0xCA in decimal", "202", 4],
+    ["math", "any", "0o53 in decimal", "43", 4],
+    ["math", "any", "0xB9 in decimal", "185", 4],
+    ["math", "any", "0o37 in decimal", "31", 4],
+    ["math", "any", "57 in binary (no 0b)", "111001", 4],
+    ["math", "any", "0b1011 in decimal", "11", 4],
+    ["math", "any", "0o31 in decimal", "25", 4],
+    ["math", "any", "0b10011 in decimal", "19", 4],
+    ["math", "any", "0o17 in decimal", "15", 4],
+    ["math", "any", "0o41 in decimal", "33", 4],
+    ["math", "any", "0b101001 in decimal", "41", 4],
+    ["math", "any", "59 in binary (no 0b)", "111011", 4],
+    ["math", "any", "35 in binary (no 0b)", "100011", 4],
+    ["math", "any", "0o64 in decimal", "52", 4],
+    ["math", "any", "34 in binary (no 0b)", "100010", 4],
+    ["math", "any", "0o20 in decimal", "16", 4],
+    ["math", "any", "51 in binary (no 0b)", "110011", 4],
+    ["math", "any", "0x72 in decimal", "114", 4],
+    ["math", "any", "0o57 in decimal", "47", 4],
+    ["math", "any", "0x14 in decimal", "20", 4],
+    ["math", "any", "0o27 in decimal", "23", 4],
+    ["math", "any", "0x8B in decimal", "139", 4],
+    ["math", "any", "0xFB in decimal", "251", 4],
+    ["math", "any", "0b110011 in decimal", "51", 4],
+    ["math", "any", "0b101010 in decimal", "42", 4],
+    ["math", "any", "0x28 in decimal", "40", 4],
+    ["math", "any", "0xBC in decimal", "188", 4],
+    ["math", "any", "0x35 in decimal", "53", 4],
+    ["math", "any", "0x83 in decimal", "131", 4],
+    ["math", "any", "13 in binary (no 0b)", "1101", 4],
+    ["math", "any", "0b1111 in decimal", "15", 4],
+    ["math", "any", "0b100100 in decimal", "36", 4],
+    ["math", "any", "0xC6 in decimal", "198", 4],
+    ["math", "any", "0x84 in decimal", "132", 4],
+    ["math", "any", "15 in binary (no 0b)", "1111", 4],
+    ["math", "any", "0x68 in decimal", "104", 4],
+    ["math", "any", "36 in binary (no 0b)", "100100", 4],
+    ["math", "any", "63 in binary (no 0b)", "111111", 4],
+    [
+      "skills",
+      "python",
+      "d = {\"a\": 2}; d[\"b\"] = d.get(\"b\", 0) + 4; print(d[\"b\"], len(d))",
+      "4 2",
+      5
+    ],
+    [
+      "skills",
+      "python",
+      "a = [5, 2, 9, 1]; x = a.pop(); print(x, len(a))",
+      "1 3",
+      6
+    ],
+    ["skills", "python", "print(\"ab\" * 2)", "abab", 7],
+    ["skills", "python", "print(len(range(1, 9, 2)))", "4", 8],
+    ["skills", "python", "print(\"ab\" * 4)", "abababab", 7],
+    ["skills", "python", "n = 12\nwhile n > 3:\n    n //= 2\nprint(n)", "3", 9],
+    ["skills", "python", "x = 6; x += x // 2; x *= 2; print(x)", "18", 10],
+    [
+      "skills",
+      "python",
+      "print([v * 4 for v in range(4) if v % 2])",
+      "[4, 12]",
+      11
+    ],
+    ["skills", "python", "print(str(1) + str(5), 1 + 5)", "15 6", 12],
+    [
+      "skills",
+      "python",
+      "a = [3, 1, 8, 6]; a[1], a[2] = a[2], a[1]; print(a)",
+      "[3, 8, 1, 6]",
+      13
+    ],
+    ["skills", "python", "x = 5; x += x // 2; x *= 2; print(x)", "14", 10],
+    [
+      "skills",
+      "python",
+      "a = [9, 7, 1, 5]; print(a[-1], a[1:3])",
+      "5 [7, 1]",
+      14
+    ],
+    [
+      "skills",
+      "python",
+      "a = [9, 4, 2, 3]; x = a.pop(0); print(x, a)",
+      "9 [4, 2, 3]",
+      15
+    ],
+    [
+      "skills",
+      "python",
+      "s = 0\nfor v in [8, 2, 4, 7]:\n    if v % 2: continue\n    s += v\nprint(s)",
+      "14",
+      16
+    ],
+    [
+      "skills",
+      "python",
+      "a = [1, 9, 8, 4]; b = a; b.append(9); print(len(a))",
+      "5",
+      17
+    ],
+    [
+      "skills",
+      "python",
+      "a = [4, 5, 6, 2]; print(a[-2], a[1:3])",
+      "6 [5, 6]",
+      14
+    ],
+    [
+      "skills",
+      "python",
+      "a = [9, 6, 5, 1]; x = a.pop(0); print(x, a)",
+      "9 [6, 5, 1]",
+      15
+    ],
+    [
+      "skills",
+      "python",
+      "print(sum(v for v in range(4) if v % 2 == 0))",
+      "2",
+      18
+    ],
+    ["skills", "python", "s = \"reprise\"; print(s[:-2])", "repri", 14],
+    [
+      "skills",
+      "python",
+      "print(max([4, 6, 7, 2]) - min([4, 6, 7, 2]), len(set([4, 6, 7, 2, 4, 6])))",
+      "5 4",
+      19
+    ],
+    ["skills", "python", "s = \"decibel\"; print(s[-2:])", "el", 14],
+    ["skills", "python", "print(3 and [])", "[]", 20],
+    ["skills", "python", "print(list(range(0, 9, 4)))", "[0, 4, 8]", 21],
+    [
+      "skills",
+      "python",
+      "a = [3, 2, 9, 6]; x = a.pop(0); print(x, a)",
+      "3 [2, 9, 6]",
+      15
+    ],
+    [
+      "skills",
+      "python",
+      "a = [8, 3, 4, 2]; b = a; b.append(9); print(len(a))",
+      "5",
+      17
+    ],
+    ["skills", "python", "print(13 / 2, 13 // 2)", "6.5 6", 22],
+    ["skills", "python", "print(\"-\".join(\"qua\"))", "q-u-a", 23],
+    [
+      "skills",
+      "python",
+      "print(\"python\".count(\"p\"), \"python\".find(\"p\"))",
+      "1 0",
+      24
+    ],
+    ["skills", "python", "print(\"-\".join(\"ban\"))", "b-a-n", 23],
+    [
+      "skills",
+      "python",
+      "a = [9, 4, 7, 5]; x = a.pop(); print(x, len(a))",
+      "5 3",
+      6
+    ],
+    ["skills", "python", "print(\"-\".join(\"cod\"))", "c-o-d", 23],
+    [
+      "skills",
+      "python",
+      "print(\"decibel\".count(\"l\"), \"decibel\".find(\"l\"))",
+      "1 6",
+      24
+    ],
+    ["skills", "python", "print('hi' or 0)", "hi", 25],
+    [
+      "skills",
+      "python",
+      "print([v * 2 for v in range(5) if v % 2])",
+      "[2, 6]",
+      11
+    ],
+    ["skills", "python", "print(0 or 5)", "5", 25],
+    ["skills", "python", "print(int(-2.7), -2.7 // 1)", "-2 -3.0", 26],
+    ["skills", "python", "print(int(-3.7), -3.7 // 1)", "-3 -4.0", 26],
+    ["skills", "python", "print(\"ab\" * 3)", "ababab", 7],
+    [
+      "skills",
+      "python",
+      "print(max([1, 7, 4, 3]) - min([1, 7, 4, 3]), len(set([1, 7, 4, 3, 1, 7])))",
+      "6 4",
+      19
+    ],
+    [
+      "skills",
+      "python",
+      "a = [7, 1, 3, 4]; x = a.pop(); print(x, len(a))",
+      "4 3",
+      6
+    ],
+    [
+      "skills",
+      "python",
+      "s = 0\nfor v in [5, 9, 4, 2]:\n    if v % 2: continue\n    s += v\nprint(s)",
+      "6",
+      16
+    ],
+    ["skills", "python", "s = \"coding\"; print(s[:-1])", "codin", 14],
+    [
+      "skills",
+      "python",
+      "a = [2, 1, 4, 9]; a[1], a[2] = a[2], a[1]; print(a)",
+      "[2, 4, 1, 9]",
+      13
+    ],
+    [
+      "skills",
+      "python",
+      "a = [2, 1, 6, 5]; b = a; b = b + [9]; print(len(a))",
+      "4",
+      27
+    ],
+    ["skills", "python", "print(list(range(9, 2, -4)))", "[9, 5]", 28],
+    ["skills", "python", "s = \"reprise\"; print(s[::-1])", "esirper", 29],
+    [
+      "skills",
+      "python",
+      "print(max([8, 9, 6, 3]) - min([8, 9, 6, 3]), len(set([8, 9, 6, 3, 8, 9])))",
+      "6 4",
+      19
+    ],
+    ["skills", "python", "print(list(enumerate('py'))[1])", "(1, 'y')", 30],
+    ["skills", "python", "print(\"de,ci,bel\".split(\",\")[2])", "bel", 31],
+    [
+      "skills",
+      "python",
+      "a = [3, 9, 2, 4]; print(sorted(a)[1], a[1])",
+      "3 9",
+      32
+    ],
+    [
+      "skills",
+      "python",
+      "a = [4, 6, 3, 9]; print(sorted(a)[1], a[1])",
+      "4 6",
+      32
+    ],
+    ["skills", "python", "print(len(range(1, 10, 2)))", "5", 8],
+    ["skills", "python", "print(str(3) + str(4), 3 + 4)", "34 7", 12],
+    ["skills", "python", "s = \"banana\"; print(s[1::2])", "aaa", 33],
+    [
+      "skills",
+      "python",
+      "a = [9, 4, 2, 3]; print(a[-2], a[1:3])",
+      "2 [4, 2]",
+      14
+    ],
+    ["skills", "python", "print('hi' and [])", "[]", 20],
+    ["skills", "python", "s = \"python\"; print(s[0::2])", "pto", 33],
+    [
+      "skills",
+      "python",
+      "a = [7, 9, 1, 6]; b = a; b = b + [9]; print(len(a))",
+      "4",
+      27
+    ],
+    [
+      "skills",
+      "python",
+      "a = [6, 3, 8, 1]; print(sorted(a)[1], a[1])",
+      "3 3",
+      32
+    ],
+    [
+      "skills",
+      "python",
+      "f = lambda n: 1 if n == 0 else n * f(n - 1); print(f(3))",
+      "6",
+      34
+    ],
+    ["skills", "python", "s = \"chamber\"; print(s[1::2])", "hme", 33],
+    ["skills", "python", "print(list(enumerate('co'))[1])", "(1, 'o')", 30],
+    ["skills", "python", "s = \"chamber\"; print(s[-2:])", "er", 14],
+    [
+      "skills",
+      "python",
+      "a = [4, 9, 1, 8]; a[1], a[2] = a[2], a[1]; print(a)",
+      "[4, 1, 9, 8]",
+      13
+    ],
+    [
+      "skills",
+      "python",
+      "a = [5, 6, 4, 1]; a.insert(1, 0); print(a)",
+      "[5, 0, 6, 4, 1]",
+      35
+    ],
+    [
+      "skills",
+      "python",
+      "a = [7, 3, 9, 2]; print(sorted(a)[1], a[1])",
+      "3 3",
+      32
+    ],
+    [
+      "skills",
+      "python",
+      "a = [1, 3, 6, 4]; b = a[:]; b.append(9); print(len(a))",
+      "4",
+      36
+    ],
+    [
+      "skills",
+      "python",
+      "a = [3, 2, 9, 1]; print(sorted(a)[1], a[1])",
+      "2 2",
+      32
+    ],
+    ["skills", "python", "s = \"reprise\"; print(s[0::2])", "rpie", 33],
+    [
+      "skills",
+      "python",
+      "f = lambda n: 1 if n == 0 else n * f(n - 1); print(f(4))",
+      "24",
+      34
+    ],
+    [
+      "skills",
+      "python",
+      "d = {\"a\": 3}; d[\"b\"] = d.get(\"b\", 0) + 6; print(d[\"b\"], len(d))",
+      "6 2",
+      5
+    ],
+    [
+      "skills",
+      "python",
+      "a = [3, 1, 9, 7]; x = a.pop(0); print(x, a)",
+      "3 [1, 9, 7]",
+      15
+    ],
+    ["skills", "python", "print(\"qu,ar,ter\".split(\",\")[1])", "ar", 31],
+    ["skills", "python", "s = \"decibel\"; print(s[2::2])", "cbl", 33],
+    [
+      "skills",
+      "python",
+      "a = [7, 4, 3, 5]; print(a[-2], a[1:3])",
+      "3 [4, 3]",
+      14
+    ],
+    ["skills", "python", "print(len(range(2, 10, 2)))", "4", 8],
+    ["skills", "python", "s = \"reprise\"; print(s[::2])", "rpie", 37],
+    [
+      "skills",
+      "python",
+      "d = {\"a\": 1}; d[\"b\"] = d.get(\"b\", 0) + 5; print(d[\"b\"], len(d))",
+      "5 2",
+      5
+    ],
+    ["skills", "python", "print(9 / 2, 9 // 2)", "4.5 4", 22],
+    ["skills", "python", "print(\"-\".join(\"rep\"))", "r-e-p", 23],
+    ["skills", "python", "s = \"reprise\"; print(s[-2:])", "se", 14],
+    ["skills", "python", "print(len(range(2, 11, 3)))", "3", 8],
+    [
+      "skills",
+      "python",
+      "print(max([2, 1, 7, 4]) - min([2, 1, 7, 4]), len(set([2, 1, 7, 4, 2, 1])))",
+      "6 4",
+      19
+    ],
+    [
+      "skills",
+      "python",
+      "a = [5, 9, 4, 8]; print(sorted(a)[1], a[1])",
+      "5 9",
+      32
+    ],
+    [
+      "skills",
+      "python",
+      "print(\"banana\".count(\"a\"), \"banana\".find(\"a\"))",
+      "3 1",
+      24
+    ],
+    [
+      "skills",
+      "python",
+      "f = lambda n: 1 if n == 0 else n * f(n - 1); print(f(5))",
+      "120",
+      34
+    ],
+    ["skills", "python", "print([0] or 5)", "[0]", 25],
+    ["skills", "python", "print(0 or [0])", "[0]", 25],
+    [
+      "skills",
+      "python",
+      "a = [2, 1, 6, 7]; b = a; b.append(9); print(len(a))",
+      "5",
+      17
+    ],
+    [
+      "skills",
+      "python",
+      "print(max([6, 7, 9, 1]) - min([6, 7, 9, 1]), len(set([6, 7, 9, 1, 6, 7])))",
+      "8 4",
+      19
+    ],
+    ["skills", "python", "print(list(range(1, 9, 4)))", "[1, 5]", 21],
+    [
+      "skills",
+      "python",
+      "print(\"banana\".count(\"n\"), \"banana\".find(\"n\"))",
+      "2 2",
+      24
+    ],
+    ["skills", "python", "n = 21\nwhile n > 3:\n    n //= 2\nprint(n)", "2", 9],
+    ["skills", "python", "s = \"python\"; print(s[:-1])", "pytho", 14],
+    ["skills", "python", "print(\"-\".join(\"dec\"))", "d-e-c", 23],
+    [
+      "skills",
+      "python",
+      "s = 0\nfor v in [2, 9, 8, 5]:\n    if v % 2: continue\n    s += v\nprint(s)",
+      "10",
+      16
+    ],
+    [
+      "skills",
+      "python",
+      "a = [3, 7, 1, 9]; b = a; b.append(9); print(len(a))",
+      "5",
+      17
+    ],
+    [
+      "skills",
+      "python",
+      "a = [6, 5, 7, 9]; print(a[-1], a[1:3])",
+      "9 [5, 7]",
+      14
+    ],
+    ["skills", "python", "s = \"reprise\"; print(s[2::2])", "pie", 33],
+    ["skills", "python", "print([0] and 0)", "0", 20],
+    [
+      "skills",
+      "python",
+      "a = [1, 8, 2, 7]; print(a[-2], a[1:3])",
+      "2 [8, 2]",
+      14
+    ],
+    [
+      "skills",
+      "python",
+      "a = [7, 8, 6, 1]; a[1], a[2] = a[2], a[1]; print(a)",
+      "[7, 6, 8, 1]",
+      13
+    ],
+    [
+      "skills",
+      "python",
+      "a = [7, 4, 1, 8]; b = a; b.append(9); print(len(a))",
+      "5",
+      17
+    ],
+    [
+      "skills",
+      "python",
+      "a = [8, 4, 9, 2]; a[1], a[2] = a[2], a[1]; print(a)",
+      "[8, 9, 4, 2]",
+      13
+    ],
+    [
+      "skills",
+      "python",
+      "print(max([1, 6, 4, 2]) - min([1, 6, 4, 2]), len(set([1, 6, 4, 2, 1, 6])))",
+      "5 4",
+      19
+    ],
+    [
+      "skills",
+      "python",
+      "a = [9, 4, 3, 1]; b = a; b = b + [9]; print(len(a))",
+      "4",
+      27
+    ],
+    [
+      "skills",
+      "python",
+      "a = [5, 3, 7, 6]; b = a[:]; b.append(9); print(len(a))",
+      "4",
+      36
+    ],
+    [
+      "skills",
+      "python",
+      "a = [3, 2, 4, 9]; a.insert(1, 0); print(a)",
+      "[3, 0, 2, 4, 9]",
+      35
+    ],
+    [
+      "skills",
+      "python",
+      "a = [2, 7, 4, 9]; a[1], a[2] = a[2], a[1]; print(a)",
+      "[2, 4, 7, 9]",
+      13
+    ],
+    [
+      "skills",
+      "python",
+      "print(max([8, 6, 2, 7]) - min([8, 6, 2, 7]), len(set([8, 6, 2, 7, 8, 6])))",
+      "6 4",
+      19
+    ],
+    [
+      "skills",
+      "js",
+      "const [p, , q = 3] = [8, 2]; console.log(p, q)",
+      "8 3",
+      38
+    ],
+    [
+      "skills",
+      "js",
+      "const f = x => { x * 2 }; console.log(f(8))",
+      "undefined",
+      39
+    ],
+    [
+      "skills",
+      "js",
+      "console.log([5, 10, 3, 1].sort())",
+      "[ 1, 10, 3, 5 ]",
+      40
+    ],
+    ["skills", "js", "console.log(3 / 2)", "1.5", 41],
+    [
+      "skills",
+      "js",
+      "const o = { a: 7, b: 1 }; console.log(Object.keys(o).length, o.c)",
+      "2 undefined",
+      42
+    ],
+    [
+      "skills",
+      "js",
+      "console.log(parseInt(\"47px\"), Number(\"47px\"))",
+      "47 NaN",
+      43
+    ],
+    ["skills", "js", "const a = [5, 6, 8, 9]; console.log(a.push(7))", "5", 44],
+    [
+      "skills",
+      "js",
+      "const a = [6, 2, 8, 4]; console.log(a.shift(), a.length)",
+      "6 3",
+      45
+    ],
+    [
+      "skills",
+      "js",
+      "const [p, , q = 1] = [3, 6]; console.log(p, q)",
+      "3 1",
+      38
+    ],
+    [
+      "skills",
+      "js",
+      "const f = [1, 2, 3].map(i => () => i * 7); console.log(f[1]())",
+      "14",
+      46
+    ],
+    ["skills", "js", "let i = 3; console.log(i++ + ++i, i)", "8 5", 47],
+    [
+      "skills",
+      "js",
+      "const add = a => b => a + b; console.log(add(7)(7))",
+      "14",
+      48
+    ],
+    [
+      "skills",
+      "js",
+      "const f = (a, b = 8) => a * b; console.log(f(1), f(1, 9))",
+      "8 9",
+      49
+    ],
+    [
+      "skills",
+      "js",
+      "const a = [2, 3, 8, 9]; console.log(a.unshift(6), a[1])",
+      "5 2",
+      50
+    ],
+    [
+      "skills",
+      "js",
+      "const f = [1, 2, 3].map(i => () => i * 5); console.log(f[1]())",
+      "10",
+      46
+    ],
+    [
+      "skills",
+      "js",
+      "const a = [1, 8, 9, 4]; console.log(a.slice(1, 3))",
+      "[ 8, 9 ]",
+      51
+    ],
+    [
+      "skills",
+      "js",
+      "const a = [3, 5, 1, 6]; a.splice(1, 2); console.log(a)",
+      "[ 3, 6 ]",
+      52
+    ],
+    [
+      "skills",
+      "js",
+      "const o = { a: 6 }; const p = o; p.a = 1; console.log(o.a)",
+      "1",
+      53
+    ],
+    ["skills", "js", "console.log(0 || 9, 0 ?? 9)", "9 0", 54],
+    [
+      "skills",
+      "js",
+      "const s = \"banana\"; console.log(s.length, s[1], s.slice(-2))",
+      "6 a na",
+      55
+    ],
+    ["skills", "js", "console.log(0 || 2, 0 ?? 2)", "2 0", 54],
+    ["skills", "js", "console.log(\"6\" + 3 + 4)", "634", 56],
+    ["skills", "js", "for (var i = 0; i < 5; i++) {} console.log(i)", "5", 57],
+    ["skills", "js", "console.log(\"10\" * 4)", "40", 58],
+    ["skills", "js", "console.log(8 + 3 + \"7\")", "117", 59],
+    [
+      "skills",
+      "js",
+      "const s = \"quarter\"; console.log(s.length, s[1], s.slice(-2))",
+      "7 u er",
+      55
+    ],
+    [
+      "skills",
+      "js",
+      "const f = (a, b = 1) => a * b; console.log(f(1), f(1, 9))",
+      "1 9",
+      49
+    ],
+    [
+      "skills",
+      "js",
+      "const o = { a: 9 }; const p = o; p.a = 9; console.log(o.a)",
+      "9",
+      53
+    ],
+    ["skills", "js", "console.log(\"4\" * 1)", "4", 58],
+    [
+      "skills",
+      "js",
+      "console.log([7, 8, 9, 6].reduce((s, v) => s + v, 0))",
+      "30",
+      60
+    ],
+    [
+      "skills",
+      "js",
+      "const o = { a: 5, b: 6 }; console.log(Object.keys(o).length, o.c)",
+      "2 undefined",
+      42
+    ],
+    ["skills", "js", "console.log([3, 2, 6, 4].join(\"-\"))", "3-2-6-4", 23],
+    [
+      "skills",
+      "js",
+      "const f = (a, b = 5) => a * b; console.log(f(7), f(7, 7))",
+      "35 49",
+      49
+    ],
+    ["skills", "js", "for (var i = 0; i < 6; i++) {} console.log(i)", "6", 57],
+    [
+      "skills",
+      "js",
+      "for (var i = 0; i < 4; i++) setTimeout(() => console.log(i), 0);",
+      "4 4 4 4",
+      61
+    ],
+    ["skills", "js", "let i = 6; console.log(i++ + ++i, i)", "14 8", 47],
+    [
+      "skills",
+      "js",
+      "const f = [1, 2, 3].map(i => () => i * 9); console.log(f[1]())",
+      "18",
+      46
+    ],
+    ["skills", "js", "console.log(\"10\" * 6)", "60", 58],
+    ["skills", "js", "console.log(\"9\" + 1)", "91", 62],
+    ["skills", "js", "console.log(\"1\" + 6)", "16", 62],
+    ["skills", "js", "let x = 8; { let x = 3; } console.log(x)", "8", 63],
+    ["skills", "js", "console.log(\"18\" - 7)", "11", 58],
+    [
+      "skills",
+      "js",
+      "console.log([5, 6, 2, 1].filter(v => v % 2))",
+      "[ 5, 1 ]",
+      64
+    ],
+    [
+      "skills",
+      "js",
+      "console.log([2, 4, 7, 9].filter(v => v % 2))",
+      "[ 7, 9 ]",
+      64
+    ],
+    ["skills", "js", "console.log(4 + 6 + \"2\")", "102", 59],
+    [
+      "skills",
+      "js",
+      "setTimeout(() => console.log(\"a\"), 0); console.log(\"b\");",
+      "b a",
+      65
+    ],
+    [
+      "skills",
+      "js",
+      "const o = { a: 5 }; const p = o; p.a = 1; console.log(o.a)",
+      "1",
+      53
+    ],
+    [
+      "skills",
+      "js",
+      "const [p, , q = 7] = [7, 1]; console.log(p, q)",
+      "7 7",
+      38
+    ],
+    ["skills", "js", "console.log(9 + 5 + \"5\")", "145", 59],
+    [
+      "skills",
+      "js",
+      "console.log(Math.floor(-13 / 2), Math.trunc(-13 / 2))",
+      "-7 -6",
+      66
+    ],
+    ["skills", "js", "console.log(9 + 9 + \"1\")", "181", 59],
+    ["skills", "js", "console.log(0 && 4, 2 && 4)", "0 4", 67],
+    ["skills", "js", "console.log(\"14\" - 5)", "9", 58],
+    [
+      "skills",
+      "js",
+      "const [p, , q = 3] = [4, 6]; console.log(p, q)",
+      "4 3",
+      38
+    ],
+    ["skills", "js", "let i = 5; console.log(i++ + ++i, i)", "12 7", 47],
+    ["skills", "js", "console.log(0 && 2, 9 && 2)", "0 2", 67],
+    ["skills", "js", "console.log(4 + 1 + \"1\")", "51", 59],
+    [
+      "skills",
+      "js",
+      "const a = [4, 7, 8, 1]; console.log(a.unshift(6), a[1])",
+      "5 4",
+      50
+    ],
+    [
+      "skills",
+      "js",
+      "console.log([4, 6, 3, 7].filter(v => v % 2))",
+      "[ 3, 7 ]",
+      64
+    ],
+    ["skills", "js", "console.log(\"10\" * 1)", "10", 58],
+    ["skills", "js", "console.log(\"12\" * 7)", "84", 58],
+    ["skills", "js", "const a = [7, 5, 1, 9]; console.log(a.push(3))", "5", 44],
+    [
+      "skills",
+      "js",
+      "const a = [5, 9, 8, 4]; a.splice(1, 2); console.log(a)",
+      "[ 5, 4 ]",
+      52
+    ],
+    [
+      "skills",
+      "js",
+      "for (let i = 0; i < 3; i++) setTimeout(() => console.log(i * 9), 0);",
+      "0 9 18",
+      68
+    ],
+    [
+      "skills",
+      "js",
+      "console.log([7, 3, 1, 8].filter(v => v % 2))",
+      "[ 7, 3, 1 ]",
+      64
+    ],
+    [
+      "skills",
+      "js",
+      "const a = [3, 5, 8, 4]; console.log(a.unshift(5), a[1])",
+      "5 3",
+      50
+    ],
+    [
+      "skills",
+      "js",
+      "const a = [6, 7, 5, 4]; console.log(a.unshift(3), a[1])",
+      "5 6",
+      50
+    ],
+    [
+      "skills",
+      "js",
+      "const f = x => { x * 2 }; console.log(f(4))",
+      "undefined",
+      39
+    ],
+    [
+      "skills",
+      "js",
+      "const f = x => { x * 2 }; console.log(f(2))",
+      "undefined",
+      39
+    ],
+    [
+      "skills",
+      "js",
+      "const f = (a, b = 9) => a * b; console.log(f(5), f(5, 2))",
+      "45 10",
+      49
+    ],
+    ["skills", "js", "console.log([4, 3, 9, 7].join(\"-\"))", "4-3-9-7", 23],
+    ["skills", "js", "console.log(\"4\" + 5)", "45", 62],
+    [
+      "skills",
+      "js",
+      "const f = (a, b = 6) => a * b; console.log(f(3), f(3, 7))",
+      "18 21",
+      49
+    ],
+    [
+      "skills",
+      "js",
+      "console.log(parseInt(\"91px\"), Number(\"91px\"))",
+      "91 NaN",
+      43
+    ],
+    [
+      "skills",
+      "js",
+      "console.log([8, 3, 7, 5].map(v => v * 2))",
+      "[ 16, 6, 14, 10 ]",
+      69
+    ],
+    [
+      "skills",
+      "js",
+      "console.log([2, 7, 5, 8].indexOf(5), [2, 7, 5, 8].indexOf(0))",
+      "2 -1",
+      70
+    ],
+    ["skills", "js", "console.log(\"14\" * 2)", "28", 58],
+    ["skills", "js", "console.log(\"5\" + 4 + 4)", "544", 56],
+    [
+      "skills",
+      "js",
+      "const a = [5, 4, 6, 2]; console.log(a.unshift(7), a[1])",
+      "5 5",
+      50
+    ],
+    ["skills", "js", "console.log(0 && 5, 7 && 5)", "0 5", 67],
+    [
+      "skills",
+      "js",
+      "const a = [2, 8, 5, 4]; a.splice(1, 2); console.log(a)",
+      "[ 2, 4 ]",
+      52
+    ],
+    [
+      "skills",
+      "js",
+      "const a = [7, 9, 6, 1]; console.log(a.slice(1, 3))",
+      "[ 9, 6 ]",
+      51
+    ],
+    ["skills", "js", "const a = [1, 5, 6, 4]; console.log(a.push(5))", "5", 44],
+    ["skills", "js", "console.log(\"13\" - 6)", "7", 58],
+    [
+      "skills",
+      "js",
+      "console.log([2, 6, 4, 3].filter(v => v % 2))",
+      "[ 3 ]",
+      64
+    ],
+    [
+      "skills",
+      "js",
+      "const a = [8, 6, 1, 5]; console.log(a.pop(), a.length)",
+      "5 3",
+      71
+    ],
+    [
+      "skills",
+      "js",
+      "console.log(Math.floor(-7 / 2), Math.trunc(-7 / 2))",
+      "-4 -3",
+      66
+    ],
+    [
+      "skills",
+      "js",
+      "const a = [1, 5, 3, 9]; console.log(a.shift(), a.length)",
+      "1 3",
+      45
+    ],
+    [
+      "skills",
+      "js",
+      "const s = \"coding\"; console.log(s.length, s[1], s.slice(-2))",
+      "6 o ng",
+      55
+    ],
+    [
+      "skills",
+      "js",
+      "console.log(String(7) + 4, Number(\"7\") + 4)",
+      "74 11",
+      72
+    ],
+    [
+      "skills",
+      "js",
+      "const [p, , q = 6] = [3, 7]; console.log(p, q)",
+      "3 6",
+      38
+    ],
+    [
+      "skills",
+      "js",
+      "console.log([...\"deci\"].reverse().join(\"\"))",
+      "iced",
+      73
+    ],
+    [
+      "skills",
+      "js",
+      "const f = (a, b = 7) => a * b; console.log(f(5), f(5, 4))",
+      "35 20",
+      49
+    ],
+    ["skills", "js", "console.log([9, 8, 1, 7].join(\"-\"))", "9-8-1-7", 23],
+    [
+      "skills",
+      "js",
+      "const a = [5, 3, 4, 6]; console.log(a.unshift(1), a[1])",
+      "5 5",
+      50
+    ],
+    [
+      "skills",
+      "js",
+      "const a = [5, 9, 4, 1]; console.log(a.slice(1, 3))",
+      "[ 9, 4 ]",
+      51
+    ],
+    ["skills", "js", "for (var i = 0; i < 4; i++) {} console.log(i)", "4", 57],
+    ["skills", "js", "console.log(\"5\" + 5 + 3)", "553", 56],
+    [
+      "skills",
+      "js",
+      "console.log([...\"cham\"].reverse().join(\"\"))",
+      "mahc",
+      73
+    ],
+    [
+      "skills",
+      "js",
+      "const f = (a, b = 8) => a * b; console.log(f(7), f(7, 6))",
+      "56 42",
+      49
+    ],
+    ["skills", "js", "console.log(3 + 1 + \"8\")", "48", 59],
+    [
+      "skills",
+      "js",
+      "console.log([7, 6, 3, 4].filter(v => v % 2))",
+      "[ 7, 3 ]",
+      64
+    ],
+    [
+      "skills",
+      "js",
+      "for (var i = 0; i < 6; i++) setTimeout(() => console.log(i), 0);",
+      "6 6 6 6 6 6",
+      61
+    ],
+    ["skills", "js", "console.log(\"6\" + 6 + 1)", "661", 56],
+    [
+      "skills",
+      "js",
+      "console.log([1, 6, 7, 9].reduce((s, v) => s + v, 0))",
+      "23",
+      60
+    ],
+    ["skills", "js", "let x = 3; { let x = 2; } console.log(x)", "3", 63],
+    [
+      "skills",
+      "js",
+      "const f = (a, b = 6) => a * b; console.log(f(9), f(9, 9))",
+      "54 81",
+      49
+    ],
+    ["skills", "js", "for (var i = 0; i < 3; i++) {} console.log(i)", "3", 57],
+    ["skills", "js", "console.log([1, 4, 8, 2].join(\"-\"))", "1-4-8-2", 23],
+    [
+      "skills",
+      "js",
+      "console.log([3, 4, 2, 8].indexOf(2), [3, 4, 2, 8].indexOf(0))",
+      "2 -1",
+      70
+    ],
+    ["skills", "c", "printf(\"%.1f\", (float)13 / 2);", "6.5", 74],
+    [
+      "skills",
+      "c",
+      "int i = 2; int v = ++i * 2; printf(\"%d %d\", v, i);",
+      "6 3",
+      75
+    ],
+    [
+      "skills",
+      "c",
+      "int i = 5; int v = ++i * 2; printf(\"%d %d\", v, i);",
+      "12 6",
+      75
+    ],
+    [
+      "skills",
+      "c",
+      "int c = 0; for (int i = 0; i < 3; i++) for (int j = i; j < 3; j++) c += 2; printf(\"%d\", c);",
+      "12",
+      76
+    ],
+    [
+      "skills",
+      "c",
+      "int a[] = {5, 3, 6, 2}; int s = 0; for (int i = 0; i < 4; i += 2) s += a[i]; printf(\"%d\", s);",
+      "11",
+      77
+    ],
+    [
+      "skills",
+      "c",
+      "unsigned char u = 250; u += 11; printf(\"%d\", u);",
+      "5",
+      78
+    ],
+    [
+      "skills",
+      "c",
+      "int v = 9; if (v = 0) v = 5; else v += 4; printf(\"%d\", v);",
+      "4",
+      79
+    ],
+    [
+      "skills",
+      "c",
+      "int a[] = {2, 4, 6, 1}; int *p = a + 3; printf(\"%d\", (int)(p - a) + *p);",
+      "4",
+      80
+    ],
+    [
+      "skills",
+      "c",
+      "int a[] = {5, 8, 7, 6}; int s = 0; for (int i = 0; i < 4; i += 2) s += a[i]; printf(\"%d\", s);",
+      "12",
+      77
+    ],
+    [
+      "skills",
+      "c",
+      "int a[] = {1, 2, 6, 9}; int s = 0; for (int i = 0; i < 4; i += 2) s += a[i]; printf(\"%d\", s);",
+      "7",
+      77
+    ],
+    [
+      "skills",
+      "c",
+      "int v = 3, c = 0; switch (v) { case 1: c += 1; case 2: c += 2; break; case 3: c += 3; } printf(\"%d\", c);",
+      "3",
+      81
+    ],
+    [
+      "skills",
+      "c",
+      "int i = 0, s = 0; while (i++ < 5) s += i; printf(\"%d %d\", s, i);",
+      "15 6",
+      82
+    ],
+    [
+      "skills",
+      "c",
+      "char s[] = \"banana\"; printf(\"%s\", s + 2);",
+      "nana",
+      83
+    ],
+    [
+      "skills",
+      "c",
+      "int a[] = {6, 3, 1, 2}; int *p = a + 1; printf(\"%d\", *(p + 1));",
+      "1",
+      84
+    ],
+    [
+      "skills",
+      "c",
+      "int c = 0; for (int i = 3; i < 12; i += 3) c++; printf(\"%d\", c);",
+      "3",
+      85
+    ],
+    [
+      "skills",
+      "c",
+      "int v = 4; if (v = 0) v = 5; else v += 3; printf(\"%d\", v);",
+      "3",
+      79
+    ],
+    [
+      "skills",
+      "c",
+      "int v = 554, r = 0; while (v) { r = r * 10 + v % 10; v /= 10; } printf(\"%d\", r);",
+      "455",
+      86
+    ],
+    [
+      "skills",
+      "c",
+      "unsigned char u = 250; u += 14; printf(\"%d\", u);",
+      "8",
+      78
+    ],
+    [
+      "skills",
+      "c",
+      "int a[] = {5, 2, 9, 6}; int *p = a + 3; printf(\"%d\", (int)(p - a) + *p);",
+      "9",
+      80
+    ],
+    [
+      "skills",
+      "c",
+      "int v = 3; v = v > 9 ? v - 9 : v + 9; printf(\"%d\", v);",
+      "12",
+      87
+    ],
+    [
+      "skills",
+      "c",
+      "int i = 3; int v = i-- - 1; printf(\"%d %d\", v, i);",
+      "2 2",
+      88
+    ],
+    [
+      "skills",
+      "c",
+      "char s[] = \"chamber\"; s[3] = 0; printf(\"%s\", s);",
+      "cha",
+      89
+    ],
+    [
+      "skills",
+      "c",
+      "int i = 0, s = 0; while (i++ < 4) s += i; printf(\"%d %d\", s, i);",
+      "10 5",
+      82
+    ],
+    [
+      "skills",
+      "c",
+      "int v = 825, r = 0; while (v) { r = r * 10 + v % 10; v /= 10; } printf(\"%d\", r);",
+      "528",
+      86
+    ],
+    [
+      "skills",
+      "c",
+      "int a[] = {8, 1, 7, 6}; int *p = a; p++; printf(\"%d\", *p + 1);",
+      "2",
+      90
+    ],
+    [
+      "skills",
+      "c",
+      "int c = 0; for (int i = 1; i < 10; i += 9) c++; printf(\"%d\", c);",
+      "1",
+      85
+    ],
+    [
+      "skills",
+      "c",
+      "int c = 0; for (int i = 1; i < 10; i += 2) c++; printf(\"%d\", c);",
+      "5",
+      85
+    ],
+    [
+      "skills",
+      "c",
+      "int v = 96, s = 0; while (v) { s += v % 10; v /= 10; } printf(\"%d\", s);",
+      "15",
+      91
+    ],
+    [
+      "skills",
+      "c",
+      "int v = 6; int *p = &v; *p += 5; printf(\"%d\", v);",
+      "11",
+      92
+    ],
+    ["skills", "c", "printf(\"%.1f\", (float)19 / 2);", "9.5", 74],
+    [
+      "skills",
+      "c",
+      "char s[] = \"python\"; printf(\"%d %c\", (int)strlen(s), s[2]);",
+      "6 t",
+      93
+    ],
+    [
+      "skills",
+      "c",
+      "int a[] = {2, 8, 5, 4}; int *p = a; p++; printf(\"%d\", *p + 1);",
+      "9",
+      90
+    ],
+    [
+      "skills",
+      "c",
+      "int v = 2, c = 0; switch (v) { case 1: c += 1; case 2: c += 2; break; case 3: c += 3; } printf(\"%d\", c);",
+      "2",
+      81
+    ],
+    [
+      "skills",
+      "c",
+      "int a[] = {7, 9, 2, 1}; int *p = a; p++; printf(\"%d\", *p + 1);",
+      "10",
+      90
+    ],
+    [
+      "skills",
+      "c",
+      "int a[] = {3, 2, 7, 5}; int s = 0; for (int i = 0; i < 4; i += 2) s += a[i]; printf(\"%d\", s);",
+      "10",
+      77
+    ],
+    [
+      "skills",
+      "c",
+      "int a = 8, b = 5; int *p = &a, *q = &b; *p = *q; *q += 1; printf(\"%d %d\", a, b);",
+      "5 6",
+      94
+    ],
+    [
+      "skills",
+      "c",
+      "int a = 3, b = 7; int *p = &a, *q = &b; *p = *q; *q += 1; printf(\"%d %d\", a, b);",
+      "7 8",
+      94
+    ],
+    [
+      "skills",
+      "c",
+      "int v = 9; int *p = &v; *p += 8; printf(\"%d\", v);",
+      "17",
+      92
+    ],
+    [
+      "skills",
+      "c",
+      "int i = 8; int v = i++ + 5; printf(\"%d %d\", v, i);",
+      "13 9",
+      95
+    ],
+    [
+      "skills",
+      "c",
+      "int i = 2; int v = i-- - 1; printf(\"%d %d\", v, i);",
+      "1 1",
+      88
+    ],
+    [
+      "skills",
+      "c",
+      "int v = 829, s = 0; while (v) { s += v % 10; v /= 10; } printf(\"%d\", s);",
+      "19",
+      91
+    ],
+    [
+      "skills",
+      "c",
+      "int v = 32; v >>= 1; v |= 1; v <<= 2; printf(\"%d\", v);",
+      "68",
+      96
+    ],
+    [
+      "skills",
+      "c",
+      "int i; for (i = 0; i < 6; i++) if (i == 2) break; printf(\"%d\", i);",
+      "2",
+      97
+    ],
+    [
+      "skills",
+      "c",
+      "int i = 4; int v = ++i * 2; printf(\"%d %d\", v, i);",
+      "10 5",
+      75
+    ],
+    [
+      "skills",
+      "c",
+      "int v = 16; v >>= 1; v |= 1; v <<= 2; printf(\"%d\", v);",
+      "36",
+      96
+    ],
+    [
+      "skills",
+      "c",
+      "int i; for (i = 0; i < 3; i++) if (i == 4) break; printf(\"%d\", i);",
+      "3",
+      97
+    ],
+    ["skills", "c", "printf(\"%d\", !2 + (7 && 0) + (2 || 0));", "1", 98],
+    [
+      "skills",
+      "c",
+      "char s[] = \"python\"; s[4] = 0; printf(\"%s\", s);",
+      "pyth",
+      89
+    ],
+    [
+      "skills",
+      "c",
+      "int a = 7, b = 2; int *p = &a, *q = &b; *p = *q; *q += 1; printf(\"%d %d\", a, b);",
+      "2 3",
+      94
+    ],
+    [
+      "skills",
+      "c",
+      "int a[] = {7, 1, 6, 2}; int *p = a; p++; printf(\"%d\", *p + 1);",
+      "2",
+      90
+    ],
+    [
+      "skills",
+      "c",
+      "int a[] = {7, 9, 4, 8}; int *p = a + 2; printf(\"%d %d\", p[-1], p[1]);",
+      "9 8",
+      99
+    ],
+    [
+      "skills",
+      "c",
+      "int a[] = {2, 5, 4, 6}; int *p = a + 3; printf(\"%d\", (int)(p - a) + *p);",
+      "9",
+      80
+    ],
+    [
+      "skills",
+      "c",
+      "int a[] = {2, 6, 4, 7}; int *p = a + 2; printf(\"%d %d\", p[-1], p[1]);",
+      "6 7",
+      99
+    ],
+    [
+      "skills",
+      "c",
+      "int v = 2; v = v > 7 ? v - 7 : v + 7; printf(\"%d\", v);",
+      "9",
+      87
+    ],
+    [
+      "skills",
+      "c",
+      "int c = 0; for (int i = 0; i < 3; i++) for (int j = i; j < 3; j++) c += 1; printf(\"%d\", c);",
+      "6",
+      76
+    ],
+    [
+      "skills",
+      "c",
+      "int a[] = {3, 4, 6, 9}; int *p = a; int v = *p++; printf(\"%d %d\", v, *p);",
+      "3 4",
+      100
+    ],
+    [
+      "skills",
+      "c",
+      "int v = 5; int *p = &v; *p += 7; printf(\"%d\", v);",
+      "12",
+      92
+    ],
+    [
+      "skills",
+      "c",
+      "unsigned char u = 250; u += 12; printf(\"%d\", u);",
+      "6",
+      78
+    ],
+    [
+      "skills",
+      "c",
+      "int v = 5; v = v > 8 ? v - 8 : v + 8; printf(\"%d\", v);",
+      "13",
+      87
+    ],
+    [
+      "skills",
+      "c",
+      "int a[] = {4, 7, 6, 2}; int *p = a; int v = *p++; printf(\"%d %d\", v, *p);",
+      "4 7",
+      100
+    ],
+    [
+      "skills",
+      "c",
+      "int v = 9; int *p = &v; *p += 9; printf(\"%d\", v);",
+      "18",
+      92
+    ],
+    [
+      "skills",
+      "c",
+      "int v = 71, s = 0; while (v) { s += v % 10; v /= 10; } printf(\"%d\", s);",
+      "8",
+      91
+    ],
+    [
+      "skills",
+      "c",
+      "int v = 9; v = v > 8 ? v - 8 : v + 8; printf(\"%d\", v);",
+      "1",
+      87
+    ],
+    [
+      "skills",
+      "c",
+      "char s[] = \"decibel\"; s[2] = 0; printf(\"%s\", s);",
+      "de",
+      89
+    ],
+    [
+      "skills",
+      "c",
+      "char s[] = \"coding\"; printf(\"%d %c\", (int)strlen(s), s[3]);",
+      "6 i",
+      93
+    ],
+    [
+      "skills",
+      "c",
+      "int i; for (i = 0; i < 2; i++) if (i == 2) break; printf(\"%d\", i);",
+      "2",
+      97
+    ],
+    ["skills", "c", "printf(\"%.1f\", (float)17 / 2);", "8.5", 74],
+    [
+      "skills",
+      "c",
+      "int i = 8; int v = ++i * 2; printf(\"%d %d\", v, i);",
+      "18 9",
+      75
+    ],
+    [
+      "skills",
+      "c",
+      "int a[] = {4, 1, 2, 6}; int *p = a; int v = *p++; printf(\"%d %d\", v, *p);",
+      "4 1",
+      100
+    ],
+    [
+      "skills",
+      "c",
+      "unsigned char u = 250; u += 15; printf(\"%d\", u);",
+      "9",
+      78
+    ],
+    [
+      "skills",
+      "c",
+      "int a[] = {9, 8, 2, 3}; int s = 0; for (int i = 0; i < 4; i += 2) s += a[i]; printf(\"%d\", s);",
+      "11",
+      77
+    ],
+    [
+      "skills",
+      "c",
+      "int i = 3; int v = ++i * 2; printf(\"%d %d\", v, i);",
+      "8 4",
+      75
+    ],
+    ["skills", "c", "printf(\"%.1f\", (float)(15 / 2));", "7.0", 101],
+    [
+      "skills",
+      "c",
+      "int v = 9; if (v = 0) v = 5; else v += 3; printf(\"%d\", v);",
+      "3",
+      79
+    ],
+    [
+      "skills",
+      "c",
+      "int i = 9; int v = ++i * 2; printf(\"%d %d\", v, i);",
+      "20 10",
+      75
+    ],
+    [
+      "skills",
+      "c",
+      "int v = 1, c = 0; switch (v) { case 1: c += 1; case 2: c += 2; break; case 3: c += 3; } printf(\"%d\", c);",
+      "3",
+      81
+    ],
+    [
+      "skills",
+      "c",
+      "int v = 4; if (v = 0) v = 5; else v += 6; printf(\"%d\", v);",
+      "6",
+      79
+    ],
+    [
+      "skills",
+      "c",
+      "int a[] = {4, 8, 3, 1}; int s = 0; for (int i = 0; i < 4; i += 2) s += a[i]; printf(\"%d\", s);",
+      "7",
+      77
+    ],
+    [
+      "skills",
+      "c",
+      "char s[] = \"banana\"; s[2] = 0; printf(\"%s\", s);",
+      "ba",
+      89
+    ],
+    [
+      "skills",
+      "c",
+      "int a[] = {4, 7, 2, 1}; int *p = a + 3; printf(\"%d\", (int)(p - a) + *p);",
+      "4",
+      80
+    ],
+    [
+      "skills",
+      "c",
+      "int a[] = {3, 9, 2, 8}; int *p = a; p++; printf(\"%d\", *p + 1);",
+      "10",
+      90
+    ],
+    [
+      "skills",
+      "c",
+      "char s[] = \"python\"; s[3] = 0; printf(\"%s\", s);",
+      "pyt",
+      89
+    ],
+    [
+      "skills",
+      "c",
+      "int i = 2; int v = i++ + 8; printf(\"%d %d\", v, i);",
+      "10 3",
+      95
+    ],
+    [
+      "skills",
+      "c",
+      "int a[] = {2, 1, 6, 8}; int *p = a; int v = *p++; printf(\"%d %d\", v, *p);",
+      "2 1",
+      100
+    ],
+    [
+      "skills",
+      "c",
+      "int v = 7; v = v > 5 ? v - 5 : v + 5; printf(\"%d\", v);",
+      "2",
+      87
+    ],
+    [
+      "skills",
+      "c",
+      "int v = 2; v = v > 3 ? v - 3 : v + 3; printf(\"%d\", v);",
+      "5",
+      87
+    ],
+    [
+      "skills",
+      "c",
+      "int a[] = {2, 5, 6, 8}; int *p = a; p++; printf(\"%d\", *p + 1);",
+      "6",
+      90
+    ],
+    [
+      "skills",
+      "c",
+      "int a[] = {3, 2, 8, 5}; int *p = a; int v = *p++; printf(\"%d %d\", v, *p);",
+      "3 2",
+      100
+    ],
+    ["skills", "c", "printf(\"%.1f\", (float)7 / 2);", "3.5", 74],
+    [
+      "skills",
+      "c",
+      "int a[] = {3, 9, 8, 5}; int s = 0; for (int i = 0; i < 4; i += 2) s += a[i]; printf(\"%d\", s);",
+      "11",
+      77
+    ],
+    [
+      "skills",
+      "c",
+      "int a[] = {3, 1, 5, 2}; int *p = a + 1; printf(\"%d\", *(p + 1));",
+      "5",
+      84
+    ],
+    [
+      "skills",
+      "c",
+      "int c = 0; for (int i = 0; i < 3; i++) for (int j = i; j < 3; j++) c += 3; printf(\"%d\", c);",
+      "18",
+      76
+    ],
+    [
+      "skills",
+      "c",
+      "int v = 609, r = 0; while (v) { r = r * 10 + v % 10; v /= 10; } printf(\"%d\", r);",
+      "906",
+      86
+    ],
+    [
+      "skills",
+      "c",
+      "int a[] = {9, 3, 7, 8}; int *p = a + 2; printf(\"%d %d\", p[-1], p[1]);",
+      "3 8",
+      99
+    ],
+    [
+      "skills",
+      "c",
+      "char s[] = \"chamber\"; printf(\"%d %c\", (int)strlen(s), s[2]);",
+      "7 a",
+      93
+    ],
+    [
+      "skills",
+      "c",
+      "unsigned char u = 250; u += 13; printf(\"%d\", u);",
+      "7",
+      78
+    ],
+    ["skills", "c", "printf(\"%.1f\", (float)15 / 2);", "7.5", 74],
+    [
+      "skills",
+      "c",
+      "int v = 2; int *p = &v; *p += 4; printf(\"%d\", v);",
+      "6",
+      92
+    ],
+    [
+      "skills",
+      "c",
+      "int a[] = {6, 4, 7, 2}; int *p = a; int v = *p++; printf(\"%d %d\", v, *p);",
+      "6 4",
+      100
+    ],
+    [
+      "skills",
+      "c",
+      "int i = 7; int v = i-- - 1; printf(\"%d %d\", v, i);",
+      "6 6",
+      88
+    ],
+    [
+      "skills",
+      "c",
+      "int a[] = {3, 8, 6, 4}; int *p = a + 3; printf(\"%d\", (int)(p - a) + *p);",
+      "7",
+      80
+    ],
+    [
+      "skills",
+      "c",
+      "int i = 8; int v = i-- - 1; printf(\"%d %d\", v, i);",
+      "7 7",
+      88
+    ],
+    [
+      "skills",
+      "c",
+      "int i = 2; int v = i++ + 2; printf(\"%d %d\", v, i);",
+      "4 3",
+      95
+    ],
+    [
+      "skills",
+      "c",
+      "int a[] = {4, 7, 1, 9}; int s = 0; for (int i = 0; i < 4; i += 2) s += a[i]; printf(\"%d\", s);",
+      "5",
+      77
+    ],
+    [
+      "skills",
+      "c",
+      "int a[] = {2, 4, 9, 5}; int *p = a + 2; printf(\"%d %d\", p[-1], p[1]);",
+      "4 5",
+      99
+    ],
+    [
+      "skills",
+      "c",
+      "int i; for (i = 0; i < 5; i++) if (i == 4) break; printf(\"%d\", i);",
+      "4",
+      97
+    ],
+    [
+      "skills",
+      "c",
+      "int a[] = {3, 9, 6, 1}; int *p = a; p++; printf(\"%d\", *p + 1);",
+      "10",
+      90
+    ],
+    ["skills", "c", "printf(\"%d\", !3 + (6 && 0) + (1 || 0));", "1", 98],
+    [
+      "skills",
+      "c",
+      "unsigned char u = 250; u += 10; printf(\"%d\", u);",
+      "4",
+      78
+    ],
+    [
+      "skills",
+      "c",
+      "int v = 4; if (v = 0) v = 5; else v += 8; printf(\"%d\", v);",
+      "8",
+      79
+    ],
+    ["memory", "c", "'c' - 'a'", "2", 102],
+    ["memory", "c", "'0' - '0'", "0", 102],
+    ["memory", "c", "'j' - 'a'", "9", 102],
+    ["memory", "python", "ord('j')", "106", 102],
+    ["memory", "c", "'e' - 'a'", "4", 102],
+    ["memory", "c", "'h' - 'a'", "7", 102],
+    ["memory", "python", "ord('5')", "53", 102],
+    ["memory", "python", "chr(79)", "O", 102],
+    ["memory", "python", "chr(105)", "i", 102],
+    ["memory", "python", "ord('l')", "108", 102],
+    ["memory", "python", "chr(53)", "5", 102],
+    ["memory", "python", "chr(86)", "V", 102],
+    ["memory", "c", "'4' - '0'", "4", 102],
+    ["memory", "c", "'9' - '0'", "9", 102],
+    ["memory", "c", "printf(\"%c\", 'a' + 12);", "m", 102],
+    ["memory", "c", "printf(\"%c\", 'k' + 11);", "v", 102],
+    ["memory", "c", "printf(\"%c\", 'p' + 10);", "z", 102],
+    ["memory", "c", "'q' - 'a'", "16", 102],
+    ["memory", "c", "'n' - 'a'", "13", 102],
+    ["memory", "python", "chr(76)", "L", 102],
+    ["memory", "python", "chr(54)", "6", 102],
+    ["memory", "c", "'6' - '0'", "6", 102],
+    ["memory", "c", "printf(\"%c\", 'e' + 5);", "j", 102],
+    ["memory", "python", "ord('R')", "82", 102],
+    ["memory", "c", "printf(\"%c\", 'b' + 4);", "f", 102],
+    ["memory", "c", "'y' - 'a'", "24", 102],
+    ["memory", "python", "ord('3')", "51", 102],
+    ["memory", "python", "ord('w')", "119", 102],
+    ["memory", "python", "chr(80)", "P", 102],
+    ["memory", "c", "'1' - '0'", "1", 102],
+    ["memory", "python", "ord('t')", "116", 102],
+    ["memory", "c", "'r' - 'a'", "17", 102],
+    ["memory", "c", "'2' - '0'", "2", 102],
+    ["memory", "c", "printf(\"%c\", 'j' + 12);", "v", 102],
+    ["memory", "c", "printf(\"%c\", 't' + 2);", "v", 102],
+    ["memory", "python", "chr(57)", "9", 102],
+    ["memory", "python", "ord('b')", "98", 102],
+    ["memory", "c", "'5' - '0'", "5", 102],
+    ["memory", "c", "'l' - 'a'", "11", 102],
+    ["memory", "c", "printf(\"%c\", 'h' + 12);", "t", 102],
+    ["memory", "python", "chr(72)", "H", 102],
+    ["memory", "python", "ord('2')", "50", 102],
+    ["memory", "c", "printf(\"%c\", 'e' + 14);", "s", 102],
+    ["memory", "c", "'g' - 'a'", "6", 102],
+    ["memory", "c", "printf(\"%c\", 'q' + 8);", "y", 102],
+    ["memory", "c", "'u' - 'a'", "20", 102],
+    ["memory", "python", "chr(73)", "I", 102],
+    ["memory", "python", "ord('7')", "55", 102],
+    ["memory", "python", "chr(102)", "f", 102],
+    ["memory", "c", "printf(\"%c\", 'l' + 7);", "s", 102],
+    ["memory", "c", "printf(\"%c\", 'y' + 1);", "z", 102],
+    ["memory", "python", "chr(116)", "t", 102],
+    ["memory", "python", "ord('K')", "75", 102],
+    ["memory", "c", "printf(\"%c\", 't' + 4);", "x", 102],
+    ["memory", "c", "'k' - 'a'", "10", 102],
+    ["memory", "python", "ord('4')", "52", 102],
+    ["memory", "python", "ord('y')", "121", 102],
+    ["memory", "python", "ord('X')", "88", 102],
+    ["memory", "c", "printf(\"%c\", 'e' + 18);", "w", 102],
+    ["memory", "c", "printf(\"%c\", 'r' + 5);", "w", 102],
+    ["memory", "python", "ord('1')", "49", 102],
+    ["memory", "c", "'p' - 'a'", "15", 102],
+    ["memory", "python", "ord('J')", "74", 102],
+    ["memory", "c", "printf(\"%c\", 'u' + 4);", "y", 102],
+    ["memory", "c", "printf(\"%c\", 'k' + 4);", "o", 102],
+    ["memory", "python", "ord('c')", "99", 102],
+    ["memory", "c", "printf(\"%c\", 'm' + 5);", "r", 102],
+    ["memory", "c", "'8' - '0'", "8", 102],
+    ["memory", "python", "chr(50)", "2", 102],
+    ["memory", "python", "ord('q')", "113", 102],
+    ["memory", "c", "printf(\"%c\", 'o' + 10);", "y", 102],
+    ["memory", "c", "printf(\"%c\", 'd' + 10);", "n", 102],
+    ["memory", "python", "chr(51)", "3", 102],
+    ["memory", "python", "ord('d')", "100", 102],
+    ["memory", "c", "printf(\"%c\", 'x' + 1);", "y", 102],
+    ["memory", "c", "'i' - 'a'", "8", 102],
+    ["memory", "c", "printf(\"%c\", 'a' + 1);", "b", 102],
+    ["memory", "c", "'v' - 'a'", "21", 102],
+    ["memory", "c", "printf(\"%c\", 'm' + 9);", "v", 102],
+    ["memory", "c", "printf(\"%c\", 'q' + 1);", "r", 102],
+    ["memory", "c", "'7' - '0'", "7", 102],
+    ["memory", "python", "ord('I')", "73", 102],
+    ["memory", "c", "printf(\"%c\", 'p' + 6);", "v", 102],
+    ["memory", "python", "chr(84)", "T", 102],
+    ["memory", "python", "chr(71)", "G", 102],
+    ["memory", "c", "printf(\"%c\", 'e' + 12);", "q", 102],
+    ["memory", "c", "printf(\"%c\", 'a' + 21);", "v", 102],
+    ["memory", "python", "ord('Y')", "89", 102],
+    ["memory", "python", "chr(100)", "d", 102],
+    ["memory", "python", "ord('6')", "54", 102],
+    ["memory", "c", "printf(\"%c\", 'v' + 3);", "y", 102],
+    ["memory", "c", "printf(\"%c\", 'h' + 7);", "o", 102],
+    ["memory", "python", "chr(110)", "n", 102],
+    ["memory", "python", "chr(56)", "8", 102],
+    ["memory", "python", "chr(98)", "b", 102],
+    ["memory", "c", "printf(\"%c\", 'i' + 7);", "p", 102],
+    ["memory", "python", "ord('8')", "56", 102],
+    ["memory", "c", "printf(\"%c\", 'j' + 15);", "y", 102],
+    ["memory", "python", "ord('W')", "87", 102],
+    ["memory", "python", "ord('E')", "69", 102],
+    ["memory", "python", "ord('a')", "97", 102],
+    ["memory", "c", "'f' - 'a'", "5", 102],
+    ["memory", "python", "chr(117)", "u", 102],
+    ["memory", "c", "'3' - '0'", "3", 102],
+    ["memory", "python", "ord('i')", "105", 102],
+    ["memory", "python", "ord('U')", "85", 102],
+    ["memory", "python", "chr(89)", "Y", 102],
+    ["memory", "c", "'m' - 'a'", "12", 102],
+    ["memory", "c", "printf(\"%c\", 'v' + 4);", "z", 102],
+    ["memory", "python", "ord('k')", "107", 102],
+    ["memory", "c", "printf(\"%c\", 'q' + 9);", "z", 102],
+    ["memory", "python", "chr(82)", "R", 102],
+    ["memory", "python", "ord('H')", "72", 102],
+    ["memory", "python", "ord('r')", "114", 102],
+    ["memory", "c", "printf(\"%c\", 'r' + 6);", "x", 102],
+    ["memory", "c", "printf(\"%c\", 'u' + 5);", "z", 102],
+    ["memory", "python", "ord('B')", "66", 102],
+    ["memory", "python", "chr(49)", "1", 102],
+    ["memory", "python", "chr(75)", "K", 102],
+    ["memory", "python", "ord('0')", "48", 102],
+    ["memory", "c", "printf(\"%c\", 'm' + 11);", "x", 102],
+    ["memory", "c", "printf(\"%c\", 'l' + 1);", "m", 102],
+    ["memory", "python", "chr(77)", "M", 102],
+    ["memory", "python", "chr(115)", "s", 102],
+    ["memory", "c", "printf(\"%c\", 'l' + 13);", "y", 102],
+    [
+      "memory",
+      "js",
+      "console.log(Boolean(NaN), Boolean(null), Boolean(undefined))",
+      "false false false",
+      103
+    ],
+    ["memory", "any", "hex digit D in decimal", "13", 104],
+    ["memory", "any", "hex digit A in decimal", "10", 104],
+    [
+      "memory",
+      "python",
+      "print(len(\"a b  c\".split()), len(\"a b  c\".split(\" \")))",
+      "3 4",
+      105
+    ],
+    [
+      "memory",
+      "c",
+      "int a[5]; printf(\"%d\", (int)(sizeof(a) / sizeof(a[0])));",
+      "5",
+      106
+    ],
+    ["memory", "python", "print(range(3)[-1], list(range(0)))", "2 []", 107],
+    ["memory", "any", "256 is 2 to the power of what", "8", 108],
+    ["memory", "c", "printf(\"%.2f %.1f\", 3.14159, 2.96);", "3.14 3.0", 109],
+    [
+      "memory",
+      "js",
+      "console.log(0.1 + 0.2 === 0.3, 0.5 + 0.25 === 0.75)",
+      "false true",
+      110
+    ],
+    [
+      "memory",
+      "python",
+      "print(1 == 1.0, [] == [], (1, 2) == (1, 2))",
+      "True True True",
+      111
+    ],
+    [
+      "memory",
+      "c",
+      "char s[] = \"abc\"; printf(\"%d %d\", (int)sizeof(s), (int)strlen(s));",
+      "4 3",
+      112
+    ],
+    [
+      "memory",
+      "js",
+      "console.log(typeof \"a\", typeof 1, typeof true)",
+      "string number boolean",
+      113
+    ],
+    [
+      "memory",
+      "python",
+      "print(\"a\" < \"b\", \"a\" < \"B\", \"abc\" < \"abd\")",
+      "True False True",
+      114
+    ],
+    ["memory", "c", "printf(\"%d %d\", '0', '9' - '0');", "48 9", 115],
+    ["memory", "any", "2 to the power of 9", "512", 108],
+    ["memory", "any", "64 is 2 to the power of what", "6", 108],
+    ["memory", "any", "2 to the power of 7", "128", 108],
+    ["memory", "c", "int i = 3; i *= 2 + 1; printf(\"%d\", i);", "9", 116],
+    ["memory", "js", "console.log(2 ** 10, 7 % 3, 7 / 2 | 0)", "1024 1 3", 117],
+    ["memory", "any", "2 to the power of 14", "16384", 108],
+    ["memory", "any", "2 to the power of 6", "64", 108],
+    ["memory", "any", "16 is 2 to the power of what", "4", 108],
+    [
+      "memory",
+      "js",
+      "console.log([1, 2, 3].indexOf(2), [1, 2, 3].find(v => v > 1), [1, 2, 3].findIndex(v => v > 5))",
+      "1 2 -1",
+      118
+    ],
+    [
+      "memory",
+      "js",
+      "console.log([...\"ab\"].map(c => c.charCodeAt(0)), String.fromCharCode(66))",
+      "[ 97, 98 ] B",
+      119
+    ],
+    [
+      "memory",
+      "js",
+      "console.log(parseInt(\"08\"), parseFloat(\"3.5kg\"), Number(\"\"))",
+      "8 3.5 0",
+      120
+    ],
+    ["memory", "c", "printf(\"%d %d\", 1 && 2, 1 & 2);", "1 0", 121],
+    ["memory", "c", "printf(\"%d\", (int)strlen(\"hello\\n\"));", "6", 122],
+    ["memory", "any", "4096 is 2 to the power of what", "12", 108],
+    ["memory", "any", "hex digit E in decimal", "14", 104],
+    ["memory", "any", "1024 is 2 to the power of what", "10", 108],
+    ["memory", "c", "printf(\"%d %d\", 1 << 10, 1 << 4);", "1024 16", 123],
+    [
+      "memory",
+      "python",
+      "print(abs(-3), pow(2, 5), 7 % 2 == 1)",
+      "3 32 True",
+      124
+    ],
+    ["memory", "any", "2 to the power of 3", "8", 108],
+    ["memory", "python", "print(len(\"a\\nb\"))", "3", 125],
+    [
+      "memory",
+      "python",
+      "print(bool([]), bool([0]), bool(0.0))",
+      "False True False",
+      126
+    ],
+    ["memory", "js", "console.log(typeof [], typeof {})", "object object", 127],
+    ["memory", "js", "console.log(typeof typeof 1)", "string", 128],
+    ["memory", "any", "32 is 2 to the power of what", "5", 108],
+    ["memory", "c", "printf(\"%d %d %d\", 10 == 10.0, !0, !7);", "1 1 0", 129],
+    ["memory", "c", "char c = 'a'; c++; printf(\"%c\", c);", "b", 130],
+    [
+      "memory",
+      "js",
+      "console.log([1, 2, 3].at(-1), \"abc\".at(-1), \"abc\"[-1])",
+      "3 c undefined",
+      131
+    ],
+    ["memory", "any", "128 is 2 to the power of what", "7", 108],
+    ["memory", "c", "int x; x = (3, 5); printf(\"%d\", x);", "5", 132],
+    ["memory", "c", "printf(\"%d\", 'a' < 'B');", "0", 133],
+    ["memory", "any", "hex digit F in decimal", "15", 104],
+    ["memory", "python", "print([].append(1))", "None", 134],
+    [
+      "memory",
+      "js",
+      "console.log([1, 2, 3].splice(1, 1), [1, 2, 3].slice(1, 2))",
+      "[ 2 ] [ 2 ]",
+      135
+    ],
+    [
+      "memory",
+      "js",
+      "console.log(1 / 0, -1 / 0, 0 / 0)",
+      "Infinity -Infinity NaN",
+      136
+    ],
+    ["memory", "c", "printf(\"%d\", (int)3.99 + (int)-3.99);", "0", 137],
+    ["memory", "c", "printf(\"%s\", \"abc\" + 1);", "bc", 138],
+    [
+      "memory",
+      "python",
+      "print(\"abc\".upper(), \"ABC\".lower().capitalize())",
+      "ABC Abc",
+      139
+    ],
+    ["memory", "any", "hex digit C in decimal", "12", 104],
+    ["memory", "any", "2 to the power of 11", "2048", 108],
+    [
+      "memory",
+      "python",
+      "print(type({}).__name__, type({1}).__name__)",
+      "dict set",
+      140
+    ],
+    [
+      "memory",
+      "js",
+      "console.log([] == false, \"\" == 0, null == 0)",
+      "true true false",
+      141
+    ],
+    [
+      "memory",
+      "python",
+      "print(type((1)).__name__, type((1,)).__name__)",
+      "int tuple",
+      142
+    ],
+    ["memory", "c", "printf(\"%d\", INT_MAX);", "2147483647", 143],
+    ["memory", "any", "2 to the power of 16", "65536", 108],
+    ["memory", "c", "printf(\"%c %d\", 65, 'A');", "A 65", 144],
+    [
+      "memory",
+      "js",
+      "console.log(\"5\" == 5, \"5\" === 5, 5 == 5.0)",
+      "true false true",
+      145
+    ],
+    ["memory", "any", "2048 is 2 to the power of what", "11", 108],
+    [
+      "memory",
+      "js",
+      "console.log(+\"3\" + +\"4\", \"3\" + \"4\")",
+      "7 34",
+      146
+    ],
+    ["memory", "c", "printf(\"%d %d %d\", 5 & 3, 5 | 3, 5 ^ 3);", "1 7 6", 147],
+    [
+      "memory",
+      "js",
+      "console.log(\"abc\".substring(1), \"abc\".slice(-1), \"abc\".charAt(0))",
+      "bc c a",
+      148
+    ],
+    ["memory", "any", "hex digit B in decimal", "11", 104],
+    ["memory", "any", "512 is 2 to the power of what", "9", 108],
+    [
+      "memory",
+      "js",
+      "console.log(\"a-b-c\".split(\"-\").length, \"abc\".split(\"\").length)",
+      "3 3",
+      149
+    ],
+    ["memory", "any", "2 to the power of 0", "1", 108],
+    ["memory", "python", "print(None == False, not None)", "False True", 150],
+    [
+      "memory",
+      "js",
+      "console.log(\"abc\".length, [1, [2, 3]].length)",
+      "3 2",
+      151
+    ],
+    ["memory", "python", "print(3 == 3.0, \"3\" == 3)", "True False", 152],
+    ["memory", "c", "printf(\"%d %d\", 0x1F, 0xFF);", "31 255", 153],
+    [
+      "memory",
+      "js",
+      "console.log(\"b\" > \"a\", \"B\" > \"a\", \"10\" > \"9\")",
+      "true false false",
+      154
+    ],
+    ["memory", "any", "2 to the power of 13", "8192", 108],
+    [
+      "memory",
+      "python",
+      "print(bool(None), bool({}), bool((0,)))",
+      "False False True",
+      155
+    ],
+    [
+      "memory",
+      "js",
+      "console.log(typeof undefined, typeof null)",
+      "undefined object",
+      156
+    ],
+    ["memory", "python", "print(sorted(\"bAc\"))", "['A', 'b', 'c']", 157],
+    ["memory", "c", "printf(\"%d\", 1 + 2 == 3);", "1", 158],
+    ["memory", "c", "printf(\"%d %d\", 7 / 2, -7 / 2);", "3 -3", 159],
+    [
+      "memory",
+      "python",
+      "print(bool(\"\"), bool(\"0\"), bool(\" \"))",
+      "False True True",
+      160
+    ],
+    [
+      "memory",
+      "js",
+      "console.log(null + 1, undefined + 1, true + 1)",
+      "1 NaN 2",
+      161
+    ],
+    ["memory", "c", "printf(\"%05d %03d\", 42, 7);", "00042 007", 162],
+    ["memory", "any", "2 to the power of 2", "4", 108],
+    [
+      "memory",
+      "python",
+      "a = [1, 2, 3]; print(a.index(2), a.count(2), len(a))",
+      "1 1 3",
+      163
+    ],
+    [
+      "memory",
+      "python",
+      "print(chr(ord(\"a\") + 1), ord(\"b\") - ord(\"a\"))",
+      "b 1",
+      164
+    ],
+    [
+      "memory",
+      "c",
+      "int a = 5, b = 2; printf(\"%.2f\", (double)a / b);",
+      "2.50",
+      165
+    ],
+    [
+      "memory",
+      "python",
+      "x = 5; print(x > 3 and \"yes\" or \"no\")",
+      "yes",
+      166
+    ],
+    [
+      "memory",
+      "js",
+      "console.log(Math.round(2.5), Math.round(-2.5), Math.round(2.4))",
+      "3 -2 2",
+      167
+    ],
+    ["memory", "c", "printf(\"%c%c\", 'a' - 32, 'A' + 32);", "Aa", 168],
+    [
+      "memory",
+      "js",
+      "let u; console.log(u, typeof u, u + 1)",
+      "undefined undefined NaN",
+      169
+    ],
+    ["memory", "js", "console.log([3, 1, 2].sort().reverse()[0])", "3", 170],
+    ["memory", "c", "printf(\"%d\", 07 + 010);", "15", 171],
+    ["memory", "c", "printf(\"%d %d\", 7 % 3, -7 % 3);", "1 -1", 172],
+    [
+      "memory",
+      "python",
+      "print(10 // 3, 10 % 3, divmod(10, 3))",
+      "3 1 (3, 1)",
+      173
+    ],
+    ["memory", "any", "2 to the power of 12", "4096", 108],
+    [
+      "memory",
+      "js",
+      "const a = [1, 2, 3]; a.length = 1; console.log(a)",
+      "[ 1 ]",
+      174
+    ],
+    [
+      "memory",
+      "js",
+      "console.log(NaN == NaN, isNaN(\"x\"))",
+      "false true",
+      175
+    ],
+    ["memory", "any", "2 to the power of 8", "256", 108],
+    ["memory", "any", "8 is 2 to the power of what", "3", 108],
+    [
+      "memory",
+      "c",
+      "printf(\"%d %d\", (int)sizeof(double), (int)sizeof(float));",
+      "8 4",
+      176
+    ],
+    ["memory", "js", "console.log([1, 2] + [3], [] + 1)", "1,23 1", 177],
+    ["memory", "c", "printf(\"%x %X %o\", 255, 255, 8);", "ff FF 10", 178],
+    [
+      "memory",
+      "c",
+      "int a[3] = {1}; printf(\"%d %d\", a[0], a[2]);",
+      "1 0",
+      179
+    ],
+    [
+      "memory",
+      "js",
+      "console.log(\"a\".repeat(3), \"ab\".padStart(4, \"*\"))",
+      "aaa **ab",
+      180
+    ],
+    [
+      "memory",
+      "js",
+      "console.log(String(null), String([1, 2]), String(true))",
+      "null 1,2 true",
+      181
+    ],
+    [
+      "memory",
+      "js",
+      "console.log(Boolean(\"\"), Boolean(\"0\"), Boolean(\" \"))",
+      "false true true",
+      182
+    ],
+    [
+      "memory",
+      "python",
+      "print(\"x\" in \"xyz\", 2 in [1, 2], \"a\" in {\"a\": 1})",
+      "True True True",
+      183
+    ],
+    ["memory", "python", "print(1 / 2, 2 ** -1, 4 ** 0.5)", "0.5 0.5 2.0", 184],
+    ["memory", "c", "printf(\"%d %d\", 5 / 2 * 2, 5 * 2 / 2);", "4 5", 185],
+    [
+      "memory",
+      "python",
+      "print(type(3 / 1).__name__, type(3 // 1).__name__)",
+      "float int",
+      186
+    ],
+    [
+      "memory",
+      "js",
+      "console.log(\"abc\".indexOf(\"z\"), [1, 2].includes(2))",
+      "-1 true",
+      187
+    ],
+    [
+      "memory",
+      "js",
+      "console.log(Boolean([]), Boolean({}), Boolean(0))",
+      "true true false",
+      188
+    ],
+    ["memory", "any", "2 to the power of 4", "16", 108],
+    [
+      "memory",
+      "python",
+      "print(\"%d-%s\" % (3, \"a\"), f\"{3 + 1}{'a' * 2}\")",
+      "3-a 4aa",
+      189
+    ],
+    ["memory", "c", "int a = 1, b = 2; printf(\"%d\", a++ + b);", "3", 190],
+    [
+      "memory",
+      "c",
+      "printf(\"%d %d\", (int)sizeof(char), (int)sizeof(int));",
+      "1 4",
+      191
+    ],
+    ["memory", "any", "2 to the power of 1", "2", 108],
+    [
+      "memory",
+      "python",
+      "print(int(\"7\") + 1, str(7) + \"1\", float(\"7\"))",
+      "8 71 7.0",
+      192
+    ],
+    [
+      "memory",
+      "js",
+      "console.log(typeof (() => 1), typeof NaN)",
+      "function number",
+      193
+    ],
+    [
+      "memory",
+      "js",
+      "console.log(null == undefined, null === undefined)",
+      "true false",
+      194
+    ],
+    ["memory", "c", "printf(\"%d\", 3 + 4 * 2 % 3);", "5", 195],
+    ["memory", "any", "2 to the power of 5", "32", 108],
+    ["memory", "any", "2 to the power of 15", "32768", 108],
+    ["memory", "python", "print(max(\"apple\"), min(\"Zebra\"))", "p Z", 196],
+    ["memory", "python", "print([3, 1, 2].sort())", "None", 197],
+    ["traps", "c", "printf(\"%d\", 2 ^ 3);", "1", 198],
+    [
+      "traps",
+      "python",
+      "print(int(3.9), int(-3.9), -3.9 // 1)",
+      "3 -3 -4.0",
+      26
+    ],
+    [
+      "traps",
+      "python",
+      "print(1 == 1.0, [1] == [1], \"1\" == 1)",
+      "True True False",
+      199
+    ],
+    ["traps", "js", "console.log(-6 % 4)", "-2", 200],
+    [
+      "traps",
+      "js",
+      "console.log(null ?? \"d\", 0 ?? \"d\", 0 || \"d\")",
+      "d 0 d",
+      201
+    ],
+    ["traps", "python", "print(17 // 2 + 17 // 2, -17 // 2)", "16 -9", 202],
+    ["traps", "python", "print(-12 % 5)", "3", 203],
+    ["traps", "python", "print(2 ** 4, 2 ^ 4)", "16 6", 204],
+    ["traps", "js", "for (var i = 0; i < 4; i++) {} console.log(i)", "4", 205],
+    [
+      "traps",
+      "js",
+      "console.log(1 == \"1\", [1] == [1], 1 === 1.0)",
+      "true false true",
+      206
+    ],
+    [
+      "traps",
+      "python",
+      "print(7 // 2 * 2 == 7, 7 / 2 * 2 == 7)",
+      "False True",
+      207
+    ],
+    [
+      "traps",
+      "python",
+      "s = \"abc\"; s = s.replace(\"a\", \"x\"); print(s)",
+      "xbc",
+      208
+    ],
+    ["traps", "python", "print(2 ** 2, 2 ^ 2)", "4 0", 204],
+    ["traps", "python", "print(-5 % 5)", "0", 203],
+    ["traps", "js", "console.log([1, 2] + [3])", "1,23", 209],
+    [
+      "traps",
+      "js",
+      "console.log(Math.round(2.5), Math.round(3.5), Math.round(-2.5))",
+      "3 4 -2",
+      210
+    ],
+    [
+      "traps",
+      "c",
+      "char a[] = \"hi\", b[] = \"hi\"; printf(\"%d %d\", a == b, strcmp(a, b));",
+      "0 0",
+      211
+    ],
+    ["traps", "python", "print(\"10\" < \"9\", 10 < 9)", "True False", 212],
+    [
+      "traps",
+      "python",
+      "print(len(\"hello\"), \"hello\"[1], \"hello\".index(\"l\"))",
+      "5 e 2",
+      213
+    ],
+    ["traps", "js", "console.log(2 ** 3, 2 ^ 3)", "8 1", 204],
+    [
+      "traps",
+      "c",
+      "printf(\"%d %c\", (int)strlen(\"hello\"), \"hello\"[1]);",
+      "5 e",
+      214
+    ],
+    ["traps", "c", "printf(\"%d\", 7 / 2 * 2 == 7);", "0", 215],
+    ["traps", "c", "printf(\"%d\", (3 > 2) + (2 > 1));", "2", 216],
+    [
+      "traps",
+      "js",
+      "var x = 1; function f() { x = 2; } f(); console.log(x)",
+      "2",
+      217
+    ],
+    ["traps", "js", "console.log(3 && 9, 3 || 9)", "9 3", 218],
+    [
+      "traps",
+      "python",
+      "print([1, 2] + [3], [0] * 2)",
+      "[1, 2, 3] [0, 0]",
+      219
+    ],
+    [
+      "traps",
+      "c",
+      "int a[] = {1, 2, 3}; int *b = a; b[0] = 9; printf(\"%d\", a[0]);",
+      "9",
+      220
+    ],
+    ["traps", "js", "console.log(15 / 2 + 15 / 2)", "15", 221],
+    [
+      "traps",
+      "c",
+      "printf(\"%.1f %.1f\", 17 / 2 * 1.0, 17 * 1.0 / 2);",
+      "8.0 8.5",
+      222
+    ],
+    ["traps", "python", "print(True + True, 3 > 2)", "2 True", 223],
+    [
+      "traps",
+      "js",
+      "let s = \"abc\"; s[0] = \"x\"; console.log(s)",
+      "abc",
+      224
+    ],
+    ["traps", "js", "console.log(true + true, 3 > 2)", "2 true", 225],
+    [
+      "traps",
+      "c",
+      "int i; for (i = 0; i < 6; i++); printf(\"%d\", i);",
+      "6",
+      205
+    ],
+    [
+      "traps",
+      "c",
+      "char s[] = \"abc\"; s[0] = 'x'; printf(\"%s\", s);",
+      "xbc",
+      226
+    ],
+    ["traps", "python", "x = 1\ndef f():\n    x = 2\nf()\nprint(x)", "1", 227],
+    [
+      "traps",
+      "python",
+      "print(bool([]), bool(\"0\"), bool(0))",
+      "False True False",
+      228
+    ],
+    ["traps", "c", "printf(\"%d %c\", '4' + 4, '4' + 4);", "56 8", 229],
+    ["traps", "c", "printf(\"%d %d\", 1 < 2 < 3, 3 > 2 > 1);", "1 0", 230],
+    ["traps", "python", "print(19 // 2 + 19 // 2, -19 // 2)", "18 -10", 202],
+    ["traps", "python", "print(None or 0, 0 or None)", "0 None", 231],
+    [
+      "traps",
+      "python",
+      "print(13 / 2, type(13 / 2).__name__)",
+      "6.5 float",
+      232
+    ],
+    ["traps", "js", "console.log(13 / 2 + 13 / 2)", "13", 221],
+    ["traps", "c", "printf(\"%d %c\", '4' + 3, '4' + 3);", "55 7", 229],
+    [
+      "traps",
+      "js",
+      "console.log([...[1, 2], 3], [1, 2].concat(3))",
+      "[ 1, 2, 3 ] [ 1, 2, 3 ]",
+      233
+    ],
+    [
+      "traps",
+      "c",
+      "if (\"\") printf(\"yes\"); else printf(\"no\");",
+      "yes",
+      234
+    ],
+    ["traps", "python", "print(-6 % 2)", "0", 203],
+    ["traps", "python", "print(\"abc\"[-1], [1, 2, 3][-2])", "c 2", 235],
+    [
+      "traps",
+      "js",
+      "console.log(\"hello\".length, \"hello\"[1], \"hello\".indexOf(\"l\"))",
+      "5 e 2",
+      236
+    ],
+    ["traps", "python", "print(11 // 2 + 11 // 2, -11 // 2)", "10 -6", 202],
+    ["traps", "c", "int x = 1; { int x = 2; } printf(\"%d\", x);", "1", 237],
+    ["traps", "python", "print(1 < 2 < 3, 3 > 2 > 1)", "True True", 238],
+    [
+      "traps",
+      "js",
+      "console.log(\"10\" < \"9\", \"10\" < 9)",
+      "true false",
+      239
+    ],
+    ["traps", "c", "printf(\"%d %c\", '1' + 4, '1' + 4);", "53 5", 229],
+    ["traps", "python", "for i in range(4): pass\nprint(i)", "3", 240],
+    ["traps", "python", "print(4 and 7, 4 or 7, 0 or 7)", "7 4 7", 241],
+    ["traps", "c", "printf(\"%d\", 2 ^ 2);", "0", 198],
+    ["traps", "python", "print(-8 % 4)", "0", 203],
+    [
+      "traps",
+      "c",
+      "int i; for (i = 0; i < 4; i++); printf(\"%d\", i);",
+      "4",
+      205
+    ],
+    [
+      "traps",
+      "python",
+      "a = [1, 2, 3]; b = a; b[0] = 9; print(a[0])",
+      "9",
+      242
+    ],
+    ["traps", "python", "print(-15 % 4)", "1", 203],
+    ["traps", "python", "print(\"3\" * 2, \"3\" + \"6\")", "33 36", 243],
+    ["traps", "python", "print(\"4\" * 2, \"4\" + \"8\")", "44 48", 243],
+    ["traps", "c", "printf(\"%d\", 11 / 2 + 11 / 2);", "10", 244],
+    [
+      "traps",
+      "js",
+      "console.log(parseInt(\"3.9\"), Math.floor(-3.9), Math.trunc(-3.9))",
+      "3 -4 -3",
+      245
+    ],
+    ["traps", "c", "printf(\"%d\", 19 / 2 + 19 / 2);", "18", 244],
+    [
+      "traps",
+      "js",
+      "const a = [1, 2, 3]; const b = [...a]; b[0] = 9; console.log(a[0])",
+      "1",
+      246
+    ],
+    ["traps", "js", "console.log(2 ** 2, 2 ^ 2)", "4 0", 204],
+    ["traps", "js", "console.log(7 / 2 * 2 == 7)", "true", 247],
+    [
+      "traps",
+      "js",
+      "console.log(Boolean([]), Boolean(\"0\"), Boolean(0))",
+      "true true false",
+      248
+    ],
+    ["traps", "c", "printf(\"%d %d\", 2 && 6, 2 || 6);", "1 1", 249],
+    ["traps", "js", "console.log(-5 % 2)", "-1", 200],
+    ["traps", "c", "printf(\"%d\", -19 % 6);", "-1", 200],
+    ["traps", "c", "printf(\"%d\", 17 / 2 + 17 / 2);", "16", 244],
+    ["traps", "js", "console.log(\"4\" * 4, \"4\" + 6)", "16 46", 250],
+    ["traps", "js", "console.log(1 && 8, 1 || 8)", "8 1", 218],
+    [
+      "traps",
+      "python",
+      "print(15 / 2, type(15 / 2).__name__)",
+      "7.5 float",
+      232
+    ],
+    ["traps", "python", "print(1 and 8, 1 or 8, 0 or 8)", "8 1 8", 241],
+    ["traps", "js", "for (var i = 0; i < 6; i++) {} console.log(i)", "6", 205],
+    ["traps", "js", "console.log(1 < 2 < 3, 3 > 2 > 1)", "true false", 230],
+    ["traps", "js", "console.log(17 / 2 + 17 / 2)", "17", 221],
+    [
+      "traps",
+      "c",
+      "int i; for (i = 0; i < 5; i++); printf(\"%d\", i);",
+      "5",
+      205
+    ],
+    [
+      "traps",
+      "js",
+      "console.log([10, 9, 4, 1].sort())",
+      "[ 1, 10, 4, 9 ]",
+      251
+    ],
+    [
+      "traps",
+      "js",
+      "var x = 1; function f() { var x = 2; } f(); console.log(x)",
+      "1",
+      252
+    ],
+    ["traps", "js", "console.log(3 && 7, 3 || 7)", "7 3", 218],
+    ["traps", "c", "printf(\"%d\", 13 / 2 + 13 / 2);", "12", 244],
+    ["traps", "js", "for (var i = 0; i < 5; i++) {} console.log(i)", "5", 205],
+    [
+      "traps",
+      "c",
+      "printf(\"%.1f %.1f\", 11 / 2 * 1.0, 11 * 1.0 / 2);",
+      "5.0 5.5",
+      222
+    ],
+    [
+      "traps",
+      "js",
+      "console.log([10, 9, 3, 1].sort((p, q) => p - q))",
+      "[ 1, 3, 9, 10 ]",
+      253
+    ],
+    [
+      "traps",
+      "python",
+      "print(round(2.5), round(3.5), round(-2.5))",
+      "2 4 -2",
+      254
+    ],
+    ["traps", "python", "print(2 ** 3, 2 ^ 3)", "8 1", 204],
+    [
+      "traps",
+      "js",
+      "console.log([10, 9, 1, 1].sort())",
+      "[ 1, 1, 10, 9 ]",
+      251
+    ],
+    ["traps", "js", "console.log(-15 % 5)", "-0", 200],
+    [
+      "traps",
+      "js",
+      "console.log(\"abc\"[-1], [1, 2, 3].at(-2))",
+      "undefined 2",
+      255
+    ],
+    ["traps", "js", "console.log(2 && 7, 2 || 7)", "7 2", 218],
+    ["traps", "js", "console.log(-16 % 6)", "-4", 200],
+    ["traps", "c", "printf(\"%d %d\", 3 && 7, 3 || 7);", "1 1", 249],
+    ["traps", "python", "for i in range(3): pass\nprint(i)", "2", 240],
+    ["traps", "python", "for i in range(5): pass\nprint(i)", "4", 240],
+    [
+      "traps",
+      "c",
+      "printf(\"%.1f %.1f\", 13 / 2 * 1.0, 13 * 1.0 / 2);",
+      "6.0 6.5",
+      222
+    ],
+    [
+      "traps",
+      "c",
+      "printf(\"%.1f %.1f\", 15 / 2 * 1.0, 15 * 1.0 / 2);",
+      "7.0 7.5",
+      222
+    ],
+    ["traps", "c", "printf(\"%d\", -12 % 6);", "0", 200],
+    ["traps", "c", "printf(\"%d %c\", '3' + 4, '3' + 4);", "55 7", 229],
+    [
+      "traps",
+      "python",
+      "print(19 / 2, type(19 / 2).__name__)",
+      "9.5 float",
+      232
+    ],
+    [
+      "traps",
+      "js",
+      "console.log(parseInt(\"1.9\"), Math.floor(-1.9), Math.trunc(-1.9))",
+      "1 -2 -1",
+      245
+    ],
+    [
+      "traps",
+      "c",
+      "printf(\"%.1f %.1f\", 19 / 2 * 1.0, 19 * 1.0 / 2);",
+      "9.0 9.5",
+      222
+    ],
+    ["traps", "js", "console.log(-14 % 5)", "-4", 200],
+    [
+      "traps",
+      "python",
+      "print(int(2.9), int(-2.9), -2.9 // 1)",
+      "2 -2 -3.0",
+      26
+    ],
+    ["traps", "js", "console.log(19 / 2 + 19 / 2)", "19", 221],
+    ["traps", "c", "printf(\"%d %d\", 1 && 7, 1 || 7);", "1 1", 249],
+    ["traps", "python", "print(-12 % 2)", "0", 203],
+    ["traps", "python", "print(-9 % 6)", "3", 203],
+    ["traps", "js", "console.log(1 && 9, 1 || 9)", "9 1", 218],
+    ["traps", "js", "console.log(\"4\" * 3, \"4\" + 6)", "12 46", 250],
+    ["traps", "js", "console.log(-10 % 6)", "-4", 200],
+    ["traps", "python", "print(13 // 2 + 13 // 2, -13 // 2)", "12 -7", 202],
+    ["traps", "python", "print(3 and 9, 3 or 9, 0 or 9)", "9 3 9", 241],
+    ["traps", "c", "printf(\"%d\", -13 % 4);", "-1", 200],
+    [
+      "traps",
+      "python",
+      "print(17 / 2, type(17 / 2).__name__)",
+      "8.5 float",
+      232
+    ],
+    ["traps", "c", "printf(\"%d %c\", '2' + 3, '2' + 3);", "53 5", 229],
+    [
+      "traps",
+      "js",
+      "console.log(parseInt(\"2.9\"), Math.floor(-2.9), Math.trunc(-2.9))",
+      "2 -3 -2",
+      245
+    ],
+    ["traps", "c", "printf(\"%d %d\", 4 && 9, 4 || 9);", "1 1", 249],
+    ["traps", "python", "print(2 and 7, 2 or 7, 0 or 7)", "7 2 7", 241],
+    ["traps", "python", "print(\"1\" * 2, \"1\" + \"8\")", "11 18", 243],
+    ["traps", "js", "console.log(\"2\" * 3, \"2\" + 7)", "6 27", 250],
+    ["traps", "c", "printf(\"%d %d\", (int)4.9, (int)-4.9);", "4 -4", 256],
+    ["traps", "c", "printf(\"%d\", 15 / 2 + 15 / 2);", "14", 244],
+    ["traps", "c", "printf(\"%d %d\", 1 && 6, 1 || 6);", "1 1", 249],
+    ["traps", "python", "print(-18 % 2)", "0", 203],
+    ["traps", "python", "for i in range(6): pass\nprint(i)", "5", 240],
+    ["traps", "python", "print(-12 % 6)", "0", 203]
+  ]
+}
