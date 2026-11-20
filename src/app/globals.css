@@ -2982,3 +2982,205 @@ body {
   line-height: 1;
   color: var(--neo-accent-red);
 }
+
+/* ── /get14 practice ──────────────────────────────────────────────── */
+
+.g14 {
+  --g14-ink: #1a1a1a;
+  --g14-shadow: #9a9a9a;
+  --g14-rule: #b9d3ee;
+  --g14-code-bg: #ffffff;
+  --g14-marker: #6b6b6b;
+  --g14-right: #1f6b2a;
+  --g14-right-bg: #eaf7ea;
+  --g14-wrong-bg: #fdeeee;
+  --g14-mono: ui-monospace, "Cascadia Code", monospace;
+  --g14-line: 1.75rem;
+  margin-top: 2rem;
+}
+
+/* Tailwind's mt-* loses to .neo-section-title, so space the headings here. */
+.g14-page .neo-section-title {
+  margin-top: 2rem;
+}
+
+.g14-filters {
+  display: grid;
+  gap: 0.6rem;
+}
+.g14-filter {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.4rem;
+}
+.g14-filter-label {
+  min-width: 5.5rem;
+  font-family: var(--neo-ui);
+  font-weight: 700;
+}
+
+.g14-chip,
+.g14-btn {
+  font-family: var(--neo-ui);
+  font-weight: 700;
+  color: var(--g14-ink);
+  background: var(--neo-box);
+  border: 2px solid var(--g14-ink);
+  white-space: nowrap;
+  cursor: pointer;
+  transition: transform 80ms ease-out;
+}
+.g14-chip {
+  min-height: 2.25rem;
+  padding: 0.15rem 0.7rem;
+}
+.g14-chip:hover {
+  box-shadow: 2px 2px 0 var(--neo-border);
+}
+.g14-chip:active {
+  transform: translate(1px, 1px);
+}
+.g14-chip[aria-pressed="true"] {
+  color: var(--neo-box);
+  background: var(--g14-ink);
+}
+
+.g14-btn {
+  padding: 0.55rem 1rem;
+  box-shadow: 3px 3px 0 var(--g14-shadow);
+}
+.g14-btn--main {
+  color: var(--neo-box);
+  background: var(--g14-ink);
+}
+.g14-btn:hover {
+  box-shadow: 3px 3px 0 var(--neo-border);
+}
+.g14-btn:active {
+  transform: translate(2px, 2px);
+  box-shadow: 1px 1px 0 var(--neo-border);
+}
+.g14-btn:disabled {
+  opacity: 0.55;
+  box-shadow: none;
+  transform: none;
+  cursor: not-allowed;
+}
+
+.neo-page .g14 button:focus-visible,
+.g14-sheet:focus-visible {
+  outline: 3px solid var(--neo-border);
+  outline-offset: 2px;
+}
+
+.g14-score {
+  margin-top: 1rem;
+}
+.g14-reset {
+  font: inherit;
+  color: var(--neo-link);
+  text-decoration: underline;
+  background: none;
+  border: 0;
+  padding: 0;
+  cursor: pointer;
+}
+
+.g14-meta {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.25rem 1rem;
+  margin-top: 0.5rem;
+}
+.g14-clock {
+  font-family: var(--g14-mono);
+  font-variant-numeric: tabular-nums;
+}
+
+.g14-code {
+  margin: 0.5rem 0 0;
+  padding: 0.75rem 0.75rem 0.75rem 3rem;
+  list-style: decimal;
+  font-family: var(--g14-mono);
+  font-size: 0.95rem;
+  line-height: 1.6;
+  tab-size: 4;
+  background: var(--g14-code-bg);
+  border: 2px solid var(--g14-ink);
+  overflow-x: auto;
+}
+.g14-code li {
+  min-height: 1.6em;
+  white-space: pre;
+}
+.g14-code li::marker {
+  color: var(--g14-marker);
+}
+
+/* The answer box is ruled like a sheet of paper. */
+.g14-sheet {
+  display: block;
+  width: 100%;
+  min-height: calc(var(--g14-line) * 4 + 4px);
+  padding: 0 0.75rem;
+  font-family: var(--g14-mono);
+  font-size: 1rem;
+  line-height: var(--g14-line);
+  color: var(--g14-ink);
+  background-color: var(--neo-box);
+  background-image: repeating-linear-gradient(
+    transparent 0,
+    transparent calc(var(--g14-line) - 1px),
+    var(--g14-rule) calc(var(--g14-line) - 1px),
+    var(--g14-rule) var(--g14-line)
+  );
+  background-attachment: local;
+  border: 2px solid var(--g14-ink);
+  resize: vertical;
+}
+
+.g14-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin-top: 0.75rem;
+}
+
+.g14-feedback {
+  margin-top: 1rem;
+  padding: 0.75rem 1rem;
+  background: var(--g14-code-bg);
+  border: 2px solid var(--g14-ink);
+}
+.g14-feedback--right {
+  background: var(--g14-right-bg);
+  border-color: var(--g14-right);
+}
+.g14-feedback--wrong {
+  background: var(--g14-wrong-bg);
+  border-color: var(--neo-accent-red);
+}
+.g14-answer {
+  margin: 0.5rem 0 0;
+  padding: 0.5rem 0.75rem;
+  font-family: var(--g14-mono);
+  background: var(--neo-box);
+  border: 1px dashed var(--g14-ink);
+  overflow-x: auto;
+}
+
+@media (pointer: coarse) {
+  .g14-chip {
+    min-height: 2.75rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .g14-chip,
+  .g14-btn {
+    transition: none;
+  }
+}
