@@ -29,9 +29,12 @@ function run(problem) {
     });
   }
   // Snippets without a main get wrapped in one.
-  const source = problem.code.includes("int main")
+  const head = "#include <math.h>\n#include <stdio.h>\n#include <string.h>\n";
+  const source = problem.code.includes("#include")
     ? problem.code
-    : `#include <math.h>\n#include <stdio.h>\n#include <string.h>\nint main(void) {\n${problem.code}\nreturn 0;\n}\n`;
+    : problem.code.includes("int main")
+      ? head + problem.code
+      : `${head}int main(void) {\n${problem.code}\nreturn 0;\n}\n`;
   writeFileSync(`${base}.c`, source);
   execFileSync("gcc", ["-w", "-o", base, `${base}.c`, "-lm"]);
   return execFileSync(base, { encoding: "utf8", stdio: "pipe" });

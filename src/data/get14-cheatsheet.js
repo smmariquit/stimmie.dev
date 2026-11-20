@@ -498,6 +498,26 @@ export const sheets = [
         title: "pointers and arrays",
         rows: [
           {
+            code: 'printf("%d %d %d %d", (int)sizeof(char), (int)sizeof(int), (int)sizeof(float), (int)sizeof(double));',
+            out: "1 4 4 8",
+            why: "These are the sizes in bytes. A pointer takes 4 bytes on a 32-bit system and 8 on a 64-bit one.",
+          },
+          {
+            code: 'int a[] = {5, 6, 7, 8}; int *p = a; p += 2; printf("%d %d", *p, (int)(p - a));',
+            out: "7 2",
+            why: "p + 1 moves one whole element, which is 4 bytes for an int. Subtracting two pointers counts elements. An array name like a can't be changed, so ++a is a compile error.",
+          },
+          {
+            code: 'char name[] = "Mitch Andaya"; char *p = &name[6]; printf("%s", p);',
+            out: "Andaya",
+            why: "A pointer into the middle of a string acts as the start of a shorter string.",
+          },
+          {
+            code: 'void inc(int *n) { *n += 1; }\nint main(void) { int x = 5; inc(&x); printf("%d", x); return 0; }',
+            out: "6",
+            why: "Passing &x lets the function change the real x. Passing x alone would change only a copy.",
+          },
+          {
             code: 'int a[] = {5, 6, 7, 8}; int *p = a + 1; printf("%d %d %d", *p, *(p + 1), p[-1]);',
             out: "6 7 5",
             why: "p + 1 moves one element, and p[i] means *(p + i).",
