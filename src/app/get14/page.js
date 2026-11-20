@@ -44,9 +44,9 @@ export default function Get14Page() {
             GET ¼! Reprise
           </Link>
           , so I made a small set of problems to practice with. They&apos;re my
-          guess at what tracing questions could look like in Python, JavaScript
-          and C. They aren&apos;t from YSES, and the real contest may be very
-          different.
+          guess at what the tracing, fill in the blank and write code questions
+          could look like in Python, JavaScript and C. They aren&apos;t from
+          YSES, and the real contest may be very different.
         </p>
         <p className="mt-2">
           For fast reps on the small steps, play the{" "}
@@ -59,7 +59,10 @@ export default function Get14Page() {
         <ol className="neo-facts list-decimal pl-6 m-0 mt-2 space-y-1">
           <li>Grab a pen and a ¼ sheet of paper.</li>
           <li>Trace the code by hand. Don&apos;t run it.</li>
-          <li>Type what it prints, then check.</li>
+          <li>Type what it prints, or fill the blank, then check.</li>
+          <li>
+            For write code problems, write it on paper and grade yourself.
+          </li>
         </ol>
 
         <Trainer />
