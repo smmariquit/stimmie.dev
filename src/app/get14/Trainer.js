@@ -7,6 +7,15 @@ import { LANGS, LEVELS, normalize, problems } from "@/data/get14-problems";
 
 const BY_ID = Object.fromEntries(problems.map((p) => [p.id, p]));
 const LANG_LABEL = Object.fromEntries(LANGS.map((l) => [l.id, l.label]));
+const KINDS = [
+  { value: "all", label: "all" },
+  { value: "trace", label: "trace" },
+  { value: "blank", label: "fill the blank" },
+  { value: "write", label: "write code" },
+];
+const kindOf = (p) => p.kind ?? "trace";
+// Spaces and quotes don't count in a blank, so n*n matches n * n.
+const squash = (text) => text.replace(/[\s'"]/g, "");
 
 // Easy first, with the three languages taking turns inside each level.
 const DEFAULT_ORDER = (() => {
@@ -202,9 +211,239 @@ function Problem({ problem, number, total, focusAnswer, onFirstTry, onNext }) {
   );
 }
 
+function CodeProblem({
+  problem,
+  number,
+  total,
+  focusAnswer,
+  onFirstTry,
+  onNext,
+}) {
+  const write = problem.kind === "write";
+  const [text, setText] = useState(write ? problem.starter : "");
+  const [status, setStatus] = useState("open");
+  const [tries, setTries] = useState(0);
+  const [seconds, setSeconds] = useState(0);
+  const answerRef = useRef(null);
+  const nextRef = useRef(null);
+  const stopped = status !== "open" && status !== "wrong";
+  const canNext =
+    status === "right" || status === "graded" || (status === "shown" && !write);
+
+  useEffect(() => {
+    if (focusAnswer) answerRef.current?.focus();
+  }, [focusAnswer]);
+
+  useEffect(() => {
+    if (canNext) {
+      nextRef.current?.focus();
+      return;
+    }
+    if (stopped) return;
+    const tick = setInterval(() => setSeconds((s) => s + 1), 1000);
+    return () => clearInterval(tick);
+  }, [canNext, stopped]);
+
+  function check(event) {
+    event.preventDefault();
+    if (write || !text.trim() || stopped) return;
+    const right = [problem.answer, ...(problem.accept ?? [])].some(
+      (answer) => squash(answer) === squash(text),
+    );
+    if (tries === 0) onFirstTry(problem.id, right);
+    setTries(tries + 1);
+    setStatus(right ? "right" : "wrong");
+  }
+
+  function reveal() {
+    if (!write && tries === 0) onFirstTry(problem.id, false);
+    setStatus("shown");
+  }
+
+  function grade(right) {
+    onFirstTry(problem.id, right);
+    setStatus("graded");
+  }
+
+  return (
+    <section aria-labelledby="g14-problem-title">
+      <h2 id="g14-problem-title" className="neo-section-title">
+        problem {number} of {total}
+      </h2>
+      <div className="g14-meta">
+        <span>
+          <span className="neo-tag">{LANG_LABEL[problem.lang]}</span>
+          <span className="neo-tag">{LEVELS[problem.level - 1]}</span>
+          <span className="neo-tag">
+            {write ? "write code" : "fill the blank"}
+          </span>
+        </span>
+        <span className="g14-clock">
+          <span className="sr-only">time on this problem </span>
+          {clock(seconds)}
+        </span>
+      </div>
+
+      <p className="mt-2 font-bold">{problem.task}</p>
+
+      {write ? (
+        <>
+          <p className="mt-2">Your function has to pass these tests.</p>
+          <ul className="neo-facts list-disc pl-6 m-0 mt-1 space-y-1">
+            {problem.tests.map(([expr, out]) => (
+              <li key={expr}>
+                <code>{expr}</code> gives <strong>{out}</strong>
+              </li>
+            ))}
+          </ul>
+        </>
+      ) : (
+        <ol
+          className="g14-code"
+          aria-label={`${LANG_LABEL[problem.lang]} code with a blank`}
+        >
+          {problem.code.split("\n").map((line, index) => (
+            // biome-ignore lint/suspicious/noArrayIndexKey: lines never reorder
+            <li key={index}>{line}</li>
+          ))}
+        </ol>
+      )}
+
+      <form onSubmit={check} className="mt-4">
+        <label className="block font-bold" htmlFor="g14-answer">
+          {write
+            ? "Write it on paper first, then here."
+            : "What goes in the blank?"}
+        </label>
+        <textarea
+          id="g14-answer"
+          ref={answerRef}
+          className="g14-sheet mt-1"
+          rows={write ? 9 : 2}
+          value={text}
+          readOnly={stopped}
+          spellCheck={false}
+          autoCapitalize="off"
+          autoCorrect="off"
+          autoComplete="off"
+          aria-describedby="g14-hint"
+          onChange={(event) => setText(event.target.value)}
+          onKeyDown={(event) => {
+            if (!write && event.key === "Enter" && !event.shiftKey) {
+              event.preventDefault();
+              event.currentTarget.form.requestSubmit();
+            }
+          }}
+        />
+        <p id="g14-hint" className="neo-muted text-base mt-1">
+          {write
+            ? "You grade this one yourself. Compare it with the model solution and run your tests on paper."
+            : "Spaces and quotes don't count. Enter checks your answer."}
+        </p>
+        <div className="g14-actions">
+          {canNext ? (
+            <button
+              type="button"
+              ref={nextRef}
+              className="g14-btn g14-btn--main"
+              onClick={onNext}
+            >
+              {number === total ? "back to problem 1" : "next problem →"}
+            </button>
+          ) : write ? (
+            status === "shown" ? (
+              <>
+                <button
+                  type="button"
+                  className="g14-btn g14-btn--main"
+                  onClick={() => grade(true)}
+                >
+                  mine works
+                </button>
+                <button
+                  type="button"
+                  className="g14-btn"
+                  onClick={() => grade(false)}
+                >
+                  i missed it
+                </button>
+              </>
+            ) : (
+              <button
+                type="button"
+                className="g14-btn g14-btn--main"
+                onClick={reveal}
+              >
+                show solution
+              </button>
+            )
+          ) : (
+            <>
+              <button
+                type="submit"
+                className="g14-btn g14-btn--main"
+                disabled={!text.trim()}
+              >
+                check
+              </button>
+              <button type="button" className="g14-btn" onClick={reveal}>
+                show answer
+              </button>
+            </>
+          )}
+        </div>
+      </form>
+
+      <div role="status" aria-live="polite">
+        {status === "wrong" && (
+          <p className="g14-feedback g14-feedback--wrong">
+            <strong>Not quite.</strong> That was try {tries}. Check the goal
+            above, or show the answer.
+          </p>
+        )}
+        {status === "right" && (
+          <div className="g14-feedback g14-feedback--right">
+            <p>
+              <strong>Correct!</strong> You took {clock(seconds)}.
+            </p>
+            <p className="mt-1">{problem.why}</p>
+          </div>
+        )}
+        {status === "shown" && !write && (
+          <div className="g14-feedback">
+            <p>
+              <strong>The blank is</strong> <code>{problem.answer}</code>.
+            </p>
+            <p className="mt-2">{problem.why}</p>
+          </div>
+        )}
+        {write && (status === "shown" || status === "graded") && (
+          <div className="g14-feedback">
+            <p>
+              <strong>One model solution.</strong> Yours can look different if
+              it passes the same tests.
+            </p>
+            <pre className="g14-answer">{problem.solution}</pre>
+            <p className="mt-2">{problem.why}</p>
+          </div>
+        )}
+      </div>
+    </section>
+  );
+}
+
+function ProblemView(props) {
+  return props.problem.kind ? (
+    <CodeProblem {...props} />
+  ) : (
+    <Problem {...props} />
+  );
+}
+
 export default function Trainer() {
   const [lang, setLang] = useState("all");
   const [level, setLevel] = useState(0);
+  const [kind, setKind] = useState("all");
   const [order, setOrder] = useState(DEFAULT_ORDER);
   const [pos, setPos] = useState(0);
   const [results, setResults] = useState({});
@@ -214,7 +453,9 @@ export default function Trainer() {
     .map((id) => BY_ID[id])
     .filter(
       (p) =>
-        (lang === "all" || p.lang === lang) && (!level || p.level === level),
+        (lang === "all" || p.lang === lang) &&
+        (!level || p.level === level) &&
+        (kind === "all" || kindOf(p) === kind),
     );
   const problem = deck[pos];
   const tried = Object.keys(results).length;
@@ -237,6 +478,12 @@ export default function Trainer() {
             { value: "all", label: "all" },
             ...LANGS.map((l) => ({ value: l.id, label: l.label })),
           ]}
+        />
+        <FilterGroup
+          label="type"
+          value={kind}
+          onPick={(value) => restart(() => setKind(value))}
+          options={KINDS}
         />
         <FilterGroup
           label="level"
@@ -292,7 +539,7 @@ export default function Trainer() {
       </p>
 
       {problem ? (
-        <Problem
+        <ProblemView
           key={problem.id}
           problem={problem}
           number={pos + 1}

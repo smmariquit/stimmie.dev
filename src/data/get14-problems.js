@@ -3,6 +3,8 @@
 // Practice problems for /get14. Every answer is checked against a real run by
 // scripts/verify-get14.mjs.
 
+import { coding } from "./get14-coding.js";
+
 export const LEVELS = ["easy", "medium", "hard", "spicy"];
 
 export const LANGS = [
@@ -21,7 +23,7 @@ export function normalize(text) {
     .trim();
 }
 
-export const problems = [
+const trace = [
   {
     id: "py-sum-evens",
     lang: "python",
@@ -922,3 +924,5 @@ new B();`,
     why: "The parent constructor runs before the child's x = 5 is set. show is B's version, so it prints undefined.",
   },
 ];
+
+export const problems = [...trace, ...coding];
