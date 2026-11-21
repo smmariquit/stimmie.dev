@@ -545,7 +545,7 @@ export default function HomeClient({ mediaData }) {
                     },
                     {
                       name: "Room TBA",
-                      url: "https://room-tba.stimmie.dev",
+                      url: "https://room-tba.uplb.tools",
                       desc: "UPLB 3D Campus Viewer",
                       icon: "🗺️",
                     },

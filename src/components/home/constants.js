@@ -3,7 +3,7 @@ export const STIMMIEVERSE_CATEGORIES = [
     label: "Services",
     blurb: "Apps, tools, and services I make and offer",
     links: [
-      { name: "Room TBA", url: "https://room-tba.stimmie.dev" },
+      { name: "Room TBA", url: "https://room-tba.uplb.tools" },
       { name: "GradeSim", url: "https://gradesim.stimmie.dev" },
       { name: "The Crib", url: "https://crib.stimmie.dev" },
       { name: "Tutor", url: "https://tutor.stimmie.dev" },
