@@ -1,1 +1,3 @@
 /blog/on-rereading /blog/on-rewatching 301
+/alamilyon https://alamilyon.com/ 301
+/alamilyon/* https://alamilyon.com/:splat 301
