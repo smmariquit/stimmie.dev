@@ -1,4 +1,4 @@
-import { Fredoka, Nunito } from "next/font/google";
+import { Fredoka, Nunito, Schibsted_Grotesk } from "next/font/google";
 
 // Rounded, friendly display font for titles, headings, and labels.
 // Replaces VT323 — same retro-playful energy, but actually legible at small
@@ -15,6 +15,13 @@ export const body = Nunito({
   subsets: ["latin"],
   weight: ["400", "600", "700"],
   variable: "--font-body",
+  display: "swap",
+});
+
+// Used only by /hire.
+export const grotesk = Schibsted_Grotesk({
+  subsets: ["latin"],
+  variable: "--font-grotesk",
   display: "swap",
 });
 
